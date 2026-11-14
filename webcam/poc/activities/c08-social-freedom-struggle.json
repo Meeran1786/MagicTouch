@@ -1,0 +1,45 @@
+{
+ "id": "c08-social-freedom-struggle",
+ "grade": 8,
+ "subject": "social",
+ "title": "Freedom struggle timeline",
+ "topic": "Key events, 1857 to 1947",
+ "concept": "social.history.india-freedom-struggle",
+ "status": "draft",
+ "template": "order",
+ "instruction": "Put the events in order, from earliest to latest.",
+ "intro": "India's freedom struggle took ninety years. Put these events in order.",
+ "arrows": false,
+ "items": [
+  {
+   "text": "First War of Independence",
+   "say": "1857. The First War of Independence."
+  },
+  {
+   "text": "Indian National Congress founded",
+   "say": "1885. The Indian National Congress was founded."
+  },
+  {
+   "text": "Jallianwala Bagh massacre",
+   "say": "1919. The Jallianwala Bagh massacre in Amritsar."
+  },
+  {
+   "text": "Non-Cooperation Movement",
+   "say": "1920. Gandhiji started the Non-Cooperation Movement."
+  },
+  {
+   "text": "Salt March to Dandi",
+   "say": "1930. The Salt March to Dandi."
+  },
+  {
+   "text": "Quit India Movement",
+   "say": "1942. The Quit India Movement."
+  },
+  {
+   "text": "Independence",
+   "say": "1947. India became independent."
+  }
+ ],
+ "hintWrong": "Think: which happened first?",
+ "doneText": "From 1857 to 1947, well done!"
+}

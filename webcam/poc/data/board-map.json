@@ -1,0 +1,7 @@
+{
+ "_about": "One row per board chapter: which concepts it teaches. Chapter names are used only as a reference for mapping, never as content. Fill a row for each board a school uses; activities do not change.",
+ "boards": ["CBSE", "ICSE", "Telangana State Board", "IB PYP/MYP"],
+ "rows": [
+  {"board": "CBSE", "class": 10, "chapter": "", "concepts": ["science.physics.ohms-law"], "checkedBy": ""}
+ ]
+}

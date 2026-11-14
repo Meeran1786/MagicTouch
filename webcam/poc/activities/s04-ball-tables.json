@@ -1,0 +1,25 @@
+{
+ "id": "s04-ball-tables",
+ "showcase": true,
+ "grade": 3,
+ "subject": "maths",
+ "title": "Hit the answer: times tables",
+ "topic": "Throw a ball at the right balloon",
+ "concept": "maths.number.multiplication-tables",
+ "status": "draft",
+ "template": "ball",
+ "tables": [
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9
+ ],
+ "rounds": 10,
+ "instruction": "Hit the balloon with the right answer! Throw a soft ball, or tap with the pen.",
+ "intro": "Get ready! Hit the balloon with the right answer.",
+ "doneText": "Great throwing!"
+}

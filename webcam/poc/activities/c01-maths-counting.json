@@ -1,0 +1,65 @@
+{
+ "id": "c01-maths-counting",
+ "grade": 1,
+ "subject": "maths",
+ "title": "Counting to 20",
+ "topic": "Less than 10 or 10 and more?",
+ "concept": "maths.number.counting-to-20",
+ "status": "draft",
+ "template": "sort",
+ "instruction": "Count the dots. Put each card in the right basket.",
+ "intro": "Count the dots on each card, then put it in the right basket.",
+ "bins": [
+  {
+   "id": "small",
+   "label": "Less than 10"
+  },
+  {
+   "id": "big",
+   "label": "10 to 20"
+  }
+ ],
+ "items": [
+  {
+   "dots": 4,
+   "bin": "small",
+   "say": "Four"
+  },
+  {
+   "dots": 7,
+   "bin": "small",
+   "say": "Seven"
+  },
+  {
+   "dots": 9,
+   "bin": "small",
+   "say": "Nine"
+  },
+  {
+   "dots": 2,
+   "bin": "small",
+   "say": "Two"
+  },
+  {
+   "dots": 12,
+   "bin": "big",
+   "say": "Twelve"
+  },
+  {
+   "dots": 15,
+   "bin": "big",
+   "say": "Fifteen"
+  },
+  {
+   "dots": 10,
+   "bin": "big",
+   "say": "Ten"
+  },
+  {
+   "dots": 18,
+   "bin": "big",
+   "say": "Eighteen"
+  }
+ ],
+ "doneText": "Super counting!"
+}
