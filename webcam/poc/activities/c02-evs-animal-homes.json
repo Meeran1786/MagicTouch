@@ -4,6 +4,8 @@
  "subject": "evs",
  "title": "Animals and their homes",
  "topic": "Where does each animal live?",
+ "concept": "evs.animals.habitats",
+ "status": "draft",
  "template": "match",
  "instruction": "Move each animal to its home.",
  "intro": "Every animal has a home. Help each one find it.",

@@ -4,6 +4,8 @@
  "subject": "science",
  "title": "Ohm's law",
  "topic": "Voltage, resistance and current",
+ "concept": "science.physics.ohms-law",
+ "status": "draft",
  "template": "simulate",
  "model": "circuit",
  "instruction": "Change the voltage and resistance. Watch the current and the bulb.",

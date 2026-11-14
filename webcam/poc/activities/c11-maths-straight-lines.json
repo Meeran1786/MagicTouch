@@ -4,6 +4,8 @@
  "subject": "maths",
  "title": "Straight lines: y = mx + c",
  "topic": "Slope and intercept",
+ "concept": "maths.coordinate-geometry.straight-lines",
+ "status": "draft",
  "template": "simulate",
  "model": "line",
  "instruction": "Change the slope m and the intercept c. Make your red line sit on the green dashed line.",

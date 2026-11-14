@@ -4,6 +4,8 @@
  "subject": "science",
  "title": "The water cycle",
  "topic": "Explore how water travels",
+ "concept": "science.earth.water-cycle",
+ "status": "draft",
  "template": "explore",
  "instruction": "Tap each glowing circle to learn a step of the water cycle.",
  "intro": "Water keeps moving around our Earth. Tap each circle to follow it.",

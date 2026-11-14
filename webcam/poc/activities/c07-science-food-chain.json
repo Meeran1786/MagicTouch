@@ -4,6 +4,8 @@
  "subject": "science",
  "title": "Food chain",
  "topic": "Who eats whom?",
+ "concept": "science.ecology.food-chain",
+ "status": "draft",
  "template": "order",
  "instruction": "Put the food chain in order: start with the plant.",
  "intro": "Energy passes from one living thing to the next. Start with the plant.",

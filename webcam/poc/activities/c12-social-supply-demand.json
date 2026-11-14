@@ -4,6 +4,8 @@
  "subject": "social",
  "title": "Supply and demand",
  "topic": "Economics: finding the market price",
+ "concept": "social.economics.supply-demand",
+ "status": "draft",
  "template": "simulate",
  "model": "market",
  "instruction": "Change the price of a mango. Watch how many buyers want and how many sellers offer.",

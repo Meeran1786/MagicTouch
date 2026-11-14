@@ -4,6 +4,8 @@
  "subject": "evs",
  "title": "Parts of a plant",
  "topic": "Label the plant",
+ "concept": "evs.plants.parts-of-a-plant",
+ "status": "draft",
  "template": "label",
  "instruction": "Move each word to the right part of the plant.",
  "intro": "Every part of a plant has a job. Can you name them?",

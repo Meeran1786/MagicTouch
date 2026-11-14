@@ -4,6 +4,8 @@
  "subject": "maths",
  "title": "Counting to 20",
  "topic": "Less than 10 or 10 and more?",
+ "concept": "maths.number.counting-to-20",
+ "status": "draft",
  "template": "sort",
  "instruction": "Count the dots. Put each card in the right basket.",
  "intro": "Count the dots on each card, then put it in the right basket.",

@@ -53,6 +53,17 @@ Each activity is one JSON file in `poc/activities/` (listed in `poc/activities/i
 Copy an existing file of the same template, change the text, and add its name to the index.
 All content must be original: no textbook text, pictures or exercises.
 
+Every activity also carries:
+- **`concept`**: an id from `poc/data/concepts.json` (add the concept there first if it's new).
+  Boards are mapped to concepts in `poc/data/board-map.json`, so one activity serves every board.
+- **`status`**: `draft` → `review` → `approved`. Only Meeran sets `approved`, after checking accuracy
+  and grade fit and trying it on the wall. Tiles that aren't approved show a yellow **Draft** badge.
+
+**Demo mode:** open **http://localhost:8080/poc/?demo** to list only approved activities (for school demos).
+
+**Check before testing:** run `node tools/check-activities.js` in this folder. It reports files missing
+from the index, duplicate ids, unknown templates or concepts, and missing fields.
+
 Keys: C = show/hide panel, K = calibrate, P = switch pen/hand mode,
 Space = capture the current dot (hand mode), Esc = cancel calibration.
 

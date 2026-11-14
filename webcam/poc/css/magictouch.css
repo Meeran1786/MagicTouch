@@ -111,3 +111,8 @@ button{font:inherit;cursor:pointer;}
   padding:12px 40px;font-size:54px;font-weight:800;letter-spacing:.02em;pointer-events:none;transition:.3s;box-shadow:0 8px 24px rgba(0,0,0,.25);white-space:nowrap;}
 .bl-q .bl-n{display:block;font-size:16px;font-weight:700;color:#FBD064;text-align:center;letter-spacing:.1em;}
 .bl-q.bl-hide{opacity:0;transform:translate(-50%,-30px);}
+/* content review status: tiles not yet approved by the reviewer carry a "Draft" badge */
+.mt-tile{position:relative;}
+.mt-tile .mt-draft{position:absolute;top:12px;right:12px;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+  color:#3D0E37;background:#FBD064;padding:3px 9px;border-radius:999px;}
+.mt-demo-note{grid-column:1/-1;font-size:18px;color:var(--muted);}

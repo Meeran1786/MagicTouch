@@ -4,6 +4,9 @@
   var instr=document.getElementById('mt-instr'),crumb=document.getElementById('mt-crumb'),back=document.getElementById('mt-back');
   var acts=[],cleanup=null;
   var SUBJ={maths:'Maths',science:'Science',social:'Social',evs:'EVS'};
+  // Demo mode (open /poc/?demo): only activities the reviewer has marked "approved" are listed.
+  // Normal mode lists everything and marks the rest with a "Draft" badge.
+  var DEMO=/[?&]demo\b/.test(location.search);
   function showMenu(){
     MT.clearLater();if(cleanup){try{cleanup();}catch(e){} cleanup=null;}
     area.innerHTML='';stage.classList.add('hidden');menu.classList.remove('hidden');back.classList.add('hidden');crumb.textContent='';MT.score('');
@@ -20,12 +23,14 @@
   function build(){
     menu.innerHTML='';
     function head(txt){var h=document.createElement('div');h.className='mt-sec';h.textContent=txt;menu.appendChild(h);}
-    var show=acts.filter(function(a){return a.showcase;}),rest=acts.filter(function(a){return !a.showcase;});
+    var list=DEMO?acts.filter(function(a){return a.status==='approved';}):acts;
+    if(DEMO&&!list.length){menu.innerHTML='<div class="mt-demo-note">Demo mode shows approved activities only, and none are approved yet. Set "status": "approved" in an activity file, or open the page without ?demo.</div>';return;}
+    var show=list.filter(function(a){return a.showcase;}),rest=list.filter(function(a){return !a.showcase;});
     if(show.length) head('✨ Showcase');
     show.concat(['--']).concat(rest.sort(function(x,y){return x.grade-y.grade;})).forEach(function(a){
       if(a==='--'){if(show.length)head('Classes 1–12');return;}
       var t=document.createElement('div');t.className='mt-tile'+(a.showcase?' mt-show':'');
-      t.innerHTML='<span class="cls subj-'+a.subject+'">Class '+a.grade+' · '+(SUBJ[a.subject]||a.subject)+'</span><div class="ttl">'+a.title+'</div><div class="sub">'+(a.topic||'')+'</div>';
+      t.innerHTML='<span class="cls subj-'+a.subject+'">Class '+a.grade+' · '+(SUBJ[a.subject]||a.subject)+'</span><div class="ttl">'+a.title+'</div><div class="sub">'+(a.topic||'')+'</div>'+(a.status==='approved'?'':'<span class="mt-draft">Draft</span>');
       t.addEventListener('click',function(){try{audioCtx.resume();}catch(e){} run(a);});
       menu.appendChild(t);
     });

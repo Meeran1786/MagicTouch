@@ -1,22 +1,42 @@
 {
-  "id": "s02-space-satellite",
-  "showcase": true,
-  "grade": 9,
-  "subject": "science",
-  "title": "Launch a satellite",
-  "topic": "Orbits: height, speed and time",
-  "template": "space3d",
-  "scene": "satellite",
-  "instruction": "Change the satellite's height. Watch how its speed and orbit time change.",
-  "intro": "You control a satellite. Change its height and watch how fast it goes round the Earth.",
-  "start": 2000,
-  "goals": [
-    {"text": "Bring the satellite down to <b>400 km</b>, where the International Space Station flies. How long does one trip take?", "height": [400, 40],
-     "say": "At four hundred kilometres, one trip round the Earth takes about ninety two minutes. Low satellites move fastest."},
-    {"text": "Navigation (GPS) satellites go round Earth <b>twice a day</b>, once every 12 hours. Find their height.", "hours": [11.97, 0.25],
-     "say": "About twenty thousand kilometres up, one trip takes twelve hours."},
-    {"text": "Find the height where one trip takes <b>one whole day</b>. Watch the yellow dot: the satellite stays right above it!", "hours": [23.93, 0.25],
-     "say": "At about thirty six thousand kilometres the satellite turns with the Earth, so it stays above the same place. India's communication satellites sit here."}
-  ],
-  "doneText": "You are a space engineer!"
+ "id": "s02-space-satellite",
+ "showcase": true,
+ "grade": 9,
+ "subject": "science",
+ "title": "Launch a satellite",
+ "topic": "Orbits: height, speed and time",
+ "concept": "science.space.satellite-orbits",
+ "status": "draft",
+ "template": "space3d",
+ "scene": "satellite",
+ "instruction": "Change the satellite's height. Watch how its speed and orbit time change.",
+ "intro": "You control a satellite. Change its height and watch how fast it goes round the Earth.",
+ "start": 2000,
+ "goals": [
+  {
+   "text": "Bring the satellite down to <b>400 km</b>, where the International Space Station flies. How long does one trip take?",
+   "height": [
+    400,
+    40
+   ],
+   "say": "At four hundred kilometres, one trip round the Earth takes about ninety two minutes. Low satellites move fastest."
+  },
+  {
+   "text": "Navigation (GPS) satellites go round Earth <b>twice a day</b>, once every 12 hours. Find their height.",
+   "hours": [
+    11.97,
+    0.25
+   ],
+   "say": "About twenty thousand kilometres up, one trip takes twelve hours."
+  },
+  {
+   "text": "Find the height where one trip takes <b>one whole day</b>. Watch the yellow dot: the satellite stays right above it!",
+   "hours": [
+    23.93,
+    0.25
+   ],
+   "say": "At about thirty six thousand kilometres the satellite turns with the Earth, so it stays above the same place. India's communication satellites sit here."
+  }
+ ],
+ "doneText": "You are a space engineer!"
 }

@@ -4,6 +4,8 @@
  "subject": "science",
  "title": "Structure of the atom",
  "topic": "Label the parts",
+ "concept": "science.chemistry.atomic-structure",
+ "status": "draft",
  "template": "label",
  "instruction": "Move each label to the right part of the atom.",
  "intro": "Everything is made of atoms. Let's label the parts of one.",

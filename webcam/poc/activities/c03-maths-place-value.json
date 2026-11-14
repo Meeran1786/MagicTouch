@@ -4,6 +4,8 @@
  "subject": "maths",
  "title": "Tens and ones",
  "topic": "Place value",
+ "concept": "maths.number.place-value",
+ "status": "draft",
  "template": "match",
  "instruction": "Match each tens-and-ones card to its number.",
  "intro": "Ten ones make one ten. Match each card to its number.",

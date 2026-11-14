@@ -4,6 +4,8 @@
  "subject": "social",
  "title": "Freedom struggle timeline",
  "topic": "Key events, 1857 to 1947",
+ "concept": "social.history.india-freedom-struggle",
+ "status": "draft",
  "template": "order",
  "instruction": "Put the events in order, from earliest to latest.",
  "intro": "India's freedom struggle took ninety years. Put these events in order.",

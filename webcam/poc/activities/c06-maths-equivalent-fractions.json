@@ -4,6 +4,8 @@
  "subject": "maths",
  "title": "Equal fractions",
  "topic": "Equivalent fractions",
+ "concept": "maths.fractions.equivalent",
+ "status": "draft",
  "template": "match",
  "instruction": "Match each fraction to the one that shows the same amount.",
  "intro": "Different fractions can show the same amount. Look at the shaded parts.",
