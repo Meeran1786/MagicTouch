@@ -1,0 +1,68 @@
+{
+ "id": "c02-evs-animal-homes",
+ "grade": 2,
+ "subject": "evs",
+ "title": "Animals and their homes",
+ "topic": "Where does each animal live?",
+ "template": "match",
+ "instruction": "Move each animal to its home.",
+ "intro": "Every animal has a home. Help each one find it.",
+ "pairs": [
+  [
+   {
+    "icon": "🐦",
+    "text": "Bird"
+   },
+   {
+    "icon": "🪺",
+    "text": "Nest"
+   },
+   "A bird lives in a nest."
+  ],
+  [
+   {
+    "icon": "🐝",
+    "text": "Bee"
+   },
+   {
+    "icon": "🍯",
+    "text": "Hive"
+   },
+   "A bee lives in a hive."
+  ],
+  [
+   {
+    "icon": "🐟",
+    "text": "Fish"
+   },
+   {
+    "icon": "🌊",
+    "text": "Water"
+   },
+   "A fish lives in water."
+  ],
+  [
+   {
+    "icon": "🦁",
+    "text": "Lion"
+   },
+   {
+    "icon": "🪨",
+    "text": "Den"
+   },
+   "A lion lives in a den."
+  ],
+  [
+   {
+    "icon": "🐴",
+    "text": "Horse"
+   },
+   {
+    "icon": "🏠",
+    "text": "Stable"
+   },
+   "A horse lives in a stable."
+  ]
+ ],
+ "doneText": "Every animal is home!"
+}

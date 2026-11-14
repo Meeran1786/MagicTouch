@@ -1,0 +1,44 @@
+{
+ "id": "c05-science-water-cycle",
+ "grade": 5,
+ "subject": "science",
+ "title": "The water cycle",
+ "topic": "Explore how water travels",
+ "template": "explore",
+ "instruction": "Tap each glowing circle to learn a step of the water cycle.",
+ "intro": "Water keeps moving around our Earth. Tap each circle to follow it.",
+ "scene": "<svg viewBox=\"0 0 600 380\"><rect width=\"600\" height=\"380\" fill=\"#DFF1FA\"/>\n<circle cx=\"90\" cy=\"70\" r=\"42\" fill=\"#FBD064\"/><g stroke=\"#F3A328\" stroke-width=\"5\"><line x1=\"145\" y1=\"70\" x2=\"162\" y2=\"70\"/><line x1=\"129\" y1=\"109\" x2=\"141\" y2=\"121\"/><line x1=\"90\" y1=\"125\" x2=\"90\" y2=\"142\"/><line x1=\"51\" y1=\"109\" x2=\"39\" y2=\"121\"/><line x1=\"35\" y1=\"70\" x2=\"18\" y2=\"70\"/><line x1=\"51\" y1=\"31\" x2=\"39\" y2=\"19\"/><line x1=\"90\" y1=\"15\" x2=\"90\" y2=\"-2\"/><line x1=\"129\" y1=\"31\" x2=\"141\" y2=\"19\"/></g>\n<path d=\"M0 300 Q150 280 300 300 L300 380 L0 380Z\" fill=\"#2C8CC9\"/><path d=\"M300 300 L420 170 L540 300Z\" fill=\"#7A8C6E\"/><path d=\"M380 215 L420 170 L460 215 Z\" fill=\"#fff\"/>\n<path d=\"M300 300 L600 300 L600 380 L300 380Z\" fill=\"#6B9E3F\"/><path d=\"M450 300 C430 330 360 330 300 345\" stroke=\"#2C8CC9\" stroke-width=\"14\" fill=\"none\"/>\n<g fill=\"#fff\" stroke=\"#9BB7C9\" stroke-width=\"2\"><ellipse cx=\"330\" cy=\"80\" rx=\"70\" ry=\"30\"/><ellipse cx=\"380\" cy=\"70\" rx=\"50\" ry=\"28\"/><ellipse cx=\"470\" cy=\"110\" rx=\"60\" ry=\"26\"/></g>\n<g stroke=\"#2C8CC9\" stroke-width=\"4\" stroke-linecap=\"round\"><line x1=\"450\" y1=\"145\" x2=\"440\" y2=\"170\"/><line x1=\"475\" y1=\"145\" x2=\"465\" y2=\"170\"/><line x1=\"500\" y1=\"145\" x2=\"490\" y2=\"170\"/></g>\n<g stroke=\"#E96E24\" stroke-width=\"4\" fill=\"none\" stroke-dasharray=\"6 6\"><path d=\"M150 285 C160 220 200 160 270 110\"/></g></svg>",
+ "hotspots": [
+  {
+   "x": 15,
+   "y": 18,
+   "label": "1. The Sun heats water",
+   "text": "The Sun warms the water in seas, lakes and rivers."
+  },
+  {
+   "x": 32,
+   "y": 52,
+   "label": "2. Evaporation",
+   "text": "Warm water turns into invisible water vapour and rises into the air."
+  },
+  {
+   "x": 58,
+   "y": 20,
+   "label": "3. Condensation",
+   "text": "High up it is cool, so the vapour turns into tiny drops. Many drops together make a cloud."
+  },
+  {
+   "x": 78,
+   "y": 42,
+   "label": "4. Rain",
+   "text": "When the drops get big and heavy, they fall as rain, or as snow on cold mountains."
+  },
+  {
+   "x": 66,
+   "y": 86,
+   "label": "5. Collection",
+   "text": "Rain flows into rivers and back to the sea, and the cycle starts again."
+  }
+ ],
+ "doneText": "You followed the whole water cycle!"
+}

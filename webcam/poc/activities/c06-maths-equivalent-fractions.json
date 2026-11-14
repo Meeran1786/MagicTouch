@@ -1,0 +1,73 @@
+{
+ "id": "c06-maths-equivalent-fractions",
+ "grade": 6,
+ "subject": "maths",
+ "title": "Equal fractions",
+ "topic": "Equivalent fractions",
+ "template": "match",
+ "instruction": "Match each fraction to the one that shows the same amount.",
+ "intro": "Different fractions can show the same amount. Look at the shaded parts.",
+ "pairs": [
+  [
+   {
+    "fraction": [
+     1,
+     2
+    ]
+   },
+   {
+    "fraction": [
+     2,
+     4
+    ]
+   },
+   "One half is the same as two quarters."
+  ],
+  [
+   {
+    "fraction": [
+     1,
+     3
+    ]
+   },
+   {
+    "fraction": [
+     2,
+     6
+    ]
+   },
+   "One third is the same as two sixths."
+  ],
+  [
+   {
+    "fraction": [
+     3,
+     4
+    ]
+   },
+   {
+    "fraction": [
+     6,
+     8
+    ]
+   },
+   "Three quarters is the same as six eighths."
+  ],
+  [
+   {
+    "fraction": [
+     2,
+     5
+    ]
+   },
+   {
+    "fraction": [
+     4,
+     10
+    ]
+   },
+   "Two fifths is the same as four tenths."
+  ]
+ ],
+ "doneText": "Fraction master!"
+}
