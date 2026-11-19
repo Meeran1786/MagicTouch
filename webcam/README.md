@@ -5,7 +5,8 @@ seen by a USB/IR webcam on a laptop or PC.
 
 - **http://localhost:8080/** opens the **Classes 1–12 POC**: 12 activities, one per class,
   built on 6 templates (Explore, Match, Sort, Order, Label, Slider simulation), plus a
-  **chapter lesson pack** (Class 10 Electricity) and a **map explorer** (Class 4 town map).
+  **chapter lesson packs** (Class 9 Rivers, Class 10 Electricity, Class 12 Health and disease,
+  Class 12 Derivatives, Class 12 Electrochemistry) and a **map explorer** (Class 4 town map).
 - **http://localhost:8080/magictouch_webcam.html** is the preschool sketch app (same as the phone app).
 
 ## Start it
