@@ -1,0 +1,44 @@
+// T12 Lesson pack: a whole chapter as a row of steps (explore → simulate → order → quiz …), each step
+// any other template. Steps are data:
+//   {label:"Explore", activity:{template:"explore", instruction:"…", …}}   the step written in place
+//   {label:"Practise", ref:"c10-science-ohms-law"}                         reuse an existing activity by id
+// A step's own fields override the referenced activity's (e.g. a different instruction).
+MT.templates.pack=function(area,d,ctx){
+  var instr=document.getElementById('mt-instr');
+  var steps=d.steps.map(function(s){
+    var a=s.activity||{};
+    if(s.ref){var base=(window.MTEngine&&MTEngine.list().find(function(x){return x.id===s.ref;}))||null;
+      if(!base)return {label:s.label,missing:s.ref};
+      var m={},k;for(k in base)m[k]=base[k];for(k in a)m[k]=a[k];a=m;}
+    return {label:s.label||a.title||'Step',act:a};});
+  var wrap=document.createElement('div');wrap.className='pk-wrap';
+  var bar=document.createElement('div');bar.className='pk-bar';
+  var body=document.createElement('div');body.className='pk-body';
+  wrap.appendChild(bar);wrap.appendChild(body);area.appendChild(wrap);
+  var cur=-1,stepClean=null,done={},results={};
+  steps.forEach(function(s,i){var c=document.createElement('button');c.className='pk-chip';
+    c.innerHTML='<span class="pk-n">'+(i+1)+'</span><span class="pk-lbl">'+s.label+'</span>';
+    c.addEventListener('click',function(){if(i!==cur)run(i);});bar.appendChild(c);});
+  function chips(){[].forEach.call(bar.children,function(c,i){c.classList.toggle('on',i===cur);c.classList.toggle('done',!!done[i]);
+    c.querySelector('.pk-n').textContent=done[i]&&i!==cur?'✓':(i+1);});}
+  function stop(){if(stepClean){try{stepClean();}catch(e){}stepClean=null;}MT.clearLater();if(window.speechSynthesis)speechSynthesis.cancel();body.innerHTML='';}
+  function run(i){
+    stop();cur=i;chips();var s=steps[i];
+    if(s.missing){body.textContent='This step points to "'+s.missing+'", which is not in the activity list.';return;}
+    var tpl=MT.templates[s.act.template];
+    if(!tpl||s.act.template==='pack'){body.textContent='Unknown template: '+s.act.template;return;}
+    instr.textContent=s.act.instruction||'';
+    MT.nextLabel=i+1<steps.length?'Next: '+steps[i+1].label+' →':'Finish the chapter →';
+    MT.next=function(){done[i]=1;if(i+1<steps.length)run(i+1);else summary();};
+    stepClean=tpl(body,s.act,{again:function(){run(i);},report:function(r){results[i]=r;}})||null;
+    if(s.act.intro)MT.speak(s.act.intro);
+  }
+  function summary(){
+    stop();cur=-1;chips();MT.next=null;instr.textContent=d.title||'';MT.score('');
+    var list=steps.map(function(s,i){var r=results[i];
+      return '<div class="qz-rev '+(done[i]?'ok':'no')+'"><span>'+(done[i]?'✓':'–')+'</span>'+(i+1)+'. '+s.label+(r?': '+r.score+' / '+r.total+' marks':'')+'</div>';}).join('');
+    MT.done(body,d.doneText||'Chapter complete!',function(){done={};results={};run(0);},list);
+  }
+  run(0);
+  return function(){stop();MT.next=null;MT.nextLabel=null;};
+};
