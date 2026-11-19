@@ -1,0 +1,308 @@
+{
+ "id": "p09-social-rivers",
+ "grade": 9,
+ "subject": "social",
+ "title": "Rivers of India: a river's journey",
+ "topic": "Explore, sort, order, quiz",
+ "concept": "social.geography.rivers-drainage",
+ "status": "draft",
+ "template": "pack",
+ "instruction": "Work through the chapter one step at a time.",
+ "doneText": "Chapter complete!",
+ "steps": [
+  {
+   "label": "A river's journey",
+   "activity": {
+    "template": "explore",
+    "instruction": "Tap each glowing circle to follow the Ganga from the mountains to the sea.",
+    "intro": "Follow a great Himalayan river from its glacier to the sea. Tap each stop on its journey.",
+    "scene": "<svg viewBox=\"0 0 600 430\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"600\" height=\"430\" fill=\"#F2F7E9\"/>\n<path d=\"M0 0 H600 V40 Q520 60 430 50 Q340 40 280 90 L0 150 Z\" fill=\"#E9E2EE\"/>\n<g stroke=\"#3D0E37\" stroke-width=\"3\" stroke-linejoin=\"round\">\n<path d=\"M0 150 L50 70 L90 110 L140 30 L190 100 L230 60 L290 130 L0 190 Z\" fill=\"#B9A6C4\"/>\n<path d=\"M120 52 L140 30 L162 62 L150 58 L140 66 L130 56 Z\" fill=\"#fff\"/>\n<path d=\"M30 102 L50 70 L66 96 L54 92 Z\" fill=\"#fff\"/>\n<path d=\"M214 82 L230 60 L246 86 L232 80 Z\" fill=\"#fff\"/></g>\n<path d=\"M0 190 L290 130 Q360 150 600 140 V430 H0 Z\" fill=\"#DDEBC6\"/>\n<path d=\"M430 360 Q520 340 600 330 V430 H380 Z\" fill=\"#8FC1E3\"/>\n<g fill=\"#5E9C4A\"><path d=\"M470 352 l14 -8 l14 8 z\"/><path d=\"M500 360 l14 -8 l14 8 z\"/><path d=\"M455 372 l14 -8 l14 8 z\"/><path d=\"M488 376 l14 -8 l14 8 z\"/></g>\n<g fill=\"none\" stroke=\"#3E86C6\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n<path d=\"M80 74 Q96 96 112 112 Q132 128 160 134\" stroke-width=\"5\"/>\n<path d=\"M230 78 Q210 104 186 122 Q172 130 160 134\" stroke-width=\"5\"/>\n<path d=\"M160 134 Q196 156 220 186 Q236 214 270 222 Q320 232 340 262 Q350 290 400 300 Q440 306 470 340\" stroke-width=\"9\"/>\n<path d=\"M60 230 Q140 240 200 262 Q270 284 340 262\" stroke-width=\"6\"/>\n<path d=\"M600 230 Q540 260 520 300 Q500 330 470 340\" stroke-width=\"7\"/></g>\n<rect x=\"128\" y=\"110\" width=\"9\" height=\"28\" rx=\"2\" fill=\"#3D0E37\" transform=\"rotate(-30 132 124)\"/>\n<g font-size=\"15\" fill=\"#242430\" font-weight=\"700\">\n<text x=\"40\" y=\"150\">Bhagirathi</text><text x=\"298\" y=\"112\">Alaknanda</text><text x=\"70\" y=\"252\">Yamuna</text><text x=\"588\" y=\"214\" text-anchor=\"end\">Brahmaputra</text>\n<text x=\"300\" y=\"214\">Ganga</text><text x=\"490\" y=\"420\">Bay of Bengal</text></g>\n<text x=\"14\" y=\"420\" font-size=\"15\" fill=\"#6E6170\">A picture of the river's journey, not a map. Not to scale.</text></svg>",
+    "hotspots": [
+     {
+      "x": 13.3,
+      "y": 16.7,
+      "label": "Gangotri Glacier",
+      "text": "The Bhagirathi starts here, from melting ice high in the Himalayas. Snow and glaciers keep Himalayan rivers flowing all year: they are perennial."
+     },
+     {
+      "x": 22.0,
+      "y": 28.8,
+      "label": "Tehri Dam",
+      "text": "A large dam on the Bhagirathi. It stores water for drinking and irrigation and makes hydroelectric power."
+     },
+     {
+      "x": 29.3,
+      "y": 34.0,
+      "label": "Devprayag",
+      "text": "Here the Bhagirathi and the Alaknanda meet. From this point on, the river is called the Ganga."
+     },
+     {
+      "x": 37.0,
+      "y": 44.2,
+      "label": "Haridwar",
+      "text": "The Ganga leaves the mountains and enters the plains. It slows down and drops fertile silt along its banks."
+     },
+     {
+      "x": 56.7,
+      "y": 60.9,
+      "label": "Prayagraj",
+      "text": "The Yamuna, the Ganga's longest tributary, joins it here. The meeting place is called a sangam."
+     },
+     {
+      "x": 80.0,
+      "y": 80.2,
+      "label": "Sundarbans delta",
+      "text": "The Ganga and the Brahmaputra join and split into many channels before reaching the Bay of Bengal. Together they form the largest delta in the world, home to mangrove forests."
+     }
+    ],
+    "doneText": "You followed the river all the way to the sea!"
+   }
+  },
+  {
+   "label": "Himalayan or Peninsular?",
+   "activity": {
+    "template": "sort",
+    "instruction": "Move each river into the group it belongs to.",
+    "intro": "Rivers from the Himalayas are fed by snow and rain. Rivers of the peninsula depend mostly on rain.",
+    "bins": [
+     {
+      "id": "him",
+      "label": "🏔️ Himalayan rivers"
+     },
+     {
+      "id": "pen",
+      "label": "🌧️ Peninsular rivers"
+     }
+    ],
+    "items": [
+     {
+      "text": "Ganga",
+      "bin": "him",
+      "say": "The Ganga starts as the Bhagirathi at the Gangotri Glacier."
+     },
+     {
+      "text": "Brahmaputra",
+      "bin": "him",
+      "say": "The Brahmaputra rises in Tibet, where it is called the Tsangpo."
+     },
+     {
+      "text": "Indus",
+      "bin": "him",
+      "say": "The Indus rises in Tibet, near Lake Mansarovar."
+     },
+     {
+      "text": "Yamuna",
+      "bin": "him",
+      "say": "The Yamuna rises at the Yamunotri Glacier."
+     },
+     {
+      "text": "Godavari",
+      "bin": "pen",
+      "say": "The Godavari is the longest peninsular river."
+     },
+     {
+      "text": "Krishna",
+      "bin": "pen",
+      "say": "The Krishna rises in the Western Ghats."
+     },
+     {
+      "text": "Kaveri",
+      "bin": "pen",
+      "say": "The Kaveri rises in the Brahmagiri hills of the Western Ghats."
+     },
+     {
+      "text": "Narmada",
+      "bin": "pen",
+      "say": "The Narmada rises at Amarkantak and flows west."
+     }
+    ],
+    "doneText": "All rivers sorted!"
+   }
+  },
+  {
+   "label": "Delta or estuary?",
+   "activity": {
+    "template": "sort",
+    "instruction": "Sort the peninsular rivers by where they reach the sea.",
+    "intro": "East-flowing rivers drop their silt and build deltas. West-flowing rivers rush through narrow valleys and form estuaries.",
+    "bins": [
+     {
+      "id": "east",
+      "label": "➡️ Flows east, forms a delta"
+     },
+     {
+      "id": "west",
+      "label": "⬅️ Flows west, forms an estuary"
+     }
+    ],
+    "items": [
+     {
+      "text": "Godavari",
+      "bin": "east",
+      "say": "The Godavari flows east into the Bay of Bengal."
+     },
+     {
+      "text": "Mahanadi",
+      "bin": "east",
+      "say": "The Mahanadi flows east into the Bay of Bengal."
+     },
+     {
+      "text": "Krishna",
+      "bin": "east",
+      "say": "The Krishna flows east into the Bay of Bengal."
+     },
+     {
+      "text": "Kaveri",
+      "bin": "east",
+      "say": "The Kaveri flows east into the Bay of Bengal."
+     },
+     {
+      "text": "Narmada",
+      "bin": "west",
+      "say": "The Narmada flows west through a rift valley into the Arabian Sea."
+     },
+     {
+      "text": "Tapi",
+      "bin": "west",
+      "say": "The Tapi also flows west through a rift valley into the Arabian Sea."
+     }
+    ],
+    "doneText": "East makes deltas, west makes estuaries!"
+   }
+  },
+  {
+   "label": "Ganga's journey",
+   "activity": {
+    "template": "order",
+    "arrows": true,
+    "instruction": "Put the places on the Ganga's journey in order, from source to sea.",
+    "intro": "Put the stops in order, starting high in the mountains.",
+    "items": [
+     {
+      "icon": "🧊",
+      "text": "Gangotri Glacier",
+      "say": "It begins as the Bhagirathi at the Gangotri Glacier."
+     },
+     {
+      "icon": "🤝",
+      "text": "Devprayag",
+      "say": "At Devprayag the Alaknanda joins, and it becomes the Ganga."
+     },
+     {
+      "icon": "🌄",
+      "text": "Haridwar",
+      "say": "At Haridwar it enters the plains."
+     },
+     {
+      "icon": "🌊",
+      "text": "Prayagraj",
+      "say": "At Prayagraj the Yamuna joins."
+     },
+     {
+      "icon": "🛕",
+      "text": "Varanasi",
+      "say": "It flows on past Varanasi."
+     },
+     {
+      "icon": "🌳",
+      "text": "Sundarbans delta",
+      "say": "Finally it forms the Sundarbans delta and enters the Bay of Bengal."
+     }
+    ],
+    "doneText": "From glacier to sea!"
+   }
+  },
+  {
+   "label": "Quiz",
+   "activity": {
+    "template": "quiz",
+    "instruction": "Tap the best answer. Read why after each question.",
+    "intro": "Time for a quick quiz on this chapter.",
+    "passPercent": 60,
+    "questions": [
+     {
+      "q": "At which place do the Bhagirathi and the Alaknanda join to form the Ganga?",
+      "options": [
+       "Devprayag",
+       "Haridwar",
+       "Prayagraj",
+       "Varanasi"
+      ],
+      "answer": 0,
+      "explain": "The two rivers meet at Devprayag. From there, the river is called the Ganga."
+     },
+     {
+      "q": "In Tibet, the Brahmaputra is known as the…",
+      "options": [
+       "Tsangpo",
+       "Sutlej",
+       "Alaknanda",
+       "Chambal"
+      ],
+      "answer": 0,
+      "explain": "The Brahmaputra rises in Tibet, where it is called the Tsangpo, and enters India in Arunachal Pradesh."
+     },
+     {
+      "q": "Which is the longest peninsular river?",
+      "options": [
+       "Godavari",
+       "Kaveri",
+       "Narmada",
+       "Tapi"
+      ],
+      "answer": 0,
+      "explain": "The Godavari is the longest peninsular river. It is sometimes called the Dakshin Ganga."
+     },
+     {
+      "type": "truefalse",
+      "q": "Himalayan rivers flow all year because they are fed by both rain and melting snow.",
+      "answer": true,
+      "explain": "Glaciers and snow keep feeding them in the dry season too, so they are perennial."
+     },
+     {
+      "type": "assertion",
+      "assertion": "The Narmada does not form a delta.",
+      "reason": "It flows west through a narrow rift valley and enters the sea as an estuary.",
+      "answer": 0,
+      "explain": "Both are true. The fast flow through the rift valley carries silt away instead of building a delta."
+     },
+     {
+      "q": "Which two rivers together form the Sundarbans delta?",
+      "options": [
+       "Ganga and Brahmaputra",
+       "Ganga and Yamuna",
+       "Godavari and Krishna",
+       "Indus and Sutlej"
+      ],
+      "answer": 0,
+      "explain": "The Ganga and the Brahmaputra build the world's largest delta before reaching the Bay of Bengal."
+     },
+     {
+      "q": "Where does the Kaveri rise?",
+      "options": [
+       "Brahmagiri hills, Western Ghats",
+       "Amarkantak plateau",
+       "Gangotri Glacier",
+       "Lake Mansarovar"
+      ],
+      "answer": 0,
+      "explain": "The Kaveri rises in the Brahmagiri hills of the Western Ghats and flows east."
+     },
+     {
+      "q": "Which is the main reason peninsular rivers have little water in summer?",
+      "options": [
+       "They depend mostly on rainfall",
+       "They are blocked by dams",
+       "They flow too fast",
+       "They flow into the Arabian Sea"
+      ],
+      "answer": 0,
+      "explain": "Most peninsular rivers have no glaciers to feed them, so their flow drops in the dry months.",
+      "marks": 2
+     }
+    ],
+    "doneText": "Well done!"
+   }
+  }
+ ]
+}

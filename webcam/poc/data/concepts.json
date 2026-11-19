@@ -158,6 +158,38 @@
     4,
     5
    ]
+  },
+  {
+   "id": "science.biology.health-disease",
+   "subject": "science",
+   "label": "Human health and disease: pathogens, spread and prevention",
+   "grades": [
+    12
+   ]
+  },
+  {
+   "id": "maths.calculus.applications-of-derivatives",
+   "subject": "maths",
+   "label": "Applications of derivatives: rates of change, increasing and decreasing functions, maxima and minima",
+   "grades": [
+    12
+   ]
+  },
+  {
+   "id": "science.chemistry.electrochemistry",
+   "subject": "science",
+   "label": "Electrochemistry: galvanic cells, electrode potentials, Nernst equation, electrolysis",
+   "grades": [
+    12
+   ]
+  },
+  {
+   "id": "social.geography.rivers-drainage",
+   "subject": "social",
+   "label": "Rivers and drainage: Himalayan and peninsular rivers",
+   "grades": [
+    9
+   ]
   }
  ]
 }
