@@ -22,9 +22,14 @@ window.MT=(function(){
   function score(t){document.getElementById('mt-score').textContent=t||'';}
   function good(msg,say){sfx.good();toast(msg||'Well done!','good');if(say)speak(say);}
   function bad(msg,say){sfx.bad();toast(msg||'Try again','bad');if(say)speak(say);}
-  function done(area,msg,onAgain){sfx.win();confetti();speak(msg);
-    var d=document.createElement('div');d.className='mt-done';d.innerHTML='<div>'+msg+'</div>';
-    var b=document.createElement('button');b.className='mt-btn';b.textContent='Play again';b.addEventListener('click',onAgain);d.appendChild(b);area.appendChild(d);}
+  // finish screen. extra: optional HTML under the message (e.g. a quiz review).
+  // Inside a lesson pack, MT.next is set by the pack and adds a "Next step" button.
+  function done(area,msg,onAgain,extra){sfx.win();confetti();speak(msg);
+    var d=document.createElement('div');d.className='mt-done';d.innerHTML='<div>'+msg+'</div>'+(extra?'<div class="mt-done-x">'+extra+'</div>':'');
+    var row=document.createElement('div');row.className='mt-done-b';d.appendChild(row);
+    var b=document.createElement('button');b.className='mt-btn'+(api.next?' alt':'');b.textContent=api.next?'Do it again':'Play again';b.addEventListener('click',onAgain);row.appendChild(b);
+    if(api.next){var n=document.createElement('button');n.className='mt-btn';n.textContent=api.nextLabel||'Next step →';var go=api.next;n.addEventListener('click',function(){go();});row.appendChild(n);}
+    area.appendChild(d);}
   // timers that belong to the current activity; cleared when another activity or the menu opens
   var timers=[];
   function later(fn,ms){var t=setTimeout(fn,ms);timers.push(t);return t;}
@@ -54,5 +59,6 @@ window.MT=(function(){
   function dotsSVG(n){var cols=5,rows=Math.ceil(n/cols),s='<svg viewBox="0 0 '+(cols*22)+' '+(rows*22)+'" width="'+(cols*20)+'" height="'+(rows*20)+'">';
     for(var i=0;i<n;i++) s+='<circle cx="'+(11+(i%cols)*22)+'" cy="'+(11+Math.floor(i/cols)*22)+'" r="8" fill="'+(i<10?'#CC3054':'#E96E24')+'"/>';
     return s+'</svg>';}
-  return {later:later,clearLater:clearLater,sceneBox:sceneBox,speak:speak,sfx:sfx,toast:toast,confetti:confetti,score:score,good:good,bad:bad,done:done,shuffle:shuffle,face:face,templates:{}};
+  var api={later:later,clearLater:clearLater,sceneBox:sceneBox,speak:speak,sfx:sfx,toast:toast,confetti:confetti,score:score,good:good,bad:bad,done:done,shuffle:shuffle,face:face,templates:{},next:null,nextLabel:null};
+  return api;
 })();

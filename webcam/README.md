@@ -4,7 +4,8 @@ Classroom activities for Classes 1–12 on a projector wall, driven by an IR pen
 seen by a USB/IR webcam on a laptop or PC.
 
 - **http://localhost:8080/** opens the **Classes 1–12 POC**: 12 activities, one per class,
-  built on 6 templates (Explore, Match, Sort, Order, Label, Slider simulation).
+  built on 6 templates (Explore, Match, Sort, Order, Label, Slider simulation), plus a
+  **chapter lesson pack** (Class 10 Electricity) and a **map explorer** (Class 4 town map).
 - **http://localhost:8080/magictouch_webcam.html** is the preschool sketch app (same as the phone app).
 
 ## Start it
@@ -62,7 +63,29 @@ Every activity also carries:
 **Demo mode:** open **http://localhost:8080/poc/?demo** to list only approved activities (for school demos).
 
 **Check before testing:** run `node tools/check-activities.js` in this folder. It reports files missing
-from the index, duplicate ids, unknown templates or concepts, and missing fields.
+from the index, duplicate ids, unknown templates or concepts, missing fields, formulas that don't work,
+quiz answers that point outside the options, map regions with no shape, and pack steps that point nowhere.
+
+### Chapter lesson packs, quizzes, predictions and worked solutions
+All of these are data in the activity file; no new code per topic. See
+`poc/activities/p10-science-electricity.json` for a full example.
+
+- **Lesson pack** (`"template": "pack"`): a chapter as a row of steps, e.g. explore → simulate → order → quiz.
+  Each step is `{"label": "Explore", "activity": {…any other template…}}`, or `{"label": "…", "ref": "<activity id>"}`
+  to reuse an existing activity. Finishing a step offers **Next step**; the end shows a chapter summary with the quiz marks.
+- **Quiz** (`"template": "quiz"`): board-style questions with big answer cards, the reason after each answer,
+  marks and a review at the end. Kinds: multiple choice (`q`, `options`, `answer` index), `"type": "truefalse"`,
+  and `"type": "assertion"` (assertion–reason with the standard four choices).
+- **Predict, then watch** (in `simulate`): `"predict": [{"text", "set", "then", "options", "answer", "explain"}]`.
+  Sliders lock, the student picks a prediction, the sliders move by themselves to show what happens, then the
+  explanation appears. Challenges start after the last prediction.
+- **Live worked solution** (in `simulate`): `"solution": {"lines": ["I = V ÷ R", "I = {V} ÷ {R}", "I = {V/R:2} A"]}`.
+  Anything in `{…}` is a formula on the slider values (`:2` = 2 decimals); lines update as the sliders move.
+- **Formula simulations** (`"model": "formula"`): give `"formulas": {"Rs": "R1 + R2"}` and either a `"picture"`
+  (an SVG whose `{…}` parts follow the sliders) or `"display"` read-outs. This makes a new simulation without code.
+- **Map explorer** (`"template": "map"`): an SVG map where each place has `data-region="id"`, a `regions` list,
+  and an optional `find` round ("Tap the place north of the park"). **Maps of India, or anything showing India's
+  borders, must use an official Survey of India outline**; until we have one, only fictional or local maps.
 
 Keys: C = show/hide panel, K = calibrate, P = switch pen/hand mode,
 Space = capture the current dot (hand mode), Esc = cancel calibration.

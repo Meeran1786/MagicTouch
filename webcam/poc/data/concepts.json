@@ -1,21 +1,163 @@
 {
  "_about": "Concept catalogue. Each activity names one concept id. Labels and grades are our own wording, not a board's.",
  "concepts": [
-  {"id": "maths.number.counting-to-20", "subject": "maths", "label": "Counting objects up to 20", "grades": [1]},
-  {"id": "maths.number.place-value", "subject": "maths", "label": "Place value: tens and ones", "grades": [2, 3]},
-  {"id": "maths.number.multiplication-tables", "subject": "maths", "label": "Multiplication tables", "grades": [2, 3, 4]},
-  {"id": "maths.fractions.equivalent", "subject": "maths", "label": "Equivalent fractions", "grades": [5, 6]},
-  {"id": "maths.coordinate-geometry.straight-lines", "subject": "maths", "label": "Straight lines: slope and intercept (y = mx + c)", "grades": [11]},
-  {"id": "evs.animals.habitats", "subject": "evs", "label": "Animals and where they live", "grades": [1, 2, 3]},
-  {"id": "evs.animals.pond-habitat", "subject": "evs", "label": "Life in a pond", "grades": [3, 4]},
-  {"id": "evs.plants.parts-of-a-plant", "subject": "evs", "label": "Parts of a plant and what they do", "grades": [3, 4]},
-  {"id": "science.earth.water-cycle", "subject": "science", "label": "The water cycle", "grades": [4, 5]},
-  {"id": "science.ecology.food-chain", "subject": "science", "label": "Food chains", "grades": [6, 7]},
-  {"id": "science.chemistry.atomic-structure", "subject": "science", "label": "Structure of the atom", "grades": [9]},
-  {"id": "science.physics.ohms-law", "subject": "science", "label": "Ohm's law (V = I × R)", "grades": [10]},
-  {"id": "science.space.solar-system", "subject": "science", "label": "The solar system", "grades": [5, 6]},
-  {"id": "science.space.satellite-orbits", "subject": "science", "label": "Satellites and orbits", "grades": [9, 11]},
-  {"id": "social.history.india-freedom-struggle", "subject": "social", "label": "Milestones of India's freedom struggle", "grades": [8]},
-  {"id": "social.economics.supply-demand", "subject": "social", "label": "Supply, demand and equilibrium price", "grades": [12]}
+  {
+   "id": "maths.number.counting-to-20",
+   "subject": "maths",
+   "label": "Counting objects up to 20",
+   "grades": [
+    1
+   ]
+  },
+  {
+   "id": "maths.number.place-value",
+   "subject": "maths",
+   "label": "Place value: tens and ones",
+   "grades": [
+    2,
+    3
+   ]
+  },
+  {
+   "id": "maths.number.multiplication-tables",
+   "subject": "maths",
+   "label": "Multiplication tables",
+   "grades": [
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "id": "maths.fractions.equivalent",
+   "subject": "maths",
+   "label": "Equivalent fractions",
+   "grades": [
+    5,
+    6
+   ]
+  },
+  {
+   "id": "maths.coordinate-geometry.straight-lines",
+   "subject": "maths",
+   "label": "Straight lines: slope and intercept (y = mx + c)",
+   "grades": [
+    11
+   ]
+  },
+  {
+   "id": "evs.animals.habitats",
+   "subject": "evs",
+   "label": "Animals and where they live",
+   "grades": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "id": "evs.animals.pond-habitat",
+   "subject": "evs",
+   "label": "Life in a pond",
+   "grades": [
+    3,
+    4
+   ]
+  },
+  {
+   "id": "evs.plants.parts-of-a-plant",
+   "subject": "evs",
+   "label": "Parts of a plant and what they do",
+   "grades": [
+    3,
+    4
+   ]
+  },
+  {
+   "id": "science.earth.water-cycle",
+   "subject": "science",
+   "label": "The water cycle",
+   "grades": [
+    4,
+    5
+   ]
+  },
+  {
+   "id": "science.ecology.food-chain",
+   "subject": "science",
+   "label": "Food chains",
+   "grades": [
+    6,
+    7
+   ]
+  },
+  {
+   "id": "science.chemistry.atomic-structure",
+   "subject": "science",
+   "label": "Structure of the atom",
+   "grades": [
+    9
+   ]
+  },
+  {
+   "id": "science.physics.ohms-law",
+   "subject": "science",
+   "label": "Ohm's law (V = I × R)",
+   "grades": [
+    10
+   ]
+  },
+  {
+   "id": "science.space.solar-system",
+   "subject": "science",
+   "label": "The solar system",
+   "grades": [
+    5,
+    6
+   ]
+  },
+  {
+   "id": "science.space.satellite-orbits",
+   "subject": "science",
+   "label": "Satellites and orbits",
+   "grades": [
+    9,
+    11
+   ]
+  },
+  {
+   "id": "social.history.india-freedom-struggle",
+   "subject": "social",
+   "label": "Milestones of India's freedom struggle",
+   "grades": [
+    8
+   ]
+  },
+  {
+   "id": "social.economics.supply-demand",
+   "subject": "social",
+   "label": "Supply, demand and equilibrium price",
+   "grades": [
+    12
+   ]
+  },
+  {
+   "id": "science.physics.electricity",
+   "subject": "science",
+   "label": "Electricity: current, voltage, resistance and circuits",
+   "grades": [
+    10
+   ]
+  },
+  {
+   "id": "social.geography.map-skills",
+   "subject": "social",
+   "label": "Reading a map: directions, places and symbols",
+   "grades": [
+    3,
+    4,
+    5
+   ]
+  }
  ]
 }

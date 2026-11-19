@@ -25,12 +25,15 @@
     function head(txt){var h=document.createElement('div');h.className='mt-sec';h.textContent=txt;menu.appendChild(h);}
     var list=DEMO?acts.filter(function(a){return a.status==='approved';}):acts;
     if(DEMO&&!list.length){menu.innerHTML='<div class="mt-demo-note">Demo mode shows approved activities only, and none are approved yet. Set "status": "approved" in an activity file, or open the page without ?demo.</div>';return;}
-    var show=list.filter(function(a){return a.showcase;}),rest=list.filter(function(a){return !a.showcase;});
+    var show=list.filter(function(a){return a.showcase;}),packs=list.filter(function(a){return !a.showcase&&a.template==='pack';}),
+        rest=list.filter(function(a){return !a.showcase&&a.template!=='pack';});
+    var byGrade=function(x,y){return x.grade-y.grade;};
     if(show.length) head('✨ Showcase');
-    show.concat(['--']).concat(rest.sort(function(x,y){return x.grade-y.grade;})).forEach(function(a){
-      if(a==='--'){if(show.length)head('Classes 1–12');return;}
+    show.concat(packs.length?['--packs']:[]).concat(packs.sort(byGrade)).concat(['--']).concat(rest.sort(byGrade)).forEach(function(a){
+      if(a==='--packs'){head('📘 Chapter lesson packs');return;}
+      if(a==='--'){if(show.length||packs.length)head('Classes 1–12');return;}
       var t=document.createElement('div');t.className='mt-tile'+(a.showcase?' mt-show':'');
-      t.innerHTML='<span class="cls subj-'+a.subject+'">Class '+a.grade+' · '+(SUBJ[a.subject]||a.subject)+'</span><div class="ttl">'+a.title+'</div><div class="sub">'+(a.topic||'')+'</div>'+(a.status==='approved'?'':'<span class="mt-draft">Draft</span>');
+      t.innerHTML='<span class="cls subj-'+a.subject+'">Class '+a.grade+' · '+(SUBJ[a.subject]||a.subject)+'</span><div class="ttl">'+a.title+'</div><div class="sub">'+(a.template==='pack'?'<b class="mt-pack">'+a.steps.length+' steps</b> ':'')+(a.topic||'')+'</div>'+(a.status==='approved'?'':'<span class="mt-draft">Draft</span>');
       t.addEventListener('click',function(){try{audioCtx.resume();}catch(e){} run(a);});
       menu.appendChild(t);
     });
