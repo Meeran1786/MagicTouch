@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MagicTouch Wireframes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caladea:wght@400;700&family=Carlito:wght@400;700&family=Noto+Sans+Telugu:wght@500;700&family=Noto+Sans+Devanagari:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE  occasion: a children's classroom product, bright but ordered; reviewed by the founder
+   IDEA   the projected classroom wall itself: every screen sits in a 16:9 wall frame, the phone in a phone
+   PICTURE the wall screens, live and clickable, in three switchable looks
+   COLOUR MagicTouch palette: plum #631654 / dark plum #3D0E37 grounds, amber, orange, magenta accents
+   TYPE   Cambria headers (Caladea fallback) + Calibri body (Carlito fallback); Noto for Telugu/Hindi
+   LAYOUT header band with look switcher, then one row per screen: notes left, frame right; stacked on phones */
+:root{color-scheme:light dark;--bg:light-dark(#fbf7f2,#1c0819);--ink:light-dark(#242430,#f6eaf2);--mute:light-dark(#5d5464,#cdb8c7);--line:light-dark(#e6dbe3,#4a2443);--card:light-dark(#ffffff,#2a0d26)}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 Calibri,Carlito,"Segoe UI",sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:Cambria,Caladea,Georgia,serif;line-height:1.05;letter-spacing:-.01em;margin:0}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid #F3A328;outline-offset:2px}
+.te{font-family:"Noto Sans Telugu",sans-serif}
+.hi{font-family:"Noto Sans Devanagari",sans-serif}
+.top{background:#3D0E37;color:#fff6e4;padding:clamp(24px,4vw,48px) max(5vw,16px) 0}
+.top .in{max-width:1240px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:18px}
+.top h1{font-size:clamp(32px,4.6vw,50px);margin:18px 0 10px;max-width:22ch;text-wrap:balance}
+.top p{margin:0;max-width:68ch;color:#e9d3e2}
+.dirs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:26px}
+.dir{background:#2b0927;border:2px solid #5a2251;border-radius:14px;padding:14px;text-align:left;display:grid;gap:8px;min-height:44px}
+.dir[aria-pressed=true]{border-color:#F3A328;background:#4a1342}
+.dir b{font-size:17px;color:#fff}
+.dir span{font-size:14px;color:#dcc4d6;line-height:1.4}
+.sw{display:flex;gap:4px}.sw i{width:22px;height:22px;border-radius:6px;display:block;border:1px solid #0003}
+.nav{display:flex;gap:6px;overflow-x:auto;margin-top:24px;padding-bottom:0}
+.nav a{flex:none;color:#fff6e4;text-decoration:none;padding:12px 14px;border-radius:10px 10px 0 0;font-size:15px}
+.nav a:hover{background:#ffffff14}
+.opts{display:flex;align-items:center;gap:10px;margin-top:16px;font-size:15px;color:#e9d3e2;flex-wrap:wrap}
+.opts input{width:20px;height:20px;accent-color:#F3A328}
+main{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px) 64px}
+.row{display:grid;grid-template-columns:280px minmax(0,1fr);gap:32px;padding-top:56px;scroll-margin-top:16px}
+.note h2{font-size:28px;margin-bottom:10px}
+.note p{margin:0 0 12px;color:var(--mute)}
+.note ul{margin:0;padding-left:18px;color:var(--ink)}
+.note li{margin-bottom:6px}
+.note .q{margin-top:14px;padding:12px 14px;border-radius:10px;background:var(--card);border:1px solid var(--line);font-size:15px}
+.note .q b{display:block;margin-bottom:4px}
+.foot{border-top:1px solid var(--line);margin-top:64px;padding-top:20px;color:var(--mute);font-size:14px}
+@media(max-width:860px){.row{grid-template-columns:minmax(0,1fr);gap:16px}.dirs{grid-template-columns:minmax(0,1fr)}}
+
+/* ---------- the wall (all sizes in container units so it scales like a projector) ---------- */
+[data-dir=mela]{--g:#FFF4D4;--g2:#FFE6A8;--s:#ffffff;--ink2:#242430;--m2:#6b5560;--p:#631654;--a:#E96E24;--a2:#CC3054;--h:#F3A328;--ln:#f0d9a8;--r:2.2cqw;--sh:0 .5cqw 0 #00000022;--tile:#fff}
+[data-dir=night]{--g:#3D0E37;--g2:#24081f;--s:#561a4c;--ink2:#fff3dd;--m2:#e2c6d8;--p:#FBD064;--a:#F3A328;--a2:#ff6b85;--h:#FBD064;--ln:#7a3570;--r:1.6cqw;--sh:0 0 2cqw #F3A32833;--tile:#4c1543}
+[data-dir=studio]{--g:#ffffff;--g2:#f7f1f5;--s:#f7f1f5;--ink2:#242430;--m2:#5d5464;--p:#631654;--a:#CC3054;--a2:#CC2430;--h:#E96E24;--ln:#e7dbe3;--r:.8cqw;--sh:none;--tile:#fff}
+.wall{container-type:inline-size;aspect-ratio:16/9;width:100%;border-radius:12px;overflow:hidden;position:relative;background:var(--g);color:var(--ink2);box-shadow:0 0 0 10px #1a1a20,0 18px 40px #0003;font-size:1.5cqw;line-height:1.3;user-select:none}
+.wall .deco{position:absolute;inset:0;pointer-events:none}
+.wall .bg-mela,.wall .bg-night{display:none}
+[data-dir=mela] .wall .bg-mela{display:block}
+[data-dir=night] .wall .bg-night{display:block}
+.wb{position:relative;display:flex;align-items:center;gap:1.4cqw;height:6.4cqw;padding:0 2.4cqw;border-bottom:.15cqw solid var(--ln)}
+.wb .lg{display:flex;align-items:center;gap:.8cqw;font-family:Cambria,Caladea,serif;font-weight:700;font-size:1.9cqw;color:var(--p)}
+.wb .crumb{color:var(--m2);font-size:1.4cqw}
+.wb .sp{flex:1}
+.chip{display:inline-flex;align-items:center;gap:.5cqw;padding:.5cqw 1cqw;border-radius:5cqw;background:var(--s);border:.12cqw solid var(--ln);font-size:1.2cqw;white-space:nowrap}
+.chip i{width:.8cqw;height:.8cqw;border-radius:50%;background:#2fa86a}
+.wbody{position:relative;height:calc(100% - 6.4cqw);padding:2.2cqw 2.4cqw}
+.wall h3{font-size:3cqw;color:var(--ink2)}
+.tap{border:0;background:var(--tile);color:var(--ink2);border-radius:var(--r);box-shadow:var(--sh);transition:transform .15s}
+.tap:hover{transform:translateY(-.3cqw)}
+[data-dir=studio] .tap{border:.12cqw solid var(--ln)}
+[data-dir=night] .tap{border:.15cqw solid #ffffff1c}
+.back{position:absolute;left:2.4cqw;bottom:2cqw;padding:1cqw 2cqw;font-size:1.4cqw}
+/* home */
+.home{display:grid;grid-template-columns:28cqw minmax(0,1fr);gap:2.4cqw;height:100%}
+.cont{border-radius:var(--r);background:var(--p);color:#fff;padding:2cqw;display:flex;flex-direction:column;gap:1cqw;position:relative;overflow:hidden}
+[data-dir=night] .cont{background:linear-gradient(160deg,#7a2a6d,#561a4c);color:#fff}
+.cont small{opacity:.85;font-size:1.3cqw}
+.cont h3{color:inherit;font-size:2.5cqw}
+.cont .go{margin-top:auto;background:var(--h);color:#3D0E37;font-weight:700;padding:1.2cqw;font-size:1.6cqw;border-radius:5cqw}
+.plan{display:grid;gap:.6cqw;margin-top:.4cqw;font-size:1.25cqw}
+.plan span{display:flex;gap:.6cqw;align-items:center;opacity:.92}
+.plan span::before{content:"";width:.7cqw;height:.7cqw;border-radius:50%;background:var(--h);flex:none}
+.grp{font-size:1.3cqw;color:var(--m2);margin:0 0 .8cqw;font-weight:700}
+.early{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.4cqw;margin-bottom:1.8cqw}
+.early .tap{height:11cqw;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6cqw;font-family:Cambria,Caladea,serif;font-size:2cqw;font-weight:700}
+.early svg{width:5.2cqw;height:5.2cqw}
+.nums{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:1cqw;margin-bottom:1.8cqw}
+.nums .tap{aspect-ratio:1;border-radius:50%;font-family:Cambria,Caladea,serif;font-size:2.4cqw;font-weight:700}
+.nums .tap.on{background:var(--a);color:#fff}
+.inter{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.4cqw}
+.inter .tap{height:5.4cqw;font-size:1.7cqw;font-weight:700;display:flex;align-items:center;justify-content:center;gap:1cqw}
+/* subjects */
+.subj{display:grid;grid-template-columns:16cqw minmax(0,1fr);gap:2.4cqw;height:100%}
+.rail{display:grid;gap:.9cqw;align-content:start}
+.rail .tap{display:flex;align-items:center;gap:1cqw;padding:1.1cqw 1.2cqw;font-size:1.6cqw;font-weight:700;text-align:left}
+.rail .tap.on{background:var(--p);color:#fff}
+[data-dir=night] .rail .tap.on{background:var(--h);color:#3D0E37}
+.rail svg{width:2.6cqw;height:2.6cqw;flex:none}
+.chs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.6cqw}
+.ch{padding:0;overflow:hidden;text-align:left;display:flex;flex-direction:column}
+.ch .art{height:8.6cqw;display:flex;align-items:center;justify-content:center}
+.ch .art svg{height:7cqw;width:auto}
+.ch .tx{padding:1cqw 1.2cqw 1.2cqw;display:grid;gap:.5cqw}
+.ch b{font-size:1.65cqw;font-family:Cambria,Caladea,serif}
+.ch small{color:var(--m2);font-size:1.15cqw}
+.tags{display:flex;gap:.5cqw;flex-wrap:wrap}
+.tags em{font-style:normal;font-size:1.05cqw;padding:.25cqw .7cqw;border-radius:3cqw;background:var(--g2);color:var(--ink2)}
+.done{color:#1f8a55;font-weight:700}
+[data-dir=night] .done{color:#7ee0a8}
+/* explore */
+.exp{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:2.4cqw;height:100%}
+.stage{position:relative;border-radius:var(--r);background:var(--g2);overflow:hidden}
+.stage svg{position:absolute;inset:0;width:100%;height:100%}
+.hs{position:absolute;width:4.4cqw;height:4.4cqw;margin:-2.2cqw 0 0 -2.2cqw;border-radius:50%;border:.35cqw solid #fff;background:var(--a);box-shadow:0 0 0 0 var(--a);animation:pulse 1.8s infinite;padding:0}
+.hs.seen{background:#2fa86a;animation:none}
+@keyframes pulse{70%{box-shadow:0 0 0 1.6cqw #0000}100%{box-shadow:0 0 0 0 #0000}}
+.info{display:flex;flex-direction:column;gap:1.2cqw}
+.card{background:var(--s);border-radius:var(--r);padding:2cqw;border:.12cqw solid var(--ln)}
+.card .big{font-family:Cambria,Caladea,serif;font-size:3.6cqw;font-weight:700;color:var(--p);line-height:1}
+.langs{display:flex;gap:2cqw;margin:1cqw 0;font-size:2.2cqw;font-weight:700}
+.card p{margin:0;font-size:1.55cqw;color:var(--m2)}
+.tools{display:flex;gap:1cqw;margin-top:auto;flex-wrap:wrap}
+.tools .tap{padding:1cqw 1.6cqw;font-size:1.35cqw;font-weight:700;display:flex;gap:.6cqw;align-items:center}
+.tools svg{width:1.8cqw;height:1.8cqw}
+.prog{display:flex;gap:.6cqw;align-items:center;font-size:1.3cqw;color:var(--m2)}
+.prog i{width:2.4cqw;height:.8cqw;border-radius:1cqw;background:var(--ln)}
+.prog i.on{background:#2fa86a}
+/* quiz */
+.quiz{display:grid;grid-template-rows:auto minmax(0,1fr) auto;height:100%;gap:1.2cqw}
+.qhead{display:flex;align-items:center;gap:1.4cqw}
+.qhead h3{font-size:3.6cqw}
+.spk{width:5cqw;height:5cqw;border-radius:50%;background:var(--a);color:#fff;border:0;display:grid;place-items:center;flex:none}
+.spk svg{width:2.6cqw;height:2.6cqw}
+.teams{margin-left:auto;display:flex;gap:1cqw}
+.team{display:flex;align-items:center;gap:.8cqw;padding:.6cqw 1.4cqw;border-radius:5cqw;background:var(--s);font-weight:700;font-size:1.6cqw;border:.12cqw solid var(--ln)}
+.team svg{width:2.4cqw;height:2.4cqw}
+.basket{position:relative}
+.basket svg{width:100%;height:100%}
+.ans{display:flex;justify-content:center;gap:4cqw}
+.ans .tap{width:11cqw;height:11cqw;border-radius:50%;font-family:Cambria,Caladea,serif;font-size:6cqw;font-weight:700;background:var(--tile)}
+.ans .tap.no{animation:shake .4s}
+@keyframes shake{25%{transform:translateX(-1cqw)}75%{transform:translateX(1cqw)}}
+.yay{position:absolute;inset:0;display:none;align-items:center;justify-content:center;flex-direction:column;gap:1.4cqw;background:color-mix(in srgb,var(--g) 86%,transparent);z-index:3}
+.yay.on{display:flex}
+.yay h3{font-size:7cqw;color:var(--a2)}
+.yay p{font-size:2.2cqw;margin:0}
+.yay .tap{padding:1.4cqw 4cqw;font-size:2cqw;font-weight:700;background:var(--p);color:#fff}
+[data-dir=night] .yay .tap{background:var(--h);color:#3D0E37}
+.conf{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.conf i{position:absolute;top:-3cqw;width:1.2cqw;height:1.8cqw;border-radius:.3cqw;animation:fall 1.6s ease-in forwards}
+@keyframes fall{to{transform:translateY(62cqw) rotate(540deg)}}
+/* simulate */
+.sim{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:2.4cqw;height:100%}
+.ctl{display:flex;flex-direction:column;gap:1.6cqw}
+.rd{display:flex;align-items:baseline;gap:1cqw}
+.rd .big{font-size:6cqw}
+.rd span{font-size:1.6cqw;color:var(--m2)}
+.sl label{display:flex;justify-content:space-between;font-weight:700;font-size:1.6cqw;margin-bottom:.6cqw}
+.sl input{width:100%;height:4cqw;appearance:none;background:transparent}
+.sl input::-webkit-slider-runnable-track{height:1.2cqw;border-radius:1cqw;background:var(--ln)}
+.sl input::-webkit-slider-thumb{appearance:none;width:4cqw;height:4cqw;margin-top:-1.4cqw;border-radius:50%;background:var(--a);border:.4cqw solid #fff;box-shadow:0 .2cqw .6cqw #0004}
+.sl input::-moz-range-track{height:1.2cqw;border-radius:1cqw;background:var(--ln)}
+.sl input::-moz-range-thumb{width:3.4cqw;height:3.4cqw;border-radius:50%;background:var(--a);border:.4cqw solid #fff}
+/* calibrate */
+.cal{position:absolute;inset:6.4cqw 0 0;background:#141018}
+.cal .dot{position:absolute;width:3.4cqw;height:3.4cqw;margin:-1.7cqw 0 0 -1.7cqw;border-radius:50%;border:.3cqw solid #6b6175;background:transparent;padding:0}
+.cal .dot.ok{background:#2fa86a;border-color:#2fa86a}
+.cal .dot.now{border-color:#F3A328;background:#F3A32855;animation:pulse 1.4s infinite}
+.cal .panel{position:absolute;left:50%;top:30%;transform:translate(-50%,-50%);width:36cqw;background:#241c2a;color:#fff3e6;border-radius:1.4cqw;padding:2cqw;display:grid;gap:1cqw;text-align:center}
+.cal .panel h3{color:#fff;font-size:2.6cqw}
+.cal .panel p{margin:0;font-size:1.4cqw;color:#d6c8d8}
+.checks{display:flex;justify-content:center;gap:1cqw;flex-wrap:wrap}
+.checks .chip{background:#33283a;border-color:#4a3c52;color:#fff}
+/* phone */
+.pwrap{display:flex;justify-content:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px 16px}
+.phone{container-type:inline-size;width:min(340px,100%);aspect-ratio:390/844;border-radius:44px;background:#3D0E37;box-shadow:0 0 0 8px #15151b,0 18px 40px #0004;overflow:hidden;color:#fff3e6;display:flex;flex-direction:column;font-size:4cqw}
+.ph{padding:9cqw 6cqw 4cqw;display:grid;gap:1.6cqw}
+.ph small{color:#e2c6d8;font-size:3.4cqw;display:flex;align-items:center;gap:2cqw}
+.ph small i{width:2.4cqw;height:2.4cqw;border-radius:50%;background:#2fa86a}
+.ph h3{font-size:6.4cqw;color:#fff}
+.now{margin:0 5cqw;border-radius:5cqw;background:#631654;padding:4cqw;display:grid;gap:2cqw}
+.now .thumb{height:30cqw;border-radius:3cqw;background:#FFF4D4;display:flex;align-items:center;justify-content:center}
+.now .thumb svg{height:24cqw}
+.now b{font-size:5cqw;font-family:Cambria,Caladea,serif}
+.now span{font-size:3.4cqw;color:#e2c6d8}
+.pc{display:flex;justify-content:center;gap:6cqw;padding:5cqw 0 3cqw}
+.pc button{width:16cqw;height:16cqw;border-radius:50%;border:0;background:#561a4c;color:#fff;display:grid;place-items:center}
+.pc button.main{width:20cqw;height:20cqw;background:#F3A328;color:#3D0E37}
+.pc svg{width:7cqw;height:7cqw}
+.lock{margin:0 5cqw;display:flex;justify-content:space-between;align-items:center;padding:3cqw 4cqw;border-radius:4cqw;background:#2a0926;border:0;color:#fff3e6;font-size:3.8cqw;width:calc(100% - 10cqw)}
+.tg{width:12cqw;height:7cqw;border-radius:4cqw;background:#5a2251;position:relative;flex:none}
+.tg::after{content:"";position:absolute;top:1cqw;left:1cqw;width:5cqw;height:5cqw;border-radius:50%;background:#fff;transition:left .2s}
+.lock[aria-pressed=true] .tg{background:#2fa86a}
+.lock[aria-pressed=true] .tg::after{left:6cqw}
+.q2{margin:3cqw 5cqw 0;display:grid;gap:2cqw;font-size:3.6cqw}
+.q2 b{font-size:3.4cqw;color:#e2c6d8}
+.q2 div{display:flex;gap:3cqw;align-items:center;padding:2.4cqw 3cqw;border-radius:3cqw;background:#2a0926}
+.q2 div.cur{outline:.6cqw solid #F3A328}
+.tabs{margin-top:auto;display:grid;grid-template-columns:repeat(4,1fr);padding:3cqw 2cqw 6cqw;background:#24081f;font-size:3cqw;text-align:center;color:#cdb8c7}
+.tabs span:first-child{color:#F3A328;font-weight:700}
+/* teacher */
+.lap{container-type:inline-size;aspect-ratio:16/10;width:100%;border-radius:12px;overflow:hidden;background:#fff;color:#242430;display:grid;grid-template-columns:17cqw minmax(0,1fr);box-shadow:0 0 0 10px #1a1a20,0 18px 40px #0003;font-size:1.35cqw}
+.side{background:#3D0E37;color:#f6e6ef;padding:2cqw 1.6cqw;display:grid;align-content:start;gap:.6cqw}
+.side .lg{font-family:Cambria,Caladea,serif;font-weight:700;font-size:1.9cqw;margin-bottom:1.6cqw;display:flex;gap:.6cqw;align-items:center}
+.side span{padding:.8cqw 1cqw;border-radius:.6cqw;font-size:1.4cqw}
+.side span.on{background:#631654;color:#fff}
+.dash{padding:2.4cqw;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);grid-template-rows:auto auto minmax(0,1fr);gap:1.6cqw}
+.dash h3{grid-column:1/-1;font-size:2.8cqw;color:#242430}
+.dash h3 small{display:block;font-family:Calibri,Carlito,sans-serif;font-size:1.3cqw;color:#5d5464;font-weight:400;margin-top:.6cqw}
+.pn{border:.1cqw solid #e7dbe3;border-radius:1cqw;padding:1.4cqw;display:grid;gap:.8cqw;align-content:start}
+.pn b{font-size:1.5cqw}
+.li{display:flex;align-items:center;gap:1cqw;padding:.7cqw .9cqw;border-radius:.6cqw;background:#f7f1f5}
+.li em{font-style:normal;margin-left:auto;font-size:1.1cqw;padding:.2cqw .7cqw;border-radius:2cqw;background:#fff;border:.1cqw solid #e7dbe3}
+.grip{width:1cqw;height:1.6cqw;background:radial-gradient(#b8a6b3 30%,transparent 32%) 0 0/.5cqw .5cqw;flex:none}
+.bar{display:grid;grid-template-columns:4cqw minmax(0,1fr) 3cqw;gap:.8cqw;align-items:center;font-size:1.2cqw}
+.bar div{height:1.4cqw;border-radius:1cqw;background:#f0e6ec}
+.bar div i{display:block;height:100%;border-radius:1cqw;background:#631654}
+.bar span:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.st{display:flex;gap:.8cqw;align-items:center;font-size:1.25cqw}
+.st i{width:1cqw;height:1cqw;border-radius:50%;background:#2fa86a;flex:none}
+.st i.w{background:#E96E24}
+.priv{font-size:1.15cqw;color:#5d5464;background:#FFF4D4;border-radius:.6cqw;padding:.7cqw 1cqw}
+/* dwell ring */
+.ring{position:fixed;width:56px;height:56px;margin:-28px 0 0 -28px;pointer-events:none;z-index:50;display:none}
+.ring circle{fill:none;stroke:#F3A328;stroke-width:6;stroke-dasharray:151;stroke-dashoffset:151;transform:rotate(-90deg);transform-origin:center}
+.ring.go circle{transition:stroke-dashoffset .7s linear;stroke-dashoffset:0}
+@media(prefers-reduced-motion:reduce){.hs,.cal .dot.now{animation:none}.conf{display:none}.tap{transition:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<symbol id="mark" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#631654"/><circle cx="20" cy="20" r="11" fill="none" stroke="#F3A328" stroke-width="2.4" opacity=".7"/><circle cx="20" cy="20" r="5" fill="#FBD064"/><path d="M26 8l1.4 3.2L30.6 12.6 27.4 14 26 17.2 24.6 14 21.4 12.6 24.6 11.2z" fill="#E96E24"/></symbol>
+<symbol id="sun" viewBox="0 0 48 48"><g stroke="#E96E24" stroke-width="3" stroke-linecap="round"><path d="M24 3v6M24 39v6M3 24h6M39 24h6M9 9l4 4M35 35l4 4M39 9l-4 4M9 39l4-4"/></g><circle cx="24" cy="24" r="10" fill="#F3A328"/><circle cx="20" cy="22" r="1.6" fill="#3D0E37"/><circle cx="28" cy="22" r="1.6" fill="#3D0E37"/><path d="M19.5 27q4.5 4 9 0" stroke="#3D0E37" stroke-width="1.8" fill="none" stroke-linecap="round"/></symbol>
+<symbol id="abc" viewBox="0 0 48 48"><rect x="4" y="12" width="17" height="17" rx="4" fill="#CC3054" transform="rotate(-8 12 20)"/><rect x="18" y="20" width="17" height="17" rx="4" fill="#F3A328" transform="rotate(6 26 28)"/><rect x="28" y="8" width="16" height="16" rx="4" fill="#631654"/><text x="8" y="26" font-size="12" font-weight="700" fill="#fff" font-family="Georgia">A</text><text x="22" y="34" font-size="12" font-weight="700" fill="#3D0E37" font-family="Georgia">B</text><text x="32" y="21" font-size="11" font-weight="700" fill="#fff" font-family="Georgia">C</text></symbol>
+<symbol id="kite" viewBox="0 0 48 48"><path d="M24 3L39 19 24 35 9 19z" fill="#CC3054"/><path d="M24 3L39 19H24z" fill="#E96E24"/><path d="M9 19H24V35z" fill="#631654"/><path d="M24 35q-4 5 0 7t1 4" stroke="#3D0E37" stroke-width="1.8" fill="none"/><path d="M21 40l-3 1 2 2zM27 44l3-1-1 3z" fill="#F3A328"/></symbol>
+<symbol id="leaf" viewBox="0 0 48 48"><path d="M8 40C8 18 22 7 42 6c0 22-12 34-34 34z" fill="#2fa86a"/><path d="M10 38L34 14" stroke="#e8f8ee" stroke-width="2.2" stroke-linecap="round"/></symbol>
+<symbol id="num" viewBox="0 0 48 48"><rect x="5" y="5" width="38" height="38" rx="9" fill="#631654"/><path d="M15 24h18M24 15v18" stroke="#FBD064" stroke-width="4" stroke-linecap="round"/></symbol>
+<symbol id="book" viewBox="0 0 48 48"><path d="M5 10q9-4 19 2v28q-10-6-19-2z" fill="#E96E24"/><path d="M43 10q-9-4-19 2v28q10-6 19-2z" fill="#CC3054"/><path d="M24 12v28" stroke="#3D0E37" stroke-width="1.6"/></symbol>
+<symbol id="letter" viewBox="0 0 48 48"><circle cx="24" cy="24" r="19" fill="#F3A328"/><text x="24" y="31" text-anchor="middle" font-size="20" font-weight="700" fill="#3D0E37" font-family="Noto Sans Telugu, sans-serif">అ</text></symbol>
+<symbol id="atom" viewBox="0 0 48 48"><g fill="none" stroke="#631654" stroke-width="2.4"><ellipse cx="24" cy="24" rx="19" ry="7"/><ellipse cx="24" cy="24" rx="19" ry="7" transform="rotate(60 24 24)"/><ellipse cx="24" cy="24" rx="19" ry="7" transform="rotate(-60 24 24)"/></g><circle cx="24" cy="24" r="4.5" fill="#CC3054"/></symbol>
+<symbol id="flask" viewBox="0 0 48 48"><path d="M19 5h10v12l11 20a4 4 0 01-3.5 6h-25A4 4 0 018 37l11-20z" fill="#fff" stroke="#631654" stroke-width="2.4"/><path d="M12 31h24l3 6a3 3 0 01-2.6 4H11.6A3 3 0 019 37z" fill="#E96E24"/></symbol>
+<symbol id="mango" viewBox="0 0 40 40"><path d="M20 6c11 0 16 9 14 18-2 10-12 14-19 11C6 32 3 22 7 14c2-5 7-8 13-8z" fill="#F3A328"/><path d="M26 10c5 3 7 9 5 15" stroke="#FBD064" stroke-width="3" fill="none" stroke-linecap="round" opacity=".8"/><path d="M8 26c3 6 9 9 15 8" stroke="#E96E24" stroke-width="3" fill="none" stroke-linecap="round" opacity=".7"/><path d="M20 6q1-4 4-5" stroke="#5b3a1c" stroke-width="2" fill="none"/><path d="M23 3q7-3 11 2-6 3-11-2z" fill="#2fa86a"/></symbol>
+<symbol id="peacock" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#1f6f8b"/><circle cx="20" cy="17" r="6" fill="#2fa86a"/><circle cx="20" cy="17" r="3" fill="#FBD064"/><path d="M17 23q3 12 6 0" fill="#163f73"/></symbol>
+<symbol id="tiger" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#E96E24"/><path d="M12 12l4 4M28 12l-4 4M20 8v5M10 22h5M30 22h-5" stroke="#3D0E37" stroke-width="2.4" stroke-linecap="round"/><circle cx="16" cy="20" r="1.8" fill="#3D0E37"/><circle cx="24" cy="20" r="1.8" fill="#3D0E37"/><path d="M17 27q3 2 6 0" stroke="#3D0E37" stroke-width="2" fill="none"/></symbol>
+<symbol id="speak" viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16 8q3 4 0 8M18.5 5.5q5 6.5 0 13" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></symbol>
+<symbol id="eye" viewBox="0 0 24 24"><path d="M2 12q10-12 20 0-10 12-20 0z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3" fill="currentColor"/></symbol>
+<symbol id="qq" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9.5 9.5a2.5 2.5 0 115 .5c-.6 1.3-2.5 1.6-2.5 3.4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="12" cy="17.2" r="1.2" fill="currentColor"/></symbol>
+<symbol id="prev" viewBox="0 0 24 24"><path d="M6 5v14M19 5L9 12l10 7z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+<symbol id="next" viewBox="0 0 24 24"><path d="M18 5v14M5 5l10 7-10 7z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+<symbol id="pause" viewBox="0 0 24 24"><rect x="6" y="5" width="4" height="14" rx="1" fill="currentColor"/><rect x="14" y="5" width="4" height="14" rx="1" fill="currentColor"/></symbol>
+<symbol id="plant" viewBox="0 0 120 120"><path d="M20 92h80" stroke="#8a5a32" stroke-width="5" stroke-linecap="round"/><path d="M60 92V44" stroke="#2fa86a" stroke-width="5"/><path d="M60 62C44 62 36 52 34 40c14 0 24 8 26 22zM60 54c14 0 24-10 26-22-14 0-24 8-26 22z" fill="#2fa86a"/><circle cx="60" cy="34" r="9" fill="#CC3054"/><circle cx="60" cy="34" r="4" fill="#FBD064"/><path d="M60 92l-10 14M60 92l9 16M60 92v18" stroke="#b07a4a" stroke-width="3" stroke-linecap="round"/></symbol>
+<pattern id="rangoli" width="90" height="90" patternUnits="userSpaceOnUse"><circle cx="45" cy="45" r="16" fill="none" stroke="#F3A328" stroke-width="2" opacity=".35"/><g fill="#E96E24" opacity=".22"><circle cx="45" cy="22" r="4"/><circle cx="45" cy="68" r="4"/><circle cx="22" cy="45" r="4"/><circle cx="68" cy="45" r="4"/></g><circle cx="45" cy="45" r="4" fill="#CC3054" opacity=".25"/></pattern>
+<pattern id="stars" width="120" height="80" patternUnits="userSpaceOnUse"><circle cx="14" cy="18" r="1.4" fill="#FBD064" opacity=".6"/><circle cx="76" cy="9" r="1" fill="#fff" opacity=".5"/><circle cx="98" cy="52" r="1.6" fill="#FBD064" opacity=".45"/><circle cx="40" cy="64" r="1" fill="#fff" opacity=".4"/></pattern>
+</defs>
+</svg>
+<svg class="ring" id="ring" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="24"/></svg>
+
+<div id="app" data-dir="studio">
+<header class="top">
+<div class="in">
+<div class="brand"><svg width="34" height="34" aria-hidden="true"><use href="#mark"/></svg>MagicTouch · Maqsusi EduTech</div>
+<h1>New look and feel: wireframes to decide together</h1>
+<p>Decided on 24 Nov 2026: look C, Studio, for every class and screen. Every screen below is clickable. A and B stay here for reference. Switch the look with the three buttons; every screen changes with it. Nothing here is built into the product yet. The screens use the purchased Interactive Wall flow (9-dot calibration, IR pen, phone remote) with our JSON activity templates.</p>
+<div class="dirs" role="group" aria-label="Visual direction">
+<button class="dir" data-d="mela" aria-pressed="false"><div class="sw"><i style="background:#FFF4D4"></i><i style="background:#E96E24"></i><i style="background:#CC3054"></i><i style="background:#631654"></i></div><b>A · Mela</b><span>Warm festival colours, rangoli patterns, chunky sticker tiles. Made for Nursery to Class 5.</span></button>
+<button class="dir" data-d="night" aria-pressed="false"><div class="sw"><i style="background:#3D0E37"></i><i style="background:#561a4c"></i><i style="background:#F3A328"></i><i style="background:#FBD064"></i></div><b>B · Night sky</b><span>Dark plum stage with glowing amber. Dramatic on a projector in a dim room; the hologram family look.</span></button>
+<button class="dir" data-d="studio" aria-pressed="true"><div class="sw"><i style="background:#ffffff"></i><i style="background:#f7f1f5"></i><i style="background:#631654"></i><i style="background:#CC3054"></i></div><b>C · Studio (chosen)</b><span>Clean white, plum ink, fine lines. Grown-up for Classes 6 to Inter and the teacher screens.</span></button>
+</div>
+<label class="opts"><input type="checkbox" id="dwell"> Try it like the IR pen: hold the pointer still on a button for 0.7 s to tap it</label>
+<nav class="nav" aria-label="Screens"><a href="#home">1 Home</a><a href="#subjects">2 Class and subject</a><a href="#explore">3 Explore</a><a href="#quiz">4 Preschool quiz</a><a href="#simulate">5 Simulation</a><a href="#calibrate">6 Calibration</a><a href="#remote">7 Phone remote</a><a href="#teacher">8 Teacher view</a></nav>
+</div>
+</header>
+
+<main>
+<section class="row" id="home">
+<div class="note"><h2>Home on the wall</h2><p>The first thing a school sees. Huge targets, since a child taps with a pen from a metre away.</p><ul><li>"Continue" brings back the last lesson in one tap</li><li>Today's plan comes from the teacher's phone or PC</li><li>Offline and pen status always visible</li></ul><div class="q"><b>To decide</b>Show all classes, or only the ones the school bought?</div></div>
+<div class="wall">
+<svg class="deco bg-mela" aria-hidden="true"><rect width="100%" height="100%" fill="url(#rangoli)"/></svg><svg class="deco bg-night" aria-hidden="true"><rect width="100%" height="100%" fill="url(#stars)"/></svg>
+<div class="wb"><span class="lg"><svg width="30" height="30" aria-hidden="true" style="width:2.6cqw;height:2.6cqw"><use href="#mark"/></svg>MagicTouch</span><span class="crumb">Namaste, Class 4B</span><span class="sp"></span><span class="chip"><i></i>Offline ready</span><span class="chip">Pen 80%</span><span class="chip">9:40</span></div>
+<div class="wbody"><div class="home">
+<div class="cont"><small>Continue where you stopped</small><h3>Parts of a plant</h3><small>Class 4 · EVS · Explore</small><div class="plan"><b style="font-size:1.3cqw">Today's plan</b><span>Parts of a plant</span><span>Label the plant quiz</span><span>Counting song, Nursery</span></div><button class="go tap" data-go="explore">Continue</button></div>
+<div>
+<p class="grp">Early years</p>
+<div class="early"><button class="tap" data-go="quiz"><svg aria-hidden="true"><use href="#sun"/></svg>Nursery</button><button class="tap" data-go="quiz"><svg aria-hidden="true"><use href="#abc"/></svg>LKG</button><button class="tap" data-go="quiz"><svg aria-hidden="true"><use href="#kite"/></svg>UKG</button></div>
+<p class="grp">Classes</p>
+<div class="nums" id="nums"></div>
+<p class="grp">Intermediate</p>
+<div class="inter"><button class="tap" data-go="simulate"><svg aria-hidden="true" style="width:3cqw;height:3cqw"><use href="#atom"/></svg>Inter · MPC</button><button class="tap" data-go="simulate"><svg aria-hidden="true" style="width:3cqw;height:3cqw"><use href="#flask"/></svg>Inter · BiPC</button></div>
+</div>
+</div></div>
+</div>
+</section>
+
+<section class="row" id="subjects">
+<div class="note"><h2>Class and subject</h2><p>One screen per class. Subjects on the left, chapters as picture cards. Each card shows which activity types it has.</p><ul><li>"Done in class" is counted per class, never per child</li><li>Board and language set once per school</li></ul><div class="q"><b>To decide</b>Chapter names follow each board's syllabus order, in our own words. Is that the right grouping for teachers?</div></div>
+<div class="wall">
+<svg class="deco bg-mela" aria-hidden="true"><rect width="100%" height="100%" fill="url(#rangoli)"/></svg><svg class="deco bg-night" aria-hidden="true"><rect width="100%" height="100%" fill="url(#stars)"/></svg>
+<div class="wb"><span class="lg"><svg aria-hidden="true" style="width:2.6cqw;height:2.6cqw"><use href="#mark"/></svg>MagicTouch</span><span class="crumb">Home › Class 4</span><span class="sp"></span><span class="chip">CBSE</span><span class="chip">English + <span class="te">తెలుగు</span></span></div>
+<div class="wbody"><div class="subj">
+<div class="rail" id="rail"></div>
+<div class="chs" id="chs"></div>
+</div></div>
+</div>
+</section>
+
+<section class="row" id="explore">
+<div class="note"><h2>Explore activity</h2><p>The picture fills most of the wall. Pulsing spots invite a tap; each opens a label card in three languages with a voice button.</p><ul><li>Green spot = already seen</li><li>Teacher tools sit low, within a child's reach</li></ul><div class="q"><b>To decide</b>Which languages show by default: English plus the state language, or all three?</div></div>
+<div class="wall">
+<div class="wb"><span class="lg"><svg aria-hidden="true" style="width:2.6cqw;height:2.6cqw"><use href="#mark"/></svg>MagicTouch</span><span class="crumb">Class 4 › EVS › Parts of a plant</span><span class="sp"></span><span class="prog" id="prog"></span></div>
+<div class="wbody"><div class="exp">
+<div class="stage" id="stage">
+<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+<rect y="218" width="400" height="82" fill="#b07a4a" opacity=".35"/><rect y="214" width="400" height="8" fill="#8a5a32" opacity=".5"/>
+<g stroke="#8a5a32" stroke-width="4" stroke-linecap="round" fill="none"><path d="M200 218q-6 28-30 50M200 218q4 30 26 54M200 218v62M186 240q-14 6-24 2M214 246q14 2 22 10"/></g>
+<path d="M200 218V92" stroke="#2fa86a" stroke-width="9"/>
+<path d="M200 170c-34 0-52-18-58-44 30 0 52 16 58 44z" fill="#2fa86a"/><path d="M200 140c34 0 52-18 58-44-30 0-52 16-58 44z" fill="#37b877"/><path d="M200 170c-34 0-52-18-58-44" stroke="#1f8a55" stroke-width="2" fill="none"/>
+<g transform="translate(200 78)"><circle r="12" fill="#FBD064"/><g fill="#CC3054"><circle cx="0" cy="-20" r="12"/><circle cx="19" cy="-6" r="12"/><circle cx="12" cy="16" r="12"/><circle cx="-12" cy="16" r="12"/><circle cx="-19" cy="-6" r="12"/></g><circle r="9" fill="#F3A328"/></g>
+<circle cx="330" cy="50" r="22" fill="#F3A328" opacity=".8"/>
+</svg>
+</div>
+<div class="info">
+<div class="card" id="infocard"><div class="big" id="pName">Tap a glowing spot</div><div class="langs"><span class="te" id="pTe"></span><span class="hi" id="pHi"></span></div><p id="pTxt">Find all four parts of the plant.</p></div>
+<div class="tools"><button class="tap"><svg aria-hidden="true"><use href="#speak"/></svg>Read aloud</button><button class="tap" id="hideL"><svg aria-hidden="true"><use href="#eye"/></svg>Hide labels</button><button class="tap" data-go="quiz"><svg aria-hidden="true"><use href="#qq"/></svg>Quiz me</button></div>
+</div>
+</div></div>
+</div>
+</section>
+
+<section class="row" id="quiz">
+<div class="note"><h2>Preschool quiz</h2><p>One question, three giant answers, a voice prompt. Classes play as two teams, so there is no child data and everyone joins in.</p><ul><li>Wrong answer: a gentle shake, no red cross</li><li>Right answer: confetti and praise, then Next</li></ul><div class="q"><b>To decide</b>Team names and mascots: animals, or the school's own house names?</div></div>
+<div class="wall">
+<svg class="deco bg-mela" aria-hidden="true"><rect width="100%" height="100%" fill="url(#rangoli)"/></svg><svg class="deco bg-night" aria-hidden="true"><rect width="100%" height="100%" fill="url(#stars)"/></svg>
+<div class="wb"><span class="lg"><svg aria-hidden="true" style="width:2.6cqw;height:2.6cqw"><use href="#mark"/></svg>MagicTouch</span><span class="crumb">Nursery › Numbers › Count with me</span><span class="sp"></span><span class="chip">Question 3 of 8</span></div>
+<div class="wbody"><div class="quiz">
+<div class="qhead"><button class="spk" aria-label="Say the question"><svg aria-hidden="true"><use href="#speak"/></svg></button><h3>How many mangoes?</h3><div class="teams"><span class="team"><svg aria-hidden="true"><use href="#peacock"/></svg>Peacocks <span id="sc1">3</span></span><span class="team"><svg aria-hidden="true"><use href="#tiger"/></svg>Tigers <span id="sc2">2</span></span></div></div>
+<div class="basket"><svg viewBox="0 0 600 160" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><path d="M150 96h300l-26 58H176z" fill="#b07a4a"/><path d="M150 96h300" stroke="#8a5a32" stroke-width="8" stroke-linecap="round"/><g stroke="#8a5a32" stroke-width="3" opacity=".6"><path d="M200 104l-8 46M250 104l-4 46M300 104v46M350 104l4 46M400 104l8 46"/></g><use href="#mango" x="170" y="18" width="80" height="80"/><use href="#mango" x="240" y="8" width="80" height="80"/><use href="#mango" x="310" y="14" width="80" height="80"/><use href="#mango" x="378" y="20" width="80" height="80"/></svg></div>
+<div class="ans" id="ans"><button class="tap" data-a="3">3</button><button class="tap" data-a="4">4</button><button class="tap" data-a="5">5</button></div>
+</div>
+<div class="yay" id="yay"><div class="conf" id="conf"></div><h3>Shabash!</h3><p>Four mangoes. One point to the Peacocks.</p><button class="tap" id="again">Next question</button></div>
+</div>
+</div>
+</section>
+
+<section class="row" id="simulate">
+<div class="note"><h2>Simulation, Class 10</h2><p>For older classes: a working model the teacher drags live. Sliders have pen-sized handles.</p><ul><li>The bulb glows brighter as current rises</li><li>"Predict first" asks the class before revealing</li></ul><div class="q"><b>To decide</b>Should senior screens use look C even when the school picked A?</div></div>
+<div class="wall">
+<svg class="deco bg-night" aria-hidden="true"><rect width="100%" height="100%" fill="url(#stars)"/></svg>
+<div class="wb"><span class="lg"><svg aria-hidden="true" style="width:2.6cqw;height:2.6cqw"><use href="#mark"/></svg>MagicTouch</span><span class="crumb">Class 10 › Physics › Electricity › Ohm's law</span><span class="sp"></span><span class="chip">Simulate</span></div>
+<div class="wbody"><div class="sim">
+<div class="stage"><svg viewBox="0 0 400 300" aria-hidden="true">
+<g fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round" style="color:var(--ink2)"><path d="M70 80H330V220H70z"/></g>
+<rect x="44" y="130" width="52" height="40" rx="6" fill="var(--g)"/><path d="M58 128v44M82 140v20" stroke="var(--ink2)" stroke-width="6"/><text x="104" y="156" text-anchor="start" font-size="15" fill="var(--ink2)" font-family="Calibri,Carlito,sans-serif">Battery</text>
+<rect x="160" y="66" width="80" height="28" rx="4" fill="var(--g)"/><path d="M160 80l8-12 10 24 10-24 10 24 10-24 10 24 10-24 12 12" fill="none" stroke="#CC3054" stroke-width="4" stroke-linejoin="round"/><text x="200" y="56" text-anchor="middle" font-size="15" fill="var(--ink2)" font-family="Calibri,Carlito,sans-serif">Resistor</text>
+<circle id="glow" cx="330" cy="150" r="46" fill="#FBD064" opacity=".4"/><circle cx="330" cy="150" r="24" fill="var(--g)" stroke="var(--ink2)" stroke-width="4"/><path d="M318 150q6-12 12 0t12 0" stroke="#E96E24" stroke-width="3" fill="none"/>
+<circle cx="200" cy="220" r="24" fill="var(--g)" stroke="var(--ink2)" stroke-width="4"/><text x="200" y="227" text-anchor="middle" font-size="20" font-weight="700" fill="var(--ink2)" font-family="Calibri,Carlito,sans-serif">A</text>
+</svg></div>
+<div class="ctl">
+<div class="card"><div class="rd"><span class="big" id="cur">0.60</span><span>amperes of current</span></div><p>Current = Voltage ÷ Resistance</p></div>
+<div class="sl"><label for="v">Voltage <span id="vv">6 V</span></label><input type="range" id="v" min="1" max="12" value="6"></div>
+<div class="sl"><label for="r">Resistance <span id="rv">10 Ω</span></label><input type="range" id="r" min="1" max="20" value="10"></div>
+<div class="tools"><button class="tap">Predict first</button><button class="tap">Show graph</button></div>
+</div>
+</div></div>
+</div>
+</section>
+
+<section class="row" id="calibrate">
+<div class="note"><h2>Pen calibration</h2><p>The purchased app's 9-dot setup, restyled. Done once after the projector is mounted; every activity reuses it.</p><ul><li>Camera checks before starting: pen seen, light level</li><li>Tap the glowing dot to try it</li></ul><div class="q"><b>To decide</b>Should the teacher be able to start calibration from the phone remote?</div></div>
+<div class="wall">
+<div class="wb"><span class="lg"><svg aria-hidden="true" style="width:2.6cqw;height:2.6cqw"><use href="#mark"/></svg>MagicTouch</span><span class="crumb">Setup › Pen calibration</span><span class="sp"></span><span class="chip">Camera on</span></div>
+<div class="cal" id="cal"><div class="panel"><h3 id="calT">Touch dot 1 of 9</h3><p id="calP">Hold the pen tip on the glowing dot until it turns green.</p><div class="checks"><span class="chip"><i></i>Pen seen</span><span class="chip"><i></i>Light OK</span><span class="chip"><i></i>Wall in view</span></div></div></div>
+</div>
+</section>
+
+<section class="row" id="remote">
+<div class="note"><h2>Phone remote</h2><p>The teacher runs the wall from their own phone. Big controls work one-handed while standing beside the board.</p><ul><li>Lock the wall so children can't leave the activity</li><li>Today's plan plays in order; tap Next to move on</li></ul><div class="q"><b>To decide</b>Connect by school login (as in the purchased app) or by scanning a code shown on the wall?</div></div>
+<div class="pwrap"><div class="phone">
+<div class="ph"><small><i></i>Connected to Room 4B wall</small><h3>Remote</h3></div>
+<div class="now"><div class="thumb"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#plant"/></svg></div><span>Now on the wall</span><b id="nowT">Parts of a plant</b></div>
+<div class="pc"><button id="pPrev" aria-label="Previous"><svg aria-hidden="true"><use href="#prev"/></svg></button><button class="main" aria-label="Pause"><svg aria-hidden="true"><use href="#pause"/></svg></button><button id="pNext" aria-label="Next"><svg aria-hidden="true"><use href="#next"/></svg></button></div>
+<button class="lock" id="lock" aria-pressed="false">Lock the wall<span class="tg"></span></button>
+<div class="q2" id="q2"><b>Today's plan</b></div>
+<div class="tabs"><span>Remote</span><span>Library</span><span>Plans</span><span>Settings</span></div>
+</div></div>
+</section>
+
+<section class="row" id="teacher">
+<div class="note"><h2>Teacher view</h2><p>On the school PC or a laptop, always in look C. Plan lessons, check offline packs and devices.</p><ul><li>Drag activities into today's plan; it appears on the wall and the phone</li><li>Usage per class only, for renewal reports</li></ul><div class="q"><b>To decide</b>Does the principal need a separate school-wide view in v1?</div></div>
+<div class="lap">
+<div class="side"><span class="lg"><svg width="26" height="26" aria-hidden="true" style="width:2.4cqw;height:2.4cqw"><use href="#mark"/></svg>MagicTouch</span><span class="on">Today</span><span>Lesson plans</span><span>Library</span><span>Offline packs</span><span>Walls and pens</span><span>School settings</span></div>
+<div class="dash">
+<h3>Good morning, Ms Farah<small>Tuesday · Class 4B · CBSE · sample data</small></h3>
+<div class="pn"><b>Today's plan</b><div id="tplan" style="display:grid;gap:.6cqw"></div></div>
+<div class="pn"><b>Sessions this week, by class</b><div id="bars" style="display:grid;gap:.8cqw"></div><span class="priv">No student names or data are stored. Usage is counted per class.</span></div>
+<div class="pn"><b>Offline packs</b><span class="st"><i></i>Class 4 EVS · up to date</span><span class="st"><i></i>Nursery Numbers · up to date</span><span class="st"><i class="w"></i>Class 10 Physics · update ready</span></div>
+<div class="pn"><b>Walls and pens</b><span class="st"><i></i>Room 4B wall · online</span><span class="st"><i></i>Pen 1 · battery 80%</span><span class="st"><i class="w"></i>Room 2A wall · calibrate again</span></div>
+</div>
+</div>
+</section>
+
+<p class="foot">All pictures on these screens are drawn for MagicTouch from simple shapes; no stock images are used. Fonts: Cambria and Calibri where installed, otherwise the matching free Caladea and Carlito. Telugu and Hindi samples use Noto Sans. Names, numbers and plans are sample content.</p>
+</main>
+</div>
+
+<script>
+{
+const app=document.getElementById('app');
+const $=id=>document.getElementById(id);
+document.querySelectorAll('.dir').forEach(b=>b.addEventListener('click',()=>{app.dataset.dir=b.dataset.d;document.querySelectorAll('.dir').forEach(x=>x.setAttribute('aria-pressed',x===b))}));
+const go=id=>{const el=$(id);if(el)el.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'})};
+document.addEventListener('click',e=>{const t=e.target.closest('[data-go]');if(t)go(t.dataset.go)});
+
+$('nums').innerHTML=Array.from({length:10},(_,i)=>`<button class="tap${i===3?' on':''}" data-go="${i<5?'subjects':'simulate'}">${i+1}</button>`).join('');
+
+const subs=[['EVS','leaf'],['Maths','num'],['English','book'],['Telugu','letter'],['Hindi','abc']];
+$('rail').innerHTML=subs.map((s,i)=>`<button class="tap${i===0?' on':''}"><svg aria-hidden="true"><use href="#${s[1]}"/></svg>${s[0]}</button>`).join('');
+const chs=[['Parts of a plant','Chapter 3',['Explore','Label','Quiz'],1,'#d9f2e3','plant'],['Animals and their homes','Chapter 4',['Match','Sort'],1,'#FFE6A8','tiger'],['Water around us','Chapter 5',['Explore','Order'],0,'#d7ecf7','sun'],['Food we eat','Chapter 6',['Sort','Quiz'],0,'#ffd9cf','mango'],['Our helpers','Chapter 7',['Match'],0,'#efe0f0','peacock'],['Weather and seasons','Chapter 8',['Explore','Quiz'],0,'#fff1c4','kite']];
+$('chs').innerHTML=chs.map(c=>`<button class="tap ch" data-go="explore"><div class="art" style="background:${c[4]}"><svg viewBox="${c[5]==='plant'?'0 0 120 120':'0 0 48 48'}" aria-hidden="true"><use href="#${c[5]}"/></svg></div><div class="tx"><small>${c[1]}</small><b>${c[0]}</b><div class="tags">${c[2].map(t=>`<em>${t}</em>`).join('')}</div>${c[3]?'<small class="done">Done in class</small>':'<small>Not started</small>'}</div></button>`).join('');
+
+const parts=[{n:'Flower',te:'పువ్వు',hi:'फूल',t:'Makes seeds. Bees visit for nectar.',x:50,y:20},{n:'Leaf',te:'ఆకు',hi:'पत्ती',t:'Makes food for the plant using sunlight.',x:63,y:36},{n:'Stem',te:'కాండం',hi:'तना',t:'Holds the plant up and carries water.',x:50,y:56},{n:'Root',te:'వేరు',hi:'जड़',t:'Holds the soil and drinks water.',x:52,y:84}];
+const stage=$('stage');
+parts.forEach((p,i)=>{const b=document.createElement('button');b.className='hs tap';b.style.left=p.x+'%';b.style.top=p.y+'%';b.setAttribute('aria-label',p.n);b.addEventListener('click',()=>{b.classList.add('seen');$('pName').textContent=p.n;$('pTe').textContent=p.te;$('pHi').textContent=p.hi;$('pTxt').textContent=p.t;p.seen=1;drawProg()});stage.appendChild(b)});
+const drawProg=()=>{const n=parts.filter(p=>p.seen).length;$('prog').innerHTML=parts.map(p=>`<i class="${p.seen?'on':''}"></i>`).join('')+` ${n} of 4 found`};
+drawProg();
+let hid=false;$('hideL').addEventListener('click',()=>{hid=!hid;$('infocard').style.visibility=hid?'hidden':'visible'});
+
+const cols=['#CC3054','#F3A328','#E96E24','#631654','#2fa86a','#FBD064'];
+let s1=3;
+$('ans').addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b)return;if(b.dataset.a==='4'){s1++;$('sc1').textContent=s1;$('conf').innerHTML=Array.from({length:40},(_,i)=>`<i style="left:${(i*37)%100}%;background:${cols[i%6]};animation-delay:${(i%10)*.06}s"></i>`).join('');$('yay').classList.add('on')}else{b.classList.remove('no');void b.offsetWidth;b.classList.add('no')}});
+$('again').addEventListener('click',()=>$('yay').classList.remove('on'));
+
+const sim=()=>{const V=+$('v').value,R=+$('r').value,I=V/R;$('vv').textContent=V+' V';$('rv').textContent=R+' Ω';$('cur').textContent=I.toFixed(2);$('glow').setAttribute('opacity',Math.min(1,.08+V*I/12).toFixed(2));$('glow').setAttribute('r',(30+Math.min(40,V*I*3)).toFixed(0))};
+$('v').addEventListener('input',sim);$('r').addEventListener('input',sim);sim();
+
+const cal=$('cal');let step=0;const dots=[];
+for(let i=0;i<9;i++){const d=document.createElement('button');d.className='dot';d.style.left=(8+(i%3)*42)+'%';d.style.top=(10+Math.floor(i/3)*40)+'%';d.setAttribute('aria-label','Calibration dot '+(i+1));d.addEventListener('click',()=>{if(i!==step)return;d.classList.remove('now');d.classList.add('ok');step++;calUpd()});cal.appendChild(d);dots.push(d)}
+const calUpd=()=>{if(step<9){dots[step].classList.add('now');$('calT').textContent='Touch dot '+(step+1)+' of 9';$('calP').textContent='Hold the pen tip on the glowing dot until it turns green.'}else{$('calT').textContent='Calibration saved';$('calP').textContent='All activities on this wall will use it. Tap any dot to start again.';step=-1}};
+cal.addEventListener('click',e=>{if(step===-1&&e.target.classList.contains('dot')){step=0;dots.forEach(d=>d.classList.remove('ok'));calUpd()}});
+calUpd();
+
+const plan=['Parts of a plant','Label the plant quiz','Animals and their homes','Counting song, Nursery'];
+let cur=0;
+const drawPlan=()=>{$('nowT').textContent=plan[cur];$('q2').innerHTML='<b>Today\'s plan</b>'+plan.map((p,i)=>`<div class="${i===cur?'cur':''}">${i+1}. ${p}</div>`).join('');$('tplan').innerHTML=plan.map((p,i)=>`<div class="li"><span class="grip"></span>${p}<em>${i===cur?'On the wall':['Explore','Quiz','Match','Song'][i]}</em></div>`).join('')};
+$('pNext').addEventListener('click',()=>{cur=(cur+1)%plan.length;drawPlan()});
+$('pPrev').addEventListener('click',()=>{cur=(cur+plan.length-1)%plan.length;drawPlan()});
+$('lock').addEventListener('click',e=>{const b=e.currentTarget;b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true')});
+drawPlan();
+
+const use=[['4B',9],['4A',7],['3A',6],['UKG',11],['LKG',8],['10C',4]];
+$('bars').innerHTML=use.map(u=>`<div class="bar"><span>${u[0]}</span><div><i style="width:${u[1]/11*100}%"></i></div><span>${u[1]}</span></div>`).join('');
+
+const ring=$('ring');let tm=null,tgt=null;
+const stop=()=>{clearTimeout(tm);tm=null;tgt=null;ring.classList.remove('go');ring.style.display='none'};
+document.addEventListener('pointermove',e=>{if(!$('dwell').checked)return;const t=e.target.closest('.wall button,.phone button,.wall input');if(t!==tgt){stop();if(t&&t.tagName==='BUTTON'){tgt=t;ring.style.display='block';ring.style.left=e.clientX+'px';ring.style.top=e.clientY+'px';requestAnimationFrame(()=>ring.classList.add('go'));tm=setTimeout(()=>{const x=tgt;stop();x&&x.click()},700)}}});
+document.addEventListener('scroll',stop,{passive:true});
+}
+</script>
+</body>
+</html>
