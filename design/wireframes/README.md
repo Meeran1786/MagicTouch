@@ -1,7 +1,7 @@
 # MagicTouch wireframes (for discussion)
 
 `index.html` is a clickable wireframe of the new look and feel. Open it in Chrome; no server needed.
-It has three switchable visual directions (A Mela, B Night sky, C Studio) and eight screens:
+It has three switchable visual directions (A Mela, B Night sky, C Studio; **C Studio was chosen on 2026-11-24** and opens by default) and eight screens:
 wall home, class and subject picker, Explore activity, preschool quiz, Class 10 simulation,
 9-dot pen calibration, phone remote and teacher view. Tick "Try it like the IR pen" to tap by
 holding the pointer still for 0.7 s.
