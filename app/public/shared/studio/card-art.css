@@ -1,0 +1,54 @@
+/* Moving card pictures (card-art.js). Only transform and opacity animate, so a
+   classroom PC keeps up; everything pauses while an activity is open. */
+.mt-scene { position: relative; overflow: hidden; background: var(--bg, #FFF1D6); isolation: isolate; }
+.mt-scene .fx { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; }
+.mt-scene .fx [class^="fx-"] { transform-box: fill-box; transform-origin: center; animation-delay: calc(var(--d, 0s) + var(--i, 0) * -1.3s); }
+.mt-scene .fx [style*="transform-origin"] { transform-box: view-box; }
+.mt-scene .hero { position: relative; z-index: 1; display: block; width: var(--hero, 6.2vw); height: var(--hero, 6.2vw); filter: drop-shadow(0 .45vw .45vw #3d0e3730); animation-delay: var(--d, 0s); }
+.mt-scene .hero img { width: 100%; height: 100%; object-fit: contain; display: block; }
+
+/* picture motion, by kind of activity */
+.m-bob    { animation: mt-bob 3.2s ease-in-out infinite; }
+.m-pop    { animation: mt-pop 2.4s cubic-bezier(.3,1.6,.5,1) infinite; }
+.m-sway   { animation: mt-sway 3.6s ease-in-out infinite; transform-origin: 50% 90%; }
+.m-tilt   { animation: mt-tilt 4s ease-in-out infinite; }
+.m-turn   { animation: mt-turn 6s linear infinite; }
+.m-wiggle { animation: mt-wiggle 2.8s ease-in-out infinite; }
+.m-bounce { animation: mt-bounce 1.9s cubic-bezier(.5,0,.5,1) infinite; }
+@keyframes mt-bob    { 0%,100% { transform: translateY(0) rotate(0) } 50% { transform: translateY(-7%) rotate(-4deg) } }
+@keyframes mt-pop    { 0%,70%,100% { transform: scale(1) } 80% { transform: scale(1.14) rotate(-3deg) } 90% { transform: scale(.97) } }
+@keyframes mt-sway   { 0%,100% { transform: rotate(-6deg) } 50% { transform: rotate(6deg) } }
+@keyframes mt-tilt   { 0%,100% { transform: rotate(0) translateX(0) } 25% { transform: rotate(-7deg) translateX(-4%) } 75% { transform: rotate(7deg) translateX(4%) } }
+@keyframes mt-turn   { from { transform: perspective(400px) rotateY(0) } to { transform: perspective(400px) rotateY(360deg) } }
+@keyframes mt-wiggle { 0%,60%,100% { transform: rotate(0) } 66% { transform: rotate(-9deg) } 74% { transform: rotate(8deg) } 82% { transform: rotate(-5deg) } 90% { transform: rotate(3deg) } }
+@keyframes mt-bounce { 0%,100% { transform: translateY(0) scale(1, 1) } 45% { transform: translateY(-12%) scale(.98, 1.02) } 90% { transform: translateY(0) scale(1.05, .95) } }
+
+/* backdrops */
+.fx-rise     { animation: fx-rise 6s ease-in-out infinite; }
+.fx-pulse    { animation: fx-pulse 3s ease-in-out infinite; }
+.fx-spin     { animation: fx-spin 14s linear infinite; }
+.fx-spin-slow{ animation: fx-spin-slow 9s ease-in-out infinite alternate; }
+.fx-sway     { animation: fx-sway 3s ease-in-out infinite; transform-origin: 50% 100% !important; }
+.fx-fly      { animation: fx-fly 9s ease-in-out infinite; }
+.fx-twinkle  { animation: fx-twinkle 2.6s ease-in-out infinite; }
+.fx-drift    { animation: fx-drift 16s linear infinite; }
+.fx-drift2   { animation: fx-drift 22s linear infinite reverse; }
+.fx-kite     { animation: fx-kite 4s ease-in-out infinite; }
+.fx-orbit    { animation: fx-spin 7s linear infinite; }
+.fx-orbit2   { animation: fx-spin 11s linear infinite reverse; }
+.fx-bubble   { animation: fx-bubble 4.5s ease-in infinite; }
+.fx-grid     { stroke: #63165414; stroke-width: 1; }
+@keyframes fx-rise    { 0%,100% { transform: translateY(0) rotate(-6deg) } 50% { transform: translateY(-14px) rotate(6deg) } }
+@keyframes fx-pulse   { 0%,100% { transform: scale(.8); opacity: .65 } 50% { transform: scale(1.15); opacity: 1 } }
+@keyframes fx-spin    { to { transform: rotate(360deg) } }
+@keyframes fx-spin-slow { from { transform: rotate(-12deg) } to { transform: rotate(12deg) } }
+@keyframes fx-sway    { 0%,100% { transform: rotate(-8deg) } 50% { transform: rotate(8deg) } }
+@keyframes fx-fly     { 0% { transform: translate(-20px, 60px) } 25% { transform: translate(50px, 30px) rotate(10deg) } 50% { transform: translate(110px, 52px) } 75% { transform: translate(160px, 24px) rotate(-10deg) } 100% { transform: translate(230px, 50px) } }
+@keyframes fx-twinkle { 0%,100% { opacity: .2; transform: scale(.6) rotate(0) } 50% { opacity: 1; transform: scale(1.2) rotate(45deg) } }
+@keyframes fx-drift   { from { transform: translateX(-60px) } to { transform: translateX(220px) } }
+@keyframes fx-kite    { 0%,100% { transform: rotate(-10deg) translateY(0) } 50% { transform: rotate(10deg) translateY(-6px) } }
+@keyframes fx-bubble  { 0% { transform: translateY(0); opacity: 0 } 15% { opacity: .7 } 100% { transform: translateY(-90px); opacity: 0 } }
+
+/* pause when not on screen */
+.app-open .mt-scene *, .app-open .mt-scene { animation-play-state: paused !important; }
+@media (prefers-reduced-motion: reduce) { .mt-scene *, .mt-scene { animation: none !important; } }

@@ -53,7 +53,6 @@
     itemsFor(key).forEach(i => { if (!seen.has(i.subject)) { seen.add(i.subject); order.push(i.subject); } });
     return order;
   }
-  const ART_BG = ["#FFF1D6", "#FBE4EA", "#EFE0F0", "#E3F4EA", "#FFE6A8", "#DCEBF7"];
 
   // ══════════════════════════ SIGN IN ═════════════════════════════════
   let isSignup = false;
@@ -137,9 +136,9 @@
       const levelBtn = (l, inner, extra = "") => `<button type="button" class="tap ${extra}" data-level="${l.key}" ${count(l.key) ? "" : 'aria-disabled="true"'}>${inner}</button>`;
       body.innerHTML = `<div class="home">
         <section class="cont">
-          ${last ? `<small>Continue where you stopped</small><h2>${esc(last.title)}</h2><small>${esc(levelLabel(last.level))} · ${esc(CAT.subjectLabel(last.subject))} · ${esc(last.kind)}</small>`
+          ${last ? `<div class="cont-art">${MTCardArt.html(last)}</div><small>Continue where you stopped</small><h2>${esc(last.title)}</h2><small>${esc(levelLabel(last.level))} · ${esc(CAT.subjectLabel(last.subject))} · ${esc(last.kind)}</small>`
                  : `<small>Welcome to MagicTouch</small><h2>Pick a class to begin</h2><small>Your last activities will show here.</small>`}
-          <div class="recent">${rec.length > 1 ? "<b>Recently used</b>" : ""}${rec.slice(1, 4).map(id => `<button type="button" data-open="${esc(id)}"><span>${CAT.byId[id].icon}</span>${esc(CAT.byId[id].title)}</button>`).join("")}</div>
+          <div class="recent">${rec.length > 1 ? "<b>Recently used</b>" : ""}${rec.slice(1, 4).map(id => `<button type="button" data-open="${esc(id)}"><span>${MTCardArt.img(CAT.byId[id].icon)}</span>${esc(CAT.byId[id].title)}</button>`).join("")}</div>
           ${last ? `<button type="button" class="go" data-open="${esc(last.id)}">Continue</button>` : ""}
         </section>
         <div>
@@ -162,7 +161,7 @@
       body.innerHTML = `<div class="subj">
         <nav class="rail" aria-label="Subjects">${subs.map(s => `<button type="button" class="tap${s === subject ? " on" : ""}" data-subject="${esc(s)}">${svg(CAT.subjectIcon(s))}${esc(CAT.subjectLabel(s))}<em>${itemsFor(key).filter(i => i.subject === s).length}</em></button>`).join("")}</nav>
         <div class="cards">${items.map((i, n) => `<button type="button" class="tap card" data-open="${esc(i.id)}">
-            <div class="art" style="background:${ART_BG[n % ART_BG.length]}"><span style="--d:${(n % 7) * -.45}s">${i.icon}</span></div>
+            ${MTCardArt.html(i)}
             <div class="tx"><b>${esc(i.title)}</b><small>${esc(i.subtitle)}</small><div class="tags"><em>${esc(i.kind)}</em>${i.draft ? '<em class="draft">Draft</em>' : ""}</div></div>
           </button>`).join("")}</div></div>`;
       route = { screen: "level", level: key, subject };
@@ -185,6 +184,7 @@
 
     // ── activities ──
     function closeApp() {
+      document.body.classList.remove("app-open");
       frame.classList.add("hidden"); frame.removeAttribute("src");
       home.classList.add("hidden"); $("lockBadge").classList.add("hidden");
       currentApp = "menu";
@@ -205,6 +205,7 @@
       remember(id);
       frame.src = item.path;
       frame.classList.remove("hidden");
+      document.body.classList.add("app-open");
       home.classList.toggle("hidden", locked); $("lockBadge").classList.toggle("hidden", !locked);
       crumb([{ label: "Home", go: { screen: "home" } }, { label: levelLabel(item.level), go: { screen: "level", level: item.level, subject: item.subject } }, { label: item.title }]);
       route = { screen: "level", level: item.level, subject: item.subject };
@@ -302,7 +303,7 @@
     function drawList() {
       if (!level) { $("rList").innerHTML = '<p class="r-sub">No activities in this school\'s licence yet.</p>'; return; }
       $("rList").innerHTML = subjectsOf(level).map(s => `<p class="r-sub">${esc(CAT.subjectLabel(s))}</p>` +
-        itemsFor(level).filter(i => i.subject === s).map(i => `<button type="button" class="r-item${i.id === state.app ? " cur" : ""}" data-open="${esc(i.id)}"><span class="e">${i.icon}</span><span><b>${esc(i.title)}</b><small>${esc(i.kind)}${i.draft ? " · Draft" : ""}</small></span></button>`).join("")).join("");
+        itemsFor(level).filter(i => i.subject === s).map(i => `<button type="button" class="r-item${i.id === state.app ? " cur" : ""}" data-open="${esc(i.id)}"><span class="e">${MTCardArt.img(i.icon)}</span><span><b>${esc(i.title)}</b><small>${esc(i.kind)}${i.draft ? " · Draft" : ""}</small></span></button>`).join("")).join("");
     }
     $("rLevels").addEventListener("click", e => { const b = e.target.closest("[data-level]"); if (b) { level = b.dataset.level; drawLevels(); drawList(); } });
     $("rList").addEventListener("click", async e => {

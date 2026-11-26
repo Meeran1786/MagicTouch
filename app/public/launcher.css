@@ -96,10 +96,9 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--amber); out
 .rail .tap em { margin-left: auto; font-style: normal; font-weight: 400; font-size: max(11px, 1vw); opacity: .75; }
 .rail svg { width: 2.5vw; height: 2.5vw; flex: none; }
 .rail .tap.on svg { filter: brightness(0) invert(1); }
-.cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.4vw; align-content: start; overflow-y: auto; padding: .4vw .4vw 2vw; }
+.cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: max-content; gap: 1.4vw; align-content: start; overflow-y: auto; padding: .4vw .4vw 2vw; }
 .card { padding: 0; overflow: hidden; text-align: left; display: flex; flex-direction: column; position: relative; }
-.card .art { height: 8.4vw; display: grid; place-items: center; font-size: 5vw; line-height: 1; }
-.card .art span { display: inline-block; animation: bob 3.2s ease-in-out infinite; animation-delay: var(--d, 0s); filter: drop-shadow(0 .4vw .5vw #3d0e3722); }
+.card .art { flex: none; height: 9.4vw; display: grid; place-items: center; font-size: 5vw; line-height: 1; }
 @keyframes bob { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-.5vw) rotate(-4deg); } }
 .card .tx { padding: .9vw 1.1vw 1.1vw; display: grid; gap: .4vw; }
 .card b { font: 700 max(15px, 1.5vw)/1.15 var(--head); }
@@ -176,3 +175,7 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--amber); out
 .set-row { display: flex; gap: 10px; flex-wrap: wrap; }
 a.btn { text-decoration: none; }
 .r-school { display: block; margin: 16px 16px 0; padding: 14px 16px; border-radius: 14px; border: 1px solid #ffffff33; color: #FBD064; font-weight: 700; text-decoration: none; }
+.recent button span img { width: max(18px, 1.6vw); height: max(18px, 1.6vw); display: block; }
+.r-item .e img { width: 30px; height: 30px; display: block; }
+.cont-art { position: relative; z-index: 1; }
+.cont-art .art { --hero: 5.4vw; height: 8vw; border-radius: var(--r); display: grid; place-items: center; }
