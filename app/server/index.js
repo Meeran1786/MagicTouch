@@ -20,7 +20,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { createApi, DEMO_LICENCE } from "./api.js";
+import { createApi, DEMO_LICENCE, USAGE, dayKey } from "./api.js";
 import { createFileStore } from "./store-file.js";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
@@ -55,7 +55,7 @@ export function licenceLoader(file) {
 }
 
 export function createServer({ store, publicDir = path.join(APP_DIR, "public"), engineDir = path.resolve(APP_DIR, "../webcam"), signup = "first", licence = DEMO_LICENCE, log = console } = {}) {
-  const api = createApi({ store, allowSignup: signup, licence, log });
+  const api = createApi({ store, allowSignup: signup, licence, timeZone: process.env.MT_TZ || "Asia/Kolkata", log });
   const mounts = [["/engine/", engineDir], ["/", publicDir]];
 
   function resolveFile(urlPath) {
@@ -93,7 +93,7 @@ export function createServer({ store, publicDir = path.join(APP_DIR, "public"), 
     if (url.pathname.startsWith("/api/")) {
       const body = req.method === "POST" ? await readJson(req) : {};
       if (body === null) return send(res, 413, { "Content-Type": "application/json" }, JSON.stringify({ error: "Request too large." }));
-      const out = await api.handle({ method: req.method, path: url.pathname, headers: req.headers, body, ip: req.socket.remoteAddress || "?" });
+      const out = await api.handle({ method: req.method, path: url.pathname, query: Object.fromEntries(url.searchParams), headers: req.headers, body, ip: req.socket.remoteAddress || "?" });
       return send(res, out.status, { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" }, JSON.stringify(out.body));
     }
     if (req.method !== "GET" && req.method !== "HEAD") return send(res, 405, { "Content-Type": "text/plain" }, "Method not allowed");
@@ -147,6 +147,9 @@ async function main() {
     if (host === "0.0.0.0") lanAddresses().forEach(a => console.log(`  Phone remote: http://${a}:${port}/  (same Wi-Fi)`));
     console.log(`  Logins kept in: ${store.kind === "file" ? path.resolve(process.env.MT_DATA_DIR || path.join(APP_DIR, "data")) : "Postgres"}\n  Press Ctrl+C to stop.`);
   });
+  // Tidy up once an hour: expired sign-ins, and usage totals older than USAGE.keepDays.
+  const tidy = () => store.purgeExpired(Date.now(), dayKey(Date.now() - USAGE.keepDays * 864e5)).catch(e => console.error("[tidy]", e.message));
+  tidy(); setInterval(tidy, 60 * 60 * 1000).unref();
   const stop = async () => { server.close(); await store.flush(); process.exit(0); };
   process.on("SIGINT", stop); process.on("SIGTERM", stop);
 }

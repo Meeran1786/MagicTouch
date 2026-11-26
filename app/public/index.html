@@ -44,7 +44,7 @@
       <button type="submit" id="authSubmit" class="btn btn-primary">Sign in</button>
     </form>
     <p id="authError" class="auth-error" role="alert"></p>
-    <p class="auth-toggle hidden" id="authToggleRow"><button type="button" id="authToggleBtn" class="link-btn">Set up this wall's first login</button></p>
+    <p class="auth-toggle hidden" id="authToggleRow"><button type="button" id="authToggleBtn" class="link-btn">Set up the school's first login</button></p>
     <p class="auth-foot">Maqsusi EduTech · No student names or data are stored.</p>
   </main>
 </div>
@@ -81,7 +81,10 @@
         <button type="button" class="toggle" id="musicToggle" aria-pressed="true">Soft background music<span class="tg"></span></button>
         <button type="button" class="toggle" id="sfxToggle" aria-pressed="true">Sound effects<span class="tg"></span></button>
       </div>
-      <button type="button" class="btn btn-line" id="calibrateBtn"><svg aria-hidden="true"><use href="#i-target"/></svg>Calibrate the pen</button>
+      <div class="set-row">
+        <button type="button" class="btn btn-line" id="calibrateBtn"><svg aria-hidden="true"><use href="#i-target"/></svg>Calibrate the pen</button>
+        <a class="btn btn-line hidden" id="schoolViewLink" href="/school/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-grid"/></svg>School view</a>
+      </div>
       <p class="set-meta">Signed in as <b id="wallUsername"></b> · <span id="licenceLine"></span></p>
       <div class="sheet-actions"><button type="button" class="link-btn" id="wallLogoutBtn">Sign out</button><button type="button" class="btn btn-primary" id="settingsClose">Done</button></div>
     </div>
@@ -111,6 +114,7 @@
     <nav class="r-levels" id="rLevels" aria-label="Classes"></nav>
     <div class="r-list" id="rList"></div>
     <p id="remoteStatus" class="r-status" role="status"></p>
+    <a class="r-school hidden" id="remoteSchoolLink" href="/school/">School view: usage of every wall</a>
     <p class="r-foot">Signed in as <b id="remoteUsername"></b> · <button type="button" class="link-btn" id="remoteLogoutBtn">Sign out</button></p>
   </div>
   <iframe id="remoteAppFrame" class="app-frame hidden" allow="camera; autoplay" title="Activity on this phone"></iframe>

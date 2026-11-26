@@ -173,3 +173,6 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--amber); out
 .r-foot .link-btn { color: #FBD064; }
 
 @media (prefers-reduced-motion: reduce) { .card .art span, .tap { animation: none !important; transition: none !important; } }
+.set-row { display: flex; gap: 10px; flex-wrap: wrap; }
+a.btn { text-decoration: none; }
+.r-school { display: block; margin: 16px 16px 0; padding: 14px 16px; border-radius: 14px; border: 1px solid #ffffff33; color: #FBD064; font-weight: 700; text-decoration: none; }

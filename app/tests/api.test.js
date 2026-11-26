@@ -13,8 +13,10 @@ function setup(opts = {}) {
   const clock = { now: () => t, advance: ms => { t += ms; } };
   const store = createFileStore(path.join(dir, "store.json"));
   const api = createApi({ store, now: clock.now, log: { error() {} }, ...opts });
-  const call = (method, p, body, token, ip = "1.1.1.1") =>
-    api.handle({ method, path: p, body, ip, headers: token ? { authorization: "Bearer " + token } : {} });
+  const call = (method, p, body, token, ip = "1.1.1.1", extra = {}) => {
+    const [pathname, qs] = p.split("?");
+    return api.handle({ method, path: pathname, query: Object.fromEntries(new URLSearchParams(qs || "")), body, ip, headers: { ...(token ? { authorization: "Bearer " + token } : {}), ...extra } });
+  };
   return { dir, store, api, call, clock };
 }
 
@@ -119,3 +121,100 @@ test("server serves files, blocks path traversal, sends security headers", async
     assert.equal((await api.json()).signup, true);
   } finally { srv.close(); }
 });
+
+// ── School view ──
+async function schoolSetup() {
+  const s = setup();
+  const admin = (await s.call("POST", "/api/auth/signup", { username: "office", password: "principal1" })).body;
+  return { ...s, admin };
+}
+
+test("first login is the school's; it adds classroom logins, a wall can't see the School view", async () => {
+  const { call, admin } = await schoolSetup();
+  assert.equal(admin.role, "school");
+  assert.equal((await call("GET", "/api/auth/me", {}, admin.token)).body.role, "school");
+  const add = await call("POST", "/api/school/accounts", { username: "room-4b", label: "Class 4 B", password: "classroom1" }, admin.token);
+  assert.equal(add.status, 200);
+  assert.equal(add.body.account.role, "wall");
+  assert.equal((await call("POST", "/api/school/accounts", { username: "room-4b", password: "classroom1" }, admin.token)).status, 409);
+  assert.equal((await call("POST", "/api/school/accounts", { username: "x", password: "classroom1" }, admin.token)).status, 400);
+  const wall = (await call("POST", "/api/auth/login", { username: "room-4b", password: "classroom1" })).body;
+  assert.equal(wall.role, "wall");
+  assert.equal((await call("GET", "/api/school/usage", {}, wall.token)).status, 403);
+  assert.equal((await call("GET", "/api/school/accounts", {}, wall.token)).status, 403);
+  assert.equal((await call("POST", "/api/school/accounts", { username: "room-5", password: "classroom1" }, wall.token)).status, 403);
+  const list = (await call("GET", "/api/school/accounts", {}, admin.token)).body.accounts;
+  assert.deepEqual(list.map(a => [a.username, a.role, a.label]), [["office", "school", "School office"], ["room-4b", "wall", "Class 4 B"]]);
+  assert.ok(!JSON.stringify(list).includes("hash") && !JSON.stringify(list).includes("salt"));
+});
+
+test("turning a login off or resetting its password signs it out", async () => {
+  const { call, admin } = await schoolSetup();
+  const id = (await call("POST", "/api/school/accounts", { username: "room-4b", password: "classroom1" }, admin.token)).body.account.id;
+  const wall = (await call("POST", "/api/auth/login", { username: "room-4b", password: "classroom1" })).body.token;
+  await call("POST", "/api/school/accounts/update", { id, disabled: true }, admin.token);
+  assert.equal((await call("GET", "/api/state", {}, wall)).status, 401);
+  assert.equal((await call("POST", "/api/auth/login", { username: "room-4b", password: "classroom1" })).status, 401);
+  await call("POST", "/api/school/accounts/update", { id, disabled: false, password: "newpass99" }, admin.token);
+  assert.equal((await call("POST", "/api/auth/login", { username: "room-4b", password: "classroom1" })).status, 401);
+  assert.equal((await call("POST", "/api/auth/login", { username: "room-4b", password: "newpass99" })).status, 200);
+  const me = (await call("GET", "/api/auth/me", {}, admin.token)).body;
+  const adminId = (await call("GET", "/api/school/accounts", {}, admin.token)).body.me;
+  assert.equal(me.role, "school");
+  assert.equal((await call("POST", "/api/school/accounts/update", { id: adminId, disabled: true }, admin.token)).status, 400, "can't lock yourself out");
+  assert.equal((await call("POST", "/api/school/accounts/update", { id: adminId, role: "wall" }, admin.token)).status, 400);
+});
+
+test("usage: time per wall and activity, capped, cut at the last poll, nothing per child", async () => {
+  const { call, clock, admin, store, dir } = await schoolSetup();
+  await call("POST", "/api/school/accounts", { username: "room-4b", label: "Class 4 B", password: "classroom1" }, admin.token);
+  const wall = (await call("POST", "/api/auth/login", { username: "room-4b", password: "classroom1" })).body.token;
+  const poll = () => api_poll(call, wall);
+  await call("POST", "/api/state", { app: "engine:c4-maths" }, wall);
+  for (let i = 0; i < 10; i++) { clock.advance(60_000); await poll(); }      // 10 minutes, wall online
+  await call("POST", "/api/state", { locked: true }, wall);                    // locking doesn't restart the clock
+  clock.advance(5 * 60_000); await poll();                                      // 15 minutes
+  await call("POST", "/api/state", { app: "alphabets" }, wall);                // switch: maths closes at 15 min
+  await poll();
+  clock.advance(3 * 60 * 60_000);                                               // wall switched off for 3 hours
+  await call("POST", "/api/state", { app: "menu" }, wall);                     // alphabets: cut at last poll + grace
+  await call("POST", "/api/state", { app: "menu" }, wall);
+  const u = await call("GET", "/api/school/usage?days=7", {}, admin.token);
+  const r = (await call("GET", "/api/school/usage", {}, admin.token)).body;
+  assert.equal(u.status, 200);
+  const maths = r.rows.find(x => x.app === "engine:c4-maths"), abc = r.rows.find(x => x.app === "alphabets");
+  assert.equal(maths.sessions, 1);
+  assert.equal(maths.seconds, 15 * 60);
+  assert.equal(abc.seconds, 2 * 60, "time after the wall stopped polling is not counted");
+  assert.equal(r.rows.length, 2, "menu is not counted");
+  assert.equal(r.walls.find(w => w.username === "room-4b").label, "Class 4 B");
+  await store.flush();
+  const raw = JSON.parse(fs.readFileSync(path.join(dir, "store.json"), "utf8"));
+  assert.deepEqual(Object.keys(raw.usage).length, 2);
+});
+
+test("usage: an activity still on the wall shows live, and the period filter works", async () => {
+  const { call, clock, admin } = await schoolSetup();
+  const wall = admin.token; // a one-room school drives its wall with the school login
+  await call("POST", "/api/state", { app: "engine:c10-science-ohms-law" }, wall);
+  clock.advance(90_000); await api_poll(call, wall);
+  const r = (await call("GET", "/api/school/usage?days=1", {}, admin.token)).body;
+  const office = r.walls.find(w => w.username === "office");
+  assert.equal(office.showing, "engine:c10-science-ohms-law");
+  assert.equal(office.online, true);
+  assert.equal(r.rows[0].seconds, 90);
+  clock.advance(10 * 864e5);
+  const later = (await call("GET", "/api/school/usage?days=7", {}, admin.token)).body;
+  assert.equal(later.rows.length, 0, "older than the period and no longer live");
+});
+
+test("version 1 data files migrate: the first login becomes the school's", async () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "mt-"));
+  fs.writeFileSync(path.join(dir, "store.json"), JSON.stringify({ version: 1, nextUserId: 3, users: [{ id: 1, username: "room-4b", hash: "x", salt: "y" }, { id: 2, username: "room-5", hash: "x", salt: "y" }], sessions: [] }));
+  const store = createFileStore(path.join(dir, "store.json"));
+  assert.deepEqual((await store.listUsers()).map(u => u.role), ["school", "wall"]);
+});
+
+function api_poll(call, token) {
+  return call("GET", "/api/state", {}, token, "1.1.1.1", { "x-mt-client": "wall" });
+}

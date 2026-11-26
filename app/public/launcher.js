@@ -15,17 +15,20 @@
   const token = () => localStorage.getItem(TOKEN_KEY);
   function setSession(t, u) { localStorage.setItem(TOKEN_KEY, t); localStorage.setItem(USERNAME_KEY, u); }
   function clearSession() { localStorage.removeItem(TOKEN_KEY); localStorage.removeItem(USERNAME_KEY); }
-  async function api(method, path, body) {
+  let ROLE = "wall";
+  async function api(method, path, body, extra = {}) {
     const r = await fetch(path, {
       method, cache: "no-store",
-      headers: { "Content-Type": "application/json", ...(token() ? { Authorization: "Bearer " + token() } : {}) },
+      headers: { "Content-Type": "application/json", ...(token() ? { Authorization: "Bearer " + token() } : {}), ...extra },
       body: body ? JSON.stringify(body) : undefined,
     });
     const data = await r.json().catch(() => ({}));
     if (!r.ok) { const e = new Error(data.error || "The wall server did not answer."); e.status = r.status; throw e; }
     return data;
   }
-  const getState = () => api("GET", "/api/state");
+  // The wall says it is the wall, so the School view can tell which walls are switched on
+  // and stop counting time when a wall goes off. The phone polls without it.
+  const getState = () => api("GET", "/api/state", undefined, mode === "wall" ? { "X-MT-Client": "wall" } : {});
   const setState = patch => api("POST", "/api/state", patch);
 
   function detectMode() {
@@ -66,10 +69,10 @@
     isSignup = on;
     $("authTitle").textContent = on ? "Set up this wall" : "Sign in to this wall";
     $("authSub").textContent = on
-      ? "Create the school login for this classroom, for example room-4b. Use at least 8 characters for the password."
+      ? "Create the school's first login, for example office. It opens the School view, where you can add a login for every classroom wall. Use at least 8 characters for the password."
       : "Use the school login for this classroom. Sign in with the same login on your phone to control the wall.";
     $("authSubmit").textContent = on ? "Create login" : "Sign in";
-    $("authToggleBtn").textContent = on ? "I already have a login" : "Set up this wall's first login";
+    $("authToggleBtn").textContent = on ? "I already have a login" : "Set up the school's first login";
     $("authPassword").autocomplete = on ? "new-password" : "current-password";
     $("authError").textContent = "";
   }
@@ -81,6 +84,7 @@
     try {
       const d = await api("POST", isSignup ? "/api/auth/signup" : "/api/auth/login", { username: $("authUsername").value.trim(), password: $("authPassword").value });
       setSession(d.token, d.username);
+      ROLE = d.role || "wall";
       $("authPassword").value = "";
       await startApp();
     } catch (err) { $("authError").textContent = err.message; }
@@ -93,6 +97,7 @@
     showView("wallView");
     const body = $("wallBody"), frame = $("appFrame"), home = $("homeBtn");
     $("wallUsername").textContent = localStorage.getItem(USERNAME_KEY) || "";
+    $("schoolViewLink").classList.toggle("hidden", ROLE !== "school");
     $("schoolChip").textContent = LICENCE.demo ? "Demo licence" : LICENCE.school;
     $("licenceLine").textContent = LICENCE.demo ? "Demo licence: every class is shown" : `${LICENCE.school} · ${levelsShown().length} classes licensed${LICENCE.validUntil ? " until " + LICENCE.validUntil : ""}`;
 
@@ -281,6 +286,7 @@
   function startRemote() {
     showView("remoteView");
     $("remoteUsername").textContent = localStorage.getItem(USERNAME_KEY) || "";
+    $("remoteSchoolLink").classList.toggle("hidden", ROLE !== "school");
     $("remoteLogoutBtn").addEventListener("click", logout);
     const frame = $("remoteAppFrame"), back = $("remoteHomeBtn"), status = $("remoteStatus");
     let playMode = localStorage.getItem(PLAY_MODE_KEY) === "here" ? "here" : "wall";
@@ -342,7 +348,7 @@
   }
   (async function boot() {
     if (!token()) return showAuth();
-    try { await api("GET", "/api/auth/me"); }
+    try { ROLE = (await api("GET", "/api/auth/me")).role || "wall"; }
     catch (e) { if (e.status === 401) { clearSession(); return showAuth(); } }
     try { await startApp(); } catch (e) { if (e.status === 401) { clearSession(); showAuth(); } else { showAuth(); $("authError").textContent = e.message; } }
   })();
