@@ -9,13 +9,14 @@ import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
+import { MASCOTS } from "../server/api.js";
 
 const APP = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const OUT = path.join(APP, "public/vendor/twemoji/svg");
 const ctx = { window: {}, console };
 vm.createContext(ctx);
 for (const f of ["public/apps.js", "public/catalog.js"]) vm.runInContext(fs.readFileSync(path.join(APP, f), "utf8"), ctx);
-const icons = new Set([...(ctx.window.WALL_APPS || []).map(a => a.icon), ...ctx.window.MTCatalog.ICONS]);
+const icons = new Set([...(ctx.window.WALL_APPS || []).map(a => a.icon), ...ctx.window.MTCatalog.ICONS, ...MASCOTS]);
 // Engine activities may name their own picture.
 const actDir = path.resolve(APP, "../webcam/poc/activities");
 for (const f of fs.readdirSync(actDir).filter(f => f.endsWith(".json") && f !== "index.json")) {

@@ -79,10 +79,12 @@ export function createServer({ store, publicDir = path.join(APP_DIR, "public"), 
     res.end(body);
   }
 
-  async function readJson(req) {
+  // Small JSON bodies only; the school's team settings may carry two or three small mascot pictures.
+  const bodyLimit = p => p === "/api/school/settings" ? 640 * 1024 : 16 * 1024;
+  async function readJson(req, limit) {
     return new Promise(resolve => {
       let size = 0; const chunks = [];
-      req.on("data", c => { size += c.length; if (size > 16 * 1024) { req.destroy(); resolve(null); } else chunks.push(c); });
+      req.on("data", c => { size += c.length; if (size > limit) { req.destroy(); resolve(null); } else chunks.push(c); });
       req.on("end", () => { try { resolve(chunks.length ? JSON.parse(Buffer.concat(chunks).toString("utf8")) : {}); } catch { resolve({}); } });
       req.on("error", () => resolve(null));
     });
@@ -91,7 +93,7 @@ export function createServer({ store, publicDir = path.join(APP_DIR, "public"), 
   return http.createServer(async (req, res) => {
     const url = new URL(req.url, "http://wall.local");
     if (url.pathname.startsWith("/api/")) {
-      const body = req.method === "POST" ? await readJson(req) : {};
+      const body = req.method === "POST" ? await readJson(req, bodyLimit(url.pathname)) : {};
       if (body === null) return send(res, 413, { "Content-Type": "application/json" }, JSON.stringify({ error: "Request too large." }));
       const out = await api.handle({ method: req.method, path: url.pathname, query: Object.fromEntries(url.searchParams), headers: req.headers, body, ip: req.socket.remoteAddress || "?" });
       return send(res, out.status, { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" }, JSON.stringify(out.body));

@@ -39,6 +39,12 @@ Open it on a phone on the same Wi-Fi and sign in with the same school login. Fro
 teacher can open any activity on the wall, go back to the menu, lock the wall, and start the pen
 calibration.
 
+**Team play:** the ★ button on the wall (or *Team play* on the phone) splits the class into 2–4
+teams. A score strip floats over any activity: tap a team to give it a star, then *Finish* for
+the winner's celebration. Every school starts with Peacocks, Tigers, Elephants and Parrots; the
+School view's **Teams** tab renames them and sets each mascot (our gallery or the school's own
+picture). Only team names and points are kept.
+
 **Input:** wall ⚙ Settings → IR pen (default), Hand, or Mouse or touch screen (no camera;
 for laptops, interactive panels and demos).
 

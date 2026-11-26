@@ -83,7 +83,9 @@
     document.querySelectorAll(".sv-tabs [data-tab]").forEach(x => x.setAttribute("aria-selected", String(x === b)));
     $("tabUsage").classList.toggle("hidden", b.dataset.tab !== "usage");
     $("tabLogins").classList.toggle("hidden", b.dataset.tab !== "logins");
+    $("tabTeams").classList.toggle("hidden", b.dataset.tab !== "teams");
     if (b.dataset.tab === "logins") loadAccounts();
+    if (b.dataset.tab === "teams") loadTeams();
   });
 
   // ══ usage ══
@@ -278,6 +280,56 @@
       $("addLabel").value = ""; $("addUser").value = ""; $("addPass").value = genPassword();
       await loadAccounts(); loadUsage();
     } catch (err) { msg(err.message, true); }
+  });
+
+  // ══ teams ══
+  const TEAM_COLORS = ["#631654", "#E96E24", "#2fa86a", "#2f7fc4"];
+  let teams = [], mascots = [];
+  const tmsg = (t, e) => { $("teamMsg").textContent = t; $("teamMsg").classList.toggle("err", !!e); };
+  const mascotImg = t => t.image ? `<img src="${esc(t.image)}" alt="">` : MTCardArt.img(t.mascot);
+  async function loadTeams() {
+    try { const d = await api("GET", "/api/school/settings"); teams = d.teams.map(t => ({ ...t })); mascots = d.mascots; drawTeams(); }
+    catch (e) { tmsg("Could not load teams: " + e.message, true); }
+  }
+  function drawTeams() {
+    $("teamEdit").innerHTML = teams.map((t, i) => `<div class="te" data-i="${i}" style="--c:${TEAM_COLORS[i]}">
+        <div class="te-pic">${mascotImg(t)}</div>
+        <label>Team ${i + 1}<input class="te-name" value="${esc(t.name)}" maxlength="24" /></label>
+        <div class="te-gallery" role="radiogroup" aria-label="Mascot for team ${i + 1}">${mascots.map(m => `<button type="button" data-m="${m}" aria-checked="${!t.image && t.mascot === m}">${MTCardArt.img(m)}</button>`).join("")}</div>
+        <label class="te-up">Upload a picture<input type="file" accept="image/png,image/jpeg,image/webp" /></label>
+        ${t.image ? '<button type="button" class="link-btn te-clear">Remove uploaded picture</button>' : ""}
+      </div>`).join("");
+  }
+  $("teamEdit").addEventListener("input", e => { const inp = e.target.closest(".te-name"); if (inp) teams[+inp.closest(".te").dataset.i].name = inp.value; });
+  $("teamEdit").addEventListener("click", e => {
+    const i = +((e.target.closest(".te") || {}).dataset || {}).i;
+    const m = e.target.closest("[data-m]");
+    if (m) { teams[i].mascot = m.dataset.m; delete teams[i].image; drawTeams(); }
+    if (e.target.closest(".te-clear")) { delete teams[i].image; drawTeams(); }
+  });
+  // Uploaded pictures are shrunk to 240 px in the browser, so they stay small on the wall server.
+  $("teamEdit").addEventListener("change", async e => {
+    const f = e.target.files && e.target.files[0]; if (!f) return;
+    const i = +e.target.closest(".te").dataset.i;
+    try {
+      const bmp = await createImageBitmap(f);
+      const k = Math.min(1, 240 / Math.max(bmp.width, bmp.height));
+      const c = document.createElement("canvas"); c.width = Math.round(bmp.width * k); c.height = Math.round(bmp.height * k);
+      c.getContext("2d").drawImage(bmp, 0, 0, c.width, c.height);
+      let url = c.toDataURL("image/webp", 0.85);
+      if (!url.startsWith("data:image/webp")) url = c.toDataURL("image/png");
+      if (url.length > 200 * 1024) url = c.toDataURL("image/jpeg", 0.8);
+      if (url.length > 200 * 1024) throw new Error("That picture is too big. Try a smaller one.");
+      teams[i].image = url; drawTeams(); tmsg("Picture added. Save teams to use it on the walls.");
+    } catch (err) { tmsg(err.message || "Could not read that picture.", true); }
+  });
+  $("teamSave").addEventListener("click", async () => {
+    try { const d = await api("POST", "/api/school/settings", { teams }); teams = d.teams.map(t => ({ ...t })); drawTeams(); tmsg("Saved. Walls show the new teams the next time team play starts."); }
+    catch (e) { tmsg(e.message, true); }
+  });
+  $("teamReset").addEventListener("click", async () => {
+    try { const d = await api("POST", "/api/school/settings", { reset: true }); teams = d.teams.map(t => ({ ...t })); drawTeams(); tmsg("Back to the default teams."); }
+    catch (e) { tmsg(e.message, true); }
   });
 
   // ══ boot ══

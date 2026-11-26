@@ -42,7 +42,7 @@
   function showView(id) { ["authView", "wallView", "remoteView"].forEach(v => $(v).classList.toggle("hidden", v !== id)); }
 
   // ── catalogue + licence ─────────────────────────────────────────────
-  let CAT = null, LICENCE = null;
+  let CAT = null, LICENCE = null, TEAMS = null;
   const licensed = key => LICENCE && (LICENCE.levels === "all" || (Array.isArray(LICENCE.levels) && LICENCE.levels.includes(key)));
   const levelsShown = () => CAT.levels.filter(l => licensed(l.key));
   const itemsFor = key => CAT.items.filter(i => i.level === key);
@@ -100,7 +100,25 @@
     $("schoolChip").textContent = LICENCE.demo ? "Demo licence" : LICENCE.school;
     $("licenceLine").textContent = LICENCE.demo ? "Demo licence: every class is shown" : `${LICENCE.school} · ${levelsShown().length} classes licensed${LICENCE.validUntil ? " until " + LICENCE.validUntil : ""}`;
 
-    let route = { screen: "home" }, currentApp = "menu", lastTs = 0, lastCmdTs = 0, locked = false, calibrating = false;
+    let route = { screen: "home" }, currentApp = "menu", lastTs = 0, lastCmdTs = 0, lastGameTs = 0, locked = false, calibrating = false;
+
+    // ── team play ──
+    const teamUI = MTTeams.wall({
+      bar: $("teamBar"), celebrate: $("celebrate"), teams: () => TEAMS,
+      send: async g => { const prev = teamUI.game; teamUI.render(g, prev); try { const s = await setState({ game: g }); lastGameTs = s.gameTs; } catch (e) { /* the next poll reconciles */ } },
+    });
+    let teamN = 2;
+    function drawTeamSheet() {
+      $("teamCount").querySelectorAll("button").forEach(b => b.setAttribute("aria-checked", String(+b.dataset.n === teamN)));
+      $("teamPreview").innerHTML = TEAMS.slice(0, teamN).map((t, i) => `<span style="--c:${MTTeams.COLORS[i]}"><i>${MTTeams.mascot(t)}</i>${esc(t.name)}</span>`).join("");
+      $("teamStart").textContent = teamUI.game.on ? "Start a new game" : "Start team play";
+    }
+    $("teamsBtn").addEventListener("click", async () => { TEAMS = await MTTeams.load(api); drawTeamSheet(); $("teamSheet").classList.remove("hidden"); });
+    $("teamCount").addEventListener("click", e => { const b = e.target.closest("[data-n]"); if (b) { teamN = +b.dataset.n; drawTeamSheet(); } });
+    $("teamCancel").addEventListener("click", () => $("teamSheet").classList.add("hidden"));
+    $("teamSheet").addEventListener("click", e => { if (e.target.id === "teamSheet") $("teamSheet").classList.add("hidden"); });
+    $("teamStart").addEventListener("click", () => { $("teamSheet").classList.add("hidden"); startGame(); });
+    async function startGame() { const g = MTTeams.rules.start(teamN); teamUI.render(g, null); try { lastGameTs = (await setState({ game: g })).gameTs; } catch (e) { /* ignore */ } }
 
     // input device + calibration (shared with every activity through localStorage)
     const inputMode = () => { const m = localStorage.getItem("wallInputMode"); return m === "hand" || m === "mouse" ? m : "irpen"; };
@@ -272,6 +290,10 @@
         const fresh = !first; lastCmdTs = s.cmdTs;
         if (fresh) { try { localStorage.removeItem(calKey()); } catch (e) { /* ignore */ } startCalibration(); }
       }
+      if (s.gameTs > lastGameTs) {
+        const prev = teamUI.game; lastGameTs = s.gameTs;
+        if (JSON.stringify(prev) !== JSON.stringify(s.game)) teamUI.render(s.game, first ? null : prev);
+      }
       if (s.ts > lastTs) {
         lastTs = s.ts;
         if (s.app !== currentApp && !calibrating) { if (s.app === "menu" || !CAT.byId[s.app]) { closeApp(); renderHome(); } else openApp(s.app); }
@@ -292,6 +314,13 @@
     const frame = $("remoteAppFrame"), back = $("remoteHomeBtn"), status = $("remoteStatus");
     let playMode = localStorage.getItem(PLAY_MODE_KEY) === "here" ? "here" : "wall";
     let state = { app: "menu", locked: false }, level = (levelsShown().find(l => itemsFor(l.key).length) || {}).key;
+
+    let lastGame = null;
+    const teamUI = MTTeams.remote({
+      el: $("rTeams"), teams: () => TEAMS,
+      send: async g => { teamUI.render(g); try { const s = await setState({ game: g }); lastGame = JSON.stringify(s.game); } catch (e) { status.textContent = e.message; } },
+    });
+    teamUI.render({ on: false });
 
     function drawModes() { $("modeSendWall").setAttribute("aria-checked", String(playMode === "wall")); $("modePlayHere").setAttribute("aria-checked", String(playMode === "here")); }
     $("modeSendWall").addEventListener("click", () => { playMode = "wall"; localStorage.setItem(PLAY_MODE_KEY, playMode); drawModes(); });
@@ -335,6 +364,8 @@
       try {
         const s = await getState();
         const changed = s.app !== state.app || s.locked !== state.locked;
+        const gs = JSON.stringify(s.game || { on: false });
+        if (gs !== lastGame) { lastGame = gs; teamUI.render(s.game); }
         state = s; $("remoteDot").className = "on"; $("remoteConn").textContent = "Connected to " + (localStorage.getItem(USERNAME_KEY) || "the wall");
         if (changed) draw();
       } catch (e) { $("remoteDot").className = ""; $("remoteConn").textContent = "Can't reach the wall server"; }
@@ -344,7 +375,7 @@
 
   // ══════════════════════════ BOOT ════════════════════════════════════
   async function startApp() {
-    [LICENCE, CAT] = await Promise.all([api("GET", "/api/licence"), MTCatalog.load()]);
+    [LICENCE, CAT, TEAMS] = await Promise.all([api("GET", "/api/licence"), MTCatalog.load(), MTTeams.load(api)]);
     if (mode === "wall") startWall(); else startRemote();
   }
   (async function boot() {

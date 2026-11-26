@@ -59,6 +59,38 @@ function createLimiter(max, windowMs, now) {
 export const DEMO_LICENCE = { school: "Demo school", levels: "all", demo: true };
 const COMMANDS = new Set(["calibrate"]);
 
+// Team play: default teams every school gets, which the school can rename and give its own mascot.
+// Mascot = one of our gallery pictures (emoji key) or a small picture the school uploads.
+export const MASCOTS = ["🦚", "🐅", "🐘", "🦜", "🦁", "🐬", "🦋", "🐼", "🦅", "🐢", "🦒", "🐝", "🌻", "🪷", "⭐", "🚀"];
+export const DEFAULT_TEAMS = [
+  { name: "Peacocks", mascot: "🦚" }, { name: "Tigers", mascot: "🐅" },
+  { name: "Elephants", mascot: "🐘" }, { name: "Parrots", mascot: "🦜" },
+];
+const IMAGE_RE = /^data:image\/(png|jpeg|webp);base64,[A-Za-z0-9+/=]+$/;
+const IMAGE_MAX = 200 * 1024; // characters of base64, about 150 KB of picture
+function cleanTeams(list) {
+  if (!Array.isArray(list) || list.length !== 4) return null;
+  const out = [];
+  for (const t of list) {
+    const name = String((t && t.name) || "").replace(/[\u0000-\u001f<>]/g, "").trim().slice(0, 24);
+    if (!name) return null;
+    const team = { name };
+    if (t.image) { if (typeof t.image !== "string" || t.image.length > IMAGE_MAX || !IMAGE_RE.test(t.image)) return null; team.image = t.image; }
+    team.mascot = MASCOTS.includes(t.mascot) ? t.mascot : DEFAULT_TEAMS[out.length].mascot;
+    out.push(team);
+  }
+  return out;
+}
+// A game on one wall: how many teams play, their stars, whose turn it is.
+function cleanGame(g) {
+  if (!g || typeof g !== "object") return null;
+  if (!g.on) return { on: false };
+  const n = Math.min(4, Math.max(2, parseInt(g.n, 10) || 2));
+  const scores = Array.from({ length: n }, (_, i) => Math.min(999, Math.max(0, parseInt((g.scores || [])[i], 10) || 0)));
+  const turn = Math.min(n - 1, Math.max(0, parseInt(g.turn, 10) || 0));
+  return { on: true, n, scores, turn, ended: !!g.ended };
+}
+
 // Calendar day in the school's time zone (default India), e.g. "2026-11-26".
 export function dayKey(ms, timeZone = "Asia/Kolkata") {
   return new Intl.DateTimeFormat("en-CA", { timeZone, year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date(ms));
@@ -185,10 +217,32 @@ export function createApi({ store, allowSignup = "first", licence = DEMO_LICENCE
         if (!COMMANDS.has(body.command)) return err(400, "Unknown command.");
         patch.cmd = body.command; patch.cmdTs = now();
       }
+      if (body.game !== undefined) {
+        const g = cleanGame(body.game);
+        if (!g) return err(400, "Unknown team game.");
+        patch.game = g; patch.gameTs = now();
+      }
       if (!Object.keys(patch).length) return err(400, "Nothing to change.");
       if (prev && prev.app !== patch.app) await closeUsage(user.id, prev, now());
       const { since, ...state } = await store.setState(user.id, patch);
       return ok(state);
+    },
+
+    // Team names and mascots: every login reads them (the wall and the phone show them);
+    // only a school login changes them.
+    "GET /api/school/settings": async ({ user }) => {
+      if (!user) return err(401, "Not logged in.");
+      const st = (await store.getSettings()) || {};
+      return ok({ teams: st.teams || DEFAULT_TEAMS, mascots: MASCOTS, defaults: DEFAULT_TEAMS });
+    },
+    "POST /api/school/settings": async ({ user, body }) => {
+      if (!user) return err(401, "Not logged in.");
+      if (!school(user)) return err(403, "Only a school login can change team names.");
+      const teams = body.reset ? DEFAULT_TEAMS : cleanTeams(body.teams);
+      if (!teams) return err(400, "Give each of the four teams a name (up to 24 letters). Pictures must be PNG, JPG or WebP under 150 KB.");
+      const st = (await store.getSettings()) || {};
+      await store.setSettings({ ...st, teams });
+      return ok({ teams });
     },
 
     // ── School view: principal, HODs, floor in-charges ──

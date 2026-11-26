@@ -4,7 +4,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const EMPTY = () => ({ version: 2, nextUserId: 1, users: [], sessions: [], usage: {} });
+const EMPTY = () => ({ version: 2, nextUserId: 1, users: [], sessions: [], usage: {}, settings: {} });
 
 // Version 1 files had no kinds of login: the first login becomes the school's own.
 function migrate(data) {
@@ -33,7 +33,7 @@ export function createFileStore(file) {
   }
   const lc = s => String(s).toLowerCase();
   const pub = u => u && { id: u.id, username: u.username, role: u.role || "wall", label: u.label || "", disabled: !!u.disabled, createdAt: u.createdAt };
-  const view = u => ({ app: u.app, ts: u.ts, locked: !!u.locked, cmd: u.cmd || null, cmdTs: u.cmdTs || 0, since: u.since || 0 });
+  const view = u => ({ app: u.app, ts: u.ts, locked: !!u.locked, cmd: u.cmd || null, cmdTs: u.cmdTs || 0, game: u.game || { on: false }, gameTs: u.gameTs || 0, since: u.since || 0 });
   const EDITABLE = ["label", "role", "disabled", "hash", "salt"];
 
   return {
@@ -101,15 +101,17 @@ export function createFileStore(file) {
     },
     async getState(userId) {
       const u = data.users.find(x => x.id === userId);
-      return u ? view(u) : { app: "menu", ts: 0, locked: false, cmd: null, cmdTs: 0, since: 0 };
+      return u ? view(u) : { app: "menu", ts: 0, locked: false, cmd: null, cmdTs: 0, game: { on: false }, gameTs: 0, since: 0 };
     },
     async setState(userId, patch) {
       const u = data.users.find(x => x.id === userId);
       if (!u) return null;
-      for (const k of ["app", "ts", "locked", "cmd", "cmdTs", "since"]) if (patch[k] !== undefined) u[k] = patch[k];
+      for (const k of ["app", "ts", "locked", "cmd", "cmdTs", "game", "gameTs", "since"]) if (patch[k] !== undefined) u[k] = patch[k];
       await save();
       return view(u);
     },
+    async getSettings() { return data.settings || {}; },
+    async setSettings(v) { data.settings = v; await save(); },
     flush() { return writing; },
   };
 }

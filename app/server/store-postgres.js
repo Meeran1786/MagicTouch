@@ -21,6 +21,9 @@ export async function createPostgresStore(url) {
   // Databases from before login kinds: the first login becomes the school's own.
   await sql`UPDATE mt_users SET role = CASE WHEN id = (SELECT min(id) FROM mt_users) THEN 'school' ELSE 'wall' END WHERE role IS NULL AND NOT EXISTS (SELECT 1 FROM mt_users WHERE role IS NOT NULL)`;
   await sql`UPDATE mt_users SET role = 'wall' WHERE role IS NULL`;
+  await sql`ALTER TABLE mt_users ADD COLUMN IF NOT EXISTS game JSONB`;
+  await sql`ALTER TABLE mt_users ADD COLUMN IF NOT EXISTS game_ts BIGINT NOT NULL DEFAULT 0`;
+  await sql`CREATE TABLE IF NOT EXISTS mt_settings (key TEXT PRIMARY KEY, value JSONB NOT NULL)`;
   await sql`CREATE TABLE IF NOT EXISTS mt_usage (
     day TEXT NOT NULL,
     user_id INTEGER NOT NULL REFERENCES mt_users(id) ON DELETE CASCADE,
@@ -34,7 +37,7 @@ export async function createPostgresStore(url) {
     user_id INTEGER NOT NULL REFERENCES mt_users(id) ON DELETE CASCADE,
     expires_at BIGINT NOT NULL,
     created_at TIMESTAMPTZ NOT NULL DEFAULT now())`;
-  const row = r => r && { app: r.app, ts: Number(r.ts), locked: !!r.locked, cmd: r.cmd || null, cmdTs: Number(r.cmdts || 0), since: Number(r.since || 0) };
+  const row = r => r && { app: r.app, ts: Number(r.ts), locked: !!r.locked, cmd: r.cmd || null, cmdTs: Number(r.cmdts || 0), game: r.game || { on: false }, gameTs: Number(r.gamets || 0), since: Number(r.since || 0) };
   const acct = r => r && { id: r.id, username: r.username, role: r.role || "wall", label: r.label || "", disabled: !!r.disabled, createdAt: r.created_at ? new Date(r.created_at).getTime() : null };
   return {
     kind: "postgres",
@@ -78,13 +81,15 @@ export async function createPostgresStore(url) {
         .map(r => ({ ...r, sessions: Number(r.sessions), seconds: Number(r.seconds) }));
     },
     async getState(userId) {
-      return row((await sql`SELECT active_app AS app, active_app_ts AS ts, locked, cmd, cmd_ts AS cmdts, app_since AS since FROM mt_users WHERE id = ${userId}`)[0]) || { app: "menu", ts: 0, locked: false, cmd: null, cmdTs: 0, since: 0 };
+      return row((await sql`SELECT active_app AS app, active_app_ts AS ts, locked, cmd, cmd_ts AS cmdts, game, game_ts AS gamets, app_since AS since FROM mt_users WHERE id = ${userId}`)[0]) || { app: "menu", ts: 0, locked: false, cmd: null, cmdTs: 0, game: { on: false }, gameTs: 0, since: 0 };
     },
     async setState(userId, patch) {
       const cur = await this.getState(userId);
       const n = { ...cur, ...patch };
-      return row((await sql`UPDATE mt_users SET active_app = ${n.app}, active_app_ts = ${n.ts}, locked = ${n.locked}, cmd = ${n.cmd}, cmd_ts = ${n.cmdTs}, app_since = ${n.since} WHERE id = ${userId} RETURNING active_app AS app, active_app_ts AS ts, locked, cmd, cmd_ts AS cmdts, app_since AS since`)[0]);
+      return row((await sql`UPDATE mt_users SET active_app = ${n.app}, active_app_ts = ${n.ts}, locked = ${n.locked}, cmd = ${n.cmd}, cmd_ts = ${n.cmdTs}, game = ${JSON.stringify(n.game || { on: false })}::jsonb, game_ts = ${n.gameTs || 0}, app_since = ${n.since} WHERE id = ${userId} RETURNING active_app AS app, active_app_ts AS ts, locked, cmd, cmd_ts AS cmdts, game, game_ts AS gamets, app_since AS since`)[0]);
     },
+    async getSettings() { const r = (await sql`SELECT value FROM mt_settings WHERE key = 'school'`)[0]; return r ? r.value : {}; },
+    async setSettings(v) { await sql`INSERT INTO mt_settings (key, value) VALUES ('school', ${JSON.stringify(v)}::jsonb) ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value`; },
     flush() { return Promise.resolve(); },
   };
 }

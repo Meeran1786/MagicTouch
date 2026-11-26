@@ -74,7 +74,7 @@ test("wall state: switch activity, lock, validation", async () => {
   const { call, clock } = setup();
   const tok = (await call("POST", "/api/auth/signup", { username: "room-4b", password: "classroom1" })).body.token;
   assert.equal((await call("GET", "/api/state")).status, 401);
-  assert.deepEqual((await call("GET", "/api/state", {}, tok)).body, { app: "menu", ts: 0, locked: false, cmd: null, cmdTs: 0 });
+  assert.deepEqual((await call("GET", "/api/state", {}, tok)).body, { app: "menu", ts: 0, locked: false, cmd: null, cmdTs: 0, game: { on: false }, gameTs: 0 });
   clock.advance(5);
   const s = await call("POST", "/api/state", { app: "engine:c10-science-ohms-law" }, tok);
   assert.equal(s.body.app, "engine:c10-science-ohms-law");
@@ -213,6 +213,29 @@ test("version 1 data files migrate: the first login becomes the school's", async
   fs.writeFileSync(path.join(dir, "store.json"), JSON.stringify({ version: 1, nextUserId: 3, users: [{ id: 1, username: "room-4b", hash: "x", salt: "y" }, { id: 2, username: "room-5", hash: "x", salt: "y" }], sessions: [] }));
   const store = createFileStore(path.join(dir, "store.json"));
   assert.deepEqual((await store.listUsers()).map(u => u.role), ["school", "wall"]);
+});
+
+test("teams: defaults, the school renames them, walls play a game", async () => {
+  const { call, admin } = await schoolSetup();
+  await call("POST", "/api/school/accounts", { username: "room-4b", password: "classroom1" }, admin.token);
+  const wall = (await call("POST", "/api/auth/login", { username: "room-4b", password: "classroom1" })).body.token;
+  const d = (await call("GET", "/api/school/settings", {}, wall)).body;
+  assert.deepEqual(d.teams.map(t => t.name), ["Peacocks", "Tigers", "Elephants", "Parrots"]);
+  const mine = [{ name: "Ganga", mascot: "🐬" }, { name: "Yamuna", mascot: "🪷" }, { name: "Godavari", mascot: "🦜", image: "data:image/png;base64,iVBORw0KGgo=" }, { name: "Krishna <b>", mascot: "nope" }];
+  assert.equal((await call("POST", "/api/school/settings", { teams: mine }, wall)).status, 403);
+  const saved = (await call("POST", "/api/school/settings", { teams: mine }, admin.token)).body.teams;
+  assert.equal(saved[3].name, "Krishna b");
+  assert.equal(saved[3].mascot, "🦜", "unknown mascot falls back to the default");
+  assert.ok(saved[2].image.startsWith("data:image/png"));
+  assert.equal((await call("GET", "/api/school/settings", {}, wall)).body.teams[0].name, "Ganga");
+  assert.equal((await call("POST", "/api/school/settings", { teams: [{ name: "A" }] }, admin.token)).status, 400);
+  assert.equal((await call("POST", "/api/school/settings", { teams: mine.map(t => ({ ...t, image: "data:text/html;base64,PHNjcmlwdD4=" })) }, admin.token)).status, 400);
+  assert.equal((await call("POST", "/api/school/settings", { reset: true }, admin.token)).body.teams[0].name, "Peacocks");
+  const g = (await call("POST", "/api/state", { game: { on: true, n: 3, scores: [2, "5", -4, 9], turn: 7 } }, wall)).body;
+  assert.deepEqual(g.game, { on: true, n: 3, scores: [2, 5, 0], turn: 2, ended: false });
+  assert.ok(g.gameTs > 0);
+  assert.deepEqual((await call("POST", "/api/state", { game: { on: false } }, wall)).body.game, { on: false });
+  assert.equal((await call("POST", "/api/state", { game: "x" }, wall)).status, 400);
 });
 
 function api_poll(call, token) {
