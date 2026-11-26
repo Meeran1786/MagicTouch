@@ -17,6 +17,10 @@
    (no "Let's Go" button — matches the rest of the wall).
    ============================================================ */
 
+// MagicTouch: soft chime / gentle sound on answers (generated, no audio files).
+let mtSfx = null;
+import("/shared/studio/soft-music.js").then(m => { mtSfx = m.sfx; }).catch(() => {});
+const sfxOn = () => { try { return mtSfx && localStorage.getItem("mtSfxOn") !== "0"; } catch (e) { return false; } };
 const BG_PLAYROOM = "none" /* Studio: no photo backdrop (old one was Adobe Stock) */;
 const BG_FOREST = "none";
 
@@ -185,11 +189,13 @@ class EmojiQuiz {
     if (isRight) {
       this.score++;
       btn.classList.add("eq-correct");
+      if (sfxOn()) mtSfx.correct();
       this.el.feedback.textContent = "🎉 Yes! Well done!";
       this.el.feedback.className = "eq-feedback eq-feedback-good";
       this.confetti();
     } else {
       btn.classList.add("eq-wrong");
+      if (sfxOn()) mtSfx.wrong();
       // Always reveal which one WAS correct, highlighted in green,
       // alongside the person's own wrong pick highlighted in red.
       const correctBtn = allBtns.find(b => b.dataset.word === correct.word);

@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MagicTouch — Classes 1–12</title>
 <link rel="stylesheet" href="css/magictouch.css">
+<script>/* Inside the MagicTouch wall: the wall's shared pen tracker and calibration drive this page. */
+(function(){var q=new URLSearchParams(location.search);if(q.get('wall')==='1'){window.MT_EXTERNAL_INPUT=true;document.documentElement.classList.add('mt-wall');var l=document.createElement('link');l.rel='stylesheet';l.href='/vendor/fonts/fonts.css';document.head.appendChild(l);}})();</script>
 <script type="importmap">{"imports":{"three":"../vendor/three/build/three.module.min.js"}}</script>
 </head>
 <body>
@@ -37,5 +39,6 @@
 <script src="js/engine.js"></script>
 <script src="../mediapipe/hands.js"></script>
 <script src="js/input-camera.js"></script>
+<script type="module">if(window.MT_EXTERNAL_INPUT) import('/shared/studio/engine-wall-input.js').catch(function(e){console.warn('[wall input]',e);});</script>
 </body>
 </html>

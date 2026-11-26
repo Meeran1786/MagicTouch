@@ -12,13 +12,15 @@ export async function createPostgresStore(url) {
     active_app_ts BIGINT NOT NULL DEFAULT 0,
     locked BOOLEAN NOT NULL DEFAULT false,
     created_at TIMESTAMPTZ NOT NULL DEFAULT now())`;
+  await sql`ALTER TABLE mt_users ADD COLUMN IF NOT EXISTS cmd TEXT`;
+  await sql`ALTER TABLE mt_users ADD COLUMN IF NOT EXISTS cmd_ts BIGINT NOT NULL DEFAULT 0`;
   await sql`CREATE UNIQUE INDEX IF NOT EXISTS mt_users_username_lower ON mt_users (lower(username))`;
   await sql`CREATE TABLE IF NOT EXISTS mt_sessions (
     token_hash TEXT PRIMARY KEY,
     user_id INTEGER NOT NULL REFERENCES mt_users(id) ON DELETE CASCADE,
     expires_at BIGINT NOT NULL,
     created_at TIMESTAMPTZ NOT NULL DEFAULT now())`;
-  const row = r => r && { app: r.app, ts: Number(r.ts), locked: !!r.locked };
+  const row = r => r && { app: r.app, ts: Number(r.ts), locked: !!r.locked, cmd: r.cmd || null, cmdTs: Number(r.cmdts || 0) };
   return {
     kind: "postgres",
     async countUsers() { return Number((await sql`SELECT count(*)::int AS n FROM mt_users`)[0].n); },
@@ -40,12 +42,12 @@ export async function createPostgresStore(url) {
     async deleteSession(tokenHash) { await sql`DELETE FROM mt_sessions WHERE token_hash = ${tokenHash}`; },
     async purgeExpired(now) { await sql`DELETE FROM mt_sessions WHERE expires_at <= ${now}`; },
     async getState(userId) {
-      return row((await sql`SELECT active_app AS app, active_app_ts AS ts, locked FROM mt_users WHERE id = ${userId}`)[0]) || { app: "menu", ts: 0, locked: false };
+      return row((await sql`SELECT active_app AS app, active_app_ts AS ts, locked, cmd, cmd_ts AS cmdts FROM mt_users WHERE id = ${userId}`)[0]) || { app: "menu", ts: 0, locked: false, cmd: null, cmdTs: 0 };
     },
     async setState(userId, patch) {
       const cur = await this.getState(userId);
       const n = { ...cur, ...patch };
-      return row((await sql`UPDATE mt_users SET active_app = ${n.app}, active_app_ts = ${n.ts}, locked = ${n.locked} WHERE id = ${userId} RETURNING active_app AS app, active_app_ts AS ts, locked`)[0]);
+      return row((await sql`UPDATE mt_users SET active_app = ${n.app}, active_app_ts = ${n.ts}, locked = ${n.locked}, cmd = ${n.cmd}, cmd_ts = ${n.cmdTs} WHERE id = ${userId} RETURNING active_app AS app, active_app_ts AS ts, locked, cmd, cmd_ts AS cmdts`)[0]);
     },
     flush() { return Promise.resolve(); },
   };

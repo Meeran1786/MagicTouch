@@ -89,7 +89,8 @@ export function detectBlobs(data, w, h, opts = {}, scratch = {}) {
 
 // ── tracker ─────────────────────────────────────────────────────
 export class IRPenTracker {
-  constructor({ camW = 640, camH = 480, maxHands = 1 } = {}) {
+  constructor({ camW = 640, camH = 480, maxHands = 1, domClicker = true } = {}) {
+    this.domClicker = domClicker;    // false = the page does its own pen clicks (our engine)
     this.camW = camW;
     this.camH = camH;
     this.maxPoints = Math.max(1, maxHands | 0);
@@ -230,7 +231,7 @@ export class IRPenTracker {
     if (this._dbg) this._drawDebug();
 
     // Pen-dwell clicking for ordinary page buttons/links/cards, in every app.
-    try { penDomClickerUpdate(this.finger_x, this.finger_y); } catch (e) { /* never break tracking */ }
+    if (this.domClicker) { try { penDomClickerUpdate(this.finger_x, this.finger_y); } catch (e) { /* never break tracking */ } }
   }
 
   // Keep each pen in its own slot across frames; new blobs fill free slots.

@@ -1,12 +1,12 @@
 // ═══════════════════════════════════════════════════════════════
-//  musicPlayer.js — background music for the wall, backed by the
-//  provided Spring.mp3 file (looped, at a soft background volume).
+//  musicPlayer.js — background music for the wall. MagicTouch: now our own
+//  generated soft music (shared/studio/soft-music.js); Spring.mp3 had no licence record.
 //  Must be started from a user gesture (the "Start camera & begin"
 //  click satisfies browser autoplay rules).
 // ═══════════════════════════════════════════════════════════════
 
 const STORAGE_KEY = "wallAlphabetsMusicOn";
-const TRACK_URL = "Spring.mp3";
+import { createSoftMusic } from "/shared/studio/soft-music.js";
 const VOLUME = 0.35;
 
 export class MusicPlayer {
@@ -17,11 +17,11 @@ export class MusicPlayer {
 
   _ensureAudio() {
     if (this.audio) return;
-    this.audio = new Audio(TRACK_URL);
-    this.audio.loop = true;
-    this.audio.preload = "auto";
-    this.audio.volume = VOLUME;
-    this.audio.onerror = () => console.warn("[warn] background music failed to load:", TRACK_URL);
+    const music = createSoftMusic({ volume: VOLUME * 0.5 });
+    this.audio = {
+      async play() { if (!(await music.start())) throw new Error("waiting for a tap"); music.setMuted(false); },
+      pause() { music.setMuted(true); },
+    };
   }
 
   async play() {

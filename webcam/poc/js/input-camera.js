@@ -204,6 +204,7 @@ function setMode(m){mode=m;modeSel.value=m;store.setItem('wt_mode',m);$('wt_thrR
   setStatus((m==='pen'?'IR pen mode':'Hand mode')+calText());}
 modeSel.onchange=function(){setMode(modeSel.value);};
 document.addEventListener('keydown',function(e){
+  if(EXTERNAL) return;
   var k=e.key.toLowerCase();
   if(k==='c') panel.classList.toggle('hidden');
   else if(k==='k') startCal();
@@ -211,7 +212,11 @@ document.addEventListener('keydown',function(e){
   else if(k===' '&&calibrating&&mode==='hand'&&lastCam){e.preventDefault();captureCal([lastCam[0],lastCam[1]]);}
   else if(k==='escape'&&calibrating){calibrating=false;$('wt_cal').style.display='none';}
 });
-window.__wt={homography:homography,apply:apply,buildCal:buildCal,mapCal:mapCal,findDot:findDot,GRID:GRID,
+// Inside the MagicTouch wall the wall's shared IR pen / hand tracker and its one 9-dot
+// calibration feed us screen points instead (app/public/shared/studio/engine-wall-input.js).
+var EXTERNAL=!!window.MT_EXTERNAL_INPUT;
+if(EXTERNAL){panel.classList.add('hidden');}
+window.__wt={screen:function(s,m){if(m&&m!==mode)setMode(m);if(mode==='pen')penSample(s);else handSample(s);},homography:homography,apply:apply,buildCal:buildCal,mapCal:mapCal,findDot:findDot,GRID:GRID,
   feed:onCam,startCal:startCal,setMode:setMode,getCal:function(){return CAL;},state:function(){return {pen:pen.down,calibrating:calibrating,calIdx:calIdx};},pause:function(v){paused=v;}};
 
 // ---------------- camera ----------------
@@ -261,6 +266,7 @@ async function loop(){
   requestAnimationFrame(loop);
 }
 (async function start(){
+  if(EXTERNAL) return;
   setMode(mode);
   if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){setStatus('No camera access. Open via http://localhost:8080 in Chrome or Edge.');return;}
   try{

@@ -72,13 +72,30 @@ test("wall state: switch activity, lock, validation", async () => {
   const { call, clock } = setup();
   const tok = (await call("POST", "/api/auth/signup", { username: "room-4b", password: "classroom1" })).body.token;
   assert.equal((await call("GET", "/api/state")).status, 401);
-  assert.deepEqual((await call("GET", "/api/state", {}, tok)).body, { app: "menu", ts: 0, locked: false });
+  assert.deepEqual((await call("GET", "/api/state", {}, tok)).body, { app: "menu", ts: 0, locked: false, cmd: null, cmdTs: 0 });
   clock.advance(5);
   const s = await call("POST", "/api/state", { app: "engine:c10-science-ohms-law" }, tok);
   assert.equal(s.body.app, "engine:c10-science-ohms-law");
   assert.ok(s.body.ts > 0);
   assert.equal((await call("POST", "/api/state", { locked: true }, tok)).body.locked, true);
   assert.equal((await call("POST", "/api/state", { app: "<script>" }, tok)).status, 400);
+  const c = await call("POST", "/api/state", { command: "calibrate" }, tok);
+  assert.equal(c.body.cmd, "calibrate");
+  assert.ok(c.body.cmdTs > 0);
+  assert.equal((await call("POST", "/api/state", { command: "rm -rf" }, tok)).status, 400);
+});
+
+test("licence: demo by default, school licence when given", async () => {
+  const { call } = setup();
+  const tok = (await call("POST", "/api/auth/signup", { username: "room-4b", password: "classroom1" })).body.token;
+  assert.equal((await call("GET", "/api/licence")).status, 401);
+  assert.equal((await call("GET", "/api/licence", {}, tok)).body.demo, true);
+  const { store } = setup();
+  const api2 = createApi({ store, licence: () => ({ school: "Sunrise School", levels: ["nursery", "class-4"] }), log: { error() {} } });
+  const t2 = (await api2.handle({ method: "POST", path: "/api/auth/signup", body: { username: "room1", password: "classroom1" }, headers: {} })).body.token;
+  const l = await api2.handle({ method: "GET", path: "/api/licence", headers: { authorization: "Bearer " + t2 } });
+  assert.deepEqual(l.body.levels, ["nursery", "class-4"]);
+  assert.equal(l.body.demo, false);
 });
 
 test("server serves files, blocks path traversal, sends security headers", async () => {

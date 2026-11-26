@@ -13,13 +13,14 @@
 //   MT_DATA_DIR=./data   where the wall logins are kept (store.json)
 //   MT_SIGNUP=first      first = only the first wall account can be created from the
 //                        login screen; always = anyone can; never = nobody can
+//   MT_LICENCE=...       the school's licence file (default: data/licence.json)
 //   DATABASE_URL=...     use Postgres (Neon) instead of the local file
 import http from "node:http";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { createApi } from "./api.js";
+import { createApi, DEMO_LICENCE } from "./api.js";
 import { createFileStore } from "./store-file.js";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
@@ -44,8 +45,17 @@ const SECURITY_HEADERS = {
   "Cross-Origin-Resource-Policy": "same-origin",
 };
 
-export function createServer({ store, publicDir = path.join(APP_DIR, "public"), engineDir = path.resolve(APP_DIR, "../webcam"), signup = "first", log = console } = {}) {
-  const api = createApi({ store, allowSignup: signup, log });
+// The school's licence: data/licence.json (or MT_LICENCE). Read on each request, so a new
+// licence file takes effect without a restart. No file = demo licence with every class.
+export function licenceLoader(file) {
+  return () => {
+    try { return JSON.parse(fs.readFileSync(file, "utf8")); }
+    catch (e) { if (e.code !== "ENOENT") console.error("[licence] could not read", file, e.message); return DEMO_LICENCE; }
+  };
+}
+
+export function createServer({ store, publicDir = path.join(APP_DIR, "public"), engineDir = path.resolve(APP_DIR, "../webcam"), signup = "first", licence = DEMO_LICENCE, log = console } = {}) {
+  const api = createApi({ store, allowSignup: signup, licence, log });
   const mounts = [["/engine/", engineDir], ["/", publicDir]];
 
   function resolveFile(urlPath) {
@@ -130,7 +140,8 @@ async function main() {
   } else {
     store = createFileStore(path.resolve(process.env.MT_DATA_DIR || path.join(APP_DIR, "data"), "store.json"));
   }
-  const server = createServer({ store, signup: process.env.MT_SIGNUP || "first" });
+  const dataDir = path.resolve(process.env.MT_DATA_DIR || path.join(APP_DIR, "data"));
+  const server = createServer({ store, signup: process.env.MT_SIGNUP || "first", licence: licenceLoader(process.env.MT_LICENCE || path.join(dataDir, "licence.json")) });
   server.listen(port, host, () => {
     console.log(`MagicTouch wall is running.\n  On this PC:   http://localhost:${port}/`);
     if (host === "0.0.0.0") lanAddresses().forEach(a => console.log(`  Phone remote: http://${a}:${port}/  (same Wi-Fi)`));

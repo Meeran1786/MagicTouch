@@ -38,10 +38,17 @@
       menu.appendChild(t);
     });
   }
-  back.addEventListener('click',showMenu);
+  // Opened by the MagicTouch wall: /engine/poc/?a=<activity id>&wall=1 runs one activity directly.
+  var Q=new URLSearchParams(location.search),ONLY=Q.get('a'),WALL=Q.get('wall')==='1';
+  back.addEventListener('click',function(){
+    if(WALL&&window.parent!==window){window.parent.postMessage({type:'mt-home'},location.origin);return;}
+    showMenu();
+  });
   fetch('activities/index.json').then(function(r){return r.json();}).then(function(list){
     return Promise.all(list.map(function(f){return fetch('activities/'+f).then(function(r){return r.json();});}));
-  }).then(function(all){acts=all;build();showMenu();})
+  }).then(function(all){acts=all;build();showMenu();
+    if(ONLY){var a=acts.find(function(x){return x.id===ONLY;}); if(a) run(a); else menu.innerHTML='<div class="mt-demo-note">This activity is not available: '+ONLY.replace(/[<>&]/g,'')+'</div>';}
+  })
     .catch(function(e){menu.innerHTML='<div style="font-size:22px">Could not load activities: '+e.message+'<br>Open this through http://localhost:8080/poc/</div>';});
   window.MTEngine={run:function(id){var a=acts.find(function(x){return x.id===id;});if(a)run(a);},list:function(){return acts;},menu:showMenu};
 })();

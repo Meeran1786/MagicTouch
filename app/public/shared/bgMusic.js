@@ -1,5 +1,8 @@
 // ═══════════════════════════════════════════════════════════════
 //  bgMusic.js — shared background music for every wall app.
+//  MagicTouch: the music is now our own soft, generated piece
+//  (studio/soft-music.js). The purchased code's Spring.mp3 had no
+//  source or licence record, so it is no longer used.
 //  Drop `<script type="module" src="../../shared/bgMusic.js"></script>`
 //  near the end of an app's <body> and it adds a small floating
 //  music toggle button plus a looping background track (Spring.mp3),
@@ -7,7 +10,7 @@
 //  to the app's own code are required.
 // ═══════════════════════════════════════════════════════════════
 
-const TRACK_URL = new URL("./audio/Spring.mp3", import.meta.url).href;
+import { createSoftMusic } from "./studio/soft-music.js";
 const STORAGE_KEY = "wallBgMusicOn"; // shared across all apps on this wall
 const VOLUME = 0.3;
 
@@ -77,11 +80,14 @@ function initBgMusic() {
   injectStyles();
   const btn = createButton();
 
-  const audio = new Audio(TRACK_URL);
-  audio.loop = true;
-  audio.preload = "auto";
-  audio.volume = VOLUME;
-  audio.onerror = () => console.warn("[warn] background music failed to load:", TRACK_URL);
+  // A small stand-in with the parts of <audio> this file uses (play, muted).
+  const music = createSoftMusic({ volume: VOLUME * 0.55 });
+  const audio = {
+    _muted: true,
+    get muted() { return this._muted; },
+    set muted(v) { this._muted = !!v; music.setMuted(this._muted); },
+    async play() { if (!(await music.start())) throw new Error("waiting for a tap"); },
+  };
 
   let playing = false;
   let userMuted = !wantsMusic();

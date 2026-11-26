@@ -1,3 +1,7 @@
+// MagicTouch: soft chime / gentle sound on answers (generated, no audio files).
+let mtSfx = null;
+import("/shared/studio/soft-music.js").then(m => { mtSfx = m.sfx; }).catch(() => {});
+const mtSfxOn = () => { try { return mtSfx && localStorage.getItem("mtSfxOn") !== "0"; } catch (e) { return false; } };
 // ════════════════════════════════════════════════════════════════
 //  Spotter Engine  ·  shared/spotterEngine.js
 //  A grid of picture cards; pick the one matching the random question.
@@ -196,6 +200,7 @@ function onItemClick(card, item) {
   if (item.name === targetItem.name) {
     answered = true;
     card.classList.add('correct-flash');
+    if (mtSfxOn()) mtSfx.correct();
     playCorrect();
     setTimeout(() => {
       playApplause();
@@ -209,6 +214,7 @@ function onItemClick(card, item) {
     }, 300);
   } else {
     card.classList.add('wrong-shake');
+    if (mtSfxOn()) mtSfx.wrong();
     playWrong();
     showResult(false);
     setTimeout(() => {

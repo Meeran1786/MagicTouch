@@ -327,7 +327,7 @@ class Calibrator {
       alphaRing(ctx, `rgba(255,80,140,${(100 + p2 * 120) / 255})`, x, y, DOT_R + 5 + p2 * 6, 2);
       ctx.save();
       ctx.beginPath(); ctx.arc(x, y, DOT_R, 0, Math.PI * 2);
-      ctx.fillStyle = this.isPen ? "rgb(150,45,85)" : "rgb(255,80,140)"; ctx.fill();
+      ctx.fillStyle = this.isPen ? "rgb(150,45,85)" : "rgb(204,48,84)"; ctx.fill();
       ctx.beginPath(); ctx.arc(x, y, 4, 0, Math.PI * 2);
       ctx.fillStyle = "#fff"; ctx.fill();
       ctx.restore();
@@ -337,17 +337,17 @@ class Calibrator {
       alphaCircle(ctx, "rgba(62,207,140,0.12)", x, y, DOT_R * 1.75);
       ctx.save();
       ctx.beginPath(); ctx.arc(x, y, DOT_R, 0, Math.PI * 2);
-      ctx.strokeStyle = "rgb(62,207,140)"; ctx.lineWidth = 2; ctx.stroke();
+      ctx.strokeStyle = "rgb(47,168,106)"; ctx.lineWidth = 2; ctx.stroke();
       const s = DOT_R * 0.45;
       ctx.beginPath();
       ctx.moveTo(x - s, y); ctx.lineTo(x - s * 0.2, y + s); ctx.lineTo(x + s, y - s * 0.75);
-      ctx.strokeStyle = "rgb(62,220,140)"; ctx.lineWidth = 3;
+      ctx.strokeStyle = "rgb(47,168,106)"; ctx.lineWidth = 3;
       ctx.lineJoin = "round"; ctx.lineCap = "round"; ctx.stroke();
       ctx.restore();
     } else if (status === "skipped") {
       ctx.save();
       ctx.beginPath(); ctx.arc(x, y, DOT_R, 0, Math.PI * 2);
-      ctx.strokeStyle = "rgb(220,160,30)"; ctx.lineWidth = 2; ctx.setLineDash([5, 5]); ctx.stroke();
+      ctx.strokeStyle = "rgb(243,163,40)"; ctx.lineWidth = 2; ctx.setLineDash([5, 5]); ctx.stroke();
       ctx.restore();
     } else {
       ctx.save();
@@ -385,7 +385,7 @@ class Calibrator {
         const end = start + this.calDwellProg * 2 * Math.PI;
         ctx.save();
         ctx.beginPath(); ctx.arc(ad.x, ad.y, radius, start, end);
-        ctx.strokeStyle = "rgb(62,207,140)"; ctx.lineWidth = 6; ctx.stroke();
+        ctx.strokeStyle = "rgb(47,168,106)"; ctx.lineWidth = 6; ctx.stroke();
         ctx.restore();
       }
 
@@ -394,16 +394,16 @@ class Calibrator {
         const sx = fx * (this.width / CAM_W);
         const sy = fy * (this.height / CAM_H);
         ctx.save();
-        ctx.strokeStyle = "rgb(255,80,140)"; ctx.lineWidth = 2;
+        ctx.strokeStyle = "rgb(204,48,84)"; ctx.lineWidth = 2;
         ctx.beginPath(); ctx.moveTo(sx - 22, sy); ctx.lineTo(sx + 22, sy); ctx.stroke();
         ctx.beginPath(); ctx.moveTo(sx, sy - 22); ctx.lineTo(sx, sy + 22); ctx.stroke();
         ctx.beginPath(); ctx.arc(sx, sy, 7, 0, Math.PI * 2);
-        ctx.fillStyle = "rgb(255,80,140)"; ctx.fill();
+        ctx.fillStyle = "rgb(204,48,84)"; ctx.fill();
         ctx.restore();
       }
 
       ctx.save();
-      ctx.fillStyle = "rgba(24,24,32,0.9)";
+      ctx.fillStyle = "rgba(61,14,55,0.92)";
       ctx.fillRect(0, 0, this.width, 76);
       ctx.restore();
       const pen = this.isPen;
@@ -416,12 +416,12 @@ class Calibrator {
           ? `holding…  ${Math.round(this.calDwellProg * 100)}%  —  keep ${pen ? "the pen" : "your finger"} still`
           : (pen ? "IR pen detected — touch the pulsing dot and hold still to capture"
                  : "finger detected — point at the pulsing dot and hold still to capture");
-        text(ctx, msg, this.width / 2, 52, "13px Arial", "rgb(62,207,140)");
+        text(ctx, msg, this.width / 2, 52, "13px Arial", "rgb(47,168,106)");
       } else {
         text(ctx, pen
             ? "IR pen not detected — press the pen tip on the wall (Shift+D shows the camera view)"
             : "finger not detected — raise your hand so your index finger is in frame",
-          this.width / 2, 52, "13px Arial", "rgb(220,160,30)");
+          this.width / 2, 52, "13px Arial", "rgb(243,163,40)");
       }
       // live readout so a stuck dot can be diagnosed
       const dl = this.calLastCapX >= 0 && fx >= 0 ? Math.round(dist(fx, fy, this.calLastCapX, this.calLastCapY)) : "-";
@@ -431,7 +431,7 @@ class Calibrator {
     } else {
       const ok = this.calH !== null;
       text(ctx, ok ? "Calibration complete — starting…" : "Calibration failed — retrying…",
-        this.width / 2, this.height / 2, "bold 26px Arial", ok ? "rgb(62,207,140)" : "rgb(220,60,60)");
+        this.width / 2, this.height / 2, "bold 26px Arial", ok ? "rgb(47,168,106)" : "rgb(220,60,60)");
     }
   }
 

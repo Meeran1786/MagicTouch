@@ -79,7 +79,7 @@ export function saveIrSettings(patch) {
  * finger_conf (camera pixels, camW x camH) and fingers[] (multi-point).
  * Imports are dynamic so IR mode never downloads MediaPipe.
  */
-export async function createTracker({ camW = 640, camH = 480, maxHands = 1 } = {}) {
+export async function createTracker({ camW = 640, camH = 480, maxHands = 1, domClicker = true } = {}) {
   if (getInputMode() === "hand") {
     const mod = maxHands > 1
       ? await import("./handTrackerMulti.js")
@@ -87,5 +87,5 @@ export async function createTracker({ camW = 640, camH = 480, maxHands = 1 } = {
     return new mod.HandTracker({ camW, camH, maxHands });
   }
   const { IRPenTracker } = await import("./irPenTracker.js");
-  return new IRPenTracker({ camW, camH, maxHands });
+  return new IRPenTracker({ camW, camH, maxHands, domClicker });
 }

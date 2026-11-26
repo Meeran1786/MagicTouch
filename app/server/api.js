@@ -46,7 +46,11 @@ function createLimiter(max, windowMs, now) {
   };
 }
 
-export function createApi({ store, allowSignup = "first", now = () => Date.now(), log = console } = {}) {
+// What the school has bought. Without a licence file the wall runs as a demo with every class.
+export const DEMO_LICENCE = { school: "Demo school", levels: "all", demo: true };
+const COMMANDS = new Set(["calibrate"]);
+
+export function createApi({ store, allowSignup = "first", licence = DEMO_LICENCE, now = () => Date.now(), log = console } = {}) {
   const loginFails = createLimiter(LIMITS.loginFailsPerWindow, LIMITS.loginWindowMs, now);
   const signups = createLimiter(LIMITS.signupsPerHour, 60 * 60 * 1000, now);
   const ok = body => ({ status: 200, body });
@@ -118,6 +122,13 @@ export function createApi({ store, allowSignup = "first", now = () => Date.now()
 
     "GET /api/auth/me": async ({ user }) => user ? ok({ username: user.username }) : err(401, "Not logged in."),
 
+    // Which classes the school's licence covers; the wall and the phone only show those.
+    "GET /api/licence": async ({ user }) => {
+      if (!user) return err(401, "Not logged in.");
+      const l = typeof licence === "function" ? await licence() : licence;
+      return ok({ school: l.school || "", levels: l.levels || [], demo: !!l.demo, validUntil: l.validUntil || null });
+    },
+
     "GET /api/state": async ({ user }) => {
       if (!user) return err(401, "Not logged in.");
       return ok(await store.getState(user.id));
@@ -131,6 +142,11 @@ export function createApi({ store, allowSignup = "first", now = () => Date.now()
         patch.app = body.app; patch.ts = now();
       }
       if (body.locked !== undefined) { patch.locked = !!body.locked; patch.ts = patch.ts || now(); }
+      // One-shot commands from the teacher's phone (e.g. start the pen calibration on the wall).
+      if (body.command !== undefined) {
+        if (!COMMANDS.has(body.command)) return err(400, "Unknown command.");
+        patch.cmd = body.command; patch.cmdTs = now();
+      }
       if (!Object.keys(patch).length) return err(400, "Nothing to change.");
       return ok(await store.setState(user.id, patch));
     },

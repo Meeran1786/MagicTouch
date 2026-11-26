@@ -208,3 +208,20 @@ button{font:inherit;cursor:pointer;}
   .sim-sol-l{font-size:20px;} .sim-goal{font-size:20px;padding:10px 14px;}
   .pk-chip{min-height:46px;font-size:17px;} .pk-n{width:34px;height:34px;}
 }
+
+/* ---------- Studio look (direction C, 24 Nov 2026): white wall, plum ink, fine lines ---------- */
+:root{--cream:#ffffff;--cream2:#f7f1f5;--line:#e7dbe3;--muted:#5d5464;
+  --mt-head:Cambria,Caladea,Georgia,serif;--mt-body:Calibri,Carlito,"Noto Sans Telugu","Noto Sans Devanagari","Segoe UI",sans-serif;}
+body{font-family:var(--mt-body);background:linear-gradient(180deg,#fff 0,#fff 80%,#f7f1f5 100%);}
+#mt-header{background:#fff;color:var(--ink);border-bottom:1px solid var(--line);}
+#mt-header .brand b{color:var(--plum);font-family:var(--mt-head);}
+#mt-score{color:var(--plum);}
+#mt-back{background:#fff;color:var(--plum);border:1px solid var(--line);}
+#mt-instr,.mt-tile .ttl,.mt-done{font-family:var(--mt-head);}
+.mt-tile{border:1px solid var(--line);box-shadow:none;border-radius:14px;}
+.mt-card{border-width:1.5px;box-shadow:none;border-radius:14px;}
+.mt-done{background:rgba(255,255,255,.94);}
+/* Inside the wall the launcher's round menu button sits top-left; the activity gets the whole screen. */
+html.mt-wall #mt-header{display:none;}
+html.mt-wall #mt-menu,html.mt-wall #mt-stage{top:0;}
+html.mt-wall #mt-instr{padding:18px 90px 4px;}

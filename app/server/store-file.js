@@ -25,6 +25,7 @@ export function createFileStore(file) {
   }
   const lc = s => String(s).toLowerCase();
   const pub = u => u && { id: u.id, username: u.username };
+  const view = u => ({ app: u.app, ts: u.ts, locked: !!u.locked, cmd: u.cmd || null, cmdTs: u.cmdTs || 0 });
 
   return {
     kind: "file",
@@ -62,14 +63,14 @@ export function createFileStore(file) {
     },
     async getState(userId) {
       const u = data.users.find(x => x.id === userId);
-      return u ? { app: u.app, ts: u.ts, locked: !!u.locked } : { app: "menu", ts: 0, locked: false };
+      return u ? view(u) : { app: "menu", ts: 0, locked: false, cmd: null, cmdTs: 0 };
     },
     async setState(userId, patch) {
       const u = data.users.find(x => x.id === userId);
       if (!u) return null;
       Object.assign(u, patch);
       await save();
-      return { app: u.app, ts: u.ts, locked: !!u.locked };
+      return view(u);
     },
     flush() { return writing; },
   };
