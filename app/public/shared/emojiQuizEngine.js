@@ -17,8 +17,8 @@
    (no "Let's Go" button — matches the rest of the wall).
    ============================================================ */
 
-const BG_PLAYROOM = "url('/shared/backgrounds/playroom.jpg')";
-const BG_FOREST = "url('/shared/backgrounds/forest.jpg')";
+const BG_PLAYROOM = "none" /* Studio: no photo backdrop (old one was Adobe Stock) */;
+const BG_FOREST = "none";
 
 const THEMES = {
   sky:    { a: "#8ED1FF", b: "#4FA6E8", accent: "#FF6B6B", bg: BG_PLAYROOM },

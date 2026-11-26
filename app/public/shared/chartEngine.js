@@ -22,8 +22,8 @@
    need one (animals, vehicles, birds, flowers).
    ============================================================ */
 
-const BG_PLAYROOM = "url('/shared/backgrounds/playroom.jpg')";
-const BG_FOREST = "url('/shared/backgrounds/forest.jpg')";
+const BG_PLAYROOM = "none" /* Studio: no photo backdrop (old one was Adobe Stock) */;
+const BG_FOREST = "none";
 
 const THEMES = {
   sky:    { accent: "#1c7ed6", bg: BG_PLAYROOM },

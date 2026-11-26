@@ -1,7 +1,7 @@
 :root {
   --eq-bg-a: #8ED1FF;
   --eq-bg-b: #4FA6E8;
-  --eq-bg-image: url('/shared/backgrounds/playroom.jpg');
+  --eq-bg-image: none;
   --eq-accent: #FF6B6B;
   --eq-border: #2E7D9E;
   --eq-cream: #FFFBF0;

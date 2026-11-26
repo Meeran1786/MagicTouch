@@ -46,7 +46,7 @@ const PALETTE = [
 ];
 
 // ── Emoji artwork (Twemoji) ──────────────────────────────────────
-const TWEMOJI_BASE = 'https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets';
+const TWEMOJI_BASE = '/vendor/twemoji';
 function _emojiCode(emoji) {
   return Array.from(emoji)
     .map(ch => ch.codePointAt(0))
@@ -55,7 +55,7 @@ function _emojiCode(emoji) {
     .join('-');
 }
 function _emojiSvg(emoji) { return TWEMOJI_BASE + '/svg/'    + _emojiCode(emoji) + '.svg'; }
-function _emojiPng(emoji) { return TWEMOJI_BASE + '/72x72/'  + _emojiCode(emoji) + '.png'; }
+function _emojiPng(emoji) { return TWEMOJI_BASE + '/svg/' + _emojiCode(emoji) + '.svg'; }
 
 let emojiImg = {};   // idx → p5.Image (canvas display), loaded in the background
 

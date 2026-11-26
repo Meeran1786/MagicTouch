@@ -3,6 +3,8 @@
 //
 //    "irpen" (default) → IR pen seen by an IR webcam (irPenTracker.js)
 //    "hand"            → original MediaPipe fingertip tracking
+//    "mouse"           → no camera: mouse, touch screen or interactive panel
+//                        (studio/wall-boot.js stands in for the camera)
 //
 //  Switch any time by opening the wall once with  ?input=hand  or
 //  ?input=irpen  (also works on the launcher page — the choice is
@@ -40,19 +42,20 @@ function readParam(name) {
 export function getInputMode() {
   try {
     const p = (readParam("input") || "").toLowerCase();
-    if (p === "hand" || p === "irpen") {
+    if (p === "hand" || p === "irpen" || p === "mouse") {
       localStorage.setItem(MODE_KEY, p);
       return p;
     }
     const saved = localStorage.getItem(MODE_KEY);
-    if (saved === "hand" || saved === "irpen") return saved;
+    if (saved === "hand" || saved === "irpen" || saved === "mouse") return saved;
   } catch (e) { /* ignore */ }
   return "irpen";
 }
 
 /** localStorage key for the camera→screen calibration of the active device. */
 export function calStorageKey() {
-  return getInputMode() === "hand" ? "wallSharedCalibration" : "wallSharedCalibrationIR";
+  const m = getInputMode();
+  return m === "hand" ? "wallSharedCalibration" : m === "mouse" ? "wallSharedCalibrationMouse" : "wallSharedCalibrationIR";
 }
 
 export function getIrSettings() {

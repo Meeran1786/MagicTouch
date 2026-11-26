@@ -1,6 +1,6 @@
 :root {
   --ch-accent: #1c7ed6;
-  --ch-bg-image: url('/shared/backgrounds/playroom.jpg');
+  --ch-bg-image: none;
   --font-display: 'Fredoka One', 'Baloo 2', cursive, sans-serif;
   --font-body: 'Nunito', 'Fredoka', system-ui, sans-serif;
 }
@@ -196,13 +196,10 @@ html, body {
 }
 
 /* Colourful accents cycling through cards */
-.ch-card:nth-child(7n+1) { color:#e8333a; }
-.ch-card:nth-child(7n+2) { color:#e87d17; }
-.ch-card:nth-child(7n+3) { color:#c9a800; }
-.ch-card:nth-child(7n+4) { color:#2e9e4f; }
-.ch-card:nth-child(7n+5) { color:#1c7ed6; }
-.ch-card:nth-child(7n+6) { color:#7048e8; }
-.ch-card:nth-child(7n+7) { color:#d6367d; }
+/* Studio: card words cycle through the brand palette (plum, magenta, orange) */
+.ch-card:nth-child(3n+1) { color:#631654; }
+.ch-card:nth-child(3n+2) { color:#CC3054; }
+.ch-card:nth-child(3n+3) { color:#E96E24; }
 
 /* ── big display panel ──────────────────────────────────────── */
 .ch-burst {
