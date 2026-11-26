@@ -1,5 +1,5 @@
 node_modules/
 .vercel/
 .DS_Store
-
-.vercel
+data/
+tests/browser/out/
