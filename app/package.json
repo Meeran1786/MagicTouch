@@ -1,0 +1,17 @@
+{
+  "name": "magictouch-wall",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "MagicTouch classroom wall: launcher, phone remote, IR pen input and all activities.",
+  "scripts": {
+    "start": "node server/index.js",
+    "test": "node --test tests/*.test.js",
+    "test:browser": "node tests/browser/run-all.cjs",
+    "check": "node tools/localize.js --check && node tools/asset-audit.js --check"
+  },
+  "engines": { "node": ">=18" },
+  "optionalDependencies": {
+    "@neondatabase/serverless": "^0.10.0"
+  }
+}

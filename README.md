@@ -8,13 +8,19 @@ into taps and drags. The same JSON-driven engine runs preschool sketches and Cla
 
 | Folder | What it is |
 |---|---|
-| `webcam/` | The browser version for a laptop/PC with a USB or IR webcam. Start here. |
+| `app/` | **The classroom product.** Wall launcher, phone remote, IR pen calibration, 126 early-years activities and all our class activities, in the Studio look. Start here. See [`app/README.md`](app/README.md). |
+| `webcam/` | Our JSON activity engine (Classes 1–12). The wall app serves it at `/engine/`; it also still runs on its own. |
 | `webcam/poc/` | Classes 1–12 POC: templates in `js/templates/`, activities as JSON in `activities/` |
 | `webcam/poc/holo.html` | Hologram view (glowing 3D scenes on black, records video for a hologram fan) |
 | `webcam/magictouch_webcam.html` | Preschool sketch app (Nursery–UKG) |
 | `webcam/mediapipe/`, `webcam/vendor/` | Bundled libraries so everything runs offline |
 
 ## Run it
+
+The wall app: `cd app && node server/index.js`, then open **http://localhost:8090/**
+(or double-click `app/Start MagicTouch Wall (Mac).command` / `app/start-magictouch-wall-windows.bat`).
+
+The engine on its own:
 
 Needs [Node.js](https://nodejs.org/) and Chrome or Edge.
 
