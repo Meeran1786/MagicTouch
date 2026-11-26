@@ -87,8 +87,11 @@ main{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px) 64px}
 .early{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.4cqw;margin-bottom:1.8cqw}
 .early .tap{height:11cqw;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6cqw;font-family:Cambria,Caladea,serif;font-size:2cqw;font-weight:700}
 .early svg{width:5.2cqw;height:5.2cqw}
-.nums{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:1cqw;margin-bottom:1.8cqw}
-.nums .tap{aspect-ratio:1;border-radius:50%;font-family:Cambria,Caladea,serif;font-size:2.4cqw;font-weight:700}
+.nums{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1.4cqw;margin-bottom:1.8cqw}
+.nums .tap{height:8cqw;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:Cambria,Caladea,serif;font-size:3.2cqw;font-weight:700;line-height:1}
+.nums .tap small{font-family:Calibri,Carlito,sans-serif;font-size:1.2cqw;font-weight:400;opacity:.8;margin-bottom:.3cqw}
+.lic{display:flex;align-items:center;gap:1cqw;font-size:1.25cqw;color:var(--m2);padding:1cqw 1.2cqw;border:.12cqw dashed var(--ln);border-radius:var(--r)}
+.lic svg{width:2cqw;height:2cqw;flex:none}
 .nums .tap.on{background:var(--a);color:#fff}
 .inter{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.4cqw}
 .inter .tap{height:5.4cqw;font-size:1.7cqw;font-weight:700;display:flex;align-items:center;justify-content:center;gap:1cqw}
@@ -227,7 +230,65 @@ main{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px) 64px}
 .ring{position:fixed;width:56px;height:56px;margin:-28px 0 0 -28px;pointer-events:none;z-index:50;display:none}
 .ring circle{fill:none;stroke:#F3A328;stroke-width:6;stroke-dasharray:151;stroke-dashoffset:151;transform:rotate(-90deg);transform-origin:center}
 .ring.go circle{transition:stroke-dashoffset .7s linear;stroke-dashoffset:0}
-@media(prefers-reduced-motion:reduce){.hs,.cal .dot.now{animation:none}.conf{display:none}.tap{transition:none}}
+.mv-sway{animation:sway 3.2s ease-in-out infinite;transform-origin:50% 92%;transform-box:fill-box}
+.mv-bob{animation:bob 1.8s ease-in-out infinite}
+.mv-spin{animation:spin 9s linear infinite;transform-origin:50% 50%;transform-box:fill-box}
+.mv-float{animation:float 3s ease-in-out infinite}
+.mv-hop{animation:hop 1.4s ease-in-out infinite}
+@keyframes sway{50%{transform:rotate(5deg)}0%,100%{transform:rotate(-4deg)}}
+@keyframes bob{50%{transform:translateY(-.5cqw)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes float{0%,100%{transform:translate(0,0) rotate(-6deg)}50%{transform:translate(.8cqw,-.8cqw) rotate(6deg)}}
+@keyframes hop{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-1cqw)}}
+.note .q.ok{border-color:#2fa86a;background:color-mix(in srgb,#2fa86a 9%,var(--card))}
+.note .q.ok b{color:#1f8a55}
+:root[data-theme=dark] .note .q.ok b{color:#7ee0a8}
+.langs.off{display:none}
+/* realistic sim */
+.bench{position:relative;border-radius:var(--r);overflow:hidden;background:#2b2f36}
+.bench svg{position:absolute;inset:0;width:100%;height:100%}
+.flow{stroke-dasharray:2 16;animation:flow var(--spd,1.2s) linear infinite}
+@keyframes flow{to{stroke-dashoffset:-36}}
+.graph{height:11cqw;position:relative;border-radius:var(--r);background:var(--s);border:.12cqw solid var(--ln)}
+.graph svg{position:absolute;inset:0;width:100%;height:100%}
+.warn{display:none;font-size:1.3cqw;font-weight:700;color:#CC2430}
+.warn.on{display:block}
+/* calibration with phone */
+.calrow{display:grid;grid-template-columns:minmax(0,1fr) 230px;gap:24px;align-items:center}
+.calrow .phone{width:100%}
+@media(max-width:1100px){.calrow{grid-template-columns:minmax(0,1fr)}.calrow .phone{width:min(260px,100%);margin:0 auto}}
+.cam{margin:0 5cqw;height:40cqw;border-radius:4cqw;background:#141018;position:relative;overflow:hidden}
+.cam i{position:absolute;width:3cqw;height:3cqw;margin:-1.5cqw;border-radius:50%;border:.5cqw solid #4a3c52}
+.cam i.ok{background:#2fa86a;border-color:#2fa86a}
+.cam i.now{border-color:#F3A328;background:#F3A32866}
+.cam b{position:absolute;left:3cqw;bottom:2.4cqw;font-size:3.2cqw;color:#d6c8d8;font-weight:400}
+.pbtn{margin:3cqw 5cqw 0;padding:3.6cqw;border-radius:4cqw;border:0;background:#F3A328;color:#3D0E37;font-weight:700;font-size:4cqw}
+.pbtn.alt{background:#561a4c;color:#fff3e6;margin-top:2cqw}
+.calst{margin:3cqw 5cqw 0;font-size:3.6cqw;color:#e2c6d8}
+.calst b{color:#fff;font-size:4.6cqw;display:block}
+/* login */
+.pwrap{gap:28px;flex-wrap:wrap}
+.form{margin:2cqw 6cqw;display:grid;gap:3.4cqw}
+.form label{display:grid;gap:1.4cqw;font-size:3.6cqw;color:#e2c6d8}
+.form input{font:inherit;font-size:4.2cqw;padding:3.2cqw 3.6cqw;border-radius:3cqw;border:.4cqw solid #7a3570;background:#2a0926;color:#fff}
+.form .pbtn{margin:1cqw 0 0}
+.form small{font-size:3.2cqw;color:#cdb8c7;text-align:center}
+.walls{margin:2cqw 6cqw;display:grid;gap:2.4cqw}
+.walls button{display:flex;justify-content:space-between;align-items:center;padding:3.4cqw;border-radius:3cqw;border:0;background:#2a0926;color:#fff3e6;font-size:3.8cqw;text-align:left}
+.walls em{font-style:normal;font-size:3cqw;color:#7ee0a8}
+/* school view */
+.roles{display:flex;gap:.6cqw;flex-wrap:wrap}
+.roles button{border:.1cqw solid #e7dbe3;background:#fff;border-radius:3cqw;padding:.5cqw 1.1cqw;font-size:1.2cqw;color:#242430}
+.roles button[aria-pressed=true]{background:#631654;border-color:#631654;color:#fff}
+.dash.sch{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:auto auto minmax(0,1fr)}
+.dash.sch h3{display:flex;justify-content:space-between;align-items:flex-start;gap:1cqw;flex-wrap:wrap}
+.kv{display:flex;justify-content:space-between;gap:1cqw;font-size:1.25cqw;border-bottom:.1cqw solid #f0e6ec;padding-bottom:.5cqw}
+.kv span:last-child{font-weight:700;text-align:right}
+.lap .btn{border:0;border-radius:.6cqw;background:#631654;color:#fff;padding:.7cqw 1cqw;font-size:1.2cqw;justify-self:start}
+.tm{display:flex;align-items:center;gap:.8cqw}
+.tm svg{width:2.2cqw;height:2.2cqw;flex:none}
+.tm input{font:inherit;font-size:1.25cqw;padding:.5cqw .7cqw;border:.1cqw solid #d9c9d4;border-radius:.5cqw;width:100%;color:#242430;background:#fff}
+@media(prefers-reduced-motion:reduce){.mv-sway,.mv-bob,.mv-spin,.mv-float,.mv-hop,.flow{animation:none}.hs,.cal .dot.now{animation:none}.conf{display:none}.tap{transition:none}}
 </style>
 </head>
 <body>
@@ -263,43 +324,42 @@ main{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px) 64px}
 <header class="top">
 <div class="in">
 <div class="brand"><svg width="34" height="34" aria-hidden="true"><use href="#mark"/></svg>MagicTouch · Maqsusi EduTech</div>
-<h1>New look and feel: wireframes to decide together</h1>
-<p>Decided on 24 Nov 2026: look C, Studio, for every class and screen. Every screen below is clickable. A and B stay here for reference. Switch the look with the three buttons; every screen changes with it. Nothing here is built into the product yet. The screens use the purchased Interactive Wall flow (9-dot calibration, IR pen, phone remote) with our JSON activity templates.</p>
+<h1>New look and feel: wireframes, version 2</h1>
+<p>Version 2, 27 Nov 2026, with your answers built in: classes follow the licence, moving pictures on cards, English by default, default team names the school can change, a realistic simulation, calibration and login on the phone, and a new School view. Look C, Studio, is chosen for every screen; A and B stay for reference. Every screen is clickable. Nothing here is built into the product yet. The screens use the purchased Interactive Wall flow (9-dot calibration, IR pen, phone remote) with our JSON activity templates.</p>
 <div class="dirs" role="group" aria-label="Visual direction">
 <button class="dir" data-d="mela" aria-pressed="false"><div class="sw"><i style="background:#FFF4D4"></i><i style="background:#E96E24"></i><i style="background:#CC3054"></i><i style="background:#631654"></i></div><b>A · Mela</b><span>Warm festival colours, rangoli patterns, chunky sticker tiles. Made for Nursery to Class 5.</span></button>
 <button class="dir" data-d="night" aria-pressed="false"><div class="sw"><i style="background:#3D0E37"></i><i style="background:#561a4c"></i><i style="background:#F3A328"></i><i style="background:#FBD064"></i></div><b>B · Night sky</b><span>Dark plum stage with glowing amber. Dramatic on a projector in a dim room; the hologram family look.</span></button>
 <button class="dir" data-d="studio" aria-pressed="true"><div class="sw"><i style="background:#ffffff"></i><i style="background:#f7f1f5"></i><i style="background:#631654"></i><i style="background:#CC3054"></i></div><b>C · Studio (chosen)</b><span>Clean white, plum ink, fine lines. Grown-up for Classes 6 to Inter and the teacher screens.</span></button>
 </div>
 <label class="opts"><input type="checkbox" id="dwell"> Try it like the IR pen: hold the pointer still on a button for 0.7 s to tap it</label>
-<nav class="nav" aria-label="Screens"><a href="#home">1 Home</a><a href="#subjects">2 Class and subject</a><a href="#explore">3 Explore</a><a href="#quiz">4 Preschool quiz</a><a href="#simulate">5 Simulation</a><a href="#calibrate">6 Calibration</a><a href="#remote">7 Phone remote</a><a href="#teacher">8 Teacher view</a></nav>
+<nav class="nav" aria-label="Screens"><a href="#home">1 Home</a><a href="#subjects">2 Class and subject</a><a href="#explore">3 Explore</a><a href="#quiz">4 Preschool quiz</a><a href="#simulate">5 Simulation</a><a href="#calibrate">6 Calibration</a><a href="#remote">7 Phone remote</a><a href="#teacher">8 Teacher view</a><a href="#school">9 School view</a></nav>
 </div>
 </header>
 
 <main>
 <section class="row" id="home">
-<div class="note"><h2>Home on the wall</h2><p>The first thing a school sees. Huge targets, since a child taps with a pen from a metre away.</p><ul><li>"Continue" brings back the last lesson in one tap</li><li>Today's plan comes from the teacher's phone or PC</li><li>Offline and pen status always visible</li></ul><div class="q"><b>To decide</b>Show all classes, or only the ones the school bought?</div></div>
+<div class="note"><h2>Home on the wall</h2><p>The first thing a school sees. Huge targets, since a child taps with a pen from a metre away.</p><ul><li>Only the classes in the school's licence appear. This sample school bought Nursery to Class 5</li><li>The licence is checked on the wall itself, so it keeps working offline for a grace period</li><li>Pictures on the tiles move gently</li></ul><div class="q ok"><b>Decided</b>Classes shown follow the school's purchase and licence.</div></div>
 <div class="wall">
 <svg class="deco bg-mela" aria-hidden="true"><rect width="100%" height="100%" fill="url(#rangoli)"/></svg><svg class="deco bg-night" aria-hidden="true"><rect width="100%" height="100%" fill="url(#stars)"/></svg>
-<div class="wb"><span class="lg"><svg width="30" height="30" aria-hidden="true" style="width:2.6cqw;height:2.6cqw"><use href="#mark"/></svg>MagicTouch</span><span class="crumb">Namaste, Class 4B</span><span class="sp"></span><span class="chip"><i></i>Offline ready</span><span class="chip">Pen 80%</span><span class="chip">9:40</span></div>
+<div class="wb"><span class="lg"><svg width="30" height="30" aria-hidden="true" style="width:2.6cqw;height:2.6cqw"><use href="#mark"/></svg>MagicTouch</span><span class="crumb">Namaste, Class 4B</span><span class="sp"></span><span class="chip">Licence to Mar 2027</span><span class="chip"><i></i>Offline ready</span><span class="chip">Pen 80%</span></div>
 <div class="wbody"><div class="home">
 <div class="cont"><small>Continue where you stopped</small><h3>Parts of a plant</h3><small>Class 4 · EVS · Explore</small><div class="plan"><b style="font-size:1.3cqw">Today's plan</b><span>Parts of a plant</span><span>Label the plant quiz</span><span>Counting song, Nursery</span></div><button class="go tap" data-go="explore">Continue</button></div>
 <div>
 <p class="grp">Early years</p>
-<div class="early"><button class="tap" data-go="quiz"><svg aria-hidden="true"><use href="#sun"/></svg>Nursery</button><button class="tap" data-go="quiz"><svg aria-hidden="true"><use href="#abc"/></svg>LKG</button><button class="tap" data-go="quiz"><svg aria-hidden="true"><use href="#kite"/></svg>UKG</button></div>
+<div class="early"><button class="tap" data-go="quiz"><svg aria-hidden="true"><use class="mv-spin" href="#sun"/></svg>Nursery</button><button class="tap" data-go="quiz"><svg aria-hidden="true" class="mv-bob"><use href="#abc"/></svg>LKG</button><button class="tap" data-go="quiz"><svg aria-hidden="true" class="mv-float"><use href="#kite"/></svg>UKG</button></div>
 <p class="grp">Classes</p>
 <div class="nums" id="nums"></div>
-<p class="grp">Intermediate</p>
-<div class="inter"><button class="tap" data-go="simulate"><svg aria-hidden="true" style="width:3cqw;height:3cqw"><use href="#atom"/></svg>Inter · MPC</button><button class="tap" data-go="simulate"><svg aria-hidden="true" style="width:3cqw;height:3cqw"><use href="#flask"/></svg>Inter · BiPC</button></div>
+<div class="lic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 10V7a4 4 0 018 0v3" fill="none" stroke="currentColor" stroke-width="2"/></svg>Classes 6 to 10 and Inter are not in this school's licence. The school office can add them.</div>
 </div>
 </div></div>
 </div>
 </section>
 
 <section class="row" id="subjects">
-<div class="note"><h2>Class and subject</h2><p>One screen per class. Subjects on the left, chapters as picture cards. Each card shows which activity types it has.</p><ul><li>"Done in class" is counted per class, never per child</li><li>Board and language set once per school</li></ul><div class="q"><b>To decide</b>Chapter names follow each board's syllabus order, in our own words. Is that the right grouping for teachers?</div></div>
+<div class="note"><h2>Class and subject</h2><p>One screen per class. Subjects on the left, chapters as picture cards. Each card shows which activity types it has.</p><ul><li>Every card picture moves. The final product uses short looping animations (animated WebP or Lottie, lighter than GIF so they load fast offline)</li><li>"Done in class" is counted per class, never per child</li><li>Board and language set once per school</li></ul><div class="q ok"><b>Decided</b>Layout approved; cards get moving pictures.</div></div>
 <div class="wall">
 <svg class="deco bg-mela" aria-hidden="true"><rect width="100%" height="100%" fill="url(#rangoli)"/></svg><svg class="deco bg-night" aria-hidden="true"><rect width="100%" height="100%" fill="url(#stars)"/></svg>
-<div class="wb"><span class="lg"><svg aria-hidden="true" style="width:2.6cqw;height:2.6cqw"><use href="#mark"/></svg>MagicTouch</span><span class="crumb">Home › Class 4</span><span class="sp"></span><span class="chip">CBSE</span><span class="chip">English + <span class="te">తెలుగు</span></span></div>
+<div class="wb"><span class="lg"><svg aria-hidden="true" style="width:2.6cqw;height:2.6cqw"><use href="#mark"/></svg>MagicTouch</span><span class="crumb">Home › Class 4</span><span class="sp"></span><span class="chip">CBSE</span><span class="chip">English</span></div>
 <div class="wbody"><div class="subj">
 <div class="rail" id="rail"></div>
 <div class="chs" id="chs"></div>
@@ -308,7 +368,7 @@ main{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px) 64px}
 </section>
 
 <section class="row" id="explore">
-<div class="note"><h2>Explore activity</h2><p>The picture fills most of the wall. Pulsing spots invite a tap; each opens a label card in three languages with a voice button.</p><ul><li>Green spot = already seen</li><li>Teacher tools sit low, within a child's reach</li></ul><div class="q"><b>To decide</b>Which languages show by default: English plus the state language, or all three?</div></div>
+<div class="note"><h2>Explore activity</h2><p>The picture fills most of the wall. Pulsing spots invite a tap; each opens a label card in English with a voice button. Telugu or Hindi can be added with one tap.</p><ul><li>Green spot = already seen</li><li>Teacher tools sit low, within a child's reach</li></ul><div class="q ok"><b>Decided</b>English by default. Other languages are optional.</div></div>
 <div class="wall">
 <div class="wb"><span class="lg"><svg aria-hidden="true" style="width:2.6cqw;height:2.6cqw"><use href="#mark"/></svg>MagicTouch</span><span class="crumb">Class 4 › EVS › Parts of a plant</span><span class="sp"></span><span class="prog" id="prog"></span></div>
 <div class="wbody"><div class="exp">
@@ -318,67 +378,97 @@ main{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px) 64px}
 <g stroke="#8a5a32" stroke-width="4" stroke-linecap="round" fill="none"><path d="M200 218q-6 28-30 50M200 218q4 30 26 54M200 218v62M186 240q-14 6-24 2M214 246q14 2 22 10"/></g>
 <path d="M200 218V92" stroke="#2fa86a" stroke-width="9"/>
 <path d="M200 170c-34 0-52-18-58-44 30 0 52 16 58 44z" fill="#2fa86a"/><path d="M200 140c34 0 52-18 58-44-30 0-52 16-58 44z" fill="#37b877"/><path d="M200 170c-34 0-52-18-58-44" stroke="#1f8a55" stroke-width="2" fill="none"/>
-<g transform="translate(200 78)"><circle r="12" fill="#FBD064"/><g fill="#CC3054"><circle cx="0" cy="-20" r="12"/><circle cx="19" cy="-6" r="12"/><circle cx="12" cy="16" r="12"/><circle cx="-12" cy="16" r="12"/><circle cx="-19" cy="-6" r="12"/></g><circle r="9" fill="#F3A328"/></g>
+<g class="mv-sway"><g transform="translate(200 78)"><circle r="12" fill="#FBD064"/><g fill="#CC3054"><circle cx="0" cy="-20" r="12"/><circle cx="19" cy="-6" r="12"/><circle cx="12" cy="16" r="12"/><circle cx="-12" cy="16" r="12"/><circle cx="-19" cy="-6" r="12"/></g><circle r="9" fill="#F3A328"/></g></g>
 <circle cx="330" cy="50" r="22" fill="#F3A328" opacity=".8"/>
 </svg>
 </div>
 <div class="info">
-<div class="card" id="infocard"><div class="big" id="pName">Tap a glowing spot</div><div class="langs"><span class="te" id="pTe"></span><span class="hi" id="pHi"></span></div><p id="pTxt">Find all four parts of the plant.</p></div>
-<div class="tools"><button class="tap"><svg aria-hidden="true"><use href="#speak"/></svg>Read aloud</button><button class="tap" id="hideL"><svg aria-hidden="true"><use href="#eye"/></svg>Hide labels</button><button class="tap" data-go="quiz"><svg aria-hidden="true"><use href="#qq"/></svg>Quiz me</button></div>
+<div class="card" id="infocard"><div class="big" id="pName">Tap a glowing spot</div><div class="langs off" id="langs"><span class="te" id="pTe"></span><span class="hi" id="pHi"></span></div><p id="pTxt">Find all four parts of the plant.</p></div>
+<div class="tools"><button class="tap"><svg aria-hidden="true"><use href="#speak"/></svg>Read aloud</button><button class="tap" id="hideL"><svg aria-hidden="true"><use href="#eye"/></svg>Hide labels</button><button class="tap" id="addL" aria-pressed="false">+ <span class="te">తెలుగు</span> / <span class="hi">हिंदी</span></button><button class="tap" data-go="quiz"><svg aria-hidden="true"><use href="#qq"/></svg>Quiz me</button></div>
 </div>
 </div></div>
 </div>
 </section>
 
 <section class="row" id="quiz">
-<div class="note"><h2>Preschool quiz</h2><p>One question, three giant answers, a voice prompt. Classes play as two teams, so there is no child data and everyone joins in.</p><ul><li>Wrong answer: a gentle shake, no red cross</li><li>Right answer: confetti and praise, then Next</li></ul><div class="q"><b>To decide</b>Team names and mascots: animals, or the school's own house names?</div></div>
+<div class="note"><h2>Preschool quiz</h2><p>One question, three giant answers, a voice prompt. Classes play as two teams, so there is no child data and everyone joins in.</p><ul><li>Wrong answer: a gentle shake, no red cross</li><li>Right answer: confetti and praise, then Next</li><li>Peacocks and Tigers are the defaults. A school can rename them in the School view (try it there)</li></ul><div class="q ok"><b>Decided</b>Default teams, and each school can use its own.</div></div>
 <div class="wall">
 <svg class="deco bg-mela" aria-hidden="true"><rect width="100%" height="100%" fill="url(#rangoli)"/></svg><svg class="deco bg-night" aria-hidden="true"><rect width="100%" height="100%" fill="url(#stars)"/></svg>
 <div class="wb"><span class="lg"><svg aria-hidden="true" style="width:2.6cqw;height:2.6cqw"><use href="#mark"/></svg>MagicTouch</span><span class="crumb">Nursery › Numbers › Count with me</span><span class="sp"></span><span class="chip">Question 3 of 8</span></div>
 <div class="wbody"><div class="quiz">
-<div class="qhead"><button class="spk" aria-label="Say the question"><svg aria-hidden="true"><use href="#speak"/></svg></button><h3>How many mangoes?</h3><div class="teams"><span class="team"><svg aria-hidden="true"><use href="#peacock"/></svg>Peacocks <span id="sc1">3</span></span><span class="team"><svg aria-hidden="true"><use href="#tiger"/></svg>Tigers <span id="sc2">2</span></span></div></div>
-<div class="basket"><svg viewBox="0 0 600 160" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><path d="M150 96h300l-26 58H176z" fill="#b07a4a"/><path d="M150 96h300" stroke="#8a5a32" stroke-width="8" stroke-linecap="round"/><g stroke="#8a5a32" stroke-width="3" opacity=".6"><path d="M200 104l-8 46M250 104l-4 46M300 104v46M350 104l4 46M400 104l8 46"/></g><use href="#mango" x="170" y="18" width="80" height="80"/><use href="#mango" x="240" y="8" width="80" height="80"/><use href="#mango" x="310" y="14" width="80" height="80"/><use href="#mango" x="378" y="20" width="80" height="80"/></svg></div>
+<div class="qhead"><button class="spk" aria-label="Say the question"><svg aria-hidden="true"><use href="#speak"/></svg></button><h3>How many mangoes?</h3><div class="teams"><span class="team"><svg aria-hidden="true"><use href="#peacock"/></svg><span class="tn1">Peacocks</span> <span id="sc1">3</span></span><span class="team"><svg aria-hidden="true"><use href="#tiger"/></svg><span class="tn2">Tigers</span> <span id="sc2">2</span></span></div></div>
+<div class="basket"><svg viewBox="0 0 600 160" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><path d="M150 96h300l-26 58H176z" fill="#b07a4a"/><path d="M150 96h300" stroke="#8a5a32" stroke-width="8" stroke-linecap="round"/><g stroke="#8a5a32" stroke-width="3" opacity=".6"><path d="M200 104l-8 46M250 104l-4 46M300 104v46M350 104l4 46M400 104l8 46"/></g><use class="mv-hop" style="animation-delay:0.00s" href="#mango" x="170" y="18" width="80" height="80"/><use class="mv-hop" style="animation-delay:0.18s" href="#mango" x="240" y="8" width="80" height="80"/><use class="mv-hop" style="animation-delay:0.36s" href="#mango" x="310" y="14" width="80" height="80"/><use class="mv-hop" style="animation-delay:0.54s" href="#mango" x="378" y="20" width="80" height="80"/></svg></div>
 <div class="ans" id="ans"><button class="tap" data-a="3">3</button><button class="tap" data-a="4">4</button><button class="tap" data-a="5">5</button></div>
 </div>
-<div class="yay" id="yay"><div class="conf" id="conf"></div><h3>Shabash!</h3><p>Four mangoes. One point to the Peacocks.</p><button class="tap" id="again">Next question</button></div>
+<div class="yay" id="yay"><div class="conf" id="conf"></div><h3>Shabash!</h3><p>Four mangoes. One point to the <span class="tn1">Peacocks</span>.</p><button class="tap" id="again">Next question</button></div>
 </div>
 </div>
 </section>
 
 <section class="row" id="simulate">
-<div class="note"><h2>Simulation, Class 10</h2><p>For older classes: a working model the teacher drags live. Sliders have pen-sized handles.</p><ul><li>The bulb glows brighter as current rises</li><li>"Predict first" asks the class before revealing</li></ul><div class="q"><b>To decide</b>Should senior screens use look C even when the school picked A?</div></div>
+<div class="note"><h2>Simulation, Class 10</h2><p>Rebuilt to look like a real lab bench: battery pack, a colour-coded resistor, a glass bulb and an analogue ammeter. Electrons flow faster as the current rises.</p><ul><li>The resistor's colour bands change with its value, as on a real one</li><li>The graph plots each reading, so the class sees the straight line of Ohm's law</li><li>Push the current too high and the bulb warns it will burn out</li></ul><div class="q ok"><b>Decided</b>Real-looking simulations; the school picks what it wants.</div></div>
 <div class="wall">
-<svg class="deco bg-night" aria-hidden="true"><rect width="100%" height="100%" fill="url(#stars)"/></svg>
 <div class="wb"><span class="lg"><svg aria-hidden="true" style="width:2.6cqw;height:2.6cqw"><use href="#mark"/></svg>MagicTouch</span><span class="crumb">Class 10 › Physics › Electricity › Ohm's law</span><span class="sp"></span><span class="chip">Simulate</span></div>
 <div class="wbody"><div class="sim">
-<div class="stage"><svg viewBox="0 0 400 300" aria-hidden="true">
-<g fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round" style="color:var(--ink2)"><path d="M70 80H330V220H70z"/></g>
-<rect x="44" y="130" width="52" height="40" rx="6" fill="var(--g)"/><path d="M58 128v44M82 140v20" stroke="var(--ink2)" stroke-width="6"/><text x="104" y="156" text-anchor="start" font-size="15" fill="var(--ink2)" font-family="Calibri,Carlito,sans-serif">Battery</text>
-<rect x="160" y="66" width="80" height="28" rx="4" fill="var(--g)"/><path d="M160 80l8-12 10 24 10-24 10 24 10-24 10 24 10-24 12 12" fill="none" stroke="#CC3054" stroke-width="4" stroke-linejoin="round"/><text x="200" y="56" text-anchor="middle" font-size="15" fill="var(--ink2)" font-family="Calibri,Carlito,sans-serif">Resistor</text>
-<circle id="glow" cx="330" cy="150" r="46" fill="#FBD064" opacity=".4"/><circle cx="330" cy="150" r="24" fill="var(--g)" stroke="var(--ink2)" stroke-width="4"/><path d="M318 150q6-12 12 0t12 0" stroke="#E96E24" stroke-width="3" fill="none"/>
-<circle cx="200" cy="220" r="24" fill="var(--g)" stroke="var(--ink2)" stroke-width="4"/><text x="200" y="227" text-anchor="middle" font-size="20" font-weight="700" fill="var(--ink2)" font-family="Calibri,Carlito,sans-serif">A</text>
+<div class="bench"><svg viewBox="0 0 480 340" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<defs>
+<linearGradient id="wood" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c8955e"/><stop offset="1" stop-color="#a87442"/></linearGradient>
+<pattern id="grain" width="240" height="18" patternUnits="userSpaceOnUse"><path d="M0 9q60-6 120 0t120 0" stroke="#8a5a32" stroke-width="1.2" fill="none" opacity=".35"/></pattern>
+<linearGradient id="cell" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a3f48"/><stop offset=".45" stop-color="#5b6270"/><stop offset="1" stop-color="#22252b"/></linearGradient>
+<linearGradient id="cap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9eaee"/><stop offset=".5" stop-color="#9aa0aa"/><stop offset="1" stop-color="#d0d3d9"/></linearGradient>
+<linearGradient id="resb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e8d1a6"/><stop offset=".5" stop-color="#cfae78"/><stop offset="1" stop-color="#a98a58"/></linearGradient>
+<radialGradient id="halo"><stop offset="0" stop-color="#fff4c2"/><stop offset=".35" stop-color="#FBD064" stop-opacity=".8"/><stop offset="1" stop-color="#F3A328" stop-opacity="0"/></radialGradient>
+<radialGradient id="glass" cx=".35" cy=".3"><stop offset="0" stop-color="#ffffff" stop-opacity=".9"/><stop offset=".3" stop-color="#e9f1f7" stop-opacity=".35"/><stop offset="1" stop-color="#b7c6d3" stop-opacity=".25"/></radialGradient>
+<linearGradient id="meter" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4a4f59"/><stop offset="1" stop-color="#23262c"/></linearGradient>
+</defs>
+<rect width="480" height="340" fill="url(#wood)"/><rect width="480" height="340" fill="url(#grain)"/>
+<g fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="M110 116C110 70 150 62 178 62M302 62C350 62 384 70 384 112M384 214C384 270 330 284 282 284M198 284C150 284 110 276 110 236" stroke="#1d1f24" stroke-width="9" opacity=".25" transform="translate(3 4)"/>
+<path d="M110 116C110 70 150 62 178 62" stroke="#b3261e" stroke-width="7"/>
+<path d="M302 62C350 62 384 70 384 112" stroke="#b3261e" stroke-width="7"/>
+<path d="M384 214C384 270 330 284 282 284" stroke="#1d1f24" stroke-width="7"/>
+<path d="M198 284C150 284 110 276 110 236" stroke="#1d1f24" stroke-width="7"/>
+<path class="flow" d="M110 236C110 276 150 284 198 284M282 284C330 284 384 270 384 214M384 112C384 70 350 62 302 62M178 62C150 62 110 70 110 116" stroke="#9fe3ff" stroke-width="3"/>
+</g>
+<g transform="translate(64 116)"><rect x="-6" y="-6" width="104" height="132" rx="10" fill="#15171b"/><rect x="6" y="4" width="34" height="112" rx="8" fill="url(#cell)"/><rect x="52" y="4" width="34" height="112" rx="8" fill="url(#cell)"/><rect x="14" y="-2" width="18" height="8" rx="2" fill="url(#cap)"/><rect x="60" y="114" width="18" height="8" rx="2" fill="url(#cap)"/><rect x="6" y="38" width="34" height="34" fill="#E96E24"/><rect x="52" y="38" width="34" height="34" fill="#E96E24"/><text x="23" y="60" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="Calibri,Carlito,sans-serif">+</text><text x="69" y="60" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="Calibri,Carlito,sans-serif">+</text><text transform="translate(-16 60) rotate(-90)" text-anchor="middle" font-size="14" fill="#fff" font-family="Calibri,Carlito,sans-serif" id="batL">Battery 6 V</text></g>
+<g transform="translate(178 62)"><path d="M0 0h18M106 0h18" stroke="#c9ccd2" stroke-width="3"/><rect x="16" y="-14" width="92" height="28" rx="13" fill="url(#resb)"/><rect id="b1" x="32" y="-14" width="9" height="28"/><rect id="b2" x="50" y="-14" width="9" height="28"/><rect id="b3" x="68" y="-14" width="9" height="28"/><rect x="90" y="-14" width="7" height="28" fill="#c9a227"/><text x="62" y="-24" text-anchor="middle" font-size="14" fill="#fff" font-family="Calibri,Carlito,sans-serif" id="resL">Resistor 10 Ω</text></g>
+<g transform="translate(384 164)"><circle id="halo" r="70" fill="url(#halo)" opacity=".5"/><path d="M-30 -6a34 34 0 1160 0c-6 10-12 16-12 28h-36c0-12-6-18-12-28z" fill="url(#glass)" stroke="#dfe7ee" stroke-width="2"/><path id="fil" d="M-8 18v-18l4-8 4 8 4-8 4 8v18" fill="none" stroke="#7a4a1c" stroke-width="2.4"/><rect x="-18" y="22" width="36" height="26" rx="3" fill="url(#cap)"/><path d="M-18 30h36M-18 38h36" stroke="#8a9099" stroke-width="2"/><text x="44" y="6" text-anchor="start" font-size="14" fill="#fff" font-family="Calibri,Carlito,sans-serif">Bulb</text></g>
+<g transform="translate(240 284)"><circle r="46" fill="url(#meter)"/><circle r="38" fill="#f4f1e8"/><path d="M-30 6A31 31 0 0130 6" fill="none" stroke="#242430" stroke-width="1.5"/><g id="ticks" stroke="#242430" stroke-width="1.5"></g><text x="0" y="22" text-anchor="middle" font-size="13" font-weight="700" fill="#242430" font-family="Calibri,Carlito,sans-serif">A</text><line id="needle" x1="0" y1="10" x2="0" y2="-30" stroke="#CC2430" stroke-width="2.4" stroke-linecap="round" transform="rotate(-60 0 10)"/><circle cy="10" r="4" fill="#242430"/></g>
 </svg></div>
 <div class="ctl">
-<div class="card"><div class="rd"><span class="big" id="cur">0.60</span><span>amperes of current</span></div><p>Current = Voltage ÷ Resistance</p></div>
+<div class="card"><div class="rd"><span class="big" id="cur">0.60</span><span>amperes of current</span></div><p>Current = Voltage ÷ Resistance</p><span class="warn" id="warn">Too much current: this bulb would burn out.</span></div>
 <div class="sl"><label for="v">Voltage <span id="vv">6 V</span></label><input type="range" id="v" min="1" max="12" value="6"></div>
 <div class="sl"><label for="r">Resistance <span id="rv">10 Ω</span></label><input type="range" id="r" min="1" max="20" value="10"></div>
-<div class="tools"><button class="tap">Predict first</button><button class="tap">Show graph</button></div>
+<div class="graph" id="graph"><svg id="gsvg" aria-hidden="true"></svg></div>
 </div>
 </div></div>
 </div>
 </section>
 
 <section class="row" id="calibrate">
-<div class="note"><h2>Pen calibration</h2><p>The purchased app's 9-dot setup, restyled. Done once after the projector is mounted; every activity reuses it.</p><ul><li>Camera checks before starting: pen seen, light level</li><li>Tap the glowing dot to try it</li></ul><div class="q"><b>To decide</b>Should the teacher be able to start calibration from the phone remote?</div></div>
-<div class="wall">
+<div class="note"><h2>Pen calibration</h2><p>The purchased app's 9-dot setup, restyled. Done once after the projector is mounted; every activity reuses it.</p><ul><li>The teacher starts and follows calibration from the phone, with the camera view live on screen</li><li>Tap the glowing dot on the wall, or start again from the phone</li><li>Camera checks before starting: pen seen, light level</li></ul><div class="q ok"><b>Decided</b>Calibration can be run from the phone.</div></div>
+<div class="calrow"><div class="wall">
 <div class="wb"><span class="lg"><svg aria-hidden="true" style="width:2.6cqw;height:2.6cqw"><use href="#mark"/></svg>MagicTouch</span><span class="crumb">Setup › Pen calibration</span><span class="sp"></span><span class="chip">Camera on</span></div>
 <div class="cal" id="cal"><div class="panel"><h3 id="calT">Touch dot 1 of 9</h3><p id="calP">Hold the pen tip on the glowing dot until it turns green.</p><div class="checks"><span class="chip"><i></i>Pen seen</span><span class="chip"><i></i>Light OK</span><span class="chip"><i></i>Wall in view</span></div></div></div>
 </div>
+<div class="phone">
+<div class="ph"><small><i></i>Room 4B wall</small><h3>Calibrate</h3></div>
+<div class="cam" id="cam"><b>Camera view</b></div>
+<div class="calst" id="calst"><b>Dot 1 of 9</b>Ask a child to hold the pen on the glowing dot.</div>
+<button class="pbtn" id="calRe">Start again</button>
+<button class="pbtn alt" id="calTest">Check accuracy</button>
+<div class="tabs"><span>Remote</span><span>Library</span><span>Plans</span><span>Settings</span></div>
+</div></div>
 </section>
 
 <section class="row" id="remote">
-<div class="note"><h2>Phone remote</h2><p>The teacher runs the wall from their own phone. Big controls work one-handed while standing beside the board.</p><ul><li>Lock the wall so children can't leave the activity</li><li>Today's plan plays in order; tap Next to move on</li></ul><div class="q"><b>To decide</b>Connect by school login (as in the purchased app) or by scanning a code shown on the wall?</div></div>
-<div class="pwrap"><div class="phone">
+<div class="note"><h2>Phone remote</h2><p>The teacher runs the wall from their own phone. Big controls work one-handed while standing beside the board.</p><ul><li>Sign in with the school login, as in the purchased app, then pick the wall</li><li>Lock the wall so children can't leave the activity</li><li>Today's plan plays in order; tap Next to move on</li></ul><div class="q ok"><b>Decided</b>Connect with the school login.</div></div>
+<div class="pwrap"><div class="phone" id="loginP">
+<div class="ph"><small>MagicTouch</small><h3 id="lgT">Sign in</h3></div>
+<form class="form" id="lgF"><label for="sc">School code<input id="sc" value="SUNRISE-HYD" autocomplete="off"></label><label for="un">Teacher login<input id="un" value="farah.4b" autocomplete="off"></label><label for="pw">Password<input id="pw" type="password" value="sample-only"></label><button class="pbtn" type="submit">Sign in</button><small>Forgot password? Ask the school office.</small></form>
+<div class="walls" id="lgW" hidden><button type="button" data-go="remote">Room 4B wall <em>Online</em></button><button type="button">Room 4A wall <em>Online</em></button><button type="button">Room 2A wall <em style="color:#F3A328">Calibrate again</em></button><small style="font-size:3.2cqw;color:#cdb8c7">Pick the wall in front of you.</small></div>
+<div class="tabs"><span>Remote</span><span>Library</span><span>Plans</span><span>Settings</span></div>
+</div><div class="phone">
 <div class="ph"><small><i></i>Connected to Room 4B wall</small><h3>Remote</h3></div>
 <div class="now"><div class="thumb"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#plant"/></svg></div><span>Now on the wall</span><b id="nowT">Parts of a plant</b></div>
 <div class="pc"><button id="pPrev" aria-label="Previous"><svg aria-hidden="true"><use href="#prev"/></svg></button><button class="main" aria-label="Pause"><svg aria-hidden="true"><use href="#pause"/></svg></button><button id="pNext" aria-label="Next"><svg aria-hidden="true"><use href="#next"/></svg></button></div>
@@ -389,7 +479,7 @@ main{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px) 64px}
 </section>
 
 <section class="row" id="teacher">
-<div class="note"><h2>Teacher view</h2><p>On the school PC or a laptop, always in look C. Plan lessons, check offline packs and devices.</p><ul><li>Drag activities into today's plan; it appears on the wall and the phone</li><li>Usage per class only, for renewal reports</li></ul><div class="q"><b>To decide</b>Does the principal need a separate school-wide view in v1?</div></div>
+<div class="note"><h2>Teacher view</h2><p>On the school PC or a laptop, always in look C. Plan lessons, check offline packs and devices.</p><ul><li>Drag activities into today's plan; it appears on the wall and the phone</li><li>Usage per class only, for renewal reports</li></ul><div class="q ok"><b>Decided</b>Yes: see the School view below.</div></div>
 <div class="lap">
 <div class="side"><span class="lg"><svg width="26" height="26" aria-hidden="true" style="width:2.4cqw;height:2.4cqw"><use href="#mark"/></svg>MagicTouch</span><span class="on">Today</span><span>Lesson plans</span><span>Library</span><span>Offline packs</span><span>Walls and pens</span><span>School settings</span></div>
 <div class="dash">
@@ -398,6 +488,20 @@ main{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px) 64px}
 <div class="pn"><b>Sessions this week, by class</b><div id="bars" style="display:grid;gap:.8cqw"></div><span class="priv">No student names or data are stored. Usage is counted per class.</span></div>
 <div class="pn"><b>Offline packs</b><span class="st"><i></i>Class 4 EVS · up to date</span><span class="st"><i></i>Nursery Numbers · up to date</span><span class="st"><i class="w"></i>Class 10 Physics · update ready</span></div>
 <div class="pn"><b>Walls and pens</b><span class="st"><i></i>Room 4B wall · online</span><span class="st"><i></i>Pen 1 · battery 80%</span><span class="st"><i class="w"></i>Room 2A wall · calibrate again</span></div>
+</div>
+</div>
+</section>
+
+<section class="row" id="school">
+<div class="note"><h2>School view</h2><p>One school-wide screen. The Principal sees the whole school. A HOD and a Floor In-charge open the same screen, set to their subject or floor, and can switch to the whole school with one tap.</p><ul><li>Licence: which classes and walls were bought, and until when</li><li>Usage by class and walls by room, for planning and renewals</li><li>Quiz team names for the whole school</li></ul><div class="q ok"><b>Decided</b>One view, shared by Principal, HOD and Floor In-charge. Try the role buttons.</div></div>
+<div class="lap">
+<div class="side"><span class="lg"><svg aria-hidden="true" style="width:2.4cqw;height:2.4cqw"><use href="#mark"/></svg>MagicTouch</span><span class="on">School view</span><span>Teachers</span><span>Walls and pens</span><span>Licence</span><span>School settings</span></div>
+<div class="dash sch">
+<h3><span>Sunrise Public School<small id="scope">Whole school · November · sample data</small></span><span class="roles" role="group" aria-label="Signed in as"><button aria-pressed="true" data-r="0">Principal</button><button aria-pressed="false" data-r="1">HOD, Primary</button><button aria-pressed="false" data-r="2">Floor In-charge, Floor 2</button></span></h3>
+<div class="pn"><b>Licence</b><div class="kv"><span>Classes</span><span>Nursery to Class 5</span></div><div class="kv"><span>Walls</span><span>6 of 6 in use</span></div><div class="kv"><span>Valid until</span><span>31 Mar 2027</span></div><div class="kv"><span>Teacher logins</span><span>14 of 20</span></div><button class="btn">Request more classes</button></div>
+<div class="pn"><b>Sessions this month, by class</b><div id="sbars" style="display:grid;gap:.7cqw"></div></div>
+<div class="pn"><b>Walls by room</b><div id="rooms" style="display:grid;gap:.6cqw"></div></div>
+<div class="pn" style="grid-column:1/-1"><b>Quiz teams for the whole school</b><div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2cqw"><label class="tm" for="t1"><svg aria-hidden="true"><use href="#peacock"/></svg><input id="t1" value="Peacocks" maxlength="16"></label><label class="tm" for="t2"><svg aria-hidden="true"><use href="#tiger"/></svg><input id="t2" value="Tigers" maxlength="16"></label></div><span class="priv">Defaults are Peacocks and Tigers. Type your house names here and the quiz screen above changes too. No student names or data are stored.</span></div>
 </div>
 </div>
 </section>
@@ -414,18 +518,19 @@ document.querySelectorAll('.dir').forEach(b=>b.addEventListener('click',()=>{app
 const go=id=>{const el=$(id);if(el)el.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'})};
 document.addEventListener('click',e=>{const t=e.target.closest('[data-go]');if(t)go(t.dataset.go)});
 
-$('nums').innerHTML=Array.from({length:10},(_,i)=>`<button class="tap${i===3?' on':''}" data-go="${i<5?'subjects':'simulate'}">${i+1}</button>`).join('');
+$('nums').innerHTML=Array.from({length:5},(_,i)=>`<button class="tap${i===3?' on':''}" data-go="subjects"><small>Class</small>${i+1}</button>`).join('');
 
 const subs=[['EVS','leaf'],['Maths','num'],['English','book'],['Telugu','letter'],['Hindi','abc']];
 $('rail').innerHTML=subs.map((s,i)=>`<button class="tap${i===0?' on':''}"><svg aria-hidden="true"><use href="#${s[1]}"/></svg>${s[0]}</button>`).join('');
-const chs=[['Parts of a plant','Chapter 3',['Explore','Label','Quiz'],1,'#d9f2e3','plant'],['Animals and their homes','Chapter 4',['Match','Sort'],1,'#FFE6A8','tiger'],['Water around us','Chapter 5',['Explore','Order'],0,'#d7ecf7','sun'],['Food we eat','Chapter 6',['Sort','Quiz'],0,'#ffd9cf','mango'],['Our helpers','Chapter 7',['Match'],0,'#efe0f0','peacock'],['Weather and seasons','Chapter 8',['Explore','Quiz'],0,'#fff1c4','kite']];
-$('chs').innerHTML=chs.map(c=>`<button class="tap ch" data-go="explore"><div class="art" style="background:${c[4]}"><svg viewBox="${c[5]==='plant'?'0 0 120 120':'0 0 48 48'}" aria-hidden="true"><use href="#${c[5]}"/></svg></div><div class="tx"><small>${c[1]}</small><b>${c[0]}</b><div class="tags">${c[2].map(t=>`<em>${t}</em>`).join('')}</div>${c[3]?'<small class="done">Done in class</small>':'<small>Not started</small>'}</div></button>`).join('');
+const chs=[['Parts of a plant','Chapter 3',['Explore','Label','Quiz'],1,'#d9f2e3','plant','sway'],['Animals and their homes','Chapter 4',['Match','Sort'],1,'#FFE6A8','tiger','bob'],['Water around us','Chapter 5',['Explore','Order'],0,'#d7ecf7','sun','spin'],['Food we eat','Chapter 6',['Sort','Quiz'],0,'#ffd9cf','mango','hop'],['Our helpers','Chapter 7',['Match'],0,'#efe0f0','peacock','bob'],['Weather and seasons','Chapter 8',['Explore','Quiz'],0,'#fff1c4','kite','float']];
+$('chs').innerHTML=chs.map(c=>`<button class="tap ch" data-go="explore"><div class="art" style="background:${c[4]}"><svg viewBox="${c[5]==='plant'?'0 0 120 120':'0 0 48 48'}" aria-hidden="true" style="overflow:visible"><use class="mv-${c[6]}" href="#${c[5]}"/></svg></div><div class="tx"><small>${c[1]}</small><b>${c[0]}</b><div class="tags">${c[2].map(t=>`<em>${t}</em>`).join('')}</div>${c[3]?'<small class="done">Done in class</small>':'<small>Not started</small>'}</div></button>`).join('');
 
 const parts=[{n:'Flower',te:'పువ్వు',hi:'फूल',t:'Makes seeds. Bees visit for nectar.',x:50,y:20},{n:'Leaf',te:'ఆకు',hi:'पत्ती',t:'Makes food for the plant using sunlight.',x:63,y:36},{n:'Stem',te:'కాండం',hi:'तना',t:'Holds the plant up and carries water.',x:50,y:56},{n:'Root',te:'వేరు',hi:'जड़',t:'Holds the soil and drinks water.',x:52,y:84}];
 const stage=$('stage');
 parts.forEach((p,i)=>{const b=document.createElement('button');b.className='hs tap';b.style.left=p.x+'%';b.style.top=p.y+'%';b.setAttribute('aria-label',p.n);b.addEventListener('click',()=>{b.classList.add('seen');$('pName').textContent=p.n;$('pTe').textContent=p.te;$('pHi').textContent=p.hi;$('pTxt').textContent=p.t;p.seen=1;drawProg()});stage.appendChild(b)});
 const drawProg=()=>{const n=parts.filter(p=>p.seen).length;$('prog').innerHTML=parts.map(p=>`<i class="${p.seen?'on':''}"></i>`).join('')+` ${n} of 4 found`};
 drawProg();
+$('addL').addEventListener('click',e=>{const b=e.currentTarget,on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',on);$('langs').classList.toggle('off',!on)});
 let hid=false;$('hideL').addEventListener('click',()=>{hid=!hid;$('infocard').style.visibility=hid?'hidden':'visible'});
 
 const cols=['#CC3054','#F3A328','#E96E24','#631654','#2fa86a','#FBD064'];
@@ -433,13 +538,31 @@ let s1=3;
 $('ans').addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b)return;if(b.dataset.a==='4'){s1++;$('sc1').textContent=s1;$('conf').innerHTML=Array.from({length:40},(_,i)=>`<i style="left:${(i*37)%100}%;background:${cols[i%6]};animation-delay:${(i%10)*.06}s"></i>`).join('');$('yay').classList.add('on')}else{b.classList.remove('no');void b.offsetWidth;b.classList.add('no')}});
 $('again').addEventListener('click',()=>$('yay').classList.remove('on'));
 
-const sim=()=>{const V=+$('v').value,R=+$('r').value,I=V/R;$('vv').textContent=V+' V';$('rv').textContent=R+' Ω';$('cur').textContent=I.toFixed(2);$('glow').setAttribute('opacity',Math.min(1,.08+V*I/12).toFixed(2));$('glow').setAttribute('r',(30+Math.min(40,V*I*3)).toFixed(0))};
+const bandC=['#111','#7b4a2a','#d22','#f07a1a','#f3d21a','#2a9a4a','#2456c8','#7b3fb0','#888','#f4f4f4'];
+const tk=[];for(let k=0;k<=12;k+=2){const ang=-60+k*10,r1=26,r2=k%4?30:32,ra=ang*Math.PI/180;tk.push(`<line x1="${(Math.sin(ra)*r1).toFixed(1)}" y1="${(10-Math.cos(ra)*r1).toFixed(1)}" x2="${(Math.sin(ra)*r2).toFixed(1)}" y2="${(10-Math.cos(ra)*r2).toFixed(1)}"/>`)}
+$('ticks').innerHTML=tk.join('');
+const pts=[];
+const sim=()=>{const V=+$('v').value,R=+$('r').value,I=V/R,P=V*I;
+$('vv').textContent=V+' V';$('rv').textContent=R+' Ω';$('cur').textContent=I.toFixed(2);$('batL').textContent='Battery '+V+' V';$('resL').textContent='Resistor '+R+' Ω';
+const d=R<10?[R,0,'#c9a227']:[Math.floor(R/10),R%10,bandC[0]];$('b1').setAttribute('fill',bandC[d[0]]);$('b2').setAttribute('fill',bandC[d[1]]);$('b3').setAttribute('fill',d[2]);
+const br=Math.min(1,P/14);$('halo').setAttribute('opacity',(0.05+br*.95).toFixed(2));$('halo').setAttribute('r',(40+br*60).toFixed(0));$('fil').setAttribute('stroke',br>.15?'#ffe9a0':'#7a4a1c');
+$('needle').setAttribute('transform','rotate('+(-60+Math.min(12,I)*10).toFixed(1)+' 0 10)');
+document.querySelector('.flow').style.setProperty('--spd',(2.4/Math.max(.15,I)).toFixed(2)+'s');
+$('warn').classList.toggle('on',I>3);
+pts.push([V,I]);if(pts.length>14)pts.shift();drawG(R)};
+const drawG=R=>{const g=$('gsvg'),W=g.clientWidth,H=g.clientHeight;if(!W)return;const L=34,B=20,x=v=>L+(v/12)*(W-L-10),y=i=>H-B-(Math.min(i,3)/3)*(H-B-8);
+g.innerHTML=`<line x1="${L}" y1="${H-B}" x2="${W-6}" y2="${H-B}" stroke="currentColor" opacity=".4"/><line x1="${L}" y1="6" x2="${L}" y2="${H-B}" stroke="currentColor" opacity=".4"/><text x="${W-8}" y="${H-5}" text-anchor="end" font-size="12" fill="currentColor">Voltage, 0 to 12 V</text><text x="${L+6}" y="16" font-size="12" fill="currentColor">Current, 0 to 3 A</text><line x1="${x(0)}" y1="${y(0)}" x2="${x(Math.min(12,3*R))}" y2="${y(Math.min(12/R,3))}" stroke="#631654" stroke-width="2.5"/>`+pts.map(p=>`<circle cx="${x(p[0])}" cy="${y(p[1])}" r="3.5" fill="#CC3054"/>`).join('')};
+const gro=new ResizeObserver(()=>drawG(+$('r').value));gro.observe($('graph'));
 $('v').addEventListener('input',sim);$('r').addEventListener('input',sim);sim();
 
 const cal=$('cal');let step=0;const dots=[];
 for(let i=0;i<9;i++){const d=document.createElement('button');d.className='dot';d.style.left=(8+(i%3)*42)+'%';d.style.top=(10+Math.floor(i/3)*40)+'%';d.setAttribute('aria-label','Calibration dot '+(i+1));d.addEventListener('click',()=>{if(i!==step)return;d.classList.remove('now');d.classList.add('ok');step++;calUpd()});cal.appendChild(d);dots.push(d)}
-const calUpd=()=>{if(step<9){dots[step].classList.add('now');$('calT').textContent='Touch dot '+(step+1)+' of 9';$('calP').textContent='Hold the pen tip on the glowing dot until it turns green.'}else{$('calT').textContent='Calibration saved';$('calP').textContent='All activities on this wall will use it. Tap any dot to start again.';step=-1}};
-cal.addEventListener('click',e=>{if(step===-1&&e.target.classList.contains('dot')){step=0;dots.forEach(d=>d.classList.remove('ok'));calUpd()}});
+const cam=$('cam');const cdots=dots.map((d,i)=>{const c=document.createElement('i');c.style.left=(10+(i%3)*40)+'%';c.style.top=(12+Math.floor(i/3)*34)+'%';cam.appendChild(c);return c});
+const calUpd=()=>{cdots.forEach((c,i)=>{c.className=dots[i].classList.contains('ok')?'ok':(i===step?'now':'')});if(step<9){dots[step].classList.add('now');$('calT').textContent='Touch dot '+(step+1)+' of 9';$('calP').textContent='Hold the pen tip on the glowing dot until it turns green.';$('calst').innerHTML='<b>Dot '+(step+1)+' of 9</b>Ask a child to hold the pen on the glowing dot.'}else{$('calT').textContent='Calibration saved';$('calP').textContent='All activities on this wall will use it. Tap any dot to start again.';$('calst').innerHTML='<b>Calibration saved</b>This wall is ready for class.';step=-1}};
+const calReset=()=>{step=0;dots.forEach(d=>d.classList.remove('ok','now'));calUpd()};
+$('calRe').addEventListener('click',calReset);
+$('calTest').addEventListener('click',()=>{$('calst').innerHTML='<b>Accuracy check</b>Tap the four corners with the pen; the wall shows where it landed.'});
+cal.addEventListener('click',e=>{if(step===-1&&e.target.classList.contains('dot'))calReset()});
 calUpd();
 
 const plan=['Parts of a plant','Label the plant quiz','Animals and their homes','Counting song, Nursery'];
@@ -450,12 +573,21 @@ $('pPrev').addEventListener('click',()=>{cur=(cur+plan.length-1)%plan.length;dra
 $('lock').addEventListener('click',e=>{const b=e.currentTarget;b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true')});
 drawPlan();
 
-const use=[['4B',9],['4A',7],['3A',6],['UKG',11],['LKG',8],['10C',4]];
+const use=[['4B',9],['4A',7],['3A',6],['UKG',11],['LKG',8],['5A',4]];
 $('bars').innerHTML=use.map(u=>`<div class="bar"><span>${u[0]}</span><div><i style="width:${u[1]/11*100}%"></i></div><span>${u[1]}</span></div>`).join('');
 
+$('lgF').addEventListener('submit',e=>{e.preventDefault();$('lgF').hidden=true;$('lgW').hidden=false;$('lgT').textContent='Choose a wall'});
+const tn=()=>{document.querySelectorAll('.tn1').forEach(e=>e.textContent=$('t1').value||'Peacocks');document.querySelectorAll('.tn2').forEach(e=>e.textContent=$('t2').value||'Tigers')};
+$('t1').addEventListener('input',tn);$('t2').addEventListener('input',tn);
+const sc=[{s:'Whole school · November · sample data',u:[['Nursery',38],['LKG',34],['UKG',41],['Class 1',22],['Class 2',25],['Class 3',19],['Class 4',30],['Class 5',16]],r:[['Room 1A',1],['Room 1B',1],['Room 2A',2],['Room 2B',1],['Room 4B',1],['Room 5A',0]]},
+{s:'Primary, Classes 1 to 5 · November · sample data',u:[['Class 1',22],['Class 2',25],['Class 3',19],['Class 4',30],['Class 5',16]],r:[['Room 2A',2],['Room 2B',1],['Room 4B',1],['Room 5A',0]]},
+{s:'Floor 2 · November · sample data',u:[['Class 2',25],['Class 3',19]],r:[['Room 2A',2],['Room 2B',1]]}];
+const st=['Offline since Monday','Online','Calibrate again'];
+const drawSc=k=>{const d=sc[k];$('scope').textContent=d.s;$('sbars').innerHTML=d.u.map(u=>`<div class="bar" style="grid-template-columns:5.5cqw minmax(0,1fr) 2.6cqw"><span>${u[0]}</span><div><i style="width:${u[1]/41*100}%"></i></div><span>${u[1]}</span></div>`).join('');$('rooms').innerHTML=d.r.map(r=>`<span class="st"><i class="${r[1]===1?'':'w'}" style="${r[1]===0?'background:#CC2430':''}"></i>${r[0]} · ${st[r[1]]}</span>`).join('');document.querySelectorAll('.roles button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.r==k))};
+document.querySelectorAll('.roles button').forEach(b=>b.addEventListener('click',()=>drawSc(+b.dataset.r)));drawSc(0);
 const ring=$('ring');let tm=null,tgt=null;
 const stop=()=>{clearTimeout(tm);tm=null;tgt=null;ring.classList.remove('go');ring.style.display='none'};
-document.addEventListener('pointermove',e=>{if(!$('dwell').checked)return;const t=e.target.closest('.wall button,.phone button,.wall input');if(t!==tgt){stop();if(t&&t.tagName==='BUTTON'){tgt=t;ring.style.display='block';ring.style.left=e.clientX+'px';ring.style.top=e.clientY+'px';requestAnimationFrame(()=>ring.classList.add('go'));tm=setTimeout(()=>{const x=tgt;stop();x&&x.click()},700)}}});
+document.addEventListener('pointermove',e=>{if(!$('dwell').checked)return;const t=e.target.closest('.wall button,.phone button,.wall input,.lap button');if(t!==tgt){stop();if(t&&t.tagName==='BUTTON'){tgt=t;ring.style.display='block';ring.style.left=e.clientX+'px';ring.style.top=e.clientY+'px';requestAnimationFrame(()=>ring.classList.add('go'));tm=setTimeout(()=>{const x=tgt;stop();x&&x.click()},700)}}});
 document.addEventListener('scroll',stop,{passive:true});
 }
 </script>
