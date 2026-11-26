@@ -34,7 +34,7 @@ const FUNKY_BLACK = [
   [200, 140, 255],  // A# — lavender
 ];
 
-const TITLE_TEXT = "WISDOM PLAY SCHOOL PIANO";
+const TITLE_TEXT = "MAGICTOUCH PIANO";
 const TITLE_COLORS = [
   [255, 55, 120], [255, 130, 25], [230, 200, 0], [30, 190, 90],
   [0, 170, 255], [140, 70, 255], [255, 40, 150],
