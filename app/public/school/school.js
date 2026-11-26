@@ -288,7 +288,7 @@
   const tmsg = (t, e) => { $("teamMsg").textContent = t; $("teamMsg").classList.toggle("err", !!e); };
   const mascotImg = t => t.image ? `<img src="${esc(t.image)}" alt="">` : MTCardArt.img(t.mascot);
   async function loadTeams() {
-    try { const d = await api("GET", "/api/school/settings"); teams = d.teams.map(t => ({ ...t })); mascots = d.mascots; drawTeams(); }
+    try { const d = await api("GET", "/api/school/settings"); teams = d.teams.map(t => ({ ...t })); mascots = d.mascots; drawTeams(); drawLook(d.simLook || "real"); }
     catch (e) { tmsg("Could not load teams: " + e.message, true); }
   }
   function drawTeams() {
@@ -330,6 +330,13 @@
   $("teamReset").addEventListener("click", async () => {
     try { const d = await api("POST", "/api/school/settings", { reset: true }); teams = d.teams.map(t => ({ ...t })); drawTeams(); tmsg("Back to the default teams."); }
     catch (e) { tmsg(e.message, true); }
+  });
+
+  function drawLook(v) { $("simLook").querySelectorAll("[data-look]").forEach(b => b.setAttribute("aria-checked", String(b.dataset.look === v))); }
+  $("simLook").addEventListener("click", async e => {
+    const b = e.target.closest("[data-look]"); if (!b) return;
+    try { const d = await api("POST", "/api/school/settings", { simLook: b.dataset.look }); drawLook(d.simLook); $("lookMsg").textContent = "Saved. Walls use this look from their next sign-in or team game."; $("lookMsg").classList.remove("err"); }
+    catch (err) { $("lookMsg").textContent = err.message; $("lookMsg").classList.add("err"); }
   });
 
   // ══ boot ══

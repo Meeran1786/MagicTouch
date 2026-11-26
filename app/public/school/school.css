@@ -94,3 +94,5 @@ table.t { width: 100%; border-collapse: collapse; font-size: 15px; }
 .te-up input { font-size: 13px; }
 .team-actions { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; margin-top: 18px; }
 @media (max-width: 820px) { .team-edit { grid-template-columns: 1fr; } .te { grid-template-columns: 64px 1fr; } .te-pic { width: 64px; height: 64px; } }
+.sv-look { grid-template-columns: repeat(2, auto); background: #fff; justify-self: start; display: inline-grid; }
+.sv-look button { padding: 12px 22px; }

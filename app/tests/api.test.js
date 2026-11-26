@@ -231,6 +231,10 @@ test("teams: defaults, the school renames them, walls play a game", async () => 
   assert.equal((await call("POST", "/api/school/settings", { teams: [{ name: "A" }] }, admin.token)).status, 400);
   assert.equal((await call("POST", "/api/school/settings", { teams: mine.map(t => ({ ...t, image: "data:text/html;base64,PHNjcmlwdD4=" })) }, admin.token)).status, 400);
   assert.equal((await call("POST", "/api/school/settings", { reset: true }, admin.token)).body.teams[0].name, "Peacocks");
+  assert.equal((await call("GET", "/api/school/settings", {}, wall)).body.simLook, "real");
+  assert.equal((await call("POST", "/api/school/settings", { simLook: "diagram" }, admin.token)).body.simLook, "diagram");
+  assert.equal((await call("GET", "/api/school/settings", {}, wall)).body.teams[0].name, "Peacocks", "changing the look keeps the teams");
+  assert.equal((await call("POST", "/api/school/settings", { simLook: "x" }, admin.token)).status, 400);
   const g = (await call("POST", "/api/state", { game: { on: true, n: 3, scores: [2, "5", -4, 9], turn: 7 } }, wall)).body;
   assert.deepEqual(g.game, { on: true, n: 3, scores: [2, 5, 0], turn: 2, ended: false });
   assert.ok(g.gameTs > 0);

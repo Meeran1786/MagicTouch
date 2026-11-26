@@ -43,7 +43,7 @@
     <nav class="sv-tabs" role="tablist">
       <button type="button" role="tab" data-tab="usage" aria-selected="true">Usage</button>
       <button type="button" role="tab" data-tab="logins" aria-selected="false">Logins</button>
-      <button type="button" role="tab" data-tab="teams" aria-selected="false">Teams</button>
+      <button type="button" role="tab" data-tab="teams" aria-selected="false">Teams and looks</button>
     </nav>
     <button type="button" class="link-btn" id="svLogout">Sign out</button>
   </header>
@@ -99,6 +99,15 @@
       <div id="teamEdit" class="team-edit"></div>
       <div class="team-actions"><button type="button" class="btn btn-primary" id="teamSave">Save teams</button><button type="button" class="link-btn" id="teamReset">Go back to Peacocks, Tigers, Elephants and Parrots</button></div>
       <p id="teamMsg" class="sv-msg" role="status"></p>
+    </section>
+    <section class="panel">
+      <h2>How simulations look</h2>
+      <p class="sv-help">Simulations such as Ohm's law, straight lines and mango prices can show a real-world picture (a lab bench with a power supply and a glowing bulb, a car on graph paper, a mandi stall) or a plain diagram. Pick the one your walls start with; teachers can still switch on the screen.</p>
+      <div class="seg sv-look" id="simLook" role="radiogroup" aria-label="Simulation look">
+        <button type="button" role="radio" data-look="real">Real world</button>
+        <button type="button" role="radio" data-look="diagram">Diagram</button>
+      </div>
+      <p id="lookMsg" class="sv-msg" role="status"></p>
     </section>
   </main>
 </div>

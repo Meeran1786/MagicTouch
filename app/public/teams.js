@@ -11,8 +11,13 @@
   const mascot = t => t.image && /^data:image\/(png|jpeg|webp);base64,/.test(t.image)
     ? `<img src="${esc(t.image)}" alt="" draggable="false">` : MTCardArt.img(t.mascot);
 
+  // Also hands the school's chosen simulation look to every activity on this wall (localStorage).
   async function load(api) {
-    try { return (await api("GET", "/api/school/settings")).teams || DEFAULTS; } catch (e) { return DEFAULTS; }
+    try {
+      const d = await api("GET", "/api/school/settings");
+      if (d.simLook) try { localStorage.setItem("mtSimLook", d.simLook); } catch (e) { /* ignore */ }
+      return d.teams || DEFAULTS;
+    } catch (e) { return DEFAULTS; }
   }
 
   // Game rules, shared by the wall and the phone.

@@ -233,16 +233,24 @@ export function createApi({ store, allowSignup = "first", licence = DEMO_LICENCE
     "GET /api/school/settings": async ({ user }) => {
       if (!user) return err(401, "Not logged in.");
       const st = (await store.getSettings()) || {};
-      return ok({ teams: st.teams || DEFAULT_TEAMS, mascots: MASCOTS, defaults: DEFAULT_TEAMS });
+      return ok({ teams: st.teams || DEFAULT_TEAMS, mascots: MASCOTS, defaults: DEFAULT_TEAMS, simLook: st.simLook || "real" });
     },
     "POST /api/school/settings": async ({ user, body }) => {
       if (!user) return err(401, "Not logged in.");
-      if (!school(user)) return err(403, "Only a school login can change team names.");
-      const teams = body.reset ? DEFAULT_TEAMS : cleanTeams(body.teams);
-      if (!teams) return err(400, "Give each of the four teams a name (up to 24 letters). Pictures must be PNG, JPG or WebP under 150 KB.");
-      const st = (await store.getSettings()) || {};
-      await store.setSettings({ ...st, teams });
-      return ok({ teams });
+      if (!school(user)) return err(403, "Only a school login can change these settings.");
+      const st = { ...((await store.getSettings()) || {}) };
+      // How simulations look by default: "real" (lab bench, mandi stall…) or the plain "diagram".
+      if (body.simLook !== undefined) {
+        if (body.simLook !== "real" && body.simLook !== "diagram") return err(400, "Unknown look.");
+        st.simLook = body.simLook;
+      }
+      if (body.reset || body.teams !== undefined) {
+        const teams = body.reset ? DEFAULT_TEAMS : cleanTeams(body.teams);
+        if (!teams) return err(400, "Give each of the four teams a name (up to 24 letters). Pictures must be PNG, JPG or WebP under 150 KB.");
+        st.teams = teams;
+      }
+      await store.setSettings(st);
+      return ok({ teams: st.teams || DEFAULT_TEAMS, simLook: st.simLook || "real" });
     },
 
     // ── School view: principal, HODs, floor in-charges ──
