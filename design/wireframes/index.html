@@ -288,6 +288,11 @@ main{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px) 64px}
 .tm{display:flex;align-items:center;gap:.8cqw}
 .tm svg{width:2.2cqw;height:2.2cqw;flex:none}
 .tm input{font:inherit;font-size:1.25cqw;padding:.5cqw .7cqw;border:.1cqw solid #d9c9d4;border-radius:.5cqw;width:100%;color:#242430;background:#fff}
+.snd{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:14px;font-size:15px;color:#e9d3e2}
+.snd button{min-height:44px;padding:8px 16px;border-radius:22px;border:2px solid #5a2251;background:#2b0927;color:#fff6e4;display:inline-flex;align-items:center;gap:8px}
+.snd button[aria-pressed=true]{border-color:#F3A328;background:#4a1342}
+.snd input[type=range]{width:140px;accent-color:#F3A328}
+.snd label{display:flex;align-items:center;gap:8px}
 @media(prefers-reduced-motion:reduce){.mv-sway,.mv-bob,.mv-spin,.mv-float,.mv-hop,.flow{animation:none}.hs,.cal .dot.now{animation:none}.conf{display:none}.tap{transition:none}}
 </style>
 </head>
@@ -331,6 +336,7 @@ main{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px) 64px}
 <button class="dir" data-d="night" aria-pressed="false"><div class="sw"><i style="background:#3D0E37"></i><i style="background:#561a4c"></i><i style="background:#F3A328"></i><i style="background:#FBD064"></i></div><b>B · Night sky</b><span>Dark plum stage with glowing amber. Dramatic on a projector in a dim room; the hologram family look.</span></button>
 <button class="dir" data-d="studio" aria-pressed="true"><div class="sw"><i style="background:#ffffff"></i><i style="background:#f7f1f5"></i><i style="background:#631654"></i><i style="background:#CC3054"></i></div><b>C · Studio (chosen)</b><span>Clean white, plum ink, fine lines. Grown-up for Classes 6 to Inter and the teacher screens.</span></button>
 </div>
+<div class="snd" role="group" aria-label="Sound"><button id="sMusic" aria-pressed="false"><svg width="18" height="18" aria-hidden="true"><use href="#speak"/></svg>Background music</button><button id="sFx" aria-pressed="false">Sound effects</button><label for="sVol">Volume <input type="range" id="sVol" min="0" max="100" value="45"></label><span>All music and sounds are made by the page itself, so they are ours to use.</span></div>
 <label class="opts"><input type="checkbox" id="dwell"> Try it like the IR pen: hold the pointer still on a button for 0.7 s to tap it</label>
 <nav class="nav" aria-label="Screens"><a href="#home">1 Home</a><a href="#subjects">2 Class and subject</a><a href="#explore">3 Explore</a><a href="#quiz">4 Preschool quiz</a><a href="#simulate">5 Simulation</a><a href="#calibrate">6 Calibration</a><a href="#remote">7 Phone remote</a><a href="#teacher">8 Teacher view</a><a href="#school">9 School view</a></nav>
 </div>
@@ -391,7 +397,7 @@ main{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px) 64px}
 </section>
 
 <section class="row" id="quiz">
-<div class="note"><h2>Preschool quiz</h2><p>One question, three giant answers, a voice prompt. Classes play as two teams, so there is no child data and everyone joins in.</p><ul><li>Wrong answer: a gentle shake, no red cross</li><li>Right answer: confetti and praise, then Next</li><li>Peacocks and Tigers are the defaults. A school can rename them in the School view (try it there)</li></ul><div class="q ok"><b>Decided</b>Default teams, and each school can use its own.</div></div>
+<div class="note"><h2>Preschool quiz</h2><p>Turn on music and sound effects at the top to hear it. One question, three giant answers, a voice prompt. Classes play as two teams, so there is no child data and everyone joins in.</p><ul><li>Wrong answer: a gentle shake, no red cross</li><li>Right answer: confetti and praise, then Next</li><li>Peacocks and Tigers are the defaults. A school can rename them in the School view (try it there)</li></ul><div class="q ok"><b>Decided</b>Default teams, and each school can use its own.</div></div>
 <div class="wall">
 <svg class="deco bg-mela" aria-hidden="true"><rect width="100%" height="100%" fill="url(#rangoli)"/></svg><svg class="deco bg-night" aria-hidden="true"><rect width="100%" height="100%" fill="url(#stars)"/></svg>
 <div class="wb"><span class="lg"><svg aria-hidden="true" style="width:2.6cqw;height:2.6cqw"><use href="#mark"/></svg>MagicTouch</span><span class="crumb">Nursery › Numbers › Count with me</span><span class="sp"></span><span class="chip">Question 3 of 8</span></div>
@@ -585,6 +591,38 @@ const sc=[{s:'Whole school · November · sample data',u:[['Nursery',38],['LKG',
 const st=['Offline since Monday','Online','Calibrate again'];
 const drawSc=k=>{const d=sc[k];$('scope').textContent=d.s;$('sbars').innerHTML=d.u.map(u=>`<div class="bar" style="grid-template-columns:5.5cqw minmax(0,1fr) 2.6cqw"><span>${u[0]}</span><div><i style="width:${u[1]/41*100}%"></i></div><span>${u[1]}</span></div>`).join('');$('rooms').innerHTML=d.r.map(r=>`<span class="st"><i class="${r[1]===1?'':'w'}" style="${r[1]===0?'background:#CC2430':''}"></i>${r[0]} · ${st[r[1]]}</span>`).join('');document.querySelectorAll('.roles button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.r==k))};
 document.querySelectorAll('.roles button').forEach(b=>b.addEventListener('click',()=>drawSc(+b.dataset.r)));drawSc(0);
+/* ---- sound: everything synthesised in the browser, no audio files ---- */
+let ac=null,master=null,musicBus=null,fxBus=null,musicOn=false,fxOn=false,timer=null,nextT=0,beat=0;
+const ensure=()=>{if(ac)return true;try{ac=new (window.AudioContext||window.webkitAudioContext)()}catch(e){return false}
+master=ac.createGain();master.gain.value=+$('sVol').value/100;master.connect(ac.destination);
+const lp=ac.createBiquadFilter();lp.type='lowpass';lp.frequency.value=2200;lp.connect(master);
+const dl=ac.createDelay();dl.delayTime.value=.38;const fb=ac.createGain();fb.gain.value=.32;dl.connect(fb);fb.connect(dl);dl.connect(lp);
+musicBus=ac.createGain();musicBus.gain.value=.5;musicBus.connect(lp);musicBus.connect(dl);
+fxBus=ac.createGain();fxBus.gain.value=.9;fxBus.connect(master);return true};
+const hz=n=>440*Math.pow(2,(n-69)/12);
+const tone=(bus,n,t,dur,{type='sine',vol=.2,att=.01}={})=>{const o=ac.createOscillator(),g=ac.createGain();o.type=type;o.frequency.value=hz(n);g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(vol,t+att);g.gain.exponentialRampToValueAtTime(.0001,t+dur);o.connect(g);g.connect(bus);o.start(t);o.stop(t+dur+.05)};
+const chords=[[48,55,64,67],[45,52,60,64],[41,48,57,60],[43,50,59,62]];
+const scale=[72,74,76,79,81,84];
+let seed=7;const rnd=()=>(seed=seed*16807%2147483647)/2147483647;
+const sched=()=>{const spb=60/66;while(nextT<ac.currentTime+.6){const bar=Math.floor(beat/4)%4,c=chords[bar];
+if(beat%4===0)c.forEach((n,i)=>tone(musicBus,n,nextT+i*.04,spb*4.2,{type:'triangle',vol:.05,att:.9}));
+tone(musicBus,c[0]-12,nextT,spb*.9,{vol:.06,att:.05});
+if(rnd()<.55)tone(musicBus,scale[Math.floor(rnd()*scale.length)],nextT+(rnd()<.3?spb/2:0),spb*1.6,{vol:.045,att:.02});
+nextT+=spb;beat++}};
+const startMusic=()=>{if(!ensure())return;ac.resume();musicBus.gain.setTargetAtTime(.5,ac.currentTime,.8);nextT=ac.currentTime+.1;clearInterval(timer);timer=setInterval(sched,150);sched()};
+const stopMusic=()=>{clearInterval(timer);timer=null;if(musicBus)musicBus.gain.setTargetAtTime(0,ac.currentTime,.4)};
+const fx={tap:()=>tone(fxBus,84,ac.currentTime,.12,{vol:.12}),
+spark:()=>[79,84,88].forEach((n,i)=>tone(fxBus,n,ac.currentTime+i*.06,.4,{vol:.1})),
+right:()=>[72,76,79,84].forEach((n,i)=>tone(fxBus,n,ac.currentTime+i*.09,.6,{type:'triangle',vol:.16})),
+soft:()=>{tone(fxBus,60,ac.currentTime,.25,{vol:.12});tone(fxBus,57,ac.currentTime+.12,.3,{vol:.1})},
+ding:()=>tone(fxBus,88,ac.currentTime,.5,{type:'triangle',vol:.12}),
+done:()=>[72,76,79,84,88].forEach((n,i)=>tone(fxBus,n,ac.currentTime+i*.11,.9,{type:'triangle',vol:.14}))};
+const play=k=>{if(!fxOn||!ensure())return;ac.resume();fx[k]()};
+$('sMusic').addEventListener('click',e=>{musicOn=!musicOn;e.currentTarget.setAttribute('aria-pressed',musicOn);musicOn?startMusic():stopMusic()});
+$('sFx').addEventListener('click',e=>{fxOn=!fxOn;e.currentTarget.setAttribute('aria-pressed',fxOn);if(fxOn){ensure();ac.resume();fx.tap()}});
+$('sVol').addEventListener('input',()=>{if(master)master.gain.setTargetAtTime(+$('sVol').value/100,ac.currentTime,.05)});
+document.addEventListener('click',e=>{const t=e.target.closest('.wall button,.phone button,.lap button');if(!t||!fxOn)return;
+if(t.dataset.a)play(t.dataset.a==='4'?'right':'soft');else if(t.classList.contains('hs'))play('spark');else if(t.classList.contains('dot'))play(step===-1?'done':'ding');else play('tap')});
 const ring=$('ring');let tm=null,tgt=null;
 const stop=()=>{clearTimeout(tm);tm=null;tgt=null;ring.classList.remove('go');ring.style.display='none'};
 document.addEventListener('pointermove',e=>{if(!$('dwell').checked)return;const t=e.target.closest('.wall button,.phone button,.wall input,.lap button');if(t!==tgt){stop();if(t&&t.tagName==='BUTTON'){tgt=t;ring.style.display='block';ring.style.left=e.clientX+'px';ring.style.top=e.clientY+'px';requestAnimationFrame(()=>ring.classList.add('go'));tm=setTimeout(()=>{const x=tgt;stop();x&&x.click()},700)}}});
