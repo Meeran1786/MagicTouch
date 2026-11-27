@@ -1,6 +1,15 @@
 // MagicTouch shared kit: speech, sounds, feedback, confetti, score. Every template imports it.
 import { audioCtx as sharedAudio, sfx as soft, sfxOn } from "/shared/studio/soft-music.js";
 
+// Low-spec PCs (school mini-PCs, Raspberry Pi): the school sets it once (localStorage mtLowSpec = "1"),
+// or add ?lowspec=1 to the address. Templates read MT.lowSpec(): fewer particles, no glow blur.
+try {
+  if (new URLSearchParams(location.search).get("lowspec") === "1" || localStorage.getItem("mtLowSpec") === "1")
+    window.MAGICTOUCH_LOW_SPEC = true;
+} catch {
+  /* storage blocked */
+}
+
 export const audioCtx = sharedAudio();
 export const MT = (function () {
   let voice = null;
@@ -47,6 +56,7 @@ export const MT = (function () {
       /* audio not allowed yet */
     }
   }
+  let lastPitch = 0;
   const sfx = {
     good: function () {
       play(soft.correct);
@@ -60,7 +70,59 @@ export const MT = (function () {
     win: function () {
       play(soft.celebrate);
     },
+    // k = 0 … 1 (where the slider is); at most one tick every 45 ms while dragging
+    pitch: function (k) {
+      const now = performance.now();
+      if (now - lastPitch < 45) return;
+      lastPitch = now;
+      play(function () {
+        soft.pitch(k);
+      });
+    },
   };
+  // The one sound switch, shared with the wall launcher's setting (localStorage mtSfxOn).
+  function soundOn() {
+    return sfxOn();
+  }
+  function setSound(on) {
+    try {
+      localStorage.setItem("mtSfxOn", on ? "1" : "0");
+    } catch {
+      /* storage blocked */
+    }
+    if (!on && window.speechSynthesis) speechSynthesis.cancel();
+  }
+  // An animation loop that follows the design system: requestAnimationFrame, paused while the
+  // page is hidden, stopped for good when `el` leaves the page or stop() is called.
+  // fn(dt, t) gets seconds since the last frame (at most 0.1) and the time in seconds.
+  function loop(el, fn) {
+    let raf = 0,
+      last = 0,
+      dead = false;
+    function frame(now) {
+      raf = 0;
+      if (dead) return;
+      if (el && !el.isConnected) return stop();
+      const dt = last ? Math.min(0.1, (now - last) / 1000) : 1 / 60;
+      last = now;
+      fn(dt, now / 1000);
+      if (!document.hidden) raf = requestAnimationFrame(frame);
+    }
+    function vis() {
+      if (!document.hidden && !raf && !dead) {
+        last = 0;
+        raf = requestAnimationFrame(frame);
+      }
+    }
+    function stop() {
+      dead = true;
+      cancelAnimationFrame(raf);
+      document.removeEventListener("visibilitychange", vis);
+    }
+    document.addEventListener("visibilitychange", vis);
+    raf = requestAnimationFrame(frame);
+    return stop;
+  }
   let toastT = null;
   function toast(msg, kind) {
     const el = document.getElementById("mt-toast");
@@ -264,6 +326,9 @@ export const MT = (function () {
   const api = {
     lowSpec: lowSpec,
     calm: calm,
+    loop: loop,
+    soundOn: soundOn,
+    setSound: setSound,
     later: later,
     clearLater: clearLater,
     sceneBox: sceneBox,

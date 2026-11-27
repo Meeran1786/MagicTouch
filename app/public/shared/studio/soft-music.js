@@ -4,7 +4,7 @@
 // exactly but always stays calm. Also exports polite sound effects for activities.
 //
 //   const m = createSoftMusic(); m.start(); m.setMuted(true|false); m.stop();
-//   sfx.tap(); sfx.correct(); sfx.wrong(); sfx.celebrate();
+//   sfx.tap(); sfx.correct(); sfx.wrong(); sfx.celebrate(); sfx.pitch(0…1);
 
 let shared = null;
 /** The one Web Audio context every part of the wall uses. */
@@ -177,4 +177,7 @@ export const sfx = {
   correct: () => blip([hz(72), hz(76), hz(79), hz(84)], { gap: 0.08, len: 0.5, level: 0.1 }),
   wrong: () => blip([hz(60), hz(57)], { type: "triangle", gap: 0.16, len: 0.35, level: 0.07 }),
   celebrate: () => blip([hz(72), hz(76), hz(79), hz(84), hz(88), hz(91), hz(96)], { gap: 0.07, len: 0.7, level: 0.09 }),
+  // slider feedback: a short soft tick whose pitch follows the slider (k = 0 … 1, two octaves)
+  pitch: (k) =>
+    blip([220 * Math.pow(2, 2 * Math.max(0, Math.min(1, k)))], { type: "triangle", len: 0.09, level: 0.05 }),
 };
