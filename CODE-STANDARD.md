@@ -14,7 +14,8 @@ Run `npm run check` in `app/` before every commit. It runs everything below that
 | Drawing and motion | Canvas 2D, layered SVG, CSS transforms and opacity | Animating `top`, `left`, `width` or `height`; GIF-only motion where code can do it |
 | 3D | three.js r170 from `public/vendor/three` (import map name `three`) | Any other three.js copy |
 | Camera input | `public/shared/input/` only (IR pen and MediaPipe hand) | Per-activity trackers or calibration |
-| Sound | Web Audio through `shared/studio/soft-music.js` and `engine/js/kit.js` | Audio libraries |
+| Look and motion | The Gold Standard layer: `public/shared/studio-base.css` and `public/shared/motion-engine.js`; match `engine/templates/reference-ohms-law.html` (CLAUDE.md §7) | Per-template copies of sliders, toggles, loops, confetti or sounds |
+| Sound | Web Audio through `shared/motion-engine.js` (`ME.sound`, also `MT.sfx`) and `shared/studio/soft-music.js` | Audio libraries |
 | Server | `app/server/`, Node 18+ built-ins only, file store `data/store.json` | npm packages at run time, online databases |
 | Network | Nothing loads from the internet; every library and font is in `public/vendor` | CDNs, web fonts, remote media |
 

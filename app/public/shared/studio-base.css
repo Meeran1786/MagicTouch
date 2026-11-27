@@ -1,0 +1,315 @@
+/* MagicTouch Studio base: the shared look of the Gold Standard
+   (reference: /engine/templates/reference-ohms-law.html). Every template and simulation links
+   /shared/studio/tokens.css and this file, and builds its screens from these classes. The matching
+   behaviour (sliders, toggles, sound, confetti, graph) is in /shared/motion-engine.js.
+
+   Layout      .st-split > .st-split-stage (picture, left) + .st-panel (controls and read-outs, right)
+   Picture     .st-stage-holder > .st-stage (elevated canvas card, made by ME.stage)
+   Cards       .st-card (white, soft elevation)   .st-goal (yellow challenge card)   .st-solved (green pulse)
+   Controls    .st-toolbar  .st-toggle (Real | Diagram)  .st-sound (mute)  .st-sliders > .st-slider
+   Read-outs   .st-reads > .st-read (.k label, .n number with <b> value)  .st-read--accent  .st-graph
+   Motion      transform and opacity only; springs use var(--mt-spring); reduced motion turns them off.
+   IR pen      every target stays at least 52 px; never make these smaller. */
+
+/* ---------- layout: split screen ---------- */
+.st-split {
+  display: flex;
+  gap: 24px;
+  height: 100%;
+  font-family: var(--mt-body);
+}
+.st-split-stage {
+  flex: 1.35;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+  min-height: 0;
+  position: relative;
+}
+.st-stage-holder {
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+}
+.st-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  justify-content: safe center;
+  min-width: 0;
+  overflow: auto;
+}
+
+/* ---------- the picture: an elevated canvas card ---------- */
+.st-stage {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--mt-white);
+  box-shadow: var(--mt-shadow);
+}
+.st-stage canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ---------- cards ---------- */
+.st-card {
+  background: var(--mt-white);
+  border-radius: var(--mt-radius);
+  padding: 12px 16px;
+  box-shadow: var(--mt-shadow);
+}
+.st-goal {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--mt-plum-dark);
+  background: var(--mt-yellow);
+  border-radius: var(--mt-radius);
+  padding: 14px 18px;
+}
+/* solved: a soft green pulse with a tick, for the 1.2 s celebration (with ME.burst) */
+.st-solved {
+  background: var(--mt-green-tint);
+  color: var(--mt-plum-dark);
+  animation: stSolved 1.2s var(--mt-spring);
+}
+.st-solved::before {
+  content: "✓ ";
+  color: var(--mt-green);
+  font-weight: 800;
+}
+@keyframes stSolved {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(47, 168, 106, 0.55);
+  }
+  25% {
+    transform: scale(1.04);
+  }
+  60% {
+    transform: scale(1);
+  }
+  100% {
+    box-shadow: 0 0 0 26px rgba(47, 168, 106, 0);
+  }
+}
+
+/* ---------- toolbar: Real | Diagram and the sound switch ---------- */
+.st-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.st-toggle {
+  display: flex;
+  align-self: flex-start;
+  background: var(--mt-white);
+  border: 2px solid var(--mt-line);
+  border-radius: 999px;
+  padding: 4px;
+  gap: 4px;
+}
+.st-toggle button {
+  font: 700 18px var(--mt-body);
+  color: var(--mt-plum);
+  background: none;
+  border: 0;
+  border-radius: 999px;
+  padding: 8px 20px;
+  min-height: 44px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    color 0.2s,
+    transform 0.28s var(--mt-spring);
+}
+.st-toggle button:active {
+  transform: scale(0.92);
+}
+.st-toggle button[aria-checked="true"] {
+  background: var(--mt-plum);
+  color: var(--mt-white);
+}
+.st-sound {
+  width: 56px;
+  height: 56px;
+  flex: none;
+  margin-left: auto;
+  border-radius: 50%;
+  border: 2px solid var(--mt-line);
+  background: var(--mt-white);
+  color: var(--mt-plum);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: transform 0.28s var(--mt-spring);
+}
+.st-sound:active {
+  transform: scale(0.88);
+}
+.st-sound svg {
+  width: 30px;
+  height: 30px;
+}
+.st-sound[aria-pressed="true"] {
+  background: var(--mt-tint);
+  color: var(--mt-mute);
+}
+
+/* ---------- IR-pen sliders (ME.slider) ---------- */
+.st-sliders {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: opacity 0.2s;
+}
+.st-sliders.st-locked {
+  opacity: 0.55;
+  pointer-events: none;
+}
+.st-slider {
+  background: var(--mt-white);
+  border-radius: var(--mt-radius);
+  padding: 10px 16px;
+  box-shadow: var(--mt-shadow);
+}
+.st-slider-h {
+  display: flex;
+  justify-content: space-between;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--mt-plum);
+}
+.st-slider-r {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 6px;
+}
+.st-step {
+  min-width: 60px;
+  min-height: 52px;
+  padding: 6px 18px;
+  font: 700 22px var(--mt-body);
+  color: var(--mt-white);
+  background: var(--mt-orange);
+  border: 0;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: transform 0.28s var(--mt-spring);
+}
+.st-step:active {
+  transform: scale(0.88, 0.82); /* squash */
+}
+.st-slider .trk {
+  position: relative;
+  flex: 1;
+  height: 52px;
+  cursor: pointer;
+  touch-action: none;
+}
+.st-slider .rail {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 22px;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--mt-line);
+}
+.st-slider .knob {
+  position: absolute;
+  top: 6px;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  margin-left: -20px;
+  border-radius: 50%;
+  background: var(--mt-magenta);
+  border: 4px solid var(--mt-white);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  transition: transform 0.32s var(--mt-spring); /* springs when it jumps; never animates left */
+  will-change: transform;
+}
+.st-slider.drag .knob {
+  transition: none;
+}
+
+/* ---------- read-outs and graph ---------- */
+.st-meter {
+  padding-bottom: 8px;
+}
+.st-reads {
+  display: flex;
+  gap: 12px;
+}
+.st-read {
+  flex: 1;
+  background: var(--mt-tint);
+  border-radius: 12px;
+  padding: 6px 14px;
+}
+.st-read .k {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--mt-mute);
+}
+.st-read .n {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--mt-plum);
+}
+.st-read b {
+  font-size: 34px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+.st-read--accent .n {
+  color: var(--mt-orange);
+}
+.st-graph {
+  display: block;
+  width: 100%;
+  height: 190px;
+  margin-top: 8px;
+}
+
+/* ---------- confetti burst canvas (ME.burst) ---------- */
+.st-burst {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 50;
+}
+
+/* ---------- 768-px-high projectors ---------- */
+@media (max-height: 800px) {
+  .st-goal {
+    font-size: 20px;
+    padding: 10px 14px;
+  }
+  .st-graph {
+    height: 154px;
+  }
+  .st-read b {
+    font-size: 28px;
+  }
+  .st-toggle button {
+    min-height: 40px;
+  }
+  .st-sound {
+    width: 50px;
+    height: 50px;
+  }
+}

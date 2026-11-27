@@ -14,72 +14,21 @@
 // spring, and every number rolls to its new value.
 // Low-spec PCs (window.MAGICTOUCH_LOW_SPEC): 16 beads instead of 40, no blur, 1× pixels.
 // Reduced motion: beads and needle hold still, numbers and looks change at once.
-import { MT } from "./kit.js";
+import { ME } from "/shared/motion-engine.js";
 
 const W = 680,
   H = 420;
 const INK = "#631654",
   INK2 = "#3D0E37",
-  FONT = "Carlito, Calibri, 'Segoe UI', sans-serif",
+  FONT = ME.FONT,
   MONO = "Consolas, Menlo, 'DejaVu Sans Mono', monospace";
 
-function clamp(v, a, b) {
-  return Math.max(a, Math.min(b, v));
-}
-function ease(cur, target, dt, rate) {
-  return cur + (target - cur) * (1 - Math.exp(-dt * rate));
-}
-function layer(w, h) {
-  const c = document.createElement("canvas");
-  c.width = w;
-  c.height = h;
-  return c;
-}
-// a polyline the beads ride along; at(f) gives the point at fraction f (0 … 1) of its length
-function track(pts) {
-  const segs = [];
-  let len = 0;
-  for (let i = 0; i < pts.length - 1; i++) {
-    const a = pts[i],
-      b = pts[i + 1],
-      l = Math.hypot(b[0] - a[0], b[1] - a[1]);
-    segs.push({ a: a, b: b, s: len, l: l });
-    len += l;
-  }
-  return {
-    len: len,
-    at: function (f) {
-      const d = (((f % 1) + 1) % 1) * len;
-      let lo = 0,
-        hi = segs.length - 1;
-      while (lo < hi) {
-        const m = (lo + hi + 1) >> 1;
-        if (segs[m].s <= d) lo = m;
-        else hi = m - 1;
-      }
-      const g = segs[lo],
-        k = (d - g.s) / g.l;
-      return [g.a[0] + (g.b[0] - g.a[0]) * k, g.a[1] + (g.b[1] - g.a[1]) * k];
-    },
-  };
-}
-function pill(c, x, y, text, opt) {
-  opt = opt || {};
-  c.font = (opt.weight || 700) + " " + (opt.size || 18) + "px " + FONT;
-  const w = c.measureText(text).width + 28,
-    h = (opt.size || 18) + 14;
-  c.fillStyle = opt.bg || "#fff";
-  c.strokeStyle = opt.line || "rgba(99,22,84,.15)";
-  c.lineWidth = 1.5;
-  c.beginPath();
-  c.roundRect(x - w / 2, y - h / 2, w, h, h / 2);
-  c.fill();
-  if (opt.line !== "none") c.stroke();
-  c.fillStyle = opt.color || INK;
-  c.textAlign = "center";
-  c.textBaseline = "middle";
-  c.fillText(text, x, y + 1);
-}
+// shared Gold Standard helpers (see /shared/motion-engine.js)
+const clamp = ME.clamp,
+  ease = ME.ease,
+  layer = ME.layer,
+  track = ME.track,
+  pill = ME.pill;
 
 // 4-band resistor colours, 1 Ω to 99 Ω
 const BAND = [
@@ -127,8 +76,8 @@ function hot(k) {
 
 // ── the Ohm's law circuit ──────────────────────────────────────────────────
 function circuit(host, side, opts) {
-  const low = MT.lowSpec(),
-    calm = MT.calm();
+  const low = ME.lowSpec(),
+    calm = ME.calm();
   const sl = {};
   (opts.sliders || []).forEach(function (s) {
     sl[s.id] = s;
@@ -163,54 +112,35 @@ function circuit(host, side, opts) {
     ]),
   };
 
-  // DOM: the stage keeps 680:420 and fits the holder; a canvas for the picture
-  host.innerHTML = "";
-  const box = document.createElement("div");
-  box.className = "sim-stage";
-  const cv = document.createElement("canvas");
-  cv.setAttribute("role", "img");
-  box.appendChild(cv);
-  host.appendChild(box);
-  let c = cv.getContext("2d");
-
-  // side panel: rolling read-outs and a live I–V graph
+  // side panel: rolling read-outs and a live I–V graph (studio-base classes, ME.graph)
   const meter = document.createElement("div");
-  meter.className = "sim-meter";
+  meter.className = "st-card st-meter";
   meter.innerHTML =
-    '<div class="sim-reads">' +
-    '<div class="sim-read cur"><span class="k">Current I</span><span class="n"><b data-r="I"></b> A</span></div>' +
-    '<div class="sim-read pow"><span class="k">Power P = V × I</span><span class="n"><b data-r="P"></b> W</span></div>' +
-    '</div><canvas class="sim-graph" aria-label="Graph of current against voltage"></canvas>';
+    '<div class="st-reads">' +
+    '<div class="st-read"><span class="k">Current I</span><span class="n"><b data-r="I"></b> A</span></div>' +
+    '<div class="st-read st-read--accent"><span class="k">Power P = V × I</span><span class="n"><b data-r="P"></b> W</span></div>' +
+    '</div><canvas class="st-graph" aria-label="Graph of current against voltage"></canvas>';
   side.appendChild(meter);
   const rI = meter.querySelector('[data-r="I"]'),
     rP = meter.querySelector('[data-r="P"]'),
-    gcv = meter.querySelector(".sim-graph"),
-    g = gcv.getContext("2d");
+    graph = ME.graph(meter.querySelector(".st-graph"));
 
+  // the picture: an elevated stage that keeps 680:420; static art is cached per size
+  host.innerHTML = "";
   let dpr = 1,
-    scale = 1,
-    gw = 0,
-    gh = 0;
+    scale = 1;
   const layers = {};
   let tmp = null;
-  function fit() {
-    const w = host.clientWidth,
-      h = host.clientHeight;
-    if (!w || !h) return;
-    const k = Math.min(w / W, h / H);
-    box.style.width = Math.floor(W * k) + "px";
-    box.style.height = Math.floor(H * k) + "px";
-    dpr = low ? 1 : Math.min(2, window.devicePixelRatio || 1);
-    scale = k;
-    cv.width = Math.round(W * k * dpr);
-    cv.height = Math.round(H * k * dpr);
+  const st = ME.stage(host, W, H, function (z) {
+    scale = z.scale;
+    dpr = z.dpr;
     tmp = null;
     ["real", "diagram"].forEach(function (lk) {
-      layers[lk] = { back: layer(cv.width, cv.height), front: layer(cv.width, cv.height) };
+      layers[lk] = { back: layer(z.canvas.width, z.canvas.height), front: layer(z.canvas.width, z.canvas.height) };
       const b = layers[lk].back.getContext("2d"),
         f = layers[lk].front.getContext("2d");
-      b.setTransform(k * dpr, 0, 0, k * dpr, 0, 0);
-      f.setTransform(k * dpr, 0, 0, k * dpr, 0, 0);
+      b.setTransform(scale * dpr, 0, 0, scale * dpr, 0, 0);
+      f.setTransform(scale * dpr, 0, 0, scale * dpr, 0, 0);
       if (lk === "real") {
         realBack(b);
         realFront(f);
@@ -219,11 +149,9 @@ function circuit(host, side, opts) {
         diagFront(f);
       }
     });
-    gw = gcv.clientWidth;
-    gh = gcv.clientHeight;
-    gcv.width = Math.round(gw * dpr);
-    gcv.height = Math.round(gh * dpr);
-  }
+  });
+  const cv = st.canvas;
+  let c = st.ctx;
 
   // ── static art, drawn once per size ──
   function realBack(b) {
@@ -498,8 +426,8 @@ function circuit(host, side, opts) {
   // ── live state ──
   const tgt = { V: 1, R: 1, I: 1 };
   const cur = { V: 1, R: 1, I: 1, P: 1, glow: 0, heat: 0 };
+  const needleS = ME.spring(90, 11);
   let needle = 0,
-    needleV = 0,
     phase = 0,
     look = opts.look === "diagram" ? "diagram" : "real",
     mix = look === "diagram" ? 1 : 0,
@@ -746,101 +674,15 @@ function circuit(host, side, opts) {
   }
 
   function drawGraph() {
-    if (!gw) return;
-    g.setTransform(dpr, 0, 0, dpr, 0, 0);
-    g.clearRect(0, 0, gw, gh);
-    const L = 58,
-      B = gh - 44,
-      Rr = gw - 16,
-      T = 14;
-    const X = function (v) {
-        return L + (v / Vmax) * (Rr - L);
-      },
-      Y = function (i) {
-        return B - (i / Imax) * (B - T);
-      };
-    g.strokeStyle = "#EADBE5";
-    g.lineWidth = 1;
-    for (let v = 0; v <= Vmax; v += Vmax / 4) {
-      g.beginPath();
-      g.moveTo(X(v), T);
-      g.lineTo(X(v), B);
-      g.stroke();
-    }
-    for (let i = 0; i <= Imax; i += Imax / 4) {
-      g.beginPath();
-      g.moveTo(L, Y(i));
-      g.lineTo(Rr, Y(i));
-      g.stroke();
-    }
-    g.strokeStyle = INK2;
-    g.lineWidth = 2;
-    g.beginPath();
-    g.moveTo(L, T);
-    g.lineTo(L, B);
-    g.lineTo(Rr, B);
-    g.stroke();
-    g.fillStyle = INK2;
-    g.font = "700 18px " + FONT;
-    g.textAlign = "center";
-    g.textBaseline = "top";
-    for (let v = 0; v <= Vmax; v += Vmax / 4) g.fillText(String(v), X(v), B + 5);
-    g.textAlign = "right";
-    g.textBaseline = "middle";
-    for (let i = 0; i <= Imax; i += Imax / 4) g.fillText(String(Math.round(i)), L - 8, Y(i));
-    g.fillStyle = "#5D5464";
-    g.font = "700 16px " + FONT;
-    g.textAlign = "center";
-    g.textBaseline = "top";
-    g.fillText("Voltage V (volts)", (L + Rr) / 2, B + 25);
-    g.save();
-    g.translate(14, (T + B) / 2);
-    g.rotate(-Math.PI / 2);
-    g.textAlign = "center";
-    g.fillText("Current I (A)", 0, 0);
-    g.restore();
-    // the line I = V ÷ R for this resistor, clipped to the plot
-    g.save();
-    g.beginPath();
-    g.rect(L, T, Rr - L, B - T);
-    g.clip();
-    g.strokeStyle = "#E96E24";
-    g.lineWidth = 3;
-    g.beginPath();
-    g.moveTo(X(0), Y(0));
-    g.lineTo(X(Vmax), Y(Vmax / cur.R));
-    g.stroke();
-    g.restore();
-    const px = X(cur.V),
-      py = Y(cur.I);
-    g.setLineDash([4, 4]);
-    g.strokeStyle = "rgba(99,22,84,.45)";
-    g.lineWidth = 1.5;
-    g.beginPath();
-    g.moveTo(px, B);
-    g.lineTo(px, py);
-    g.lineTo(L, py);
-    g.stroke();
-    g.setLineDash([]);
-    const gl = g.createRadialGradient(px, py, 0, px, py, 24);
-    gl.addColorStop(0, "rgba(204,48,84,.45)");
-    gl.addColorStop(1, "rgba(204,48,84,0)");
-    g.fillStyle = gl;
-    g.beginPath();
-    g.arc(px, py, 24, 0, Math.PI * 2);
-    g.fill();
-    g.fillStyle = "#CC3054";
-    g.strokeStyle = "#fff";
-    g.lineWidth = 3;
-    g.beginPath();
-    g.arc(px, py, 11, 0, Math.PI * 2);
-    g.fill();
-    g.stroke();
-    g.fillStyle = "#E96E24";
-    g.font = "700 17px " + FONT;
-    g.textAlign = "left";
-    g.textBaseline = "top";
-    g.fillText("I = V ÷ R  with R = " + Math.round(cur.R) + " Ω", L + 8, T + 4);
+    graph.draw({
+      xMax: Vmax,
+      yMax: Imax,
+      xLabel: "Voltage V (volts)",
+      yLabel: "Current I (A)",
+      lines: [{ from: [0, 0], to: [Vmax, Vmax / cur.R] }],
+      point: { x: cur.V, y: cur.I },
+      note: "I = V ÷ R  with R = " + Math.round(cur.R) + " Ω",
+    });
   }
 
   let lastI = "",
@@ -857,13 +699,8 @@ function circuit(host, side, opts) {
     cur.heat = Math.sqrt(clamp(cur.P / Pmax, 0, 1));
     // ammeter needle on a spring (a little overshoot, then settles)
     const goal = clamp(cur.I / Imax, 0, 1);
-    if (calm || first) {
-      needle = goal;
-      needleV = 0;
-    } else {
-      needleV += (90 * (goal - needle) - 11 * needleV) * dt;
-      needle += needleV * dt;
-    }
+    if (first) needleS.x = goal;
+    needle = needleS.step(goal, dt);
     // electrons: drift speed follows the current
     if (!calm) phase += (dt * 24 * cur.I) / paths.real.len;
     mix = calm ? (look === "diagram" ? 1 : 0) : ease(mix, look === "diagram" ? 1 : 0, dt, 10);
@@ -901,14 +738,8 @@ function circuit(host, side, opts) {
     cv.setAttribute("aria-label", eq());
   }
 
-  fit();
-  let ro = null;
-  if (window.ResizeObserver) {
-    ro = new ResizeObserver(fit);
-    ro.observe(host);
-    ro.observe(gcv);
-  }
-  const stopLoop = MT.loop(box, frame);
+  st.begin(); // first layers are drawn by ME.stage; start the loop
+  const stopLoop = ME.loop(st.box, frame);
 
   return {
     update: function (v) {
@@ -921,7 +752,8 @@ function circuit(host, side, opts) {
     },
     stop: function () {
       stopLoop();
-      if (ro) ro.disconnect();
+      st.stop();
+      graph.stop();
       meter.remove();
     },
   };

@@ -11,7 +11,9 @@
 // Models with a live Canvas stage (sim-live.js: "circuit") animate continuously and drive the read-outs
 // and graph in the side panel in the same frame; the others redraw their SVG when a slider moves.
 // Sliders give a soft pitch tick (higher value, higher note); the speaker button is the one sound switch.
+// Built from the Gold Standard layer: /shared/studio-base.css classes and /shared/motion-engine.js controls.
 import { MT } from "../js/kit.js";
+import { ME } from "/shared/motion-engine.js";
 import { MTExpr } from "../js/expr.js";
 import { simReal } from "../js/sim-real.js";
 import { simLive } from "../js/sim-live.js";
@@ -244,17 +246,17 @@ export default function simulate(area, d, ctx) {
     goals = d.goals || [],
     preds = d.predict || [];
   const wrap = document.createElement("div");
-  wrap.className = "sim-wrap";
+  wrap.className = "st-split";
   const pic = document.createElement("div");
-  pic.className = "sim-pic";
+  pic.className = "st-stage-holder sim-pic";
   const side = document.createElement("div");
-  side.className = "sim-side";
+  side.className = "st-panel";
   const goalEl = document.createElement("div");
-  goalEl.className = "sim-goal";
+  goalEl.className = "st-goal";
   const slWrap = document.createElement("div");
-  slWrap.className = "sim-sliders";
+  slWrap.className = "st-sliders";
   const left = document.createElement("div");
-  left.className = "sim-left";
+  left.className = "st-split-stage";
   left.appendChild(pic);
   wrap.appendChild(left);
   wrap.appendChild(side);
@@ -275,8 +277,7 @@ export default function simulate(area, d, ctx) {
   let goalTimer = null;
   let celebrating = false;
   let anim = null;
-  const setters = {};
-  const places = [];
+  const sliders = {};
   function all() {
     return merge(vals, calc(vals));
   }
@@ -286,45 +287,25 @@ export default function simulate(area, d, ctx) {
   let look = REAL ? (localStorage.getItem("mtSimLook") === "diagram" ? "diagram" : "real") : "diagram";
   let lookBtn = null;
   const tools = document.createElement("div");
-  tools.className = "sim-tools";
+  tools.className = "st-toolbar";
   side.insertBefore(tools, goalEl);
   if (REAL) {
-    lookBtn = document.createElement("div");
-    lookBtn.className = "sim-look";
-    lookBtn.setAttribute("role", "radiogroup");
-    lookBtn.setAttribute("aria-label", "Picture");
-    lookBtn.innerHTML = '<button data-look="real">Real</button><button data-look="diagram">Diagram</button>';
-    tools.appendChild(lookBtn);
-    lookBtn.addEventListener("click", function (e) {
-      const b = e.target.closest("[data-look]");
-      if (!b || b.dataset.look === look) return;
-      look = b.dataset.look;
-      MT.sfx.tap();
-      render();
-    });
+    lookBtn = ME.toggle(
+      tools,
+      [
+        { id: "real", label: "Real" },
+        { id: "diagram", label: "Diagram" },
+      ],
+      look,
+      function (id) {
+        look = id;
+        render();
+      },
+    );
+    lookBtn.el.setAttribute("aria-label", "Picture");
   }
   // the one sound switch (shared with the wall launcher's setting)
-  const mute = document.createElement("button");
-  mute.className = "sim-mute";
-  mute.type = "button";
-  function showSound() {
-    const on = MT.soundOn();
-    mute.setAttribute("aria-pressed", String(!on));
-    mute.setAttribute("aria-label", on ? "Sound on. Tap to mute." : "Sound off. Tap to turn on.");
-    mute.innerHTML =
-      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/>' +
-      (on
-        ? '<path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>'
-        : '<path d="M16.5 9.5l5 5m0-5l-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>') +
-      "</svg>";
-  }
-  mute.addEventListener("click", function () {
-    MT.setSound(!MT.soundOn());
-    showSound();
-    MT.sfx.tap();
-  });
-  showSound();
-  tools.appendChild(mute);
+  ME.soundButton(tools);
   // optional real-world clip (design system media slot); nothing is shown if it is missing
   let media = null;
   if (d.media) {
@@ -360,7 +341,7 @@ export default function simulate(area, d, ctx) {
     if (live) {
       live.update(vals, o);
       live.setLook(look);
-      if (lookBtn) syncLook();
+      if (lookBtn) lookBtn.set(look);
       renderSolution();
       if (phase === "goals") checkGoal(o);
       return;
@@ -372,14 +353,9 @@ export default function simulate(area, d, ctx) {
       sv.style.height = "100%";
     }
     pic.classList.toggle("sim-real", look === "real");
-    if (lookBtn) syncLook();
+    if (lookBtn) lookBtn.set(look);
     renderSolution();
     if (phase === "goals") checkGoal(o);
-  }
-  function syncLook() {
-    [].forEach.call(lookBtn.children, function (b) {
-      b.setAttribute("aria-checked", String(b.dataset.look === look));
-    });
   }
   // live worked solution: each line is re-filled with the current numbers; changed lines flash
   function renderSolution() {
@@ -420,7 +396,7 @@ export default function simulate(area, d, ctx) {
   }
   function showGoal() {
     if (gi < goals.length) {
-      goalEl.className = "sim-goal";
+      goalEl.className = "st-goal";
       goalEl.innerHTML = "Challenge " + (gi + 1) + " of " + goals.length + ":<br>" + goals[gi].text;
       MT.score(gi + " / " + goals.length);
     }
@@ -443,7 +419,7 @@ export default function simulate(area, d, ctx) {
         gi++;
         MT.score(gi + " / " + goals.length);
         celebrating = true;
-        goalEl.classList.add("sim-solved");
+        goalEl.classList.add("st-solved");
         MT.burst(goalEl);
         if (gi >= goals.length) {
           phase = "free";
@@ -457,25 +433,32 @@ export default function simulate(area, d, ctx) {
       }, 700);
   }
   function lock(on) {
-    slWrap.classList.toggle("sim-locked", !!on);
+    slWrap.classList.toggle("st-locked", !!on);
+    Object.keys(sliders).forEach(function (id) {
+      sliders[id].lock(on);
+    });
   }
   // move sliders smoothly to new values (used when revealing a prediction)
   function animateTo(target, ms, then) {
     cancelAnimationFrame(anim);
-    slWrap.classList.add("sim-moving");
+    Object.keys(target).forEach(function (id) {
+      if (sliders[id]) sliders[id].moving(true);
+    });
     const from = merge(vals, {}),
       t0 = performance.now();
     (function step(now) {
       const k = Math.min(1, (now - t0) / ms),
         e = k < 0.5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;
       Object.keys(target).forEach(function (id) {
-        if (setters[id]) setters[id](from[id] + (target[id] - from[id]) * e, true);
+        if (sliders[id]) sliders[id].set(from[id] + (target[id] - from[id]) * e, true);
       });
       if (k < 1) anim = requestAnimationFrame(step);
       else {
-        slWrap.classList.remove("sim-moving");
         Object.keys(target).forEach(function (id) {
-          if (setters[id]) setters[id](target[id]);
+          if (sliders[id]) {
+            sliders[id].moving(false);
+            sliders[id].set(target[id]);
+          }
         });
         then && then();
       }
@@ -486,9 +469,9 @@ export default function simulate(area, d, ctx) {
     lock(true);
     MT.score("Predict " + (pi + 1) + " / " + preds.length);
     Object.keys(p.set || {}).forEach(function (id) {
-      if (setters[id]) setters[id](p.set[id]);
+      if (sliders[id]) sliders[id].set(p.set[id]);
     });
-    goalEl.className = "sim-goal sim-pred";
+    goalEl.className = "st-goal sim-pred";
     goalEl.innerHTML =
       '<div class="sim-tag">Predict first</div><div class="sim-q">' +
       X.fill(p.text, all()) +
@@ -551,94 +534,33 @@ export default function simulate(area, d, ctx) {
       render();
     } else {
       phase = "free";
-      goalEl.className = "sim-goal";
+      goalEl.className = "st-goal";
       goalEl.innerHTML = d.freeText || "Move the sliders and watch the worked solution change.";
       MT.score("");
       if (preds.length && !d.noDone) finish();
     }
   }
+  // IR-pen sliders from the motion engine: spring knob, pitch tick, locked while predicting
   d.sliders.forEach(function (s) {
-    const box = document.createElement("div");
-    box.className = "sim-sl";
-    box.innerHTML =
-      '<div class="sim-sl-h"><span>' +
-      s.label +
-      '</span><span class="v"></span></div>' +
-      '<div class="sim-sl-r"><button class="mt-btn alt minus">−</button>' +
-      '<div class="trk"><div class="rail"></div><div class="knob"></div></div>' +
-      '<button class="mt-btn alt plus">+</button></div>';
-    slWrap.appendChild(box);
-    const trk = box.querySelector(".trk"),
-      knob = box.querySelector(".knob"),
-      vEl = box.querySelector(".v");
-    // raw=true while animating: show in-between values without snapping to the step
-    // user=true when a person moved it: a soft tick whose pitch follows the value
-    let placed = false;
-    function place() {
-      // the knob moves with transform (never left/width), with a spring when it jumps
-      knob.style.transform = "translateX(" + ((vals[s.id] - s.min) / (s.max - s.min)) * trk.clientWidth + "px)";
-    }
-    function set(v, raw, user) {
-      v = Math.min(s.max, Math.max(s.min, v));
-      if (!raw) {
-        v = Math.round((v - s.min) / s.step) * s.step + s.min;
-        v = +v.toFixed(4);
-      }
-      const same = v === vals[s.id] && placed;
-      placed = true;
-      vals[s.id] = v;
-      place();
-      vEl.textContent = X.fmt(v, raw ? 1 : undefined) + (s.unit ? " " + s.unit : "");
-      if (same) return;
-      if (user) MT.sfx.pitch((v - s.min) / (s.max - s.min));
-      render();
-    }
-    setters[s.id] = set;
-    places.push(place);
-    function fromX(x) {
-      const r = trk.getBoundingClientRect();
-      set(s.min + ((x - r.left) / r.width) * (s.max - s.min), false, true);
-    }
-    let active = false;
-    trk.addEventListener("pointerdown", function (e) {
-      if (phase === "predict") return;
-      active = true;
-      box.classList.add("drag");
-      fromX(e.clientX);
-    });
-    const mv = function (e) {
-        if (active) fromX(e.clientX);
+    sliders[s.id] = ME.slider(
+      slWrap,
+      {
+        label: s.label,
+        min: s.min,
+        max: s.max,
+        step: s.step,
+        value: s.value,
+        fmt: function (v, raw) {
+          return X.fmt(v, raw ? 1 : undefined) + (s.unit ? " " + s.unit : "");
+        },
       },
-      up = function () {
-        active = false;
-        box.classList.remove("drag");
-      };
-    document.addEventListener("pointermove", mv);
-    document.addEventListener("pointerup", up);
-    offs.push(function () {
-      document.removeEventListener("pointermove", mv);
-      document.removeEventListener("pointerup", up);
-    });
-    box.querySelector(".minus").addEventListener("click", function () {
-      if (phase === "predict") return;
-      set(vals[s.id] - s.step, false, true);
-    });
-    box.querySelector(".plus").addEventListener("click", function () {
-      if (phase === "predict") return;
-      set(vals[s.id] + s.step, false, true);
-    });
-    set(s.value);
+      function (v) {
+        vals[s.id] = v;
+        render();
+      },
+    );
+    vals[s.id] = sliders[s.id].get();
   });
-  // keep knobs on their tracks when the wall or window changes size
-  let ro = null;
-  if (window.ResizeObserver) {
-    ro = new ResizeObserver(function () {
-      places.forEach(function (f) {
-        f();
-      });
-    });
-    ro.observe(slWrap);
-  }
   if (phase === "predict") showPredict();
   else startGoals();
   render();
@@ -647,7 +569,9 @@ export default function simulate(area, d, ctx) {
     cancelAnimationFrame(anim);
     if (live) live.stop();
     if (media) media.stop();
-    if (ro) ro.disconnect();
+    Object.keys(sliders).forEach(function (id) {
+      sliders[id].stop();
+    });
     offs.forEach(function (f) {
       f();
     });
