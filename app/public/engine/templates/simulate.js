@@ -6,9 +6,16 @@
 //   d.display   [{id,label,unit,max,dp}]     with model "formula" and no picture: big read-outs with bars
 //   d.solution  {title, lines:["I = V ÷ R","I = {V} ÷ {R}","I = {V/R:2} A"]}   live worked solution
 //   d.predict   [{text, set:{V:6}, then:{V:12}, options:[…], answer:0, explain}]  predict, then watch it happen
+//   d.media     {type:"mp4"|"webm"|"lottie"|"rive", src, caption}  optional real-world clip under the picture;
+//               the simulation is complete without it (media.js falls back to code)
+// Models with a live Canvas stage (sim-live.js: "circuit") animate continuously and drive the read-outs
+// and graph in the side panel in the same frame; the others redraw their SVG when a slider moves.
+// Sliders give a soft pitch tick (higher value, higher note); the speaker button is the one sound switch.
 import { MT } from "../js/kit.js";
 import { MTExpr } from "../js/expr.js";
 import { simReal } from "../js/sim-real.js";
+import { simLive } from "../js/sim-live.js";
+import { mountMedia } from "../js/media.js";
 
 // Runs inside the engine page's header and instruction line (not full screen).
 export const meta = { fullscreen: false };
@@ -268,6 +275,7 @@ export default function simulate(area, d, ctx) {
   let goalTimer = null;
   let anim = null;
   const setters = {};
+  const places = [];
   function all() {
     return merge(vals, calc(vals));
   }
@@ -276,13 +284,16 @@ export default function simulate(area, d, ctx) {
   const REAL = simReal[d.model];
   let look = REAL ? (localStorage.getItem("mtSimLook") === "diagram" ? "diagram" : "real") : "diagram";
   let lookBtn = null;
+  const tools = document.createElement("div");
+  tools.className = "sim-tools";
+  side.insertBefore(tools, goalEl);
   if (REAL) {
     lookBtn = document.createElement("div");
     lookBtn.className = "sim-look";
     lookBtn.setAttribute("role", "radiogroup");
     lookBtn.setAttribute("aria-label", "Picture");
     lookBtn.innerHTML = '<button data-look="real">Real</button><button data-look="diagram">Diagram</button>';
-    side.insertBefore(lookBtn, goalEl);
+    tools.appendChild(lookBtn);
     lookBtn.addEventListener("click", function (e) {
       const b = e.target.closest("[data-look]");
       if (!b || b.dataset.look === look) return;
@@ -291,9 +302,68 @@ export default function simulate(area, d, ctx) {
       render();
     });
   }
+  // the one sound switch (shared with the wall launcher's setting)
+  const mute = document.createElement("button");
+  mute.className = "sim-mute";
+  mute.type = "button";
+  function showSound() {
+    const on = MT.soundOn();
+    mute.setAttribute("aria-pressed", String(!on));
+    mute.setAttribute("aria-label", on ? "Sound on. Tap to mute." : "Sound off. Tap to turn on.");
+    mute.innerHTML =
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/>' +
+      (on
+        ? '<path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>'
+        : '<path d="M16.5 9.5l5 5m0-5l-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>') +
+      "</svg>";
+  }
+  mute.addEventListener("click", function () {
+    MT.setSound(!MT.soundOn());
+    showSound();
+    MT.sfx.tap();
+  });
+  showSound();
+  tools.appendChild(mute);
+  // optional real-world clip (design system media slot); nothing is shown if it is missing
+  let media = null;
+  if (d.media) {
+    const card = document.createElement("figure");
+    card.className = "sim-media";
+    left.appendChild(card);
+    mountMedia(card, d.media, ctx.base).then(function (m) {
+      if (!m || !card.isConnected) {
+        if (m) m.stop();
+        card.remove();
+        return;
+      }
+      media = m;
+      if (d.media.caption) {
+        const cap = document.createElement("figcaption");
+        cap.textContent = d.media.caption;
+        card.appendChild(cap);
+      }
+    });
+  }
+  // live Canvas stage: the picture, read-outs and graph move together every frame
+  let live = null;
+  if (simLive[d.model]) {
+    pic.classList.add("sim-live");
+    const meterSlot = document.createElement("div");
+    meterSlot.className = "sim-meter-slot";
+    side.appendChild(meterSlot);
+    live = simLive[d.model](pic, meterSlot, { look: look, sliders: d.sliders });
+  }
   function render() {
     const o = calc(vals),
       g = phase === "goals" ? goals[gi] : null;
+    if (live) {
+      live.update(vals, o);
+      live.setLook(look);
+      if (lookBtn) syncLook();
+      renderSolution();
+      if (phase === "goals") checkGoal(o);
+      return;
+    }
     pic.innerHTML = look === "real" ? REAL(vals, o, g) : M.draw(vals, o, g);
     const sv = pic.querySelector("svg");
     if (sv) {
@@ -301,12 +371,14 @@ export default function simulate(area, d, ctx) {
       sv.style.height = "100%";
     }
     pic.classList.toggle("sim-real", look === "real");
-    if (lookBtn)
-      [].forEach.call(lookBtn.children, function (b) {
-        b.setAttribute("aria-checked", String(b.dataset.look === look));
-      });
+    if (lookBtn) syncLook();
     renderSolution();
     if (phase === "goals") checkGoal(o);
+  }
+  function syncLook() {
+    [].forEach.call(lookBtn.children, function (b) {
+      b.setAttribute("aria-checked", String(b.dataset.look === look));
+    });
   }
   // live worked solution: each line is re-filled with the current numbers; changed lines flash
   function renderSolution() {
@@ -382,6 +454,7 @@ export default function simulate(area, d, ctx) {
   // move sliders smoothly to new values (used when revealing a prediction)
   function animateTo(target, ms, then) {
     cancelAnimationFrame(anim);
+    slWrap.classList.add("sim-moving");
     const from = merge(vals, {}),
       t0 = performance.now();
     (function step(now) {
@@ -392,6 +465,7 @@ export default function simulate(area, d, ctx) {
       });
       if (k < 1) anim = requestAnimationFrame(step);
       else {
+        slWrap.classList.remove("sim-moving");
         Object.keys(target).forEach(function (id) {
           if (setters[id]) setters[id](target[id]);
         });
@@ -490,27 +564,38 @@ export default function simulate(area, d, ctx) {
       knob = box.querySelector(".knob"),
       vEl = box.querySelector(".v");
     // raw=true while animating: show in-between values without snapping to the step
-    function set(v, raw) {
+    // user=true when a person moved it: a soft tick whose pitch follows the value
+    let placed = false;
+    function place() {
+      // the knob moves with transform (never left/width), with a spring when it jumps
+      knob.style.transform = "translateX(" + ((vals[s.id] - s.min) / (s.max - s.min)) * trk.clientWidth + "px)";
+    }
+    function set(v, raw, user) {
       v = Math.min(s.max, Math.max(s.min, v));
       if (!raw) {
         v = Math.round((v - s.min) / s.step) * s.step + s.min;
         v = +v.toFixed(4);
       }
-      const same = v === vals[s.id] && knob.style.left;
+      const same = v === vals[s.id] && placed;
+      placed = true;
       vals[s.id] = v;
-      knob.style.left = ((v - s.min) / (s.max - s.min)) * 100 + "%";
+      place();
       vEl.textContent = X.fmt(v, raw ? 1 : undefined) + (s.unit ? " " + s.unit : "");
-      if (!same) render();
+      if (same) return;
+      if (user) MT.sfx.pitch((v - s.min) / (s.max - s.min));
+      render();
     }
     setters[s.id] = set;
+    places.push(place);
     function fromX(x) {
       const r = trk.getBoundingClientRect();
-      set(s.min + ((x - r.left) / r.width) * (s.max - s.min));
+      set(s.min + ((x - r.left) / r.width) * (s.max - s.min), false, true);
     }
     let active = false;
     trk.addEventListener("pointerdown", function (e) {
       if (phase === "predict") return;
       active = true;
+      box.classList.add("drag");
       fromX(e.clientX);
     });
     const mv = function (e) {
@@ -518,6 +603,7 @@ export default function simulate(area, d, ctx) {
       },
       up = function () {
         active = false;
+        box.classList.remove("drag");
       };
     document.addEventListener("pointermove", mv);
     document.addEventListener("pointerup", up);
@@ -527,23 +613,33 @@ export default function simulate(area, d, ctx) {
     });
     box.querySelector(".minus").addEventListener("click", function () {
       if (phase === "predict") return;
-      set(vals[s.id] - s.step);
-      MT.sfx.tap();
+      set(vals[s.id] - s.step, false, true);
     });
     box.querySelector(".plus").addEventListener("click", function () {
       if (phase === "predict") return;
-      set(vals[s.id] + s.step);
-      MT.sfx.tap();
+      set(vals[s.id] + s.step, false, true);
     });
-    knob.style.left = "";
     set(s.value);
   });
+  // keep knobs on their tracks when the wall or window changes size
+  let ro = null;
+  if (window.ResizeObserver) {
+    ro = new ResizeObserver(function () {
+      places.forEach(function (f) {
+        f();
+      });
+    });
+    ro.observe(slWrap);
+  }
   if (phase === "predict") showPredict();
   else startGoals();
   render();
   return function () {
     clearTimeout(goalTimer);
     cancelAnimationFrame(anim);
+    if (live) live.stop();
+    if (media) media.stop();
+    if (ro) ro.disconnect();
     offs.forEach(function (f) {
       f();
     });
