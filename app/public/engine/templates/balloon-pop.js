@@ -6,27 +6,37 @@
 //   questions: 10     optional, sums per round
 //   choices: 4        optional, balloons per sum
 //   emoji: "🍎🐥⭐"    optional, pictures drawn to count with
+// Gold Standard look: the sky is an elevated stage with drifting clouds, balloons are lit with a
+// highlight and a soft shadow, a right answer squashes, bursts and celebrates (green pulse +
+// confetti), the score rolls up.
 import { MT } from "../js/kit.js";
 import { frame, result } from "../js/early.js";
 import { emojiImg } from "/shared/studio/emoji.js";
+import { hud } from "../js/arcade.js";
+import { ME } from "/shared/motion-engine.js";
 
 export const meta = { fullscreen: true, music: true, styles: ["early", "balloon-pop"] };
 
-const COLOURS = ["#CC3054", "#E96E24", "#F3A328", "#2FA86A", "#631654", "#3A86FF"];
+const COLOURS = ["#CC3054", "#E96E24", "#F3A328", "#2FA86A", "#631654"];
 const balloonSvg = (c) =>
   '<svg viewBox="0 0 100 150" aria-hidden="true"><defs><radialGradient id="bp-' +
   c.slice(1) +
   '" cx="35%" cy="30%" r="75%">' +
   `<stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset=".3" stop-color="${c}"/><stop offset="1" stop-color="${c}"/></radialGradient></defs>` +
   '<path d="M50 104c2 14-8 22 0 44" fill="none" stroke="#9a8a96" stroke-width="2"/>' +
-  `<ellipse cx="50" cy="52" rx="42" ry="50" fill="url(#bp-${c.slice(1)})"/><path d="M44 101h12l-6 7z" fill="${c}"/></svg>`;
+  `<ellipse cx="50" cy="52" rx="42" ry="50" fill="url(#bp-${c.slice(1)})"/>` +
+  '<ellipse cx="50" cy="52" rx="42" ry="50" fill="none" stroke="#3D0E37" stroke-opacity=".18" stroke-width="3"/>' +
+  '<ellipse cx="33" cy="30" rx="9" ry="15" transform="rotate(-25 33 30)" fill="#fff" fill-opacity=".55"/>' +
+  `<path d="M44 101h12l-6 7z" fill="${c}"/></svg>`;
 
 export default function balloonPop(area, d) {
   const f = frame(area, { icon: d.icon, title: d.title });
   const panel = document.createElement("div");
   panel.className = "bp";
   panel.innerHTML =
-    '<div class="ey-panel bp-ask"><div class="bp-sum"></div><div class="bp-pics"></div></div><div class="bp-sky"></div><div class="ey-feedback"></div>';
+    '<div class="ey-panel bp-ask"><div class="bp-sum"></div><div class="bp-pics"></div></div>' +
+    '<div class="st-stage bp-stage"><div class="bp-clouds" aria-hidden="true"><i></i><i></i><i></i></div><div class="bp-sky"></div></div>' +
+    '<div class="ey-feedback"></div>';
   f.stage.appendChild(panel);
   const sumEl = panel.querySelector(".bp-sum");
   const pics = panel.querySelector(".bp-pics");
@@ -44,6 +54,7 @@ export default function balloonPop(area, d) {
   let answer = 0;
   let tries = 0;
   let timer = 0;
+  const showScore = hud(f);
 
   function group(n, e) {
     const g = document.createElement("span");
@@ -102,12 +113,14 @@ export default function balloonPop(area, d) {
     if (btn.disabled || sky.classList.contains("done")) return;
     if (v === answer) {
       if (!tries) score++;
-      f.score(score);
+      showScore(score);
+      ME.burst(btn);
       btn.classList.add("popped");
       sky.classList.add("done");
       feedback.textContent = `🎉 Yes! ${sumEl.textContent.replace("?", answer)}`;
-      feedback.className = "ey-feedback good";
+      feedback.className = "ey-feedback good st-solved";
       MT.sfx.good();
+      ME.squash(sumEl);
       MT.speak(`Yes! ${answer}!`);
       timer = setTimeout(() => {
         sky.classList.remove("done");
@@ -127,7 +140,7 @@ export default function balloonPop(area, d) {
   function start() {
     at = 0;
     score = 0;
-    f.score(0);
+    showScore(0);
     ask();
   }
   start();

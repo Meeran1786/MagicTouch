@@ -7,15 +7,19 @@
 //     { arc: [cx, cy, rx, ry, fromDeg, toDeg] }  part of an ellipse (0° right, 90° down)
 //     { open: [cx, cy, rx, ry, gapDeg, gapWidth] } an ellipse with a gap (C, G, S)
 //   say: { "A": "A for Apple" }   optional, spoken when a glyph is finished
+// Gold Standard look: the board is an elevated stage with a lit Studio backdrop; the guide is an
+// embossed letter, lit dots pop as the pen passes, the "Traced" read-out rolls up, and a finished
+// letter celebrates (green pulse, confetti, squash).
 import { MT } from "../js/kit.js";
 import { frame } from "../js/early.js";
-import { arcade } from "../js/arcade.js";
+import { arcade, hud } from "../js/arcade.js";
+import { ME } from "/shared/motion-engine.js";
 
 export const meta = { fullscreen: true, music: true, styles: ["early", "trace"], points: 1 };
 
 const SPACING = 0.045; // guide dots, in box units
 const DONE_SHARE = 0.9; // share of dots that must be lit
-const COLOURS = ["#CC3054", "#E96E24", "#2FA86A", "#3A86FF", "#631654"];
+const COLOURS = ["#CC3054", "#E96E24", "#2FA86A", "#631654", "#F3A328"];
 
 function strokePoints(s) {
   const out = [];
@@ -46,7 +50,8 @@ export default function trace(area, d) {
   wrap.className = "tr";
   wrap.innerHTML =
     '<div class="tr-board"></div><div class="tr-side">' +
-    '<div class="tr-glyph"></div><div class="tr-bar"><i></i></div>' +
+    '<div class="tr-glyph"></div>' +
+    '<div class="st-read tr-read"><span class="k">Traced</span><span class="n"><b>0</b> %</span><div class="tr-bar"><i></i></div></div>' +
     '<button class="ey-btn alt tr-clear" type="button">↺ Start again</button>' +
     '<div class="tr-nav"><button class="ey-btn alt tr-prev" type="button">←</button>' +
     '<button class="ey-btn tr-next" type="button">Next →</button></div></div>';
@@ -54,13 +59,17 @@ export default function trace(area, d) {
   const g = arcade(wrap.querySelector(".tr-board"));
   const glyphEl = wrap.querySelector(".tr-glyph");
   const bar = wrap.querySelector(".tr-bar i");
+  const readEl = wrap.querySelector(".tr-read");
+  const pctEl = readEl.querySelector("b");
+  const pct = ME.counter((n) => (pctEl.textContent = String(n)), 12);
+  const showScore = hud(f);
   const keys = Object.keys(d.glyphs);
   let at = 0;
   let strokes = []; // [[{x, y, lit}], ...] in box units
   let done = false;
   let ink = [];
   let stars = 0;
-  f.score(0);
+  showScore(0);
 
   function load(i) {
     at = (i + keys.length) % keys.length;
@@ -68,7 +77,10 @@ export default function trace(area, d) {
     done = false;
     ink = [];
     bar.style.transform = "scaleX(0)";
+    pct.set(0);
+    readEl.classList.remove("st-solved");
     glyphEl.textContent = keys[at];
+    ME.squash(glyphEl);
     f.progress(`${at + 1} / ${keys.length}`);
     MT.speak(`Trace ${keys[at]}`);
   }
@@ -81,9 +93,10 @@ export default function trace(area, d) {
   function finish() {
     done = true;
     stars++;
-    f.score(stars);
-    MT.sfx.win();
-    MT.confetti();
+    showScore(stars);
+    pct.set(100);
+    ME.celebrate(readEl);
+    ME.squash(glyphEl);
     const b = box();
     for (const st of strokes)
       for (const p of st.filter((_, k) => k % 4 === 0)) g.burst(b.x + p.x * b.s, b.y + p.y * b.s, "#F3A328", 2);
@@ -110,20 +123,25 @@ export default function trace(area, d) {
       const all = strokes.flat();
       const share = all.filter((q) => q.lit).length / all.length;
       bar.style.transform = `scaleX(${share.toFixed(3)})`;
+      pct.set(Math.round(share * 100));
       if (share >= DONE_SHARE) finish();
     }
     if (ink.length > 400) ink.splice(0, ink.length - 400);
 
-    c.clearRect(0, 0, g.w, g.h);
+    g.backdrop({ floor: 0 });
     c.lineCap = c.lineJoin = "round";
-    // the fat pale letter
-    for (const st of strokes) {
-      c.strokeStyle = "#F7F1F5";
-      c.lineWidth = b.s * 0.13;
-      c.beginPath();
-      st.forEach((q, k) => (k ? c.lineTo(X(q), Y(q)) : c.moveTo(X(q), Y(q))));
-      c.stroke();
-    }
+    // the fat pale letter, embossed: a soft shade below, the face, a light edge above
+    for (const [dy, col] of [
+      [b.s * 0.008, "rgba(99, 22, 84, 0.10)"],
+      [0, "#F3E8F0"],
+    ])
+      for (const st of strokes) {
+        c.strokeStyle = col;
+        c.lineWidth = b.s * 0.13;
+        c.beginPath();
+        st.forEach((q, k) => (k ? c.lineTo(X(q), Y(q) + dy) : c.moveTo(X(q), Y(q) + dy)));
+        c.stroke();
+      }
     // the child's ink
     c.strokeStyle = "rgba(204, 48, 84, 0.55)";
     c.lineWidth = b.s * 0.05;

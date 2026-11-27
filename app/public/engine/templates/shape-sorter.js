@@ -6,9 +6,13 @@
 //   shapes: [{ shape: "circle", color: "#E74C3C" }, ...]   circle, square, rectangle, triangle,
 //           star, heart, diamond, oval, hexagon, pentagon (see engine/js/early.js)
 //   perRound: 5   optional, holes on the board each round
+// Gold Standard look: a lit wooden board with carved holes, glossy pieces with ground shadows on an
+// elevated tray, a squash-and-stretch drop, a rolling score, confetti when a board is full.
 import { MT } from "../js/kit.js";
 import { frame, shapeSvg } from "../js/early.js";
 import { MTDrag } from "../js/drag.js";
+import { hud } from "../js/arcade.js";
+import { ME } from "/shared/motion-engine.js";
 
 export const meta = { fullscreen: true, music: true, styles: ["early", "shape-sorter"] };
 
@@ -16,7 +20,7 @@ export default function shapeSorter(area, d) {
   const f = frame(area, { icon: d.icon, title: d.title });
   const wrap = document.createElement("div");
   wrap.className = "ss";
-  wrap.innerHTML = '<div class="ss-board"></div><div class="ss-tray"></div>';
+  wrap.innerHTML = '<div class="ss-board st-stage"></div><div class="ss-tray st-stage"></div>';
   f.stage.appendChild(wrap);
   const board = wrap.querySelector(".ss-board");
   const tray = wrap.querySelector(".ss-tray");
@@ -25,7 +29,8 @@ export default function shapeSorter(area, d) {
   let left = 0;
   let last = "";
   let timer = 0;
-  f.score(0);
+  const showScore = hud(f);
+  showScore(0);
 
   function deal() {
     let set;
@@ -79,13 +84,14 @@ export default function shapeSorter(area, d) {
     hole.replaceChildren(...piece.childNodes);
     piece.remove();
     MT.sfx.good();
+    ME.squash(hole);
     MT.speak(hole.dataset.drop);
     if (--left === 0) {
       boards++;
-      f.score(boards);
+      showScore(boards);
       timer = setTimeout(() => {
-        MT.sfx.win();
-        MT.confetti();
+        ME.celebrate(f.root.querySelector(".ey-pill.score"));
+        ME.burst(board);
         MT.speak("You sorted them all!");
         timer = setTimeout(deal, 2600);
       }, 600);

@@ -9,10 +9,9 @@
 .spp-screen {
   flex: 1;
   min-height: 0;
-  border: 10px solid #8b5e3c;
-  border-radius: calc(var(--mt-radius) * 1.25);
-  box-shadow: var(--mt-shadow);
-  overflow: hidden;
+  border: 12px solid var(--mt-plum);
+  outline: 3px solid var(--mt-amber);
+  outline-offset: -15px;
 }
 .spp-screen .ey-canvas {
   border-radius: 0;
@@ -44,5 +43,5 @@
 .spp-pick.on {
   border-color: var(--mt-plum);
   background: var(--mt-tint);
-  transform: translateY(-4px);
+  translate: 0 -4px;
 }

@@ -620,6 +620,142 @@ export const ME = {
   soundButton: soundButton,
 };
 
+// ── Early years and games (group D: arcade games, piano, conductor, puppets, sorter, trace, 3D) ──
+//   ME.counter(render, rate)     a rolling counter: set(n) eases the shown value to n, render(int) each frame
+//   (squash-and-stretch: ME.squash from the Early years delight section below)
+//   ME.celebrate(el)             the Gold Standard win: green pulse on el (.st-solved), 1.2 s confetti, chime
+//   ME.hudSound(row)             puts the global sound switch in a top bar once (no duplicates)
+//   ME.backdrop(ctx, w, h, t, o) a lit Studio scene for canvas games: white-to-plum-tint ground, a soft key
+//                                light, a floor line and slow drifting light motes (none when calm or low-spec)
+//   ME.shadow(ctx, x, y, rx, k)  a soft ground shadow under a picture (k 0…1 = how close it is to the ground)
+//   ME.gloss(ctx, x, y, r, col)  a layered, lit ball: base colour, rim shade, key-light highlight, sheen
+function counter(render, rate) {
+  let shown = 0,
+    target = 0,
+    stopper = null;
+  function run() {
+    if (stopper) return;
+    stopper = loop(null, function (dt) {
+      shown = ease(shown, target, dt, rate || 9);
+      if (Math.abs(target - shown) < 0.02) {
+        shown = target;
+        stopper();
+        stopper = null;
+      }
+      render(Math.round(shown));
+    });
+  }
+  return {
+    set: function (n) {
+      target = n;
+      if (calm() || n < shown) {
+        shown = n;
+        render(n);
+        return;
+      }
+      run();
+    },
+    get: function () {
+      return target;
+    },
+  };
+}
+function celebrate(el) {
+  if (!el) return;
+  el.classList.remove("st-solved");
+  void el.offsetWidth;
+  el.classList.add("st-solved");
+  sound.win();
+  burst(el);
+}
+function hudSound(row) {
+  if (!row || row.querySelector(".st-sound")) return null;
+  return soundButton(row);
+}
+const motes = [];
+for (let i = 0; i < 12; i++)
+  motes.push({
+    x: Math.random(),
+    y: Math.random(),
+    r: 3 + Math.random() * 6,
+    v: 0.01 + Math.random() * 0.02,
+    p: Math.random() * 6,
+  });
+function backdrop(c, w, h, t, o) {
+  o = o || {};
+  const floor = h * (o.floor || 0.86);
+  const bg = c.createLinearGradient(0, 0, 0, h);
+  bg.addColorStop(0, o.top || PALETTE.white);
+  bg.addColorStop(0.7, o.mid || "#FCF8FB");
+  bg.addColorStop(1, o.bottom || PALETTE.tint);
+  c.fillStyle = bg;
+  c.fillRect(0, 0, w, h);
+  // the key light, top left, like the reference's lit bench
+  const key = c.createRadialGradient(w * 0.3, h * 0.1, 0, w * 0.3, h * 0.1, Math.max(w, h) * 0.7);
+  key.addColorStop(0, o.light || "rgba(251,208,100,.16)");
+  key.addColorStop(1, "rgba(251,208,100,0)");
+  c.fillStyle = key;
+  c.fillRect(0, 0, w, h);
+  if (o.floor !== 0) {
+    const fl = c.createLinearGradient(0, floor, 0, h);
+    fl.addColorStop(0, "rgba(99,22,84,.07)");
+    fl.addColorStop(1, "rgba(99,22,84,.02)");
+    c.fillStyle = fl;
+    c.fillRect(0, floor, w, h - floor);
+    c.fillStyle = "rgba(99,22,84,.12)";
+    c.fillRect(0, floor, w, 2);
+  }
+  if (calm() || lowSpec() || o.motes === false) return;
+  // ambient life: slow light motes drifting up
+  for (const m of motes) {
+    const y = ((((m.y - (t || 0) * m.v) % 1) + 1) % 1) * h;
+    const x = m.x * w + Math.sin((t || 0) * 0.6 + m.p) * 18;
+    c.fillStyle = "rgba(243,163,40," + (0.1 + 0.08 * Math.sin((t || 0) + m.p)) + ")";
+    c.beginPath();
+    c.arc(x, y, m.r, 0, Math.PI * 2);
+    c.fill();
+  }
+}
+function shadow(c, x, y, rx, k) {
+  k = k === undefined ? 1 : clamp(k, 0, 1);
+  const r = rx * (0.6 + 0.4 * k);
+  const g = c.createRadialGradient(x, y, 0, x, y, r);
+  g.addColorStop(0, "rgba(61,14,55," + 0.26 * k + ")");
+  g.addColorStop(1, "rgba(61,14,55,0)");
+  c.save();
+  c.translate(x, y);
+  c.scale(1, 0.24);
+  c.translate(-x, -y);
+  c.fillStyle = g;
+  c.beginPath();
+  c.arc(x, y, r, 0, Math.PI * 2);
+  c.fill();
+  c.restore();
+}
+function gloss(c, x, y, r, col) {
+  const g = c.createRadialGradient(x - r * 0.35, y - r * 0.4, r * 0.08, x, y, r);
+  g.addColorStop(0, "#FFFFFF");
+  g.addColorStop(0.22, col);
+  g.addColorStop(0.85, col);
+  g.addColorStop(1, "rgba(61,14,55,.85)");
+  c.fillStyle = g;
+  c.beginPath();
+  c.arc(x, y, r, 0, Math.PI * 2);
+  c.fill();
+  c.fillStyle = "rgba(255,255,255,.4)";
+  c.beginPath();
+  c.ellipse(x - r * 0.34, y - r * 0.46, r * 0.26, r * 0.14, -0.6, 0, Math.PI * 2);
+  c.fill();
+}
+Object.assign(ME, {
+  counter: counter,
+  celebrate: celebrate,
+  hudSound: hudSound,
+  backdrop: backdrop,
+  shadow: shadow,
+  gloss: gloss,
+});
+
 // ════════════════════════════════════════════════════════════════════════════════════════════════
 // CLASS ACTIVITIES KIT (appended 2026-11-27). Shared by the card and picture templates: quiz, order,
 // sort, match, explore, label, reveal, map and pack. Same look and motion as the reference; nothing

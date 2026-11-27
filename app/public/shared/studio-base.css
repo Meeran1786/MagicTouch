@@ -314,6 +314,17 @@
   }
 }
 
+/* ---------- early years and games (group D) ----------
+   .st-stage--fill  an elevated stage that fills its holder (canvas games that use the whole area)
+   .st-stage--space the same card, dark inside, for 3D space scenes */
+.st-stage--fill {
+  width: 100%;
+  height: 100%;
+}
+.st-stage--space {
+  background: radial-gradient(ellipse at 50% 40%, #1d0b1b, #07040a 75%);
+}
+
 /* ════════════════════════════════════════════════════════════════════════════════════════════════
    CLASS ACTIVITIES (appended 2026-11-27): quiz, order, sort, match, explore, label, reveal, map, pack.
    Built on the classes above, with the same palette, elevation, springs and 52 px IR-pen minimum.

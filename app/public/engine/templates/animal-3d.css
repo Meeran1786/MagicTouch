@@ -14,10 +14,11 @@
   grid-row: 1;
   height: 100%;
   border-radius: calc(var(--mt-radius) * 1.25);
-  background: radial-gradient(ellipse at 50% 85%, var(--mt-tint), var(--mt-white) 70%);
+  /* a lit Studio set: key light top left, a soft floor */
+  background:
+    radial-gradient(ellipse at 25% 5%, rgba(251, 208, 100, 0.18), rgba(251, 208, 100, 0) 55%),
+    radial-gradient(ellipse at 50% 85%, var(--mt-tint), var(--mt-white) 70%);
   border: 1px solid var(--mt-line);
-  box-shadow: var(--mt-shadow);
-  overflow: hidden;
 }
 .a3-view canvas {
   position: relative;

@@ -3,8 +3,11 @@
 //   - a frame loop that stops while the wall is hidden,
 //   - every pointer on the wall at once (IR pens, hands, mouse, touch) as plain points,
 //     each with where it was on the last frame, so games can test taps and swipes alike,
-//   - particle bursts, capped by the design system (40 live, fewer on low-spec PCs).
+//   - particle bursts, capped by the design system (40 live, fewer on low-spec PCs),
+//   - the Gold Standard look: the canvas sits in an elevated .st-stage card and g.backdrop(t) paints
+//     the lit Studio scene (see /shared/motion-engine.js and /shared/studio-base.css).
 import { MT } from "./kit.js";
+import { ME } from "/shared/motion-engine.js";
 import { inputMode, onPoints } from "/shared/input/pointer.js";
 import { emojiSrc } from "/shared/studio/emoji.js";
 
@@ -44,18 +47,21 @@ export function emojiList(s) {
  * @param {{hover?: boolean}} opts  hover: a mouse counts while it only hovers (pop and steer games);
  *   otherwise a mouse or touch counts only while pressed (slice games)
  */
-export function arcade(stage, { hover = false } = {}) {
+export function arcade(stage, { hover = false, card = true } = {}) {
   const canvas = document.createElement("canvas");
   canvas.className = "ey-canvas";
-  stage.appendChild(canvas);
+  if (card) {
+    const box = document.createElement("div");
+    box.className = "st-stage st-stage--fill";
+    box.appendChild(canvas);
+    stage.appendChild(box);
+  } else stage.appendChild(canvas);
   const ctx = canvas.getContext("2d");
-  const g = { canvas, ctx, w: 0, h: 0, particles: [], onTap: null };
+  const g = { canvas, ctx, w: 0, h: 0, t: 0, particles: [], onTap: null };
   let camera = []; // screen points from the camera this frame
   const pointers = new Map(); // mouse and touch pointers: id -> {x, y, down}
   let last = [];
-  let raf = 0;
-  let frameFn = null;
-  let prevT = 0;
+  let stopLoop = null;
 
   function resize() {
     const r = canvas.getBoundingClientRect();
@@ -130,24 +136,19 @@ export function arcade(stage, { hover = false } = {}) {
     return out;
   };
 
-  /** Runs fn(dt seconds, t ms) every frame until stop(); paused while the page is hidden. */
+  /** Runs fn(dt seconds, t ms) every frame until stop() (ME.loop: paused while the page is hidden). */
   g.loop = (fn) => {
-    frameFn = fn;
-    const tick = (t) => {
-      const dt = Math.min(0.05, prevT ? (t - prevT) / 1000 : 0);
-      prevT = t;
-      frameFn(dt, t);
-      raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
+    if (stopLoop) stopLoop();
+    stopLoop = ME.loop(canvas, (dt, t) => {
+      g.t = t;
+      fn(Math.min(0.05, dt), t * 1000);
+    });
   };
-  const onVisible = () => {
-    if (!frameFn) return;
-    cancelAnimationFrame(raf);
-    prevT = 0;
-    if (!document.hidden) g.loop(frameFn);
-  };
-  document.addEventListener("visibilitychange", onVisible);
+
+  /** Paints the lit Studio scene behind the game (ME.backdrop). */
+  g.backdrop = (o) => ME.backdrop(ctx, g.w, g.h, g.t, o);
+  /** A soft ground shadow under something at x on the floor y (k: 0 far above … 1 on the ground). */
+  g.shadow = (x, y, rx, k) => ME.shadow(ctx, x, y, rx, k);
 
   /** A burst of sparks at x, y. */
   g.burst = (x, y, color, n = 12) => {
@@ -200,12 +201,25 @@ export function arcade(stage, { hover = false } = {}) {
   };
 
   g.stop = () => {
-    cancelAnimationFrame(raf);
-    frameFn = null;
+    if (stopLoop) stopLoop();
     ro.disconnect();
     offPoints();
     window.removeEventListener("pointerup", onUp);
-    document.removeEventListener("visibilitychange", onVisible);
   };
   return g;
+}
+
+/**
+ * The Gold Standard top bar for an early-years frame (engine/js/early.js): adds the global sound
+ * switch and makes the score roll up with a squash bounce. Returns score(n) (and f.score still works).
+ */
+export function hud(f) {
+  const row = f.root.querySelector(".ey-pills");
+  ME.hudSound(row);
+  const pill = f.root.querySelector(".ey-pill.score");
+  const roller = ME.counter((n) => f.score(n));
+  return (n) => {
+    if (n > roller.get()) ME.squash(pill);
+    roller.set(n);
+  };
 }
