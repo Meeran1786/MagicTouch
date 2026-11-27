@@ -8,16 +8,17 @@
    ============================================================ */
 
 /* ---------- palette (UI chrome) ---------- */
+// Studio night: plum sky, amber stars, brand reds and oranges.
 const PAL = {
-  spaceDark: '#0B1026',
-  spaceMid:  '#1B2350',
-  spaceMid2: '#2E1A47',
-  nebula:    '#6C3FAE',
-  star:      '#FFD23F',
-  rocket:    '#FF6B5B',
-  planet:    '#2EC4B6',
-  cream:     '#F5F2FF',
-  ink:       '#1A1430'
+  spaceDark: '#24081F',
+  spaceMid:  '#3D0E37',
+  spaceMid2: '#631654',
+  nebula:    '#CC3054',
+  star:      '#FBD064',
+  rocket:    '#E96E24',
+  planet:    '#F3A328',
+  cream:     '#FFF8F2',
+  ink:       '#3D0E37'
 };
 
 /* ---------- the actual colours being taught ---------- */

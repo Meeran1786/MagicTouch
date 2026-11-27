@@ -20,14 +20,30 @@ Needs [Node.js](https://nodejs.org/) 18 or newer and Chrome or Edge. Nothing els
 - **Windows:** double-click `start-magictouch-wall-windows.bat`
 - **Any:** `node server/index.js`, then open http://localhost:8090/
 
-The first time, the wall asks you to **set up this wall's first login** (for example `room-4b`
-and a password of 8+ characters). After that, sign-up is closed: further logins are made by the
-school admin (`MT_SIGNUP=always` turns it back on).
+The first time, the wall asks you to **set up the school's first login** (for example `office`
+and a password of 8+ characters). That login opens the **School view** and also works as a wall,
+so a one-room school needs nothing else. After that, sign-up is closed: further logins are added
+in the School view (`MT_SIGNUP=always` turns open sign-up back on).
+
+**School view** (`/school/`, or ⚙ Settings → School view): for the principal, HODs and floor
+in-charges, on a laptop or phone. It shows, for today / 7 / 30 / 90 days: walls in use, class
+time on the walls, activities opened, time per day, by class, by subject, per wall and the most
+used activities, which walls are on right now, and a CSV download for Excel. Under **Logins** the
+school adds a login per classroom wall (so usage shows per room) and School view logins for each
+HOD or in-charge (or they share one), names them, resets passwords and turns logins off.
+Time counts while an activity is on a wall, up to one hour per opening, and stops when the wall
+goes off. Days follow India time (`MT_TZ` changes it).
 
 **Phone remote:** the server prints a "Phone remote" address such as `http://192.168.1.20:8090/`.
 Open it on a phone on the same Wi-Fi and sign in with the same school login. From the phone the
 teacher can open any activity on the wall, go back to the menu, lock the wall, and start the pen
 calibration.
+
+**Team play:** the ★ button on the wall (or *Team play* on the phone) splits the class into 2–4
+teams. A score strip floats over any activity: tap a team to give it a star, then *Finish* for
+the winner's celebration. Every school starts with Peacocks, Tigers, Elephants and Parrots; the
+School view's **Teams** tab renames them and sets each mascot (our gallery or the school's own
+picture). Only team names and points are kept.
 
 **Input:** wall ⚙ Settings → IR pen (default), Hand, or Mouse or touch screen (no camera;
 for laptops, interactive panels and demos).
@@ -49,7 +65,9 @@ planned; today the file is trusted as is.)
 
 Version 1 stores **no student data**. The only things kept (in `data/store.json`) are the wall
 logins (password hashed with scrypt, login tokens stored only as SHA-256 hashes, 30-day sessions)
-and, per login, which activity is on the wall and whether it is locked.
+and, per login, which activity is on the wall and whether it is locked, plus daily usage totals
+per wall and activity (number of openings and seconds), kept for 400 days. Nothing is recorded
+about any child.
 
 ## Checks
 

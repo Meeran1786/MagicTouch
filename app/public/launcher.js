@@ -15,17 +15,20 @@
   const token = () => localStorage.getItem(TOKEN_KEY);
   function setSession(t, u) { localStorage.setItem(TOKEN_KEY, t); localStorage.setItem(USERNAME_KEY, u); }
   function clearSession() { localStorage.removeItem(TOKEN_KEY); localStorage.removeItem(USERNAME_KEY); }
-  async function api(method, path, body) {
+  let ROLE = "wall";
+  async function api(method, path, body, extra = {}) {
     const r = await fetch(path, {
       method, cache: "no-store",
-      headers: { "Content-Type": "application/json", ...(token() ? { Authorization: "Bearer " + token() } : {}) },
+      headers: { "Content-Type": "application/json", ...(token() ? { Authorization: "Bearer " + token() } : {}), ...extra },
       body: body ? JSON.stringify(body) : undefined,
     });
     const data = await r.json().catch(() => ({}));
     if (!r.ok) { const e = new Error(data.error || "The wall server did not answer."); e.status = r.status; throw e; }
     return data;
   }
-  const getState = () => api("GET", "/api/state");
+  // The wall says it is the wall, so the School view can tell which walls are switched on
+  // and stop counting time when a wall goes off. The phone polls without it.
+  const getState = () => api("GET", "/api/state", undefined, mode === "wall" ? { "X-MT-Client": "wall" } : {});
   const setState = patch => api("POST", "/api/state", patch);
 
   function detectMode() {
@@ -39,7 +42,7 @@
   function showView(id) { ["authView", "wallView", "remoteView"].forEach(v => $(v).classList.toggle("hidden", v !== id)); }
 
   // ── catalogue + licence ─────────────────────────────────────────────
-  let CAT = null, LICENCE = null;
+  let CAT = null, LICENCE = null, TEAMS = null;
   const licensed = key => LICENCE && (LICENCE.levels === "all" || (Array.isArray(LICENCE.levels) && LICENCE.levels.includes(key)));
   const levelsShown = () => CAT.levels.filter(l => licensed(l.key));
   const itemsFor = key => CAT.items.filter(i => i.level === key);
@@ -50,7 +53,6 @@
     itemsFor(key).forEach(i => { if (!seen.has(i.subject)) { seen.add(i.subject); order.push(i.subject); } });
     return order;
   }
-  const ART_BG = ["#FFF1D6", "#FBE4EA", "#EFE0F0", "#E3F4EA", "#FFE6A8", "#DCEBF7"];
 
   // ══════════════════════════ SIGN IN ═════════════════════════════════
   let isSignup = false;
@@ -66,10 +68,10 @@
     isSignup = on;
     $("authTitle").textContent = on ? "Set up this wall" : "Sign in to this wall";
     $("authSub").textContent = on
-      ? "Create the school login for this classroom, for example room-4b. Use at least 8 characters for the password."
+      ? "Create the school's first login, for example office. It opens the School view, where you can add a login for every classroom wall. Use at least 8 characters for the password."
       : "Use the school login for this classroom. Sign in with the same login on your phone to control the wall.";
     $("authSubmit").textContent = on ? "Create login" : "Sign in";
-    $("authToggleBtn").textContent = on ? "I already have a login" : "Set up this wall's first login";
+    $("authToggleBtn").textContent = on ? "I already have a login" : "Set up the school's first login";
     $("authPassword").autocomplete = on ? "new-password" : "current-password";
     $("authError").textContent = "";
   }
@@ -81,6 +83,7 @@
     try {
       const d = await api("POST", isSignup ? "/api/auth/signup" : "/api/auth/login", { username: $("authUsername").value.trim(), password: $("authPassword").value });
       setSession(d.token, d.username);
+      ROLE = d.role || "wall";
       $("authPassword").value = "";
       await startApp();
     } catch (err) { $("authError").textContent = err.message; }
@@ -93,10 +96,29 @@
     showView("wallView");
     const body = $("wallBody"), frame = $("appFrame"), home = $("homeBtn");
     $("wallUsername").textContent = localStorage.getItem(USERNAME_KEY) || "";
+    $("schoolViewLink").classList.toggle("hidden", ROLE !== "school");
     $("schoolChip").textContent = LICENCE.demo ? "Demo licence" : LICENCE.school;
     $("licenceLine").textContent = LICENCE.demo ? "Demo licence: every class is shown" : `${LICENCE.school} · ${levelsShown().length} classes licensed${LICENCE.validUntil ? " until " + LICENCE.validUntil : ""}`;
 
-    let route = { screen: "home" }, currentApp = "menu", lastTs = 0, lastCmdTs = 0, locked = false, calibrating = false;
+    let route = { screen: "home" }, currentApp = "menu", lastTs = 0, lastCmdTs = 0, lastGameTs = 0, locked = false, calibrating = false;
+
+    // ── team play ──
+    const teamUI = MTTeams.wall({
+      bar: $("teamBar"), celebrate: $("celebrate"), teams: () => TEAMS,
+      send: async g => { const prev = teamUI.game; teamUI.render(g, prev); try { const s = await setState({ game: g }); lastGameTs = s.gameTs; } catch (e) { /* the next poll reconciles */ } },
+    });
+    let teamN = 2;
+    function drawTeamSheet() {
+      $("teamCount").querySelectorAll("button").forEach(b => b.setAttribute("aria-checked", String(+b.dataset.n === teamN)));
+      $("teamPreview").innerHTML = TEAMS.slice(0, teamN).map((t, i) => `<span style="--c:${MTTeams.COLORS[i]}"><i>${MTTeams.mascot(t)}</i>${esc(t.name)}</span>`).join("");
+      $("teamStart").textContent = teamUI.game.on ? "Start a new game" : "Start team play";
+    }
+    $("teamsBtn").addEventListener("click", async () => { TEAMS = await MTTeams.load(api); drawTeamSheet(); $("teamSheet").classList.remove("hidden"); });
+    $("teamCount").addEventListener("click", e => { const b = e.target.closest("[data-n]"); if (b) { teamN = +b.dataset.n; drawTeamSheet(); } });
+    $("teamCancel").addEventListener("click", () => $("teamSheet").classList.add("hidden"));
+    $("teamSheet").addEventListener("click", e => { if (e.target.id === "teamSheet") $("teamSheet").classList.add("hidden"); });
+    $("teamStart").addEventListener("click", () => { $("teamSheet").classList.add("hidden"); startGame(); });
+    async function startGame() { const g = MTTeams.rules.start(teamN); teamUI.render(g, null); try { lastGameTs = (await setState({ game: g })).gameTs; } catch (e) { /* ignore */ } }
 
     // input device + calibration (shared with every activity through localStorage)
     const inputMode = () => { const m = localStorage.getItem("wallInputMode"); return m === "hand" || m === "mouse" ? m : "irpen"; };
@@ -132,9 +154,9 @@
       const levelBtn = (l, inner, extra = "") => `<button type="button" class="tap ${extra}" data-level="${l.key}" ${count(l.key) ? "" : 'aria-disabled="true"'}>${inner}</button>`;
       body.innerHTML = `<div class="home">
         <section class="cont">
-          ${last ? `<small>Continue where you stopped</small><h2>${esc(last.title)}</h2><small>${esc(levelLabel(last.level))} · ${esc(CAT.subjectLabel(last.subject))} · ${esc(last.kind)}</small>`
+          ${last ? `<div class="cont-art">${MTCardArt.html(last)}</div><small>Continue where you stopped</small><h2>${esc(last.title)}</h2><small>${esc(levelLabel(last.level))} · ${esc(CAT.subjectLabel(last.subject))} · ${esc(last.kind)}</small>`
                  : `<small>Welcome to MagicTouch</small><h2>Pick a class to begin</h2><small>Your last activities will show here.</small>`}
-          <div class="recent">${rec.length > 1 ? "<b>Recently used</b>" : ""}${rec.slice(1, 4).map(id => `<button type="button" data-open="${esc(id)}"><span>${CAT.byId[id].icon}</span>${esc(CAT.byId[id].title)}</button>`).join("")}</div>
+          <div class="recent">${rec.length > 1 ? "<b>Recently used</b>" : ""}${rec.slice(1, 4).map(id => `<button type="button" data-open="${esc(id)}"><span>${MTCardArt.img(CAT.byId[id].icon)}</span>${esc(CAT.byId[id].title)}</button>`).join("")}</div>
           ${last ? `<button type="button" class="go" data-open="${esc(last.id)}">Continue</button>` : ""}
         </section>
         <div>
@@ -157,7 +179,7 @@
       body.innerHTML = `<div class="subj">
         <nav class="rail" aria-label="Subjects">${subs.map(s => `<button type="button" class="tap${s === subject ? " on" : ""}" data-subject="${esc(s)}">${svg(CAT.subjectIcon(s))}${esc(CAT.subjectLabel(s))}<em>${itemsFor(key).filter(i => i.subject === s).length}</em></button>`).join("")}</nav>
         <div class="cards">${items.map((i, n) => `<button type="button" class="tap card" data-open="${esc(i.id)}">
-            <div class="art" style="background:${ART_BG[n % ART_BG.length]}"><span style="--d:${(n % 7) * -.45}s">${i.icon}</span></div>
+            ${MTCardArt.html(i)}
             <div class="tx"><b>${esc(i.title)}</b><small>${esc(i.subtitle)}</small><div class="tags"><em>${esc(i.kind)}</em>${i.draft ? '<em class="draft">Draft</em>' : ""}</div></div>
           </button>`).join("")}</div></div>`;
       route = { screen: "level", level: key, subject };
@@ -180,6 +202,7 @@
 
     // ── activities ──
     function closeApp() {
+      document.body.classList.remove("app-open");
       frame.classList.add("hidden"); frame.removeAttribute("src");
       home.classList.add("hidden"); $("lockBadge").classList.add("hidden");
       currentApp = "menu";
@@ -200,6 +223,7 @@
       remember(id);
       frame.src = item.path;
       frame.classList.remove("hidden");
+      document.body.classList.add("app-open");
       home.classList.toggle("hidden", locked); $("lockBadge").classList.toggle("hidden", !locked);
       crumb([{ label: "Home", go: { screen: "home" } }, { label: levelLabel(item.level), go: { screen: "level", level: item.level, subject: item.subject } }, { label: item.title }]);
       route = { screen: "level", level: item.level, subject: item.subject };
@@ -266,6 +290,10 @@
         const fresh = !first; lastCmdTs = s.cmdTs;
         if (fresh) { try { localStorage.removeItem(calKey()); } catch (e) { /* ignore */ } startCalibration(); }
       }
+      if (s.gameTs > lastGameTs) {
+        const prev = teamUI.game; lastGameTs = s.gameTs;
+        if (JSON.stringify(prev) !== JSON.stringify(s.game)) teamUI.render(s.game, first ? null : prev);
+      }
       if (s.ts > lastTs) {
         lastTs = s.ts;
         if (s.app !== currentApp && !calibrating) { if (s.app === "menu" || !CAT.byId[s.app]) { closeApp(); renderHome(); } else openApp(s.app); }
@@ -281,10 +309,18 @@
   function startRemote() {
     showView("remoteView");
     $("remoteUsername").textContent = localStorage.getItem(USERNAME_KEY) || "";
+    $("remoteSchoolLink").classList.toggle("hidden", ROLE !== "school");
     $("remoteLogoutBtn").addEventListener("click", logout);
     const frame = $("remoteAppFrame"), back = $("remoteHomeBtn"), status = $("remoteStatus");
     let playMode = localStorage.getItem(PLAY_MODE_KEY) === "here" ? "here" : "wall";
     let state = { app: "menu", locked: false }, level = (levelsShown().find(l => itemsFor(l.key).length) || {}).key;
+
+    let lastGame = null;
+    const teamUI = MTTeams.remote({
+      el: $("rTeams"), teams: () => TEAMS,
+      send: async g => { teamUI.render(g); try { const s = await setState({ game: g }); lastGame = JSON.stringify(s.game); } catch (e) { status.textContent = e.message; } },
+    });
+    teamUI.render({ on: false });
 
     function drawModes() { $("modeSendWall").setAttribute("aria-checked", String(playMode === "wall")); $("modePlayHere").setAttribute("aria-checked", String(playMode === "here")); }
     $("modeSendWall").addEventListener("click", () => { playMode = "wall"; localStorage.setItem(PLAY_MODE_KEY, playMode); drawModes(); });
@@ -296,7 +332,7 @@
     function drawList() {
       if (!level) { $("rList").innerHTML = '<p class="r-sub">No activities in this school\'s licence yet.</p>'; return; }
       $("rList").innerHTML = subjectsOf(level).map(s => `<p class="r-sub">${esc(CAT.subjectLabel(s))}</p>` +
-        itemsFor(level).filter(i => i.subject === s).map(i => `<button type="button" class="r-item${i.id === state.app ? " cur" : ""}" data-open="${esc(i.id)}"><span class="e">${i.icon}</span><span><b>${esc(i.title)}</b><small>${esc(i.kind)}${i.draft ? " · Draft" : ""}</small></span></button>`).join("")).join("");
+        itemsFor(level).filter(i => i.subject === s).map(i => `<button type="button" class="r-item${i.id === state.app ? " cur" : ""}" data-open="${esc(i.id)}"><span class="e">${MTCardArt.img(i.icon)}</span><span><b>${esc(i.title)}</b><small>${esc(i.kind)}${i.draft ? " · Draft" : ""}</small></span></button>`).join("")).join("");
     }
     $("rLevels").addEventListener("click", e => { const b = e.target.closest("[data-level]"); if (b) { level = b.dataset.level; drawLevels(); drawList(); } });
     $("rList").addEventListener("click", async e => {
@@ -328,6 +364,8 @@
       try {
         const s = await getState();
         const changed = s.app !== state.app || s.locked !== state.locked;
+        const gs = JSON.stringify(s.game || { on: false });
+        if (gs !== lastGame) { lastGame = gs; teamUI.render(s.game); }
         state = s; $("remoteDot").className = "on"; $("remoteConn").textContent = "Connected to " + (localStorage.getItem(USERNAME_KEY) || "the wall");
         if (changed) draw();
       } catch (e) { $("remoteDot").className = ""; $("remoteConn").textContent = "Can't reach the wall server"; }
@@ -337,12 +375,12 @@
 
   // ══════════════════════════ BOOT ════════════════════════════════════
   async function startApp() {
-    [LICENCE, CAT] = await Promise.all([api("GET", "/api/licence"), MTCatalog.load()]);
+    [LICENCE, CAT, TEAMS] = await Promise.all([api("GET", "/api/licence"), MTCatalog.load(), MTTeams.load(api)]);
     if (mode === "wall") startWall(); else startRemote();
   }
   (async function boot() {
     if (!token()) return showAuth();
-    try { await api("GET", "/api/auth/me"); }
+    try { ROLE = (await api("GET", "/api/auth/me")).role || "wall"; }
     catch (e) { if (e.status === 401) { clearSession(); return showAuth(); } }
     try { await startApp(); } catch (e) { if (e.status === 401) { clearSession(); showAuth(); } else { showAuth(); $("authError").textContent = e.message; } }
   })();

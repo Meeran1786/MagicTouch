@@ -9,8 +9,8 @@
 
 /* ---------- palette ---------- */
 const PAL = {
-  skyTop:    '#FFE9B8',
-  skyBottom: '#FFD27A',
+  skyTop:    '#FFFFFF',   // Studio look
+  skyBottom: '#FFF1D6',
   crate:     '#8B5A2B',
   crateLite: '#C68642',
   crateDark: '#5C3A1A',
@@ -154,13 +154,13 @@ function rebuildBackground(){
   const stripeW = max(46, width*0.05);
   g.push();
   for (let x = -stripeW; x < width + stripeW; x += stripeW*2){
-    g.fill(PAL.tomato);
+    g.fill('#631654');
     g.rect(x, 0, stripeW, stripeH);
-    g.fill(PAL.cream);
+    g.fill('#F3A328');
     g.rect(x + stripeW, 0, stripeW, stripeH);
   }
   // scalloped bottom edge of awning
-  g.fill(PAL.cream);
+  g.fill('#F3A328');
   for (let x = 0; x < width; x += stripeW){
     g.arc(x + stripeW/2, stripeH, stripeW, stripeH*0.8, 0, PI);
   }

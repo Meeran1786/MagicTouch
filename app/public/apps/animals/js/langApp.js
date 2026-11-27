@@ -233,8 +233,8 @@ export class LangApp {
   // ── drawing ──────────────────────────────────────────────────────────
   drawBackground(ctx, width, height) {
     const grad = ctx.createLinearGradient(0, 0, 0, height);
-    grad.addColorStop(0, "rgb(20,10,60)");
-    grad.addColorStop(1, "rgb(60,10,100)");
+    grad.addColorStop(0, "#ffffff");
+    grad.addColorStop(1, "#f7f1f5");
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, width, height);
   }
@@ -245,13 +245,13 @@ export class LangApp {
     ctx.lineWidth = 2;
     ctx.setLineDash([6, 6]);
 
-    ctx.strokeStyle = "rgb(0,200,255)";
+    ctx.strokeStyle = "rgb(99,22,84)";
     ctx.beginPath(); ctx.moveTo(this.centerX, this.centerY); ctx.lineTo(positions[0].x, positions[0].y); ctx.stroke();
 
-    ctx.strokeStyle = "rgb(255,200,0)";
+    ctx.strokeStyle = "rgb(233,110,36)";
     ctx.beginPath(); ctx.moveTo(this.centerX, this.centerY); ctx.lineTo(positions[1].x, positions[1].y); ctx.stroke();
 
-    ctx.strokeStyle = "rgb(0,255,120)";
+    ctx.strokeStyle = "rgb(47,168,106)";
     ctx.beginPath(); ctx.moveTo(this.centerX, this.centerY); ctx.lineTo(positions[2].x, positions[2].y); ctx.stroke();
 
     ctx.restore();
@@ -264,14 +264,14 @@ export class LangApp {
 
     ctx.save();
     for (let i = 0; i < 3; i++) {
-      ctx.strokeStyle = rgba(255, 50, 150, (150 - i * 40) / 255);
+      ctx.strokeStyle = rgba(204, 48, 84, (150 - i * 40) / 255);
       ctx.lineWidth = 4;
       ellipsePath(ctx, cx, cy, this.centerRadius * 2 + i * 30 + pulse, this.centerRadius * 2 + i * 30 + pulse);
       ctx.stroke();
     }
 
-    ctx.fillStyle = "rgb(40,0,80)";
-    ctx.strokeStyle = "rgb(255,50,150)";
+    ctx.fillStyle = "#ffffff";
+    ctx.strokeStyle = "rgb(204,48,84)";
     ctx.lineWidth = 3;
     ellipsePath(ctx, cx, cy, this.centerRadius * 2, this.centerRadius * 2);
     ctx.fill();
@@ -279,8 +279,8 @@ export class LangApp {
 
     updateAnimalImagePosition(this.currentAnimal, cx, cy, this.centerRadius);
 
-    ctx.fillStyle = "rgb(255,50,150)";
-    ctx.font = "26px Arial";
+    ctx.fillStyle = "rgb(99,22,84)";
+    ctx.font = "bold 30px Cambria, Caladea, Georgia, serif";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillText(animal.name, cx, cy - this.centerRadius - 35);
@@ -301,7 +301,7 @@ export class LangApp {
       ctx.stroke();
     }
 
-    ctx.fillStyle = "rgb(10,20,40)";
+    ctx.fillStyle = "#ffffff";
     ctx.strokeStyle = `rgb(${gr},${gg},${gb})`;
     ctx.lineWidth = isSpeaking ? 4 : 2;
     ellipsePath(ctx, x, y, this.nodeRadius * 2, this.nodeRadius * 2);
@@ -311,11 +311,11 @@ export class LangApp {
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillStyle = `rgb(${gr},${gg},${gb})`;
-    ctx.font = `${this.nodeRadius * 0.27}px Arial`;
+    ctx.font = `bold ${this.nodeRadius * 0.27}px Calibri, Carlito, sans-serif`;
     ctx.fillText(obj.lang, x, y - this.nodeRadius * 0.2);
 
-    ctx.fillStyle = "#fff";
-    ctx.font = `${this.nodeRadius * 0.24}px Arial`;
+    ctx.fillStyle = "#242430";
+    ctx.font = `${this.nodeRadius * 0.24}px Calibri, Carlito, "Noto Sans Telugu", "Noto Sans Devanagari", sans-serif`;
     ctx.fillText(obj.text, x, y + this.nodeRadius * 0.3);
 
     if (isSpeaking) {
@@ -329,15 +329,15 @@ export class LangApp {
   drawLanguageNodes(ctx) {
     const animal = ANIMALS[this.currentAnimal];
     const p = this.nodePositions();
-    this.drawNode(ctx, p[0].x, p[0].y, animal.data[0], [0, 200, 255], 0);
-    this.drawNode(ctx, p[1].x, p[1].y, animal.data[1], [255, 200, 0], 1);
-    this.drawNode(ctx, p[2].x, p[2].y, animal.data[2], [0, 255, 120], 2);
+    this.drawNode(ctx, p[0].x, p[0].y, animal.data[0], [99, 22, 84], 0);
+    this.drawNode(ctx, p[1].x, p[1].y, animal.data[1], [233, 110, 36], 1);
+    this.drawNode(ctx, p[2].x, p[2].y, animal.data[2], [47, 168, 106], 2);
   }
 
   drawHint(ctx, width, height) {
     ctx.save();
-    ctx.fillStyle = "rgba(255,255,255,0.78)";
-    ctx.font = "15px Arial";
+    ctx.fillStyle = "#5d5464";
+    ctx.font = "18px Calibri, Carlito, sans-serif";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillText("🔊 Tap a language circle to hear it spoken", width / 2, height - 30);
@@ -351,7 +351,7 @@ export class LangApp {
     roundRect(ctx, rect.x, rect.y, rect.w, rect.h, 15);
     ctx.fill();
     ctx.fillStyle = "#fff";
-    ctx.font = "18px Arial";
+    ctx.font = "bold 20px Calibri, Carlito, sans-serif";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillText(label, rect.x + rect.w / 2, rect.y + rect.h / 2);
@@ -380,8 +380,8 @@ export class LangApp {
 
     const nb = this.nextButtonRect(width, height);
     const pb = this.prevButtonRect(width, height);
-    this.drawNavButton(ctx, nb, "NEXT ➜", mouseX, mouseY, "rgb(255,90,150)", "rgb(255,50,120)");
-    this.drawNavButton(ctx, pb, "⟜ PREV", mouseX, mouseY, "rgb(90,150,255)", "rgb(50,120,255)");
+    this.drawNavButton(ctx, nb, "NEXT ➜", mouseX, mouseY, "rgb(122,28,104)", "rgb(99,22,84)");
+    this.drawNavButton(ctx, pb, "⟜ PREV", mouseX, mouseY, "rgb(122,28,104)", "rgb(99,22,84)");
 
     this.drawHint(ctx, width, height);
 

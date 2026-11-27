@@ -61,7 +61,15 @@ MT.templates.simulate=function(area,d,ctx){
   var phase=preds.length?'predict':(goals.length?'goals':'free');
   var gi=0,pi=0,goalTimer=null,anim=null,setters={};
   function all(){return merge(vals,calc(vals));}
-  function render(){var o=calc(vals);pic.innerHTML=M.draw(vals,o,phase==='goals'?goals[gi]:null);var sv=pic.querySelector('svg');if(sv){sv.style.width='100%';sv.style.height='100%';}
+  // Look: "real" (lab bench, graph paper with a car, mango stall; sim-real.js) or the plain "diagram".
+  // The school picks the default (stored as mtSimLook); the switch on the picture changes it here.
+  var REAL=window.MT.simReal&&MT.simReal[d.model],look=REAL?(localStorage.getItem('mtSimLook')==='diagram'?'diagram':'real'):'diagram';
+  var lookBtn=null;
+  if(REAL){lookBtn=document.createElement('div');lookBtn.className='sim-look';lookBtn.setAttribute('role','radiogroup');lookBtn.setAttribute('aria-label','Picture');
+    lookBtn.innerHTML='<button data-look="real">Real</button><button data-look="diagram">Diagram</button>';side.insertBefore(lookBtn,goalEl);
+    lookBtn.addEventListener('click',function(e){var b=e.target.closest('[data-look]');if(!b||b.dataset.look===look)return;look=b.dataset.look;MT.sfx.tap();render();});}
+  function render(){var o=calc(vals),g=phase==='goals'?goals[gi]:null;pic.innerHTML=(look==='real'?REAL(vals,o,g):M.draw(vals,o,g));var sv=pic.querySelector('svg');if(sv){sv.style.width='100%';sv.style.height='100%';}
+    pic.classList.toggle('sim-real',look==='real');if(lookBtn)[].forEach.call(lookBtn.children,function(b){b.setAttribute('aria-checked',String(b.dataset.look===look));});
     renderSolution();if(phase==='goals')checkGoal(o);}
   // live worked solution: each line is re-filled with the current numbers; changed lines flash
   function renderSolution(){if(!solEl)return;var a=all(),s=d.solution;

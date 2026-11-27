@@ -8,8 +8,9 @@
    ============================================================ */
 
 /* ---------- palette ---------- */
+// Studio look: light mint sky, plum text, the same jungle greens for leaves.
 const PAL = {
-  canopyDark:  '#0B3D2E',
+  canopyDark:  '#3D0E37',
   canopyMid:   '#15573C',
   canopyMid2:  '#1E6B49',
   leaf:        '#4CAF6D',
@@ -131,7 +132,7 @@ function rebuildBackground(){
   // sky / canopy vertical gradient
   for (let y = 0; y < height; y++){
     const t = y / height;
-    const c = lerpColor(g.color(PAL.canopyDark), g.color(PAL.canopyMid2), t);
+    const c = lerpColor(g.color('#FFFFFF'), g.color('#DDF1E4'), t);
     g.stroke(c);
     g.line(0, y, width, y);
   }
@@ -153,7 +154,7 @@ function rebuildBackground(){
 
   // ground strip with little grass tufts
   const groundY = height - max(36, height*0.045);
-  g.fill(60, 40, 26);
+  g.fill('#C9A77C');
   g.rect(0, groundY, width, height - groundY);
   g.fill(PAL.leaf);
   for (let x = -10; x < width + 20; x += 22){

@@ -7,6 +7,7 @@
 <title>MagicTouch</title>
 <link rel="stylesheet" href="/vendor/fonts/fonts.css" />
 <link rel="stylesheet" href="launcher.css" />
+<link rel="stylesheet" href="/shared/studio/card-art.css" />
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -44,7 +45,7 @@
       <button type="submit" id="authSubmit" class="btn btn-primary">Sign in</button>
     </form>
     <p id="authError" class="auth-error" role="alert"></p>
-    <p class="auth-toggle hidden" id="authToggleRow"><button type="button" id="authToggleBtn" class="link-btn">Set up this wall's first login</button></p>
+    <p class="auth-toggle hidden" id="authToggleRow"><button type="button" id="authToggleBtn" class="link-btn">Set up the school's first login</button></p>
     <p class="auth-foot">Maqsusi EduTech · No student names or data are stored.</p>
   </main>
 </div>
@@ -58,6 +59,7 @@
     <span class="chip" id="schoolChip"></span>
     <span class="chip" id="penChip"><i></i><span></span></span>
     <span class="chip" id="clockChip"></span>
+    <button class="icon-btn team-btn" id="teamsBtn" type="button" aria-label="Team play"><svg aria-hidden="true"><use href="#i-star"/></svg></button>
     <button class="icon-btn" id="settingsBtn" type="button" aria-label="Settings"><svg aria-hidden="true"><use href="#i-gear"/></svg></button>
   </header>
   <main class="wbody" id="wallBody"></main>
@@ -65,6 +67,24 @@
   <iframe id="appFrame" class="app-frame hidden" allow="camera; autoplay; fullscreen" title="Activity"></iframe>
   <button id="homeBtn" class="float-home hidden" type="button" aria-label="Back to the menu"><svg aria-hidden="true"><use href="#i-grid"/></svg></button>
   <div id="lockBadge" class="lock-badge hidden"><svg aria-hidden="true"><use href="#i-lock"/></svg>Locked by teacher</div>
+
+  <!-- team play: the score strip floats over any activity -->
+  <div id="teamBar" class="team-bar hidden" aria-label="Team scores"></div>
+  <div id="celebrate" class="celebrate hidden" role="status"></div>
+  <div id="teamSheet" class="sheet hidden" role="dialog" aria-modal="true" aria-labelledby="teamTitle">
+    <div class="sheet-card">
+      <h2 id="teamTitle">Team play</h2>
+      <p class="set-hint">Split the class into teams. Tap a team's star to give it a point; the strip stays on screen over any activity. Team names and mascots are set in the School view.</p>
+      <p class="set-label">How many teams</p>
+      <div class="seg" id="teamCount" role="radiogroup">
+        <button type="button" data-n="2" role="radio">2 teams</button>
+        <button type="button" data-n="3" role="radio">3 teams</button>
+        <button type="button" data-n="4" role="radio">4 teams</button>
+      </div>
+      <div class="team-preview" id="teamPreview"></div>
+      <div class="sheet-actions"><button type="button" class="link-btn" id="teamCancel">Close</button><button type="button" class="btn btn-primary" id="teamStart">Start team play</button></div>
+    </div>
+  </div>
 
   <div id="settings" class="sheet hidden" role="dialog" aria-modal="true" aria-labelledby="setTitle">
     <div class="sheet-card">
@@ -81,7 +101,10 @@
         <button type="button" class="toggle" id="musicToggle" aria-pressed="true">Soft background music<span class="tg"></span></button>
         <button type="button" class="toggle" id="sfxToggle" aria-pressed="true">Sound effects<span class="tg"></span></button>
       </div>
-      <button type="button" class="btn btn-line" id="calibrateBtn"><svg aria-hidden="true"><use href="#i-target"/></svg>Calibrate the pen</button>
+      <div class="set-row">
+        <button type="button" class="btn btn-line" id="calibrateBtn"><svg aria-hidden="true"><use href="#i-target"/></svg>Calibrate the pen</button>
+        <a class="btn btn-line hidden" id="schoolViewLink" href="/school/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-grid"/></svg>School view</a>
+      </div>
       <p class="set-meta">Signed in as <b id="wallUsername"></b> · <span id="licenceLine"></span></p>
       <div class="sheet-actions"><button type="button" class="link-btn" id="wallLogoutBtn">Sign out</button><button type="button" class="btn btn-primary" id="settingsClose">Done</button></div>
     </div>
@@ -108,9 +131,11 @@
       <button type="button" id="modeSendWall" class="mode-chip">Show on the wall</button>
       <button type="button" id="modePlayHere" class="mode-chip">Play on this phone</button>
     </div>
+    <section class="r-teams" id="rTeams"></section>
     <nav class="r-levels" id="rLevels" aria-label="Classes"></nav>
     <div class="r-list" id="rList"></div>
     <p id="remoteStatus" class="r-status" role="status"></p>
+    <a class="r-school hidden" id="remoteSchoolLink" href="/school/">School view: usage of every wall</a>
     <p class="r-foot">Signed in as <b id="remoteUsername"></b> · <button type="button" class="link-btn" id="remoteLogoutBtn">Sign out</button></p>
   </div>
   <iframe id="remoteAppFrame" class="app-frame hidden" allow="camera; autoplay" title="Activity on this phone"></iframe>
@@ -119,6 +144,8 @@
 
 <script src="apps.js"></script>
 <script src="catalog.js"></script>
+<script src="/shared/studio/card-art.js"></script>
+<script src="teams.js"></script>
 <script src="launcher.js"></script>
 </body>
 </html>

@@ -51,6 +51,15 @@
   const TEMPLATE_KIND = { explore: "Explore", match: "Match", sort: "Sort", order: "Order", label: "Label", simulate: "Simulate",
     space3d: "3D", reveal: "Predict", ball: "Play", quiz: "Quiz", map: "Map", pack: "Lesson pack" };
   const SUBJECT_EMOJI = { maths: "➗", science: "🔬", social: "🌏", evs: "🌱" };
+  // A picture per engine activity (shown moving on its card); new activities fall back to the subject's.
+  const ENGINE_ICON = {
+    "c01-maths-counting": "🔢", "c02-evs-animal-homes": "🐦", "c03-maths-place-value": "🧮", "c04-evs-plant-parts": "🌱",
+    "c04-social-town-map": "🗺️", "c05-science-water-cycle": "🌧️", "c06-maths-equivalent-fractions": "🍕", "c07-science-food-chain": "🦅",
+    "c08-social-freedom-struggle": "🇮🇳", "c09-science-atom": "⚛️", "c10-science-ohms-law": "💡", "c11-maths-straight-lines": "📈",
+    "c12-social-supply-demand": "🛒", "p09-social-rivers": "🏞️", "p10-science-electricity": "🔋", "p12-maths-derivatives": "📦",
+    "p12-science-electrochemistry": "🧪", "p12-science-health-disease": "🦠", "s01-space-solar-system": "🪐", "s02-space-satellite": "🛰️",
+    "s03-reveal-pond": "🔦", "s04-ball-tables": "🎯",
+  };
 
   function fromEngine(acts) {
     return acts.filter(a => a.grade >= 1).map(a => ({
@@ -58,7 +67,7 @@
       level: levelForGrade(a.grade),
       subject: a.subject,
       title: a.title, subtitle: a.topic || "",
-      icon: SUBJECT_EMOJI[a.subject] || "✨",
+      icon: a.icon || ENGINE_ICON[a.id] || SUBJECT_EMOJI[a.subject] || "✨",
       kind: TEMPLATE_KIND[a.template] || "Activity",
       path: `/engine/poc/?a=${encodeURIComponent(a.id)}&wall=1`,
       draft: a.status !== "approved", source: "engine",
@@ -72,11 +81,14 @@
     } catch (e) { console.warn("[catalog] engine activities not loaded:", e); return []; }
   }
 
+  // Every picture the catalogue can show (tools/twemoji.js copies these into vendor/).
+  const ICONS = [...Object.values(SUBJECT_EMOJI), ...Object.values(ENGINE_ICON), "✨"];
+
   async function load() {
     const items = fromWall(window.WALL_APPS || []).concat(fromEngine(await loadEngine()));
     const byId = Object.fromEntries(items.map(i => [i.id, i]));
     return { levels: LEVELS, items, byId, subjectLabel: s => SUBJECT_LABEL[s] || (EARLY_SUBJECTS.find(x => x[0] === s) || [, s])[1], subjectIcon: s => SUBJECT_ICON[s] || "star" };
   }
 
-  window.MTCatalog = { load, LEVELS };
+  window.MTCatalog = { load, LEVELS, ICONS };
 })();
