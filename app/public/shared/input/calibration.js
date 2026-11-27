@@ -1,0 +1,528 @@
+// The wall's 9-dot calibration: matches what the camera sees to the projected screen.
+//
+// Run once from /calibrate/ (the launcher opens it). The result is kept in
+// localStorage, one per input device (see config.js), as 0-1 of the whole window,
+// and every activity uses it through input/pointer.js.
+import { computeHomography } from "./homography.js";
+import { calStorageKey, createTracker } from "./config.js";
+
+const CAM_W = 640,
+  CAM_H = 480;
+const GRID_COLS = 3,
+  GRID_ROWS = 3;
+const DOT_R = 22;
+
+const CAL_DWELL_MS = 2000;
+const CAL_STILL_CAM = 40; // px the pen may wobble (camera px) and still count as "holding still"
+const CAL_RELEASE_CAM = 20; // px the pen must travel from the last capture... unless it was lifted
+const CAL_DROP_MS = 600; // a dropout shorter than this does NOT restart the 2 s hold
+const CAL_LIFT_MS = 250;
+const CAL_GLITCH_MS = 400; // a jump away from the dot shorter than this is a glitch (reflection/flicker), not a move      // ...lifting the pen off the wall this long also releases it
+
+// "wallSharedCalibration" in hand mode, "wallSharedCalibrationIR" in IR-pen mode
+// (see config.js) — a calibration only fits the device it was captured with.
+export const CAL_STORAGE_KEY = calStorageKey();
+
+const dist = (x1, y1, x2, y2) => Math.hypot(x2 - x1, y2 - y1);
+const now = () => performance.now();
+const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+
+export function saveCalibration(H, pairs) {
+  try {
+    localStorage.setItem(CAL_STORAGE_KEY, JSON.stringify({ homography: H, pairs, screen: true })); // screen: 0-1 of the whole window
+  } catch (e) {
+    console.warn("[warn] could not save calibration:", e);
+  }
+}
+
+export function loadCalibration() {
+  try {
+    const raw = localStorage.getItem(CAL_STORAGE_KEY);
+    if (!raw) return { H: null, pairs: null };
+    const data = JSON.parse(raw);
+    if (!data.homography) return { H: null, pairs: null };
+    return { H: data.homography, pairs: data.pairs || [] };
+  } catch (e) {
+    return { H: null, pairs: null };
+  }
+}
+
+export function clearCalibration() {
+  try {
+    localStorage.removeItem(CAL_STORAGE_KEY);
+  } catch (e) {
+    /* ignore */
+  }
+}
+
+// ── tiny canvas drawing helpers ─────────────────────────────────────
+function text(ctx, s, x, y, font, color, align = "center", baseline = "middle") {
+  ctx.save();
+  ctx.font = font;
+  ctx.fillStyle = color;
+  ctx.textAlign = align;
+  ctx.textBaseline = baseline;
+  ctx.fillText(s, x, y);
+  ctx.restore();
+}
+function alphaCircle(ctx, rgba, cx, cy, r) {
+  if (r <= 0) return;
+  ctx.save();
+  ctx.beginPath();
+  ctx.arc(cx, cy, r, 0, Math.PI * 2);
+  ctx.fillStyle = rgba;
+  ctx.fill();
+  ctx.restore();
+}
+function alphaRing(ctx, rgba, cx, cy, r, width) {
+  if (r <= 0) return;
+  ctx.save();
+  ctx.beginPath();
+  ctx.arc(cx, cy, r, 0, Math.PI * 2);
+  ctx.strokeStyle = rgba;
+  ctx.lineWidth = width;
+  ctx.stroke();
+  ctx.restore();
+}
+
+class Calibrator {
+  constructor(canvas, statusEl, hand, onDone) {
+    this.canvas = canvas;
+    this.ctx = canvas.getContext("2d");
+    this.statusEl = statusEl;
+    this.onDone = onDone;
+    this.dpr = window.devicePixelRatio || 1;
+
+    this.width = window.innerWidth;
+    this.height = window.innerHeight;
+    this.resize();
+    window.addEventListener("resize", () => this.resize());
+
+    canvas.addEventListener("click", () => {
+      if (this.calDone) return;
+      this.recordPoint();
+    });
+
+    // Manual helpers for a dot that won't auto-capture:
+    //   Space / Enter = capture the dot NOW at the pen's current position
+    //   N             = skip this dot (need at least 4 captured dots overall)
+    //   B             = go back one dot and redo it
+    window.addEventListener("keydown", (e) => {
+      if (this.calDone || e.ctrlKey || e.metaKey || e.altKey || e.shiftKey) return;
+      if (e.key === " " || e.key === "Enter") {
+        e.preventDefault();
+        this.recordPoint();
+      } else if (e.key === "n" || e.key === "N") this.skipPoint();
+      else if (e.key === "b" || e.key === "B") this.backPoint();
+    });
+
+    this.hand = hand; // shared, already-initialized tracker (HandTracker or IRPenTracker)
+    this.isPen = hand.inputName === "pen";
+
+    this.calGrid = [];
+    this.dotStatus = [];
+    this.activeIdx = 0;
+    this.pairs = [];
+    this.calH = null;
+    this.calDone = false;
+    this.calDwellStart = 0;
+    this.calDwellProg = 0;
+    this.calAnchorX = -1;
+    this.calAnchorY = -1;
+    this.calLastCapX = -1;
+    this.calLastCapY = -1;
+    this.flashRings = [];
+    this.pulse = 0;
+    this.dbgCount = { lost: 0, moved: 0 };
+    this.calWhy = "-";
+    this.calLostSince = 0;
+  }
+
+  resize() {
+    this.width = window.innerWidth;
+    this.height = window.innerHeight;
+    this.canvas.style.width = this.width + "px";
+    this.canvas.style.height = this.height + "px";
+    this.canvas.width = Math.round(this.width * this.dpr);
+    this.canvas.height = Math.round(this.height * this.dpr);
+    this.ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
+  }
+
+  setStatus(msg) {
+    if (this.statusEl) this.statusEl.textContent = msg;
+  }
+
+  buildGrid() {
+    this.calGrid = [];
+    this.dotStatus = [];
+    const PAD = 150;
+    for (let r = 0; r < GRID_ROWS; r++) {
+      for (let c = 0; c < GRID_COLS; c++) {
+        const x = PAD + (this.width - 2 * PAD) * (c / (GRID_COLS - 1));
+        const y = PAD + (this.height - 2 * PAD) * (r / (GRID_ROWS - 1));
+        this.calGrid.push({ x, y });
+        this.dotStatus.push("pending");
+      }
+    }
+    this.activeIdx = 0;
+    this.dotStatus[0] = "active";
+    this.pairs = [];
+    this.calH = null;
+    this.calDone = false;
+  }
+
+  start() {
+    this.buildGrid();
+    this.loop();
+  }
+
+  updateDwell() {
+    if (this.calDone) return;
+    const fx = this.hand.finger_x,
+      fy = this.hand.finger_y;
+    if (fx < 0 || fy < 0) {
+      if (!this.calLostSince) this.calLostSince = now();
+      const lostFor = now() - this.calLostSince;
+      // pen off the wall for a moment → the last capture is "released"
+      if (lostFor > CAL_LIFT_MS) {
+        this.calLastCapX = -1;
+        this.calLastCapY = -1;
+      }
+      // brief dropout while holding: keep the hold alive (progress frozen), only restart if it lasts
+      if (this.calDwellStart !== 0 && lostFor <= CAL_DROP_MS) return;
+      if (this.calDwellStart !== 0) {
+        this.dbgCount.lost++;
+        this.calWhy = "pen lost " + Math.round(lostFor) + "ms";
+      }
+      this.calDwellStart = 0;
+      this.calDwellProg = 0;
+      return;
+    }
+    if (this.calLostSince && this.calDwellStart !== 0) {
+      // pen came back mid-hold: shift the timer so the dropout time isn't counted
+      this.calDwellStart += now() - this.calLostSince;
+    }
+    this.calLostSince = 0;
+    // Still resting on the dot that was just captured (never lifted, barely moved)? wait for it to leave.
+    if (this.calLastCapX >= 0 && dist(fx, fy, this.calLastCapX, this.calLastCapY) < CAL_RELEASE_CAM) {
+      this.calDwellStart = 0;
+      this.calDwellProg = 0;
+      return;
+    }
+    if (this.calDwellStart === 0) {
+      this.calAnchorX = fx;
+      this.calAnchorY = fy;
+      this.calSumX = fx;
+      this.calSumY = fy;
+      this.calSumN = 1;
+      this.calAwaySince = 0;
+      this.calDwellStart = now();
+      this.calDwellProg = 0;
+      return;
+    }
+    if (dist(fx, fy, this.calAnchorX, this.calAnchorY) <= CAL_STILL_CAM) {
+      this.calAwaySince = 0;
+      // average every steady reading; the anchor follows the average so slow drift is fine
+      this.calSumX += fx;
+      this.calSumY += fy;
+      this.calSumN += 1;
+      this.calAnchorX = this.calSumX / this.calSumN;
+      this.calAnchorY = this.calSumY / this.calSumN;
+      this.calDwellProg = clamp((now() - this.calDwellStart) / CAL_DWELL_MS, 0, 1);
+      if (this.calDwellProg >= 1) {
+        this.calLastCapX = this.calAnchorX;
+        this.calLastCapY = this.calAnchorY;
+        this.recordPoint(this.calAnchorX, this.calAnchorY);
+      }
+    } else {
+      // A short jump (reflection, flicker, the camera seeing something else for a few
+      // frames) does not restart the hold; only a jump that lasts CAL_GLITCH_MS does.
+      if (!this.calAwaySince) this.calAwaySince = now();
+      if (now() - this.calAwaySince < CAL_GLITCH_MS) {
+        this.calWhy = "glitch ignored " + Math.round(dist(fx, fy, this.calAnchorX, this.calAnchorY)) + "px";
+        return;
+      }
+      this.calAwaySince = 0;
+      this.dbgCount.moved++;
+      this.calWhy = "pen jumped " + Math.round(dist(fx, fy, this.calAnchorX, this.calAnchorY)) + "px";
+      this.calAnchorX = fx;
+      this.calAnchorY = fy;
+      this.calSumX = fx;
+      this.calSumY = fy;
+      this.calSumN = 1;
+      this.calDwellStart = now();
+      this.calDwellProg = 0;
+    }
+  }
+
+  skipPoint() {
+    if (this.calDone || this.activeIdx >= this.calGrid.length) return;
+    this.dotStatus[this.activeIdx] = "skipped";
+    this.calDwellStart = 0;
+    this.calDwellProg = 0;
+    this.calLastCapX = -1;
+    this.calLastCapY = -1;
+    this.activeIdx += 1;
+    if (this.activeIdx >= this.calGrid.length) this.finishCal();
+    else this.dotStatus[this.activeIdx] = "active";
+  }
+
+  backPoint() {
+    if (this.calDone || this.activeIdx <= 0) return;
+    this.dotStatus[this.activeIdx] = "pending";
+    this.activeIdx -= 1;
+    if (this.dotStatus[this.activeIdx] === "confirmed") this.pairs.pop();
+    this.dotStatus[this.activeIdx] = "active";
+    this.calDwellStart = 0;
+    this.calDwellProg = 0;
+    this.calLastCapX = -1;
+    this.calLastCapY = -1;
+  }
+
+  recordPoint(avgX, avgY) {
+    if (this.hand.finger_x < 0 || this.hand.finger_y < 0) return; // nothing detected — never record a fake point
+    const dot = this.calGrid[this.activeIdx];
+    // auto-capture passes the average of the 2 s hold; a manual capture (Space/click) uses the live reading
+    const fx = avgX !== undefined ? avgX : this.hand.finger_x;
+    const fy = avgY !== undefined ? avgY : this.hand.finger_y;
+    this.pairs.push({ proj: [dot.x, dot.y], cam: [fx, fy] });
+    this.dotStatus[this.activeIdx] = "confirmed";
+    this.flashRings.push({ x: dot.x, y: dot.y, r: DOT_R, alpha: 255 });
+    this.calDwellStart = 0;
+    this.calDwellProg = 0;
+    this.activeIdx += 1;
+    if (this.activeIdx >= this.calGrid.length) this.finishCal();
+    else this.dotStatus[this.activeIdx] = "active";
+  }
+
+  finishCal() {
+    this.calDone = true;
+    if (this.pairs.length < 4) {
+      this.calH = null;
+      setTimeout(() => this.buildGrid(), 1200);
+      return;
+    }
+    this.calH = computeHomography(
+      this.pairs.map((p) => ({ cam: p.cam, proj: [p.proj[0] / this.width, p.proj[1] / this.height] })),
+    );
+    if (this.calH) {
+      saveCalibration(this.calH, this.pairs);
+      setTimeout(() => this.onDone(this.calH), 900);
+    } else {
+      setTimeout(() => this.buildGrid(), 1200); // not enough points — retry
+    }
+  }
+
+  drawDot(pt, status, idx) {
+    const { x, y } = pt;
+    const ctx = this.ctx;
+    if (status === "active") {
+      const p2 = Math.sin(this.pulse) * 0.5 + 0.5;
+      alphaCircle(ctx, `rgba(255,80,140,${(18 + p2 * 22) / 255})`, x, y, DOT_R * 2.75);
+      alphaRing(ctx, `rgba(255,80,140,${(100 + p2 * 120) / 255})`, x, y, DOT_R + 5 + p2 * 6, 2);
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(x, y, DOT_R, 0, Math.PI * 2);
+      ctx.fillStyle = this.isPen ? "rgb(150,45,85)" : "rgb(204,48,84)";
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(x, y, 4, 0, Math.PI * 2);
+      ctx.fillStyle = "#fff";
+      ctx.fill();
+      ctx.restore();
+      text(ctx, "HOLD", x, y + DOT_R + 15, "13px Arial", "rgb(255,200,220)");
+      text(ctx, `${idx + 1} / ${this.calGrid.length}`, x, y - DOT_R - 15, "11px Arial", "rgb(160,140,160)");
+    } else if (status === "confirmed") {
+      alphaCircle(ctx, "rgba(62,207,140,0.12)", x, y, DOT_R * 1.75);
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(x, y, DOT_R, 0, Math.PI * 2);
+      ctx.strokeStyle = "rgb(47,168,106)";
+      ctx.lineWidth = 2;
+      ctx.stroke();
+      const s = DOT_R * 0.45;
+      ctx.beginPath();
+      ctx.moveTo(x - s, y);
+      ctx.lineTo(x - s * 0.2, y + s);
+      ctx.lineTo(x + s, y - s * 0.75);
+      ctx.strokeStyle = "rgb(47,168,106)";
+      ctx.lineWidth = 3;
+      ctx.lineJoin = "round";
+      ctx.lineCap = "round";
+      ctx.stroke();
+      ctx.restore();
+    } else if (status === "skipped") {
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(x, y, DOT_R, 0, Math.PI * 2);
+      ctx.strokeStyle = "rgb(243,163,40)";
+      ctx.lineWidth = 2;
+      ctx.setLineDash([5, 5]);
+      ctx.stroke();
+      ctx.restore();
+    } else {
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(x, y, DOT_R, 0, Math.PI * 2);
+      ctx.strokeStyle = "rgb(80,80,100)";
+      ctx.lineWidth = 2;
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(x, y, 3, 0, Math.PI * 2);
+      ctx.fillStyle = "rgb(100,100,120)";
+      ctx.fill();
+      ctx.restore();
+    }
+  }
+
+  draw() {
+    const ctx = this.ctx;
+    ctx.clearRect(0, 0, this.width, this.height);
+    // IR pen: a BLACK screen, so the camera sees as little projected light as possible
+    ctx.fillStyle = this.isPen ? "#000" : "#fff";
+    ctx.fillRect(0, 0, this.width, this.height);
+    this.pulse += 0.06;
+
+    for (let i = this.flashRings.length - 1; i >= 0; i--) {
+      const f = this.flashRings[i];
+      alphaRing(ctx, `rgba(62,207,140,${Math.max(0, f.alpha) / 255})`, f.x, f.y, f.r, 2);
+      f.r += 4;
+      f.alpha -= 12;
+      if (f.alpha <= 0) this.flashRings.splice(i, 1);
+    }
+
+    if (!this.calDone) {
+      this.updateDwell();
+      this.calGrid.forEach((pt, i) => this.drawDot(pt, this.dotStatus[i], i));
+
+      if (this.calDwellProg > 0 && this.activeIdx < this.calGrid.length) {
+        const ad = this.calGrid[this.activeIdx];
+        const radius = DOT_R + 15;
+        const start = -Math.PI / 2;
+        const end = start + this.calDwellProg * 2 * Math.PI;
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(ad.x, ad.y, radius, start, end);
+        ctx.strokeStyle = "rgb(47,168,106)";
+        ctx.lineWidth = 6;
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      const fx = this.hand.finger_x,
+        fy = this.hand.finger_y;
+      if (fx >= 0 && !this.isPen) {
+        const sx = fx * (this.width / CAM_W);
+        const sy = fy * (this.height / CAM_H);
+        ctx.save();
+        ctx.strokeStyle = "rgb(204,48,84)";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(sx - 22, sy);
+        ctx.lineTo(sx + 22, sy);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(sx, sy - 22);
+        ctx.lineTo(sx, sy + 22);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(sx, sy, 7, 0, Math.PI * 2);
+        ctx.fillStyle = "rgb(204,48,84)";
+        ctx.fill();
+        ctx.restore();
+      }
+
+      ctx.save();
+      ctx.fillStyle = "rgba(61,14,55,0.92)";
+      ctx.fillRect(0, 0, this.width, 76);
+      ctx.restore();
+      const pen = this.isPen;
+      text(
+        ctx,
+        pen
+          ? "AUTO CALIBRATION — touch the IR pen to the pulsing dot and hold it STILL for 2 seconds"
+          : "AUTO CALIBRATION — point at the pulsing dot and hold your finger STILL for 2 seconds",
+        this.width / 2,
+        22,
+        "15px Arial",
+        "rgb(200,200,220)",
+      );
+      if (fx >= 0) {
+        const msg =
+          this.calDwellProg > 0
+            ? `holding…  ${Math.round(this.calDwellProg * 100)}%  —  keep ${pen ? "the pen" : "your finger"} still`
+            : pen
+              ? "IR pen detected — touch the pulsing dot and hold still to capture"
+              : "finger detected — point at the pulsing dot and hold still to capture";
+        text(ctx, msg, this.width / 2, 52, "13px Arial", "rgb(47,168,106)");
+      } else {
+        text(
+          ctx,
+          pen
+            ? "IR pen not detected — press the pen tip on the wall (Shift+D shows the camera view)"
+            : "finger not detected — raise your hand so your index finger is in frame",
+          this.width / 2,
+          52,
+          "13px Arial",
+          "rgb(243,163,40)",
+        );
+      }
+      // live readout so a stuck dot can be diagnosed
+      const dl = this.calLastCapX >= 0 && fx >= 0 ? Math.round(dist(fx, fy, this.calLastCapX, this.calLastCapY)) : "-";
+      text(
+        ctx,
+        `pen cam x:${fx >= 0 ? Math.round(fx) : "-"} y:${fy >= 0 ? Math.round(fy) : "-"}   moved from last dot: ${dl}px (or lift the pen; need >${CAL_RELEASE_CAM})   hold restarts: lost ${this.dbgCount.lost} / jumped ${this.dbgCount.moved} (last: ${this.calWhy})   |   Space = capture now · N = skip dot · B = back`,
+        this.width / 2,
+        this.height - 18,
+        "14px Arial",
+        "rgb(150,150,170)",
+      );
+    } else {
+      const ok = this.calH !== null;
+      text(
+        ctx,
+        ok ? "Calibration complete — starting…" : "Calibration failed — retrying…",
+        this.width / 2,
+        this.height / 2,
+        "bold 26px Arial",
+        ok ? "rgb(47,168,106)" : "rgb(220,60,60)",
+      );
+    }
+  }
+
+  loop() {
+    this.hand.update();
+    this.draw();
+    if (!this.calDone || this.calH === null) requestAnimationFrame(() => this.loop());
+  }
+}
+
+/**
+ * Full-screen, app-independent calibration (used by /calibrate/).
+ * Starts the tracker, runs the 9-dot calibration on `canvas` (which must
+ * fill the whole window), saves it, releases the camera and resolves.
+ * Calibration is stored as 0-1 of the WHOLE window, so every app maps it
+ * onto its own canvas position.
+ *
+ * @param {Object} opts
+ * @param {HTMLCanvasElement} opts.canvas
+ * @param {HTMLElement} [opts.statusEl]
+ * @param {(hand: object) => void} [opts.onTracker]  called once the camera is running
+ * @returns {Promise<number[][]>} the homography
+ */
+export async function runCalibrationScreen({ canvas, statusEl, onTracker }) {
+  const hand = await createTracker({ camW: CAM_W, camH: CAM_H, maxHands: 1 });
+  await hand.init((msg) => {
+    if (statusEl) statusEl.textContent = msg;
+  });
+  if (onTracker) onTracker(hand);
+  const H = await new Promise((resolve) => {
+    new Calibrator(canvas, statusEl, hand, resolve).start();
+  });
+  try {
+    hand.release();
+  } catch (e) {
+    /* ignore */
+  }
+  return H;
+}

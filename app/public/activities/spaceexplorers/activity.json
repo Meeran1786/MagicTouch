@@ -1,0 +1,45 @@
+{
+  "id": "spaceexplorers",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Space Explorers",
+  "topic": "Blast off to rockets, stars, planets and more",
+  "icon": "🚀",
+  "order": 64,
+  "status": "approved",
+  "template": "emoji-quiz",
+  "items": [
+    {
+      "emoji": "🚀",
+      "word": "Rocket"
+    },
+    {
+      "emoji": "⭐",
+      "word": "Star"
+    },
+    {
+      "emoji": "🌙",
+      "word": "Moon"
+    },
+    {
+      "emoji": "🌍",
+      "word": "Earth"
+    },
+    {
+      "emoji": "👨‍🚀",
+      "word": "Astronaut"
+    },
+    {
+      "emoji": "👽",
+      "word": "Alien"
+    },
+    {
+      "emoji": "🪐",
+      "word": "Planet"
+    },
+    {
+      "emoji": "☄️",
+      "word": "Comet"
+    }
+  ]
+}

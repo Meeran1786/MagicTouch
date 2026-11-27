@@ -1,0 +1,53 @@
+{
+  "id": "junglesafari4",
+  "level": "nursery",
+  "subject": "letters",
+  "title": "Jungle Word Safari 4",
+  "topic": "Hot Air Balloon–Panther — tap the picture, hear the word",
+  "icon": "🦁",
+  "order": 27,
+  "status": "approved",
+  "template": "picture-reveal",
+  "items": [
+    {
+      "word": "Hot Air Balloon",
+      "photo": "assets/gifs/34.gif"
+    },
+    {
+      "word": "Hummingbird",
+      "photo": "assets/gifs/32.gif"
+    },
+    {
+      "word": "Iguana",
+      "photo": "assets/gifs/need1.gif"
+    },
+    {
+      "word": "Kangaroo",
+      "photo": "assets/gifs/29.gif"
+    },
+    {
+      "word": "Lion",
+      "photo": "assets/gifs/Lion.gif"
+    },
+    {
+      "word": "Monkey",
+      "photo": "assets/gifs/31.gif"
+    },
+    {
+      "word": "Ostrich",
+      "photo": "assets/gifs/47.gif"
+    },
+    {
+      "word": "Owl",
+      "photo": "assets/gifs/33.gif"
+    },
+    {
+      "word": "Palm Tree",
+      "photo": "assets/gifs/13.gif"
+    },
+    {
+      "word": "Panther",
+      "photo": "assets/gifs/7.gif"
+    }
+  ]
+}

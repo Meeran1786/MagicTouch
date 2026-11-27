@@ -1,0 +1,137 @@
+/* Picture reveal: the big picture card on the left, letter tiles and buttons on the right. */
+.pr {
+  width: min(1180px, 100%);
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: center;
+}
+.pr-card {
+  --x: 50%;
+  --y: 50%;
+  position: relative;
+  height: 100%;
+  max-height: 520px;
+  min-height: 240px;
+  padding: 0;
+  border: 2px solid var(--mt-line);
+  border-radius: calc(var(--mt-radius) * 1.25);
+  background: var(--mt-white);
+  box-shadow: var(--mt-shadow);
+  overflow: hidden;
+  cursor: pointer;
+}
+.pr-card.ey-tap {
+  animation: ey-squash 0.45s var(--mt-spring);
+}
+.pr-layer {
+  position: absolute;
+  inset: 24px 24px 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: min(240px, 26vh);
+}
+.pr-layer .ey-pic {
+  width: 100%;
+  height: 100%;
+}
+.pr-layer .ey-photo,
+.pr-layer video {
+  width: 100%;
+  height: 100%;
+}
+.pr-grey {
+  filter: grayscale(1) contrast(1.05);
+  opacity: 0.85;
+  transition: opacity 0.5s;
+}
+.pr-grey.cover {
+  filter: none;
+  opacity: 1;
+}
+.pr-card.is-shown .pr-grey.cover {
+  opacity: 0;
+}
+/* the colour copy floods out from the tapped spot */
+.pr-colour {
+  clip-path: circle(0 at var(--x) var(--y));
+  transition: clip-path 0.9s ease-out;
+}
+.pr-card.is-shown .pr-colour {
+  clip-path: circle(150% at var(--x) var(--y));
+}
+.pr-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  padding: 8px 20px;
+  border-radius: 999px;
+  background: var(--mt-plum);
+  color: var(--mt-white);
+  font: 700 20px var(--mt-body);
+  white-space: nowrap;
+  animation: pr-bob 1.6s ease-in-out infinite;
+  transition: opacity 0.3s;
+}
+.pr-card.is-shown .pr-hint {
+  opacity: 0;
+}
+@keyframes pr-bob {
+  50% {
+    transform: translate(-50%, -6px);
+  }
+}
+.pr-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+}
+.pr-tiles {
+  min-height: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+.pr-tile {
+  width: 70px;
+  height: 90px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: var(--mt-orange);
+  color: var(--mt-white);
+  font: 700 52px var(--mt-head);
+  box-shadow: var(--mt-shadow);
+  animation: ey-pop 0.4s var(--mt-spring) both;
+  transition:
+    transform 0.25s var(--mt-spring),
+    background 0.2s;
+}
+.pr-tile.gap {
+  width: 22px;
+  background: none;
+  box-shadow: none;
+}
+.pr-tile.on {
+  background: var(--mt-plum);
+  transform: translateY(-12px) scale(1.12);
+}
+.pr-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .pr-colour {
+    transition: none;
+  }
+  .pr-hint {
+    animation: none;
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "id": "conductorwall",
+  "level": "prekg",
+  "subject": "play",
+  "title": "Conductor Wall",
+  "topic": "Move your hand to conduct the orchestra",
+  "icon": "🎼",
+  "order": 48,
+  "status": "approved",
+  "template": "conductor",
+  "emoji": "🎻🎺🥁🎷🪕🎹",
+  "melody": [0, 2, 4, 2, 0, 4, 7, 4]
+}

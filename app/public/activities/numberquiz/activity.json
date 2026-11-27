@@ -1,0 +1,93 @@
+{
+  "id": "numberquiz",
+  "level": "lkg",
+  "subject": "numbers",
+  "title": "Cosmic Number Quiz",
+  "topic": "Multiple choice & spelling — test what you know about numbers",
+  "icon": "🚀",
+  "order": 22,
+  "status": "approved",
+  "template": "picture-quiz",
+  "items": [
+    {
+      "word": "One",
+      "number": 1
+    },
+    {
+      "word": "Two",
+      "number": 2
+    },
+    {
+      "word": "Three",
+      "number": 3
+    },
+    {
+      "word": "Four",
+      "number": 4
+    },
+    {
+      "word": "Five",
+      "number": 5
+    },
+    {
+      "word": "Six",
+      "number": 6
+    },
+    {
+      "word": "Seven",
+      "number": 7
+    },
+    {
+      "word": "Eight",
+      "number": 8
+    },
+    {
+      "word": "Nine",
+      "number": 9
+    },
+    {
+      "word": "Ten",
+      "number": 10
+    },
+    {
+      "word": "Eleven",
+      "number": 11
+    },
+    {
+      "word": "Twelve",
+      "number": 12
+    },
+    {
+      "word": "Thirteen",
+      "number": 13
+    },
+    {
+      "word": "Fourteen",
+      "number": 14
+    },
+    {
+      "word": "Fifteen",
+      "number": 15
+    },
+    {
+      "word": "Sixteen",
+      "number": 16
+    },
+    {
+      "word": "Seventeen",
+      "number": 17
+    },
+    {
+      "word": "Eighteen",
+      "number": 18
+    },
+    {
+      "word": "Nineteen",
+      "number": 19
+    },
+    {
+      "word": "Twenty",
+      "number": 20
+    }
+  ]
+}

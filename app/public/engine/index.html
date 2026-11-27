@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MagicTouch</title>
+    <link rel="stylesheet" href="/vendor/fonts/fonts.css" />
+    <link rel="stylesheet" href="/shared/studio/tokens.css" />
+    <link rel="stylesheet" href="css/magictouch.css" />
+    <script type="importmap">
+      { "imports": { "three": "/vendor/three/build/three.module.min.js" } }
+    </script>
+  </head>
+  <body>
+    <header id="mt-header">
+      <div class="brand"><b>MagicTouch</b> <span id="mt-crumb"></span></div>
+      <div class="right">
+        <span id="mt-score"></span><button id="mt-back" class="hidden" type="button">&larr; Back</button>
+      </div>
+    </header>
+    <main id="mt-menu"></main>
+    <main id="mt-stage" class="hidden">
+      <div id="mt-instr"></div>
+      <div id="mt-area"></div>
+    </main>
+    <div id="mt-toast"></div>
+    <script type="module" src="js/engine.js"></script>
+  </body>
+</html>

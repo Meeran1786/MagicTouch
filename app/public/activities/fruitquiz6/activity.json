@@ -1,0 +1,33 @@
+{
+  "id": "fruitquiz6",
+  "level": "lkg",
+  "subject": "nature",
+  "title": "Fruit & Veggie Quiz 6",
+  "topic": "Sweet Potato–Zucchini — multiple choice & spelling quiz",
+  "icon": "🍠",
+  "order": 46,
+  "status": "approved",
+  "template": "picture-quiz",
+  "items": [
+    {
+      "word": "Sweet Potato",
+      "photo": "assets/photos/V4.jpg"
+    },
+    {
+      "word": "Tamarind",
+      "photo": "assets/photos/Tamarind.jpg"
+    },
+    {
+      "word": "Tomato",
+      "photo": "assets/photos/Tamota.jpg"
+    },
+    {
+      "word": "Watermelon",
+      "photo": "assets/photos/WaterMelon.jpg"
+    },
+    {
+      "word": "Zucchini",
+      "photo": "assets/photos/Cucumber.jpg"
+    }
+  ]
+}

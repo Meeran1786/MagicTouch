@@ -1,0 +1,54 @@
+{
+  "id": "countingorchard",
+  "level": "nursery",
+  "subject": "numbers",
+  "title": "Counting Orchard",
+  "topic": "Point to pick fruit and watch the count go up",
+  "icon": "🍎",
+  "order": 49,
+  "status": "approved",
+  "template": "count-pick",
+  "count": [3, 10],
+  "fruits": [
+    {
+      "emoji": "🍎",
+      "one": "apple",
+      "many": "apples"
+    },
+    {
+      "emoji": "🍊",
+      "one": "orange",
+      "many": "oranges"
+    },
+    {
+      "emoji": "🍋",
+      "one": "lemon",
+      "many": "lemons"
+    },
+    {
+      "emoji": "🍑",
+      "one": "peach",
+      "many": "peaches"
+    },
+    {
+      "emoji": "🍐",
+      "one": "pear",
+      "many": "pears"
+    },
+    {
+      "emoji": "🍒",
+      "one": "cherry",
+      "many": "cherries"
+    },
+    {
+      "emoji": "🍌",
+      "one": "banana",
+      "many": "bananas"
+    },
+    {
+      "emoji": "🍓",
+      "one": "strawberry",
+      "many": "strawberries"
+    }
+  ]
+}

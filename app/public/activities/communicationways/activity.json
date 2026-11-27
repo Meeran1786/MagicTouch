@@ -1,0 +1,37 @@
+{
+  "id": "communicationways",
+  "level": "lkg",
+  "subject": "letters",
+  "title": "Ways We Communicate",
+  "topic": "Telephone, television, radio, computer and more",
+  "icon": "📱",
+  "order": 104,
+  "status": "approved",
+  "template": "emoji-quiz",
+  "items": [
+    {
+      "emoji": "☎️",
+      "word": "Telephone"
+    },
+    {
+      "emoji": "📱",
+      "word": "Mobile Phone"
+    },
+    {
+      "emoji": "📺",
+      "word": "Television"
+    },
+    {
+      "emoji": "📻",
+      "word": "Radio"
+    },
+    {
+      "emoji": "💻",
+      "word": "Computer"
+    },
+    {
+      "emoji": "📰",
+      "word": "Newspaper"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "id": "buggyfriends",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Buggy Friends",
+  "topic": "Meet butterflies, bees, ladybugs and more",
+  "icon": "🐝",
+  "order": 62,
+  "status": "approved",
+  "template": "emoji-quiz",
+  "items": [
+    {
+      "emoji": "🦋",
+      "word": "Butterfly"
+    },
+    {
+      "emoji": "🐝",
+      "word": "Bee"
+    },
+    {
+      "emoji": "🐞",
+      "word": "Ladybug"
+    },
+    {
+      "emoji": "🐜",
+      "word": "Ant"
+    },
+    {
+      "emoji": "🕷️",
+      "word": "Spider"
+    },
+    {
+      "emoji": "🐌",
+      "word": "Snail"
+    },
+    {
+      "emoji": "🐛",
+      "word": "Caterpillar"
+    },
+    {
+      "emoji": "🦗",
+      "word": "Cricket"
+    }
+  ]
+}

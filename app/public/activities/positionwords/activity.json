@@ -1,0 +1,29 @@
+{
+  "id": "positionwords",
+  "level": "nursery",
+  "subject": "letters",
+  "title": "Position Words",
+  "topic": "Up, down, left and right",
+  "icon": "⬆️",
+  "order": 98,
+  "status": "approved",
+  "template": "emoji-quiz",
+  "items": [
+    {
+      "emoji": "⬆️",
+      "word": "Up"
+    },
+    {
+      "emoji": "⬇️",
+      "word": "Down"
+    },
+    {
+      "emoji": "⬅️",
+      "word": "Left"
+    },
+    {
+      "emoji": "➡️",
+      "word": "Right"
+    }
+  ]
+}

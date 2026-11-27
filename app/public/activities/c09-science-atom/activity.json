@@ -1,0 +1,47 @@
+{
+  "id": "c09-science-atom",
+  "level": "class-9",
+  "subject": "science",
+  "title": "Structure of the atom",
+  "icon": "⚛️",
+  "topic": "Label the parts",
+  "concept": "science.chemistry.atomic-structure",
+  "status": "draft",
+  "template": "label",
+  "instruction": "Move each label to the right part of the atom.",
+  "intro": "Everything is made of atoms. Let's label the parts of one.",
+  "scene": "<svg viewBox=\"0 0 400 400\"><g fill=\"none\" stroke=\"#631654\" stroke-width=\"3\"><circle cx=\"200\" cy=\"200\" r=\"90\"/><circle cx=\"200\" cy=\"200\" r=\"160\"/></g>\n<g><circle cx=\"190\" cy=\"190\" r=\"20\" fill=\"#CC3054\"/><circle cx=\"212\" cy=\"196\" r=\"20\" fill=\"#9AA3B2\"/><circle cx=\"196\" cy=\"214\" r=\"20\" fill=\"#9AA3B2\"/><circle cx=\"214\" cy=\"216\" r=\"20\" fill=\"#CC3054\"/>\n<text x=\"190\" y=\"197\" font-size=\"20\" fill=\"#fff\" text-anchor=\"middle\">+</text><text x=\"214\" y=\"223\" font-size=\"20\" fill=\"#fff\" text-anchor=\"middle\">+</text></g>\n<g fill=\"#2C8CC9\"><circle cx=\"290\" cy=\"200\" r=\"11\"/><circle cx=\"110\" cy=\"200\" r=\"11\"/><circle cx=\"200\" cy=\"40\" r=\"11\"/><circle cx=\"87\" cy=\"313\" r=\"11\"/><circle cx=\"313\" cy=\"313\" r=\"11\"/><circle cx=\"360\" cy=\"200\" r=\"11\"/></g></svg>",
+  "targets": [
+    {
+      "x": 50,
+      "y": 63,
+      "label": "Nucleus",
+      "say": "The nucleus is the tiny, heavy centre of the atom."
+    },
+    {
+      "x": 28,
+      "y": 40,
+      "label": "Proton (+)",
+      "say": "Protons are in the nucleus and carry a positive charge."
+    },
+    {
+      "x": 72,
+      "y": 40,
+      "label": "Neutron",
+      "say": "Neutrons are in the nucleus and have no charge."
+    },
+    {
+      "x": 84,
+      "y": 58,
+      "label": "Electron (−)",
+      "say": "Electrons move around the nucleus and carry a negative charge."
+    },
+    {
+      "x": 22,
+      "y": 88,
+      "label": "Shell (orbit)",
+      "say": "Electrons move in shells, also called orbits or energy levels."
+    }
+  ],
+  "doneText": "Atom labelled!"
+}

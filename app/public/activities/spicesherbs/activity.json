@@ -1,0 +1,29 @@
+{
+  "id": "spicesherbs",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Spices and Herbs",
+  "topic": "Chili pepper, garlic, onion, herb",
+  "icon": "🌶️",
+  "order": 110,
+  "status": "approved",
+  "template": "emoji-quiz",
+  "items": [
+    {
+      "emoji": "🌶️",
+      "word": "Chili Pepper"
+    },
+    {
+      "emoji": "🧄",
+      "word": "Garlic"
+    },
+    {
+      "emoji": "🧅",
+      "word": "Onion"
+    },
+    {
+      "emoji": "🌿",
+      "word": "Herb"
+    }
+  ]
+}

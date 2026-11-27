@@ -1,0 +1,57 @@
+{
+  "id": "gardenspotter1",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Garden Spotter 1",
+  "topic": "Spot the picture that matches — set 1 of 4",
+  "icon": "🥕",
+  "order": 10,
+  "status": "approved",
+  "template": "picture-spotter",
+  "items": [
+    {
+      "word": "Ginger",
+      "photo": "images/Allam.jpg"
+    },
+    {
+      "word": "Potato",
+      "photo": "images/Alu.jpg"
+    },
+    {
+      "word": "Fig",
+      "photo": "images/Anzeer.jpg"
+    },
+    {
+      "word": "Cauliflower",
+      "photo": "images/CaliFlower.jpg"
+    },
+    {
+      "word": "Carrot",
+      "photo": "images/Carrot.jpg"
+    },
+    {
+      "word": "Cherry",
+      "photo": "images/Cherry.jpg"
+    },
+    {
+      "word": "Coconut",
+      "photo": "images/Coconut.jpg"
+    },
+    {
+      "word": "Coriander",
+      "photo": "images/Coriander.jpg"
+    },
+    {
+      "word": "Cucumber",
+      "photo": "images/Cucumber.jpg"
+    },
+    {
+      "word": "Custard Apple",
+      "photo": "images/CustardApple.jpg"
+    },
+    {
+      "word": "Date",
+      "photo": "images/Date.jpg"
+    }
+  ]
+}

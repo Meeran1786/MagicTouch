@@ -1,0 +1,53 @@
+{
+  "id": "numbers1to10",
+  "level": "nursery",
+  "subject": "numbers",
+  "title": "Numbers 1 to 10",
+  "topic": "Learn to recognize numbers one to ten",
+  "icon": "🔟",
+  "order": 85,
+  "status": "approved",
+  "template": "emoji-quiz",
+  "items": [
+    {
+      "emoji": "1️⃣",
+      "word": "One"
+    },
+    {
+      "emoji": "2️⃣",
+      "word": "Two"
+    },
+    {
+      "emoji": "3️⃣",
+      "word": "Three"
+    },
+    {
+      "emoji": "4️⃣",
+      "word": "Four"
+    },
+    {
+      "emoji": "5️⃣",
+      "word": "Five"
+    },
+    {
+      "emoji": "6️⃣",
+      "word": "Six"
+    },
+    {
+      "emoji": "7️⃣",
+      "word": "Seven"
+    },
+    {
+      "emoji": "8️⃣",
+      "word": "Eight"
+    },
+    {
+      "emoji": "9️⃣",
+      "word": "Nine"
+    },
+    {
+      "emoji": "🔟",
+      "word": "Ten"
+    }
+  ]
+}

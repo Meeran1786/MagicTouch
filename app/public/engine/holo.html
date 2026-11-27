@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MagicTouch Hologram</title>
+    <script type="importmap">
+      { "imports": { "three": "/vendor/three/build/three.module.min.js" } }
+    </script>
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        background: #000;
+        overflow: hidden;
+        font-family: "Segoe UI", Arial, sans-serif;
+        color: #fbd064;
+      }
+      #box {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+      #title {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 6%;
+        text-align: center;
+        font-size: 4vmin;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-shadow: 0 0 18px #f3a328;
+        pointer-events: none;
+      }
+      #help {
+        position: absolute;
+        left: 14px;
+        top: 12px;
+        font-size: 14px;
+        color: #9a8;
+        opacity: 0.8;
+        line-height: 1.5;
+      }
+      #rec {
+        position: absolute;
+        right: 16px;
+        top: 12px;
+        font-size: 16px;
+        color: #f55;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box"></div>
+    <div id="title"></div>
+    <div id="help">
+      Hologram view (black is see-through on a hologram fan)<br />
+      1 Solar system · 2 Earth and Moon · 3 Saturn · 4 Jupiter · 5 Satellite · 6 Sun<br />
+      L show/hide name · M mirror (glass at 45°) · R record a 20-second video for the fan · F fullscreen · H hide this
+      help
+    </div>
+    <div id="rec">● Recording…</div>
+    <script type="module">
+      import { createStage, buildSolar, buildSingle, buildSatellite } from "./js/space/space.js";
+      const NAMES = {
+        solar: "THE SOLAR SYSTEM",
+        earth: "EARTH AND MOON",
+        saturn: "SATURN",
+        jupiter: "JUPITER",
+        satellite: "A SATELLITE IN ORBIT",
+        sun: "THE SUN",
+      };
+      const KEYS = { 1: "solar", 2: "earth", 3: "saturn", 4: "jupiter", 5: "satellite", 6: "sun" };
+      const box = document.getElementById("box"),
+        title = document.getElementById("title");
+      let stage = null,
+        cur = null,
+        showName = true;
+      function size() {
+        const s = Math.min(innerWidth, innerHeight);
+        box.style.width = box.style.height = s + "px";
+      }
+      size();
+      addEventListener("resize", size);
+      function load(name) {
+        if (stage) stage.dispose();
+        stage = createStage(box, { bloom: 1.1, autoRotate: 0.12, record: true });
+        let S;
+        if (name === "solar") {
+          S = buildSolar(stage, { holo: true, overview: 80 });
+          stage.view.phi = 1.0;
+        } else if (name === "satellite") {
+          S = buildSatellite(stage, { holo: true, satScale: 1.1 });
+          S.setHeight(4000);
+          S.timeScale = 1200;
+          stage.view.dist = 30;
+          stage.view.auto = 0.05;
+        } else S = buildSingle(stage, name);
+        stage.tick = (dt) => S.update(dt);
+        cur = name;
+        title.textContent = showName ? NAMES[name] : "";
+        history.replaceState(null, "", "?scene=" + name);
+      }
+      load(new URLSearchParams(location.search).get("scene") || "solar");
+      async function record() {
+        const cv = stage.renderer.domElement,
+          stream = cv.captureStream(30);
+        const types = ["video/mp4;codecs=avc1", "video/mp4", "video/webm;codecs=vp9", "video/webm"];
+        const type = types.find((t) => window.MediaRecorder && MediaRecorder.isTypeSupported(t));
+        if (!type) {
+          alert("This browser cannot record video.");
+          return;
+        }
+        const rec = new MediaRecorder(stream, { mimeType: type, videoBitsPerSecond: 8e6 }),
+          chunks = [];
+        rec.ondataavailable = (e) => chunks.push(e.data);
+        document.getElementById("rec").style.display = "block";
+        rec.start();
+        await new Promise((r) => setTimeout(r, 20000));
+        rec.stop();
+        await new Promise((r) => (rec.onstop = r));
+        document.getElementById("rec").style.display = "none";
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(new Blob(chunks, { type }));
+        a.download = "magictouch-" + cur + (type.includes("mp4") ? ".mp4" : ".webm");
+        a.click();
+      }
+      addEventListener("keydown", (e) => {
+        const k = e.key.toLowerCase();
+        if (KEYS[k]) load(KEYS[k]);
+        else if (k === "l") {
+          showName = !showName;
+          title.textContent = showName ? NAMES[cur] : "";
+        } else if (k === "m") {
+          box.style.transform = box.style.transform.includes("scaleX")
+            ? "translate(-50%,-50%)"
+            : "translate(-50%,-50%) scaleX(-1)";
+          title.style.transform = box.style.transform.includes("scaleX") ? "scaleX(-1)" : "";
+        } else if (k === "r") record();
+        else if (k === "f") document.documentElement.requestFullscreen && document.documentElement.requestFullscreen();
+        else if (k === "h") {
+          const h = document.getElementById("help");
+          h.style.display = h.style.display === "none" ? "" : "none";
+        }
+      });
+    </script>
+  </body>
+</html>

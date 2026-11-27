@@ -1,0 +1,45 @@
+{
+  "id": "underthesea",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Under the Sea",
+  "topic": "Discover fish, octopus, dolphins and more",
+  "icon": "🐠",
+  "order": 63,
+  "status": "approved",
+  "template": "emoji-quiz",
+  "items": [
+    {
+      "emoji": "🐠",
+      "word": "Fish"
+    },
+    {
+      "emoji": "🐙",
+      "word": "Octopus"
+    },
+    {
+      "emoji": "🦀",
+      "word": "Crab"
+    },
+    {
+      "emoji": "🐬",
+      "word": "Dolphin"
+    },
+    {
+      "emoji": "🐳",
+      "word": "Whale"
+    },
+    {
+      "emoji": "🦈",
+      "word": "Shark"
+    },
+    {
+      "emoji": "🐢",
+      "word": "Turtle"
+    },
+    {
+      "emoji": "🐚",
+      "word": "Shell"
+    }
+  ]
+}

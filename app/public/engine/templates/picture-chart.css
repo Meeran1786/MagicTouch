@@ -1,0 +1,104 @@
+/* Picture chart: cards on the left, the chosen card big on the right. */
+.pc-body {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 26px;
+}
+.pc-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--cols), 1fr);
+  gap: 12px;
+  align-content: center;
+  overflow: auto;
+}
+.pc-card {
+  min-height: var(--mt-target);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border: 2px solid var(--mt-line);
+  border-radius: var(--mt-radius);
+  background: var(--mt-white);
+  box-shadow: var(--mt-shadow);
+  cursor: pointer;
+  font: 700 17px var(--mt-body);
+  color: var(--mt-plum-dark);
+}
+.pc-card .ey-pic {
+  font-size: 46px;
+}
+.pc-card .ey-pic.many {
+  font-size: 34px;
+}
+.pc-card.on {
+  border-color: var(--c);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--c) 30%, transparent);
+}
+.pc-card.ey-tap {
+  animation: ey-squash 0.45s var(--mt-spring);
+}
+.pc-glyph {
+  font: 700 28px var(--mt-head);
+  color: var(--c);
+}
+.pc-show {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  overflow: hidden;
+}
+.pc-hint {
+  font: 700 34px var(--mt-head);
+  color: var(--mt-mute);
+}
+.pc-big {
+  font-size: 190px;
+  animation: ey-pop 0.5s var(--mt-spring);
+}
+.pc-big.many {
+  font-size: 150px;
+  max-width: 90%;
+}
+.pc-glyph-big {
+  font: 700 90px var(--mt-head);
+  color: var(--c);
+  line-height: 1;
+}
+.pc-word-big {
+  font: 700 64px var(--mt-head);
+  color: var(--c);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.pc-again {
+  font-size: 18px;
+  color: var(--mt-mute);
+}
+.pc-rings {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 6px solid var(--c);
+  opacity: 0;
+  animation: pc-ring 1.1s ease-out;
+}
+@keyframes pc-ring {
+  from {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.6;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(60);
+    opacity: 0;
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "id": "junglesafari2",
+  "level": "nursery",
+  "subject": "letters",
+  "title": "Jungle Word Safari 2",
+  "topic": "Butterfly–Dog — tap the picture, hear the word",
+  "icon": "🦋",
+  "order": 25,
+  "status": "approved",
+  "template": "picture-reveal",
+  "items": [
+    {
+      "word": "Butterfly",
+      "photo": "assets/gifs/10.gif"
+    },
+    {
+      "word": "Cake",
+      "photo": "assets/gifs/11.gif"
+    },
+    {
+      "word": "Car",
+      "photo": "assets/gifs/12.gif"
+    },
+    {
+      "word": "Cockatoo",
+      "photo": "assets/gifs/49.gif"
+    },
+    {
+      "word": "Cockroach",
+      "photo": "assets/gifs/14.gif"
+    },
+    {
+      "word": "Cow",
+      "photo": "assets/gifs/15.gif"
+    },
+    {
+      "word": "Crow",
+      "photo": "assets/gifs/Crow.gif"
+    },
+    {
+      "word": "Deer",
+      "photo": "assets/gifs/Deer.gif"
+    },
+    {
+      "word": "Dinosaur",
+      "photo": "assets/gifs/D1.gif"
+    },
+    {
+      "word": "Dog",
+      "photo": "assets/gifs/Dog.gif"
+    }
+  ]
+}

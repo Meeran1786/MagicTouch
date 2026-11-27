@@ -1,0 +1,90 @@
+/* 3D animals: the stage in the middle, walk buttons at the sides, spin and next below. */
+.a3 {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 16px 22px;
+  align-items: center;
+}
+.a3-view {
+  position: relative;
+  grid-column: 2;
+  grid-row: 1;
+  height: 100%;
+  border-radius: calc(var(--mt-radius) * 1.25);
+  background: radial-gradient(ellipse at 50% 85%, var(--mt-tint), var(--mt-white) 70%);
+  border: 1px solid var(--mt-line);
+  box-shadow: var(--mt-shadow);
+  overflow: hidden;
+}
+.a3-view canvas {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.a3-shadow {
+  position: absolute;
+  left: 50%;
+  top: 84%;
+  width: 30%;
+  height: 7%;
+  border-radius: 50%;
+  background: radial-gradient(rgba(61, 14, 55, 0.28), transparent 70%);
+  transform: translateX(-50%);
+}
+.a3-name {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  z-index: 2;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 22px;
+  border-radius: 999px;
+  background: var(--mt-plum);
+  color: var(--mt-white);
+  font: 700 28px var(--mt-head);
+}
+.a3-name .mt-emoji {
+  width: 34px;
+  height: 34px;
+}
+.a3-wait {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font: 700 26px var(--mt-body);
+  color: var(--mt-mute);
+}
+.a3-wait[hidden] {
+  display: none;
+}
+.a3-walk {
+  grid-row: 1;
+  min-width: calc(var(--mt-target) * 1.6);
+  min-height: calc(var(--mt-target) * 1.6);
+  border-radius: 28px;
+  font-size: 26px;
+}
+.a3-walk[data-dir="1"] {
+  grid-column: 3;
+}
+.a3-walk.on {
+  background: var(--mt-plum);
+  color: var(--mt-white);
+  transform: scale(0.96);
+}
+.a3-mid {
+  grid-column: 2;
+  grid-row: 2;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}

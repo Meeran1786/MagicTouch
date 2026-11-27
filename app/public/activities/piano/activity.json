@@ -1,0 +1,14 @@
+{
+  "id": "piano",
+  "level": "prekg",
+  "subject": "play",
+  "title": "My Piano",
+  "topic": "Finger & touch piano — chords, two hands",
+  "icon": "🎹",
+  "order": 5,
+  "status": "approved",
+  "template": "piano",
+  "octaves": 2,
+  "start": 4,
+  "names": "letters"
+}

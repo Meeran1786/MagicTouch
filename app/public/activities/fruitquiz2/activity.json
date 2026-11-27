@@ -1,0 +1,53 @@
+{
+  "id": "fruitquiz2",
+  "level": "lkg",
+  "subject": "nature",
+  "title": "Fruit & Veggie Quiz 2",
+  "topic": "Carrot–Fig — multiple choice & spelling quiz",
+  "icon": "🥕",
+  "order": 42,
+  "status": "approved",
+  "template": "picture-quiz",
+  "items": [
+    {
+      "word": "Carrot",
+      "photo": "assets/photos/Carrot.jpg"
+    },
+    {
+      "word": "Cauliflower",
+      "photo": "assets/photos/CaliFlower.jpg"
+    },
+    {
+      "word": "Cherry",
+      "photo": "assets/photos/Cherry.jpg"
+    },
+    {
+      "word": "Coconut",
+      "photo": "assets/photos/Coconut.jpg"
+    },
+    {
+      "word": "Coriander",
+      "photo": "assets/photos/Coriander.jpg"
+    },
+    {
+      "word": "Corn",
+      "photo": "assets/photos/SweetCorn.jpg"
+    },
+    {
+      "word": "Custard Apple",
+      "photo": "assets/photos/CustardApple.jpg"
+    },
+    {
+      "word": "Date",
+      "photo": "assets/photos/Date.jpg"
+    },
+    {
+      "word": "Dragon Fruit",
+      "photo": "assets/photos/DragonFruit.jpg"
+    },
+    {
+      "word": "Fig",
+      "photo": "assets/photos/Anzeer.jpg"
+    }
+  ]
+}

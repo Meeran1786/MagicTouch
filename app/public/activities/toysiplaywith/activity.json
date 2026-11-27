@@ -1,0 +1,41 @@
+{
+  "id": "toysiplaywith",
+  "level": "prekg",
+  "subject": "play",
+  "title": "Toys I Play With",
+  "topic": "Teddy bear, kite, puzzle, blocks and more",
+  "icon": "🧸",
+  "order": 82,
+  "status": "approved",
+  "template": "emoji-quiz",
+  "items": [
+    {
+      "emoji": "🧸",
+      "word": "Teddy Bear"
+    },
+    {
+      "emoji": "🪁",
+      "word": "Kite"
+    },
+    {
+      "emoji": "🧩",
+      "word": "Puzzle"
+    },
+    {
+      "emoji": "🧱",
+      "word": "Blocks"
+    },
+    {
+      "emoji": "🤖",
+      "word": "Robot"
+    },
+    {
+      "emoji": "🪀",
+      "word": "Yo-yo"
+    },
+    {
+      "emoji": "🎈",
+      "word": "Balloon"
+    }
+  ]
+}

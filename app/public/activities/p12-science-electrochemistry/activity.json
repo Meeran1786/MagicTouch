@@ -1,0 +1,339 @@
+{
+  "id": "p12-science-electrochemistry",
+  "level": "inter-2",
+  "subject": "science",
+  "title": "Electrochemistry: cells and electrolysis",
+  "icon": "🧪",
+  "topic": "Explore, predict, simulate, order, match, quiz",
+  "concept": "science.chemistry.electrochemistry",
+  "status": "draft",
+  "template": "pack",
+  "instruction": "Work through the chapter one step at a time.",
+  "doneText": "Chapter complete!",
+  "steps": [
+    {
+      "label": "Inside a cell",
+      "activity": {
+        "template": "explore",
+        "instruction": "Tap each glowing circle to learn how a zinc–copper cell makes electricity.",
+        "intro": "This cell turns a chemical reaction into electricity. Tap each part to see what it does.",
+        "scene": "<svg viewBox=\"0 0 600 430\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"600\" height=\"430\" fill=\"#FFFDF7\"/>\n<g stroke=\"#3D0E37\" stroke-width=\"5\" fill=\"none\" stroke-linejoin=\"round\">\n<path d=\"M150 150 V60 H262 M338 60 H450 V150\"/></g>\n<circle cx=\"300\" cy=\"60\" r=\"38\" fill=\"#fff\" stroke=\"#3D0E37\" stroke-width=\"5\"/>\n<text x=\"300\" y=\"70\" font-size=\"30\" font-weight=\"800\" text-anchor=\"middle\" fill=\"#631654\">V</text>\n<g fill=\"#CC3054\"><path d=\"M218 44 l-18 -8 v16 z\"/><path d=\"M428 44 l-18 -8 v16 z\"/></g>\n<text x=\"240\" y=\"24\" font-size=\"17\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#CC3054\">electrons flow this way →</text>\n<path d=\"M60 200 V380 Q60 400 80 400 H220 Q240 400 240 380 V200\" fill=\"#E9E4EF\" stroke=\"#3D0E37\" stroke-width=\"5\"/>\n<path d=\"M360 200 V380 Q360 400 380 400 H520 Q540 400 540 380 V200\" fill=\"#BFD7F2\" stroke=\"#3D0E37\" stroke-width=\"5\"/>\n<rect x=\"64\" y=\"240\" width=\"172\" height=\"156\" fill=\"#DCD6E6\"/><rect x=\"364\" y=\"240\" width=\"172\" height=\"156\" fill=\"#8FB8E8\"/>\n<rect x=\"132\" y=\"150\" width=\"36\" height=\"210\" rx=\"4\" fill=\"#9AA3AD\" stroke=\"#3D0E37\" stroke-width=\"4\"/>\n<rect x=\"432\" y=\"150\" width=\"36\" height=\"210\" rx=\"4\" fill=\"#C87533\" stroke=\"#3D0E37\" stroke-width=\"4\"/>\n<text x=\"150\" y=\"300\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" fill=\"#fff\">Zn</text>\n<text x=\"450\" y=\"300\" font-size=\"22\" font-weight=\"800\" text-anchor=\"middle\" fill=\"#fff\">Cu</text>\n<path d=\"M200 300 V180 Q200 150 230 150 H370 Q400 150 400 180 V300\" fill=\"none\" stroke=\"#E8D9B5\" stroke-width=\"30\" stroke-linecap=\"round\"/>\n<path d=\"M200 300 V180 Q200 150 230 150 H370 Q400 150 400 180 V300\" fill=\"none\" stroke=\"#3D0E37\" stroke-width=\"3\" stroke-dasharray=\"2 0\" opacity=\".25\"/>\n<text x=\"150\" y=\"424\" font-size=\"17\" text-anchor=\"middle\" fill=\"#242430\">ZnSO₄(aq)</text>\n<text x=\"450\" y=\"424\" font-size=\"17\" text-anchor=\"middle\" fill=\"#242430\">CuSO₄(aq)</text>\n<text x=\"300\" y=\"138\" font-size=\"15\" text-anchor=\"middle\" fill=\"#242430\">salt bridge</text></svg>",
+        "hotspots": [
+          {
+            "x": 25.0,
+            "y": 60.5,
+            "label": "Zinc: the anode",
+            "text": "Zinc atoms lose electrons and go into the solution as Zn²⁺ ions. Losing electrons is oxidation, and it happens at the anode, the negative terminal here."
+          },
+          {
+            "x": 75.0,
+            "y": 60.5,
+            "label": "Copper: the cathode",
+            "text": "Cu²⁺ ions from the solution gain electrons and coat the rod as copper metal. Gaining electrons is reduction, and it happens at the cathode."
+          },
+          {
+            "x": 50.0,
+            "y": 37.2,
+            "label": "Salt bridge",
+            "text": "A tube of a salt such as KNO₃ in jelly. Its ions move to keep both solutions electrically neutral and complete the circuit."
+          },
+          {
+            "x": 61.0,
+            "y": 23.3,
+            "label": "Voltmeter",
+            "text": "With 1 M solutions at 25 °C, it reads about 1.10 V. This is the standard cell potential, E°cell."
+          },
+          {
+            "x": 73.3,
+            "y": 9.3,
+            "label": "Electron flow",
+            "text": "Electrons travel through the wire from zinc to copper. Inside the cell, ions carry the charge."
+          },
+          {
+            "x": 75.0,
+            "y": 88.4,
+            "label": "Copper sulfate solution",
+            "text": "As Cu²⁺ ions turn into copper metal, the blue colour slowly fades. Overall: Zn + Cu²⁺ → Zn²⁺ + Cu."
+          }
+        ],
+        "doneText": "You know how a galvanic cell works!"
+      }
+    },
+    {
+      "label": "Nernst equation",
+      "activity": {
+        "template": "simulate",
+        "model": "formula",
+        "instruction": "Predict first, then watch the voltage. After that, solve the challenges.",
+        "intro": "The cell's voltage changes with the concentrations of its two solutions.",
+        "sliders": [
+          {
+            "id": "Zn",
+            "label": "Zn²⁺ concentration",
+            "min": 0.01,
+            "max": 1,
+            "step": 0.01,
+            "value": 1,
+            "unit": "M"
+          },
+          {
+            "id": "Cu",
+            "label": "Cu²⁺ concentration",
+            "min": 0.01,
+            "max": 1,
+            "step": 0.01,
+            "value": 1,
+            "unit": "M"
+          }
+        ],
+        "formulas": {
+          "E": "1.10 - 0.0295 * log(Zn / Cu)"
+        },
+        "picture": "<svg viewBox=\"0 0 400 330\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"330\" rx=\"14\" fill=\"#FFFDF7\"/>\n<path d=\"M90 200 A110 110 0 0 1 310 200\" fill=\"none\" stroke=\"#EADBD0\" stroke-width=\"22\"/>\n<path d=\"M90 200 A110 110 0 0 1 310 200\" fill=\"none\" stroke=\"#F3A328\" stroke-width=\"4\"/>\n<g font-size=\"14\" fill=\"#242430\" text-anchor=\"middle\"><text x=\"84\" y=\"226\">1.00 V</text><text x=\"200\" y=\"76\">1.10 V</text><text x=\"316\" y=\"226\">1.20 V</text></g>\n<g transform=\"rotate({(E-1.10)*900+90} 200 200)\"><line x1=\"200\" y1=\"200\" x2=\"104\" y2=\"200\" stroke=\"#CC3054\" stroke-width=\"6\" stroke-linecap=\"round\"/></g>\n<circle cx=\"200\" cy=\"200\" r=\"12\" fill=\"#3D0E37\"/>\n<text x=\"200\" y=\"256\" font-size=\"34\" font-weight=\"800\" text-anchor=\"middle\" fill=\"#631654\">E = {E:3} V</text>\n<rect x=\"40\" y=\"276\" width=\"140\" height=\"38\" rx=\"8\" fill=\"#DCD6E6\" opacity=\"{0.4+Zn*0.6}\"/>\n<rect x=\"220\" y=\"276\" width=\"140\" height=\"38\" rx=\"8\" fill=\"#5B93D6\" opacity=\"{0.2+Cu*0.8}\"/>\n<text x=\"110\" y=\"301\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#3D0E37\">Zn²⁺ {Zn} M</text>\n<text x=\"290\" y=\"301\" font-size=\"16\" font-weight=\"700\" text-anchor=\"middle\" fill=\"#fff\">Cu²⁺ {Cu} M</text></svg>",
+        "solution": {
+          "title": "Worked solution",
+          "lines": [
+            "E = E° − (0.059 ÷ n) log([Zn²⁺] ÷ [Cu²⁺])",
+            "n = 2, E° = 1.10 V",
+            "E = 1.10 − 0.0295 × log({Zn} ÷ {Cu})",
+            "E = 1.10 − 0.0295 × ({log(Zn/Cu):3})",
+            "E = {E:3} V"
+          ],
+          "note": "At 25 °C. The reaction is Zn + Cu²⁺ → Zn²⁺ + Cu, so two electrons move each time (n = 2)."
+        },
+        "predict": [
+          {
+            "text": "Both solutions are 1 M, so E = {E:2} V. If the copper solution is diluted to 0.1 M, the voltage will…",
+            "set": {
+              "Zn": 1,
+              "Cu": 1
+            },
+            "then": {
+              "Cu": 0.1
+            },
+            "options": ["Go up", "Go down", "Stay the same"],
+            "answer": 1,
+            "explain": "It fell to {E:3} V. Fewer Cu²⁺ ions means less push for the reaction, so the voltage drops."
+          },
+          {
+            "text": "Back to 1 M each. Now the zinc solution is diluted to 0.01 M. The voltage will…",
+            "set": {
+              "Zn": 1,
+              "Cu": 1
+            },
+            "then": {
+              "Zn": 0.01
+            },
+            "options": ["Go up", "Go down", "Stay the same"],
+            "answer": 0,
+            "explain": "It rose to {E:3} V. Less product (Zn²⁺) means the forward reaction is favoured more."
+          }
+        ],
+        "goals": [
+          {
+            "text": "With Zn²⁺ at 0.5 M, make the cell read exactly 1.100 V.",
+            "inputs": [
+              {
+                "id": "Zn",
+                "equals": 0.5,
+                "tol": 0.001
+              }
+            ],
+            "outputs": [
+              {
+                "id": "E",
+                "equals": 1.1,
+                "tol": 0.0005
+              }
+            ],
+            "say": "Equal concentrations give the standard voltage, 1.10 volts."
+          },
+          {
+            "text": "Make the cell read 1.130 V (about 0.03 V above standard).",
+            "outputs": [
+              {
+                "id": "E",
+                "equals": 1.1295,
+                "tol": 0.001
+              }
+            ],
+            "say": "Copper ten times more concentrated than zinc, for example 1 and 0.1 molar."
+          }
+        ],
+        "doneText": "You can use the Nernst equation!"
+      }
+    },
+    {
+      "label": "Metal ladder",
+      "activity": {
+        "template": "order",
+        "arrows": true,
+        "instruction": "Order the metals from the strongest reducing agent to the weakest.",
+        "intro": "Some metals give away electrons much more easily than others. Order them from the most eager to the least.",
+        "items": [
+          {
+            "icon": "Mg",
+            "text": "Magnesium",
+            "say": "Magnesium, minus 2.36 volts. It loses electrons most easily."
+          },
+          {
+            "icon": "Al",
+            "text": "Aluminium",
+            "say": "Aluminium, minus 1.66 volts."
+          },
+          {
+            "icon": "Zn",
+            "text": "Zinc",
+            "say": "Zinc, minus 0.76 volts."
+          },
+          {
+            "icon": "Fe",
+            "text": "Iron",
+            "say": "Iron, minus 0.44 volts."
+          },
+          {
+            "icon": "Cu",
+            "text": "Copper",
+            "say": "Copper, plus 0.34 volts."
+          },
+          {
+            "icon": "Ag",
+            "text": "Silver",
+            "say": "Silver, plus 0.80 volts. It holds on to its electrons best."
+          }
+        ],
+        "hintWrong": "Think: which metal gives away electrons more easily?",
+        "doneText": "That's the electrochemical series! The lower the standard reduction potential, the stronger the reducing agent."
+      }
+    },
+    {
+      "label": "Electrolysis",
+      "activity": {
+        "template": "match",
+        "instruction": "Move each electrolysis setup onto what it produces.",
+        "intro": "In electrolysis, electricity drives a reaction that would not happen by itself.",
+        "pairs": [
+          [
+            {
+              "icon": "🔥",
+              "text": "Molten NaCl: cathode"
+            },
+            {
+              "text": "Sodium metal"
+            },
+            "In molten salt, sodium ions gain electrons and become sodium metal."
+          ],
+          [
+            {
+              "icon": "💧",
+              "text": "Brine (aqueous NaCl): cathode"
+            },
+            {
+              "text": "Hydrogen gas"
+            },
+            "In water, it is easier to reduce water than sodium ions, so hydrogen forms."
+          ],
+          [
+            {
+              "icon": "💧",
+              "text": "Brine (aqueous NaCl): anode"
+            },
+            {
+              "text": "Chlorine gas"
+            },
+            "Chloride ions lose electrons and form chlorine gas."
+          ],
+          [
+            {
+              "icon": "🟫",
+              "text": "CuSO₄ with a copper anode"
+            },
+            {
+              "text": "The anode dissolves as Cu²⁺"
+            },
+            "The copper anode itself is oxidised. This is how copper is purified."
+          ],
+          [
+            {
+              "icon": "🧪",
+              "text": "Dilute H₂SO₄ with a platinum anode"
+            },
+            {
+              "text": "Oxygen gas"
+            },
+            "Water is oxidised at the anode, giving oxygen."
+          ]
+        ],
+        "doneText": "You can predict electrolysis products!"
+      }
+    },
+    {
+      "label": "Quiz",
+      "activity": {
+        "template": "quiz",
+        "instruction": "Tap the best answer. Read why after each question.",
+        "intro": "Time for a quick quiz on this chapter.",
+        "passPercent": 60,
+        "questions": [
+          {
+            "q": "E° for Cu²⁺/Cu is +0.34 V and for Zn²⁺/Zn is −0.76 V. What is E°cell for the zinc–copper cell?",
+            "options": ["1.10 V", "0.42 V", "−1.10 V", "0.26 V"],
+            "answer": 0,
+            "marks": 2,
+            "explain": "E°cell = E°cathode − E°anode = 0.34 − (−0.76) = 1.10 V."
+          },
+          {
+            "q": "In a galvanic cell, oxidation takes place at the…",
+            "options": ["Anode", "Cathode", "Salt bridge", "Voltmeter"],
+            "answer": 0,
+            "explain": "Oxidation (losing electrons) always happens at the anode."
+          },
+          {
+            "type": "truefalse",
+            "q": "In a galvanic cell, electrons flow through the wire from the cathode to the anode.",
+            "answer": false,
+            "explain": "Electrons leave the anode, where they are released by oxidation, and flow to the cathode."
+          },
+          {
+            "q": "What is the main job of the salt bridge?",
+            "options": [
+              "Keep both solutions neutral and complete the circuit",
+              "Supply electrons",
+              "Raise the voltage",
+              "Stop the reaction"
+            ],
+            "answer": 0,
+            "explain": "Ions from the bridge move into each beaker to balance the charge, so the reaction can keep going."
+          },
+          {
+            "type": "assertion",
+            "assertion": "A zinc rod placed in copper sulfate solution becomes coated with copper.",
+            "reason": "Zinc has a lower standard reduction potential than copper.",
+            "answer": 0,
+            "explain": "Both are true. Zinc gives away electrons more easily, so it displaces copper from the solution."
+          },
+          {
+            "q": "Brine (aqueous NaCl) is electrolysed. What forms at the cathode?",
+            "options": ["Hydrogen gas", "Sodium metal", "Chlorine gas", "Oxygen gas"],
+            "answer": 0,
+            "explain": "Water is reduced more easily than Na⁺ ions, so hydrogen gas forms at the cathode."
+          },
+          {
+            "q": "About how much charge is one mole of electrons?",
+            "options": ["96,500 C", "6.02 × 10²³ C", "1.6 × 10⁻¹⁹ C", "8.314 C"],
+            "answer": 0,
+            "explain": "One faraday, about 96,500 coulombs, is the charge on one mole of electrons."
+          },
+          {
+            "q": "Using Ag⁺/Ag (+0.80 V) and Zn²⁺/Zn (−0.76 V), what is E°cell?",
+            "options": ["1.56 V", "0.04 V", "1.10 V", "−1.56 V"],
+            "answer": 0,
+            "marks": 2,
+            "explain": "Silver is the cathode: E°cell = 0.80 − (−0.76) = 1.56 V."
+          }
+        ],
+        "doneText": "Well done!"
+      }
+    }
+  ]
+}

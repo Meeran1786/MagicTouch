@@ -1,0 +1,53 @@
+{
+  "id": "fruitsafari5",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Fruit & Veggie Safari 5",
+  "topic": "Pineapple–Strawberry — tap the picture, hear the word",
+  "icon": "🍍",
+  "order": 39,
+  "status": "approved",
+  "template": "picture-reveal",
+  "items": [
+    {
+      "word": "Pineapple",
+      "photo": "assets/photos/Pinenapple.jpg"
+    },
+    {
+      "word": "Pistachio",
+      "photo": "assets/photos/Pista.jpg"
+    },
+    {
+      "word": "Plum",
+      "photo": "assets/photos/Plum.jpg"
+    },
+    {
+      "word": "Pomegranate",
+      "photo": "assets/photos/Pomegranate.jpg"
+    },
+    {
+      "word": "Potato",
+      "photo": "assets/photos/Alu.jpg"
+    },
+    {
+      "word": "Pumpkin",
+      "photo": "assets/photos/V2.jpg"
+    },
+    {
+      "word": "Radish",
+      "photo": "assets/photos/WhiteCarrot.jpg"
+    },
+    {
+      "word": "Red Chili",
+      "photo": "assets/photos/Pepper.jpg"
+    },
+    {
+      "word": "Star Fruit",
+      "photo": "assets/photos/StarFruit.jpg"
+    },
+    {
+      "word": "Strawberry",
+      "photo": "assets/photos/Strawbery.jpg"
+    }
+  ]
+}

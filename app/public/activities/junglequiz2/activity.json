@@ -1,0 +1,53 @@
+{
+  "id": "junglequiz2",
+  "level": "lkg",
+  "subject": "letters",
+  "title": "Jungle Word Quiz 2",
+  "topic": "Butterfly–Dog — multiple choice & spelling quiz",
+  "icon": "🦋",
+  "order": 30,
+  "status": "approved",
+  "template": "picture-quiz",
+  "items": [
+    {
+      "word": "Butterfly",
+      "photo": "assets/gifs/10.gif"
+    },
+    {
+      "word": "Cake",
+      "photo": "assets/gifs/11.gif"
+    },
+    {
+      "word": "Car",
+      "photo": "assets/gifs/12.gif"
+    },
+    {
+      "word": "Cockatoo",
+      "photo": "assets/gifs/49.gif"
+    },
+    {
+      "word": "Cockroach",
+      "photo": "assets/gifs/14.gif"
+    },
+    {
+      "word": "Cow",
+      "photo": "assets/gifs/15.gif"
+    },
+    {
+      "word": "Crow",
+      "photo": "assets/gifs/Crow.gif"
+    },
+    {
+      "word": "Deer",
+      "photo": "assets/gifs/Deer.gif"
+    },
+    {
+      "word": "Dinosaur",
+      "photo": "assets/gifs/D1.gif"
+    },
+    {
+      "word": "Dog",
+      "photo": "assets/gifs/Dog.gif"
+    }
+  ]
+}

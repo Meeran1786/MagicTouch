@@ -1,0 +1,29 @@
+{
+  "id": "autumnharvest",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Autumn Harvest",
+  "topic": "Pumpkin, apple, basket, leaves",
+  "icon": "🎃",
+  "order": 111,
+  "status": "approved",
+  "template": "emoji-quiz",
+  "items": [
+    {
+      "emoji": "🎃",
+      "word": "Pumpkin"
+    },
+    {
+      "emoji": "🍎",
+      "word": "Apple"
+    },
+    {
+      "emoji": "🧺",
+      "word": "Basket"
+    },
+    {
+      "emoji": "🍃",
+      "word": "Leaves"
+    }
+  ]
+}

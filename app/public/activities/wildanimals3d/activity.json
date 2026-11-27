@@ -1,0 +1,61 @@
+{
+  "id": "wildanimals3d",
+  "level": "prekg",
+  "subject": "nature",
+  "title": "Wild Animals 3D",
+  "topic": "Walk, spin, and browse elephant, bear, lion, fox, rhino and zebra",
+  "icon": "🦁",
+  "order": 125,
+  "status": "approved",
+  "template": "animal-3d",
+  "animals": [
+    {
+      "word": "Elephant",
+      "emoji": "🐘",
+      "dir": "models/elephant/",
+      "kind": "subclip",
+      "size": 13.8,
+      "normal": "normal.jpg",
+      "idle": [190, 319, 30],
+      "walkFrames": [325, 384, 30]
+    },
+    {
+      "word": "Bear",
+      "emoji": "🐻",
+      "dir": "models/bear/",
+      "kind": "meshWalk",
+      "size": 14.7,
+      "walk": "walk.glb"
+    },
+    {
+      "word": "Lion",
+      "emoji": "🦁",
+      "dir": "models/lion/",
+      "kind": "continuous",
+      "size": 18
+    },
+    {
+      "word": "Fox",
+      "emoji": "🦊",
+      "dir": "models/fox/",
+      "kind": "continuous",
+      "size": 22.2
+    },
+    {
+      "word": "Rhino",
+      "emoji": "🦏",
+      "dir": "models/rhino/",
+      "kind": "meshWalk",
+      "size": 12.9,
+      "walk": "walk.glb"
+    },
+    {
+      "word": "Zebra",
+      "emoji": "🦓",
+      "dir": "models/zebra/",
+      "kind": "meshWalk",
+      "size": 11.7,
+      "walk": "walk.glb"
+    }
+  ]
+}

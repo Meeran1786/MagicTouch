@@ -1,0 +1,37 @@
+{
+  "id": "schoolthings",
+  "level": "nursery",
+  "subject": "world",
+  "title": "My School Bag",
+  "topic": "Pencil, book, crayons, scissors and more",
+  "icon": "🎒",
+  "order": 73,
+  "status": "approved",
+  "template": "emoji-quiz",
+  "items": [
+    {
+      "emoji": "🎒",
+      "word": "School Bag"
+    },
+    {
+      "emoji": "✏️",
+      "word": "Pencil"
+    },
+    {
+      "emoji": "📖",
+      "word": "Book"
+    },
+    {
+      "emoji": "🖍️",
+      "word": "Crayons"
+    },
+    {
+      "emoji": "✂️",
+      "word": "Scissors"
+    },
+    {
+      "emoji": "📏",
+      "word": "Ruler"
+    }
+  ]
+}

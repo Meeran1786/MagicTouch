@@ -1,0 +1,109 @@
+{
+  "id": "vehicleschart",
+  "level": "prekg",
+  "subject": "world",
+  "title": "Vehicles Chart",
+  "topic": "Tap any vehicle to see it come alive with a picture and sound",
+  "icon": "🚗",
+  "order": 119,
+  "status": "approved",
+  "template": "picture-chart",
+  "items": [
+    {
+      "emoji": "🚗",
+      "word": "Car"
+    },
+    {
+      "emoji": "🚕",
+      "word": "Taxi"
+    },
+    {
+      "emoji": "🚌",
+      "word": "Bus"
+    },
+    {
+      "emoji": "🚎",
+      "word": "Trolleybus"
+    },
+    {
+      "emoji": "🏎️",
+      "word": "Race Car"
+    },
+    {
+      "emoji": "🚓",
+      "word": "Police Car"
+    },
+    {
+      "emoji": "🚑",
+      "word": "Ambulance"
+    },
+    {
+      "emoji": "🚒",
+      "word": "Fire Truck"
+    },
+    {
+      "emoji": "🚚",
+      "word": "Truck"
+    },
+    {
+      "emoji": "🚜",
+      "word": "Tractor"
+    },
+    {
+      "emoji": "🏍️",
+      "word": "Motorcycle"
+    },
+    {
+      "emoji": "🚲",
+      "word": "Bicycle"
+    },
+    {
+      "emoji": "🛺",
+      "word": "Auto Rickshaw"
+    },
+    {
+      "emoji": "🚂",
+      "word": "Train"
+    },
+    {
+      "emoji": "🚆",
+      "word": "Railway"
+    },
+    {
+      "emoji": "🚇",
+      "word": "Metro"
+    },
+    {
+      "emoji": "✈️",
+      "word": "Airplane"
+    },
+    {
+      "emoji": "🚁",
+      "word": "Helicopter"
+    },
+    {
+      "emoji": "🚀",
+      "word": "Rocket"
+    },
+    {
+      "emoji": "🛳️",
+      "word": "Ship"
+    },
+    {
+      "emoji": "⛵",
+      "word": "Sailboat"
+    },
+    {
+      "emoji": "🚤",
+      "word": "Speedboat"
+    },
+    {
+      "emoji": "🛶",
+      "word": "Canoe"
+    },
+    {
+      "emoji": "🚡",
+      "word": "Cable Car"
+    }
+  ]
+}

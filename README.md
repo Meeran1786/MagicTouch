@@ -2,41 +2,35 @@
 
 Touch-based interactive learning on a projector wall, by **Maqsusi EduTech** (Hyderabad, India).
 A projector shows the activity on a wall; an IR camera sees an IR sensor pen (or a hand) and turns it
-into taps and drags. The same JSON-driven engine runs preschool sketches and Classes 1–12 activities.
+into taps and drags. One JSON-driven engine runs every activity, from Nursery to Intermediate.
 
 ## What's in this repo
 
 | Folder | What it is |
 |---|---|
-| `app/` | **The classroom product.** Wall launcher, phone remote, IR pen calibration, 126 early-years activities and all our class activities, in the Studio look. Start here. See [`app/README.md`](app/README.md). |
-| `webcam/` | Our JSON activity engine (Classes 1–12). The wall app serves it at `/engine/`; it also still runs on its own. |
-| `webcam/poc/` | Classes 1–12 POC: templates in `js/templates/`, activities as JSON in `activities/` |
-| `webcam/poc/holo.html` | Hologram view (glowing 3D scenes on black, records video for a hologram fan) |
-| `webcam/magictouch_webcam.html` | Preschool sketch app (Nursery–UKG) |
-| `webcam/mediapipe/`, `webcam/vendor/` | Bundled libraries so everything runs offline |
+| `app/` | **The classroom product.** Offline server, wall launcher, phone remote, School view, IR pen and hand input, and every activity from Nursery to Intermediate, in the Studio look. See [`app/README.md`](app/README.md). |
+| `design/`, `wireframes/` | Design references and the clickable wireframes for the Studio look |
+| `CLAUDE.md` | The visual and motion design system every screen follows |
+| `CODE-STANDARD.md` | How all code is written: stack, structure, activities and templates, input, checks |
 
 ## Run it
 
-The wall app: `cd app && node server/index.js`, then open **http://localhost:8090/**
-(or double-click `app/Start MagicTouch Wall (Mac).command` / `app/start-magictouch-wall-windows.bat`).
-
-The engine on its own:
-
-Needs [Node.js](https://nodejs.org/) and Chrome or Edge.
+Needs [Node.js](https://nodejs.org/) 18 or newer and Chrome or Edge; no internet.
 
 ```
-cd webcam
-node serve.js
+cd app
+node server/index.js
 ```
 
-Then open **http://localhost:8080/**. Or double-click `webcam/Start MagicTouch (Mac).command` (Mac)
-or `webcam/start_magictouch_windows.bat` (Windows). It must be served from localhost, not opened as a
-file, or the browser blocks the camera. Full setup and calibration steps are in [`webcam/README.md`](webcam/README.md).
+Then open **http://localhost:8090/**, or double-click `app/Start MagicTouch Wall (Mac).command` /
+`app/start-magictouch-wall-windows.bat`. A single activity opens at `http://localhost:8090/engine/?a=<id>`,
+and `http://localhost:8090/engine/` lists them all.
 
 ## Adding content
 
-New activities are data, not code: add a JSON file in `webcam/poc/activities/` using an existing
-template and list it in `index.json`. All content must be original: no textbook text, pictures or
+Activities are data, not code: a folder in `app/public/activities/<id>/` with an `activity.json` that
+names one of the shared templates, then `node tools/activities.js` in `app/`. See
+[`CODE-STANDARD.md`](CODE-STANDARD.md). All content must be original: no textbook text, pictures or
 exercises. Maps of India are left out until an official Survey of India outline is used.
 
 ## Ownership

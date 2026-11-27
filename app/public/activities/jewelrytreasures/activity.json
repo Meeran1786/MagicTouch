@@ -1,0 +1,29 @@
+{
+  "id": "jewelrytreasures",
+  "level": "lkg",
+  "subject": "world",
+  "title": "Jewelry and Treasures",
+  "topic": "Ring, gem stone, crown, necklace",
+  "icon": "👑",
+  "order": 113,
+  "status": "approved",
+  "template": "emoji-quiz",
+  "items": [
+    {
+      "emoji": "💍",
+      "word": "Ring"
+    },
+    {
+      "emoji": "💎",
+      "word": "Gem Stone"
+    },
+    {
+      "emoji": "👑",
+      "word": "Crown"
+    },
+    {
+      "emoji": "📿",
+      "word": "Necklace"
+    }
+  ]
+}

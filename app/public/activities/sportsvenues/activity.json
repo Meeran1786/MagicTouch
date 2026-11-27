@@ -1,0 +1,29 @@
+{
+  "id": "sportsvenues",
+  "level": "lkg",
+  "subject": "play",
+  "title": "Sports Venues",
+  "topic": "Stadium, golf, skiing, swimming pool",
+  "icon": "🏟️",
+  "order": 112,
+  "status": "approved",
+  "template": "emoji-quiz",
+  "items": [
+    {
+      "emoji": "🏟️",
+      "word": "Stadium"
+    },
+    {
+      "emoji": "⛳",
+      "word": "Golf"
+    },
+    {
+      "emoji": "⛷️",
+      "word": "Skiing"
+    },
+    {
+      "emoji": "🏊",
+      "word": "Swimming Pool"
+    }
+  ]
+}

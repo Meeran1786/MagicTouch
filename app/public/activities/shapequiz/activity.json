@@ -1,0 +1,83 @@
+{
+  "id": "shapequiz",
+  "level": "lkg",
+  "subject": "numbers",
+  "title": "Cosmic Shape Quiz",
+  "topic": "Multiple choice & spelling — test what you know about shapes",
+  "icon": "🔷",
+  "order": 23,
+  "status": "approved",
+  "template": "picture-quiz",
+  "items": [
+    {
+      "word": "Circle",
+      "shape": "circle",
+      "color": "#CC3054"
+    },
+    {
+      "word": "Square",
+      "shape": "square",
+      "color": "#E96E24"
+    },
+    {
+      "word": "Triangle",
+      "shape": "triangle",
+      "color": "#F3A328"
+    },
+    {
+      "word": "Rectangle",
+      "shape": "rectangle",
+      "color": "#2FA86A"
+    },
+    {
+      "word": "Oval",
+      "shape": "oval",
+      "color": "#631654"
+    },
+    {
+      "word": "Star",
+      "shape": "star",
+      "color": "#1c7ed6"
+    },
+    {
+      "word": "Heart",
+      "shape": "heart",
+      "color": "#CC3054"
+    },
+    {
+      "word": "Diamond",
+      "shape": "diamond",
+      "color": "#E96E24"
+    },
+    {
+      "word": "Pentagon",
+      "shape": "pentagon",
+      "color": "#F3A328"
+    },
+    {
+      "word": "Hexagon",
+      "shape": "hexagon",
+      "color": "#2FA86A"
+    },
+    {
+      "word": "Octagon",
+      "shape": "octagon",
+      "color": "#631654"
+    },
+    {
+      "word": "Trapezoid",
+      "shape": "trapezoid",
+      "color": "#1c7ed6"
+    },
+    {
+      "word": "Crescent",
+      "shape": "crescent",
+      "color": "#CC3054"
+    },
+    {
+      "word": "Arrow",
+      "shape": "arrow",
+      "color": "#E96E24"
+    }
+  ]
+}

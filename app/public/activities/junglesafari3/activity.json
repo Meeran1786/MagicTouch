@@ -1,0 +1,53 @@
+{
+  "id": "junglesafari3",
+  "level": "nursery",
+  "subject": "letters",
+  "title": "Jungle Word Safari 3",
+  "topic": "Donkey–Horse — tap the picture, hear the word",
+  "icon": "🐴",
+  "order": 26,
+  "status": "approved",
+  "template": "picture-reveal",
+  "items": [
+    {
+      "word": "Donkey",
+      "photo": "assets/gifs/20.gif"
+    },
+    {
+      "word": "Drum",
+      "photo": "assets/gifs/21.gif"
+    },
+    {
+      "word": "Duck",
+      "photo": "assets/gifs/22.gif"
+    },
+    {
+      "word": "Earth",
+      "photo": "assets/gifs/37.gif"
+    },
+    {
+      "word": "Elephant",
+      "photo": "assets/gifs/Elephant.gif"
+    },
+    {
+      "word": "Fish",
+      "photo": "assets/gifs/23.gif"
+    },
+    {
+      "word": "Giraffe",
+      "photo": "assets/gifs/24.gif"
+    },
+    {
+      "word": "Goat",
+      "photo": "assets/gifs/25.gif"
+    },
+    {
+      "word": "Helicopter",
+      "photo": "assets/gifs/26.gif"
+    },
+    {
+      "word": "Horse",
+      "photo": "assets/gifs/28.gif"
+    }
+  ]
+}

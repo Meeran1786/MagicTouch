@@ -1,0 +1,33 @@
+{
+  "id": "nationalsymbols",
+  "level": "lkg",
+  "subject": "world",
+  "title": "National Symbols",
+  "topic": "Our flag, peacock, tiger, lotus and mango",
+  "icon": "🇮🇳",
+  "order": 68,
+  "status": "approved",
+  "template": "emoji-quiz",
+  "items": [
+    {
+      "emoji": "🇮🇳",
+      "word": "National Flag"
+    },
+    {
+      "emoji": "🦚",
+      "word": "Peacock"
+    },
+    {
+      "emoji": "🐯",
+      "word": "Tiger"
+    },
+    {
+      "emoji": "🪷",
+      "word": "Lotus"
+    },
+    {
+      "emoji": "🥭",
+      "word": "Mango"
+    }
+  ]
+}

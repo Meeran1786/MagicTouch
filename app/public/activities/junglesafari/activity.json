@@ -1,0 +1,53 @@
+{
+  "id": "junglesafari",
+  "level": "nursery",
+  "subject": "letters",
+  "title": "Jungle Word Safari 1",
+  "topic": "Airplane–Buffalo — tap the picture, hear the word",
+  "icon": "🌿",
+  "order": 24,
+  "status": "approved",
+  "template": "picture-reveal",
+  "items": [
+    {
+      "word": "Airplane",
+      "photo": "assets/gifs/1.gif"
+    },
+    {
+      "word": "Ambulance",
+      "photo": "assets/gifs/2.gif"
+    },
+    {
+      "word": "Ball",
+      "photo": "assets/gifs/3.gif"
+    },
+    {
+      "word": "Balloon",
+      "photo": "assets/gifs/4.gif"
+    },
+    {
+      "word": "Bear",
+      "photo": "assets/gifs/5.gif"
+    },
+    {
+      "word": "Bee",
+      "photo": "assets/gifs/6.gif"
+    },
+    {
+      "word": "Bicycle",
+      "photo": "assets/gifs/17.gif"
+    },
+    {
+      "word": "Bird",
+      "photo": "assets/gifs/0.gif"
+    },
+    {
+      "word": "Boat",
+      "photo": "assets/gifs/8.gif"
+    },
+    {
+      "word": "Buffalo",
+      "photo": "assets/gifs/9.gif"
+    }
+  ]
+}

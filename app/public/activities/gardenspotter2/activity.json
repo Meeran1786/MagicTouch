@@ -1,0 +1,57 @@
+{
+  "id": "gardenspotter2",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Garden Spotter 2",
+  "topic": "Spot the picture that matches — set 2 of 4",
+  "icon": "🍎",
+  "order": 11,
+  "status": "approved",
+  "template": "picture-spotter",
+  "items": [
+    {
+      "word": "Dragon Fruit",
+      "photo": "images/DragonFruit.jpg"
+    },
+    {
+      "word": "Fruit (F1)",
+      "photo": "images/F1.jpg"
+    },
+    {
+      "word": "Garlic",
+      "photo": "images/Garlic.jpg"
+    },
+    {
+      "word": "Grapes",
+      "photo": "images/Grapes.jpg"
+    },
+    {
+      "word": "Green Chili",
+      "photo": "images/GreenMirchi.jpg"
+    },
+    {
+      "word": "Peanut",
+      "photo": "images/GroundNut.jpg"
+    },
+    {
+      "word": "Guava",
+      "photo": "images/Guava.jpg"
+    },
+    {
+      "word": "Ice Apple",
+      "photo": "images/Ice.jpg"
+    },
+    {
+      "word": "Jackfruit",
+      "photo": "images/JackFruit.jpg"
+    },
+    {
+      "word": "Jamun",
+      "photo": "images/Kalajamun.jpg"
+    },
+    {
+      "word": "Kiwi",
+      "photo": "images/Kiwi.jpg"
+    }
+  ]
+}

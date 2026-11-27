@@ -1,7 +1,7 @@
 // Full-screen wall calibration, run by the launcher OUTSIDE every app.
 // When finished it tells the launcher (parent window) so it can open the app;
 // opened on its own, it goes back to the launcher.
-import { runCalibrationScreen } from "/shared/calibrationBootstrap.js";
+import { runCalibrationScreen } from "/shared/input/calibration.js";
 
 const canvas = document.getElementById("stage");
 const msg = document.getElementById("msg");
@@ -14,7 +14,8 @@ function done() {
   if (window.parent && window.parent !== window) {
     window.parent.postMessage({ type: "wall-calibrated" }, location.origin);
   } else {
-    location.href = "/";
+    const back = new URLSearchParams(location.search).get("return") || "/";
+    location.href = back.startsWith("/") && !back.startsWith("//") ? back : "/";
   }
 }
 
@@ -32,8 +33,14 @@ async function start() {
         // If the pen is never seen, open the live camera view so the problem is visible.
         let unseenSince = performance.now();
         const timer = setInterval(() => {
-          if (!hand.ready) { clearInterval(timer); return; }
-          if (hand.finger_x >= 0) { unseenSince = performance.now(); return; }
+          if (!hand.ready) {
+            clearInterval(timer);
+            return;
+          }
+          if (hand.finger_x >= 0) {
+            unseenSince = performance.now();
+            return;
+          }
           if (performance.now() - unseenSince > AUTO_PREVIEW_MS && hand._showDebug && !hand._dbg) {
             hand._showDebug(true);
             clearInterval(timer);
@@ -44,7 +51,9 @@ async function start() {
     done();
   } catch (e) {
     msg.style.display = "flex";
-    status.textContent = "⚠️ Could not start the camera: " + (e && e.message ? e.message : e) +
+    status.textContent =
+      "⚠️ Could not start the camera: " +
+      (e && e.message ? e.message : e) +
       " — allow camera access for this site, then try again.";
     retry.style.display = "inline-block";
   }

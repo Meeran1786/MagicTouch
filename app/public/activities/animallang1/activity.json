@@ -1,0 +1,223 @@
+{
+  "id": "animallang1",
+  "level": "lkg",
+  "subject": "letters",
+  "title": "Animal Languages 1",
+  "topic": "Point at a circle to hear it — English, Hindi & Telugu — set 1 of 3",
+  "icon": "🐘",
+  "order": 18,
+  "status": "approved",
+  "template": "word-wheel",
+  "items": [
+    {
+      "word": "Rhino",
+      "photo": "images/BADAK.jpg",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Rhino",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "गैंडा",
+          "code": "hi-IN"
+        },
+        {
+          "lang": "Telugu",
+          "text": "ఖడ్గమృగం",
+          "code": "te-IN"
+        }
+      ]
+    },
+    {
+      "word": "Bear",
+      "photo": "images/Bear.jpg",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Bear",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "भालू",
+          "code": "hi-IN"
+        },
+        {
+          "lang": "Telugu",
+          "text": "ఎలుగుబంటి",
+          "code": "te-IN"
+        }
+      ]
+    },
+    {
+      "word": "Buffalo",
+      "photo": "images/Buffalo.jpg",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Buffalo",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "भैंस",
+          "code": "hi-IN"
+        },
+        {
+          "lang": "Telugu",
+          "text": "గేదె",
+          "code": "te-IN"
+        }
+      ]
+    },
+    {
+      "word": "Camel",
+      "photo": "images/Camel.png",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Camel",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "ऊंट",
+          "code": "hi-IN"
+        },
+        {
+          "lang": "Telugu",
+          "text": "ఒంటె",
+          "code": "te-IN"
+        }
+      ]
+    },
+    {
+      "word": "Chimpanzee",
+      "photo": "images/Chipanze.jpg",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Chimpanzee",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "चिंपैंजी",
+          "code": "hi-IN"
+        },
+        {
+          "lang": "Telugu",
+          "text": "చింపాంజీ",
+          "code": "te-IN"
+        }
+      ]
+    },
+    {
+      "word": "Cow",
+      "photo": "images/Cow.jpg",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Cow",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "गाय",
+          "code": "hi-IN"
+        },
+        {
+          "lang": "Telugu",
+          "text": "ఆవు",
+          "code": "te-IN"
+        }
+      ]
+    },
+    {
+      "word": "Crocodile",
+      "photo": "images/Crocodile.jpg",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Crocodile",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "मगरमच्छ",
+          "code": "hi-IN"
+        },
+        {
+          "lang": "Telugu",
+          "text": "మొసలి",
+          "code": "te-IN"
+        }
+      ]
+    },
+    {
+      "word": "Deer",
+      "photo": "images/Deer.jpg",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Deer",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "हिरण",
+          "code": "hi-IN"
+        },
+        {
+          "lang": "Telugu",
+          "text": "జింక",
+          "code": "te-IN"
+        }
+      ]
+    },
+    {
+      "word": "Donkey",
+      "photo": "images/Donkey.jpg",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Donkey",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "गधा",
+          "code": "hi-IN"
+        },
+        {
+          "lang": "Telugu",
+          "text": "గాడిద",
+          "code": "te-IN"
+        }
+      ]
+    },
+    {
+      "word": "Elephant",
+      "photo": "images/Elephant.png",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Elephant",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "हाथी",
+          "code": "hi-IN"
+        },
+        {
+          "lang": "Telugu",
+          "text": "ఏనుగు",
+          "code": "te-IN"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "id": "alphabetchart",
+  "level": "prekg",
+  "subject": "letters",
+  "title": "ABC Alphabet Chart",
+  "topic": "Tap any letter to see it come alive with a picture and sound",
+  "icon": "🔤",
+  "order": 117,
+  "status": "approved",
+  "template": "picture-chart",
+  "items": [
+    {
+      "glyph": "Aa",
+      "word": "Apple",
+      "emoji": "🍎",
+      "say": "A for Apple"
+    },
+    {
+      "glyph": "Bb",
+      "word": "Butterfly",
+      "emoji": "🦋",
+      "say": "B for Butterfly"
+    },
+    {
+      "glyph": "Cc",
+      "word": "Cat",
+      "emoji": "🐱",
+      "say": "C for Cat"
+    },
+    {
+      "glyph": "Dd",
+      "word": "Dog",
+      "emoji": "🐶",
+      "say": "D for Dog"
+    },
+    {
+      "glyph": "Ee",
+      "word": "Elephant",
+      "emoji": "🐘",
+      "say": "E for Elephant"
+    },
+    {
+      "glyph": "Ff",
+      "word": "Frog",
+      "emoji": "🐸",
+      "say": "F for Frog"
+    },
+    {
+      "glyph": "Gg",
+      "word": "Grapes",
+      "emoji": "🍇",
+      "say": "G for Grapes"
+    },
+    {
+      "glyph": "Hh",
+      "word": "Hippo",
+      "emoji": "🦛",
+      "say": "H for Hippo"
+    },
+    {
+      "glyph": "Ii",
+      "word": "Ice cream",
+      "emoji": "🍦",
+      "say": "I for Ice cream"
+    },
+    {
+      "glyph": "Jj",
+      "word": "Jellyfish",
+      "emoji": "🪼",
+      "say": "J for Jellyfish"
+    },
+    {
+      "glyph": "Kk",
+      "word": "Kangaroo",
+      "emoji": "🦘",
+      "say": "K for Kangaroo"
+    },
+    {
+      "glyph": "Ll",
+      "word": "Lion",
+      "emoji": "🦁",
+      "say": "L for Lion"
+    },
+    {
+      "glyph": "Mm",
+      "word": "Monkey",
+      "emoji": "🐒",
+      "say": "M for Monkey"
+    },
+    {
+      "glyph": "Nn",
+      "word": "Nest",
+      "emoji": "🪺",
+      "say": "N for Nest"
+    },
+    {
+      "glyph": "Oo",
+      "word": "Owl",
+      "emoji": "🦉",
+      "say": "O for Owl"
+    },
+    {
+      "glyph": "Pp",
+      "word": "Penguin",
+      "emoji": "🐧",
+      "say": "P for Penguin"
+    },
+    {
+      "glyph": "Qq",
+      "word": "Queen",
+      "emoji": "👸",
+      "say": "Q for Queen"
+    },
+    {
+      "glyph": "Rr",
+      "word": "Rabbit",
+      "emoji": "🐇",
+      "say": "R for Rabbit"
+    },
+    {
+      "glyph": "Ss",
+      "word": "Sunflower",
+      "emoji": "🌻",
+      "say": "S for Sunflower"
+    },
+    {
+      "glyph": "Tt",
+      "word": "Tiger",
+      "emoji": "🐯",
+      "say": "T for Tiger"
+    },
+    {
+      "glyph": "Uu",
+      "word": "Unicorn",
+      "emoji": "🦄",
+      "say": "U for Unicorn"
+    },
+    {
+      "glyph": "Vv",
+      "word": "Volcano",
+      "emoji": "🌋",
+      "say": "V for Volcano"
+    },
+    {
+      "glyph": "Ww",
+      "word": "Whale",
+      "emoji": "🐋",
+      "say": "W for Whale"
+    },
+    {
+      "glyph": "Xx",
+      "word": "Xylophone",
+      "emoji": "🎸",
+      "say": "X for Xylophone"
+    },
+    {
+      "glyph": "Yy",
+      "word": "Yarn",
+      "emoji": "🧶",
+      "say": "Y for Yarn"
+    },
+    {
+      "glyph": "Zz",
+      "word": "Zebra",
+      "emoji": "🦓",
+      "say": "Z for Zebra"
+    }
+  ]
+}

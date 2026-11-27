@@ -1,0 +1,82 @@
+/* Piano: floating notes above, the keyboard filling the lower part of the stage. */
+.pn {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.pn-notes {
+  position: absolute;
+  inset: 0 0 62% 0;
+  pointer-events: none;
+}
+.pn-notes span {
+  position: absolute;
+  bottom: 0;
+  font: 700 54px var(--mt-head);
+  animation: pn-float 1.6s ease-out forwards;
+}
+@keyframes pn-float {
+  from {
+    transform: translate(-50%, 40px) scale(0.6);
+    opacity: 1;
+  }
+  to {
+    transform: translate(-50%, -180px) scale(1.2);
+    opacity: 0;
+  }
+}
+.pn-keys {
+  --n: 15;
+  position: relative;
+  height: 62%;
+  display: grid;
+  grid-template-columns: repeat(var(--n), 1fr);
+  gap: 6px;
+  touch-action: none;
+}
+.pn-white {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 18px;
+  border: 2px solid var(--mt-line);
+  border-top: 10px solid var(--c);
+  border-radius: 0 0 16px 16px;
+  background: linear-gradient(180deg, var(--mt-white) 70%, var(--mt-tint));
+  box-shadow: var(--mt-shadow);
+  font: 700 28px var(--mt-head);
+  color: var(--c);
+  cursor: pointer;
+  transition:
+    transform 0.12s,
+    background 0.12s;
+}
+.pn-white.down {
+  transform: translateY(4px) scaleY(0.98);
+  background: var(--c);
+  color: var(--mt-white);
+}
+.pn-black {
+  --i: 1;
+  position: absolute;
+  top: 0;
+  left: calc((100% + 6px) / var(--n) * var(--i) - 3px);
+  width: calc(100% / var(--n) * 0.6);
+  height: 58%;
+  transform: translateX(-50%);
+  border: 0;
+  border-radius: 0 0 12px 12px;
+  background: linear-gradient(180deg, #4a1a43, var(--mt-plum-dark, #3d0e37));
+  box-shadow: 0 6px 10px rgba(61, 14, 55, 0.35);
+  cursor: pointer;
+  z-index: 1;
+  transition: transform 0.12s;
+}
+.pn-black.down {
+  transform: translateX(-50%) translateY(4px);
+  background: var(--mt-magenta);
+}

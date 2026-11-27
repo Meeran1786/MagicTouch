@@ -1,0 +1,73 @@
+{
+  "id": "birdschart",
+  "level": "prekg",
+  "subject": "nature",
+  "title": "Birds Chart",
+  "topic": "Tap any bird to see it come alive with a picture and sound",
+  "icon": "🦜",
+  "order": 123,
+  "status": "approved",
+  "template": "picture-chart",
+  "items": [
+    {
+      "emoji": "🐦",
+      "word": "Sparrow"
+    },
+    {
+      "emoji": "🐦‍⬛",
+      "word": "Crow"
+    },
+    {
+      "emoji": "🦜",
+      "word": "Parrot"
+    },
+    {
+      "emoji": "🦚",
+      "word": "Peacock"
+    },
+    {
+      "emoji": "🦉",
+      "word": "Owl"
+    },
+    {
+      "emoji": "🦅",
+      "word": "Eagle"
+    },
+    {
+      "emoji": "🦢",
+      "word": "Swan"
+    },
+    {
+      "emoji": "🦆",
+      "word": "Duck"
+    },
+    {
+      "emoji": "🐔",
+      "word": "Hen"
+    },
+    {
+      "emoji": "🐓",
+      "word": "Rooster"
+    },
+    {
+      "emoji": "🕊️",
+      "word": "Pigeon"
+    },
+    {
+      "emoji": "🐧",
+      "word": "Penguin"
+    },
+    {
+      "emoji": "🦩",
+      "word": "Flamingo"
+    },
+    {
+      "emoji": "🦃",
+      "word": "Turkey"
+    },
+    {
+      "emoji": "🐤",
+      "word": "Chick"
+    }
+  ]
+}
