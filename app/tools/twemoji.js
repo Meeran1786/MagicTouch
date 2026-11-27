@@ -23,7 +23,7 @@ for (const id of fs.readdirSync(actDir)) {
   JSON.stringify(JSON.parse(fs.readFileSync(f, "utf8"))).replace(/"(?:icon|emoji)":"([^"]+)"/g, (_, e) => {
     const v = JSON.parse('"' + e + '"');
     for (const { segment } of new Intl.Segmenter("en", { granularity: "grapheme" }).segment(v))
-      if (/\p{Extended_Pictographic}/u.test(segment)) icons.add(segment);
+      if (/\p{Extended_Pictographic}|\p{Regional_Indicator}|\u20e3/u.test(segment)) icons.add(segment);
   });
 }
 const code = (e) =>
