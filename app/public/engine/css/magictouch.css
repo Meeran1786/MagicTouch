@@ -638,6 +638,12 @@ button {
 }
 
 /* ---------- simulation: predict-first, media card, live worked solution (layout and controls: /shared/studio-base.css) ---------- */
+/* SVG pictures (formula model) sit on an elevated white stage, like the live Canvas ones */
+.st-stage-holder.sim-svg {
+  background: var(--mt-white);
+  box-shadow: var(--mt-shadow);
+  padding: 16px;
+}
 .sim-pic.sim-real {
   background: transparent;
 }
