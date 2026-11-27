@@ -217,7 +217,7 @@ export function hud(f) {
   const row = f.root.querySelector(".ey-pills");
   ME.hudSound(row);
   const pill = f.root.querySelector(".ey-pill.score");
-  const roller = ME.roll((n) => f.score(n));
+  const roller = ME.counter((n) => f.score(n));
   return (n) => {
     if (n > roller.get()) ME.squash(pill);
     roller.set(n);

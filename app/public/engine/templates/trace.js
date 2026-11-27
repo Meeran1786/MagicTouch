@@ -61,7 +61,7 @@ export default function trace(area, d) {
   const bar = wrap.querySelector(".tr-bar i");
   const readEl = wrap.querySelector(".tr-read");
   const pctEl = readEl.querySelector("b");
-  const pct = ME.roll((n) => (pctEl.textContent = String(n)), 12);
+  const pct = ME.counter((n) => (pctEl.textContent = String(n)), 12);
   const showScore = hud(f);
   const keys = Object.keys(d.glyphs);
   let at = 0;

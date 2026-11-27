@@ -3,7 +3,10 @@
 //   {label:"Explore", activity:{template:"explore", instruction:"…", …}}   the step written in place
 //   {label:"Practise", ref:"c10-science-ohms-law"}                         reuse an existing activity by id
 // A step's own fields override the referenced activity's (e.g. a different instruction).
+// Gold Standard (CLAUDE.md §7): the stepper uses the shared .st-steps chips (spring press, green when
+// done); every step is a Gold Standard template itself, so the split screen and motion carry through.
 import { MT } from "../js/kit.js";
+import { ME } from "/shared/motion-engine.js";
 
 // Runs inside the engine page's header and instruction line (not full screen).
 export const meta = { fullscreen: false };
@@ -26,7 +29,7 @@ export default function pack(area, d, ctx) {
   const wrap = document.createElement("div");
   wrap.className = "pk-wrap";
   const bar = document.createElement("div");
-  bar.className = "pk-bar";
+  bar.className = "st-steps";
   const body = document.createElement("div");
   body.className = "pk-body";
   wrap.appendChild(bar);
@@ -38,8 +41,10 @@ export default function pack(area, d, ctx) {
     results = {};
   steps.forEach(function (s, i) {
     const c = document.createElement("button");
-    c.className = "pk-chip";
-    c.innerHTML = '<span class="pk-n">' + (i + 1) + '</span><span class="pk-lbl">' + s.label + "</span>";
+    c.type = "button";
+    c.className = "st-step-chip";
+    c.innerHTML = '<span class="n">' + (i + 1) + "</span><span></span>";
+    c.lastChild.textContent = s.label;
     c.addEventListener("click", function () {
       if (i !== cur) run(i);
     });
@@ -47,9 +52,11 @@ export default function pack(area, d, ctx) {
   });
   function chips() {
     [].forEach.call(bar.children, function (c, i) {
+      const was = c.classList.contains("on");
       c.classList.toggle("on", i === cur);
       c.classList.toggle("done", !!done[i]);
-      c.querySelector(".pk-n").textContent = done[i] && i !== cur ? "✓" : i + 1;
+      c.querySelector(".n").textContent = done[i] && i !== cur ? "✓" : i + 1;
+      if (i === cur && !was) ME.pop(c);
     });
   }
   function stop() {
@@ -93,6 +100,7 @@ export default function pack(area, d, ctx) {
     MT.nextLabel = i + 1 < steps.length ? "Next: " + steps[i + 1].label + " →" : "Finish the chapter →";
     MT.next = function () {
       done[i] = 1;
+      ME.sound.tap();
       if (i + 1 < steps.length) run(i + 1);
       else summary();
     };
