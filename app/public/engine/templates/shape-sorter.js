@@ -10,7 +10,7 @@ import { MT } from "../js/kit.js";
 import { frame, shapeSvg } from "../js/early.js";
 import { MTDrag } from "../js/drag.js";
 
-export const meta = { fullscreen: true, styles: ["early", "shape-sorter"] };
+export const meta = { fullscreen: true, music: true, styles: ["early", "shape-sorter"] };
 
 export default function shapeSorter(area, d) {
   const f = frame(area, { icon: d.icon, title: d.title });

@@ -8,9 +8,12 @@
 //   /engine/                 a simple menu of every activity, for a PC without the wall
 //   /engine/?demo            the menu, approved activities only
 //   &wall=1                  inside the wall launcher: no header, Back goes to the wall menu
+//
+// A template's meta: { fullscreen, styles: [css names], points: pens/hands it follows, music }
 import { MT, audioCtx } from "./kit.js";
 import { LEVELS, levelLabel } from "/shared/levels.js";
 import { startInput } from "/shared/input/pointer.js";
+import { startMusic, stopMusic } from "/shared/studio/music.js";
 
 const $ = (id) => document.getElementById(id);
 const menu = $("mt-menu");
@@ -71,6 +74,8 @@ export async function loadActivity(id) {
 
 function stop() {
   MT.clearLater();
+  stopMusic();
+  delete document.documentElement.dataset.music;
   if (cleanup) {
     try {
       cleanup();
@@ -124,6 +129,11 @@ async function run(id) {
     activity: (ref) => byId[ref] || null,
     loadTemplate,
   };
+  // early-years templates ask for the soft background music (meta.music); the frame shows its toggle
+  if (mount.meta.music) {
+    document.documentElement.dataset.music = "1";
+    startMusic();
+  }
   cleanup = mount(area, activity, ctx) || null;
   if (activity.intro) MT.speak(activity.intro);
 }

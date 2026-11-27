@@ -9,7 +9,7 @@ import { MT } from "../js/kit.js";
 import { frame } from "../js/early.js";
 import { arcade, emojiImage, photoImage } from "../js/arcade.js";
 
-export const meta = { fullscreen: true, styles: ["early", "slice"], points: 2 };
+export const meta = { fullscreen: true, music: true, styles: ["early", "slice"], points: 2 };
 
 const TESTS = {
   even: (v) => v % 2 === 0,

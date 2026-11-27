@@ -7,7 +7,7 @@ import { MT } from "../js/kit.js";
 import { frame } from "../js/early.js";
 import { arcade, emojiList } from "../js/arcade.js";
 
-export const meta = { fullscreen: true, styles: ["early"], points: 4 };
+export const meta = { fullscreen: true, music: true, styles: ["early"], points: 4 };
 
 const COLOURS = ["#CC3054", "#E96E24", "#F3A328", "#2FA86A", "#631654", "#3A86FF"];
 const MAX_BUBBLES = 18;

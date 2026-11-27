@@ -8,7 +8,7 @@ import { frame } from "../js/early.js";
 import { arcade, emojiImage } from "../js/arcade.js";
 import { emojiImg } from "/shared/studio/emoji.js";
 
-export const meta = { fullscreen: true, styles: ["early", "shadow-puppet"], points: 1 };
+export const meta = { fullscreen: true, music: true, styles: ["early", "shadow-puppet"], points: 1 };
 
 export default function shadowPuppet(area, d) {
   const f = frame(area, { icon: d.icon, title: d.title });

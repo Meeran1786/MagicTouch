@@ -2,6 +2,7 @@
 // soft background life and the end-of-round result card. Styles: templates/early.css.
 import { MT } from "./kit.js";
 import { emojiImg } from "/shared/studio/emoji.js";
+import { musicWanted, setMusicWanted } from "/shared/studio/music.js";
 
 const AMBIENT = ["--mt-amber", "--mt-magenta", "--mt-plum", "--mt-green", "--mt-orange"];
 
@@ -37,6 +38,21 @@ export function frame(area, { icon, title }) {
   const score = document.createElement("div");
   score.className = "ey-pill score";
   pills.append(progress, score);
+  if (document.documentElement.dataset.music) {
+    const tune = document.createElement("button");
+    tune.type = "button";
+    tune.className = "ey-pill ey-music";
+    const draw = () => {
+      tune.textContent = musicWanted() ? "🎵 Music" : "🔇 Music";
+      tune.setAttribute("aria-pressed", String(musicWanted()));
+    };
+    tune.addEventListener("click", () => {
+      setMusicWanted(!musicWanted());
+      draw();
+    });
+    draw();
+    pills.append(tune);
+  }
   hud.append(brand, pills);
 
   const stage = document.createElement("div");

@@ -6,7 +6,7 @@
 import { MT } from "../js/kit.js";
 import { frame, picture } from "../js/early.js";
 
-export const meta = { fullscreen: true, styles: ["early", "picture-spotter"] };
+export const meta = { fullscreen: true, music: true, styles: ["early", "picture-spotter"] };
 
 const ASK = [
   (w) => `Where is the <b></b>?`,

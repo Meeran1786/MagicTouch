@@ -5,7 +5,6 @@
 // All of it is our own SVG + CSS animation (crisper and far lighter than GIFs on a
 // projector); the pictures are Twemoji (CC BY 4.0, vendored, credited in vendor/LICENSE.md).
 // Motion pauses while an activity is open and for "reduce motion" users.
-(function () {
   const TWEMOJI = "/vendor/twemoji/svg/";
   const code = e => Array.from(e).map(c => c.codePointAt(0)).filter(c => c !== 0xfe0f).map(c => c.toString(16)).join("-");
   // Some Twemoji files keep the FE0F (keycaps, a few symbols); the build step copies both names.
@@ -14,7 +13,7 @@
   function hash(s) { let h = 2166136261; for (const c of String(s)) h = Math.imul(h ^ c.codePointAt(0), 16777619); return h >>> 0; }
 
   const SCENE = { letters: "letters", numbers: "maths", maths: "maths", colours: "colours", nature: "nature", evs: "nature", play: "play", world: "world", social: "world", science: "science" };
-  const MOTION = { Quiz: "pop", Explore: "sway", Languages: "sway", Chart: "tilt", "3D": "turn", Simulate: "wiggle", Play: "bounce",
+  const MOTION = { Quiz: "pop", Explore: "sway", Languages: "sway", Chart: "tilt", "3D": "turn", Simulate: "wiggle", Play: "bounce", Music: "bounce", Trace: "tilt",
     Match: "tilt", Sort: "bounce", Order: "tilt", Label: "sway", Predict: "pop", Map: "sway", "Lesson pack": "bob" };
   const BG = { letters: "#FBE4EA", maths: "#EFE0F0", colours: "#FFF1D6", nature: "#E3F4EA", play: "#FFE6A8", world: "#DCEBF7", science: "#EDE3F6" };
 
@@ -74,5 +73,4 @@
     return `<img src="${src(icon)}" alt="${esc(alt)}" draggable="false" onerror="this.replaceWith(document.createTextNode(this.dataset.e))" data-e="${esc(icon)}">`;
   }
 
-  window.MTCardArt = { html, img, src, code };
-})();
+  export const cardArt = { html, img, src, code };

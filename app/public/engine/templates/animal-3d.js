@@ -14,7 +14,7 @@ import { frame } from "../js/early.js";
 import { onPoints } from "/shared/input/pointer.js";
 import { emojiImg } from "/shared/studio/emoji.js";
 
-export const meta = { fullscreen: true, styles: ["early", "animal-3d"], points: 1 };
+export const meta = { fullscreen: true, music: true, styles: ["early", "animal-3d"], points: 1 };
 
 const WALK_SPEED = 1.35;
 const TURN_RATE = 6;

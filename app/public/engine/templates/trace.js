@@ -11,7 +11,7 @@ import { MT } from "../js/kit.js";
 import { frame } from "../js/early.js";
 import { arcade } from "../js/arcade.js";
 
-export const meta = { fullscreen: true, styles: ["early", "trace"], points: 1 };
+export const meta = { fullscreen: true, music: true, styles: ["early", "trace"], points: 1 };
 
 const SPACING = 0.045; // guide dots, in box units
 const DONE_SHARE = 0.9; // share of dots that must be lit

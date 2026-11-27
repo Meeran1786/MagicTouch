@@ -8,7 +8,7 @@ import { MT } from "../js/kit.js";
 import { frame } from "../js/early.js";
 import { emojiImg } from "/shared/studio/emoji.js";
 
-export const meta = { fullscreen: true, styles: ["early", "count-pick"] };
+export const meta = { fullscreen: true, music: true, styles: ["early", "count-pick"] };
 
 // spots on the canopy (percent of the tree box), spread so fruit never overlap
 const SPOTS = [

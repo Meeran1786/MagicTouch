@@ -3,13 +3,13 @@
 // from the wall or from the phone remote. Team names and mascots come from the school
 // (School view → Teams); every school starts with Peacocks, Tigers, Elephants and Parrots.
 // Only team names and points are kept, on the wall's own state: nothing about any child.
-(function () {
+import { cardArt } from "/shared/studio/card-art.js";
   const COLORS = ["#631654", "#E96E24", "#2fa86a", "#2f7fc4"];
   const DEFAULTS = [{ name: "Peacocks", mascot: "🦚" }, { name: "Tigers", mascot: "🐅" }, { name: "Elephants", mascot: "🐘" }, { name: "Parrots", mascot: "🦜" }];
   const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   // Uploaded mascots are data: URLs checked by the server (PNG, JPG or WebP only).
   const mascot = t => t.image && /^data:image\/(png|jpeg|webp);base64,/.test(t.image)
-    ? `<img src="${esc(t.image)}" alt="" draggable="false">` : MTCardArt.img(t.mascot);
+    ? `<img src="${esc(t.image)}" alt="" draggable="false">` : cardArt.img(t.mascot);
 
   // Also hands the school's chosen simulation look to every activity on this wall (localStorage).
   async function load(api) {
@@ -133,5 +133,4 @@
     return { render };
   }
 
-  window.MTTeams = { load, rules, wall, remote, mascot, COLORS, DEFAULTS };
-})();
+  export const teams = { load, rules, wall, remote, mascot, COLORS, DEFAULTS };

@@ -6,7 +6,7 @@ import { MT } from "../js/kit.js";
 import { frame, result } from "../js/early.js";
 import { emojiImg } from "/shared/studio/emoji.js";
 
-export const meta = { fullscreen: true, styles: ["early", "emoji-quiz"] };
+export const meta = { fullscreen: true, music: true, styles: ["early", "emoji-quiz"] };
 
 const CHOICES = 4;
 const NEXT_AFTER_MS = 3500;

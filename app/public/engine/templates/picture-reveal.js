@@ -8,7 +8,7 @@
 import { MT } from "../js/kit.js";
 import { frame, picture, spell } from "../js/early.js";
 
-export const meta = { fullscreen: true, styles: ["early", "picture-reveal"] };
+export const meta = { fullscreen: true, music: true, styles: ["early", "picture-reveal"] };
 
 export default function pictureReveal(area, d, ctx) {
   const f = frame(area, { icon: d.icon, title: d.title });

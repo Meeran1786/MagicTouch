@@ -3,7 +3,9 @@
 // Both sign in with the school login for the classroom and share one state on the
 // wall server: which activity is showing, whether the teacher locked the wall, and
 // one-shot commands such as "calibrate". Nothing about individual children is stored.
-(() => {
+import { loadCatalog } from "/shared/catalog.js";
+import { cardArt } from "/shared/studio/card-art.js";
+import { teams } from "./teams.js";
   const POLL_MS = 1500;
   const TOKEN_KEY = "wallAuthToken", USERNAME_KEY = "wallAuthUsername";
   const RECENT_KEY = "mtRecent", PLAY_MODE_KEY = "wallRemotePlayMode";
@@ -103,22 +105,22 @@
     let route = { screen: "home" }, currentApp = "menu", lastTs = 0, lastCmdTs = 0, lastGameTs = 0, locked = false, calibrating = false;
 
     // ── team play ──
-    const teamUI = MTTeams.wall({
+    const teamUI = teams.wall({
       bar: $("teamBar"), celebrate: $("celebrate"), teams: () => TEAMS,
       send: async g => { const prev = teamUI.game; teamUI.render(g, prev); try { const s = await setState({ game: g }); lastGameTs = s.gameTs; } catch (e) { /* the next poll reconciles */ } },
     });
     let teamN = 2;
     function drawTeamSheet() {
       $("teamCount").querySelectorAll("button").forEach(b => b.setAttribute("aria-checked", String(+b.dataset.n === teamN)));
-      $("teamPreview").innerHTML = TEAMS.slice(0, teamN).map((t, i) => `<span style="--c:${MTTeams.COLORS[i]}"><i>${MTTeams.mascot(t)}</i>${esc(t.name)}</span>`).join("");
+      $("teamPreview").innerHTML = TEAMS.slice(0, teamN).map((t, i) => `<span style="--c:${teams.COLORS[i]}"><i>${teams.mascot(t)}</i>${esc(t.name)}</span>`).join("");
       $("teamStart").textContent = teamUI.game.on ? "Start a new game" : "Start team play";
     }
-    $("teamsBtn").addEventListener("click", async () => { TEAMS = await MTTeams.load(api); drawTeamSheet(); $("teamSheet").classList.remove("hidden"); });
+    $("teamsBtn").addEventListener("click", async () => { TEAMS = await teams.load(api); drawTeamSheet(); $("teamSheet").classList.remove("hidden"); });
     $("teamCount").addEventListener("click", e => { const b = e.target.closest("[data-n]"); if (b) { teamN = +b.dataset.n; drawTeamSheet(); } });
     $("teamCancel").addEventListener("click", () => $("teamSheet").classList.add("hidden"));
     $("teamSheet").addEventListener("click", e => { if (e.target.id === "teamSheet") $("teamSheet").classList.add("hidden"); });
     $("teamStart").addEventListener("click", () => { $("teamSheet").classList.add("hidden"); startGame(); });
-    async function startGame() { const g = MTTeams.rules.start(teamN); teamUI.render(g, null); try { lastGameTs = (await setState({ game: g })).gameTs; } catch (e) { /* ignore */ } }
+    async function startGame() { const g = teams.rules.start(teamN); teamUI.render(g, null); try { lastGameTs = (await setState({ game: g })).gameTs; } catch (e) { /* ignore */ } }
 
     // input device + calibration (shared with every activity through localStorage)
     const inputMode = () => { const m = localStorage.getItem("wallInputMode"); return m === "hand" || m === "mouse" ? m : "irpen"; };
@@ -154,9 +156,9 @@
       const levelBtn = (l, inner, extra = "") => `<button type="button" class="tap ${extra}" data-level="${l.key}" ${count(l.key) ? "" : 'aria-disabled="true"'}>${inner}</button>`;
       body.innerHTML = `<div class="home">
         <section class="cont">
-          ${last ? `<div class="cont-art">${MTCardArt.html(last)}</div><small>Continue where you stopped</small><h2>${esc(last.title)}</h2><small>${esc(levelLabel(last.level))} · ${esc(CAT.subjectLabel(last.subject))} · ${esc(last.kind)}</small>`
+          ${last ? `<div class="cont-art">${cardArt.html(last)}</div><small>Continue where you stopped</small><h2>${esc(last.title)}</h2><small>${esc(levelLabel(last.level))} · ${esc(CAT.subjectLabel(last.subject))} · ${esc(last.kind)}</small>`
                  : `<small>Welcome to MagicTouch</small><h2>Pick a class to begin</h2><small>Your last activities will show here.</small>`}
-          <div class="recent">${rec.length > 1 ? "<b>Recently used</b>" : ""}${rec.slice(1, 4).map(id => `<button type="button" data-open="${esc(id)}"><span>${MTCardArt.img(CAT.byId[id].icon)}</span>${esc(CAT.byId[id].title)}</button>`).join("")}</div>
+          <div class="recent">${rec.length > 1 ? "<b>Recently used</b>" : ""}${rec.slice(1, 4).map(id => `<button type="button" data-open="${esc(id)}"><span>${cardArt.img(CAT.byId[id].icon)}</span>${esc(CAT.byId[id].title)}</button>`).join("")}</div>
           ${last ? `<button type="button" class="go" data-open="${esc(last.id)}">Continue</button>` : ""}
         </section>
         <div>
@@ -179,7 +181,7 @@
       body.innerHTML = `<div class="subj">
         <nav class="rail" aria-label="Subjects">${subs.map(s => `<button type="button" class="tap${s === subject ? " on" : ""}" data-subject="${esc(s)}">${svg(CAT.subjectIcon(s))}${esc(CAT.subjectLabel(s))}<em>${itemsFor(key).filter(i => i.subject === s).length}</em></button>`).join("")}</nav>
         <div class="cards">${items.map((i, n) => `<button type="button" class="tap card" data-open="${esc(i.id)}">
-            ${MTCardArt.html(i)}
+            ${cardArt.html(i)}
             <div class="tx"><b>${esc(i.title)}</b><small>${esc(i.subtitle)}</small><div class="tags"><em>${esc(i.kind)}</em>${i.draft ? '<em class="draft">Draft</em>' : ""}</div></div>
           </button>`).join("")}</div></div>`;
       route = { screen: "level", level: key, subject };
@@ -317,7 +319,7 @@
     let state = { app: "menu", locked: false }, level = (levelsShown().find(l => itemsFor(l.key).length) || {}).key;
 
     let lastGame = null;
-    const teamUI = MTTeams.remote({
+    const teamUI = teams.remote({
       el: $("rTeams"), teams: () => TEAMS,
       send: async g => { teamUI.render(g); try { const s = await setState({ game: g }); lastGame = JSON.stringify(s.game); } catch (e) { status.textContent = e.message; } },
     });
@@ -333,7 +335,7 @@
     function drawList() {
       if (!level) { $("rList").innerHTML = '<p class="r-sub">No activities in this school\'s licence yet.</p>'; return; }
       $("rList").innerHTML = subjectsOf(level).map(s => `<p class="r-sub">${esc(CAT.subjectLabel(s))}</p>` +
-        itemsFor(level).filter(i => i.subject === s).map(i => `<button type="button" class="r-item${i.id === state.app ? " cur" : ""}" data-open="${esc(i.id)}"><span class="e">${MTCardArt.img(i.icon)}</span><span><b>${esc(i.title)}</b><small>${esc(i.kind)}${i.draft ? " · Draft" : ""}</small></span></button>`).join("")).join("");
+        itemsFor(level).filter(i => i.subject === s).map(i => `<button type="button" class="r-item${i.id === state.app ? " cur" : ""}" data-open="${esc(i.id)}"><span class="e">${cardArt.img(i.icon)}</span><span><b>${esc(i.title)}</b><small>${esc(i.kind)}${i.draft ? " · Draft" : ""}</small></span></button>`).join("")).join("");
     }
     $("rLevels").addEventListener("click", e => { const b = e.target.closest("[data-level]"); if (b) { level = b.dataset.level; drawLevels(); drawList(); } });
     $("rList").addEventListener("click", async e => {
@@ -376,7 +378,7 @@
 
   // ══════════════════════════ BOOT ════════════════════════════════════
   async function startApp() {
-    [LICENCE, CAT, TEAMS] = await Promise.all([api("GET", "/api/licence"), MTCatalog.load(), MTTeams.load(api)]);
+    [LICENCE, CAT, TEAMS] = await Promise.all([api("GET", "/api/licence"), loadCatalog(), teams.load(api)]);
     if (mode === "wall") startWall(); else startRemote();
   }
   (async function boot() {
@@ -385,4 +387,3 @@
     catch (e) { if (e.status === 401) { clearSession(); return showAuth(); } }
     try { await startApp(); } catch (e) { if (e.status === 401) { clearSession(); showAuth(); } else { showAuth(); $("authError").textContent = e.message; } }
   })();
-})();

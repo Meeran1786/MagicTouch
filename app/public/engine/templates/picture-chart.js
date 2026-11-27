@@ -7,7 +7,7 @@
 import { MT } from "../js/kit.js";
 import { frame, picture } from "../js/early.js";
 
-export const meta = { fullscreen: true, styles: ["early", "picture-chart"] };
+export const meta = { fullscreen: true, music: true, styles: ["early", "picture-chart"] };
 
 const COLOURS = ["--mt-magenta", "--mt-orange", "--mt-amber", "--mt-green", "--mt-plum"];
 

@@ -1,7 +1,8 @@
 // MagicTouch School view: one page for the principal, HODs and floor in-charges.
 // Shows how every classroom wall is used (time and openings per wall, class, subject
 // and activity) and manages the logins. Counts are per wall; nothing about a child.
-(() => {
+import { loadCatalog } from "/shared/catalog.js";
+import { cardArt } from "/shared/studio/card-art.js";
   const TOKEN_KEY = "wallAuthToken", USERNAME_KEY = "wallAuthUsername", DAYS_KEY = "mtSchoolDays";
   const REFRESH_MS = 30000;
   const $ = id => document.getElementById(id);
@@ -49,10 +50,10 @@
   const subjectOf = id => {
     const i = item(id);
     if (!i) return "other";
-    return i.source === "wall" ? "early" : i.subject;
+    return i.early ? "early" : i.subject;
   };
   const SUBJECT = { early: "Early years", maths: "Maths", science: "Science", social: "Social", evs: "EVS", other: "Other" };
-  const actTitle = id => (item(id) || {}).title || id.replace(/^engine:/, "");
+  const actTitle = id => (item(id) || {}).title || id.replace(/^engine:/, ""); // old records: "engine:<id>"
 
   // ══ sign in ══
   function showAuth(msg) {
@@ -286,7 +287,7 @@
   const TEAM_COLORS = ["#631654", "#E96E24", "#2fa86a", "#2f7fc4"];
   let teams = [], mascots = [];
   const tmsg = (t, e) => { $("teamMsg").textContent = t; $("teamMsg").classList.toggle("err", !!e); };
-  const mascotImg = t => t.image ? `<img src="${esc(t.image)}" alt="">` : MTCardArt.img(t.mascot);
+  const mascotImg = t => t.image ? `<img src="${esc(t.image)}" alt="">` : cardArt.img(t.mascot);
   async function loadTeams() {
     try { const d = await api("GET", "/api/school/settings"); teams = d.teams.map(t => ({ ...t })); mascots = d.mascots; drawTeams(); drawLook(d.simLook || "real"); }
     catch (e) { tmsg("Could not load teams: " + e.message, true); }
@@ -295,7 +296,7 @@
     $("teamEdit").innerHTML = teams.map((t, i) => `<div class="te" data-i="${i}" style="--c:${TEAM_COLORS[i]}">
         <div class="te-pic">${mascotImg(t)}</div>
         <label>Team ${i + 1}<input class="te-name" value="${esc(t.name)}" maxlength="24" /></label>
-        <div class="te-gallery" role="radiogroup" aria-label="Mascot for team ${i + 1}">${mascots.map(m => `<button type="button" data-m="${m}" aria-checked="${!t.image && t.mascot === m}">${MTCardArt.img(m)}</button>`).join("")}</div>
+        <div class="te-gallery" role="radiogroup" aria-label="Mascot for team ${i + 1}">${mascots.map(m => `<button type="button" data-m="${m}" aria-checked="${!t.image && t.mascot === m}">${cardArt.img(m)}</button>`).join("")}</div>
         <label class="te-up">Upload a picture<input type="file" accept="image/png,image/jpeg,image/webp" /></label>
         ${t.image ? '<button type="button" class="link-btn te-clear">Remove uploaded picture</button>' : ""}
       </div>`).join("");
@@ -343,7 +344,7 @@
   async function start() {
     const meInfo = await api("GET", "/api/auth/me");
     if (meInfo.role !== "school") return showAuth("This is a classroom wall login. Sign in with a school login to see the School view.");
-    [LIC, CAT] = await Promise.all([api("GET", "/api/licence"), MTCatalog.load()]);
+    [LIC, CAT] = await Promise.all([api("GET", "/api/licence"), loadCatalog()]);
     $("svAuth").classList.add("hidden"); $("svMain").classList.remove("hidden");
     $("svSchool").textContent = LIC.demo ? "Demo licence" : LIC.school;
     $("addPass").value = genPassword();
@@ -356,4 +357,3 @@
     try { await start(); }
     catch (e) { if (e.status === 401) { localStorage.removeItem(TOKEN_KEY); showAuth(); } else showAuth(e.message); }
   })();
-})();

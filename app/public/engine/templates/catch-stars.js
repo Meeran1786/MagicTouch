@@ -7,7 +7,7 @@ import { MT } from "../js/kit.js";
 import { frame } from "../js/early.js";
 import { arcade, emojiList } from "../js/arcade.js";
 
-export const meta = { fullscreen: true, styles: ["early"], points: 1 };
+export const meta = { fullscreen: true, music: true, styles: ["early"], points: 1 };
 
 export default function catchStars(area, d) {
   const f = frame(area, { icon: d.icon, title: d.title });

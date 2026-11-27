@@ -320,3 +320,14 @@ html.mt-wall .ey-hud {
   touch-action: none;
   border-radius: calc(var(--mt-radius) * 1.25);
 }
+
+/* the background-music toggle on the top bar */
+.ey-music {
+  min-height: 48px;
+  cursor: pointer;
+  font-family: var(--mt-body);
+  color: var(--mt-plum);
+}
+.ey-music[aria-pressed="false"] {
+  opacity: 0.6;
+}
