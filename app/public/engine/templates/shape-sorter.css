@@ -15,15 +15,30 @@
   padding: 18px;
   border-radius: calc(var(--mt-radius) * 1.25);
 }
+/* a lit wooden board: grain, a key light from the top left and a bevelled front edge */
 .ss-board {
-  background: repeating-linear-gradient(100deg, #d9a66b 0 26px, #cf9b5f 26px 30px, #d9a66b 30px 70px);
+  position: relative;
+  overflow: visible;
+  background:
+    radial-gradient(ellipse at 25% 0%, rgba(255, 240, 210, 0.55), rgba(255, 240, 210, 0) 60%),
+    repeating-linear-gradient(100deg, #d9a66b 0 26px, #cf9b5f 26px 30px, #d9a66b 30px 70px);
   box-shadow:
-    inset 0 -8px 0 rgba(0, 0, 0, 0.12),
+    inset 0 -10px 0 rgba(61, 14, 55, 0.14),
+    inset 0 2px 0 rgba(255, 255, 255, 0.4),
     var(--mt-shadow);
 }
 .ss-tray {
-  background: var(--mt-tint);
-  border: 2px dashed var(--mt-line);
+  overflow: visible;
+  background: linear-gradient(180deg, var(--mt-white), var(--mt-tint));
+}
+.ss-hole .ey-shape {
+  filter: drop-shadow(0 3px 0 rgba(255, 255, 255, 0.35)) drop-shadow(0 -2px 2px rgba(61, 14, 55, 0.5));
+}
+.ss-hole.filled .ey-shape {
+  filter: drop-shadow(0 6px 6px rgba(61, 14, 55, 0.3));
+}
+.ss-piece .ey-shape {
+  filter: drop-shadow(0 12px 8px rgba(61, 14, 55, 0.22));
 }
 .ss-hole,
 .ss-piece {

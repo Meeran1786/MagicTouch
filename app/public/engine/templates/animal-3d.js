@@ -13,6 +13,8 @@ import { MT } from "../js/kit.js";
 import { frame } from "../js/early.js";
 import { onPoints } from "/shared/input/pointer.js";
 import { emojiImg } from "/shared/studio/emoji.js";
+import { hud } from "../js/arcade.js";
+import { ME } from "/shared/motion-engine.js";
 
 export const meta = { fullscreen: true, music: true, styles: ["early", "animal-3d"], points: 1 };
 
@@ -32,7 +34,9 @@ export default function animal3d(area, d, ctx) {
     '<button class="ey-btn a3-next" type="button">Next animal 🐾</button></div>' +
     '<button class="ey-btn alt a3-walk" data-dir="1" type="button">Walk ▶</button>';
   f.stage.appendChild(wrap);
+  hud(f);
   const view = wrap.querySelector(".a3-view");
+  view.classList.add("st-stage");
   const nameEl = wrap.querySelector(".a3-name");
   const waitEl = wrap.querySelector(".a3-wait");
   const shadow = wrap.querySelector(".a3-shadow");
@@ -50,14 +54,13 @@ export default function animal3d(area, d, ctx) {
   scene.add(sun);
   const loader = new GLTFLoader();
   const textures = new THREE.TextureLoader();
-  const clock = new THREE.Clock();
 
   let at = 0;
   let animal = null; // { root, mixer, idle, walk, state, facing, spin, cfg }
   let dir = 0;
-  let raf = 0;
   let token = 0;
   let viewW = 0;
+  const met = new Set(); // animals seen: meeting them all is a little celebration
 
   function resize() {
     const r = view.getBoundingClientRect();
@@ -93,6 +96,12 @@ export default function animal3d(area, d, ctx) {
     animal = null;
     waitEl.hidden = false;
     nameEl.replaceChildren(emojiImg(cfg.emoji, ""), document.createTextNode(" " + cfg.word));
+    ME.squash(nameEl);
+    met.add(at);
+    if (met.size === d.animals.length && !met.cheered) {
+      met.cheered = true;
+      ME.celebrate(nameEl);
+    }
     f.progress(`${at + 1} / ${d.animals.length}`);
     MT.speak(cfg.word);
     try {
@@ -180,21 +189,15 @@ export default function animal3d(area, d, ctx) {
     shadow.style.transform = `translateX(calc(-50% + ${a.root.position.x * viewW * 0.019}px))`;
   }
 
-  function tick() {
-    update(Math.min(clock.getDelta(), 0.05));
-    renderer.render(scene, camera);
-    raf = requestAnimationFrame(tick);
+  // ME.loop: one frame loop that pauses while the wall is hidden and stops when the view is gone
+  let stopLoop = null;
+  function start() {
+    stopLoop = ME.loop(view, (dt) => {
+      update(Math.min(dt, 0.05));
+      renderer.render(scene, camera);
+    });
   }
-  const onVisible = () => {
-    cancelAnimationFrame(raf);
-    if (!document.hidden) {
-      clock.getDelta();
-      raf = requestAnimationFrame(tick);
-    }
-  };
-  document.addEventListener("visibilitychange", onVisible);
 
-  // walking: a press holds the button; a camera point over it holds it too
   const held = { press: 0, cam: 0 };
   const walkBtns = [...wrap.querySelectorAll(".a3-walk")];
   const sync = () => {
@@ -223,22 +226,26 @@ export default function animal3d(area, d, ctx) {
   wrap.querySelector(".a3-spin").addEventListener("click", () => {
     if (animal && animal.spin < 0) {
       animal.spin = 0;
+      ME.squash(wrap.querySelector(".a3-spin"));
       MT.sfx.tap();
     }
   });
-  wrap.querySelector(".a3-next").addEventListener("click", () => show(at + 1));
+  wrap.querySelector(".a3-next").addEventListener("click", (e) => {
+    ME.squash(e.currentTarget);
+    MT.sfx.tap();
+    show(at + 1);
+  });
 
   resize();
   show(0);
-  raf = requestAnimationFrame(tick);
+  start();
   return () => {
     token++;
-    cancelAnimationFrame(raf);
+    stopLoop();
     ro.disconnect();
     off();
     window.removeEventListener("pointerup", letGo);
     window.removeEventListener("pointercancel", letGo);
-    document.removeEventListener("visibilitychange", onVisible);
     dispose(animal);
     renderer.dispose();
   };

@@ -4,9 +4,13 @@
 //   octaves: 2            optional, 1 to 3
 //   start: 4              optional, the octave of the lowest C (4 = middle C)
 //   names: "letters" | "sargam" | "none"   optional, what is written on the white keys
+// Gold Standard look: the keyboard sits in a lit plum-lacquer piano body on an elevated stage; a
+// pressed key sinks with a coloured glow, notes float up, and the global sound switch mutes it.
 import { MT, audioCtx } from "../js/kit.js";
 import { frame } from "../js/early.js";
 import { onPoints } from "/shared/input/pointer.js";
+import { hud } from "../js/arcade.js";
+import { ME } from "/shared/motion-engine.js";
 
 export const meta = { fullscreen: true, styles: ["early", "piano"], points: 4 };
 
@@ -14,10 +18,11 @@ const WHITE = ["C", "D", "E", "F", "G", "A", "B"];
 const SARGAM = ["Sa", "Re", "Ga", "Ma", "Pa", "Dha", "Ni"];
 const SEMI = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
 const HAS_BLACK = new Set(["C", "D", "F", "G", "A"]);
-const COLOURS = ["#CC3054", "#E96E24", "#F3A328", "#2FA86A", "#3A86FF", "#631654", "#B0307A"];
+const COLOURS = ["#CC3054", "#E96E24", "#F3A328", "#2FA86A", "#631654", "#B0307A", "#3D0E37"];
 
 /** One soft piano-like note: two partials with a quick attack and a long decay. */
 function playNote(midi) {
+  if (!ME.sound.on()) return; // the global sound switch
   const ac = audioCtx;
   ac.resume();
   const t = ac.currentTime;
@@ -50,7 +55,10 @@ export default function piano(area, d) {
   const names = d.names || "letters";
   const board = document.createElement("div");
   board.className = "pn";
-  board.innerHTML = '<div class="pn-notes" aria-hidden="true"></div><div class="pn-keys"></div>';
+  board.innerHTML =
+    '<div class="pn-notes" aria-hidden="true"></div>' +
+    '<div class="st-stage pn-body"><div class="pn-rim" aria-hidden="true"><b>MagicTouch</b></div><div class="pn-keys"></div></div>';
+  hud(f);
   f.stage.appendChild(board);
   const keysEl = board.querySelector(".pn-keys");
   const notesEl = board.querySelector(".pn-notes");

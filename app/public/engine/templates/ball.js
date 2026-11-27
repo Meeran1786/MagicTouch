@@ -1,26 +1,29 @@
 // T9 Hit the answer: answer balloons float up the wall; hit the right one (throw a soft ball, tap with the pen, or click).
+// Gold Standard look: an elevated Studio stage with a lit sky, Studio-palette balloons with a
+// highlight and a ground shadow, the question on the yellow challenge card, a capped spark burst,
+// confetti and a green pulse on a right answer. The loop is ME.loop (pauses while hidden).
 import { MT } from "../js/kit.js";
+import { ME } from "/shared/motion-engine.js";
 
 // Runs inside the engine page's header and instruction line (not full screen).
-export const meta = { fullscreen: false };
+export const meta = { fullscreen: false, styles: ["ball"] };
+
+const MAX_PARTS = 40; // design system: at most 40 flow particles
 
 export default function ball(area, d, ctx) {
   const wrap = document.createElement("div");
-  wrap.className = "bl-wrap";
+  wrap.className = "bl-wrap st-stage";
   area.appendChild(wrap);
   const cv = document.createElement("canvas");
   cv.className = "bl-cv";
   wrap.appendChild(cv);
   const qEl = document.createElement("div");
-  qEl.className = "bl-q";
+  qEl.className = "bl-q st-goal";
   wrap.appendChild(qEl);
   const g = cv.getContext("2d");
   let W = 0;
   let H = 0;
-  const DPR = Math.min(2, window.devicePixelRatio || 1);
-  let dead = false;
-  let raf = 0;
-  let last = performance.now();
+  const DPR = ME.lowSpec() ? 1 : Math.min(2, window.devicePixelRatio || 1);
   let T = 0;
   function size() {
     W = wrap.clientWidth;
@@ -32,13 +35,13 @@ export default function ball(area, d, ctx) {
   size();
   const ro = new ResizeObserver(size);
   ro.observe(wrap);
+  // Studio palette: [lit colour, shade]
   const COLS = [
-    ["#FF6B6B", "#C92A2A"],
-    ["#FFD43B", "#E8A21A"],
-    ["#4DABF7", "#1864AB"],
-    ["#69DB7C", "#2B8A3E"],
-    ["#DA77F2", "#862E9C"],
-    ["#FFA94D", "#D9480F"],
+    ["#E0566F", "#CC3054"],
+    ["#F08A4B", "#E96E24"],
+    ["#F7BC52", "#F3A328"],
+    ["#4CC385", "#2FA86A"],
+    ["#8A3279", "#631654"],
   ];
   const asked = {};
   const rounds = d.rounds || 10;
@@ -124,13 +127,16 @@ export default function ball(area, d, ctx) {
     q = makeQ();
     qi++;
     qEl.innerHTML = '<span class="bl-n">' + qi + " / " + rounds + "</span>" + q.text;
-    qEl.classList.remove("bl-hide");
+    qEl.classList.remove("bl-hide", "st-solved");
+    ME.squash(qEl);
     MT.speak(q.say);
     launch();
     lock = false;
   }
   function burst(b, good) {
-    for (let i = 0; i < (good ? 40 : 16); i++) {
+    const room = (ME.lowSpec() ? MAX_PARTS / 2 : MAX_PARTS) - parts.length;
+    if (ME.calm()) return;
+    for (let i = 0; i < Math.min(good ? 30 : 12, room); i++) {
       const a = Math.random() * Math.PI * 2,
         s = (good ? 220 : 120) * (0.4 + Math.random());
       parts.push({
@@ -139,7 +145,7 @@ export default function ball(area, d, ctx) {
         vx: Math.cos(a) * s,
         vy: Math.sin(a) * s - 60,
         life: 1,
-        c: good ? (Math.random() < 0.4 ? "#FBD064" : b.col[0]) : "#9E9E9E",
+        c: good ? (Math.random() < 0.4 ? "#FBD064" : b.col[0]) : "#5D5464",
         sz: 4 + Math.random() * 7,
         star: good && Math.random() < 0.3,
       });
@@ -158,7 +164,8 @@ export default function ball(area, d, ctx) {
         if (b.ok) {
           right++;
           burst(b, true);
-          MT.confetti && MT.confetti();
+          qEl.classList.add("st-solved");
+          ME.burst(qEl);
           MT.score(right + " / " + rounds);
           MT.good("Yes! " + q.text.replace("?", q.ans), q.say + " is " + q.ans);
           lock = true;
@@ -188,9 +195,9 @@ export default function ball(area, d, ctx) {
   }; // used by tests
   function drawBg() {
     const sky = g.createLinearGradient(0, 0, 0, H);
-    sky.addColorStop(0, "#7EC8F5");
-    sky.addColorStop(0.7, "#D8F1FF");
-    sky.addColorStop(1, "#FFF4D6");
+    sky.addColorStop(0, "#BFE3F7");
+    sky.addColorStop(0.65, "#EEF7FC");
+    sky.addColorStop(1, "#FFF8EC");
     g.fillStyle = sky;
     g.fillRect(0, 0, W, H);
     const sx = W * 0.86,
@@ -274,7 +281,7 @@ export default function ball(area, d, ctx) {
     g.beginPath();
     g.ellipse(x - r * 0.38, y - r * 0.45, r * 0.16, r * 0.28, -0.5, 0, 7);
     g.fill();
-    g.font = "800 " + Math.round(r * 0.72) + 'px "Segoe UI",Arial,sans-serif';
+    g.font = "800 " + Math.round(r * 0.72) + "px " + ME.FONT;
     g.textAlign = "center";
     g.textBaseline = "middle";
     g.lineWidth = 6;
@@ -293,10 +300,8 @@ export default function ball(area, d, ctx) {
     g.closePath();
     g.fill();
   }
-  function loop(now) {
-    if (dead) return;
-    const dt = Math.min(0.05, (now - last) / 1000);
-    last = now;
+  function frame(dtRaw) {
+    const dt = Math.min(0.05, dtRaw);
     T += dt;
     drawBg();
     let anyUp = false;
@@ -304,6 +309,7 @@ export default function ball(area, d, ctx) {
       if (!b.alive) return;
       b.y -= b.v * dt;
       if (b.y > -b.r * 2.5) anyUp = true;
+      ME.shadow(g, b.x + Math.sin(T * 1.3 + b.ph) * 12, H * 0.97, b.r, 1 - (H - b.y) / H);
       drawBalloon(b);
     });
     if (q && !lock && !anyUp) launch(); // all floated away: send them again
@@ -334,14 +340,12 @@ export default function ball(area, d, ctx) {
       g.stroke();
       return true;
     });
-    raf = requestAnimationFrame(loop);
   }
   MT.score("0 / " + rounds);
   MT.later(next, 400);
-  raf = requestAnimationFrame(loop);
+  const stopLoop = ME.loop(cv, frame);
   return function () {
-    dead = true;
-    cancelAnimationFrame(raf);
+    stopLoop();
     ro.disconnect();
   };
 }

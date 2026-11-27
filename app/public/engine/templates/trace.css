@@ -8,10 +8,11 @@
 }
 .tr-board {
   min-height: 0;
-  background: var(--mt-white);
-  border: 1px solid var(--mt-line);
-  border-radius: calc(var(--mt-radius) * 1.25);
-  box-shadow: var(--mt-shadow);
+}
+.tr-read {
+  flex: none;
+  width: 100%;
+  padding: 10px 16px 14px;
 }
 .tr-side {
   display: flex;
@@ -26,6 +27,7 @@
 }
 .tr-bar {
   width: 100%;
+  margin-top: 6px;
   height: 22px;
   border-radius: 999px;
   background: var(--mt-tint);

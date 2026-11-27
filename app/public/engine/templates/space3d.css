@@ -1,0 +1,117 @@
+/* 3D space (space3d.js): the Gold Standard split screen. The 3D scene sits on a dark elevated stage
+   (.st-stage--space) on the left; the Studio panel (.st-panel) on the right holds the cards, sliders,
+   read-outs and graph from /shared/studio-base.css. Only what is this template's own is here. */
+.sp-wrap {
+  height: 100%;
+}
+.sp-stage {
+  position: relative;
+}
+.sp-host {
+  position: absolute;
+  inset: 0;
+}
+.sp-host canvas {
+  display: block;
+}
+.sp-labels {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+/* planet names: pill labels that ride with the planets */
+.sp-tag {
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: auto;
+  cursor: pointer;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font: 700 18px var(--mt-body);
+  color: var(--mt-white);
+  background: rgba(61, 14, 55, 0.6);
+  border: 2px solid rgba(243, 163, 40, 0.6);
+  white-space: nowrap;
+}
+.sp-tag.on {
+  background: var(--mt-amber);
+  color: var(--mt-plum-dark);
+  border-color: var(--mt-yellow);
+}
+.sp-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--mt-yellow);
+  font: 700 28px var(--mt-body);
+}
+
+/* the panel */
+.sp-panel {
+  flex: 0.8;
+}
+.sp-info {
+  font-size: 20px;
+  line-height: 1.4;
+  color: var(--mt-ink);
+}
+.sp-info h3 {
+  margin: 0 0 6px;
+  font: 700 30px var(--mt-head);
+  color: var(--mt-plum);
+}
+.sp-info ul {
+  margin: 0;
+  padding-left: 22px;
+}
+.sp-info li {
+  margin: 4px 0;
+}
+.sp-info p {
+  margin: 4px 0;
+}
+.sp-note {
+  margin: 0;
+  font-size: 16px;
+  color: var(--mt-mute);
+}
+.sp-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+/* IR-pen buttons: at least 52 px high */
+.sp-b {
+  min-height: 56px;
+  padding: 10px 20px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--mt-plum);
+  color: var(--mt-white);
+  font: 700 19px var(--mt-body);
+  cursor: pointer;
+  box-shadow: var(--mt-shadow);
+}
+.sp-b.alt {
+  background: var(--mt-orange);
+}
+.sp-goal b {
+  font-weight: 800;
+}
+
+@media (max-height: 800px) {
+  .sp-info {
+    font-size: 18px;
+  }
+  .sp-info h3 {
+    font-size: 26px;
+  }
+  .sp-b {
+    min-height: 52px;
+    font-size: 18px;
+  }
+}
