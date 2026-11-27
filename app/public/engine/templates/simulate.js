@@ -328,6 +328,7 @@ export default function simulate(area, d, ctx) {
   }
   // live Canvas stage: the picture, read-outs and graph move together every frame
   let live = null;
+  if (!simLive[d.model]) pic.classList.add("sim-svg");
   if (simLive[d.model]) {
     pic.classList.add("sim-live");
     const meterSlot = document.createElement("div");
@@ -339,23 +340,60 @@ export default function simulate(area, d, ctx) {
     const o = calc(vals),
       g = phase === "goals" ? goals[gi] : null;
     if (live) {
-      live.update(vals, o);
+      live.update(vals, o, g);
       live.setLook(look);
       if (lookBtn) lookBtn.set(look);
       renderSolution();
       if (phase === "goals") checkGoal(o);
       return;
     }
-    pic.innerHTML = look === "real" ? REAL(vals, o, g) : M.draw(vals, o, g);
+    paint(g);
+    pic.classList.toggle("sim-real", look === "real");
+    if (lookBtn) lookBtn.set(look);
+    renderSolution();
+    if (phase === "goals") checkGoal(o);
+  }
+  // SVG pictures (models without a live Canvas stage) glide to new values: every number rolls and
+  // every shape moves over about half a second (in steps of a tenth of the slider step), then rests.
+  let shown = null,
+    tweenStop = null,
+    paintGoal = null;
+  function drawSvg(v) {
+    const o = calc(v);
+    pic.innerHTML = look === "real" ? REAL(v, o, paintGoal) : M.draw(v, o, paintGoal);
     const sv = pic.querySelector("svg");
     if (sv) {
       sv.style.width = "100%";
       sv.style.height = "100%";
     }
-    pic.classList.toggle("sim-real", look === "real");
-    if (lookBtn) lookBtn.set(look);
-    renderSolution();
-    if (phase === "goals") checkGoal(o);
+  }
+  function paint(g) {
+    paintGoal = g;
+    if (!shown || ME.calm()) {
+      shown = merge(vals, {});
+      drawSvg(shown);
+      return;
+    }
+    if (tweenStop) return; // the running glide picks up the new values
+    const exact = merge(shown, {});
+    tweenStop = ME.loop(pic, function (dt) {
+      let done = true;
+      const view = {};
+      d.sliders.forEach(function (s) {
+        const k = s.id,
+          q = s.step / 10;
+        exact[k] = ME.ease(exact[k], vals[k], dt, 12);
+        if (Math.abs(exact[k] - vals[k]) < q / 2) exact[k] = vals[k];
+        else done = false;
+        view[k] = exact[k] === vals[k] ? vals[k] : Math.round(exact[k] / q) * q;
+      });
+      shown = view;
+      drawSvg(view);
+      if (done) {
+        tweenStop();
+        tweenStop = null;
+      }
+    });
   }
   // live worked solution: each line is re-filled with the current numbers; changed lines flash
   function renderSolution() {
@@ -568,6 +606,7 @@ export default function simulate(area, d, ctx) {
     clearTimeout(goalTimer);
     cancelAnimationFrame(anim);
     if (live) live.stop();
+    if (tweenStop) tweenStop();
     if (media) media.stop();
     Object.keys(sliders).forEach(function (id) {
       sliders[id].stop();

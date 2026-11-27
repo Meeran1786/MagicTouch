@@ -317,7 +317,8 @@ function stage(holder, W, H, onSize) {
 
 // Projector-readable x–y graph: 18 px bold numbers, 16 px titles, an 11 px tracking dot with a glow.
 //   g.draw({ xMax, yMax, xLabel, yLabel, ticks: 4, lines: [{ from: [x, y], to: [x, y], color }],
-//            point: { x, y, color }, note: "I = V ÷ R with R = 6 Ω" })
+//            point: { x, y, color } or points: [{ x, y, color }, …], note: "I = V ÷ R with R = 6 Ω",
+//            labels: [{ x, y, text, color }] })
 function graph(cv) {
   const g = cv.getContext("2d");
   let w = 0,
@@ -399,10 +400,11 @@ function graph(cv) {
       g.stroke();
     });
     g.restore();
-    if (o.point) {
-      const px = X(o.point.x),
-        py = Y(clamp(o.point.y, 0, o.yMax)),
-        col = o.point.color || PALETTE.magenta;
+    // one tracking dot (point) or several (points), each with dashed drop lines to the axes
+    (o.points || (o.point ? [o.point] : [])).forEach(function (pt) {
+      const px = X(clamp(pt.x, 0, o.xMax)),
+        py = Y(clamp(pt.y, 0, o.yMax)),
+        col = pt.color || PALETTE.magenta;
       g.setLineDash([4, 4]);
       g.strokeStyle = "rgba(99,22,84,.45)";
       g.lineWidth = 1.5;
@@ -412,13 +414,16 @@ function graph(cv) {
       g.lineTo(L, py);
       g.stroke();
       g.setLineDash([]);
+      g.save();
+      g.globalAlpha = 0.45;
       const gl = g.createRadialGradient(px, py, 0, px, py, 24);
-      gl.addColorStop(0, "rgba(204,48,84,.45)");
-      gl.addColorStop(1, "rgba(204,48,84,0)");
+      gl.addColorStop(0, col);
+      gl.addColorStop(1, "rgba(255,255,255,0)");
       g.fillStyle = gl;
       g.beginPath();
       g.arc(px, py, 24, 0, Math.PI * 2);
       g.fill();
+      g.restore();
       g.fillStyle = col;
       g.strokeStyle = PALETTE.white;
       g.lineWidth = 3;
@@ -426,7 +431,14 @@ function graph(cv) {
       g.arc(px, py, 11, 0, Math.PI * 2);
       g.fill();
       g.stroke();
-    }
+    });
+    (o.labels || []).forEach(function (lb) {
+      g.fillStyle = lb.color || PALETTE.plum;
+      g.font = "700 16px " + FONT;
+      g.textAlign = lb.align || "left";
+      g.textBaseline = "middle";
+      g.fillText(lb.text, X(lb.x), Y(lb.y));
+    });
     if (o.note) {
       g.fillStyle = PALETTE.orange;
       g.font = "700 17px " + FONT;
