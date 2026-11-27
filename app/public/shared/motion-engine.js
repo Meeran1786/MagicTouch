@@ -1131,3 +1131,237 @@ Object.assign(ME, {
   links: links,
 });
 // ═══════════════════════════════ end of CLASS ACTIVITIES KIT ═══════════════════════════════════
+
+// ═════════════════════════════════════════════════════════════════════════
+// EARLY YEARS DELIGHT (added 2026-11-27 for the early-years templates: emoji quiz, picture quiz,
+// picture reveal, word wheel, picture chart, picture spotter, count and pick, sound poster).
+// Khan Academy Kids / Duolingo patterns on the Gold Standard. Styles: the "Early years" section of
+// /shared/studio-base.css. Nothing above this line changes, so the reference page is untouched.
+//
+//   ME.squash(el)                   squash-and-stretch tap bounce (transform only, adds to el's own)
+//   ME.flood(el, x, y, {color, keep})  radial colour flood from a tap point (a scaled circle); keep
+//                                   leaves the colour in place, otherwise it fades
+//   ME.ripple(el, x, y, color)      a ring that spreads from a tap point
+//   (rolling numbers: ME.roll from the Class activities kit above)
+//   ME.tiles(host, word)            letter tiles that bounce in; returns {el, light(i)}: light(i) lifts
+//                                   tile i while it is spoken, light(-1) lifts every tile (whole word)
+//   ME.ambient(host, {grass, stars, hills})  ambient life behind a stage: drifting sparkles, rolling
+//                                   hills and swaying grass on a canvas; ≤ 16 sparkles (6 low-spec),
+//                                   still with reduced motion; pauses when hidden. Returns stop()
+// ═════════════════════════════════════════════════════════════════════════
+const SQUASH = [
+  { transform: "scale(1, 1)" },
+  { transform: "scale(1.12, 0.88)", offset: 0.3 },
+  { transform: "scale(0.94, 1.08)", offset: 0.6 },
+  { transform: "scale(1, 1)" },
+];
+function squash(el) {
+  if (!el || calm() || !el.animate) return;
+  el.animate(SQUASH, { duration: 450, easing: "cubic-bezier(0.34, 1.56, 0.64, 1)", composite: "add" });
+}
+function tapPoint(el, x, y) {
+  const r = el.getBoundingClientRect();
+  return {
+    x: x === undefined || x === null ? r.width / 2 : x - r.left,
+    y: y === undefined || y === null ? r.height / 2 : y - r.top,
+    w: r.width,
+    h: r.height,
+  };
+}
+function flood(el, x, y, opt) {
+  if (!el) return null;
+  opt = opt || {};
+  const p = tapPoint(el, x, y),
+    rad = Math.ceil(Math.hypot(Math.max(p.x, p.w - p.x), Math.max(p.y, p.h - p.y))) + 4;
+  const f = document.createElement("span");
+  f.className = "st-flood";
+  f.style.cssText =
+    "width:" +
+    rad * 2 +
+    "px;height:" +
+    rad * 2 +
+    "px;left:" +
+    (p.x - rad) +
+    "px;top:" +
+    (p.y - rad) +
+    "px;" +
+    "background:" +
+    (opt.color || PALETTE.green);
+  el.prepend(f);
+  if (calm() || !f.animate) {
+    if (!opt.keep) f.remove();
+    return f;
+  }
+  const a = f.animate(
+    opt.keep
+      ? [{ transform: "scale(0)" }, { transform: "scale(1)" }]
+      : [
+          { transform: "scale(0)", opacity: 0.55 },
+          { transform: "scale(1)", opacity: 0 },
+        ],
+    { duration: opt.keep ? 700 : 900, easing: "cubic-bezier(0.22, 1, 0.36, 1)", fill: "forwards" },
+  );
+  if (!opt.keep) a.onfinish = () => f.remove();
+  return f;
+}
+function ripple(el, x, y, color) {
+  if (!el || calm()) return;
+  const p = tapPoint(el, x, y);
+  const r = document.createElement("span");
+  r.className = "st-ripple";
+  r.style.cssText = "left:" + (p.x - 40) + "px;top:" + (p.y - 40) + "px;border-color:" + (color || PALETTE.magenta);
+  el.appendChild(r);
+  const a = r.animate(
+    [
+      { transform: "scale(0.2)", opacity: 0.8 },
+      { transform: "scale(3.2)", opacity: 0 },
+    ],
+    { duration: 800, easing: "ease-out", fill: "forwards" },
+  );
+  a.onfinish = () => r.remove();
+}
+function tiles(host, word) {
+  const el = document.createElement("div");
+  el.className = "st-letters";
+  [...word].forEach(function (ch, i) {
+    const t = document.createElement("span");
+    t.className = ch.trim() ? "st-letter" : "st-letter gap";
+    t.textContent = ch;
+    t.style.animationDelay = i * 40 + "ms";
+    el.appendChild(t);
+  });
+  if (host) host.replaceChildren(el);
+  return {
+    el: el,
+    light: function (i) {
+      [].forEach.call(el.children, function (t, k) {
+        t.classList.toggle("on", k === i || i < 0);
+      });
+    },
+    clear: function () {
+      [].forEach.call(el.children, function (t) {
+        t.classList.remove("on");
+      });
+    },
+  };
+}
+// Ambient life drawn on one canvas behind a stage (host must be position: relative).
+function ambient(host, opt) {
+  opt = Object.assign({ grass: true, stars: true, hills: true }, opt || {});
+  const low = lowSpec(),
+    still = calm();
+  const cv = document.createElement("canvas");
+  cv.className = "st-ambient";
+  cv.setAttribute("aria-hidden", "true");
+  host.prepend(cv);
+  const c = cv.getContext("2d");
+  let w = 0,
+    h = 0,
+    dpr = 1,
+    hills = null;
+  const cols = [PALETTE.amber, PALETTE.magenta, PALETTE.plum, PALETTE.orange, PALETTE.green];
+  const sparks = [];
+  const n = opt.stars ? (low ? 6 : 16) : 0;
+  for (let i = 0; i < n; i++)
+    sparks.push({
+      x: Math.random(),
+      y: Math.random() * 0.8,
+      r: 5 + Math.random() * 7,
+      v: 0.008 + Math.random() * 0.014,
+      ph: Math.random() * 6.28,
+      col: cols[i % cols.length],
+    });
+  const blades = [];
+  const nb = opt.grass ? (low ? 22 : 48) : 0;
+  for (let i = 0; i < nb; i++)
+    blades.push({ x: (i + Math.random() * 0.8) / nb, h: 16 + Math.random() * 22, ph: Math.random() * 6.28 });
+  function size() {
+    dpr = low ? 1 : Math.min(2, window.devicePixelRatio || 1);
+    w = host.clientWidth;
+    h = host.clientHeight;
+    cv.width = Math.max(1, Math.round(w * dpr));
+    cv.height = Math.max(1, Math.round(h * dpr));
+    hills = null;
+    if (still) draw(0);
+  }
+  function paintHills() {
+    hills = layer(cv.width, cv.height);
+    const g = hills.getContext("2d");
+    g.setTransform(dpr, 0, 0, dpr, 0, 0);
+    if (!opt.hills) return;
+    const base = h - 6;
+    g.fillStyle = "rgba(47,168,106,0.10)";
+    g.beginPath();
+    g.moveTo(0, base);
+    g.quadraticCurveTo(w * 0.22, base - 70, w * 0.5, base - 18);
+    g.quadraticCurveTo(w * 0.78, base - 64, w, base - 10);
+    g.lineTo(w, h);
+    g.lineTo(0, h);
+    g.fill();
+    g.fillStyle = "rgba(47,168,106,0.16)";
+    g.beginPath();
+    g.moveTo(0, base + 2);
+    g.quadraticCurveTo(w * 0.35, base - 34, w * 0.62, base - 4);
+    g.quadraticCurveTo(w * 0.86, base - 26, w, base);
+    g.lineTo(w, h);
+    g.lineTo(0, h);
+    g.fill();
+  }
+  function star(x, y, r) {
+    c.beginPath();
+    for (let k = 0; k < 8; k++) {
+      const a = (k * Math.PI) / 4,
+        rr = k % 2 ? r * 0.38 : r;
+      c.lineTo(x + Math.cos(a) * rr, y + Math.sin(a) * rr);
+    }
+    c.closePath();
+    c.fill();
+  }
+  function draw(t) {
+    if (!w || !h) return;
+    if (!hills) paintHills();
+    c.setTransform(1, 0, 0, 1, 0, 0);
+    c.clearRect(0, 0, cv.width, cv.height);
+    c.drawImage(hills, 0, 0);
+    c.setTransform(dpr, 0, 0, dpr, 0, 0);
+    sparks.forEach(function (s) {
+      c.globalAlpha = 0.16 + 0.14 * Math.sin(t * 1.6 + s.ph);
+      c.fillStyle = s.col;
+      star(s.x * w + Math.sin(t * 0.4 + s.ph) * 14, s.y * h, s.r);
+    });
+    c.globalAlpha = 1;
+    if (nb) {
+      c.strokeStyle = "rgba(47,168,106,0.38)";
+      c.lineWidth = 2.5;
+      c.lineCap = "round";
+      c.beginPath();
+      blades.forEach(function (b) {
+        const x = b.x * w,
+          sway = Math.sin(t * 1.3 + b.ph + b.x * 4) * 6;
+        c.moveTo(x, h);
+        c.quadraticCurveTo(x + sway * 0.4, h - b.h * 0.6, x + sway, h - b.h);
+      });
+      c.stroke();
+    }
+  }
+  const ro = window.ResizeObserver ? new ResizeObserver(size) : null;
+  if (ro) ro.observe(host);
+  size();
+  const stopLoop = still
+    ? function () {}
+    : loop(cv, function (dt, t) {
+        sparks.forEach(function (s) {
+          s.y -= s.v * dt;
+          if (s.y < -0.05) {
+            s.y = 0.85;
+            s.x = Math.random();
+          }
+        });
+        draw(t);
+      });
+  return function stop() {
+    stopLoop();
+    if (ro) ro.disconnect();
+  };
+}
+Object.assign(ME, { squash: squash, flood: flood, ripple: ripple, tiles: tiles, ambient: ambient });
