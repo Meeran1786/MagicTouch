@@ -1,0 +1,20 @@
+{
+  "about": "Other names for the same sound: an activity may say \"sfx\": \"ambulance\" and get siren.ogg.",
+  "aliases": {
+    "ambulance": "siren",
+    "police": "siren",
+    "fire-engine": "siren",
+    "goose": "geese",
+    "water": "stream",
+    "river": "stream",
+    "school-bell": "bell",
+    "clap": "applause",
+    "cheer": "applause",
+    "cock": "rooster",
+    "kitten": "cat",
+    "meow": "cat",
+    "lamb": "sheep",
+    "horn": "train",
+    "railway": "train"
+  }
+}

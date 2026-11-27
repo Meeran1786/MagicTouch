@@ -73,9 +73,13 @@ export async function loadActivity(id) {
   return cache.get(id);
 }
 
+let ambience = null; // the activity's quiet theme loop ("ambience": "rain"), if it has one
+
 function stop() {
   MT.clearLater();
   stopMusic();
+  if (ambience) ambience.stop(0.6);
+  ambience = null;
   delete document.documentElement.dataset.music;
   if (cleanup) {
     try {
@@ -137,6 +141,10 @@ async function run(id) {
   }
   cleanup = mount(area, activity, ctx) || null;
   MagicAudio.preloadActivity(activity);
+  // theme sounds (CLAUDE.md §8): "sfx" plays once as the activity opens, "ambience" loops quietly
+  // under it; with no file in /assets/sfx/themes/ yet they play nothing
+  if (activity.sfx) MT.theme(activity.sfx);
+  if (activity.ambience) ambience = MT.theme(activity.ambience, { loop: true });
   if (activity.intro) MT.speak(activity.intro);
 }
 

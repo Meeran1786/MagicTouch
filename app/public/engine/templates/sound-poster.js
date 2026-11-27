@@ -5,8 +5,9 @@
 // Activity data:
 //   poster: "assets/poster.jpg", size: [1400, 700]       the background and its pixel size
 //   spots: [{ word: "Drum", layer: "assets/drum.png", box: [x, y, w, h], sound: "assets/drum.wav" }]
+//          or sfx: "drum" instead of sound: a theme sound from /assets/sfx/themes/
 //          box is where the colour picture sits on the poster, in poster pixels
-import { MT, audioCtx } from "../js/kit.js";
+import { MT } from "../js/kit.js";
 import { studioFrame } from "../js/early.js";
 import { ME } from "/shared/motion-engine.js";
 
@@ -23,22 +24,7 @@ export default function soundPoster(area, d, ctx) {
   poster.innerHTML = '<img class="sp-bg" alt="" draggable="false">';
   poster.querySelector("img").src = ctx.base + d.poster;
   f.stage.appendChild(poster);
-  const buffers = new Map();
   const last = new Map();
-
-  async function load(file) {
-    if (!buffers.has(file)) {
-      buffers.set(
-        file,
-        fetch(ctx.base + file)
-          .then((r) => r.arrayBuffer())
-          .then((b) => audioCtx.decodeAudioData(b))
-          .catch(() => null),
-      );
-    }
-    return buffers.get(file);
-  }
-
   const spots = d.spots.map((s) => {
     const [x, y, w, h] = s.box;
     const el = document.createElement("button");
@@ -50,24 +36,19 @@ export default function soundPoster(area, d, ctx) {
     el.querySelector("img").src = ctx.base + s.layer;
     el.querySelector(".sp-word").textContent = s.word;
     poster.appendChild(el);
-    load(s.sound);
-    const play = async (e) => {
+    const play = (e) => {
       const now = performance.now();
       if (now - (last.get(el) || 0) < REPLAY_MS) return;
       last.set(el, now);
       el.classList.add("on");
       ME.squash(el);
       ME.ripple(poster, e && e.clientX, e && e.clientY, ME.PALETTE.amber);
-      const buf = await load(s.sound);
-      if (!buf) return MT.speak(s.word);
-      const ac = audioCtx;
-      ac.resume();
-      const src = ac.createBufferSource();
-      src.buffer = buf;
-      src.connect(ac.destination);
-      src.start();
+      // the spot's own recording, or a theme sound by name ("sfx": "drum"), through MagicAudio
+      // (so it follows the one global mute); with neither, the word is spoken
+      const snd = s.sound ? MT.sound(ctx.base + s.sound, { volume: 1 }) : s.sfx ? MT.theme(s.sfx) : null;
+      if (!snd) MT.speak(s.word);
       clearTimeout(el.offTimer);
-      el.offTimer = setTimeout(() => el.classList.remove("on"), Math.max(1200, buf.duration * 1000));
+      el.offTimer = setTimeout(() => el.classList.remove("on"), 1600);
     };
     // a press plays it; a pointer moving onto it plays it too (hands hover, like the poster it came from)
     el.addEventListener("pointerdown", play);

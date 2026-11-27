@@ -15,7 +15,8 @@
     },
     {
       "emoji": "🐱",
-      "word": "Kitten"
+      "word": "Kitten",
+      "sfx": "cat"
     },
     {
       "emoji": "🐥",
@@ -23,7 +24,8 @@
     },
     {
       "emoji": "🐑",
-      "word": "Lamb"
+      "word": "Lamb",
+      "sfx": "sheep"
     },
     {
       "emoji": "🐷",

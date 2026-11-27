@@ -11,7 +11,8 @@
   "items": [
     {
       "emoji": "🦁",
-      "word": "Lion"
+      "word": "Lion",
+      "sfx": "lion"
     },
     {
       "emoji": "🐯",
@@ -19,7 +20,8 @@
     },
     {
       "emoji": "🐘",
-      "word": "Elephant"
+      "word": "Elephant",
+      "sfx": "elephant"
     },
     {
       "emoji": "🦒",
@@ -63,7 +65,8 @@
     },
     {
       "emoji": "🐱",
-      "word": "Cat"
+      "word": "Cat",
+      "sfx": "cat"
     },
     {
       "emoji": "🐮",
@@ -79,11 +82,13 @@
     },
     {
       "emoji": "🐑",
-      "word": "Sheep"
+      "word": "Sheep",
+      "sfx": "sheep"
     },
     {
       "emoji": "🐴",
-      "word": "Horse"
+      "word": "Horse",
+      "sfx": "horse"
     },
     {
       "emoji": "🐫",

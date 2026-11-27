@@ -9,10 +9,23 @@ export const MT = (function () {
   // Voice goes through MagicAudio (/shared/audio-engine.js): a pre-generated clip when there is
   // one, otherwise the best offline voice. speak(text) in Indian English; speak(text, "hi-IN") or
   // "te-IN"; speak([part, part, …]) for a line built from parts (["Yes!", word]);
-  // speak({ text, lang, clipId, src, onPart }) for everything else.
+  // speak({ text, lang, clipId, src, onPart, queue }) for everything else.
+  // speakSequence(["A", "N", "T", "Ant"], { gap, onPart }) says one item at a time (spelling).
   function speak(t, lang) {
     if (t == null || t === "") return Promise.resolve(false);
     return MagicAudio.speak(t && typeof t === "object" && !Array.isArray(t) ? t : { text: t, lang: lang });
+  }
+  function speakSequence(items, opt) {
+    return MagicAudio.speakSequence(items, opt);
+  }
+  // A theme sound an activity names ("sfx": "cat"): plays /assets/sfx/themes/cat.ogg if it is
+  // there, else nothing. theme(name, { loop, volume }) → { stop() }
+  function theme(name, opt) {
+    return MagicAudio.playTheme(name, opt);
+  }
+  // a recorded file of the activity's own (sound-poster spots): sound(url, { loop, volume })
+  function sound(url, opt) {
+    return MagicAudio.playSound(url, opt);
   }
   function stopSpeech() {
     MagicAudio.stop();
@@ -231,6 +244,9 @@ export const MT = (function () {
     clearLater: clearLater,
     sceneBox: sceneBox,
     speak: speak,
+    speakSequence: speakSequence,
+    theme: theme,
+    sound: sound,
     stopSpeech: stopSpeech,
     sfx: sfx,
     toast: toast,

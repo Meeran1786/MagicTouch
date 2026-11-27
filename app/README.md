@@ -124,3 +124,16 @@ character count in `data/tts-usage.json` keeps it inside Google's free tier (1M 
 month). Lines that a template builds at run time and that have no clip yet are spoken by the offline
 browser voice and listed by `MagicAudio.misses()` in the browser console; save that list to a file and
 pass it with `node scripts/generate-voices.js --lines misses.json`.
+
+A clip that Google returned silent (it happens for some single letters and very short words) is found
+by `scripts/mp3-voice-check.js` and made again on the next `npm run voices`, with an end mark added
+("M." instead of "M"). Until then the wall says that one item with the offline voice.
+
+### Theme sounds
+
+An activity can name real-world sounds: `"sfx": "lion"` on an item (played as its picture opens, is
+picked or is answered right), `"sfx"` on the activity (played as it opens) and `"ambience": "rain"` (a
+quiet loop under the activity). The files are in `public/assets/sfx/themes/` (`lion.ogg`, …); the
+server lists that folder, so a file dropped in works at once and a name with no file plays nothing.
+Use only CC0 or public-domain recordings and add each one to `themes/credits.json` (source, author,
+licence); other names for a file (`ambulance` → `siren`) go in `themes/aliases.json`.

@@ -87,6 +87,7 @@ export default function pictureSpotter(area, d, ctx) {
       f.solved();
       f.celebrate(card);
       ME.sound.good();
+      MT.theme(target.sfx);
       tiles.light(-1);
       MT.speak(cheer);
       timer = setTimeout(round, NEXT_AFTER_MS);

@@ -32,22 +32,30 @@ const CHORDS = [
 ];
 const BELLS = [72, 74, 76, 79, 81, 84];
 
-export function createSoftMusic({ volume = 0.16 } = {}) {
-  const ctx = audioCtx();
-  const out = ctx.createGain();
-  out.gain.value = 0;
-  const tone = ctx.createBiquadFilter();
-  tone.type = "lowpass";
-  tone.frequency.value = 2200;
-  tone.Q.value = 0.3;
-  const echo = roomEcho(ctx),
-    wet = ctx.createGain();
-  wet.gain.value = 0.45;
-  const dry = ctx.createGain();
-  dry.gain.value = 0.7;
-  tone.connect(dry).connect(out);
-  tone.connect(echo).connect(wet).connect(out);
-  out.connect(ctx.destination);
+export function createSoftMusic({ volume = 0.7 } = {}) {
+  // the sound graph is made once audio may play (no "AudioContext was not allowed" warning)
+  let ctx = null,
+    out = null,
+    tone = null;
+  function init() {
+    if (ctx) return;
+    ctx = audioCtx();
+    out = ctx.createGain();
+    out.gain.value = 0;
+    tone = ctx.createBiquadFilter();
+    tone.type = "lowpass";
+    tone.frequency.value = 2200;
+    tone.Q.value = 0.3;
+    const echo = roomEcho(ctx),
+      wet = ctx.createGain();
+    wet.gain.value = 0.45;
+    const dry = ctx.createGain();
+    dry.gain.value = 0.7;
+    tone.connect(dry).connect(out);
+    tone.connect(echo).connect(wet).connect(out);
+    // the music bus of MagicAudio: ducked while the voice speaks, silent while sound is muted
+    out.connect(MagicAudio.musicOut());
+  }
 
   let timer = null,
     step = 0,
@@ -107,28 +115,31 @@ export function createSoftMusic({ volume = 0.16 } = {}) {
     step++;
   }
   function level() {
+    if (!out) return;
     out.gain.cancelScheduledValues(ctx.currentTime);
     out.gain.setTargetAtTime(muted || !running ? 0 : volume, ctx.currentTime, 0.6);
   }
 
   return {
-    async start() {
-      if (running) return true;
-      try {
-        await ctx.resume();
-      } catch (e) {
-        /* needs a tap first */
-      }
-      if (ctx.state !== "running") return false;
+    /** Starts now if audio may play, else at the first tap. Resolves true once it plays. */
+    start() {
+      if (running) return Promise.resolve(true);
       running = true;
-      bar();
-      timer = setInterval(bar, 8000);
-      level();
-      return true;
+      return MagicAudio.ready().then((ok) => {
+        if (!ok || !running) return false;
+        init();
+        if (!timer) {
+          bar();
+          timer = setInterval(bar, 8000);
+        }
+        level();
+        return true;
+      });
     },
     stop() {
       running = false;
       clearInterval(timer);
+      timer = null;
       level();
     },
     setMuted(m) {

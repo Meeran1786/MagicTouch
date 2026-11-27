@@ -11,11 +11,13 @@
   "items": [
     {
       "emoji": "🦁",
-      "word": "Lion"
+      "word": "Lion",
+      "sfx": "lion"
     },
     {
       "emoji": "🐘",
-      "word": "Elephant"
+      "word": "Elephant",
+      "sfx": "elephant"
     },
     {
       "emoji": "🦓",
@@ -35,7 +37,8 @@
     },
     {
       "emoji": "🐑",
-      "word": "Sheep"
+      "word": "Sheep",
+      "sfx": "sheep"
     },
     {
       "emoji": "🐇",

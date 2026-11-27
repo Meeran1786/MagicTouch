@@ -26,11 +26,9 @@ export function setMusicWanted(on) {
 
 /** Starts the music for an activity that wants it (it waits for the first tap if audio is locked). */
 export function startMusic() {
-  if (!music) music = createSoftMusic({ volume: 0.14 });
+  if (!music) music = createSoftMusic();
   music.setMuted(!musicWanted());
-  music.start().then((ok) => {
-    if (!ok) window.addEventListener("pointerdown", () => music && music.start(), { once: true });
-  });
+  music.start(); // plays at once, or at the first tap when the browser has not allowed audio yet
 }
 
 export function stopMusic() {

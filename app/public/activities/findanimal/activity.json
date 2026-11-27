@@ -15,6 +15,7 @@
     },
     {
       "word": "Cat",
+      "sfx": "cat",
       "photo": "images/Cat.gif"
     },
     {
@@ -31,6 +32,7 @@
     },
     {
       "word": "Elephant",
+      "sfx": "elephant",
       "photo": "images/Elephant.gif"
     },
     {
@@ -51,10 +53,12 @@
     },
     {
       "word": "Horse",
+      "sfx": "horse",
       "photo": "images/Horse.gif"
     },
     {
       "word": "Lion",
+      "sfx": "lion",
       "photo": "images/Lion.gif"
     },
     {
@@ -75,6 +79,7 @@
     },
     {
       "word": "Sheep",
+      "sfx": "sheep",
       "photo": "images/Sheep.gif"
     },
     {

@@ -97,6 +97,7 @@ export default function pictureReveal(area, d, ctx) {
       });
     }
     ME.sound.pop();
+    MT.theme(item.sfx);
     tiles = ME.tiles(tilesBox, item.word);
     hear.disabled = false;
     f.say(`✨ ${item.word}!`, "good");
