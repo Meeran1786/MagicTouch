@@ -1,0 +1,53 @@
+{
+ "id": "fruitsafari3",
+ "level": "nursery",
+ "subject": "nature",
+ "title": "Fruit & Veggie Safari 3",
+ "topic": "Garlic–Lettuce — tap the picture, hear the word",
+ "icon": "🧄",
+ "order": 37,
+ "status": "approved",
+ "template": "picture-reveal",
+ "items": [
+  {
+   "word": "Garlic",
+   "photo": "assets/photos/Garlic.jpg"
+  },
+  {
+   "word": "Ginger",
+   "photo": "assets/photos/Allam.jpg"
+  },
+  {
+   "word": "Grapes",
+   "photo": "assets/photos/Grapes.jpg"
+  },
+  {
+   "word": "Green Chili",
+   "photo": "assets/photos/GreenMirchi.jpg"
+  },
+  {
+   "word": "Guava",
+   "photo": "assets/photos/Guava.jpg"
+  },
+  {
+   "word": "Ice Cream",
+   "photo": "assets/photos/Ice.jpg"
+  },
+  {
+   "word": "Jackfruit",
+   "photo": "assets/photos/JackFruit.jpg"
+  },
+  {
+   "word": "Jamun",
+   "photo": "assets/photos/Kalajamun.jpg"
+  },
+  {
+   "word": "Kiwi",
+   "photo": "assets/photos/Kiwi.jpg"
+  },
+  {
+   "word": "Lettuce",
+   "photo": "assets/photos/Lechuga.jpg"
+  }
+ ]
+}

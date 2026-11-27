@@ -1,0 +1,53 @@
+{
+ "id": "fruitsafari4",
+ "level": "nursery",
+ "subject": "nature",
+ "title": "Fruit & Veggie Safari 4",
+ "topic": "Lime–Peas — tap the picture, hear the word",
+ "icon": "🍋",
+ "order": 38,
+ "status": "approved",
+ "template": "picture-reveal",
+ "items": [
+  {
+   "word": "Lime",
+   "photo": "assets/photos/Lemon.jpg"
+  },
+  {
+   "word": "Mango",
+   "photo": "assets/photos/Mango5.jpg"
+  },
+  {
+   "word": "Mushroom",
+   "photo": "assets/photos/V3.jpg"
+  },
+  {
+   "word": "Muskmelon",
+   "photo": "assets/photos/MeskMelon.jpg"
+  },
+  {
+   "word": "Onion",
+   "photo": "assets/photos/Onion.jpg"
+  },
+  {
+   "word": "Orange",
+   "photo": "assets/photos/Orange.png"
+  },
+  {
+   "word": "Papaya",
+   "photo": "assets/photos/Papaya.jpg"
+  },
+  {
+   "word": "Peanut",
+   "photo": "assets/photos/GroundNut.jpg"
+  },
+  {
+   "word": "Pear",
+   "photo": "assets/photos/F1.jpg"
+  },
+  {
+   "word": "Peas",
+   "photo": "assets/photos/Peas.jpg"
+  }
+ ]
+}

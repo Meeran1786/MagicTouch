@@ -1,5 +1,15 @@
 [
  {
+  "id": "colorsafari",
+  "level": "nursery",
+  "subject": "colours",
+  "title": "Cosmic Color Quest",
+  "topic": "Tap the orb, hear the word, learn your colors",
+  "icon": "🪐",
+  "template": "picture-reveal",
+  "status": "approved"
+ },
+ {
   "id": "findanimal",
   "level": "nursery",
   "subject": "nature",
@@ -47,6 +57,126 @@
   "topic": "Spot the picture that matches — set 4 of 4",
   "icon": "🌽",
   "template": "picture-spotter",
+  "status": "approved"
+ },
+ {
+  "id": "numbersafari",
+  "level": "nursery",
+  "subject": "numbers",
+  "title": "Cosmic Number Quest",
+  "topic": "Tap the digit to reveal it, count the stars, hear the word",
+  "icon": "🔢",
+  "template": "picture-reveal",
+  "status": "approved"
+ },
+ {
+  "id": "junglesafari",
+  "level": "nursery",
+  "subject": "letters",
+  "title": "Jungle Word Safari 1",
+  "topic": "Airplane–Buffalo — tap the picture, hear the word",
+  "icon": "🌿",
+  "template": "picture-reveal",
+  "status": "approved"
+ },
+ {
+  "id": "junglesafari2",
+  "level": "nursery",
+  "subject": "letters",
+  "title": "Jungle Word Safari 2",
+  "topic": "Butterfly–Dog — tap the picture, hear the word",
+  "icon": "🦋",
+  "template": "picture-reveal",
+  "status": "approved"
+ },
+ {
+  "id": "junglesafari3",
+  "level": "nursery",
+  "subject": "letters",
+  "title": "Jungle Word Safari 3",
+  "topic": "Donkey–Horse — tap the picture, hear the word",
+  "icon": "🐴",
+  "template": "picture-reveal",
+  "status": "approved"
+ },
+ {
+  "id": "junglesafari4",
+  "level": "nursery",
+  "subject": "letters",
+  "title": "Jungle Word Safari 4",
+  "topic": "Hot Air Balloon–Panther — tap the picture, hear the word",
+  "icon": "🦁",
+  "template": "picture-reveal",
+  "status": "approved"
+ },
+ {
+  "id": "junglesafari5",
+  "level": "nursery",
+  "subject": "letters",
+  "title": "Jungle Word Safari 5",
+  "topic": "Parrot–Shark — tap the picture, hear the word",
+  "icon": "🦈",
+  "template": "picture-reveal",
+  "status": "approved"
+ },
+ {
+  "id": "fruitsafari1",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Fruit & Veggie Safari 1",
+  "topic": "Almond–Capsicum — tap the picture, hear the word",
+  "icon": "🍎",
+  "template": "picture-reveal",
+  "status": "approved"
+ },
+ {
+  "id": "fruitsafari2",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Fruit & Veggie Safari 2",
+  "topic": "Carrot–Fig — tap the picture, hear the word",
+  "icon": "🥕",
+  "template": "picture-reveal",
+  "status": "approved"
+ },
+ {
+  "id": "fruitsafari3",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Fruit & Veggie Safari 3",
+  "topic": "Garlic–Lettuce — tap the picture, hear the word",
+  "icon": "🧄",
+  "template": "picture-reveal",
+  "status": "approved"
+ },
+ {
+  "id": "fruitsafari4",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Fruit & Veggie Safari 4",
+  "topic": "Lime–Peas — tap the picture, hear the word",
+  "icon": "🍋",
+  "template": "picture-reveal",
+  "status": "approved"
+ },
+ {
+  "id": "fruitsafari5",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Fruit & Veggie Safari 5",
+  "topic": "Pineapple–Strawberry — tap the picture, hear the word",
+  "icon": "🍍",
+  "template": "picture-reveal",
+  "status": "approved"
+ },
+ {
+  "id": "fruitsafari6",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Fruit & Veggie Safari 6",
+  "topic": "Sweet Potato–Zucchini — tap the picture, hear the word",
+  "icon": "🍠",
+  "template": "picture-reveal",
   "status": "approved"
  },
  {

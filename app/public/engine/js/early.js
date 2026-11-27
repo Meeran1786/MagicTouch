@@ -131,3 +131,33 @@ export function picture(item, base = "") {
   }
   return box;
 }
+
+/**
+ * Spells a word letter by letter, then says it whole. onLetter(i) fires as letter i is
+ * spoken (spaces are skipped), onLetter(-1) when the whole word starts. Returns a stop function.
+ */
+export function spell(word, onLetter = () => {}) {
+  const synth = window.speechSynthesis;
+  if (!synth) return () => {};
+  synth.cancel();
+  const parts = [...word].map((ch, i) => ({ text: ch, i })).filter((p) => p.text.trim());
+  parts.push({ text: word, i: -1 });
+  let stopped = false;
+  let k = 0;
+  const next = () => {
+    if (stopped || k >= parts.length) return;
+    const p = parts[k++];
+    const u = new SpeechSynthesisUtterance(p.i < 0 ? p.text : p.text.toLowerCase());
+    u.lang = "en-IN";
+    u.rate = p.i < 0 ? 0.85 : 0.75;
+    u.pitch = p.i < 0 ? 1.05 : 1.2;
+    u.onstart = () => !stopped && onLetter(p.i);
+    u.onend = u.onerror = next;
+    synth.speak(u);
+  };
+  next();
+  return () => {
+    stopped = true;
+    synth.cancel();
+  };
+}
