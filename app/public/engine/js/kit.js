@@ -1,14 +1,7 @@
 // MagicTouch shared kit: speech, sounds, feedback, confetti, score. Every template imports it.
-import { audioCtx as sharedAudio, sfx as soft, sfxOn } from "/shared/studio/soft-music.js";
-
-// Low-spec PCs (school mini-PCs, Raspberry Pi): the school sets it once (localStorage mtLowSpec = "1"),
-// or add ?lowspec=1 to the address. Templates read MT.lowSpec(): fewer particles, no glow blur.
-try {
-  if (new URLSearchParams(location.search).get("lowspec") === "1" || localStorage.getItem("mtLowSpec") === "1")
-    window.MAGICTOUCH_LOW_SPEC = true;
-} catch {
-  /* storage blocked */
-}
+import { audioCtx as sharedAudio } from "/shared/studio/soft-music.js";
+// Motion, sound, low-spec and confetti come from the shared motion engine (the Gold Standard layer).
+import { ME } from "/shared/motion-engine.js";
 
 export const audioCtx = sharedAudio();
 export const MT = (function () {
@@ -47,82 +40,13 @@ export const MT = (function () {
     u.pitch = 1.05;
     speechSynthesis.speak(u);
   }
-  function play(fn) {
-    if (!sfxOn()) return;
-    try {
-      audioCtx.resume();
-      fn();
-    } catch {
-      /* audio not allowed yet */
-    }
-  }
-  let lastPitch = 0;
-  const sfx = {
-    good: function () {
-      play(soft.correct);
-    },
-    bad: function () {
-      play(soft.wrong);
-    },
-    tap: function () {
-      play(soft.tap);
-    },
-    win: function () {
-      play(soft.celebrate);
-    },
-    // k = 0 … 1 (where the slider is); at most one tick every 45 ms while dragging
-    pitch: function (k) {
-      const now = performance.now();
-      if (now - lastPitch < 45) return;
-      lastPitch = now;
-      play(function () {
-        soft.pitch(k);
-      });
-    },
-  };
-  // The one sound switch, shared with the wall launcher's setting (localStorage mtSfxOn).
-  function soundOn() {
-    return sfxOn();
-  }
-  function setSound(on) {
-    try {
-      localStorage.setItem("mtSfxOn", on ? "1" : "0");
-    } catch {
-      /* storage blocked */
-    }
-    if (!on && window.speechSynthesis) speechSynthesis.cancel();
-  }
-  // An animation loop that follows the design system: requestAnimationFrame, paused while the
-  // page is hidden, stopped for good when `el` leaves the page or stop() is called.
-  // fn(dt, t) gets seconds since the last frame (at most 0.1) and the time in seconds.
-  function loop(el, fn) {
-    let raf = 0,
-      last = 0,
-      dead = false;
-    function frame(now) {
-      raf = 0;
-      if (dead) return;
-      if (el && !el.isConnected) return stop();
-      const dt = last ? Math.min(0.1, (now - last) / 1000) : 1 / 60;
-      last = now;
-      fn(dt, now / 1000);
-      if (!document.hidden) raf = requestAnimationFrame(frame);
-    }
-    function vis() {
-      if (!document.hidden && !raf && !dead) {
-        last = 0;
-        raf = requestAnimationFrame(frame);
-      }
-    }
-    function stop() {
-      dead = true;
-      cancelAnimationFrame(raf);
-      document.removeEventListener("visibilitychange", vis);
-    }
-    document.addEventListener("visibilitychange", vis);
-    raf = requestAnimationFrame(frame);
-    return stop;
-  }
+  // sounds, the sound switch, loops and device checks: see /shared/motion-engine.js
+  const sfx = ME.sound;
+  const soundOn = ME.sound.on;
+  const setSound = ME.sound.set;
+  const loop = ME.loop;
+  const lowSpec = ME.lowSpec;
+  const calm = ME.calm;
   let toastT = null;
   function toast(msg, kind) {
     const el = document.getElementById("mt-toast");
@@ -134,12 +58,6 @@ export const MT = (function () {
     }, 1600);
   }
   // Design system: at most 60 confetti pieces, fewer on low-spec PCs, none with reduced motion.
-  function lowSpec() {
-    return !!window.MAGICTOUCH_LOW_SPEC;
-  }
-  function calm() {
-    return !!(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
-  }
   function confetti() {
     const c = ["#631654", "#CC3054", "#E96E24", "#F3A328", "#FBD064", "#2FA86A"];
     if (calm()) return;
@@ -170,69 +88,7 @@ export const MT = (function () {
   }
   // A short canvas confetti burst from the middle of `el` (1.2 s): at most 60 pieces, 24 on
   // low-spec PCs, none with reduced motion. One overlay canvas, removed when the burst ends.
-  function burst(el) {
-    if (calm() || !el) return;
-    const r = el.getBoundingClientRect(),
-      dpr = lowSpec() ? 1 : Math.min(2, window.devicePixelRatio || 1);
-    const cv = document.createElement("canvas");
-    cv.className = "mt-burst";
-    cv.style.cssText = "position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:50;";
-    cv.width = innerWidth * dpr;
-    cv.height = innerHeight * dpr;
-    document.body.appendChild(cv);
-    const c = cv.getContext("2d"),
-      cols = ["#631654", "#CC3054", "#E96E24", "#F3A328", "#FBD064", "#2FA86A"],
-      ox = r.left + r.width / 2,
-      oy = r.top + r.height / 2,
-      bits = [];
-    const n = lowSpec() ? 24 : 60;
-    for (let i = 0; i < n; i++) {
-      const a = Math.random() * Math.PI * 2,
-        v = 260 + Math.random() * 420;
-      bits.push({
-        x: ox + (Math.random() - 0.5) * r.width * 0.6,
-        y: oy,
-        vx: Math.cos(a) * v,
-        vy: Math.sin(a) * v - 260,
-        rot: Math.random() * 6,
-        vr: (Math.random() - 0.5) * 14,
-        w: 8 + Math.random() * 8,
-        h: 5 + Math.random() * 5,
-        col: cols[i % cols.length],
-      });
-    }
-    let life = 0;
-    const stop = loop(cv, function (dt) {
-      life += dt;
-      c.setTransform(dpr, 0, 0, dpr, 0, 0);
-      c.clearRect(0, 0, innerWidth, innerHeight);
-      const fade = Math.min(1, (1.2 - life) / 0.35);
-      c.globalAlpha = Math.max(0, fade);
-      bits.forEach(function (b) {
-        b.vy += 900 * dt;
-        b.vx *= 1 - 1.6 * dt;
-        b.x += b.vx * dt;
-        b.y += b.vy * dt;
-        b.rot += b.vr * dt;
-        c.save();
-        c.translate(b.x, b.y);
-        c.rotate(b.rot);
-        c.scale(1, Math.cos(b.rot * 1.7)); // flutter
-        c.fillStyle = b.col;
-        c.fillRect(-b.w / 2, -b.h / 2, b.w, b.h);
-        c.restore();
-      });
-      if (life >= 1.2) {
-        stop();
-        cv.remove();
-      }
-    });
-    // the page may be hidden mid-burst: make sure the canvas still goes
-    setTimeout(function () {
-      stop();
-      cv.remove();
-    }, 2500);
-  }
+  const burst = ME.burst;
   function score(t) {
     document.getElementById("mt-score").textContent = t || "";
   }
