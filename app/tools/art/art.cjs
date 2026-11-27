@@ -26,7 +26,8 @@ exports.pistachio = W(`
 <path d="M120 120 Q130 90 160 78" stroke="#fff6e6" stroke-width="10" stroke-linecap="round" fill="none" opacity=".6"/>
 </g>`);
 
-exports.iceapple = W(`
+exports.iceapple = W(
+  `
 <ellipse cx="200" cy="474" rx="150" ry="18" fill="#ece6e0"/>
 <circle cx="200" cy="300" r="150" fill="#2b1a2a"/>
 <path d="M60 250 Q120 160 230 160" stroke="#5a3a52" stroke-width="16" stroke-linecap="round" fill="none" opacity=".7"/>
@@ -37,20 +38,32 @@ exports.iceapple = W(`
   <ellipse cx="62" cy="10" rx="54" ry="66" fill="#efe8dc"/><ellipse cx="62" cy="10" rx="54" ry="66" fill="none" stroke="#d8c7b0" stroke-width="5"/>
   <ellipse cx="0" cy="-30" rx="48" ry="58" fill="#f6f1ea"/><ellipse cx="0" cy="-30" rx="48" ry="58" fill="none" stroke="#d8c7b0" stroke-width="5"/>
   <path d="M-80 -20 Q-70 -40 -50 -46M-14 -66 Q0 -76 16 -70M44 -20 Q60 -36 80 -34" stroke="#fff" stroke-width="9" stroke-linecap="round" fill="none"/>
-</g>`, "0 0 400 500");
+</g>`,
+  "0 0 400 500",
+);
 
 exports.blueberry = W(`
 <ellipse cx="200" cy="356" rx="160" ry="16" fill="#e8e4ee"/>
 <path d="M210 80 Q250 40 300 52 Q270 92 214 96Z" fill="#3f9a5a"/><path d="M214 92 Q250 68 288 60" stroke="#2c7a44" stroke-width="4" fill="none"/>
-${[[140, 250, 78], [262, 252, 80], [200, 170, 74], [200, 300, 60]].map(([x, y, r]) => `
+${[
+  [140, 250, 78],
+  [262, 252, 80],
+  [200, 170, 74],
+  [200, 300, 60],
+]
+  .map(
+    ([x, y, r]) => `
 <circle cx="${x}" cy="${y}" r="${r}" fill="#3b4a8c"/>
 <circle cx="${x}" cy="${y}" r="${r}" fill="url(#bloom)"/>
 <path d="M${x - 16} ${y - r + 12} l16 12 l16 -12 l-6 18 l-20 0z" fill="#232c5a"/>
-<path d="M${x - r * 0.55} ${y - r * 0.2} Q${x - r * 0.4} ${y - r * 0.62} ${x - r * 0.02} ${y - r * 0.7}" stroke="#c7d0f0" stroke-width="7" stroke-linecap="round" fill="none" opacity=".6"/>`).join("")}
+<path d="M${x - r * 0.55} ${y - r * 0.2} Q${x - r * 0.4} ${y - r * 0.62} ${x - r * 0.02} ${y - r * 0.7}" stroke="#c7d0f0" stroke-width="7" stroke-linecap="round" fill="none" opacity=".6"/>`,
+  )
+  .join("")}
 <defs><radialGradient id="bloom" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#8c9ad4" stop-opacity=".55"/><stop offset="1" stop-color="#1d2552" stop-opacity=".35"/></radialGradient></defs>`);
 
 // Spotted deer (chital), common in Indian forests.
-exports.deer = W(`
+exports.deer = W(
+  `
 <ellipse cx="200" cy="500" rx="150" ry="16" fill="#ece6e0"/>
 <g stroke="#5b3a22" stroke-width="12" stroke-linecap="round">
   <path d="M136 340 L128 488"/><path d="M168 344 L172 488"/><path d="M252 340 L246 488"/><path d="M284 334 L296 486"/>
@@ -58,7 +71,24 @@ exports.deer = W(`
 <g fill="#3a2414"><rect x="118" y="480" width="22" height="12" rx="4"/><rect x="162" y="480" width="22" height="12" rx="4"/><rect x="236" y="480" width="22" height="12" rx="4"/><rect x="286" y="478" width="22" height="12" rx="4"/></g>
 <path d="M104 300 Q110 240 190 240 Q270 236 304 266 Q326 290 312 336 Q260 362 180 360 Q112 356 104 300Z" fill="#c2763c"/>
 <path d="M120 330 Q200 356 300 336 Q260 362 180 360 Q130 356 120 330Z" fill="#f4e6d2"/>
-<g fill="#fbf2e6">${[[150, 270], [180, 262], [212, 258], [244, 262], [272, 272], [166, 296], [198, 290], [230, 290], [262, 300], [140, 304], [292, 300], [208, 318], [178, 320], [246, 322]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="7"/>`).join("")}</g>
+<g fill="#fbf2e6">${[
+    [150, 270],
+    [180, 262],
+    [212, 258],
+    [244, 262],
+    [272, 272],
+    [166, 296],
+    [198, 290],
+    [230, 290],
+    [262, 300],
+    [140, 304],
+    [292, 300],
+    [208, 318],
+    [178, 320],
+    [246, 322],
+  ]
+    .map(([x, y]) => `<circle cx="${x}" cy="${y}" r="7"/>`)
+    .join("")}</g>
 <path d="M104 292 Q86 280 92 262 Q104 270 112 284Z" fill="#c2763c"/><path d="M92 262 Q88 254 96 252 Q100 262 98 268Z" fill="#fbf2e6"/>
 <path d="M284 270 Q300 200 316 160 L344 168 Q330 220 314 290Z" fill="#c2763c"/>
 <path d="M300 170 Q320 120 352 126 Q378 132 384 150 Q372 168 346 172 Q324 176 300 170Z" fill="#c2763c"/>
@@ -68,13 +98,33 @@ exports.deer = W(`
 <g stroke="#7a5230" stroke-width="7" stroke-linecap="round" fill="none">
   <path d="M326 122 Q314 74 330 30"/><path d="M322 92 Q300 80 296 60"/><path d="M328 54 Q346 44 350 26"/>
   <path d="M340 124 Q350 80 380 50"/><path d="M350 96 Q370 92 384 78"/><path d="M366 64 Q362 46 372 30"/>
-</g>`, "0 0 420 520");
+</g>`,
+  "0 0 420 520",
+);
 
 // Rose-ringed parakeet (Indian "parrot"), wing angle a in degrees, for the flapping GIF.
 exports.parrot = (a = 0, colour = true) => {
-  const g = colour ? { body: "#3fae4a", dark: "#2a8a36", light: "#8fd86a", beak: "#d6283a", ring: "#1c1c1c", pink: "#e985a8", tail: "#2f8f8a" }
-                   : { body: "#8a8a8a", dark: "#5e5e5e", light: "#bdbdbd", beak: "#4a4a4a", ring: "#1c1c1c", pink: "#a8a8a8", tail: "#707070" };
-  return W(`
+  const g = colour
+    ? {
+        body: "#3fae4a",
+        dark: "#2a8a36",
+        light: "#8fd86a",
+        beak: "#d6283a",
+        ring: "#1c1c1c",
+        pink: "#e985a8",
+        tail: "#2f8f8a",
+      }
+    : {
+        body: "#8a8a8a",
+        dark: "#5e5e5e",
+        light: "#bdbdbd",
+        beak: "#4a4a4a",
+        ring: "#1c1c1c",
+        pink: "#a8a8a8",
+        tail: "#707070",
+      };
+  return W(
+    `
 <g transform="translate(270 300) rotate(-10)">
   <path d="M-30 30 Q-120 160 -250 236 Q-150 120 -60 20Z" fill="${g.tail}"/>
   <path d="M-30 30 Q-100 150 -210 230 Q-120 110 -46 22Z" fill="${g.dark}" opacity=".5"/>
@@ -92,5 +142,7 @@ exports.parrot = (a = 0, colour = true) => {
     <path d="M-30 -40 Q-70 -84 -112 -100M-24 -20 Q-66 -50 -100 -64" stroke="${g.light}" stroke-width="5" fill="none" stroke-linecap="round" opacity=".7"/>
   </g>
   <path d="M20 46 l-6 26 M34 46 l2 26" stroke="#7a6a5a" stroke-width="6" stroke-linecap="round"/>
-</g>`, "0 0 540 602");
+</g>`,
+    "0 0 540 602",
+  );
 };

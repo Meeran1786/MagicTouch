@@ -22,6 +22,10 @@ export function emojiImg(emoji, alt = "") {
   img.src = emojiSrc(emoji);
   img.alt = alt;
   img.draggable = false;
-  img.addEventListener("error", () => img.replaceWith(Object.assign(document.createElement("span"), { className: "mt-emoji", textContent: emoji })), { once: true });
+  img.addEventListener(
+    "error",
+    () => img.replaceWith(Object.assign(document.createElement("span"), { className: "mt-emoji", textContent: emoji })),
+    { once: true },
+  );
   return img;
 }

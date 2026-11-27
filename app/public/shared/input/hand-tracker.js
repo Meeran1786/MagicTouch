@@ -2,15 +2,10 @@
 // Follows up to maxHands index fingertips. Same contract as ir-pen-tracker.js:
 // finger_x / finger_y / finger_conf for the main hand (held through a few dropped
 // frames), and fingers[] with every fingertip seen this frame.
-import {
-  HandLandmarker,
-  FilesetResolver,
-} from "/vendor/mediapipe-tasks/vision_bundle.mjs";
+import { HandLandmarker, FilesetResolver } from "/vendor/mediapipe-tasks/vision_bundle.mjs";
 
-const MODEL_URL =
-  "/vendor/mediapipe-tasks/hand_landmarker.task";
-const WASM_URL =
-  "/vendor/mediapipe-tasks/wasm";
+const MODEL_URL = "/vendor/mediapipe-tasks/hand_landmarker.task";
+const WASM_URL = "/vendor/mediapipe-tasks/wasm";
 
 const INDEX_FINGER_TIP = 8;
 
@@ -73,9 +68,7 @@ export class HandTracker {
       statusCb("");
     } catch (err) {
       this.error = err;
-      statusCb(
-        "Could not start camera / model: " + (err && err.message ? err.message : err)
-      );
+      statusCb("Could not start camera / model: " + (err && err.message ? err.message : err));
       throw err;
     }
   }
@@ -113,8 +106,12 @@ export class HandTracker {
       this._histories[i].push([x, y]);
       if (this._histories[i].length > HandTracker.FINGER_SMOOTH_N) this._histories[i].shift();
 
-      let ax = 0, ay = 0;
-      for (const p of this._histories[i]) { ax += p[0]; ay += p[1]; }
+      let ax = 0,
+        ay = 0;
+      for (const p of this._histories[i]) {
+        ax += p[0];
+        ay += p[1];
+      }
       ax /= this._histories[i].length;
       ay /= this._histories[i].length;
 
@@ -145,7 +142,7 @@ export class HandTracker {
   }
 
   release() {
-    if (this._stream) this._stream.getTracks().forEach(t => t.stop());
+    if (this._stream) this._stream.getTracks().forEach((t) => t.stop());
     if (this._landmarker) this._landmarker.close();
   }
 }

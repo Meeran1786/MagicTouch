@@ -1,33 +1,33 @@
 {
- "id": "rainydaygear",
- "level": "nursery",
- "subject": "world",
- "title": "Rainy Day Gear",
- "topic": "Umbrella, boots, raincoat and more",
- "icon": "☂️",
- "order": 102,
- "status": "approved",
- "template": "emoji-quiz",
- "items": [
-  {
-   "emoji": "☂️",
-   "word": "Umbrella"
-  },
-  {
-   "emoji": "👢",
-   "word": "Boots"
-  },
-  {
-   "emoji": "🧥",
-   "word": "Raincoat"
-  },
-  {
-   "emoji": "💦",
-   "word": "Puddle"
-  },
-  {
-   "emoji": "🌡️",
-   "word": "Thermometer"
-  }
- ]
+  "id": "rainydaygear",
+  "level": "nursery",
+  "subject": "world",
+  "title": "Rainy Day Gear",
+  "topic": "Umbrella, boots, raincoat and more",
+  "icon": "☂️",
+  "order": 102,
+  "status": "approved",
+  "template": "emoji-quiz",
+  "items": [
+    {
+      "emoji": "☂️",
+      "word": "Umbrella"
+    },
+    {
+      "emoji": "👢",
+      "word": "Boots"
+    },
+    {
+      "emoji": "🧥",
+      "word": "Raincoat"
+    },
+    {
+      "emoji": "💦",
+      "word": "Puddle"
+    },
+    {
+      "emoji": "🌡️",
+      "word": "Thermometer"
+    }
+  ]
 }

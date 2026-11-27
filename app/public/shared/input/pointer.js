@@ -299,7 +299,11 @@ function showNotice(text, action, onAction) {
 function installKeys() {
   window.addEventListener("keydown", (e) => {
     if (e.ctrlKey || e.metaKey || e.altKey || e.shiftKey) return;
-    if ((e.key === "r" || e.key === "R") && mode !== "mouse" && !/INPUT|TEXTAREA/.test(document.activeElement.tagName)) {
+    if (
+      (e.key === "r" || e.key === "R") &&
+      mode !== "mouse" &&
+      !/INPUT|TEXTAREA/.test(document.activeElement.tagName)
+    ) {
       requestCalibration();
     }
   });

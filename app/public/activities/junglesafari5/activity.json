@@ -1,53 +1,53 @@
 {
- "id": "junglesafari5",
- "level": "nursery",
- "subject": "letters",
- "title": "Jungle Word Safari 5",
- "topic": "Parrot–Shark — tap the picture, hear the word",
- "icon": "🦈",
- "order": 28,
- "status": "approved",
- "template": "picture-reveal",
- "items": [
-  {
-   "word": "Parrot",
-   "photo": "assets/gifs/P1.gif"
-  },
-  {
-   "word": "Pigeon",
-   "photo": "assets/gifs/35.gif"
-  },
-  {
-   "word": "Puppy",
-   "photo": "assets/gifs/19.gif"
-  },
-  {
-   "word": "Rabbit",
-   "photo": "assets/gifs/Rabbit.gif"
-  },
-  {
-   "word": "Raven",
-   "photo": "assets/gifs/16.gif"
-  },
-  {
-   "word": "Rhino",
-   "photo": "assets/gifs/27.gif"
-  },
-  {
-   "word": "Rooster",
-   "photo": "assets/gifs/Hen.gif"
-  },
-  {
-   "word": "Scooter",
-   "photo": "assets/gifs/39.gif"
-  },
-  {
-   "word": "Scorpion",
-   "photo": "assets/gifs/40.gif"
-  },
-  {
-   "word": "Shark",
-   "photo": "assets/gifs/41.gif"
-  }
- ]
+  "id": "junglesafari5",
+  "level": "nursery",
+  "subject": "letters",
+  "title": "Jungle Word Safari 5",
+  "topic": "Parrot–Shark — tap the picture, hear the word",
+  "icon": "🦈",
+  "order": 28,
+  "status": "approved",
+  "template": "picture-reveal",
+  "items": [
+    {
+      "word": "Parrot",
+      "photo": "assets/gifs/P1.gif"
+    },
+    {
+      "word": "Pigeon",
+      "photo": "assets/gifs/35.gif"
+    },
+    {
+      "word": "Puppy",
+      "photo": "assets/gifs/19.gif"
+    },
+    {
+      "word": "Rabbit",
+      "photo": "assets/gifs/Rabbit.gif"
+    },
+    {
+      "word": "Raven",
+      "photo": "assets/gifs/16.gif"
+    },
+    {
+      "word": "Rhino",
+      "photo": "assets/gifs/27.gif"
+    },
+    {
+      "word": "Rooster",
+      "photo": "assets/gifs/Hen.gif"
+    },
+    {
+      "word": "Scooter",
+      "photo": "assets/gifs/39.gif"
+    },
+    {
+      "word": "Scorpion",
+      "photo": "assets/gifs/40.gif"
+    },
+    {
+      "word": "Shark",
+      "photo": "assets/gifs/41.gif"
+    }
+  ]
 }

@@ -1,33 +1,33 @@
 {
- "id": "seasonsyear",
- "level": "nursery",
- "subject": "nature",
- "title": "Seasons of the Year",
- "topic": "Summer, winter, monsoon, spring and autumn",
- "icon": "🍁",
- "order": 67,
- "status": "approved",
- "template": "emoji-quiz",
- "items": [
-  {
-   "emoji": "🌞",
-   "word": "Summer"
-  },
-  {
-   "emoji": "⛄",
-   "word": "Winter"
-  },
-  {
-   "emoji": "☔",
-   "word": "Monsoon"
-  },
-  {
-   "emoji": "🌷",
-   "word": "Spring"
-  },
-  {
-   "emoji": "🍁",
-   "word": "Autumn"
-  }
- ]
+  "id": "seasonsyear",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Seasons of the Year",
+  "topic": "Summer, winter, monsoon, spring and autumn",
+  "icon": "🍁",
+  "order": 67,
+  "status": "approved",
+  "template": "emoji-quiz",
+  "items": [
+    {
+      "emoji": "🌞",
+      "word": "Summer"
+    },
+    {
+      "emoji": "⛄",
+      "word": "Winter"
+    },
+    {
+      "emoji": "☔",
+      "word": "Monsoon"
+    },
+    {
+      "emoji": "🌷",
+      "word": "Spring"
+    },
+    {
+      "emoji": "🍁",
+      "word": "Autumn"
+    }
+  ]
 }

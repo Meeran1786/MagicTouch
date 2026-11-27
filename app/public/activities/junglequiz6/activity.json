@@ -1,45 +1,45 @@
 {
- "id": "junglequiz6",
- "level": "lkg",
- "subject": "letters",
- "title": "Jungle Word Quiz 6",
- "topic": "Sheep–Zebra — multiple choice & spelling quiz",
- "icon": "🐯",
- "order": 34,
- "status": "approved",
- "template": "picture-quiz",
- "items": [
-  {
-   "word": "Sheep",
-   "photo": "assets/gifs/42.gif"
-  },
-  {
-   "word": "Snail",
-   "photo": "assets/gifs/43.gif"
-  },
-  {
-   "word": "Spider",
-   "photo": "assets/gifs/44.gif"
-  },
-  {
-   "word": "Starfish",
-   "photo": "assets/gifs/45.gif"
-  },
-  {
-   "word": "Tiger",
-   "photo": "assets/gifs/Tiger.gif"
-  },
-  {
-   "word": "Tortoise",
-   "photo": "assets/gifs/48.gif"
-  },
-  {
-   "word": "Tree",
-   "photo": "assets/gifs/46.gif"
-  },
-  {
-   "word": "Zebra",
-   "photo": "assets/gifs/30.gif"
-  }
- ]
+  "id": "junglequiz6",
+  "level": "lkg",
+  "subject": "letters",
+  "title": "Jungle Word Quiz 6",
+  "topic": "Sheep–Zebra — multiple choice & spelling quiz",
+  "icon": "🐯",
+  "order": 34,
+  "status": "approved",
+  "template": "picture-quiz",
+  "items": [
+    {
+      "word": "Sheep",
+      "photo": "assets/gifs/42.gif"
+    },
+    {
+      "word": "Snail",
+      "photo": "assets/gifs/43.gif"
+    },
+    {
+      "word": "Spider",
+      "photo": "assets/gifs/44.gif"
+    },
+    {
+      "word": "Starfish",
+      "photo": "assets/gifs/45.gif"
+    },
+    {
+      "word": "Tiger",
+      "photo": "assets/gifs/Tiger.gif"
+    },
+    {
+      "word": "Tortoise",
+      "photo": "assets/gifs/48.gif"
+    },
+    {
+      "word": "Tree",
+      "photo": "assets/gifs/46.gif"
+    },
+    {
+      "word": "Zebra",
+      "photo": "assets/gifs/30.gif"
+    }
+  ]
 }

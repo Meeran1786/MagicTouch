@@ -63,7 +63,16 @@ export default function slice(area, d, ctx) {
     const x = g.w * (0.15 + Math.random() * 0.7);
     const peak = g.h * (0.2 + Math.random() * 0.3);
     const vy = -Math.sqrt(2 * GRAVITY * (g.h - peak));
-    things.push({ ...picture(), x, y: g.h + r, r, vx: (g.w / 2 - x) * (0.2 + Math.random() * 0.3), vy, spin: d.items ? (Math.random() - 0.5) * 3 : 0, a: 0 });
+    things.push({
+      ...picture(),
+      x,
+      y: g.h + r,
+      r,
+      vx: (g.w / 2 - x) * (0.2 + Math.random() * 0.3),
+      vy,
+      spin: d.items ? (Math.random() - 0.5) * 3 : 0,
+      a: 0,
+    });
   }
 
   function drawThing(o, part = 0) {
@@ -98,7 +107,8 @@ export default function slice(area, d, ctx) {
 
   function cut(o) {
     o.dead = true;
-    for (const side of [-1, 1]) halves.push({ ...o, part: side, vx: o.vx + side * 160, vy: Math.min(o.vy, 0) - 80, spin: side * 3, life: 1 });
+    for (const side of [-1, 1])
+      halves.push({ ...o, part: side, vx: o.vx + side * 160, vy: Math.min(o.vy, 0) - 80, spin: side * 3, life: 1 });
     const rule = rules[ruleAt];
     const ok = !rule || o.value === undefined || TESTS[rule.kind](o.value, rule.n);
     if (ok) {

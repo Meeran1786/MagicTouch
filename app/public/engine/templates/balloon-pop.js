@@ -14,7 +14,9 @@ export const meta = { fullscreen: true, music: true, styles: ["early", "balloon-
 
 const COLOURS = ["#CC3054", "#E96E24", "#F3A328", "#2FA86A", "#631654", "#3A86FF"];
 const balloonSvg = (c) =>
-  '<svg viewBox="0 0 100 150" aria-hidden="true"><defs><radialGradient id="bp-' + c.slice(1) + '" cx="35%" cy="30%" r="75%">' +
+  '<svg viewBox="0 0 100 150" aria-hidden="true"><defs><radialGradient id="bp-' +
+  c.slice(1) +
+  '" cx="35%" cy="30%" r="75%">' +
   `<stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset=".3" stop-color="${c}"/><stop offset="1" stop-color="${c}"/></radialGradient></defs>` +
   '<path d="M50 104c2 14-8 22 0 44" fill="none" stroke="#9a8a96" stroke-width="2"/>' +
   `<ellipse cx="50" cy="52" rx="42" ry="50" fill="url(#bp-${c.slice(1)})"/><path d="M44 101h12l-6 7z" fill="${c}"/></svg>`;
@@ -23,7 +25,8 @@ export default function balloonPop(area, d) {
   const f = frame(area, { icon: d.icon, title: d.title });
   const panel = document.createElement("div");
   panel.className = "bp";
-  panel.innerHTML = '<div class="ey-panel bp-ask"><div class="bp-sum"></div><div class="bp-pics"></div></div><div class="bp-sky"></div><div class="ey-feedback"></div>';
+  panel.innerHTML =
+    '<div class="ey-panel bp-ask"><div class="bp-sum"></div><div class="bp-pics"></div></div><div class="bp-sky"></div><div class="ey-feedback"></div>';
   f.stage.appendChild(panel);
   const sumEl = panel.querySelector(".bp-sum");
   const pics = panel.querySelector(".bp-pics");
@@ -32,7 +35,10 @@ export default function balloonPop(area, d) {
   const max = d.max || 9;
   const take = d.op === "take";
   const total = d.questions || 10;
-  const emoji = Array.from(new Intl.Segmenter("en", { granularity: "grapheme" }).segment(d.emoji || "🍎⭐🐥🎈"), (s) => s.segment);
+  const emoji = Array.from(
+    new Intl.Segmenter("en", { granularity: "grapheme" }).segment(d.emoji || "🍎⭐🐥🎈"),
+    (s) => s.segment,
+  );
   let at = 0;
   let score = 0;
   let answer = 0;

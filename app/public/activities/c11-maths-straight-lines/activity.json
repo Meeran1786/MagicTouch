@@ -1,89 +1,80 @@
 {
- "id": "c11-maths-straight-lines",
- "level": "inter-1",
- "subject": "maths",
- "title": "Straight lines: y = mx + c",
- "icon": "📈",
- "topic": "Slope and intercept",
- "concept": "maths.coordinate-geometry.straight-lines",
- "status": "draft",
- "template": "simulate",
- "model": "line",
- "instruction": "Change the slope m and the intercept c. Make your red line sit on the green dashed line.",
- "intro": "m sets how steep the line is. c sets where it crosses the y axis.",
- "sliders": [
-  {
-   "id": "m",
-   "label": "Slope m",
-   "min": -3,
-   "max": 3,
-   "step": 0.5,
-   "value": 0
-  },
-  {
-   "id": "c",
-   "label": "Intercept c",
-   "min": -6,
-   "max": 6,
-   "step": 1,
-   "value": 0
-  }
- ],
- "goals": [
-  {
-   "text": "Match the green line.",
-   "line": [
-    1,
-    2
-   ],
-   "inputs": [
+  "id": "c11-maths-straight-lines",
+  "level": "inter-1",
+  "subject": "maths",
+  "title": "Straight lines: y = mx + c",
+  "icon": "📈",
+  "topic": "Slope and intercept",
+  "concept": "maths.coordinate-geometry.straight-lines",
+  "status": "draft",
+  "template": "simulate",
+  "model": "line",
+  "instruction": "Change the slope m and the intercept c. Make your red line sit on the green dashed line.",
+  "intro": "m sets how steep the line is. c sets where it crosses the y axis.",
+  "sliders": [
     {
-     "id": "m",
-     "equals": 1
+      "id": "m",
+      "label": "Slope m",
+      "min": -3,
+      "max": 3,
+      "step": 0.5,
+      "value": 0
     },
     {
-     "id": "c",
-     "equals": 2
+      "id": "c",
+      "label": "Intercept c",
+      "min": -6,
+      "max": 6,
+      "step": 1,
+      "value": 0
     }
-   ],
-   "say": "y equals x plus 2."
-  },
-  {
-   "text": "Match the green line.",
-   "line": [
-    -2,
-    3
-   ],
-   "inputs": [
+  ],
+  "goals": [
     {
-     "id": "m",
-     "equals": -2
+      "text": "Match the green line.",
+      "line": [1, 2],
+      "inputs": [
+        {
+          "id": "m",
+          "equals": 1
+        },
+        {
+          "id": "c",
+          "equals": 2
+        }
+      ],
+      "say": "y equals x plus 2."
     },
     {
-     "id": "c",
-     "equals": 3
-    }
-   ],
-   "say": "A negative slope goes downhill."
-  },
-  {
-   "text": "Match the green line.",
-   "line": [
-    0.5,
-    -4
-   ],
-   "inputs": [
-    {
-     "id": "m",
-     "equals": 0.5
+      "text": "Match the green line.",
+      "line": [-2, 3],
+      "inputs": [
+        {
+          "id": "m",
+          "equals": -2
+        },
+        {
+          "id": "c",
+          "equals": 3
+        }
+      ],
+      "say": "A negative slope goes downhill."
     },
     {
-     "id": "c",
-     "equals": -4
+      "text": "Match the green line.",
+      "line": [0.5, -4],
+      "inputs": [
+        {
+          "id": "m",
+          "equals": 0.5
+        },
+        {
+          "id": "c",
+          "equals": -4
+        }
+      ],
+      "say": "A slope of one half is gentle."
     }
-   ],
-   "say": "A slope of one half is gentle."
-  }
- ],
- "doneText": "Line expert!"
+  ],
+  "doneText": "Line expert!"
 }

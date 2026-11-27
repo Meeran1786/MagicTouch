@@ -1,41 +1,41 @@
 {
- "id": "bakerytreats",
- "level": "prekg",
- "subject": "world",
- "title": "Bakery Treats",
- "topic": "Cupcake, cookie, donut, pretzel and more",
- "icon": "🧁",
- "order": 94,
- "status": "approved",
- "template": "emoji-quiz",
- "items": [
-  {
-   "emoji": "🧁",
-   "word": "Cupcake"
-  },
-  {
-   "emoji": "🍪",
-   "word": "Cookie"
-  },
-  {
-   "emoji": "🍩",
-   "word": "Donut"
-  },
-  {
-   "emoji": "🥧",
-   "word": "Pie"
-  },
-  {
-   "emoji": "🥨",
-   "word": "Pretzel"
-  },
-  {
-   "emoji": "🥐",
-   "word": "Croissant"
-  },
-  {
-   "emoji": "🥞",
-   "word": "Pancakes"
-  }
- ]
+  "id": "bakerytreats",
+  "level": "prekg",
+  "subject": "world",
+  "title": "Bakery Treats",
+  "topic": "Cupcake, cookie, donut, pretzel and more",
+  "icon": "🧁",
+  "order": 94,
+  "status": "approved",
+  "template": "emoji-quiz",
+  "items": [
+    {
+      "emoji": "🧁",
+      "word": "Cupcake"
+    },
+    {
+      "emoji": "🍪",
+      "word": "Cookie"
+    },
+    {
+      "emoji": "🍩",
+      "word": "Donut"
+    },
+    {
+      "emoji": "🥧",
+      "word": "Pie"
+    },
+    {
+      "emoji": "🥨",
+      "word": "Pretzel"
+    },
+    {
+      "emoji": "🥐",
+      "word": "Croissant"
+    },
+    {
+      "emoji": "🥞",
+      "word": "Pancakes"
+    }
+  ]
 }

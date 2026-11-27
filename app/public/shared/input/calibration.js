@@ -6,16 +6,18 @@
 import { computeHomography } from "./homography.js";
 import { calStorageKey, createTracker } from "./config.js";
 
-const CAM_W = 640, CAM_H = 480;
-const GRID_COLS = 3, GRID_ROWS = 3;
+const CAM_W = 640,
+  CAM_H = 480;
+const GRID_COLS = 3,
+  GRID_ROWS = 3;
 const DOT_R = 22;
 
 const CAL_DWELL_MS = 2000;
-const CAL_STILL_CAM = 40;     // px the pen may wobble (camera px) and still count as "holding still"
-const CAL_RELEASE_CAM = 20;   // px the pen must travel from the last capture... unless it was lifted
-const CAL_DROP_MS = 600;      // a dropout shorter than this does NOT restart the 2 s hold
+const CAL_STILL_CAM = 40; // px the pen may wobble (camera px) and still count as "holding still"
+const CAL_RELEASE_CAM = 20; // px the pen must travel from the last capture... unless it was lifted
+const CAL_DROP_MS = 600; // a dropout shorter than this does NOT restart the 2 s hold
 const CAL_LIFT_MS = 250;
-const CAL_GLITCH_MS = 400;    // a jump away from the dot shorter than this is a glitch (reflection/flicker), not a move      // ...lifting the pen off the wall this long also releases it
+const CAL_GLITCH_MS = 400; // a jump away from the dot shorter than this is a glitch (reflection/flicker), not a move      // ...lifting the pen off the wall this long also releases it
 
 // "wallSharedCalibration" in hand mode, "wallSharedCalibrationIR" in IR-pen mode
 // (see config.js) — a calibration only fits the device it was captured with.
@@ -48,7 +50,9 @@ export function loadCalibration() {
 export function clearCalibration() {
   try {
     localStorage.removeItem(CAL_STORAGE_KEY);
-  } catch (e) { /* ignore */ }
+  } catch (e) {
+    /* ignore */
+  }
 }
 
 // ── tiny canvas drawing helpers ─────────────────────────────────────
@@ -64,15 +68,20 @@ function text(ctx, s, x, y, font, color, align = "center", baseline = "middle") 
 function alphaCircle(ctx, rgba, cx, cy, r) {
   if (r <= 0) return;
   ctx.save();
-  ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2);
-  ctx.fillStyle = rgba; ctx.fill();
+  ctx.beginPath();
+  ctx.arc(cx, cy, r, 0, Math.PI * 2);
+  ctx.fillStyle = rgba;
+  ctx.fill();
   ctx.restore();
 }
 function alphaRing(ctx, rgba, cx, cy, r, width) {
   if (r <= 0) return;
   ctx.save();
-  ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2);
-  ctx.strokeStyle = rgba; ctx.lineWidth = width; ctx.stroke();
+  ctx.beginPath();
+  ctx.arc(cx, cy, r, 0, Math.PI * 2);
+  ctx.strokeStyle = rgba;
+  ctx.lineWidth = width;
+  ctx.stroke();
   ctx.restore();
 }
 
@@ -98,21 +107,30 @@ class Calibrator {
     //   Space / Enter = capture the dot NOW at the pen's current position
     //   N             = skip this dot (need at least 4 captured dots overall)
     //   B             = go back one dot and redo it
-    window.addEventListener("keydown", e => {
+    window.addEventListener("keydown", (e) => {
       if (this.calDone || e.ctrlKey || e.metaKey || e.altKey || e.shiftKey) return;
-      if (e.key === " " || e.key === "Enter") { e.preventDefault(); this.recordPoint(); }
-      else if (e.key === "n" || e.key === "N") this.skipPoint();
+      if (e.key === " " || e.key === "Enter") {
+        e.preventDefault();
+        this.recordPoint();
+      } else if (e.key === "n" || e.key === "N") this.skipPoint();
       else if (e.key === "b" || e.key === "B") this.backPoint();
     });
 
     this.hand = hand; // shared, already-initialized tracker (HandTracker or IRPenTracker)
     this.isPen = hand.inputName === "pen";
 
-    this.calGrid = []; this.dotStatus = []; this.activeIdx = 0; this.pairs = [];
-    this.calH = null; this.calDone = false;
-    this.calDwellStart = 0; this.calDwellProg = 0;
-    this.calAnchorX = -1; this.calAnchorY = -1;
-    this.calLastCapX = -1; this.calLastCapY = -1;
+    this.calGrid = [];
+    this.dotStatus = [];
+    this.activeIdx = 0;
+    this.pairs = [];
+    this.calH = null;
+    this.calDone = false;
+    this.calDwellStart = 0;
+    this.calDwellProg = 0;
+    this.calAnchorX = -1;
+    this.calAnchorY = -1;
+    this.calLastCapX = -1;
+    this.calLastCapY = -1;
     this.flashRings = [];
     this.pulse = 0;
     this.dbgCount = { lost: 0, moved: 0 };
@@ -135,7 +153,8 @@ class Calibrator {
   }
 
   buildGrid() {
-    this.calGrid = []; this.dotStatus = [];
+    this.calGrid = [];
+    this.dotStatus = [];
     const PAD = 150;
     for (let r = 0; r < GRID_ROWS; r++) {
       for (let c = 0; c < GRID_COLS; c++) {
@@ -159,16 +178,25 @@ class Calibrator {
 
   updateDwell() {
     if (this.calDone) return;
-    const fx = this.hand.finger_x, fy = this.hand.finger_y;
+    const fx = this.hand.finger_x,
+      fy = this.hand.finger_y;
     if (fx < 0 || fy < 0) {
       if (!this.calLostSince) this.calLostSince = now();
       const lostFor = now() - this.calLostSince;
       // pen off the wall for a moment → the last capture is "released"
-      if (lostFor > CAL_LIFT_MS) { this.calLastCapX = -1; this.calLastCapY = -1; }
+      if (lostFor > CAL_LIFT_MS) {
+        this.calLastCapX = -1;
+        this.calLastCapY = -1;
+      }
       // brief dropout while holding: keep the hold alive (progress frozen), only restart if it lasts
       if (this.calDwellStart !== 0 && lostFor <= CAL_DROP_MS) return;
-      if (this.calDwellStart !== 0) { this.dbgCount.lost++; this.calWhy = "pen lost " + Math.round(lostFor) + "ms"; }
-      this.calDwellStart = 0; this.calDwellProg = 0; return;
+      if (this.calDwellStart !== 0) {
+        this.dbgCount.lost++;
+        this.calWhy = "pen lost " + Math.round(lostFor) + "ms";
+      }
+      this.calDwellStart = 0;
+      this.calDwellProg = 0;
+      return;
     }
     if (this.calLostSince && this.calDwellStart !== 0) {
       // pen came back mid-hold: shift the timer so the dropout time isn't counted
@@ -177,23 +205,33 @@ class Calibrator {
     this.calLostSince = 0;
     // Still resting on the dot that was just captured (never lifted, barely moved)? wait for it to leave.
     if (this.calLastCapX >= 0 && dist(fx, fy, this.calLastCapX, this.calLastCapY) < CAL_RELEASE_CAM) {
-      this.calDwellStart = 0; this.calDwellProg = 0; return;
+      this.calDwellStart = 0;
+      this.calDwellProg = 0;
+      return;
     }
     if (this.calDwellStart === 0) {
-      this.calAnchorX = fx; this.calAnchorY = fy;
-      this.calSumX = fx; this.calSumY = fy; this.calSumN = 1;
+      this.calAnchorX = fx;
+      this.calAnchorY = fy;
+      this.calSumX = fx;
+      this.calSumY = fy;
+      this.calSumN = 1;
       this.calAwaySince = 0;
-      this.calDwellStart = now(); this.calDwellProg = 0;
+      this.calDwellStart = now();
+      this.calDwellProg = 0;
       return;
     }
     if (dist(fx, fy, this.calAnchorX, this.calAnchorY) <= CAL_STILL_CAM) {
       this.calAwaySince = 0;
       // average every steady reading; the anchor follows the average so slow drift is fine
-      this.calSumX += fx; this.calSumY += fy; this.calSumN += 1;
-      this.calAnchorX = this.calSumX / this.calSumN; this.calAnchorY = this.calSumY / this.calSumN;
+      this.calSumX += fx;
+      this.calSumY += fy;
+      this.calSumN += 1;
+      this.calAnchorX = this.calSumX / this.calSumN;
+      this.calAnchorY = this.calSumY / this.calSumN;
       this.calDwellProg = clamp((now() - this.calDwellStart) / CAL_DWELL_MS, 0, 1);
       if (this.calDwellProg >= 1) {
-        this.calLastCapX = this.calAnchorX; this.calLastCapY = this.calAnchorY;
+        this.calLastCapX = this.calAnchorX;
+        this.calLastCapY = this.calAnchorY;
         this.recordPoint(this.calAnchorX, this.calAnchorY);
       }
     } else {
@@ -207,17 +245,23 @@ class Calibrator {
       this.calAwaySince = 0;
       this.dbgCount.moved++;
       this.calWhy = "pen jumped " + Math.round(dist(fx, fy, this.calAnchorX, this.calAnchorY)) + "px";
-      this.calAnchorX = fx; this.calAnchorY = fy;
-      this.calSumX = fx; this.calSumY = fy; this.calSumN = 1;
-      this.calDwellStart = now(); this.calDwellProg = 0;
+      this.calAnchorX = fx;
+      this.calAnchorY = fy;
+      this.calSumX = fx;
+      this.calSumY = fy;
+      this.calSumN = 1;
+      this.calDwellStart = now();
+      this.calDwellProg = 0;
     }
   }
 
   skipPoint() {
     if (this.calDone || this.activeIdx >= this.calGrid.length) return;
     this.dotStatus[this.activeIdx] = "skipped";
-    this.calDwellStart = 0; this.calDwellProg = 0;
-    this.calLastCapX = -1; this.calLastCapY = -1;
+    this.calDwellStart = 0;
+    this.calDwellProg = 0;
+    this.calLastCapX = -1;
+    this.calLastCapY = -1;
     this.activeIdx += 1;
     if (this.activeIdx >= this.calGrid.length) this.finishCal();
     else this.dotStatus[this.activeIdx] = "active";
@@ -229,8 +273,10 @@ class Calibrator {
     this.activeIdx -= 1;
     if (this.dotStatus[this.activeIdx] === "confirmed") this.pairs.pop();
     this.dotStatus[this.activeIdx] = "active";
-    this.calDwellStart = 0; this.calDwellProg = 0;
-    this.calLastCapX = -1; this.calLastCapY = -1;
+    this.calDwellStart = 0;
+    this.calDwellProg = 0;
+    this.calLastCapX = -1;
+    this.calLastCapY = -1;
   }
 
   recordPoint(avgX, avgY) {
@@ -242,7 +288,8 @@ class Calibrator {
     this.pairs.push({ proj: [dot.x, dot.y], cam: [fx, fy] });
     this.dotStatus[this.activeIdx] = "confirmed";
     this.flashRings.push({ x: dot.x, y: dot.y, r: DOT_R, alpha: 255 });
-    this.calDwellStart = 0; this.calDwellProg = 0;
+    this.calDwellStart = 0;
+    this.calDwellProg = 0;
     this.activeIdx += 1;
     if (this.activeIdx >= this.calGrid.length) this.finishCal();
     else this.dotStatus[this.activeIdx] = "active";
@@ -250,9 +297,13 @@ class Calibrator {
 
   finishCal() {
     this.calDone = true;
-    if (this.pairs.length < 4) { this.calH = null; setTimeout(() => this.buildGrid(), 1200); return; }
+    if (this.pairs.length < 4) {
+      this.calH = null;
+      setTimeout(() => this.buildGrid(), 1200);
+      return;
+    }
     this.calH = computeHomography(
-      this.pairs.map(p => ({ cam: p.cam, proj: [p.proj[0] / this.width, p.proj[1] / this.height] }))
+      this.pairs.map((p) => ({ cam: p.cam, proj: [p.proj[0] / this.width, p.proj[1] / this.height] })),
     );
     if (this.calH) {
       saveCalibration(this.calH, this.pairs);
@@ -270,35 +321,56 @@ class Calibrator {
       alphaCircle(ctx, `rgba(255,80,140,${(18 + p2 * 22) / 255})`, x, y, DOT_R * 2.75);
       alphaRing(ctx, `rgba(255,80,140,${(100 + p2 * 120) / 255})`, x, y, DOT_R + 5 + p2 * 6, 2);
       ctx.save();
-      ctx.beginPath(); ctx.arc(x, y, DOT_R, 0, Math.PI * 2);
-      ctx.fillStyle = this.isPen ? "rgb(150,45,85)" : "rgb(204,48,84)"; ctx.fill();
-      ctx.beginPath(); ctx.arc(x, y, 4, 0, Math.PI * 2);
-      ctx.fillStyle = "#fff"; ctx.fill();
+      ctx.beginPath();
+      ctx.arc(x, y, DOT_R, 0, Math.PI * 2);
+      ctx.fillStyle = this.isPen ? "rgb(150,45,85)" : "rgb(204,48,84)";
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(x, y, 4, 0, Math.PI * 2);
+      ctx.fillStyle = "#fff";
+      ctx.fill();
       ctx.restore();
       text(ctx, "HOLD", x, y + DOT_R + 15, "13px Arial", "rgb(255,200,220)");
       text(ctx, `${idx + 1} / ${this.calGrid.length}`, x, y - DOT_R - 15, "11px Arial", "rgb(160,140,160)");
     } else if (status === "confirmed") {
       alphaCircle(ctx, "rgba(62,207,140,0.12)", x, y, DOT_R * 1.75);
       ctx.save();
-      ctx.beginPath(); ctx.arc(x, y, DOT_R, 0, Math.PI * 2);
-      ctx.strokeStyle = "rgb(47,168,106)"; ctx.lineWidth = 2; ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(x, y, DOT_R, 0, Math.PI * 2);
+      ctx.strokeStyle = "rgb(47,168,106)";
+      ctx.lineWidth = 2;
+      ctx.stroke();
       const s = DOT_R * 0.45;
       ctx.beginPath();
-      ctx.moveTo(x - s, y); ctx.lineTo(x - s * 0.2, y + s); ctx.lineTo(x + s, y - s * 0.75);
-      ctx.strokeStyle = "rgb(47,168,106)"; ctx.lineWidth = 3;
-      ctx.lineJoin = "round"; ctx.lineCap = "round"; ctx.stroke();
+      ctx.moveTo(x - s, y);
+      ctx.lineTo(x - s * 0.2, y + s);
+      ctx.lineTo(x + s, y - s * 0.75);
+      ctx.strokeStyle = "rgb(47,168,106)";
+      ctx.lineWidth = 3;
+      ctx.lineJoin = "round";
+      ctx.lineCap = "round";
+      ctx.stroke();
       ctx.restore();
     } else if (status === "skipped") {
       ctx.save();
-      ctx.beginPath(); ctx.arc(x, y, DOT_R, 0, Math.PI * 2);
-      ctx.strokeStyle = "rgb(243,163,40)"; ctx.lineWidth = 2; ctx.setLineDash([5, 5]); ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(x, y, DOT_R, 0, Math.PI * 2);
+      ctx.strokeStyle = "rgb(243,163,40)";
+      ctx.lineWidth = 2;
+      ctx.setLineDash([5, 5]);
+      ctx.stroke();
       ctx.restore();
     } else {
       ctx.save();
-      ctx.beginPath(); ctx.arc(x, y, DOT_R, 0, Math.PI * 2);
-      ctx.strokeStyle = "rgb(80,80,100)"; ctx.lineWidth = 2; ctx.stroke();
-      ctx.beginPath(); ctx.arc(x, y, 3, 0, Math.PI * 2);
-      ctx.fillStyle = "rgb(100,100,120)"; ctx.fill();
+      ctx.beginPath();
+      ctx.arc(x, y, DOT_R, 0, Math.PI * 2);
+      ctx.strokeStyle = "rgb(80,80,100)";
+      ctx.lineWidth = 2;
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(x, y, 3, 0, Math.PI * 2);
+      ctx.fillStyle = "rgb(100,100,120)";
+      ctx.fill();
       ctx.restore();
     }
   }
@@ -314,7 +386,8 @@ class Calibrator {
     for (let i = this.flashRings.length - 1; i >= 0; i--) {
       const f = this.flashRings[i];
       alphaRing(ctx, `rgba(62,207,140,${Math.max(0, f.alpha) / 255})`, f.x, f.y, f.r, 2);
-      f.r += 4; f.alpha -= 12;
+      f.r += 4;
+      f.alpha -= 12;
       if (f.alpha <= 0) this.flashRings.splice(i, 1);
     }
 
@@ -328,21 +401,34 @@ class Calibrator {
         const start = -Math.PI / 2;
         const end = start + this.calDwellProg * 2 * Math.PI;
         ctx.save();
-        ctx.beginPath(); ctx.arc(ad.x, ad.y, radius, start, end);
-        ctx.strokeStyle = "rgb(47,168,106)"; ctx.lineWidth = 6; ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(ad.x, ad.y, radius, start, end);
+        ctx.strokeStyle = "rgb(47,168,106)";
+        ctx.lineWidth = 6;
+        ctx.stroke();
         ctx.restore();
       }
 
-      const fx = this.hand.finger_x, fy = this.hand.finger_y;
+      const fx = this.hand.finger_x,
+        fy = this.hand.finger_y;
       if (fx >= 0 && !this.isPen) {
         const sx = fx * (this.width / CAM_W);
         const sy = fy * (this.height / CAM_H);
         ctx.save();
-        ctx.strokeStyle = "rgb(204,48,84)"; ctx.lineWidth = 2;
-        ctx.beginPath(); ctx.moveTo(sx - 22, sy); ctx.lineTo(sx + 22, sy); ctx.stroke();
-        ctx.beginPath(); ctx.moveTo(sx, sy - 22); ctx.lineTo(sx, sy + 22); ctx.stroke();
-        ctx.beginPath(); ctx.arc(sx, sy, 7, 0, Math.PI * 2);
-        ctx.fillStyle = "rgb(204,48,84)"; ctx.fill();
+        ctx.strokeStyle = "rgb(204,48,84)";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(sx - 22, sy);
+        ctx.lineTo(sx + 22, sy);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(sx, sy - 22);
+        ctx.lineTo(sx, sy + 22);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(sx, sy, 7, 0, Math.PI * 2);
+        ctx.fillStyle = "rgb(204,48,84)";
+        ctx.fill();
         ctx.restore();
       }
 
@@ -351,31 +437,56 @@ class Calibrator {
       ctx.fillRect(0, 0, this.width, 76);
       ctx.restore();
       const pen = this.isPen;
-      text(ctx, pen
+      text(
+        ctx,
+        pen
           ? "AUTO CALIBRATION — touch the IR pen to the pulsing dot and hold it STILL for 2 seconds"
           : "AUTO CALIBRATION — point at the pulsing dot and hold your finger STILL for 2 seconds",
-        this.width / 2, 22, "15px Arial", "rgb(200,200,220)");
+        this.width / 2,
+        22,
+        "15px Arial",
+        "rgb(200,200,220)",
+      );
       if (fx >= 0) {
-        const msg = this.calDwellProg > 0
-          ? `holding…  ${Math.round(this.calDwellProg * 100)}%  —  keep ${pen ? "the pen" : "your finger"} still`
-          : (pen ? "IR pen detected — touch the pulsing dot and hold still to capture"
-                 : "finger detected — point at the pulsing dot and hold still to capture");
+        const msg =
+          this.calDwellProg > 0
+            ? `holding…  ${Math.round(this.calDwellProg * 100)}%  —  keep ${pen ? "the pen" : "your finger"} still`
+            : pen
+              ? "IR pen detected — touch the pulsing dot and hold still to capture"
+              : "finger detected — point at the pulsing dot and hold still to capture";
         text(ctx, msg, this.width / 2, 52, "13px Arial", "rgb(47,168,106)");
       } else {
-        text(ctx, pen
+        text(
+          ctx,
+          pen
             ? "IR pen not detected — press the pen tip on the wall (Shift+D shows the camera view)"
             : "finger not detected — raise your hand so your index finger is in frame",
-          this.width / 2, 52, "13px Arial", "rgb(243,163,40)");
+          this.width / 2,
+          52,
+          "13px Arial",
+          "rgb(243,163,40)",
+        );
       }
       // live readout so a stuck dot can be diagnosed
       const dl = this.calLastCapX >= 0 && fx >= 0 ? Math.round(dist(fx, fy, this.calLastCapX, this.calLastCapY)) : "-";
-      text(ctx,
+      text(
+        ctx,
         `pen cam x:${fx >= 0 ? Math.round(fx) : "-"} y:${fy >= 0 ? Math.round(fy) : "-"}   moved from last dot: ${dl}px (or lift the pen; need >${CAL_RELEASE_CAM})   hold restarts: lost ${this.dbgCount.lost} / jumped ${this.dbgCount.moved} (last: ${this.calWhy})   |   Space = capture now · N = skip dot · B = back`,
-        this.width / 2, this.height - 18, "14px Arial", "rgb(150,150,170)");
+        this.width / 2,
+        this.height - 18,
+        "14px Arial",
+        "rgb(150,150,170)",
+      );
     } else {
       const ok = this.calH !== null;
-      text(ctx, ok ? "Calibration complete — starting…" : "Calibration failed — retrying…",
-        this.width / 2, this.height / 2, "bold 26px Arial", ok ? "rgb(47,168,106)" : "rgb(220,60,60)");
+      text(
+        ctx,
+        ok ? "Calibration complete — starting…" : "Calibration failed — retrying…",
+        this.width / 2,
+        this.height / 2,
+        "bold 26px Arial",
+        ok ? "rgb(47,168,106)" : "rgb(220,60,60)",
+      );
     }
   }
 
@@ -401,12 +512,17 @@ class Calibrator {
  */
 export async function runCalibrationScreen({ canvas, statusEl, onTracker }) {
   const hand = await createTracker({ camW: CAM_W, camH: CAM_H, maxHands: 1 });
-  await hand.init(msg => { if (statusEl) statusEl.textContent = msg; });
+  await hand.init((msg) => {
+    if (statusEl) statusEl.textContent = msg;
+  });
   if (onTracker) onTracker(hand);
-  const H = await new Promise(resolve => {
+  const H = await new Promise((resolve) => {
     new Calibrator(canvas, statusEl, hand, resolve).start();
   });
-  try { hand.release(); } catch (e) { /* ignore */ }
+  try {
+    hand.release();
+  } catch (e) {
+    /* ignore */
+  }
   return H;
 }
-

@@ -1,109 +1,109 @@
 {
- "id": "animalschart",
- "level": "prekg",
- "subject": "nature",
- "title": "Animals Chart",
- "topic": "Tap any animal to see it come alive with a picture and sound",
- "icon": "🐘",
- "order": 118,
- "status": "approved",
- "template": "picture-chart",
- "items": [
-  {
-   "emoji": "🦁",
-   "word": "Lion"
-  },
-  {
-   "emoji": "🐯",
-   "word": "Tiger"
-  },
-  {
-   "emoji": "🐘",
-   "word": "Elephant"
-  },
-  {
-   "emoji": "🦒",
-   "word": "Giraffe"
-  },
-  {
-   "emoji": "🦓",
-   "word": "Zebra"
-  },
-  {
-   "emoji": "🐵",
-   "word": "Monkey"
-  },
-  {
-   "emoji": "🐻",
-   "word": "Bear"
-  },
-  {
-   "emoji": "🐼",
-   "word": "Panda"
-  },
-  {
-   "emoji": "🦊",
-   "word": "Fox"
-  },
-  {
-   "emoji": "🐺",
-   "word": "Wolf"
-  },
-  {
-   "emoji": "🦌",
-   "word": "Deer"
-  },
-  {
-   "emoji": "🐰",
-   "word": "Rabbit"
-  },
-  {
-   "emoji": "🐶",
-   "word": "Dog"
-  },
-  {
-   "emoji": "🐱",
-   "word": "Cat"
-  },
-  {
-   "emoji": "🐮",
-   "word": "Cow"
-  },
-  {
-   "emoji": "🐷",
-   "word": "Pig"
-  },
-  {
-   "emoji": "🐐",
-   "word": "Goat"
-  },
-  {
-   "emoji": "🐑",
-   "word": "Sheep"
-  },
-  {
-   "emoji": "🐴",
-   "word": "Horse"
-  },
-  {
-   "emoji": "🐫",
-   "word": "Camel"
-  },
-  {
-   "emoji": "🦘",
-   "word": "Kangaroo"
-  },
-  {
-   "emoji": "🦥",
-   "word": "Sloth"
-  },
-  {
-   "emoji": "🦦",
-   "word": "Otter"
-  },
-  {
-   "emoji": "🦔",
-   "word": "Hedgehog"
-  }
- ]
+  "id": "animalschart",
+  "level": "prekg",
+  "subject": "nature",
+  "title": "Animals Chart",
+  "topic": "Tap any animal to see it come alive with a picture and sound",
+  "icon": "🐘",
+  "order": 118,
+  "status": "approved",
+  "template": "picture-chart",
+  "items": [
+    {
+      "emoji": "🦁",
+      "word": "Lion"
+    },
+    {
+      "emoji": "🐯",
+      "word": "Tiger"
+    },
+    {
+      "emoji": "🐘",
+      "word": "Elephant"
+    },
+    {
+      "emoji": "🦒",
+      "word": "Giraffe"
+    },
+    {
+      "emoji": "🦓",
+      "word": "Zebra"
+    },
+    {
+      "emoji": "🐵",
+      "word": "Monkey"
+    },
+    {
+      "emoji": "🐻",
+      "word": "Bear"
+    },
+    {
+      "emoji": "🐼",
+      "word": "Panda"
+    },
+    {
+      "emoji": "🦊",
+      "word": "Fox"
+    },
+    {
+      "emoji": "🐺",
+      "word": "Wolf"
+    },
+    {
+      "emoji": "🦌",
+      "word": "Deer"
+    },
+    {
+      "emoji": "🐰",
+      "word": "Rabbit"
+    },
+    {
+      "emoji": "🐶",
+      "word": "Dog"
+    },
+    {
+      "emoji": "🐱",
+      "word": "Cat"
+    },
+    {
+      "emoji": "🐮",
+      "word": "Cow"
+    },
+    {
+      "emoji": "🐷",
+      "word": "Pig"
+    },
+    {
+      "emoji": "🐐",
+      "word": "Goat"
+    },
+    {
+      "emoji": "🐑",
+      "word": "Sheep"
+    },
+    {
+      "emoji": "🐴",
+      "word": "Horse"
+    },
+    {
+      "emoji": "🐫",
+      "word": "Camel"
+    },
+    {
+      "emoji": "🦘",
+      "word": "Kangaroo"
+    },
+    {
+      "emoji": "🦥",
+      "word": "Sloth"
+    },
+    {
+      "emoji": "🦦",
+      "word": "Otter"
+    },
+    {
+      "emoji": "🦔",
+      "word": "Hedgehog"
+    }
+  ]
 }

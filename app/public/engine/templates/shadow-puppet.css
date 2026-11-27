@@ -9,7 +9,7 @@
 .spp-screen {
   flex: 1;
   min-height: 0;
-  border: 10px solid #8B5E3C;
+  border: 10px solid #8b5e3c;
   border-radius: calc(var(--mt-radius) * 1.25);
   box-shadow: var(--mt-shadow);
   overflow: hidden;

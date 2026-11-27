@@ -15,7 +15,8 @@ export default function pictureChart(area, d, ctx) {
   const f = frame(area, { icon: d.icon, title: d.title });
   const body = document.createElement("div");
   body.className = "pc-body";
-  body.innerHTML = '<div class="pc-grid"></div><div class="ey-panel pc-show"><p class="pc-hint">Touch a card!</p></div>';
+  body.innerHTML =
+    '<div class="pc-grid"></div><div class="ey-panel pc-show"><p class="pc-hint">Touch a card!</p></div>';
   f.stage.appendChild(body);
   const grid = body.querySelector(".pc-grid");
   const show = body.querySelector(".pc-show");
@@ -48,7 +49,10 @@ export default function pictureChart(area, d, ctx) {
     big.classList.add("pc-big");
     show.appendChild(big);
     if (item.glyph) show.insertAdjacentHTML("beforeend", '<div class="pc-glyph-big"></div>');
-    show.insertAdjacentHTML("beforeend", '<div class="pc-word-big"></div><div class="pc-again">🔊 touch again to hear it</div>');
+    show.insertAdjacentHTML(
+      "beforeend",
+      '<div class="pc-word-big"></div><div class="pc-again">🔊 touch again to hear it</div>',
+    );
     if (item.glyph) show.querySelector(".pc-glyph-big").textContent = item.glyph;
     show.querySelector(".pc-word-big").textContent = item.word;
     MT.sfx.tap();

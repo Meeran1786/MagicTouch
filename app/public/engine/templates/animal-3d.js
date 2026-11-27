@@ -171,7 +171,8 @@ export default function animal3d(area, d, ctx) {
       const target = (dir * Math.PI) / 2;
       a.facing += (target - a.facing) * Math.min(1, TURN_RATE * dt);
       a.root.rotation.y = a.facing;
-      if (Math.abs(target - a.facing) < 0.35) a.root.position.x = Math.max(-BOUNDS, Math.min(BOUNDS, a.root.position.x + dir * WALK_SPEED * dt));
+      if (Math.abs(target - a.facing) < 0.35)
+        a.root.position.x = Math.max(-BOUNDS, Math.min(BOUNDS, a.root.position.x + dir * WALK_SPEED * dt));
     } else {
       setState(a, "idle");
     }

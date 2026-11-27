@@ -1,57 +1,57 @@
 {
- "id": "gardenspotter3",
- "level": "nursery",
- "subject": "nature",
- "title": "Garden Spotter 3",
- "topic": "Spot the picture that matches — set 3 of 4",
- "icon": "🍇",
- "order": 12,
- "status": "approved",
- "template": "picture-spotter",
- "items": [
-  {
-   "word": "Lettuce",
-   "photo": "images/Lechuga.jpg"
-  },
-  {
-   "word": "Lemon",
-   "photo": "images/Lemon.jpg"
-  },
-  {
-   "word": "Mango",
-   "photo": "images/Mango5.jpg"
-  },
-  {
-   "word": "Muskmelon",
-   "photo": "images/MeskMelon.jpg"
-  },
-  {
-   "word": "Onion",
-   "photo": "images/Onion.jpg"
-  },
-  {
-   "word": "Orange",
-   "photo": "images/Orange.png"
-  },
-  {
-   "word": "Papaya",
-   "photo": "images/Papaya.jpg"
-  },
-  {
-   "word": "Peas",
-   "photo": "images/Peas.jpg"
-  },
-  {
-   "word": "Black Pepper",
-   "photo": "images/Pepper.jpg"
-  },
-  {
-   "word": "Pineapple",
-   "photo": "images/Pinenapple.jpg"
-  },
-  {
-   "word": "Pistachio",
-   "photo": "images/Pista.jpg"
-  }
- ]
+  "id": "gardenspotter3",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Garden Spotter 3",
+  "topic": "Spot the picture that matches — set 3 of 4",
+  "icon": "🍇",
+  "order": 12,
+  "status": "approved",
+  "template": "picture-spotter",
+  "items": [
+    {
+      "word": "Lettuce",
+      "photo": "images/Lechuga.jpg"
+    },
+    {
+      "word": "Lemon",
+      "photo": "images/Lemon.jpg"
+    },
+    {
+      "word": "Mango",
+      "photo": "images/Mango5.jpg"
+    },
+    {
+      "word": "Muskmelon",
+      "photo": "images/MeskMelon.jpg"
+    },
+    {
+      "word": "Onion",
+      "photo": "images/Onion.jpg"
+    },
+    {
+      "word": "Orange",
+      "photo": "images/Orange.png"
+    },
+    {
+      "word": "Papaya",
+      "photo": "images/Papaya.jpg"
+    },
+    {
+      "word": "Peas",
+      "photo": "images/Peas.jpg"
+    },
+    {
+      "word": "Black Pepper",
+      "photo": "images/Pepper.jpg"
+    },
+    {
+      "word": "Pineapple",
+      "photo": "images/Pinenapple.jpg"
+    },
+    {
+      "word": "Pistachio",
+      "photo": "images/Pista.jpg"
+    }
+  ]
 }

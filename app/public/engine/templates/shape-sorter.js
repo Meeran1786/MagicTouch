@@ -30,8 +30,17 @@ export default function shapeSorter(area, d) {
   function deal() {
     let set;
     do set = MT.shuffle(d.shapes).slice(0, per);
-    while (d.shapes.length > per && set.map((s) => s.shape).sort().join() === last);
-    last = set.map((s) => s.shape).sort().join();
+    while (
+      d.shapes.length > per &&
+      set
+        .map((s) => s.shape)
+        .sort()
+        .join() === last
+    );
+    last = set
+      .map((s) => s.shape)
+      .sort()
+      .join();
     left = set.length;
     board.replaceChildren(
       ...MT.shuffle(set).map((s) => {

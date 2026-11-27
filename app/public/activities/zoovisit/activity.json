@@ -1,45 +1,45 @@
 {
- "id": "zoovisit",
- "level": "nursery",
- "subject": "nature",
- "title": "At the Zoo",
- "topic": "Panda, koala, kangaroo, penguin and more",
- "icon": "🐼",
- "order": 105,
- "status": "approved",
- "template": "emoji-quiz",
- "items": [
-  {
-   "emoji": "🐼",
-   "word": "Panda"
-  },
-  {
-   "emoji": "🐨",
-   "word": "Koala"
-  },
-  {
-   "emoji": "🦘",
-   "word": "Kangaroo"
-  },
-  {
-   "emoji": "🐧",
-   "word": "Penguin"
-  },
-  {
-   "emoji": "🦛",
-   "word": "Hippo"
-  },
-  {
-   "emoji": "🐒",
-   "word": "Monkey"
-  },
-  {
-   "emoji": "🐫",
-   "word": "Camel"
-  },
-  {
-   "emoji": "🐊",
-   "word": "Crocodile"
-  }
- ]
+  "id": "zoovisit",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "At the Zoo",
+  "topic": "Panda, koala, kangaroo, penguin and more",
+  "icon": "🐼",
+  "order": 105,
+  "status": "approved",
+  "template": "emoji-quiz",
+  "items": [
+    {
+      "emoji": "🐼",
+      "word": "Panda"
+    },
+    {
+      "emoji": "🐨",
+      "word": "Koala"
+    },
+    {
+      "emoji": "🦘",
+      "word": "Kangaroo"
+    },
+    {
+      "emoji": "🐧",
+      "word": "Penguin"
+    },
+    {
+      "emoji": "🦛",
+      "word": "Hippo"
+    },
+    {
+      "emoji": "🐒",
+      "word": "Monkey"
+    },
+    {
+      "emoji": "🐫",
+      "word": "Camel"
+    },
+    {
+      "emoji": "🐊",
+      "word": "Crocodile"
+    }
+  ]
 }

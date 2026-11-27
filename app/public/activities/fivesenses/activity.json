@@ -1,33 +1,33 @@
 {
- "id": "fivesenses",
- "level": "prekg",
- "subject": "world",
- "title": "My Five Senses",
- "topic": "See, hear, smell, taste and touch",
- "icon": "👀",
- "order": 99,
- "status": "approved",
- "template": "emoji-quiz",
- "items": [
-  {
-   "emoji": "👀",
-   "word": "See"
-  },
-  {
-   "emoji": "👂",
-   "word": "Hear"
-  },
-  {
-   "emoji": "👃",
-   "word": "Smell"
-  },
-  {
-   "emoji": "👅",
-   "word": "Taste"
-  },
-  {
-   "emoji": "✋",
-   "word": "Touch"
-  }
- ]
+  "id": "fivesenses",
+  "level": "prekg",
+  "subject": "world",
+  "title": "My Five Senses",
+  "topic": "See, hear, smell, taste and touch",
+  "icon": "👀",
+  "order": 99,
+  "status": "approved",
+  "template": "emoji-quiz",
+  "items": [
+    {
+      "emoji": "👀",
+      "word": "See"
+    },
+    {
+      "emoji": "👂",
+      "word": "Hear"
+    },
+    {
+      "emoji": "👃",
+      "word": "Smell"
+    },
+    {
+      "emoji": "👅",
+      "word": "Taste"
+    },
+    {
+      "emoji": "✋",
+      "word": "Touch"
+    }
+  ]
 }

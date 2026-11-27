@@ -20,7 +20,8 @@ export default function pictureSpotter(area, d, ctx) {
   const f = frame(area, { icon: d.icon, title: d.title });
   const wrap = document.createElement("div");
   wrap.className = "ps-wrap";
-  wrap.innerHTML = '<div class="ey-panel ps-ask"><div class="ps-q"></div><div class="ps-hint">Touch the picture that matches!</div></div><div class="ps-field"></div><div class="ey-feedback"></div>';
+  wrap.innerHTML =
+    '<div class="ey-panel ps-ask"><div class="ps-q"></div><div class="ps-hint">Touch the picture that matches!</div></div><div class="ps-field"></div><div class="ey-feedback"></div>';
   f.stage.appendChild(wrap);
   const q = wrap.querySelector(".ps-q");
   const field = wrap.querySelector(".ps-field");

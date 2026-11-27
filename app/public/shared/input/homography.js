@@ -6,15 +6,19 @@
 
 // ---- tiny 3x3 helpers -------------------------------------------------
 function matMul3(A, B) {
-  const R = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
-  for (let i = 0; i < 3; i++)
-    for (let j = 0; j < 3; j++)
-      for (let k = 0; k < 3; k++) R[i][j] += A[i][k] * B[k][j];
+  const R = [
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+  ];
+  for (let i = 0; i < 3; i++) for (let j = 0; j < 3; j++) for (let k = 0; k < 3; k++) R[i][j] += A[i][k] * B[k][j];
   return R;
 }
 
 function matInv3(A) {
-  const [a, b, c] = A[0], [d, e, f] = A[1], [g, h, i] = A[2];
+  const [a, b, c] = A[0],
+    [d, e, f] = A[1],
+    [g, h, i] = A[2];
   const det = a * (e * i - f * h) - b * (d * i - f * g) + c * (d * h - e * g);
   if (Math.abs(det) < 1e-12) return null;
   const invDet = 1 / det;
@@ -29,15 +33,12 @@ function matInv3(A) {
 // Returns { values: [...], vectors: [[...], ...] } (vectors as columns,
 // i.e. vectors[k] is the eigenvector for values[k]).
 function jacobiEigen(matrixIn, n, maxSweeps = 100) {
-  const A = matrixIn.map(row => row.slice());
-  let V = Array.from({ length: n }, (_, i) =>
-    Array.from({ length: n }, (_, j) => (i === j ? 1 : 0))
-  );
+  const A = matrixIn.map((row) => row.slice());
+  const V = Array.from({ length: n }, (_, i) => Array.from({ length: n }, (_, j) => (i === j ? 1 : 0)));
 
   for (let sweep = 0; sweep < maxSweeps; sweep++) {
     let off = 0;
-    for (let i = 0; i < n; i++)
-      for (let j = i + 1; j < n; j++) off += A[i][j] * A[i][j];
+    for (let i = 0; i < n; i++) for (let j = i + 1; j < n; j++) off += A[i][j] * A[i][j];
     if (off < 1e-20) break;
 
     for (let p = 0; p < n; p++) {
@@ -48,7 +49,9 @@ function jacobiEigen(matrixIn, n, maxSweeps = 100) {
         const c = 1 / Math.sqrt(t * t + 1);
         const s = t * c;
 
-        const App = A[p][p], Aqq = A[q][q], Apq = A[p][q];
+        const App = A[p][p],
+          Aqq = A[q][q],
+          Apq = A[p][q];
         A[p][p] = App - t * Apq;
         A[q][q] = Aqq + t * Apq;
         A[p][q] = 0;
@@ -56,7 +59,8 @@ function jacobiEigen(matrixIn, n, maxSweeps = 100) {
 
         for (let k = 0; k < n; k++) {
           if (k !== p && k !== q) {
-            const Akp = A[k][p], Akq = A[k][q];
+            const Akp = A[k][p],
+              Akq = A[k][q];
             A[k][p] = c * Akp - s * Akq;
             A[p][k] = A[k][p];
             A[k][q] = s * Akp + c * Akq;
@@ -64,7 +68,8 @@ function jacobiEigen(matrixIn, n, maxSweeps = 100) {
           }
         }
         for (let k = 0; k < n; k++) {
-          const Vkp = V[k][p], Vkq = V[k][q];
+          const Vkp = V[k][p],
+            Vkq = V[k][q];
           V[k][p] = c * Vkp - s * Vkq;
           V[k][q] = s * Vkp + c * Vkq;
         }
@@ -73,15 +78,20 @@ function jacobiEigen(matrixIn, n, maxSweeps = 100) {
   }
 
   const values = Array.from({ length: n }, (_, i) => A[i][i]);
-  const vectors = Array.from({ length: n }, (_, k) => V.map(row => row[k]));
+  const vectors = Array.from({ length: n }, (_, k) => V.map((row) => row[k]));
   return { values, vectors };
 }
 
 function normalizePoints(pts) {
   const n = pts.length;
-  let cx = 0, cy = 0;
-  for (const [x, y] of pts) { cx += x; cy += y; }
-  cx /= n; cy /= n;
+  let cx = 0,
+    cy = 0;
+  for (const [x, y] of pts) {
+    cx += x;
+    cy += y;
+  }
+  cx /= n;
+  cy /= n;
 
   let meanDist = 0;
   for (const [x, y] of pts) meanDist += Math.hypot(x - cx, y - cy);
@@ -105,8 +115,8 @@ function normalizePoints(pts) {
 export function computeHomography(pairs) {
   if (!pairs || pairs.length < 4) return null;
 
-  const srcPts = pairs.map(p => p.cam);
-  const dstPts = pairs.map(p => p.proj);
+  const srcPts = pairs.map((p) => p.cam);
+  const dstPts = pairs.map((p) => p.proj);
   const { T: Tsrc, normPts: nSrc } = normalizePoints(srcPts);
   const { T: Tdst, normPts: nDst } = normalizePoints(dstPts);
 
@@ -140,7 +150,7 @@ export function computeHomography(pairs) {
 
   const TdstInv = matInv3(Tdst);
   if (!TdstInv) return null;
-  let H = matMul3(matMul3(TdstInv, Hn), Tsrc);
+  const H = matMul3(matMul3(TdstInv, Hn), Tsrc);
 
   const s = H[2][2];
   if (Math.abs(s) > 1e-12) {

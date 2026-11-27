@@ -1,45 +1,45 @@
 {
- "id": "myhome",
- "level": "prekg",
- "subject": "world",
- "title": "My Home",
- "topic": "House, door, window, bed and more",
- "icon": "🏠",
- "order": 72,
- "status": "approved",
- "template": "emoji-quiz",
- "items": [
-  {
-   "emoji": "🏠",
-   "word": "House"
-  },
-  {
-   "emoji": "🚪",
-   "word": "Door"
-  },
-  {
-   "emoji": "🪟",
-   "word": "Window"
-  },
-  {
-   "emoji": "🛏️",
-   "word": "Bed"
-  },
-  {
-   "emoji": "🛋️",
-   "word": "Sofa"
-  },
-  {
-   "emoji": "🪑",
-   "word": "Chair"
-  },
-  {
-   "emoji": "🪞",
-   "word": "Mirror"
-  },
-  {
-   "emoji": "🔑",
-   "word": "Key"
-  }
- ]
+  "id": "myhome",
+  "level": "prekg",
+  "subject": "world",
+  "title": "My Home",
+  "topic": "House, door, window, bed and more",
+  "icon": "🏠",
+  "order": 72,
+  "status": "approved",
+  "template": "emoji-quiz",
+  "items": [
+    {
+      "emoji": "🏠",
+      "word": "House"
+    },
+    {
+      "emoji": "🚪",
+      "word": "Door"
+    },
+    {
+      "emoji": "🪟",
+      "word": "Window"
+    },
+    {
+      "emoji": "🛏️",
+      "word": "Bed"
+    },
+    {
+      "emoji": "🛋️",
+      "word": "Sofa"
+    },
+    {
+      "emoji": "🪑",
+      "word": "Chair"
+    },
+    {
+      "emoji": "🪞",
+      "word": "Mirror"
+    },
+    {
+      "emoji": "🔑",
+      "word": "Key"
+    }
+  ]
 }

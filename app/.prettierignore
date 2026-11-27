@@ -1,0 +1,6 @@
+public/vendor/
+node_modules/
+tests/browser/out/
+data/
+package-lock.json
+ASSETS-AUDIT.csv

@@ -67,7 +67,8 @@ export default function popStorm(area, d) {
   }
 
   g.onTap = (x, y) => {
-    for (const b of bubbles) if (!b.dead && Math.hypot((b.sx || b.x) - x, b.y - y) < b.r + 16) pop(b, performance.now());
+    for (const b of bubbles)
+      if (!b.dead && Math.hypot((b.sx || b.x) - x, b.y - y) < b.r + 16) pop(b, performance.now());
   };
 
   g.loop((dt, t) => {

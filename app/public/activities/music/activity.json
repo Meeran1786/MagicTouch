@@ -1,84 +1,51 @@
 {
- "id": "music",
- "level": "prekg",
- "subject": "play",
- "title": "My Music",
- "topic": "Tap instruments to play sounds",
- "icon": "🎷",
- "order": 4,
- "status": "approved",
- "template": "sound-poster",
- "poster": "assets/poster.jpg",
- "size": [
-  1400,
-  700
- ],
- "spots": [
-  {
-   "word": "Drum",
-   "layer": "assets/drum.png",
-   "sound": "assets/drum.wav",
-   "box": [
-    29,
-    352,
-    347,
-    249
-   ]
-  },
-  {
-   "word": "Guitar",
-   "layer": "assets/guitar.png",
-   "sound": "assets/guitar.wav",
-   "box": [
-    967,
-    110,
-    206,
-    368
-   ]
-  },
-  {
-   "word": "Keyboard",
-   "layer": "assets/keyboard.png",
-   "sound": "assets/keyboard.wav",
-   "box": [
-    55,
-    241,
-    344,
-    118
-   ]
-  },
-  {
-   "word": "Maracas",
-   "layer": "assets/maracas.png",
-   "sound": "assets/maracas.wav",
-   "box": [
-    1127,
-    439,
-    193,
-    148
-   ]
-  },
-  {
-   "word": "Saxophone",
-   "layer": "assets/saxophone.png",
-   "sound": "assets/saxophone.wav",
-   "box": [
-    465,
-    323,
-    573,
-    269
-   ]
-  },
-  {
-   "word": "Trumpet",
-   "layer": "assets/trumpet.png",
-   "sound": "assets/trumpet.wav",
-   "box": [
-    734,
-    226,
-    253,
-    151
-   ]
-  }
- ]
+  "id": "music",
+  "level": "prekg",
+  "subject": "play",
+  "title": "My Music",
+  "topic": "Tap instruments to play sounds",
+  "icon": "🎷",
+  "order": 4,
+  "status": "approved",
+  "template": "sound-poster",
+  "poster": "assets/poster.jpg",
+  "size": [1400, 700],
+  "spots": [
+    {
+      "word": "Drum",
+      "layer": "assets/drum.png",
+      "sound": "assets/drum.wav",
+      "box": [29, 352, 347, 249]
+    },
+    {
+      "word": "Guitar",
+      "layer": "assets/guitar.png",
+      "sound": "assets/guitar.wav",
+      "box": [967, 110, 206, 368]
+    },
+    {
+      "word": "Keyboard",
+      "layer": "assets/keyboard.png",
+      "sound": "assets/keyboard.wav",
+      "box": [55, 241, 344, 118]
+    },
+    {
+      "word": "Maracas",
+      "layer": "assets/maracas.png",
+      "sound": "assets/maracas.wav",
+      "box": [1127, 439, 193, 148]
+    },
+    {
+      "word": "Saxophone",
+      "layer": "assets/saxophone.png",
+      "sound": "assets/saxophone.wav",
+      "box": [465, 323, 573, 269]
+    },
+    {
+      "word": "Trumpet",
+      "layer": "assets/trumpet.png",
+      "sound": "assets/trumpet.wav",
+      "box": [734, 226, 253, 151]
+    }
+  ]
 }

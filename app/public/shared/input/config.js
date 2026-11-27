@@ -18,23 +18,29 @@ const MODE_KEY = "wallInputMode";
 const IR_SETTINGS_KEY = "wallIrPenSettings";
 
 export const IR_DEFAULTS = {
-  threshold: 220,     // pixel brightness (0-255) a pen dot must reach
-  minThreshold: 150,  // never go below this, even for a dim pen
-  minArea: 3,         // px — ignore single hot pixels (core + halo)
-  maxArea: 2500,      // px — ignore lamps / windows / big bright areas
-  mirror: false,      // true = flip x like a selfie view
-  cameraId: "",       // "" = auto (prefers a camera named "IR"/"infrared")
-  debug: false,       // live camera preview with detected dot
+  threshold: 220, // pixel brightness (0-255) a pen dot must reach
+  minThreshold: 150, // never go below this, even for a dim pen
+  minArea: 3, // px — ignore single hot pixels (core + halo)
+  maxArea: 2500, // px — ignore lamps / windows / big bright areas
+  mirror: false, // true = flip x like a selfie view
+  cameraId: "", // "" = auto (prefers a camera named "IR"/"infrared")
+  debug: false, // live camera preview with detected dot
 };
 
 function readParam(name) {
   const wins = [window];
-  try { if (window.top && window.top !== window) wins.push(window.top); } catch (e) { /* cross-origin */ }
+  try {
+    if (window.top && window.top !== window) wins.push(window.top);
+  } catch (e) {
+    /* cross-origin */
+  }
   for (const w of wins) {
     try {
       const v = new URLSearchParams(w.location.search).get(name);
       if (v) return v;
-    } catch (e) { /* ignore */ }
+    } catch (e) {
+      /* ignore */
+    }
   }
   return null;
 }
@@ -48,19 +54,29 @@ export function getInputMode() {
     }
     const saved = localStorage.getItem(MODE_KEY);
     if (saved === "hand" || saved === "irpen" || saved === "mouse") return saved;
-  } catch (e) { /* ignore */ }
+  } catch (e) {
+    /* ignore */
+  }
   return "irpen";
 }
 
 /** localStorage key for the camera→screen calibration of the active device. */
 export function calStorageKey() {
   const m = getInputMode();
-  return m === "hand" ? "wallSharedCalibration" : m === "mouse" ? "wallSharedCalibrationMouse" : "wallSharedCalibrationIR";
+  return m === "hand"
+    ? "wallSharedCalibration"
+    : m === "mouse"
+      ? "wallSharedCalibrationMouse"
+      : "wallSharedCalibrationIR";
 }
 
 export function getIrSettings() {
   let saved = {};
-  try { saved = JSON.parse(localStorage.getItem(IR_SETTINGS_KEY) || "{}") || {}; } catch (e) { /* ignore */ }
+  try {
+    saved = JSON.parse(localStorage.getItem(IR_SETTINGS_KEY) || "{}") || {};
+  } catch (e) {
+    /* ignore */
+  }
   const s = { ...IR_DEFAULTS, ...saved };
   const mirror = readParam("mirror");
   if (mirror !== null) s.mirror = mirror === "1" || mirror === "true";
@@ -69,8 +85,16 @@ export function getIrSettings() {
 
 export function saveIrSettings(patch) {
   let saved = {};
-  try { saved = JSON.parse(localStorage.getItem(IR_SETTINGS_KEY) || "{}") || {}; } catch (e) { /* ignore */ }
-  try { localStorage.setItem(IR_SETTINGS_KEY, JSON.stringify({ ...saved, ...patch })); } catch (e) { /* ignore */ }
+  try {
+    saved = JSON.parse(localStorage.getItem(IR_SETTINGS_KEY) || "{}") || {};
+  } catch (e) {
+    /* ignore */
+  }
+  try {
+    localStorage.setItem(IR_SETTINGS_KEY, JSON.stringify({ ...saved, ...patch }));
+  } catch (e) {
+    /* ignore */
+  }
 }
 
 /**

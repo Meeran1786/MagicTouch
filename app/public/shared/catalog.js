@@ -20,12 +20,36 @@ export const EARLY_SUBJECTS = ["letters", "numbers", "colours", "nature", "play"
 
 // What a card says the activity is, by template.
 const KIND = {
-  explore: "Explore", match: "Match", sort: "Sort", order: "Order", label: "Label", simulate: "Simulate",
-  space3d: "3D", reveal: "Predict", ball: "Play", quiz: "Quiz", map: "Map", pack: "Lesson pack",
-  "emoji-quiz": "Quiz", "picture-quiz": "Quiz", "picture-spotter": "Quiz", "balloon-pop": "Quiz",
-  "picture-chart": "Chart", "word-wheel": "Languages", "picture-reveal": "Explore", "sound-poster": "Explore",
-  "animal-3d": "3D", trace: "Trace", piano: "Music", conductor: "Music",
-  "pop-storm": "Play", slice: "Play", "catch-stars": "Play", "count-pick": "Play", "shadow-puppet": "Play", "shape-sorter": "Play",
+  explore: "Explore",
+  match: "Match",
+  sort: "Sort",
+  order: "Order",
+  label: "Label",
+  simulate: "Simulate",
+  space3d: "3D",
+  reveal: "Predict",
+  ball: "Play",
+  quiz: "Quiz",
+  map: "Map",
+  pack: "Lesson pack",
+  "emoji-quiz": "Quiz",
+  "picture-quiz": "Quiz",
+  "picture-spotter": "Quiz",
+  "balloon-pop": "Quiz",
+  "picture-chart": "Chart",
+  "word-wheel": "Languages",
+  "picture-reveal": "Explore",
+  "sound-poster": "Explore",
+  "animal-3d": "3D",
+  trace: "Trace",
+  piano: "Music",
+  conductor: "Music",
+  "pop-storm": "Play",
+  slice: "Play",
+  "catch-stars": "Play",
+  "count-pick": "Play",
+  "shadow-puppet": "Play",
+  "shape-sorter": "Play",
 };
 const SUBJECT_EMOJI = { maths: "➗", science: "🔬", social: "🌏", evs: "🌱" };
 
@@ -52,8 +76,10 @@ export async function loadCatalog() {
   return {
     levels: LEVELS,
     items,
-    byId: new Proxy(byId, { get: (t, id) => (typeof id === "string" ? t[id] || t[id.replace(/^engine:/, "")] : undefined) }),
+    byId: new Proxy(byId, {
+      get: (t, id) => (typeof id === "string" ? t[id] || t[id.replace(/^engine:/, "")] : undefined),
+    }),
     subjectLabel: (s) => (SUBJECTS[s] || [s])[0],
-    subjectIcon: (s) => (SUBJECTS[s] || [, "star"])[1],
+    subjectIcon: (s) => (SUBJECTS[s] || [s, "star"])[1],
   };
 }

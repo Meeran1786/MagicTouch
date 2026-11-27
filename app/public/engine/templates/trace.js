@@ -29,8 +29,9 @@ function strokePoints(s) {
     }
     return out;
   }
-  let [cx, cy, rx, ry, from, to] = s.arc || s.open;
-  if (s.open) [from, to] = [from + to / 2, from + 360 - to / 2];
+  const [cx, cy, rx, ry, a, b] = s.arc || s.open;
+  // an open ellipse names its gap; turn that into where the stroke starts and ends
+  const [from, to] = s.open ? [a + b / 2, a + 360 - b / 2] : [a, b];
   const n = Math.max(4, Math.round((((rx + ry) / 2) * Math.abs(to - from) * Math.PI) / 180 / SPACING));
   for (let k = 0; k <= n; k++) {
     const a = ((from + ((to - from) * k) / n) * Math.PI) / 180;
@@ -84,7 +85,8 @@ export default function trace(area, d) {
     MT.sfx.win();
     MT.confetti();
     const b = box();
-    for (const st of strokes) for (const p of st.filter((_, k) => k % 4 === 0)) g.burst(b.x + p.x * b.s, b.y + p.y * b.s, "#F3A328", 2);
+    for (const st of strokes)
+      for (const p of st.filter((_, k) => k % 4 === 0)) g.burst(b.x + p.x * b.s, b.y + p.y * b.s, "#F3A328", 2);
     MT.speak(`Well done! ${(d.say && d.say[keys[at]]) || keys[at]}`);
   }
 
@@ -102,7 +104,8 @@ export default function trace(area, d) {
     if (!done) {
       for (const p of g.points()) {
         ink.push({ x: p.x, y: p.y, px: p.px, py: p.py });
-        for (const st of strokes) for (const q of st) if (!q.lit && g.segDist(X(q), Y(q), p.px, p.py, p.x, p.y) < reach) q.lit = true;
+        for (const st of strokes)
+          for (const q of st) if (!q.lit && g.segDist(X(q), Y(q), p.px, p.py, p.x, p.y) < reach) q.lit = true;
       }
       const all = strokes.flat();
       const share = all.filter((q) => q.lit).length / all.length;

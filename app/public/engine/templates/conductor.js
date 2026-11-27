@@ -4,7 +4,7 @@
 // Activity data:
 //   emoji: "🎻🎺🥁🎷🪕🎹"     the orchestra
 //   melody: [0, 2, 4, 2, 0, 4, 7, 4]   optional, steps of the C major scale, one per eighth note
-import { MT, audioCtx } from "../js/kit.js";
+import { audioCtx } from "../js/kit.js";
 import { frame } from "../js/early.js";
 import { arcade, emojiList } from "../js/arcade.js";
 
@@ -35,7 +35,7 @@ export default function conductor(area, d) {
   let speed = 0;
   let prev = null;
   let beatAt = -1e9;
-  let trail = [];
+  const trail = [];
 
   function tone(type, freq, time, peak, len, endFreq) {
     const o = ac.createOscillator();
@@ -100,7 +100,11 @@ export default function conductor(area, d) {
     bpm = lerp(bpm, targetBpm, 0.05);
     vol = lerp(vol, clamp(lerp(VOL[0], VOL[1], speed / 30), VOL[0], VOL[1]), 0.08);
     if (master) master.gain.setTargetAtTime(vol, ac.currentTime, 0.06);
-    f.progress(master ? `🎵 ${Math.round(bpm)} beats a minute · ${vol > 0.5 ? "loud" : vol > 0.25 ? "medium" : "soft"}` : "Wave to start the music!");
+    f.progress(
+      master
+        ? `🎵 ${Math.round(bpm)} beats a minute · ${vol > 0.5 ? "loud" : vol > 0.25 ? "medium" : "soft"}`
+        : "Wave to start the music!",
+    );
 
     c.clearRect(0, 0, g.w, g.h);
     // the stage floor with a soft shadow

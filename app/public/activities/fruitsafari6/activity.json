@@ -1,33 +1,33 @@
 {
- "id": "fruitsafari6",
- "level": "nursery",
- "subject": "nature",
- "title": "Fruit & Veggie Safari 6",
- "topic": "Sweet Potato–Zucchini — tap the picture, hear the word",
- "icon": "🍠",
- "order": 40,
- "status": "approved",
- "template": "picture-reveal",
- "items": [
-  {
-   "word": "Sweet Potato",
-   "photo": "assets/photos/V4.jpg"
-  },
-  {
-   "word": "Tamarind",
-   "photo": "assets/photos/Tamarind.jpg"
-  },
-  {
-   "word": "Tomato",
-   "photo": "assets/photos/Tamota.jpg"
-  },
-  {
-   "word": "Watermelon",
-   "photo": "assets/photos/WaterMelon.jpg"
-  },
-  {
-   "word": "Zucchini",
-   "photo": "assets/photos/Cucumber.jpg"
-  }
- ]
+  "id": "fruitsafari6",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Fruit & Veggie Safari 6",
+  "topic": "Sweet Potato–Zucchini — tap the picture, hear the word",
+  "icon": "🍠",
+  "order": 40,
+  "status": "approved",
+  "template": "picture-reveal",
+  "items": [
+    {
+      "word": "Sweet Potato",
+      "photo": "assets/photos/V4.jpg"
+    },
+    {
+      "word": "Tamarind",
+      "photo": "assets/photos/Tamarind.jpg"
+    },
+    {
+      "word": "Tomato",
+      "photo": "assets/photos/Tamota.jpg"
+    },
+    {
+      "word": "Watermelon",
+      "photo": "assets/photos/WaterMelon.jpg"
+    },
+    {
+      "word": "Zucchini",
+      "photo": "assets/photos/Cucumber.jpg"
+    }
+  ]
 }

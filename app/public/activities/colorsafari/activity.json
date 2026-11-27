@@ -1,61 +1,61 @@
 {
- "id": "colorsafari",
- "level": "nursery",
- "subject": "colours",
- "title": "Cosmic Color Quest",
- "topic": "Tap the orb, hear the word, learn your colors",
- "icon": "🪐",
- "order": 8,
- "status": "approved",
- "template": "picture-reveal",
- "items": [
-  {
-   "word": "Red",
-   "swatch": "#FF3B30"
-  },
-  {
-   "word": "Orange",
-   "swatch": "#FF9500"
-  },
-  {
-   "word": "Yellow",
-   "swatch": "#FFD60A"
-  },
-  {
-   "word": "Green",
-   "swatch": "#34C759"
-  },
-  {
-   "word": "Blue",
-   "swatch": "#0A84FF"
-  },
-  {
-   "word": "Purple",
-   "swatch": "#AF52DE"
-  },
-  {
-   "word": "Pink",
-   "swatch": "#FF2D78"
-  },
-  {
-   "word": "Brown",
-   "swatch": "#8B5E3C"
-  },
-  {
-   "word": "Black",
-   "swatch": "#1C1C1E"
-  },
-  {
-   "word": "White",
-   "swatch": "#FFFFFF"
-  },
-  {
-   "word": "Gray",
-   "swatch": "#8E8E93"
-  },
-  {
-   "word": "Turquoise",
-   "swatch": "#2EC4B6"
-  }
- ]
+  "id": "colorsafari",
+  "level": "nursery",
+  "subject": "colours",
+  "title": "Cosmic Color Quest",
+  "topic": "Tap the orb, hear the word, learn your colors",
+  "icon": "🪐",
+  "order": 8,
+  "status": "approved",
+  "template": "picture-reveal",
+  "items": [
+    {
+      "word": "Red",
+      "swatch": "#FF3B30"
+    },
+    {
+      "word": "Orange",
+      "swatch": "#FF9500"
+    },
+    {
+      "word": "Yellow",
+      "swatch": "#FFD60A"
+    },
+    {
+      "word": "Green",
+      "swatch": "#34C759"
+    },
+    {
+      "word": "Blue",
+      "swatch": "#0A84FF"
+    },
+    {
+      "word": "Purple",
+      "swatch": "#AF52DE"
+    },
+    {
+      "word": "Pink",
+      "swatch": "#FF2D78"
+    },
+    {
+      "word": "Brown",
+      "swatch": "#8B5E3C"
+    },
+    {
+      "word": "Black",
+      "swatch": "#1C1C1E"
+    },
+    {
+      "word": "White",
+      "swatch": "#FFFFFF"
+    },
+    {
+      "word": "Gray",
+      "swatch": "#8E8E93"
+    },
+    {
+      "word": "Turquoise",
+      "swatch": "#2EC4B6"
+    }
+  ]
 }

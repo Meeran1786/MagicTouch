@@ -161,7 +161,9 @@ function buildMenu() {
   menu.innerHTML = "";
   const list = DEMO ? index.filter((a) => a.status === "approved") : index;
   if (DEMO && !list.length) {
-    note('Demo mode shows approved activities only, and none are approved yet. Set "status": "approved" in an activity file, or open the page without ?demo.');
+    note(
+      'Demo mode shows approved activities only, and none are approved yet. Set "status": "approved" in an activity file, or open the page without ?demo.',
+    );
     return;
   }
   for (const level of LEVELS) {

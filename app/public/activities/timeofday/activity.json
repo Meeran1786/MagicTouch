@@ -1,29 +1,29 @@
 {
- "id": "timeofday",
- "level": "nursery",
- "subject": "world",
- "title": "Time of Day",
- "topic": "Morning, afternoon, evening and night",
- "icon": "🌅",
- "order": 71,
- "status": "approved",
- "template": "emoji-quiz",
- "items": [
-  {
-   "emoji": "🌅",
-   "word": "Morning"
-  },
-  {
-   "emoji": "☀️",
-   "word": "Afternoon"
-  },
-  {
-   "emoji": "🌇",
-   "word": "Evening"
-  },
-  {
-   "emoji": "🌃",
-   "word": "Night"
-  }
- ]
+  "id": "timeofday",
+  "level": "nursery",
+  "subject": "world",
+  "title": "Time of Day",
+  "topic": "Morning, afternoon, evening and night",
+  "icon": "🌅",
+  "order": 71,
+  "status": "approved",
+  "template": "emoji-quiz",
+  "items": [
+    {
+      "emoji": "🌅",
+      "word": "Morning"
+    },
+    {
+      "emoji": "☀️",
+      "word": "Afternoon"
+    },
+    {
+      "emoji": "🌇",
+      "word": "Evening"
+    },
+    {
+      "emoji": "🌃",
+      "word": "Night"
+    }
+  ]
 }

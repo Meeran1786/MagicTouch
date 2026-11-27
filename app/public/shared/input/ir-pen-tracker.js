@@ -22,9 +22,9 @@
 // ═══════════════════════════════════════════════════════════════
 import { getIrSettings, saveIrSettings } from "./config.js";
 
-const SMOOTH_N = 2;        // average over the last N frames (same as the hand tracker)
-const GRACE_FRAMES = 10;   // hold position through brief dropouts (~0.33 s at 30 fps)
-const MATCH_RADIUS = 160;  // px a pen may move between frames and stay "the same pen"
+const SMOOTH_N = 2; // average over the last N frames (same as the hand tracker)
+const GRACE_FRAMES = 10; // hold position through brief dropouts (~0.33 s at 30 fps)
+const MATCH_RADIUS = 160; // px a pen may move between frames and stay "the same pen"
 
 // ── pure detection ──────────────────────────────────────────────
 /**
@@ -33,16 +33,16 @@ const MATCH_RADIUS = 160;  // px a pen may move between frames and stay "the sam
  *   blobs are sorted strongest-first; x/y are sub-pixel centroids.
  */
 export function detectBlobs(data, w, h, opts = {}, scratch = {}) {
-  const {
-    threshold = 220, minThreshold = 150, minArea = 3, maxArea = 2500, maxBlobs = 1,
-  } = opts;
+  const { threshold = 220, minThreshold = 150, minArea = 3, maxArea = 2500, maxBlobs = 1 } = opts;
   const n = w * h;
 
   const gray = scratch.gray && scratch.gray.length === n ? scratch.gray : (scratch.gray = new Uint8Array(n));
   let peak = 0;
   for (let i = 0, p = 0; i < n; i++, p += 4) {
-    const r = data[p], g = data[p + 1], b = data[p + 2];
-    const v = r > g ? (r > b ? r : b) : (g > b ? g : b);
+    const r = data[p],
+      g = data[p + 1],
+      b = data[p + 2];
+    const v = r > g ? (r > b ? r : b) : g > b ? g : b;
     gray[i] = v;
     if (v > peak) peak = v;
   }
@@ -56,7 +56,8 @@ export function detectBlobs(data, w, h, opts = {}, scratch = {}) {
   // Grow only a little below the core so a blooming/glowing pen is not counted as a huge blob.
   const tLow = Math.max(t - 35, 110);
 
-  const visited = scratch.visited && scratch.visited.length === n ? scratch.visited : (scratch.visited = new Uint8Array(n));
+  const visited =
+    scratch.visited && scratch.visited.length === n ? scratch.visited : (scratch.visited = new Uint8Array(n));
   visited.fill(0);
   const stack = scratch.stack && scratch.stack.length === n ? scratch.stack : (scratch.stack = new Int32Array(n));
 
@@ -66,19 +67,42 @@ export function detectBlobs(data, w, h, opts = {}, scratch = {}) {
     if (gray[i] < t || visited[i]) continue;
 
     let sp = 0;
-    stack[sp++] = i; visited[i] = 1;
-    let area = 0, sw = 0, sx = 0, sy = 0;
+    stack[sp++] = i;
+    visited[i] = 1;
+    let area = 0,
+      sw = 0,
+      sx = 0,
+      sy = 0;
     while (sp > 0) {
       const idx = stack[--sp];
-      const y = (idx / w) | 0, x = idx - y * w;
+      const y = (idx / w) | 0,
+        x = idx - y * w;
       const wgt = gray[idx] - tLow + 1;
-      area++; sw += wgt; sx += x * wgt; sy += y * wgt;
-      if (x > 0     && !visited[idx - 1] && gray[idx - 1] >= tLow) { visited[idx - 1] = 1; stack[sp++] = idx - 1; }
-      if (x < w - 1 && !visited[idx + 1] && gray[idx + 1] >= tLow) { visited[idx + 1] = 1; stack[sp++] = idx + 1; }
-      if (y > 0     && !visited[idx - w] && gray[idx - w] >= tLow) { visited[idx - w] = 1; stack[sp++] = idx - w; }
-      if (y < h - 1 && !visited[idx + w] && gray[idx + w] >= tLow) { visited[idx + w] = 1; stack[sp++] = idx + w; }
+      area++;
+      sw += wgt;
+      sx += x * wgt;
+      sy += y * wgt;
+      if (x > 0 && !visited[idx - 1] && gray[idx - 1] >= tLow) {
+        visited[idx - 1] = 1;
+        stack[sp++] = idx - 1;
+      }
+      if (x < w - 1 && !visited[idx + 1] && gray[idx + 1] >= tLow) {
+        visited[idx + 1] = 1;
+        stack[sp++] = idx + 1;
+      }
+      if (y > 0 && !visited[idx - w] && gray[idx - w] >= tLow) {
+        visited[idx - w] = 1;
+        stack[sp++] = idx - w;
+      }
+      if (y < h - 1 && !visited[idx + w] && gray[idx + w] >= tLow) {
+        visited[idx + w] = 1;
+        stack[sp++] = idx + w;
+      }
     }
-    if (area < minArea || area > maxArea) { rejected.push(area); continue; } // noise, or a lamp / window
+    if (area < minArea || area > maxArea) {
+      rejected.push(area);
+      continue;
+    } // noise, or a lamp / window
     blobs.push({ x: sx / sw + 0.5, y: sy / sw + 0.5, area, power: sw });
   }
 
@@ -92,7 +116,7 @@ export class IRPenTracker {
     this.camW = camW;
     this.camH = camH;
     this.maxPoints = Math.max(1, maxHands | 0);
-    this.inputName = "pen";          // lets the UI say "IR pen" instead of "finger"
+    this.inputName = "pen"; // lets the UI say "IR pen" instead of "finger"
 
     this.finger_x = -1;
     this.finger_y = -1;
@@ -116,30 +140,41 @@ export class IRPenTracker {
     this.error = null;
   }
 
-  get ready() { return this._ready; }
+  get ready() {
+    return this._ready;
+  }
 
   async _openStream() {
     const base = { width: { ideal: this.camW }, height: { ideal: this.camH } };
-    const open = extra => navigator.mediaDevices.getUserMedia({ video: { ...base, ...extra }, audio: false });
-    const curId = s => (s.getVideoTracks()[0].getSettings() || {}).deviceId;
+    const open = (extra) => navigator.mediaDevices.getUserMedia({ video: { ...base, ...extra }, audio: false });
+    const curId = (s) => (s.getVideoTracks()[0].getSettings() || {}).deviceId;
 
     let stream = null;
     const saved = this.settings.cameraId;
     if (saved) {
-      try { stream = await open({ deviceId: { exact: saved } }); } catch (e) { stream = null; }
+      try {
+        stream = await open({ deviceId: { exact: saved } });
+      } catch (e) {
+        stream = null;
+      }
     }
     if (!stream) stream = await open({});
 
     // No camera chosen yet: if one is labelled "IR"/"infrared" and we didn't get it, switch.
     if (!saved) {
       try {
-        const devs = (await navigator.mediaDevices.enumerateDevices()).filter(d => d.kind === "videoinput");
-        const ir = devs.find(d => /\b(ir|nir|infra[\s-]?red)\b/i.test(d.label));
+        const devs = (await navigator.mediaDevices.enumerateDevices()).filter((d) => d.kind === "videoinput");
+        const ir = devs.find((d) => /\b(ir|nir|infra[\s-]?red)\b/i.test(d.label));
         if (ir && ir.deviceId !== curId(stream)) {
           const alt = await open({ deviceId: { exact: ir.deviceId } }).catch(() => null);
-          if (alt) { stream.getTracks().forEach(t => t.stop()); stream = alt; }
+          if (alt) {
+            stream.getTracks().forEach((t) => t.stop());
+            stream = alt;
+          }
         }
-      } catch (e) { /* keep the default camera */ }
+      } catch (e) {
+        /* keep the default camera */
+      }
     }
     return stream;
   }
@@ -182,13 +217,15 @@ export class IRPenTracker {
     this._ctx.drawImage(this._video, 0, 0, this.camW, this.camH);
     const img = this._ctx.getImageData(0, 0, this.camW, this.camH);
     const res = detectBlobs(
-      img.data, this.camW, this.camH,
+      img.data,
+      this.camW,
+      this.camH,
       { ...this.settings, maxBlobs: this.maxPoints + 2 },
-      this._scratch
+      this._scratch,
     );
     this._lastResult = res;
 
-    const blobs = res.blobs.map(b => ({ ...b, x: this.settings.mirror ? this.camW - b.x : b.x }));
+    const blobs = res.blobs.map((b) => ({ ...b, x: this.settings.mirror ? this.camW - b.x : b.x }));
     const assigned = this._assign(blobs);
 
     this.fingers = [];
@@ -199,8 +236,12 @@ export class IRPenTracker {
         if (!slot) slot = this._slots[s] = { hist: [], x: 0, y: 0, conf: 0, lost: 0 };
         slot.hist.push([b.x, b.y]);
         if (slot.hist.length > SMOOTH_N) slot.hist.shift();
-        let ax = 0, ay = 0;
-        for (const p of slot.hist) { ax += p[0]; ay += p[1]; }
+        let ax = 0,
+          ay = 0;
+        for (const p of slot.hist) {
+          ax += p[0];
+          ay += p[1];
+        }
         slot.x = ax / slot.hist.length;
         slot.y = ay / slot.hist.length;
         slot.conf = 1;
@@ -215,7 +256,7 @@ export class IRPenTracker {
 
     // Legacy single-point fields (used by calibration): primary = first pen
     // seen this frame, else the first one still inside its grace period.
-    const primary = this._slots.find(s => s && s.lost === 0) || this._slots.find(s => s);
+    const primary = this._slots.find((s) => s && s.lost === 0) || this._slots.find((s) => s);
     if (primary) {
       this.finger_x = primary.x;
       this.finger_y = primary.y;
@@ -236,13 +277,20 @@ export class IRPenTracker {
     for (let s = 0; s < this.maxPoints; s++) {
       const prev = this._slots[s];
       if (!prev) continue;
-      let best = -1, bd = MATCH_RADIUS;
+      let best = -1,
+        bd = MATCH_RADIUS;
       blobs.forEach((b, i) => {
         if (used.has(i)) return;
         const d = Math.hypot(b.x - prev.x, b.y - prev.y);
-        if (d < bd) { bd = d; best = i; }
+        if (d < bd) {
+          bd = d;
+          best = i;
+        }
       });
-      if (best >= 0) { out[s] = blobs[best]; used.add(best); }
+      if (best >= 0) {
+        out[s] = blobs[best];
+        used.add(best);
+      }
     }
     for (let s = 0; s < this.maxPoints; s++) {
       // A pen that is only briefly missing keeps its slot: a bright spot far away
@@ -250,13 +298,16 @@ export class IRPenTracker {
       // A real move elsewhere is picked up once the grace period has run out.
       if (out[s] || this._slots[s]) continue;
       const i = blobs.findIndex((_, k) => !used.has(k));
-      if (i >= 0) { out[s] = blobs[i]; used.add(i); }
+      if (i >= 0) {
+        out[s] = blobs[i];
+        used.add(i);
+      }
     }
     return out;
   }
 
   release() {
-    if (this._stream) this._stream.getTracks().forEach(t => t.stop());
+    if (this._stream) this._stream.getTracks().forEach((t) => t.stop());
     if (this._keyHandler) window.removeEventListener("keydown", this._keyHandler);
     this._showDebug(false);
     this._ready = false;
@@ -265,7 +316,7 @@ export class IRPenTracker {
   // ── tuning keys + preview ─────────────────────────────────────
   _installKeys() {
     if (this._keyHandler) return;
-    this._keyHandler = e => {
+    this._keyHandler = (e) => {
       if (!e.shiftKey || e.ctrlKey || e.metaKey || e.altKey) return;
       if (e.key === "D") {
         const on = !this._dbg;
@@ -288,10 +339,13 @@ export class IRPenTracker {
 
   async _cycleCamera() {
     try {
-      const devs = (await navigator.mediaDevices.enumerateDevices()).filter(d => d.kind === "videoinput");
-      if (devs.length < 2) { this._toast("Only one camera found"); return; }
+      const devs = (await navigator.mediaDevices.enumerateDevices()).filter((d) => d.kind === "videoinput");
+      if (devs.length < 2) {
+        this._toast("Only one camera found");
+        return;
+      }
       const cur = (this._stream.getVideoTracks()[0].getSettings() || {}).deviceId;
-      const i = devs.findIndex(d => d.deviceId === cur);
+      const i = devs.findIndex((d) => d.deviceId === cur);
       const next = devs[(i + 1) % devs.length];
       saveIrSettings({ cameraId: next.deviceId });
       this._toast("Switching to: " + (next.label || "next camera"));
@@ -306,7 +360,8 @@ export class IRPenTracker {
     if (!el) {
       el = document.createElement("div");
       el.id = "__irPenToast";
-      el.style.cssText = "position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:1000000;" +
+      el.style.cssText =
+        "position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:1000000;" +
         "background:rgba(20,25,58,.92);color:#fff;font:600 14px system-ui,sans-serif;padding:10px 16px;" +
         "border-radius:10px;pointer-events:none;box-shadow:0 6px 24px rgba(0,0,0,.4)";
       document.body.appendChild(el);
@@ -314,24 +369,32 @@ export class IRPenTracker {
     el.textContent = msg;
     el.style.display = "block";
     clearTimeout(this._toastTimer);
-    this._toastTimer = setTimeout(() => { el.style.display = "none"; }, 1800);
+    this._toastTimer = setTimeout(() => {
+      el.style.display = "none";
+    }, 1800);
   }
 
   _showDebug(on) {
     if (!on) {
-      if (this._dbg) { this._dbg.wrap.remove(); this._dbg = null; }
+      if (this._dbg) {
+        this._dbg.wrap.remove();
+        this._dbg = null;
+      }
       return;
     }
     if (this._dbg) return;
     const wrap = document.createElement("div");
-    wrap.style.cssText = "position:fixed;left:12px;bottom:12px;z-index:1000000;background:rgba(10,12,30,.9);" +
+    wrap.style.cssText =
+      "position:fixed;left:12px;bottom:12px;z-index:1000000;background:rgba(10,12,30,.9);" +
       "border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:6px;pointer-events:none;" +
       "font:12px/1.4 monospace;color:#cfe;";
     const cv = document.createElement("canvas");
-    cv.width = 320; cv.height = 240;
+    cv.width = 320;
+    cv.height = 240;
     cv.style.cssText = "display:block;width:320px;height:240px;border-radius:6px;";
     const txt = document.createElement("div");
-    wrap.appendChild(cv); wrap.appendChild(txt);
+    wrap.appendChild(cv);
+    wrap.appendChild(txt);
     document.body.appendChild(wrap);
     this._dbg = { wrap, cv, ctx: cv.getContext("2d"), txt };
   }
@@ -339,17 +402,25 @@ export class IRPenTracker {
   _drawDebug() {
     const { ctx, txt } = this._dbg;
     ctx.drawImage(this._canvas, 0, 0, 320, 240);
-    const sx = 320 / this.camW, sy = 240 / this.camH;
+    const sx = 320 / this.camW,
+      sy = 240 / this.camH;
     ctx.lineWidth = 2;
-    this.fingers.forEach(f => {
+    this.fingers.forEach((f) => {
       ctx.strokeStyle = "#ff3b8d";
-      ctx.beginPath(); ctx.arc(f.x * sx, f.y * sy, 12, 0, Math.PI * 2); ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(f.x * sx, f.y * sy, 12, 0, Math.PI * 2);
+      ctx.stroke();
     });
     const r = this._lastResult || {};
     txt.textContent =
-      this.cameraLabel.slice(0, 40) + "\n" +
-      "peak " + (r.peak ?? "-") + "  thr " + (this.settings.threshold) +
-      "  pens " + this.fingers.length +
+      this.cameraLabel.slice(0, 40) +
+      "\n" +
+      "peak " +
+      (r.peak ?? "-") +
+      "  thr " +
+      this.settings.threshold +
+      "  pens " +
+      this.fingers.length +
       (r.rejected && r.rejected.length ? "\nrejected blob area(s): " + r.rejected.slice(0, 4).join(", ") : "") +
       "\nShift+D hide · Shift+↑↓ sensitivity · Shift+C camera";
     txt.style.whiteSpace = "pre";

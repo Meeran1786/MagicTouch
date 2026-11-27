@@ -139,9 +139,12 @@ export function picture(item, base = "") {
     box.classList.add("number");
     box.innerHTML = '<b class="ey-digit"></b><span class="ey-dots"></span>';
     box.querySelector(".ey-digit").textContent = String(item.number);
-    box.querySelector(".ey-dots").innerHTML = '<i></i>'.repeat(Math.min(20, item.number));
+    box.querySelector(".ey-dots").innerHTML = "<i></i>".repeat(Math.min(20, item.number));
   } else if (item.emoji) {
-    const parts = Array.from(new Intl.Segmenter("en", { granularity: "grapheme" }).segment(item.emoji), (s) => s.segment);
+    const parts = Array.from(
+      new Intl.Segmenter("en", { granularity: "grapheme" }).segment(item.emoji),
+      (s) => s.segment,
+    );
     if (parts.length > 1) box.classList.add("many");
     for (const e of parts) box.appendChild(emojiImg(e, item.word || ""));
   }

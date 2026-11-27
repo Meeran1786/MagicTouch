@@ -26,14 +26,37 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
 const APP_DIR = path.resolve(HERE, "..");
 
 export const MIME = {
-  ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".mjs": "text/javascript; charset=utf-8",
-  ".css": "text/css; charset=utf-8", ".json": "application/json; charset=utf-8", ".svg": "image/svg+xml",
-  ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".gif": "image/gif", ".webp": "image/webp", ".ico": "image/x-icon",
-  ".mp3": "audio/mpeg", ".wav": "audio/wav", ".ogg": "audio/ogg", ".m4a": "audio/mp4", ".mp4": "video/mp4", ".webm": "video/webm",
-  ".glb": "model/gltf-binary", ".gltf": "model/gltf+json", ".bin": "application/octet-stream",
-  ".wasm": "application/wasm", ".data": "application/octet-stream", ".task": "application/octet-stream",
-  ".tflite": "application/octet-stream", ".binarypb": "application/octet-stream",
-  ".woff2": "font/woff2", ".woff": "font/woff", ".ttf": "font/ttf", ".txt": "text/plain; charset=utf-8", ".md": "text/plain; charset=utf-8",
+  ".html": "text/html; charset=utf-8",
+  ".js": "text/javascript; charset=utf-8",
+  ".mjs": "text/javascript; charset=utf-8",
+  ".css": "text/css; charset=utf-8",
+  ".json": "application/json; charset=utf-8",
+  ".svg": "image/svg+xml",
+  ".png": "image/png",
+  ".jpg": "image/jpeg",
+  ".jpeg": "image/jpeg",
+  ".gif": "image/gif",
+  ".webp": "image/webp",
+  ".ico": "image/x-icon",
+  ".mp3": "audio/mpeg",
+  ".wav": "audio/wav",
+  ".ogg": "audio/ogg",
+  ".m4a": "audio/mp4",
+  ".mp4": "video/mp4",
+  ".webm": "video/webm",
+  ".glb": "model/gltf-binary",
+  ".gltf": "model/gltf+json",
+  ".bin": "application/octet-stream",
+  ".wasm": "application/wasm",
+  ".data": "application/octet-stream",
+  ".task": "application/octet-stream",
+  ".tflite": "application/octet-stream",
+  ".binarypb": "application/octet-stream",
+  ".woff2": "font/woff2",
+  ".woff": "font/woff",
+  ".ttf": "font/ttf",
+  ".txt": "text/plain; charset=utf-8",
+  ".md": "text/plain; charset=utf-8",
 };
 
 const SECURITY_HEADERS = {
@@ -48,18 +71,32 @@ const SECURITY_HEADERS = {
 // licence file takes effect without a restart. No file = demo licence with every class.
 export function licenceLoader(file) {
   return () => {
-    try { return JSON.parse(fs.readFileSync(file, "utf8")); }
-    catch (e) { if (e.code !== "ENOENT") console.error("[licence] could not read", file, e.message); return DEMO_LICENCE; }
+    try {
+      return JSON.parse(fs.readFileSync(file, "utf8"));
+    } catch (e) {
+      if (e.code !== "ENOENT") console.error("[licence] could not read", file, e.message);
+      return DEMO_LICENCE;
+    }
   };
 }
 
-export function createServer({ store, publicDir = path.join(APP_DIR, "public"), signup = "first", licence = DEMO_LICENCE, log = console } = {}) {
+export function createServer({
+  store,
+  publicDir = path.join(APP_DIR, "public"),
+  signup = "first",
+  licence = DEMO_LICENCE,
+  log = console,
+} = {}) {
   const api = createApi({ store, allowSignup: signup, licence, timeZone: process.env.MT_TZ || "Asia/Kolkata", log });
   const mounts = [["/", publicDir]];
 
   function resolveFile(urlPath) {
     let p;
-    try { p = decodeURIComponent(urlPath); } catch { return null; }
+    try {
+      p = decodeURIComponent(urlPath);
+    } catch {
+      return null;
+    }
     if (p.includes("\0")) return null;
     for (const [prefix, dir] of mounts) {
       if (!p.startsWith(prefix)) continue;
@@ -67,7 +104,11 @@ export function createServer({ store, publicDir = path.join(APP_DIR, "public"), 
       const full = path.resolve(dir, "." + path.posix.normalize("/" + rel));
       if (full !== dir && !full.startsWith(dir + path.sep)) return null; // path traversal
       let f = full;
-      try { if (fs.statSync(f).isDirectory()) f = path.join(f, "index.html"); } catch { return null; }
+      try {
+        if (fs.statSync(f).isDirectory()) f = path.join(f, "index.html");
+      } catch {
+        return null;
+      }
       return fs.existsSync(f) ? f : null;
     }
     return null;
@@ -79,12 +120,25 @@ export function createServer({ store, publicDir = path.join(APP_DIR, "public"), 
   }
 
   // Small JSON bodies only; the school's team settings may carry two or three small mascot pictures.
-  const bodyLimit = p => p === "/api/school/settings" ? 640 * 1024 : 16 * 1024;
+  const bodyLimit = (p) => (p === "/api/school/settings" ? 640 * 1024 : 16 * 1024);
   async function readJson(req, limit) {
-    return new Promise(resolve => {
-      let size = 0; const chunks = [];
-      req.on("data", c => { size += c.length; if (size > limit) { req.destroy(); resolve(null); } else chunks.push(c); });
-      req.on("end", () => { try { resolve(chunks.length ? JSON.parse(Buffer.concat(chunks).toString("utf8")) : {}); } catch { resolve({}); } });
+    return new Promise((resolve) => {
+      let size = 0;
+      const chunks = [];
+      req.on("data", (c) => {
+        size += c.length;
+        if (size > limit) {
+          req.destroy();
+          resolve(null);
+        } else chunks.push(c);
+      });
+      req.on("end", () => {
+        try {
+          resolve(chunks.length ? JSON.parse(Buffer.concat(chunks).toString("utf8")) : {});
+        } catch {
+          resolve({});
+        }
+      });
       req.on("error", () => resolve(null));
     });
   }
@@ -93,11 +147,25 @@ export function createServer({ store, publicDir = path.join(APP_DIR, "public"), 
     const url = new URL(req.url, "http://wall.local");
     if (url.pathname.startsWith("/api/")) {
       const body = req.method === "POST" ? await readJson(req, bodyLimit(url.pathname)) : {};
-      if (body === null) return send(res, 413, { "Content-Type": "application/json" }, JSON.stringify({ error: "Request too large." }));
-      const out = await api.handle({ method: req.method, path: url.pathname, query: Object.fromEntries(url.searchParams), headers: req.headers, body, ip: req.socket.remoteAddress || "?" });
-      return send(res, out.status, { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" }, JSON.stringify(out.body));
+      if (body === null)
+        return send(res, 413, { "Content-Type": "application/json" }, JSON.stringify({ error: "Request too large." }));
+      const out = await api.handle({
+        method: req.method,
+        path: url.pathname,
+        query: Object.fromEntries(url.searchParams),
+        headers: req.headers,
+        body,
+        ip: req.socket.remoteAddress || "?",
+      });
+      return send(
+        res,
+        out.status,
+        { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" },
+        JSON.stringify(out.body),
+      );
     }
-    if (req.method !== "GET" && req.method !== "HEAD") return send(res, 405, { "Content-Type": "text/plain" }, "Method not allowed");
+    if (req.method !== "GET" && req.method !== "HEAD")
+      return send(res, 405, { "Content-Type": "text/plain" }, "Method not allowed");
     // Old engine address (before the engine moved into the wall app).
     if (url.pathname === "/engine/poc/" || url.pathname === "/engine/poc/index.html") {
       return send(res, 301, { Location: "/engine/" + url.search }, "");
@@ -113,15 +181,23 @@ export function createServer({ store, publicDir = path.join(APP_DIR, "public"), 
       "Cache-Control": [".html", ".js", ".mjs", ".css", ".json"].includes(ext) ? "no-cache" : "public, max-age=604800",
       "Last-Modified": stat.mtime.toUTCString(),
     };
-    if (req.headers["if-modified-since"] && new Date(req.headers["if-modified-since"]) >= new Date(stat.mtime.toUTCString())) {
+    if (
+      req.headers["if-modified-since"] &&
+      new Date(req.headers["if-modified-since"]) >= new Date(stat.mtime.toUTCString())
+    ) {
       return send(res, 304, headers);
     }
     const range = /^bytes=(\d*)-(\d*)$/.exec(req.headers.range || "");
     if (range && (range[1] || range[2])) {
-      let start = range[1] ? +range[1] : Math.max(0, stat.size - +range[2]);
-      let end = range[1] && range[2] ? Math.min(+range[2], stat.size - 1) : stat.size - 1;
+      const start = range[1] ? +range[1] : Math.max(0, stat.size - +range[2]);
+      const end = range[1] && range[2] ? Math.min(+range[2], stat.size - 1) : stat.size - 1;
       if (start > end || start >= stat.size) return send(res, 416, { "Content-Range": `bytes */${stat.size}` });
-      res.writeHead(206, { ...SECURITY_HEADERS, ...headers, "Content-Range": `bytes ${start}-${end}/${stat.size}`, "Content-Length": end - start + 1 });
+      res.writeHead(206, {
+        ...SECURITY_HEADERS,
+        ...headers,
+        "Content-Range": `bytes ${start}-${end}/${stat.size}`,
+        "Content-Length": end - start + 1,
+      });
       if (req.method === "HEAD") return res.end();
       return fs.createReadStream(file, { start, end }).pipe(res);
     }
@@ -132,7 +208,10 @@ export function createServer({ store, publicDir = path.join(APP_DIR, "public"), 
 }
 
 function lanAddresses() {
-  return Object.values(os.networkInterfaces()).flat().filter(a => a && a.family === "IPv4" && !a.internal).map(a => a.address);
+  return Object.values(os.networkInterfaces())
+    .flat()
+    .filter((a) => a && a.family === "IPv4" && !a.internal)
+    .map((a) => a.address);
 }
 
 async function main() {
@@ -140,17 +219,31 @@ async function main() {
   const host = process.env.HOST || "0.0.0.0";
   const dataDir = path.resolve(process.env.MT_DATA_DIR || path.join(APP_DIR, "data"));
   const store = createFileStore(path.join(dataDir, "store.json"));
-  const server = createServer({ store, signup: process.env.MT_SIGNUP || "first", licence: licenceLoader(process.env.MT_LICENCE || path.join(dataDir, "licence.json")) });
+  const server = createServer({
+    store,
+    signup: process.env.MT_SIGNUP || "first",
+    licence: licenceLoader(process.env.MT_LICENCE || path.join(dataDir, "licence.json")),
+  });
   server.listen(port, host, () => {
     console.log(`MagicTouch wall is running.\n  On this PC:   http://localhost:${port}/`);
-    if (host === "0.0.0.0") lanAddresses().forEach(a => console.log(`  Phone remote: http://${a}:${port}/  (same Wi-Fi)`));
+    if (host === "0.0.0.0")
+      lanAddresses().forEach((a) => console.log(`  Phone remote: http://${a}:${port}/  (same Wi-Fi)`));
     console.log(`  Logins kept in: ${dataDir}\n  Press Ctrl+C to stop.`);
   });
   // Tidy up once an hour: expired sign-ins, and usage totals older than USAGE.keepDays.
-  const tidy = () => store.purgeExpired(Date.now(), dayKey(Date.now() - USAGE.keepDays * 864e5)).catch(e => console.error("[tidy]", e.message));
-  tidy(); setInterval(tidy, 60 * 60 * 1000).unref();
-  const stop = async () => { server.close(); await store.flush(); process.exit(0); };
-  process.on("SIGINT", stop); process.on("SIGTERM", stop);
+  const tidy = () =>
+    store
+      .purgeExpired(Date.now(), dayKey(Date.now() - USAGE.keepDays * 864e5))
+      .catch((e) => console.error("[tidy]", e.message));
+  tidy();
+  setInterval(tidy, 60 * 60 * 1000).unref();
+  const stop = async () => {
+    server.close();
+    await store.flush();
+    process.exit(0);
+  };
+  process.on("SIGINT", stop);
+  process.on("SIGTERM", stop);
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main();

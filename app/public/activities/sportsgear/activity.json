@@ -1,45 +1,45 @@
 {
- "id": "sportsgear",
- "level": "nursery",
- "subject": "play",
- "title": "Sports Gear",
- "topic": "Helmet, racket, trophy, medal and more",
- "icon": "🏅",
- "order": 79,
- "status": "approved",
- "template": "emoji-quiz",
- "items": [
-  {
-   "emoji": "⛑️",
-   "word": "Helmet"
-  },
-  {
-   "emoji": "🏸",
-   "word": "Racket"
-  },
-  {
-   "emoji": "🏅",
-   "word": "Medal"
-  },
-  {
-   "emoji": "🏆",
-   "word": "Trophy"
-  },
-  {
-   "emoji": "🛹",
-   "word": "Skateboard"
-  },
-  {
-   "emoji": "🛼",
-   "word": "Roller Skate"
-  },
-  {
-   "emoji": "🥊",
-   "word": "Boxing Glove"
-  },
-  {
-   "emoji": "🎯",
-   "word": "Target"
-  }
- ]
+  "id": "sportsgear",
+  "level": "nursery",
+  "subject": "play",
+  "title": "Sports Gear",
+  "topic": "Helmet, racket, trophy, medal and more",
+  "icon": "🏅",
+  "order": 79,
+  "status": "approved",
+  "template": "emoji-quiz",
+  "items": [
+    {
+      "emoji": "⛑️",
+      "word": "Helmet"
+    },
+    {
+      "emoji": "🏸",
+      "word": "Racket"
+    },
+    {
+      "emoji": "🏅",
+      "word": "Medal"
+    },
+    {
+      "emoji": "🏆",
+      "word": "Trophy"
+    },
+    {
+      "emoji": "🛹",
+      "word": "Skateboard"
+    },
+    {
+      "emoji": "🛼",
+      "word": "Roller Skate"
+    },
+    {
+      "emoji": "🥊",
+      "word": "Boxing Glove"
+    },
+    {
+      "emoji": "🎯",
+      "word": "Target"
+    }
+  ]
 }

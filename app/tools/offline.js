@@ -28,7 +28,8 @@ for (const f of walk(ROOT)) {
   fs.readFileSync(f, "utf8")
     .split("\n")
     .forEach((line, i) => {
-      if (EXTERNAL.test(line) && !/^\s*(\/\/|\*|<!--)/.test(line)) found.push(`${rel}:${i + 1}: ${line.trim().slice(0, 140)}`);
+      if (EXTERNAL.test(line) && !/^\s*(\/\/|\*|<!--)/.test(line))
+        found.push(`${rel}:${i + 1}: ${line.trim().slice(0, 140)}`);
     });
 }
 if (found.length) {

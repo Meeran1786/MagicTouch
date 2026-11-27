@@ -1,61 +1,61 @@
 {
- "id": "vehiclesquiz",
- "level": "nursery",
- "subject": "world",
- "title": "Vehicles on the Go",
- "topic": "Tap the vehicle that matches the word",
- "icon": "🚗",
- "order": 54,
- "status": "approved",
- "template": "emoji-quiz",
- "items": [
-  {
-   "emoji": "🚗",
-   "word": "Car"
-  },
-  {
-   "emoji": "🚌",
-   "word": "Bus"
-  },
-  {
-   "emoji": "🚲",
-   "word": "Bicycle"
-  },
-  {
-   "emoji": "✈️",
-   "word": "Airplane"
-  },
-  {
-   "emoji": "🚆",
-   "word": "Train"
-  },
-  {
-   "emoji": "⛵",
-   "word": "Boat"
-  },
-  {
-   "emoji": "🏍️",
-   "word": "Motorcycle"
-  },
-  {
-   "emoji": "🚒",
-   "word": "Fire Truck"
-  },
-  {
-   "emoji": "🚑",
-   "word": "Ambulance"
-  },
-  {
-   "emoji": "🚁",
-   "word": "Helicopter"
-  },
-  {
-   "emoji": "🚜",
-   "word": "Tractor"
-  },
-  {
-   "emoji": "🚕",
-   "word": "Taxi"
-  }
- ]
+  "id": "vehiclesquiz",
+  "level": "nursery",
+  "subject": "world",
+  "title": "Vehicles on the Go",
+  "topic": "Tap the vehicle that matches the word",
+  "icon": "🚗",
+  "order": 54,
+  "status": "approved",
+  "template": "emoji-quiz",
+  "items": [
+    {
+      "emoji": "🚗",
+      "word": "Car"
+    },
+    {
+      "emoji": "🚌",
+      "word": "Bus"
+    },
+    {
+      "emoji": "🚲",
+      "word": "Bicycle"
+    },
+    {
+      "emoji": "✈️",
+      "word": "Airplane"
+    },
+    {
+      "emoji": "🚆",
+      "word": "Train"
+    },
+    {
+      "emoji": "⛵",
+      "word": "Boat"
+    },
+    {
+      "emoji": "🏍️",
+      "word": "Motorcycle"
+    },
+    {
+      "emoji": "🚒",
+      "word": "Fire Truck"
+    },
+    {
+      "emoji": "🚑",
+      "word": "Ambulance"
+    },
+    {
+      "emoji": "🚁",
+      "word": "Helicopter"
+    },
+    {
+      "emoji": "🚜",
+      "word": "Tractor"
+    },
+    {
+      "emoji": "🚕",
+      "word": "Taxi"
+    }
+  ]
 }

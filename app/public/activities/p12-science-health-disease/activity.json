@@ -1,326 +1,311 @@
 {
- "id": "p12-science-health-disease",
- "level": "inter-2",
- "subject": "science",
- "title": "Health and disease: germs and the body",
- "icon": "🦠",
- "topic": "Explore, sort, match, order, quiz",
- "concept": "science.biology.health-disease",
- "status": "draft",
- "template": "pack",
- "instruction": "Work through the chapter one step at a time.",
- "doneText": "Chapter complete!",
- "steps": [
-  {
-   "label": "Where it strikes",
-   "activity": {
-    "template": "explore",
-    "instruction": "Tap each glowing circle to see which disease attacks that part of the body.",
-    "intro": "Germs that cause disease attack different parts of the body. Tap each part to find out which.",
-    "scene": "<svg viewBox=\"0 0 600 430\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"600\" height=\"430\" fill=\"#FFFDF7\"/>\n<g fill=\"#FFF0D8\" stroke=\"#3D0E37\" stroke-width=\"5\" stroke-linejoin=\"round\">\n<path d=\"M262 112 Q300 100 338 112 L372 128 Q384 134 388 150 L410 270 Q412 284 400 286 Q390 288 386 274 L366 178 L362 268 L356 300 L350 412 Q348 422 334 422 L320 422 Q310 422 310 410 L304 304 L296 304 L290 410 Q290 422 280 422 L266 422 Q252 422 250 412 L244 300 L238 268 L234 178 L214 274 Q210 288 200 286 Q188 284 190 270 L212 150 Q216 134 228 128 Z\"/>\n<circle cx=\"300\" cy=\"62\" r=\"40\"/></g>\n<ellipse cx=\"276\" cy=\"160\" rx=\"20\" ry=\"32\" fill=\"#F6C3CF\" stroke=\"#CC3054\" stroke-width=\"3\"/>\n<ellipse cx=\"324\" cy=\"160\" rx=\"20\" ry=\"32\" fill=\"#F6C3CF\" stroke=\"#CC3054\" stroke-width=\"3\"/>\n<path d=\"M328 196 Q352 188 352 206 Q350 222 326 220 Q312 216 316 204 Z\" fill=\"#C46A54\" stroke=\"#3D0E37\" stroke-width=\"3\"/>\n<path d=\"M272 232 Q300 222 328 232 Q336 246 322 250 Q300 256 280 250 Q264 258 270 268 Q300 280 330 268\" fill=\"none\" stroke=\"#E96E24\" stroke-width=\"7\" stroke-linecap=\"round\"/>\n<path d=\"M300 96 V112\" stroke=\"#3D0E37\" stroke-width=\"4\"/>\n<circle cx=\"300\" cy=\"70\" r=\"5\" fill=\"#CC3054\"/>\n<g stroke=\"#F3A328\" stroke-width=\"3\" fill=\"none\" stroke-dasharray=\"6 6\"><path d=\"M272 300 V400\"/><path d=\"M328 300 V400\"/></g>\n<g fill=\"#CC2430\" opacity=\".8\"><circle cx=\"204\" cy=\"222\" r=\"6\"/><circle cx=\"196\" cy=\"236\" r=\"4\"/></g>\n<text x=\"20\" y=\"410\" font-size=\"16\" fill=\"#6E6170\">Not to scale</text></svg>",
-    "hotspots": [
-     {
-      "x": 50.0,
-      "y": 16.3,
-      "label": "Nose and throat: common cold",
-      "text": "The common cold is caused by rhinoviruses. They infect the nose and the airways, but not the lungs. It spreads through droplets from coughs and sneezes, and through shared objects."
-     },
-     {
-      "x": 43.7,
-      "y": 34.9,
-      "label": "Lungs: pneumonia",
-      "text": "Pneumonia is caused by bacteria such as Streptococcus pneumoniae. The tiny air sacs of the lungs (alveoli) fill with fluid, so breathing becomes hard."
-     },
-     {
-      "x": 56.7,
-      "y": 47.9,
-      "label": "Liver and blood: malaria",
-      "text": "Malaria is caused by Plasmodium, a protozoan. It multiplies first in the liver, then inside red blood cells, which burst."
-     },
-     {
-      "x": 50.0,
-      "y": 58.1,
-      "label": "Intestine: typhoid, amoebiasis, roundworm",
-      "text": "Three diseases start in the intestine: typhoid (the bacterium Salmonella typhi), amoebiasis (the protozoan Entamoeba histolytica) and ascariasis (the roundworm Ascaris). All three spread through contaminated food or water."
-     },
-     {
-      "x": 45.3,
-      "y": 86.0,
-      "label": "Legs: filariasis",
-      "text": "Filarial worms (Wuchereria) live in the lymph vessels, often of the legs. Over years, the limbs can swell a lot, which is why it is also called elephantiasis."
-     },
-     {
-      "x": 33.3,
-      "y": 53.5,
-      "label": "Skin: ringworm",
-      "text": "Ringworm is caused by fungi, not worms. It makes dry, scaly, itchy rings on the skin. Heat and moisture help it grow."
-     }
-    ],
-    "doneText": "You found where each disease strikes!"
-   }
-  },
-  {
-   "label": "Which germ?",
-   "activity": {
-    "template": "sort",
-    "instruction": "Move each disease into the group of germ that causes it.",
-    "intro": "Diseases are caused by different kinds of germs. Sort each disease into its group.",
-    "bins": [
-     {
-      "id": "bac",
-      "label": "🦠 Bacteria"
-     },
-     {
-      "id": "vir",
-      "label": "🧬 Virus"
-     },
-     {
-      "id": "pro",
-      "label": "🔬 Protozoa"
-     },
-     {
-      "id": "hel",
-      "label": "🪱 Worms"
-     },
-     {
-      "id": "fun",
-      "label": "🍄 Fungi"
-     }
-    ],
-    "items": [
-     {
-      "text": "Typhoid",
-      "bin": "bac",
-      "say": "Typhoid is caused by the bacterium Salmonella typhi."
-     },
-     {
-      "text": "Pneumonia",
-      "bin": "bac",
-      "say": "Pneumonia is caused by bacteria."
-     },
-     {
-      "text": "Common cold",
-      "bin": "vir",
-      "say": "The common cold is caused by rhinoviruses."
-     },
-     {
-      "text": "Malaria",
-      "bin": "pro",
-      "say": "Malaria is caused by the protozoan Plasmodium."
-     },
-     {
-      "text": "Amoebiasis",
-      "bin": "pro",
-      "say": "Amoebiasis is caused by the protozoan Entamoeba histolytica."
-     },
-     {
-      "text": "Ascariasis",
-      "bin": "hel",
-      "say": "Ascariasis is caused by the roundworm Ascaris."
-     },
-     {
-      "text": "Filariasis",
-      "bin": "hel",
-      "say": "Filariasis is caused by filarial worms."
-     },
-     {
-      "text": "Ringworm",
-      "bin": "fun",
-      "say": "Ringworm is caused by fungi."
-     }
-    ],
-    "doneText": "Every disease is in the right group!"
-   }
-  },
-  {
-   "label": "How it spreads",
-   "activity": {
-    "template": "match",
-    "instruction": "Move each disease onto the way it spreads.",
-    "intro": "Knowing how a disease spreads tells us how to stop it.",
-    "pairs": [
-     [
-      {
-       "icon": "🦟",
-       "text": "Malaria"
-      },
-      {
-       "text": "Bite of a female Anopheles mosquito"
-      },
-      "Malaria spreads through the bite of an infected female Anopheles mosquito."
-     ],
-     [
-      {
-       "icon": "🦵",
-       "text": "Filariasis"
-      },
-      {
-       "text": "Bite of a female Culex mosquito"
-      },
-      "Filariasis spreads through the bite of a female Culex mosquito."
-     ],
-     [
-      {
-       "icon": "🤧",
-       "text": "Common cold"
-      },
-      {
-       "text": "Droplets from coughs and sneezes"
-      },
-      "The cold virus spreads through droplets in the air."
-     ],
-     [
-      {
-       "icon": "🚰",
-       "text": "Typhoid"
-      },
-      {
-       "text": "Contaminated food and water"
-      },
-      "Typhoid spreads through food and water contaminated by the germ."
-     ],
-     [
-      {
-       "icon": "🧴",
-       "text": "Ringworm"
-      },
-      {
-       "text": "Sharing towels, combs or clothes"
-      },
-      "Ringworm spreads by touching infected skin or sharing towels and combs."
-     ]
-    ],
-    "doneText": "Now you know how to break the chain!"
-   }
-  },
-  {
-   "label": "Malaria cycle",
-   "activity": {
-    "template": "order",
-    "arrows": true,
-    "instruction": "Put the life cycle of the malaria parasite in order. Start with the bite.",
-    "intro": "The malaria parasite needs two hosts: a human and a mosquito. Put its journey in order.",
-    "items": [
-     {
-      "icon": "🦟",
-      "text": "Mosquito bites, parasites enter the blood",
-      "say": "An infected female Anopheles bites and injects the parasite, as sporozoites."
-     },
-     {
-      "icon": "🫀",
-      "text": "They multiply in the liver",
-      "say": "The sporozoites travel to the liver and multiply there."
-     },
-     {
-      "icon": "🩸",
-      "text": "Red blood cells burst: fever",
-      "say": "The parasites attack red blood cells, which burst and release haemozoin. This causes chills and high fever."
-     },
-     {
-      "icon": "⚪",
-      "text": "Sexual stages form in the blood",
-      "say": "Some parasites become gametocytes, the sexual stages, inside red blood cells."
-     },
-     {
-      "icon": "🦟",
-      "text": "A mosquito sucks them up",
-      "say": "A female Anopheles bites the sick person and takes up the gametocytes."
-     },
-     {
-      "icon": "🔁",
-      "text": "They mature in the mosquito",
-      "say": "They fuse and develop in the mosquito's gut. New sporozoites move to its salivary glands, ready for the next bite."
-     }
-    ],
-    "doneText": "You followed the parasite through both hosts!"
-   }
-  },
-  {
-   "label": "Quiz",
-   "activity": {
-    "template": "quiz",
-    "instruction": "Tap the best answer. Read why after each question.",
-    "intro": "Time for a quick quiz on this chapter.",
-    "passPercent": 60,
-    "questions": [
-     {
-      "q": "A doctor asks for a Widal test. Which disease is being checked?",
-      "options": [
-       "Typhoid",
-       "Malaria",
-       "Ringworm",
-       "Common cold"
-      ],
-      "answer": 0,
-      "explain": "The Widal test confirms typhoid, which is caused by Salmonella typhi."
-     },
-     {
-      "q": "Which organism causes malaria?",
-      "options": [
-       "Plasmodium, a protozoan",
-       "Anopheles, a mosquito",
-       "Salmonella, a bacterium",
-       "Ascaris, a worm"
-      ],
-      "answer": 0,
-      "explain": "Plasmodium causes malaria. The Anopheles mosquito only carries it from person to person."
-     },
-     {
-      "type": "truefalse",
-      "q": "Antibiotics cure the common cold.",
-      "answer": false,
-      "explain": "The common cold is caused by a virus. Antibiotics work against bacteria, not viruses."
-     },
-     {
-      "type": "assertion",
-      "assertion": "In malaria, the high fever and chills come back every few days.",
-      "reason": "Red blood cells burst together and release a toxic substance called haemozoin.",
-      "answer": 0,
-      "explain": "Both are true. Each round of bursting red blood cells releases haemozoin, which brings back the fever."
-     },
-     {
-      "q": "Ringworm is caused by…",
-      "options": [
-       "Fungi",
-       "Worms",
-       "Viruses",
-       "Protozoa"
-      ],
-      "answer": 0,
-      "explain": "Despite its name, ringworm is a fungal infection of the skin, nails or scalp."
-     },
-     {
-      "q": "Which part of the body does pneumonia mainly affect?",
-      "options": [
-       "The air sacs of the lungs",
-       "The small intestine",
-       "The liver",
-       "The lymph vessels"
-      ],
-      "answer": 0,
-      "explain": "In pneumonia, the alveoli of the lungs fill with fluid, which makes breathing difficult."
-     },
-     {
-      "q": "Which step best prevents both malaria and filariasis?",
-      "options": [
-       "Stopping mosquitoes from breeding",
-       "Boiling drinking water",
-       "Washing vegetables well",
-       "Not sharing towels"
-      ],
-      "answer": 0,
-      "explain": "Both are spread by mosquitoes, so removing stagnant water and using nets cuts both diseases.",
-      "marks": 2
-     },
-     {
-      "type": "truefalse",
-      "q": "Filariasis can cause long-term swelling of the legs.",
-      "answer": true,
-      "explain": "The worms block the lymph vessels, so fluid builds up and the limbs swell over the years."
-     }
-    ],
-    "doneText": "Well done!"
-   }
-  }
- ]
+  "id": "p12-science-health-disease",
+  "level": "inter-2",
+  "subject": "science",
+  "title": "Health and disease: germs and the body",
+  "icon": "🦠",
+  "topic": "Explore, sort, match, order, quiz",
+  "concept": "science.biology.health-disease",
+  "status": "draft",
+  "template": "pack",
+  "instruction": "Work through the chapter one step at a time.",
+  "doneText": "Chapter complete!",
+  "steps": [
+    {
+      "label": "Where it strikes",
+      "activity": {
+        "template": "explore",
+        "instruction": "Tap each glowing circle to see which disease attacks that part of the body.",
+        "intro": "Germs that cause disease attack different parts of the body. Tap each part to find out which.",
+        "scene": "<svg viewBox=\"0 0 600 430\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"600\" height=\"430\" fill=\"#FFFDF7\"/>\n<g fill=\"#FFF0D8\" stroke=\"#3D0E37\" stroke-width=\"5\" stroke-linejoin=\"round\">\n<path d=\"M262 112 Q300 100 338 112 L372 128 Q384 134 388 150 L410 270 Q412 284 400 286 Q390 288 386 274 L366 178 L362 268 L356 300 L350 412 Q348 422 334 422 L320 422 Q310 422 310 410 L304 304 L296 304 L290 410 Q290 422 280 422 L266 422 Q252 422 250 412 L244 300 L238 268 L234 178 L214 274 Q210 288 200 286 Q188 284 190 270 L212 150 Q216 134 228 128 Z\"/>\n<circle cx=\"300\" cy=\"62\" r=\"40\"/></g>\n<ellipse cx=\"276\" cy=\"160\" rx=\"20\" ry=\"32\" fill=\"#F6C3CF\" stroke=\"#CC3054\" stroke-width=\"3\"/>\n<ellipse cx=\"324\" cy=\"160\" rx=\"20\" ry=\"32\" fill=\"#F6C3CF\" stroke=\"#CC3054\" stroke-width=\"3\"/>\n<path d=\"M328 196 Q352 188 352 206 Q350 222 326 220 Q312 216 316 204 Z\" fill=\"#C46A54\" stroke=\"#3D0E37\" stroke-width=\"3\"/>\n<path d=\"M272 232 Q300 222 328 232 Q336 246 322 250 Q300 256 280 250 Q264 258 270 268 Q300 280 330 268\" fill=\"none\" stroke=\"#E96E24\" stroke-width=\"7\" stroke-linecap=\"round\"/>\n<path d=\"M300 96 V112\" stroke=\"#3D0E37\" stroke-width=\"4\"/>\n<circle cx=\"300\" cy=\"70\" r=\"5\" fill=\"#CC3054\"/>\n<g stroke=\"#F3A328\" stroke-width=\"3\" fill=\"none\" stroke-dasharray=\"6 6\"><path d=\"M272 300 V400\"/><path d=\"M328 300 V400\"/></g>\n<g fill=\"#CC2430\" opacity=\".8\"><circle cx=\"204\" cy=\"222\" r=\"6\"/><circle cx=\"196\" cy=\"236\" r=\"4\"/></g>\n<text x=\"20\" y=\"410\" font-size=\"16\" fill=\"#6E6170\">Not to scale</text></svg>",
+        "hotspots": [
+          {
+            "x": 50.0,
+            "y": 16.3,
+            "label": "Nose and throat: common cold",
+            "text": "The common cold is caused by rhinoviruses. They infect the nose and the airways, but not the lungs. It spreads through droplets from coughs and sneezes, and through shared objects."
+          },
+          {
+            "x": 43.7,
+            "y": 34.9,
+            "label": "Lungs: pneumonia",
+            "text": "Pneumonia is caused by bacteria such as Streptococcus pneumoniae. The tiny air sacs of the lungs (alveoli) fill with fluid, so breathing becomes hard."
+          },
+          {
+            "x": 56.7,
+            "y": 47.9,
+            "label": "Liver and blood: malaria",
+            "text": "Malaria is caused by Plasmodium, a protozoan. It multiplies first in the liver, then inside red blood cells, which burst."
+          },
+          {
+            "x": 50.0,
+            "y": 58.1,
+            "label": "Intestine: typhoid, amoebiasis, roundworm",
+            "text": "Three diseases start in the intestine: typhoid (the bacterium Salmonella typhi), amoebiasis (the protozoan Entamoeba histolytica) and ascariasis (the roundworm Ascaris). All three spread through contaminated food or water."
+          },
+          {
+            "x": 45.3,
+            "y": 86.0,
+            "label": "Legs: filariasis",
+            "text": "Filarial worms (Wuchereria) live in the lymph vessels, often of the legs. Over years, the limbs can swell a lot, which is why it is also called elephantiasis."
+          },
+          {
+            "x": 33.3,
+            "y": 53.5,
+            "label": "Skin: ringworm",
+            "text": "Ringworm is caused by fungi, not worms. It makes dry, scaly, itchy rings on the skin. Heat and moisture help it grow."
+          }
+        ],
+        "doneText": "You found where each disease strikes!"
+      }
+    },
+    {
+      "label": "Which germ?",
+      "activity": {
+        "template": "sort",
+        "instruction": "Move each disease into the group of germ that causes it.",
+        "intro": "Diseases are caused by different kinds of germs. Sort each disease into its group.",
+        "bins": [
+          {
+            "id": "bac",
+            "label": "🦠 Bacteria"
+          },
+          {
+            "id": "vir",
+            "label": "🧬 Virus"
+          },
+          {
+            "id": "pro",
+            "label": "🔬 Protozoa"
+          },
+          {
+            "id": "hel",
+            "label": "🪱 Worms"
+          },
+          {
+            "id": "fun",
+            "label": "🍄 Fungi"
+          }
+        ],
+        "items": [
+          {
+            "text": "Typhoid",
+            "bin": "bac",
+            "say": "Typhoid is caused by the bacterium Salmonella typhi."
+          },
+          {
+            "text": "Pneumonia",
+            "bin": "bac",
+            "say": "Pneumonia is caused by bacteria."
+          },
+          {
+            "text": "Common cold",
+            "bin": "vir",
+            "say": "The common cold is caused by rhinoviruses."
+          },
+          {
+            "text": "Malaria",
+            "bin": "pro",
+            "say": "Malaria is caused by the protozoan Plasmodium."
+          },
+          {
+            "text": "Amoebiasis",
+            "bin": "pro",
+            "say": "Amoebiasis is caused by the protozoan Entamoeba histolytica."
+          },
+          {
+            "text": "Ascariasis",
+            "bin": "hel",
+            "say": "Ascariasis is caused by the roundworm Ascaris."
+          },
+          {
+            "text": "Filariasis",
+            "bin": "hel",
+            "say": "Filariasis is caused by filarial worms."
+          },
+          {
+            "text": "Ringworm",
+            "bin": "fun",
+            "say": "Ringworm is caused by fungi."
+          }
+        ],
+        "doneText": "Every disease is in the right group!"
+      }
+    },
+    {
+      "label": "How it spreads",
+      "activity": {
+        "template": "match",
+        "instruction": "Move each disease onto the way it spreads.",
+        "intro": "Knowing how a disease spreads tells us how to stop it.",
+        "pairs": [
+          [
+            {
+              "icon": "🦟",
+              "text": "Malaria"
+            },
+            {
+              "text": "Bite of a female Anopheles mosquito"
+            },
+            "Malaria spreads through the bite of an infected female Anopheles mosquito."
+          ],
+          [
+            {
+              "icon": "🦵",
+              "text": "Filariasis"
+            },
+            {
+              "text": "Bite of a female Culex mosquito"
+            },
+            "Filariasis spreads through the bite of a female Culex mosquito."
+          ],
+          [
+            {
+              "icon": "🤧",
+              "text": "Common cold"
+            },
+            {
+              "text": "Droplets from coughs and sneezes"
+            },
+            "The cold virus spreads through droplets in the air."
+          ],
+          [
+            {
+              "icon": "🚰",
+              "text": "Typhoid"
+            },
+            {
+              "text": "Contaminated food and water"
+            },
+            "Typhoid spreads through food and water contaminated by the germ."
+          ],
+          [
+            {
+              "icon": "🧴",
+              "text": "Ringworm"
+            },
+            {
+              "text": "Sharing towels, combs or clothes"
+            },
+            "Ringworm spreads by touching infected skin or sharing towels and combs."
+          ]
+        ],
+        "doneText": "Now you know how to break the chain!"
+      }
+    },
+    {
+      "label": "Malaria cycle",
+      "activity": {
+        "template": "order",
+        "arrows": true,
+        "instruction": "Put the life cycle of the malaria parasite in order. Start with the bite.",
+        "intro": "The malaria parasite needs two hosts: a human and a mosquito. Put its journey in order.",
+        "items": [
+          {
+            "icon": "🦟",
+            "text": "Mosquito bites, parasites enter the blood",
+            "say": "An infected female Anopheles bites and injects the parasite, as sporozoites."
+          },
+          {
+            "icon": "🫀",
+            "text": "They multiply in the liver",
+            "say": "The sporozoites travel to the liver and multiply there."
+          },
+          {
+            "icon": "🩸",
+            "text": "Red blood cells burst: fever",
+            "say": "The parasites attack red blood cells, which burst and release haemozoin. This causes chills and high fever."
+          },
+          {
+            "icon": "⚪",
+            "text": "Sexual stages form in the blood",
+            "say": "Some parasites become gametocytes, the sexual stages, inside red blood cells."
+          },
+          {
+            "icon": "🦟",
+            "text": "A mosquito sucks them up",
+            "say": "A female Anopheles bites the sick person and takes up the gametocytes."
+          },
+          {
+            "icon": "🔁",
+            "text": "They mature in the mosquito",
+            "say": "They fuse and develop in the mosquito's gut. New sporozoites move to its salivary glands, ready for the next bite."
+          }
+        ],
+        "doneText": "You followed the parasite through both hosts!"
+      }
+    },
+    {
+      "label": "Quiz",
+      "activity": {
+        "template": "quiz",
+        "instruction": "Tap the best answer. Read why after each question.",
+        "intro": "Time for a quick quiz on this chapter.",
+        "passPercent": 60,
+        "questions": [
+          {
+            "q": "A doctor asks for a Widal test. Which disease is being checked?",
+            "options": ["Typhoid", "Malaria", "Ringworm", "Common cold"],
+            "answer": 0,
+            "explain": "The Widal test confirms typhoid, which is caused by Salmonella typhi."
+          },
+          {
+            "q": "Which organism causes malaria?",
+            "options": [
+              "Plasmodium, a protozoan",
+              "Anopheles, a mosquito",
+              "Salmonella, a bacterium",
+              "Ascaris, a worm"
+            ],
+            "answer": 0,
+            "explain": "Plasmodium causes malaria. The Anopheles mosquito only carries it from person to person."
+          },
+          {
+            "type": "truefalse",
+            "q": "Antibiotics cure the common cold.",
+            "answer": false,
+            "explain": "The common cold is caused by a virus. Antibiotics work against bacteria, not viruses."
+          },
+          {
+            "type": "assertion",
+            "assertion": "In malaria, the high fever and chills come back every few days.",
+            "reason": "Red blood cells burst together and release a toxic substance called haemozoin.",
+            "answer": 0,
+            "explain": "Both are true. Each round of bursting red blood cells releases haemozoin, which brings back the fever."
+          },
+          {
+            "q": "Ringworm is caused by…",
+            "options": ["Fungi", "Worms", "Viruses", "Protozoa"],
+            "answer": 0,
+            "explain": "Despite its name, ringworm is a fungal infection of the skin, nails or scalp."
+          },
+          {
+            "q": "Which part of the body does pneumonia mainly affect?",
+            "options": ["The air sacs of the lungs", "The small intestine", "The liver", "The lymph vessels"],
+            "answer": 0,
+            "explain": "In pneumonia, the alveoli of the lungs fill with fluid, which makes breathing difficult."
+          },
+          {
+            "q": "Which step best prevents both malaria and filariasis?",
+            "options": [
+              "Stopping mosquitoes from breeding",
+              "Boiling drinking water",
+              "Washing vegetables well",
+              "Not sharing towels"
+            ],
+            "answer": 0,
+            "explain": "Both are spread by mosquitoes, so removing stagnant water and using nets cuts both diseases.",
+            "marks": 2
+          },
+          {
+            "type": "truefalse",
+            "q": "Filariasis can cause long-term swelling of the legs.",
+            "answer": true,
+            "explain": "The worms block the lymph vessels, so fluid builds up and the limbs swell over the years."
+          }
+        ],
+        "doneText": "Well done!"
+      }
+    }
+  ]
 }

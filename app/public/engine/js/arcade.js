@@ -34,7 +34,9 @@ export function photoImage(src) {
 
 /** Splits a string of emoji into single pictures: "🍎🍌" → ["🍎", "🍌"]. */
 export function emojiList(s) {
-  return Array.from(new Intl.Segmenter("en", { granularity: "grapheme" }).segment(s || ""), (x) => x.segment).filter((x) => x.trim());
+  return Array.from(new Intl.Segmenter("en", { granularity: "grapheme" }).segment(s || ""), (x) => x.segment).filter(
+    (x) => x.trim(),
+  );
 }
 
 /**

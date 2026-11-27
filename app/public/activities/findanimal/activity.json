@@ -1,97 +1,97 @@
 {
- "id": "findanimal",
- "level": "nursery",
- "subject": "nature",
- "title": "Animal Spotter",
- "topic": "Find the animal that matches the question",
- "icon": "🔍",
- "order": 9,
- "status": "approved",
- "template": "picture-spotter",
- "items": [
-  {
-   "word": "Black Tiger",
-   "photo": "images/BlackTiger.gif"
-  },
-  {
-   "word": "Cat",
-   "photo": "images/Cat.gif"
-  },
-  {
-   "word": "Crow",
-   "photo": "images/Crow.gif"
-  },
-  {
-   "word": "Dinosaur",
-   "photo": "images/Dinosaur.gif"
-  },
-  {
-   "word": "Dog",
-   "photo": "images/Dog.gif"
-  },
-  {
-   "word": "Elephant",
-   "photo": "images/Elephant.gif"
-  },
-  {
-   "word": "Fish",
-   "photo": "images/Fish.gif"
-  },
-  {
-   "word": "Giraffe",
-   "photo": "images/Girafee.gif"
-  },
-  {
-   "word": "Goat",
-   "photo": "images/Goat.gif"
-  },
-  {
-   "word": "Hippo",
-   "photo": "images/Hippo.gif"
-  },
-  {
-   "word": "Horse",
-   "photo": "images/Horse.gif"
-  },
-  {
-   "word": "Lion",
-   "photo": "images/Lion.gif"
-  },
-  {
-   "word": "Monkey",
-   "photo": "images/Monkey.gif"
-  },
-  {
-   "word": "Ostrich",
-   "photo": "images/Ostrich.gif"
-  },
-  {
-   "word": "Parrot",
-   "photo": "images/Parrot.gif"
-  },
-  {
-   "word": "Rabbit",
-   "photo": "images/Rabbit.gif"
-  },
-  {
-   "word": "Sheep",
-   "photo": "images/Sheep.gif"
-  },
-  {
-   "word": "Tiger",
-   "photo": "images/Tiger.gif"
-  },
-  {
-   "word": "Tortoise",
-   "photo": "images/Tortoise.gif"
-  },
-  {
-   "word": "White Parrot",
-   "photo": "images/WhiteParrot.gif"
-  },
-  {
-   "word": "Zebra",
-   "photo": "images/Zeebra.gif"
-  }
- ]
+  "id": "findanimal",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Animal Spotter",
+  "topic": "Find the animal that matches the question",
+  "icon": "🔍",
+  "order": 9,
+  "status": "approved",
+  "template": "picture-spotter",
+  "items": [
+    {
+      "word": "Black Tiger",
+      "photo": "images/BlackTiger.gif"
+    },
+    {
+      "word": "Cat",
+      "photo": "images/Cat.gif"
+    },
+    {
+      "word": "Crow",
+      "photo": "images/Crow.gif"
+    },
+    {
+      "word": "Dinosaur",
+      "photo": "images/Dinosaur.gif"
+    },
+    {
+      "word": "Dog",
+      "photo": "images/Dog.gif"
+    },
+    {
+      "word": "Elephant",
+      "photo": "images/Elephant.gif"
+    },
+    {
+      "word": "Fish",
+      "photo": "images/Fish.gif"
+    },
+    {
+      "word": "Giraffe",
+      "photo": "images/Girafee.gif"
+    },
+    {
+      "word": "Goat",
+      "photo": "images/Goat.gif"
+    },
+    {
+      "word": "Hippo",
+      "photo": "images/Hippo.gif"
+    },
+    {
+      "word": "Horse",
+      "photo": "images/Horse.gif"
+    },
+    {
+      "word": "Lion",
+      "photo": "images/Lion.gif"
+    },
+    {
+      "word": "Monkey",
+      "photo": "images/Monkey.gif"
+    },
+    {
+      "word": "Ostrich",
+      "photo": "images/Ostrich.gif"
+    },
+    {
+      "word": "Parrot",
+      "photo": "images/Parrot.gif"
+    },
+    {
+      "word": "Rabbit",
+      "photo": "images/Rabbit.gif"
+    },
+    {
+      "word": "Sheep",
+      "photo": "images/Sheep.gif"
+    },
+    {
+      "word": "Tiger",
+      "photo": "images/Tiger.gif"
+    },
+    {
+      "word": "Tortoise",
+      "photo": "images/Tortoise.gif"
+    },
+    {
+      "word": "White Parrot",
+      "photo": "images/WhiteParrot.gif"
+    },
+    {
+      "word": "Zebra",
+      "photo": "images/Zeebra.gif"
+    }
+  ]
 }

@@ -1,223 +1,223 @@
 {
- "id": "animallang2",
- "level": "lkg",
- "subject": "letters",
- "title": "Animal Languages 2",
- "topic": "Point at a circle to hear it — English, Hindi & Telugu — set 2 of 3",
- "icon": "🦒",
- "order": 19,
- "status": "approved",
- "template": "word-wheel",
- "items": [
-  {
-   "word": "Elephant",
-   "photo": "images/Elephant1.jpg",
-   "says": [
+  "id": "animallang2",
+  "level": "lkg",
+  "subject": "letters",
+  "title": "Animal Languages 2",
+  "topic": "Point at a circle to hear it — English, Hindi & Telugu — set 2 of 3",
+  "icon": "🦒",
+  "order": 19,
+  "status": "approved",
+  "template": "word-wheel",
+  "items": [
     {
-     "lang": "English",
-     "text": "Elephant",
-     "code": "en-IN"
+      "word": "Elephant",
+      "photo": "images/Elephant1.jpg",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Elephant",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "हाथी",
+          "code": "hi-IN"
+        },
+        {
+          "lang": "Telugu",
+          "text": "ఏనుగు",
+          "code": "te-IN"
+        }
+      ]
     },
     {
-     "lang": "Hindi",
-     "text": "हाथी",
-     "code": "hi-IN"
+      "word": "Fox",
+      "photo": "images/FOX.jpg",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Fox",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "लोमड़ी",
+          "code": "hi-IN"
+        },
+        {
+          "lang": "Telugu",
+          "text": "నక్క",
+          "code": "te-IN"
+        }
+      ]
     },
     {
-     "lang": "Telugu",
-     "text": "ఏనుగు",
-     "code": "te-IN"
+      "word": "Gazelle",
+      "photo": "images/Gazelle.jpg",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Gazelle",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "चिंकारा",
+          "code": "hi-IN"
+        },
+        {
+          "lang": "Telugu",
+          "text": "గజెల్",
+          "code": "te-IN"
+        }
+      ]
+    },
+    {
+      "word": "Giraffe",
+      "photo": "images/Girafee.jpg",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Giraffe",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "जिराफ़",
+          "code": "hi-IN"
+        },
+        {
+          "lang": "Telugu",
+          "text": "జిరాఫీ",
+          "code": "te-IN"
+        }
+      ]
+    },
+    {
+      "word": "Goat",
+      "photo": "images/Goat.jpg",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Goat",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "बकरी",
+          "code": "hi-IN"
+        },
+        {
+          "lang": "Telugu",
+          "text": "మేక",
+          "code": "te-IN"
+        }
+      ]
+    },
+    {
+      "word": "Gorilla",
+      "photo": "images/GORILA.jpg",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Gorilla",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "गोरिल्ला",
+          "code": "hi-IN"
+        },
+        {
+          "lang": "Telugu",
+          "text": "గొరిల్లా",
+          "code": "te-IN"
+        }
+      ]
+    },
+    {
+      "word": "Horse",
+      "photo": "images/Horse.png",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Horse",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "घोड़ा",
+          "code": "hi-IN"
+        },
+        {
+          "lang": "Telugu",
+          "text": "గుర్రం",
+          "code": "te-IN"
+        }
+      ]
+    },
+    {
+      "word": "Kangaroo",
+      "photo": "images/Kangaroo.jpg",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Kangaroo",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "कंगारू",
+          "code": "hi-IN"
+        },
+        {
+          "lang": "Telugu",
+          "text": "కంగారూ",
+          "code": "te-IN"
+        }
+      ]
+    },
+    {
+      "word": "Lion",
+      "photo": "images/Lion.png",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Lion",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "शेर",
+          "code": "hi-IN"
+        },
+        {
+          "lang": "Telugu",
+          "text": "సింహం",
+          "code": "te-IN"
+        }
+      ]
+    },
+    {
+      "word": "Monkey",
+      "photo": "images/Monkey.jpg",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Monkey",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "बंदर",
+          "code": "hi-IN"
+        },
+        {
+          "lang": "Telugu",
+          "text": "కోతి",
+          "code": "te-IN"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "word": "Fox",
-   "photo": "images/FOX.jpg",
-   "says": [
-    {
-     "lang": "English",
-     "text": "Fox",
-     "code": "en-IN"
-    },
-    {
-     "lang": "Hindi",
-     "text": "लोमड़ी",
-     "code": "hi-IN"
-    },
-    {
-     "lang": "Telugu",
-     "text": "నక్క",
-     "code": "te-IN"
-    }
-   ]
-  },
-  {
-   "word": "Gazelle",
-   "photo": "images/Gazelle.jpg",
-   "says": [
-    {
-     "lang": "English",
-     "text": "Gazelle",
-     "code": "en-IN"
-    },
-    {
-     "lang": "Hindi",
-     "text": "चिंकारा",
-     "code": "hi-IN"
-    },
-    {
-     "lang": "Telugu",
-     "text": "గజెల్",
-     "code": "te-IN"
-    }
-   ]
-  },
-  {
-   "word": "Giraffe",
-   "photo": "images/Girafee.jpg",
-   "says": [
-    {
-     "lang": "English",
-     "text": "Giraffe",
-     "code": "en-IN"
-    },
-    {
-     "lang": "Hindi",
-     "text": "जिराफ़",
-     "code": "hi-IN"
-    },
-    {
-     "lang": "Telugu",
-     "text": "జిరాఫీ",
-     "code": "te-IN"
-    }
-   ]
-  },
-  {
-   "word": "Goat",
-   "photo": "images/Goat.jpg",
-   "says": [
-    {
-     "lang": "English",
-     "text": "Goat",
-     "code": "en-IN"
-    },
-    {
-     "lang": "Hindi",
-     "text": "बकरी",
-     "code": "hi-IN"
-    },
-    {
-     "lang": "Telugu",
-     "text": "మేక",
-     "code": "te-IN"
-    }
-   ]
-  },
-  {
-   "word": "Gorilla",
-   "photo": "images/GORILA.jpg",
-   "says": [
-    {
-     "lang": "English",
-     "text": "Gorilla",
-     "code": "en-IN"
-    },
-    {
-     "lang": "Hindi",
-     "text": "गोरिल्ला",
-     "code": "hi-IN"
-    },
-    {
-     "lang": "Telugu",
-     "text": "గొరిల్లా",
-     "code": "te-IN"
-    }
-   ]
-  },
-  {
-   "word": "Horse",
-   "photo": "images/Horse.png",
-   "says": [
-    {
-     "lang": "English",
-     "text": "Horse",
-     "code": "en-IN"
-    },
-    {
-     "lang": "Hindi",
-     "text": "घोड़ा",
-     "code": "hi-IN"
-    },
-    {
-     "lang": "Telugu",
-     "text": "గుర్రం",
-     "code": "te-IN"
-    }
-   ]
-  },
-  {
-   "word": "Kangaroo",
-   "photo": "images/Kangaroo.jpg",
-   "says": [
-    {
-     "lang": "English",
-     "text": "Kangaroo",
-     "code": "en-IN"
-    },
-    {
-     "lang": "Hindi",
-     "text": "कंगारू",
-     "code": "hi-IN"
-    },
-    {
-     "lang": "Telugu",
-     "text": "కంగారూ",
-     "code": "te-IN"
-    }
-   ]
-  },
-  {
-   "word": "Lion",
-   "photo": "images/Lion.png",
-   "says": [
-    {
-     "lang": "English",
-     "text": "Lion",
-     "code": "en-IN"
-    },
-    {
-     "lang": "Hindi",
-     "text": "शेर",
-     "code": "hi-IN"
-    },
-    {
-     "lang": "Telugu",
-     "text": "సింహం",
-     "code": "te-IN"
-    }
-   ]
-  },
-  {
-   "word": "Monkey",
-   "photo": "images/Monkey.jpg",
-   "says": [
-    {
-     "lang": "English",
-     "text": "Monkey",
-     "code": "en-IN"
-    },
-    {
-     "lang": "Hindi",
-     "text": "बंदर",
-     "code": "hi-IN"
-    },
-    {
-     "lang": "Telugu",
-     "text": "కోతి",
-     "code": "te-IN"
-    }
-   ]
-  }
- ]
+  ]
 }

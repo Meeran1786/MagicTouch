@@ -1,45 +1,45 @@
 {
- "id": "birdhomes",
- "level": "nursery",
- "subject": "nature",
- "title": "Birds We See",
- "topic": "Sparrow, crow, owl, parrot and more",
- "icon": "🦜",
- "order": 69,
- "status": "approved",
- "template": "emoji-quiz",
- "items": [
-  {
-   "emoji": "🐦",
-   "word": "Sparrow"
-  },
-  {
-   "emoji": "🐦‍⬛",
-   "word": "Crow"
-  },
-  {
-   "emoji": "🦉",
-   "word": "Owl"
-  },
-  {
-   "emoji": "🦜",
-   "word": "Parrot"
-  },
-  {
-   "emoji": "🦆",
-   "word": "Duck"
-  },
-  {
-   "emoji": "🦅",
-   "word": "Eagle"
-  },
-  {
-   "emoji": "🕊️",
-   "word": "Pigeon"
-  },
-  {
-   "emoji": "🐔",
-   "word": "Hen"
-  }
- ]
+  "id": "birdhomes",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Birds We See",
+  "topic": "Sparrow, crow, owl, parrot and more",
+  "icon": "🦜",
+  "order": 69,
+  "status": "approved",
+  "template": "emoji-quiz",
+  "items": [
+    {
+      "emoji": "🐦",
+      "word": "Sparrow"
+    },
+    {
+      "emoji": "🐦‍⬛",
+      "word": "Crow"
+    },
+    {
+      "emoji": "🦉",
+      "word": "Owl"
+    },
+    {
+      "emoji": "🦜",
+      "word": "Parrot"
+    },
+    {
+      "emoji": "🦆",
+      "word": "Duck"
+    },
+    {
+      "emoji": "🦅",
+      "word": "Eagle"
+    },
+    {
+      "emoji": "🕊️",
+      "word": "Pigeon"
+    },
+    {
+      "emoji": "🐔",
+      "word": "Hen"
+    }
+  ]
 }

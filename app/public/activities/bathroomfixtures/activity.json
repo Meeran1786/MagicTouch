@@ -1,29 +1,29 @@
 {
- "id": "bathroomfixtures",
- "level": "prekg",
- "subject": "world",
- "title": "Bathroom Fixtures",
- "topic": "Toilet, sink, toilet paper and more",
- "icon": "🚽",
- "order": 116,
- "status": "approved",
- "template": "emoji-quiz",
- "items": [
-  {
-   "emoji": "🚽",
-   "word": "Toilet"
-  },
-  {
-   "emoji": "🚰",
-   "word": "Sink"
-  },
-  {
-   "emoji": "🧻",
-   "word": "Toilet Paper"
-  },
-  {
-   "emoji": "🪠",
-   "word": "Plunger"
-  }
- ]
+  "id": "bathroomfixtures",
+  "level": "prekg",
+  "subject": "world",
+  "title": "Bathroom Fixtures",
+  "topic": "Toilet, sink, toilet paper and more",
+  "icon": "🚽",
+  "order": 116,
+  "status": "approved",
+  "template": "emoji-quiz",
+  "items": [
+    {
+      "emoji": "🚽",
+      "word": "Toilet"
+    },
+    {
+      "emoji": "🚰",
+      "word": "Sink"
+    },
+    {
+      "emoji": "🧻",
+      "word": "Toilet Paper"
+    },
+    {
+      "emoji": "🪠",
+      "word": "Plunger"
+    }
+  ]
 }

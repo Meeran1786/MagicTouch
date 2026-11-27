@@ -43,7 +43,10 @@ export default function wordWheel(area, d, ctx) {
     langs.innerHTML = "";
     const n = item.says.length;
     lines.innerHTML = item.says
-      .map((_, k) => `<line x1="300" y1="0" x2="${((k + 0.5) / n) * 600}" y2="200" style="stroke:var(${RING[k % RING.length]})"/>`)
+      .map(
+        (_, k) =>
+          `<line x1="300" y1="0" x2="${((k + 0.5) / n) * 600}" y2="200" style="stroke:var(${RING[k % RING.length]})"/>`,
+      )
       .join("");
     item.says.forEach((s, k) => {
       const b = document.createElement("button");

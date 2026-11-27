@@ -1,46 +1,44 @@
 {
- "id": "colorquest",
- "level": "prekg",
- "subject": "colours",
- "title": "Color Quest!",
- "topic": "Point at the shape with the right color",
- "icon": "🎨",
- "order": 6,
- "status": "approved",
- "template": "picture-quiz",
- "labels": { "word2pic": "Find the colour!" },
- "kinds": [
-  "word2pic"
- ],
- "questions": 10,
- "items": [
-  {
-   "word": "Red",
-   "swatch": "#E74C3C"
-  },
-  {
-   "word": "Blue",
-   "swatch": "#3478F6"
-  },
-  {
-   "word": "Yellow",
-   "swatch": "#FFC819"
-  },
-  {
-   "word": "Green",
-   "swatch": "#46B45F"
-  },
-  {
-   "word": "Purple",
-   "swatch": "#9655B4"
-  },
-  {
-   "word": "Orange",
-   "swatch": "#FA8C23"
-  },
-  {
-   "word": "Pink",
-   "swatch": "#FF69AF"
-  }
- ]
+  "id": "colorquest",
+  "level": "prekg",
+  "subject": "colours",
+  "title": "Color Quest!",
+  "topic": "Point at the shape with the right color",
+  "icon": "🎨",
+  "order": 6,
+  "status": "approved",
+  "template": "picture-quiz",
+  "labels": { "word2pic": "Find the colour!" },
+  "kinds": ["word2pic"],
+  "questions": 10,
+  "items": [
+    {
+      "word": "Red",
+      "swatch": "#E74C3C"
+    },
+    {
+      "word": "Blue",
+      "swatch": "#3478F6"
+    },
+    {
+      "word": "Yellow",
+      "swatch": "#FFC819"
+    },
+    {
+      "word": "Green",
+      "swatch": "#46B45F"
+    },
+    {
+      "word": "Purple",
+      "swatch": "#9655B4"
+    },
+    {
+      "word": "Orange",
+      "swatch": "#FA8C23"
+    },
+    {
+      "word": "Pink",
+      "swatch": "#FF69AF"
+    }
+  ]
 }

@@ -1,53 +1,53 @@
 {
- "id": "fruitquiz1",
- "level": "lkg",
- "subject": "nature",
- "title": "Fruit & Veggie Quiz 1",
- "topic": "Almond–Capsicum — multiple choice & spelling quiz",
- "icon": "🍎",
- "order": 41,
- "status": "approved",
- "template": "picture-quiz",
- "items": [
-  {
-   "word": "Almond",
-   "photo": "assets/photos/Badam.jpg"
-  },
-  {
-   "word": "Apple",
-   "photo": "assets/photos/Apple2.jpg"
-  },
-  {
-   "word": "Apricot",
-   "photo": "assets/photos/Apricut.jpg"
-  },
-  {
-   "word": "Banana",
-   "photo": "assets/photos/Banana.jpg"
-  },
-  {
-   "word": "Bitter Gourd",
-   "photo": "assets/photos/V5.jpg"
-  },
-  {
-   "word": "Blueberry",
-   "photo": "assets/photos/BlueBerry.jpg"
-  },
-  {
-   "word": "Bottle Gourd",
-   "photo": "assets/photos/BottleGourd.jpg"
-  },
-  {
-   "word": "Brinjal",
-   "photo": "assets/photos/Brinzal.jpg"
-  },
-  {
-   "word": "Cabbage",
-   "photo": "assets/photos/Cabage.jpg"
-  },
-  {
-   "word": "Capsicum",
-   "photo": "assets/photos/Capsicum.jpg"
-  }
- ]
+  "id": "fruitquiz1",
+  "level": "lkg",
+  "subject": "nature",
+  "title": "Fruit & Veggie Quiz 1",
+  "topic": "Almond–Capsicum — multiple choice & spelling quiz",
+  "icon": "🍎",
+  "order": 41,
+  "status": "approved",
+  "template": "picture-quiz",
+  "items": [
+    {
+      "word": "Almond",
+      "photo": "assets/photos/Badam.jpg"
+    },
+    {
+      "word": "Apple",
+      "photo": "assets/photos/Apple2.jpg"
+    },
+    {
+      "word": "Apricot",
+      "photo": "assets/photos/Apricut.jpg"
+    },
+    {
+      "word": "Banana",
+      "photo": "assets/photos/Banana.jpg"
+    },
+    {
+      "word": "Bitter Gourd",
+      "photo": "assets/photos/V5.jpg"
+    },
+    {
+      "word": "Blueberry",
+      "photo": "assets/photos/BlueBerry.jpg"
+    },
+    {
+      "word": "Bottle Gourd",
+      "photo": "assets/photos/BottleGourd.jpg"
+    },
+    {
+      "word": "Brinjal",
+      "photo": "assets/photos/Brinzal.jpg"
+    },
+    {
+      "word": "Cabbage",
+      "photo": "assets/photos/Cabage.jpg"
+    },
+    {
+      "word": "Capsicum",
+      "photo": "assets/photos/Capsicum.jpg"
+    }
+  ]
 }

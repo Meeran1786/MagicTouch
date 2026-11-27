@@ -1,45 +1,45 @@
 {
- "id": "letsplay",
- "level": "nursery",
- "subject": "play",
- "title": "Let's Play Sports",
- "topic": "Name the ball and game — soccer, tennis and more",
- "icon": "⚽",
- "order": 61,
- "status": "approved",
- "template": "emoji-quiz",
- "items": [
-  {
-   "emoji": "⚽",
-   "word": "Soccer Ball"
-  },
-  {
-   "emoji": "🏀",
-   "word": "Basketball"
-  },
-  {
-   "emoji": "🎾",
-   "word": "Tennis"
-  },
-  {
-   "emoji": "⚾",
-   "word": "Baseball"
-  },
-  {
-   "emoji": "🏈",
-   "word": "Football"
-  },
-  {
-   "emoji": "🏐",
-   "word": "Volleyball"
-  },
-  {
-   "emoji": "🎳",
-   "word": "Bowling"
-  },
-  {
-   "emoji": "🏊",
-   "word": "Swimming"
-  }
- ]
+  "id": "letsplay",
+  "level": "nursery",
+  "subject": "play",
+  "title": "Let's Play Sports",
+  "topic": "Name the ball and game — soccer, tennis and more",
+  "icon": "⚽",
+  "order": 61,
+  "status": "approved",
+  "template": "emoji-quiz",
+  "items": [
+    {
+      "emoji": "⚽",
+      "word": "Soccer Ball"
+    },
+    {
+      "emoji": "🏀",
+      "word": "Basketball"
+    },
+    {
+      "emoji": "🎾",
+      "word": "Tennis"
+    },
+    {
+      "emoji": "⚾",
+      "word": "Baseball"
+    },
+    {
+      "emoji": "🏈",
+      "word": "Football"
+    },
+    {
+      "emoji": "🏐",
+      "word": "Volleyball"
+    },
+    {
+      "emoji": "🎳",
+      "word": "Bowling"
+    },
+    {
+      "emoji": "🏊",
+      "word": "Swimming"
+    }
+  ]
 }

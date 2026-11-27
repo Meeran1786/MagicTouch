@@ -1,45 +1,45 @@
 {
- "id": "opposites",
- "level": "prekg",
- "subject": "letters",
- "title": "Opposites",
- "topic": "Big & small, hot & cold, fast & slow and more",
- "icon": "⬆️",
- "order": 65,
- "status": "approved",
- "template": "emoji-quiz",
- "items": [
-  {
-   "emoji": "🐘",
-   "word": "Big"
-  },
-  {
-   "emoji": "🐜",
-   "word": "Small"
-  },
-  {
-   "emoji": "🔥",
-   "word": "Hot"
-  },
-  {
-   "emoji": "🧊",
-   "word": "Cold"
-  },
-  {
-   "emoji": "🐇",
-   "word": "Fast"
-  },
-  {
-   "emoji": "🐢",
-   "word": "Slow"
-  },
-  {
-   "emoji": "☀️",
-   "word": "Day"
-  },
-  {
-   "emoji": "🌙",
-   "word": "Night"
-  }
- ]
+  "id": "opposites",
+  "level": "prekg",
+  "subject": "letters",
+  "title": "Opposites",
+  "topic": "Big & small, hot & cold, fast & slow and more",
+  "icon": "⬆️",
+  "order": 65,
+  "status": "approved",
+  "template": "emoji-quiz",
+  "items": [
+    {
+      "emoji": "🐘",
+      "word": "Big"
+    },
+    {
+      "emoji": "🐜",
+      "word": "Small"
+    },
+    {
+      "emoji": "🔥",
+      "word": "Hot"
+    },
+    {
+      "emoji": "🧊",
+      "word": "Cold"
+    },
+    {
+      "emoji": "🐇",
+      "word": "Fast"
+    },
+    {
+      "emoji": "🐢",
+      "word": "Slow"
+    },
+    {
+      "emoji": "☀️",
+      "word": "Day"
+    },
+    {
+      "emoji": "🌙",
+      "word": "Night"
+    }
+  ]
 }

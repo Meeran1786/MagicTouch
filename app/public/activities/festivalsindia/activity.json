@@ -1,37 +1,37 @@
 {
- "id": "festivalsindia",
- "level": "nursery",
- "subject": "world",
- "title": "Festivals of India",
- "topic": "Diwali, Holi, Christmas, Eid and more",
- "icon": "🪔",
- "order": 80,
- "status": "approved",
- "template": "emoji-quiz",
- "items": [
-  {
-   "emoji": "🪔",
-   "word": "Diwali"
-  },
-  {
-   "emoji": "🎨",
-   "word": "Holi"
-  },
-  {
-   "emoji": "🎄",
-   "word": "Christmas"
-  },
-  {
-   "emoji": "🌙",
-   "word": "Eid"
-  },
-  {
-   "emoji": "🇮🇳",
-   "word": "Independence Day"
-  },
-  {
-   "emoji": "🎆",
-   "word": "Fireworks"
-  }
- ]
+  "id": "festivalsindia",
+  "level": "nursery",
+  "subject": "world",
+  "title": "Festivals of India",
+  "topic": "Diwali, Holi, Christmas, Eid and more",
+  "icon": "🪔",
+  "order": 80,
+  "status": "approved",
+  "template": "emoji-quiz",
+  "items": [
+    {
+      "emoji": "🪔",
+      "word": "Diwali"
+    },
+    {
+      "emoji": "🎨",
+      "word": "Holi"
+    },
+    {
+      "emoji": "🎄",
+      "word": "Christmas"
+    },
+    {
+      "emoji": "🌙",
+      "word": "Eid"
+    },
+    {
+      "emoji": "🇮🇳",
+      "word": "Independence Day"
+    },
+    {
+      "emoji": "🎆",
+      "word": "Fireworks"
+    }
+  ]
 }

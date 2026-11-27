@@ -6,11 +6,11 @@ from Nursery to Intermediate. Look and feel: **Studio** (direction C, decided 24
 
 It joins two code bases, both owned by Maqsusi EduTech:
 
-| Part | Where | Came from |
-|---|---|---|
-| Wall launcher, phone remote, 9-dot pen calibration, IR pen tracker, 126 early-years activities | `public/` | Interactive Wall code bought from Basha (IP assignment signed, 24 Nov 2026), restyled |
-| Classes 1–12 and Intermediate activities (JSON templates, lesson packs) | `../webcam/poc/`, served at `/engine/poc/` | Our own engine |
-| Server, logins, licence, Studio launcher, theme, music | `server/`, `public/index.html`, `public/launcher.*`, `public/catalog.js`, `public/shared/studio/` | New in this merge |
+| Part                                                                                           | Where                                                                                             | Came from                                                                             |
+| ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| Wall launcher, phone remote, 9-dot pen calibration, IR pen tracker, 126 early-years activities | `public/`                                                                                         | Interactive Wall code bought from Basha (IP assignment signed, 24 Nov 2026), restyled |
+| Classes 1–12 and Intermediate activities (JSON templates, lesson packs)                        | `../webcam/poc/`, served at `/engine/poc/`                                                        | Our own engine                                                                        |
+| Server, logins, licence, Studio launcher, theme, music                                         | `server/`, `public/index.html`, `public/launcher.*`, `public/catalog.js`, `public/shared/studio/` | New in this merge                                                                     |
 
 ## Run it on the classroom PC
 
@@ -39,8 +39,8 @@ Open it on a phone on the same Wi-Fi and sign in with the same school login. Fro
 teacher can open any activity on the wall, go back to the menu, lock the wall, and start the pen
 calibration.
 
-**Team play:** the ★ button on the wall (or *Team play* on the phone) splits the class into 2–4
-teams. A score strip floats over any activity: tap a team to give it a star, then *Finish* for
+**Team play:** the ★ button on the wall (or _Team play_ on the phone) splits the class into 2–4
+teams. A score strip floats over any activity: tap a team to give it a star, then _Finish_ for
 the winner's celebration. Every school starts with Peacocks, Tigers, Elephants and Parrots; the
 School view's **Teams** tab renames them and sets each mascot (our gallery or the school's own
 picture). Only team names and points are kept.
@@ -54,7 +54,11 @@ The wall shows only the classes the school bought. Put the licence in `data/lice
 (see `licence.example.json`):
 
 ```json
-{ "school": "Sunrise Public School, Hyderabad", "levels": ["nursery", "prekg", "lkg", "class-4", "class-10"], "validUntil": "2027-06-30" }
+{
+  "school": "Sunrise Public School, Hyderabad",
+  "levels": ["nursery", "prekg", "lkg", "class-4", "class-10"],
+  "validUntil": "2027-06-30"
+}
 ```
 
 Level keys: `nursery`, `prekg`, `lkg`, `class-1` … `class-10`, `inter-1`, `inter-2`.

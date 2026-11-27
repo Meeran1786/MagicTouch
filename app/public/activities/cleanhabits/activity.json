@@ -1,37 +1,37 @@
 {
- "id": "cleanhabits",
- "level": "prekg",
- "subject": "world",
- "title": "Clean and Healthy Habits",
- "topic": "Brushing, washing hands and staying fresh",
- "icon": "🧼",
- "order": 77,
- "status": "approved",
- "template": "emoji-quiz",
- "items": [
-  {
-   "emoji": "🪥",
-   "word": "Toothbrush"
-  },
-  {
-   "emoji": "🧼",
-   "word": "Soap"
-  },
-  {
-   "emoji": "🚿",
-   "word": "Shower"
-  },
-  {
-   "emoji": "🛁",
-   "word": "Bathtub"
-  },
-  {
-   "emoji": "💇",
-   "word": "Comb"
-  },
-  {
-   "emoji": "💧",
-   "word": "Water Drop"
-  }
- ]
+  "id": "cleanhabits",
+  "level": "prekg",
+  "subject": "world",
+  "title": "Clean and Healthy Habits",
+  "topic": "Brushing, washing hands and staying fresh",
+  "icon": "🧼",
+  "order": 77,
+  "status": "approved",
+  "template": "emoji-quiz",
+  "items": [
+    {
+      "emoji": "🪥",
+      "word": "Toothbrush"
+    },
+    {
+      "emoji": "🧼",
+      "word": "Soap"
+    },
+    {
+      "emoji": "🚿",
+      "word": "Shower"
+    },
+    {
+      "emoji": "🛁",
+      "word": "Bathtub"
+    },
+    {
+      "emoji": "💇",
+      "word": "Comb"
+    },
+    {
+      "emoji": "💧",
+      "word": "Water Drop"
+    }
+  ]
 }

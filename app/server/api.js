@@ -28,8 +28,9 @@ export const USAGE = { capMs: 60 * 60 * 1000, graceMs: 2 * 60 * 1000, minMs: 5 *
 const USERNAME_RE = /^[a-zA-Z0-9_.-]{3,32}$/;
 const APP_ID_RE = /^[a-zA-Z0-9:_.-]{1,80}$/;
 const DAY = 24 * 60 * 60 * 1000;
+const CONTROL = /[^\x20-\uffff]/g; // control characters (anything below a space)
 
-const sha256 = s => crypto.createHash("sha256").update(s).digest("hex");
+const sha256 = (s) => crypto.createHash("sha256").update(s).digest("hex");
 
 export function hashPassword(password, salt = crypto.randomBytes(16).toString("hex")) {
   return { hash: crypto.scryptSync(password, salt, 64).toString("hex"), salt };
@@ -46,12 +47,19 @@ function createLimiter(max, windowMs, now) {
   const hits = new Map();
   return {
     blocked(key) {
-      const t = now(), arr = (hits.get(key) || []).filter(x => t - x < windowMs);
+      const t = now(),
+        arr = (hits.get(key) || []).filter((x) => t - x < windowMs);
       hits.set(key, arr);
       return arr.length >= max;
     },
-    hit(key) { const arr = hits.get(key) || []; arr.push(now()); hits.set(key, arr); },
-    clear(key) { hits.delete(key); },
+    hit(key) {
+      const arr = hits.get(key) || [];
+      arr.push(now());
+      hits.set(key, arr);
+    },
+    clear(key) {
+      hits.delete(key);
+    },
   };
 }
 
@@ -63,8 +71,10 @@ const COMMANDS = new Set(["calibrate"]);
 // Mascot = one of our gallery pictures (emoji key) or a small picture the school uploads.
 export const MASCOTS = ["🦚", "🐅", "🐘", "🦜", "🦁", "🐬", "🦋", "🐼", "🦅", "🐢", "🦒", "🐝", "🌻", "🪷", "⭐", "🚀"];
 export const DEFAULT_TEAMS = [
-  { name: "Peacocks", mascot: "🦚" }, { name: "Tigers", mascot: "🐅" },
-  { name: "Elephants", mascot: "🐘" }, { name: "Parrots", mascot: "🦜" },
+  { name: "Peacocks", mascot: "🦚" },
+  { name: "Tigers", mascot: "🐅" },
+  { name: "Elephants", mascot: "🐘" },
+  { name: "Parrots", mascot: "🦜" },
 ];
 const IMAGE_RE = /^data:image\/(png|jpeg|webp);base64,[A-Za-z0-9+/=]+$/;
 const IMAGE_MAX = 200 * 1024; // characters of base64, about 150 KB of picture
@@ -72,10 +82,17 @@ function cleanTeams(list) {
   if (!Array.isArray(list) || list.length !== 4) return null;
   const out = [];
   for (const t of list) {
-    const name = String((t && t.name) || "").replace(/[\u0000-\u001f<>]/g, "").trim().slice(0, 24);
+    const name = String((t && t.name) || "")
+      .replace(/[<>]/g, "")
+      .replace(CONTROL, "")
+      .trim()
+      .slice(0, 24);
     if (!name) return null;
     const team = { name };
-    if (t.image) { if (typeof t.image !== "string" || t.image.length > IMAGE_MAX || !IMAGE_RE.test(t.image)) return null; team.image = t.image; }
+    if (t.image) {
+      if (typeof t.image !== "string" || t.image.length > IMAGE_MAX || !IMAGE_RE.test(t.image)) return null;
+      team.image = t.image;
+    }
     team.mascot = MASCOTS.includes(t.mascot) ? t.mascot : DEFAULT_TEAMS[out.length].mascot;
     out.push(team);
   }
@@ -86,21 +103,32 @@ function cleanGame(g) {
   if (!g || typeof g !== "object") return null;
   if (!g.on) return { on: false };
   const n = Math.min(4, Math.max(2, parseInt(g.n, 10) || 2));
-  const scores = Array.from({ length: n }, (_, i) => Math.min(999, Math.max(0, parseInt((g.scores || [])[i], 10) || 0)));
+  const scores = Array.from({ length: n }, (_, i) =>
+    Math.min(999, Math.max(0, parseInt((g.scores || [])[i], 10) || 0)),
+  );
   const turn = Math.min(n - 1, Math.max(0, parseInt(g.turn, 10) || 0));
   return { on: true, n, scores, turn, ended: !!g.ended };
 }
 
 // Calendar day in the school's time zone (default India), e.g. "2026-11-26".
 export function dayKey(ms, timeZone = "Asia/Kolkata") {
-  return new Intl.DateTimeFormat("en-CA", { timeZone, year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date(ms));
+  return new Intl.DateTimeFormat("en-CA", { timeZone, year: "numeric", month: "2-digit", day: "2-digit" }).format(
+    new Date(ms),
+  );
 }
 
-export function createApi({ store, allowSignup = "first", licence = DEMO_LICENCE, now = () => Date.now(), timeZone = "Asia/Kolkata", log = console } = {}) {
+export function createApi({
+  store,
+  allowSignup = "first",
+  licence = DEMO_LICENCE,
+  now = () => Date.now(),
+  timeZone = "Asia/Kolkata",
+  log = console,
+} = {}) {
   const lastSeen = new Map(); // wall id -> last time that wall polled (memory only, never written)
   const loginFails = createLimiter(LIMITS.loginFailsPerWindow, LIMITS.loginWindowMs, now);
   const signups = createLimiter(LIMITS.signupsPerHour, 60 * 60 * 1000, now);
-  const ok = body => ({ status: 200, body });
+  const ok = (body) => ({ status: 200, body });
   const err = (status, error) => ({ status, body: { error } });
 
   function bearer(headers) {
@@ -110,7 +138,11 @@ export function createApi({ store, allowSignup = "first", licence = DEMO_LICENCE
 
   async function newSession(user) {
     const token = crypto.randomBytes(32).toString("hex");
-    await store.createSession({ tokenHash: sha256(token), userId: user.id, expiresAt: now() + LIMITS.sessionDays * DAY });
+    await store.createSession({
+      tokenHash: sha256(token),
+      userId: user.id,
+      expiresAt: now() + LIMITS.sessionDays * DAY,
+    });
     return { token, username: user.username, role: user.role || "wall", label: user.label || "" };
   }
 
@@ -120,9 +152,13 @@ export function createApi({ store, allowSignup = "first", licence = DEMO_LICENCE
     const h = sha256(token);
     const s = await store.findSession(h);
     if (!s) return null;
-    if (s.expiresAt <= now() || s.disabled) { await store.deleteSession(h); return null; }
+    if (s.expiresAt <= now() || s.disabled) {
+      await store.deleteSession(h);
+      return null;
+    }
     // Sliding expiry, refreshed at most once a day so polling doesn't rewrite the store.
-    if (s.expiresAt - now() < (LIMITS.sessionDays - 1) * DAY) await store.extendSession(h, now() + LIMITS.sessionDays * DAY);
+    if (s.expiresAt - now() < (LIMITS.sessionDays - 1) * DAY)
+      await store.extendSession(h, now() + LIMITS.sessionDays * DAY);
     return { id: s.userId, username: s.username, role: s.role || "wall", label: s.label || "", tokenHash: h };
   }
 
@@ -139,43 +175,72 @@ export function createApi({ store, allowSignup = "first", licence = DEMO_LICENCE
     const end = Math.min(t, prev.since + USAGE.capMs, seen && seen >= prev.since ? seen + USAGE.graceMs : t);
     const ms = end - prev.since;
     if (ms < USAGE.minMs) return;
-    await store.addUsage({ day: dayKey(prev.since, timeZone), userId, app: prev.app, sessions: 1, seconds: Math.round(ms / 1000) });
+    await store.addUsage({
+      day: dayKey(prev.since, timeZone),
+      userId,
+      app: prev.app,
+      sessions: 1,
+      seconds: Math.round(ms / 1000),
+    });
   }
 
-  const school = user => user && user.role === "school";
-  const cleanLabel = v => String(v ?? "").replace(/[\u0000-\u001f<>]/g, "").trim().slice(0, LABEL_MAX);
-  const pubAccount = u => ({ id: u.id, username: u.username, label: u.label || "", role: u.role || "wall", disabled: !!u.disabled, createdAt: u.createdAt || null });
+  const school = (user) => user && user.role === "school";
+  const cleanLabel = (v) =>
+    String(v ?? "")
+      .replace(/[<>]/g, "")
+      .replace(CONTROL, "")
+      .trim()
+      .slice(0, LABEL_MAX);
+  const pubAccount = (u) => ({
+    id: u.id,
+    username: u.username,
+    label: u.label || "",
+    role: u.role || "wall",
+    disabled: !!u.disabled,
+    createdAt: u.createdAt || null,
+  });
 
   const routes = {
     "GET /api/auth/config": async () => ok({ signup: await signupAllowed(), passwordMin: LIMITS.passwordMin }),
 
     "POST /api/auth/signup": async ({ body, ip }) => {
-      if (!(await signupAllowed())) return err(403, "New wall accounts are created by the school admin. Ask them for this room's login.");
+      if (!(await signupAllowed()))
+        return err(403, "New wall accounts are created by the school admin. Ask them for this room's login.");
       if (signups.blocked(ip)) return err(429, "Too many new accounts from this device. Try again in an hour.");
-      const username = String(body.username || "").trim(), password = String(body.password || "");
-      if (!USERNAME_RE.test(username)) return err(400, "Use 3 to 32 letters, numbers, dots, dashes or underscores for the wall name.");
-      if (password.length < LIMITS.passwordMin || password.length > LIMITS.passwordMax) return err(400, `Use a password of at least ${LIMITS.passwordMin} characters.`);
+      const username = String(body.username || "").trim(),
+        password = String(body.password || "");
+      if (!USERNAME_RE.test(username))
+        return err(400, "Use 3 to 32 letters, numbers, dots, dashes or underscores for the wall name.");
+      if (password.length < LIMITS.passwordMin || password.length > LIMITS.passwordMax)
+        return err(400, `Use a password of at least ${LIMITS.passwordMin} characters.`);
       if (await store.findUserByName(username)) return err(409, "That wall name is already taken.");
       signups.hit(ip);
       // The first login on a new server is the school's own: it opens the School view and
       // can add a login for every classroom wall. It also works as a wall, so a one-room
       // school needs nothing else.
       const role = (await store.countUsers()) === 0 ? "school" : "wall";
-      const user = await store.createUser({ username, role, label: role === "school" ? "School office" : "", ...hashPassword(password) });
+      const user = await store.createUser({
+        username,
+        role,
+        label: role === "school" ? "School office" : "",
+        ...hashPassword(password),
+      });
       return ok(await newSession(user));
     },
 
     "POST /api/auth/login": async ({ body, ip }) => {
-      const username = String(body.username || "").trim(), password = String(body.password || "");
+      const username = String(body.username || "").trim(),
+        password = String(body.password || "");
       if (!username || !password) return err(400, "Enter the wall name and password.");
       const keys = [`ip:${ip}`, `user:${username.toLowerCase()}`];
-      if (keys.some(k => loginFails.blocked(k))) return err(429, "Too many wrong tries. Wait 15 minutes, then try again.");
+      if (keys.some((k) => loginFails.blocked(k)))
+        return err(429, "Too many wrong tries. Wait 15 minutes, then try again.");
       const user = await store.findUserByName(username);
       if (!user || user.disabled || !verifyPassword(password, user.salt, user.hash)) {
-        keys.forEach(k => loginFails.hit(k));
+        keys.forEach((k) => loginFails.hit(k));
         return err(401, "Wrong wall name or password.");
       }
-      keys.forEach(k => loginFails.clear(k));
+      keys.forEach((k) => loginFails.clear(k));
       return ok(await newSession(user));
     },
 
@@ -185,7 +250,8 @@ export function createApi({ store, allowSignup = "first", licence = DEMO_LICENCE
       return ok({ ok: true });
     },
 
-    "GET /api/auth/me": async ({ user }) => user ? ok({ username: user.username, role: user.role, label: user.label }) : err(401, "Not logged in."),
+    "GET /api/auth/me": async ({ user }) =>
+      user ? ok({ username: user.username, role: user.role, label: user.label }) : err(401, "Not logged in."),
 
     // Which classes the school's licence covers; the wall and the phone only show those.
     "GET /api/licence": async ({ user }) => {
@@ -208,19 +274,25 @@ export function createApi({ store, allowSignup = "first", licence = DEMO_LICENCE
       if (body.app !== undefined) {
         if (typeof body.app !== "string" || !APP_ID_RE.test(body.app)) return err(400, "Unknown activity.");
         prev = await store.getState(user.id);
-        patch.app = body.app; patch.ts = now();
+        patch.app = body.app;
+        patch.ts = now();
         if (prev.app !== body.app) patch.since = body.app === "menu" ? 0 : now();
       }
-      if (body.locked !== undefined) { patch.locked = !!body.locked; patch.ts = patch.ts || now(); }
+      if (body.locked !== undefined) {
+        patch.locked = !!body.locked;
+        patch.ts = patch.ts || now();
+      }
       // One-shot commands from the teacher's phone (e.g. start the pen calibration on the wall).
       if (body.command !== undefined) {
         if (!COMMANDS.has(body.command)) return err(400, "Unknown command.");
-        patch.cmd = body.command; patch.cmdTs = now();
+        patch.cmd = body.command;
+        patch.cmdTs = now();
       }
       if (body.game !== undefined) {
         const g = cleanGame(body.game);
         if (!g) return err(400, "Unknown team game.");
-        patch.game = g; patch.gameTs = now();
+        patch.game = g;
+        patch.gameTs = now();
       }
       if (!Object.keys(patch).length) return err(400, "Nothing to change.");
       if (prev && prev.app !== patch.app) await closeUsage(user.id, prev, now());
@@ -233,7 +305,12 @@ export function createApi({ store, allowSignup = "first", licence = DEMO_LICENCE
     "GET /api/school/settings": async ({ user }) => {
       if (!user) return err(401, "Not logged in.");
       const st = (await store.getSettings()) || {};
-      return ok({ teams: st.teams || DEFAULT_TEAMS, mascots: MASCOTS, defaults: DEFAULT_TEAMS, simLook: st.simLook || "real" });
+      return ok({
+        teams: st.teams || DEFAULT_TEAMS,
+        mascots: MASCOTS,
+        defaults: DEFAULT_TEAMS,
+        simLook: st.simLook || "real",
+      });
     },
     "POST /api/school/settings": async ({ user, body }) => {
       if (!user) return err(401, "Not logged in.");
@@ -246,7 +323,11 @@ export function createApi({ store, allowSignup = "first", licence = DEMO_LICENCE
       }
       if (body.reset || body.teams !== undefined) {
         const teams = body.reset ? DEFAULT_TEAMS : cleanTeams(body.teams);
-        if (!teams) return err(400, "Give each of the four teams a name (up to 24 letters). Pictures must be PNG, JPG or WebP under 150 KB.");
+        if (!teams)
+          return err(
+            400,
+            "Give each of the four teams a name (up to 24 letters). Pictures must be PNG, JPG or WebP under 150 KB.",
+          );
         st.teams = teams;
       }
       await store.setSettings(st);
@@ -258,7 +339,9 @@ export function createApi({ store, allowSignup = "first", licence = DEMO_LICENCE
       if (!user) return err(401, "Not logged in.");
       if (!school(user)) return err(403, "The School view needs a school login.");
       const days = Math.min(USAGE.maxDays, Math.max(1, parseInt(query.days, 10) || 7));
-      const t = now(), to = dayKey(t, timeZone), from = dayKey(t - (days - 1) * 864e5, timeZone);
+      const t = now(),
+        to = dayKey(t, timeZone),
+        from = dayKey(t - (days - 1) * 864e5, timeZone);
       const [accounts, rows] = await Promise.all([store.listUsers(), store.getUsage(from, to)]);
       const walls = [];
       for (const u of accounts) {
@@ -266,10 +349,32 @@ export function createApi({ store, allowSignup = "first", licence = DEMO_LICENCE
         const seen = lastSeen.get(u.id) || 0;
         const live = st.app && st.app !== "menu" && st.since && seen > t - USAGE.graceMs;
         // Time of the activity still on show counts in the totals too.
-        if (live) rows.push({ day: dayKey(st.since, timeZone), userId: u.id, app: st.app, sessions: 1, seconds: Math.round(Math.min(t - st.since, USAGE.capMs) / 1000), live: true });
-        walls.push({ ...pubAccount(u), online: seen > t - USAGE.graceMs, showing: live ? st.app : null, locked: !!st.locked });
+        if (live)
+          rows.push({
+            day: dayKey(st.since, timeZone),
+            userId: u.id,
+            app: st.app,
+            sessions: 1,
+            seconds: Math.round(Math.min(t - st.since, USAGE.capMs) / 1000),
+            live: true,
+          });
+        walls.push({
+          ...pubAccount(u),
+          online: seen > t - USAGE.graceMs,
+          showing: live ? st.app : null,
+          locked: !!st.locked,
+        });
       }
-      return ok({ from, to, days, timeZone, walls, rows: rows.filter(r => r.day >= from && r.day <= to).map(({ day, userId, app, sessions, seconds }) => ({ day, wall: userId, app, sessions, seconds })) });
+      return ok({
+        from,
+        to,
+        days,
+        timeZone,
+        walls,
+        rows: rows
+          .filter((r) => r.day >= from && r.day <= to)
+          .map(({ day, userId, app, sessions, seconds }) => ({ day, wall: userId, app, sessions, seconds })),
+      });
     },
 
     "GET /api/school/accounts": async ({ user }) => {
@@ -281,10 +386,13 @@ export function createApi({ store, allowSignup = "first", licence = DEMO_LICENCE
     "POST /api/school/accounts": async ({ user, body }) => {
       if (!user) return err(401, "Not logged in.");
       if (!school(user)) return err(403, "Only a school login can add logins.");
-      const username = String(body.username || "").trim(), password = String(body.password || "");
+      const username = String(body.username || "").trim(),
+        password = String(body.password || "");
       const role = ROLES.has(body.role) ? body.role : "wall";
-      if (!USERNAME_RE.test(username)) return err(400, "Use 3 to 32 letters, numbers, dots, dashes or underscores for the login.");
-      if (password.length < LIMITS.passwordMin || password.length > LIMITS.passwordMax) return err(400, `Use a password of at least ${LIMITS.passwordMin} characters.`);
+      if (!USERNAME_RE.test(username))
+        return err(400, "Use 3 to 32 letters, numbers, dots, dashes or underscores for the login.");
+      if (password.length < LIMITS.passwordMin || password.length > LIMITS.passwordMax)
+        return err(400, `Use a password of at least ${LIMITS.passwordMin} characters.`);
       if (await store.findUserByName(username)) return err(409, "That login is already taken.");
       const u = await store.createUser({ username, role, label: cleanLabel(body.label), ...hashPassword(password) });
       return ok({ account: pubAccount({ ...u, role, label: cleanLabel(body.label) }) });
@@ -294,13 +402,14 @@ export function createApi({ store, allowSignup = "first", licence = DEMO_LICENCE
       if (!user) return err(401, "Not logged in.");
       if (!school(user)) return err(403, "Only a school login can change logins.");
       const id = Number(body.id);
-      const target = (await store.listUsers()).find(u => u.id === id);
+      const target = (await store.listUsers()).find((u) => u.id === id);
       if (!target) return err(404, "No such login.");
       const patch = {};
       if (body.label !== undefined) patch.label = cleanLabel(body.label);
       if (body.role !== undefined) {
         if (!ROLES.has(body.role)) return err(400, "Unknown kind of login.");
-        if (id === user.id && body.role !== "school") return err(400, "You can't remove the School view from your own login.");
+        if (id === user.id && body.role !== "school")
+          return err(400, "You can't remove the School view from your own login.");
         patch.role = body.role;
       }
       if (body.disabled !== undefined) {
@@ -309,24 +418,34 @@ export function createApi({ store, allowSignup = "first", licence = DEMO_LICENCE
       }
       if (body.password !== undefined) {
         const pw = String(body.password);
-        if (pw.length < LIMITS.passwordMin || pw.length > LIMITS.passwordMax) return err(400, `Use a password of at least ${LIMITS.passwordMin} characters.`);
+        if (pw.length < LIMITS.passwordMin || pw.length > LIMITS.passwordMax)
+          return err(400, `Use a password of at least ${LIMITS.passwordMin} characters.`);
         Object.assign(patch, hashPassword(pw));
       }
       if (!Object.keys(patch).length) return err(400, "Nothing to change.");
       await store.updateUser(id, patch);
       // A new password or a turned-off login signs that login out everywhere (but not you).
       if (patch.hash || patch.disabled) await store.deleteSessionsFor(id, id === user.id ? user.tokenHash : null);
-      return ok({ account: pubAccount((await store.listUsers()).find(u => u.id === id)) });
+      return ok({ account: pubAccount((await store.listUsers()).find((u) => u.id === id)) });
     },
   };
 
   return {
     async handle({ method, path, headers = {}, body = {}, query = {}, ip = "local" }) {
       const route = routes[`${method} ${path}`];
-      if (!route) return Object.keys(routes).some(k => k.endsWith(" " + path)) ? err(405, "Method not allowed.") : err(404, "Not found.");
+      if (!route)
+        return Object.keys(routes).some((k) => k.endsWith(" " + path))
+          ? err(405, "Method not allowed.")
+          : err(404, "Not found.");
       try {
         const user = await currentUser(headers);
-        return await route({ headers, body: body && typeof body === "object" ? body : {}, query: query || {}, ip, user });
+        return await route({
+          headers,
+          body: body && typeof body === "object" ? body : {},
+          query: query || {},
+          ip,
+          user,
+        });
       } catch (e) {
         log.error("[api]", method, path, e);
         return err(500, "Something went wrong on the wall server. Try again.");

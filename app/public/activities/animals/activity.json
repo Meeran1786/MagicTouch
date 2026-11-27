@@ -1,496 +1,496 @@
 {
- "id": "animals",
- "level": "prekg",
- "subject": "nature",
- "title": "Animal Languages",
- "topic": "Meet animals and hear the sounds they make",
- "icon": "🐘",
- "order": 2,
- "status": "approved",
- "template": "word-wheel",
- "items": [
-  {
-   "word": "Elephant",
-   "photo": "AnimalsGif/Elephant.gif",
-   "says": [
+  "id": "animals",
+  "level": "prekg",
+  "subject": "nature",
+  "title": "Animal Languages",
+  "topic": "Meet animals and hear the sounds they make",
+  "icon": "🐘",
+  "order": 2,
+  "status": "approved",
+  "template": "word-wheel",
+  "items": [
     {
-     "lang": "English",
-     "text": "Elephant",
-     "code": "en-IN"
+      "word": "Elephant",
+      "photo": "AnimalsGif/Elephant.gif",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Elephant",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "हाथी",
+          "code": "hi-IN",
+          "audio": "audio/elephant_hi.mp3"
+        },
+        {
+          "lang": "Telugu",
+          "text": "ఏనుగు",
+          "code": "te-IN",
+          "audio": "audio/elephant_te.mp3"
+        }
+      ]
     },
     {
-     "lang": "Hindi",
-     "text": "हाथी",
-     "code": "hi-IN",
-     "audio": "audio/elephant_hi.mp3"
+      "word": "Tiger",
+      "photo": "AnimalsGif/Tiger.gif",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Tiger",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "बाघ",
+          "code": "hi-IN",
+          "audio": "audio/tiger_hi.mp3"
+        },
+        {
+          "lang": "Telugu",
+          "text": "పులి",
+          "code": "te-IN",
+          "audio": "audio/tiger_te.mp3"
+        }
+      ]
     },
     {
-     "lang": "Telugu",
-     "text": "ఏనుగు",
-     "code": "te-IN",
-     "audio": "audio/elephant_te.mp3"
+      "word": "Lion",
+      "photo": "AnimalsGif/Lion.gif",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Lion",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "शेर",
+          "code": "hi-IN",
+          "audio": "audio/lion_hi.mp3"
+        },
+        {
+          "lang": "Telugu",
+          "text": "సింహం",
+          "code": "te-IN",
+          "audio": "audio/lion_te.mp3"
+        }
+      ]
+    },
+    {
+      "word": "Black Tiger",
+      "photo": "AnimalsGif/BlackTiger.gif",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Black Tiger",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "काला बाघ",
+          "code": "hi-IN",
+          "audio": "audio/black_tiger_hi.mp3"
+        },
+        {
+          "lang": "Telugu",
+          "text": "నల్ల పులి",
+          "code": "te-IN",
+          "audio": "audio/black_tiger_te.mp3"
+        }
+      ]
+    },
+    {
+      "word": "Cat",
+      "photo": "AnimalsGif/Cat.gif",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Cat",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "बिल्ली",
+          "code": "hi-IN",
+          "audio": "audio/cat_hi.mp3"
+        },
+        {
+          "lang": "Telugu",
+          "text": "పిల్లి",
+          "code": "te-IN",
+          "audio": "audio/cat_te.mp3"
+        }
+      ]
+    },
+    {
+      "word": "Dog",
+      "photo": "AnimalsGif/Dog.gif",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Dog",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "कुत्ता",
+          "code": "hi-IN",
+          "audio": "audio/dog_hi.mp3"
+        },
+        {
+          "lang": "Telugu",
+          "text": "కుక్క",
+          "code": "te-IN",
+          "audio": "audio/dog_te.mp3"
+        }
+      ]
+    },
+    {
+      "word": "Horse",
+      "photo": "AnimalsGif/Horse.gif",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Horse",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "घोड़ा",
+          "code": "hi-IN",
+          "audio": "audio/horse_hi.mp3"
+        },
+        {
+          "lang": "Telugu",
+          "text": "గుర్రం",
+          "code": "te-IN",
+          "audio": "audio/horse_te.mp3"
+        }
+      ]
+    },
+    {
+      "word": "Goat",
+      "photo": "AnimalsGif/Goat.gif",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Goat",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "बकरी",
+          "code": "hi-IN",
+          "audio": "audio/goat_hi.mp3"
+        },
+        {
+          "lang": "Telugu",
+          "text": "మేక",
+          "code": "te-IN",
+          "audio": "audio/goat_te.mp3"
+        }
+      ]
+    },
+    {
+      "word": "Sheep",
+      "photo": "AnimalsGif/Sheep.gif",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Sheep",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "भेड़",
+          "code": "hi-IN",
+          "audio": "audio/sheep_hi.mp3"
+        },
+        {
+          "lang": "Telugu",
+          "text": "గొర్రె",
+          "code": "te-IN",
+          "audio": "audio/sheep_te.mp3"
+        }
+      ]
+    },
+    {
+      "word": "Rabbit",
+      "photo": "AnimalsGif/Rabbit.gif",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Rabbit",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "खरगोश",
+          "code": "hi-IN",
+          "audio": "audio/rabbit_hi.mp3"
+        },
+        {
+          "lang": "Telugu",
+          "text": "కుందేలు",
+          "code": "te-IN",
+          "audio": "audio/rabbit_te.mp3"
+        }
+      ]
+    },
+    {
+      "word": "Monkey",
+      "photo": "AnimalsGif/Monkey.gif",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Monkey",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "बंदर",
+          "code": "hi-IN",
+          "audio": "audio/monkey_hi.mp3"
+        },
+        {
+          "lang": "Telugu",
+          "text": "కోతి",
+          "code": "te-IN",
+          "audio": "audio/monkey_te.mp3"
+        }
+      ]
+    },
+    {
+      "word": "Giraffe",
+      "photo": "AnimalsGif/Girafee.gif",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Giraffe",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "जिराफ़",
+          "code": "hi-IN",
+          "audio": "audio/giraffe_hi.mp3"
+        },
+        {
+          "lang": "Telugu",
+          "text": "జిరాఫీ",
+          "code": "te-IN",
+          "audio": "audio/giraffe_te.mp3"
+        }
+      ]
+    },
+    {
+      "word": "Zebra",
+      "photo": "AnimalsGif/Zeebra.gif",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Zebra",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "ज़ेबरा",
+          "code": "hi-IN",
+          "audio": "audio/zebra_hi.mp3"
+        },
+        {
+          "lang": "Telugu",
+          "text": "జీబ్రా",
+          "code": "te-IN",
+          "audio": "audio/zebra_te.mp3"
+        }
+      ]
+    },
+    {
+      "word": "Hippo",
+      "photo": "AnimalsGif/Hippo.gif",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Hippo",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "दरियाई घोड़ा",
+          "code": "hi-IN",
+          "audio": "audio/hippo_hi.mp3"
+        },
+        {
+          "lang": "Telugu",
+          "text": "హిప్పో",
+          "code": "te-IN",
+          "audio": "audio/hippo_te.mp3"
+        }
+      ]
+    },
+    {
+      "word": "Tortoise",
+      "photo": "AnimalsGif/Tortoise.gif",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Tortoise",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "कछुआ",
+          "code": "hi-IN",
+          "audio": "audio/tortoise_hi.mp3"
+        },
+        {
+          "lang": "Telugu",
+          "text": "తాబేలు",
+          "code": "te-IN",
+          "audio": "audio/tortoise_te.mp3"
+        }
+      ]
+    },
+    {
+      "word": "Fish",
+      "photo": "AnimalsGif/Fish.gif",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Fish",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "मछली",
+          "code": "hi-IN",
+          "audio": "audio/fish_hi.mp3"
+        },
+        {
+          "lang": "Telugu",
+          "text": "చేప",
+          "code": "te-IN",
+          "audio": "audio/fish_te.mp3"
+        }
+      ]
+    },
+    {
+      "word": "Crow",
+      "photo": "AnimalsGif/Crow.gif",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Crow",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "कौआ",
+          "code": "hi-IN",
+          "audio": "audio/crow_hi.mp3"
+        },
+        {
+          "lang": "Telugu",
+          "text": "కాకి",
+          "code": "te-IN",
+          "audio": "audio/crow_te.mp3"
+        }
+      ]
+    },
+    {
+      "word": "Parrot",
+      "photo": "AnimalsGif/Parrot.gif",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Parrot",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "तोता",
+          "code": "hi-IN",
+          "audio": "audio/parrot_hi.mp3"
+        },
+        {
+          "lang": "Telugu",
+          "text": "చిలుక",
+          "code": "te-IN",
+          "audio": "audio/parrot_te.mp3"
+        }
+      ]
+    },
+    {
+      "word": "White Parrot",
+      "photo": "AnimalsGif/WhiteParrot.gif",
+      "says": [
+        {
+          "lang": "English",
+          "text": "White Parrot",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "सफ़ेद तोता",
+          "code": "hi-IN",
+          "audio": "audio/white_parrot_hi.mp3"
+        },
+        {
+          "lang": "Telugu",
+          "text": "తెలుపు చిలుక",
+          "code": "te-IN",
+          "audio": "audio/white_parrot_te.mp3"
+        }
+      ]
+    },
+    {
+      "word": "Ostrich",
+      "photo": "AnimalsGif/Ostrich.gif",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Ostrich",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "शुतुरमुर्ग",
+          "code": "hi-IN",
+          "audio": "audio/ostrich_hi.mp3"
+        },
+        {
+          "lang": "Telugu",
+          "text": "ఉష్ట్రపక్షి",
+          "code": "te-IN",
+          "audio": "audio/ostrich_te.mp3"
+        }
+      ]
+    },
+    {
+      "word": "Dinosaur",
+      "photo": "AnimalsGif/Dinosaur.gif",
+      "says": [
+        {
+          "lang": "English",
+          "text": "Dinosaur",
+          "code": "en-IN"
+        },
+        {
+          "lang": "Hindi",
+          "text": "डायनासोर",
+          "code": "hi-IN",
+          "audio": "audio/dinosaur_hi.mp3"
+        },
+        {
+          "lang": "Telugu",
+          "text": "డైనోసార్",
+          "code": "te-IN",
+          "audio": "audio/dinosaur_te.mp3"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "word": "Tiger",
-   "photo": "AnimalsGif/Tiger.gif",
-   "says": [
-    {
-     "lang": "English",
-     "text": "Tiger",
-     "code": "en-IN"
-    },
-    {
-     "lang": "Hindi",
-     "text": "बाघ",
-     "code": "hi-IN",
-     "audio": "audio/tiger_hi.mp3"
-    },
-    {
-     "lang": "Telugu",
-     "text": "పులి",
-     "code": "te-IN",
-     "audio": "audio/tiger_te.mp3"
-    }
-   ]
-  },
-  {
-   "word": "Lion",
-   "photo": "AnimalsGif/Lion.gif",
-   "says": [
-    {
-     "lang": "English",
-     "text": "Lion",
-     "code": "en-IN"
-    },
-    {
-     "lang": "Hindi",
-     "text": "शेर",
-     "code": "hi-IN",
-     "audio": "audio/lion_hi.mp3"
-    },
-    {
-     "lang": "Telugu",
-     "text": "సింహం",
-     "code": "te-IN",
-     "audio": "audio/lion_te.mp3"
-    }
-   ]
-  },
-  {
-   "word": "Black Tiger",
-   "photo": "AnimalsGif/BlackTiger.gif",
-   "says": [
-    {
-     "lang": "English",
-     "text": "Black Tiger",
-     "code": "en-IN"
-    },
-    {
-     "lang": "Hindi",
-     "text": "काला बाघ",
-     "code": "hi-IN",
-     "audio": "audio/black_tiger_hi.mp3"
-    },
-    {
-     "lang": "Telugu",
-     "text": "నల్ల పులి",
-     "code": "te-IN",
-     "audio": "audio/black_tiger_te.mp3"
-    }
-   ]
-  },
-  {
-   "word": "Cat",
-   "photo": "AnimalsGif/Cat.gif",
-   "says": [
-    {
-     "lang": "English",
-     "text": "Cat",
-     "code": "en-IN"
-    },
-    {
-     "lang": "Hindi",
-     "text": "बिल्ली",
-     "code": "hi-IN",
-     "audio": "audio/cat_hi.mp3"
-    },
-    {
-     "lang": "Telugu",
-     "text": "పిల్లి",
-     "code": "te-IN",
-     "audio": "audio/cat_te.mp3"
-    }
-   ]
-  },
-  {
-   "word": "Dog",
-   "photo": "AnimalsGif/Dog.gif",
-   "says": [
-    {
-     "lang": "English",
-     "text": "Dog",
-     "code": "en-IN"
-    },
-    {
-     "lang": "Hindi",
-     "text": "कुत्ता",
-     "code": "hi-IN",
-     "audio": "audio/dog_hi.mp3"
-    },
-    {
-     "lang": "Telugu",
-     "text": "కుక్క",
-     "code": "te-IN",
-     "audio": "audio/dog_te.mp3"
-    }
-   ]
-  },
-  {
-   "word": "Horse",
-   "photo": "AnimalsGif/Horse.gif",
-   "says": [
-    {
-     "lang": "English",
-     "text": "Horse",
-     "code": "en-IN"
-    },
-    {
-     "lang": "Hindi",
-     "text": "घोड़ा",
-     "code": "hi-IN",
-     "audio": "audio/horse_hi.mp3"
-    },
-    {
-     "lang": "Telugu",
-     "text": "గుర్రం",
-     "code": "te-IN",
-     "audio": "audio/horse_te.mp3"
-    }
-   ]
-  },
-  {
-   "word": "Goat",
-   "photo": "AnimalsGif/Goat.gif",
-   "says": [
-    {
-     "lang": "English",
-     "text": "Goat",
-     "code": "en-IN"
-    },
-    {
-     "lang": "Hindi",
-     "text": "बकरी",
-     "code": "hi-IN",
-     "audio": "audio/goat_hi.mp3"
-    },
-    {
-     "lang": "Telugu",
-     "text": "మేక",
-     "code": "te-IN",
-     "audio": "audio/goat_te.mp3"
-    }
-   ]
-  },
-  {
-   "word": "Sheep",
-   "photo": "AnimalsGif/Sheep.gif",
-   "says": [
-    {
-     "lang": "English",
-     "text": "Sheep",
-     "code": "en-IN"
-    },
-    {
-     "lang": "Hindi",
-     "text": "भेड़",
-     "code": "hi-IN",
-     "audio": "audio/sheep_hi.mp3"
-    },
-    {
-     "lang": "Telugu",
-     "text": "గొర్రె",
-     "code": "te-IN",
-     "audio": "audio/sheep_te.mp3"
-    }
-   ]
-  },
-  {
-   "word": "Rabbit",
-   "photo": "AnimalsGif/Rabbit.gif",
-   "says": [
-    {
-     "lang": "English",
-     "text": "Rabbit",
-     "code": "en-IN"
-    },
-    {
-     "lang": "Hindi",
-     "text": "खरगोश",
-     "code": "hi-IN",
-     "audio": "audio/rabbit_hi.mp3"
-    },
-    {
-     "lang": "Telugu",
-     "text": "కుందేలు",
-     "code": "te-IN",
-     "audio": "audio/rabbit_te.mp3"
-    }
-   ]
-  },
-  {
-   "word": "Monkey",
-   "photo": "AnimalsGif/Monkey.gif",
-   "says": [
-    {
-     "lang": "English",
-     "text": "Monkey",
-     "code": "en-IN"
-    },
-    {
-     "lang": "Hindi",
-     "text": "बंदर",
-     "code": "hi-IN",
-     "audio": "audio/monkey_hi.mp3"
-    },
-    {
-     "lang": "Telugu",
-     "text": "కోతి",
-     "code": "te-IN",
-     "audio": "audio/monkey_te.mp3"
-    }
-   ]
-  },
-  {
-   "word": "Giraffe",
-   "photo": "AnimalsGif/Girafee.gif",
-   "says": [
-    {
-     "lang": "English",
-     "text": "Giraffe",
-     "code": "en-IN"
-    },
-    {
-     "lang": "Hindi",
-     "text": "जिराफ़",
-     "code": "hi-IN",
-     "audio": "audio/giraffe_hi.mp3"
-    },
-    {
-     "lang": "Telugu",
-     "text": "జిరాఫీ",
-     "code": "te-IN",
-     "audio": "audio/giraffe_te.mp3"
-    }
-   ]
-  },
-  {
-   "word": "Zebra",
-   "photo": "AnimalsGif/Zeebra.gif",
-   "says": [
-    {
-     "lang": "English",
-     "text": "Zebra",
-     "code": "en-IN"
-    },
-    {
-     "lang": "Hindi",
-     "text": "ज़ेबरा",
-     "code": "hi-IN",
-     "audio": "audio/zebra_hi.mp3"
-    },
-    {
-     "lang": "Telugu",
-     "text": "జీబ్రా",
-     "code": "te-IN",
-     "audio": "audio/zebra_te.mp3"
-    }
-   ]
-  },
-  {
-   "word": "Hippo",
-   "photo": "AnimalsGif/Hippo.gif",
-   "says": [
-    {
-     "lang": "English",
-     "text": "Hippo",
-     "code": "en-IN"
-    },
-    {
-     "lang": "Hindi",
-     "text": "दरियाई घोड़ा",
-     "code": "hi-IN",
-     "audio": "audio/hippo_hi.mp3"
-    },
-    {
-     "lang": "Telugu",
-     "text": "హిప్పో",
-     "code": "te-IN",
-     "audio": "audio/hippo_te.mp3"
-    }
-   ]
-  },
-  {
-   "word": "Tortoise",
-   "photo": "AnimalsGif/Tortoise.gif",
-   "says": [
-    {
-     "lang": "English",
-     "text": "Tortoise",
-     "code": "en-IN"
-    },
-    {
-     "lang": "Hindi",
-     "text": "कछुआ",
-     "code": "hi-IN",
-     "audio": "audio/tortoise_hi.mp3"
-    },
-    {
-     "lang": "Telugu",
-     "text": "తాబేలు",
-     "code": "te-IN",
-     "audio": "audio/tortoise_te.mp3"
-    }
-   ]
-  },
-  {
-   "word": "Fish",
-   "photo": "AnimalsGif/Fish.gif",
-   "says": [
-    {
-     "lang": "English",
-     "text": "Fish",
-     "code": "en-IN"
-    },
-    {
-     "lang": "Hindi",
-     "text": "मछली",
-     "code": "hi-IN",
-     "audio": "audio/fish_hi.mp3"
-    },
-    {
-     "lang": "Telugu",
-     "text": "చేప",
-     "code": "te-IN",
-     "audio": "audio/fish_te.mp3"
-    }
-   ]
-  },
-  {
-   "word": "Crow",
-   "photo": "AnimalsGif/Crow.gif",
-   "says": [
-    {
-     "lang": "English",
-     "text": "Crow",
-     "code": "en-IN"
-    },
-    {
-     "lang": "Hindi",
-     "text": "कौआ",
-     "code": "hi-IN",
-     "audio": "audio/crow_hi.mp3"
-    },
-    {
-     "lang": "Telugu",
-     "text": "కాకి",
-     "code": "te-IN",
-     "audio": "audio/crow_te.mp3"
-    }
-   ]
-  },
-  {
-   "word": "Parrot",
-   "photo": "AnimalsGif/Parrot.gif",
-   "says": [
-    {
-     "lang": "English",
-     "text": "Parrot",
-     "code": "en-IN"
-    },
-    {
-     "lang": "Hindi",
-     "text": "तोता",
-     "code": "hi-IN",
-     "audio": "audio/parrot_hi.mp3"
-    },
-    {
-     "lang": "Telugu",
-     "text": "చిలుక",
-     "code": "te-IN",
-     "audio": "audio/parrot_te.mp3"
-    }
-   ]
-  },
-  {
-   "word": "White Parrot",
-   "photo": "AnimalsGif/WhiteParrot.gif",
-   "says": [
-    {
-     "lang": "English",
-     "text": "White Parrot",
-     "code": "en-IN"
-    },
-    {
-     "lang": "Hindi",
-     "text": "सफ़ेद तोता",
-     "code": "hi-IN",
-     "audio": "audio/white_parrot_hi.mp3"
-    },
-    {
-     "lang": "Telugu",
-     "text": "తెలుపు చిలుక",
-     "code": "te-IN",
-     "audio": "audio/white_parrot_te.mp3"
-    }
-   ]
-  },
-  {
-   "word": "Ostrich",
-   "photo": "AnimalsGif/Ostrich.gif",
-   "says": [
-    {
-     "lang": "English",
-     "text": "Ostrich",
-     "code": "en-IN"
-    },
-    {
-     "lang": "Hindi",
-     "text": "शुतुरमुर्ग",
-     "code": "hi-IN",
-     "audio": "audio/ostrich_hi.mp3"
-    },
-    {
-     "lang": "Telugu",
-     "text": "ఉష్ట్రపక్షి",
-     "code": "te-IN",
-     "audio": "audio/ostrich_te.mp3"
-    }
-   ]
-  },
-  {
-   "word": "Dinosaur",
-   "photo": "AnimalsGif/Dinosaur.gif",
-   "says": [
-    {
-     "lang": "English",
-     "text": "Dinosaur",
-     "code": "en-IN"
-    },
-    {
-     "lang": "Hindi",
-     "text": "डायनासोर",
-     "code": "hi-IN",
-     "audio": "audio/dinosaur_hi.mp3"
-    },
-    {
-     "lang": "Telugu",
-     "text": "డైనోసార్",
-     "code": "te-IN",
-     "audio": "audio/dinosaur_te.mp3"
-    }
-   ]
-  }
- ]
+  ]
 }

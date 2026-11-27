@@ -12,8 +12,18 @@ export const meta = { fullscreen: true, music: true, styles: ["early", "count-pi
 
 // spots on the canopy (percent of the tree box), spread so fruit never overlap
 const SPOTS = [
-  [30, 22], [50, 14], [70, 22], [20, 38], [40, 32], [60, 32], [80, 38],
-  [28, 52], [50, 46], [72, 52], [38, 62], [62, 62],
+  [30, 22],
+  [50, 14],
+  [70, 22],
+  [20, 38],
+  [40, 32],
+  [60, 32],
+  [80, 38],
+  [28, 52],
+  [50, 46],
+  [72, 52],
+  [38, 62],
+  [62, 62],
 ];
 const TREE =
   '<svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">' +
@@ -79,7 +89,10 @@ export default function countPick(area, d) {
     const dx = to.left + to.width / 2 - (from.left + from.width / 2);
     const dy = to.top + to.height * 0.35 - (from.top + from.height / 2);
     const fly = b.animate(
-      [{ transform: "translate(-50%,-50%)" }, { transform: `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px)) scale(0.6)` }],
+      [
+        { transform: "translate(-50%,-50%)" },
+        { transform: `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px)) scale(0.6)` },
+      ],
       { duration: MT.calm() ? 1 : 550, easing: "cubic-bezier(0.34, 1.56, 0.64, 1)", fill: "forwards" },
     );
     fly.onfinish = () => {

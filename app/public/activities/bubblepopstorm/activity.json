@@ -1,13 +1,13 @@
 {
- "id": "bubblepopstorm",
- "level": "prekg",
- "subject": "play",
- "title": "Bubble Pop Storm",
- "topic": "Pop the rising bubbles with either hand",
- "icon": "🫧",
- "order": 47,
- "status": "approved",
- "template": "pop-storm",
- "emoji": "🐟🐠🐙🦀⭐",
- "rate": 1.4
+  "id": "bubblepopstorm",
+  "level": "prekg",
+  "subject": "play",
+  "title": "Bubble Pop Storm",
+  "topic": "Pop the rising bubbles with either hand",
+  "icon": "🫧",
+  "order": 47,
+  "status": "approved",
+  "template": "pop-storm",
+  "emoji": "🐟🐠🐙🦀⭐",
+  "rate": 1.4
 }

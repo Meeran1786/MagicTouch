@@ -1,33 +1,33 @@
 {
- "id": "postoffice",
- "level": "lkg",
- "subject": "world",
- "title": "Post Office and Mail",
- "topic": "Envelope, mailbox, package, letter and more",
- "icon": "📮",
- "order": 96,
- "status": "approved",
- "template": "emoji-quiz",
- "items": [
-  {
-   "emoji": "✉️",
-   "word": "Envelope"
-  },
-  {
-   "emoji": "📫",
-   "word": "Mailbox"
-  },
-  {
-   "emoji": "📮",
-   "word": "Postbox"
-  },
-  {
-   "emoji": "📦",
-   "word": "Package"
-  },
-  {
-   "emoji": "💌",
-   "word": "Letter"
-  }
- ]
+  "id": "postoffice",
+  "level": "lkg",
+  "subject": "world",
+  "title": "Post Office and Mail",
+  "topic": "Envelope, mailbox, package, letter and more",
+  "icon": "📮",
+  "order": 96,
+  "status": "approved",
+  "template": "emoji-quiz",
+  "items": [
+    {
+      "emoji": "✉️",
+      "word": "Envelope"
+    },
+    {
+      "emoji": "📫",
+      "word": "Mailbox"
+    },
+    {
+      "emoji": "📮",
+      "word": "Postbox"
+    },
+    {
+      "emoji": "📦",
+      "word": "Package"
+    },
+    {
+      "emoji": "💌",
+      "word": "Letter"
+    }
+  ]
 }

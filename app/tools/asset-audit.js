@@ -19,7 +19,8 @@ import { fileURLToPath } from "node:url";
 const APP = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const PUB = path.join(APP, "public");
 const MEDIA = /\.(jpe?g|png|gif|webp|svg|mp3|wav|ogg|m4a|glb|gltf|bin|mp4|webm)$/i;
-const STOCK = /adobe stock|stock\.adobe|vecteezy|rawpixel|shutterstock|istockphoto|gettyimages|freepik|dreamstime|depositphotos|123rf|alamy|pngtree|epic stock|leenalecklin|envato|audiojungle/i;
+const STOCK =
+  /adobe stock|stock\.adobe|vecteezy|rawpixel|shutterstock|istockphoto|gettyimages|freepik|dreamstime|depositphotos|123rf|alamy|pngtree|epic stock|leenalecklin|envato|audiojungle/i;
 // Our own files, by the start of their SHA-256 (so they are known wherever they move).
 const ORIGINAL = new Map([
   ["06ac3c3fd6701014", "drawn for MagicTouch (tools/art)"], // Deer
@@ -34,7 +35,8 @@ const ORIGINAL = new Map([
 function walk(dir, out = []) {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
     const p = path.join(dir, e.name);
-    if (e.isDirectory()) walk(p, out); else if (MEDIA.test(e.name)) out.push(p);
+    if (e.isDirectory()) walk(p, out);
+    else if (MEDIA.test(e.name)) out.push(p);
   }
   return out;
 }
@@ -46,15 +48,32 @@ for (const f of walk(PUB)) {
   const buf = fs.readFileSync(f);
   const m = STOCK.exec(buf.toString("latin1"));
   const sha = crypto.createHash("sha256").update(buf).digest("hex").slice(0, 16);
-  let status = rel.startsWith("vendor/") ? "bundled-library" : ORIGINAL.has(sha) ? "original-magictouch" : "purchased-unverified";
+  const status = rel.startsWith("vendor/")
+    ? "bundled-library"
+    : ORIGINAL.has(sha)
+      ? "original-magictouch"
+      : "purchased-unverified";
   let note = ORIGINAL.get(sha) || "";
-  if (m) { flagged.push(`${rel}: "${m[0]}"`); note = "STOCK MARKER: " + m[0]; }
+  if (m) {
+    flagged.push(`${rel}: "${m[0]}"`);
+    note = "STOCK MARKER: " + m[0];
+  }
   rows.push([rel, buf.length, sha, status, note]);
 }
 if (!process.argv.includes("--check")) {
-  fs.writeFileSync(path.join(APP, "ASSETS-AUDIT.csv"), rows.map(r => r.map(c => /[",]/.test(String(c)) ? `"${String(c).replace(/"/g, '""')}"` : c).join(",")).join("\n") + "\n");
+  fs.writeFileSync(
+    path.join(APP, "ASSETS-AUDIT.csv"),
+    rows
+      .map((r) => r.map((c) => (/[",]/.test(String(c)) ? `"${String(c).replace(/"/g, '""')}"` : c)).join(","))
+      .join("\n") + "\n",
+  );
 }
-const count = s => rows.filter(r => r[3] === s).length;
-console.log(`${rows.length - 1} media files: ${count("original-magictouch")} original, ${count("bundled-library")} library, ${count("purchased-unverified")} purchased (source to confirm).`);
-if (flagged.length) { console.log("Stock-library markers found:\n  " + flagged.join("\n  ")); process.exit(1); }
+const count = (s) => rows.filter((r) => r[3] === s).length;
+console.log(
+  `${rows.length - 1} media files: ${count("original-magictouch")} original, ${count("bundled-library")} library, ${count("purchased-unverified")} purchased (source to confirm).`,
+);
+if (flagged.length) {
+  console.log("Stock-library markers found:\n  " + flagged.join("\n  "));
+  process.exit(1);
+}
 console.log("No stock-library markers found.");

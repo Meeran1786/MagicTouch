@@ -1,45 +1,45 @@
 {
- "id": "rhymetime",
- "level": "lkg",
- "subject": "letters",
- "title": "Rhyme Time",
- "topic": "Cat, hat, bat, rat — spot the rhyming words",
- "icon": "🎩",
- "order": 75,
- "status": "approved",
- "template": "emoji-quiz",
- "items": [
-  {
-   "emoji": "🐈",
-   "word": "Cat"
-  },
-  {
-   "emoji": "🎩",
-   "word": "Hat"
-  },
-  {
-   "emoji": "🦇",
-   "word": "Bat"
-  },
-  {
-   "emoji": "🐀",
-   "word": "Rat"
-  },
-  {
-   "emoji": "🪭",
-   "word": "Fan"
-  },
-  {
-   "emoji": "🍳",
-   "word": "Pan"
-  },
-  {
-   "emoji": "🚐",
-   "word": "Van"
-  },
-  {
-   "emoji": "🧑",
-   "word": "Man"
-  }
- ]
+  "id": "rhymetime",
+  "level": "lkg",
+  "subject": "letters",
+  "title": "Rhyme Time",
+  "topic": "Cat, hat, bat, rat — spot the rhyming words",
+  "icon": "🎩",
+  "order": 75,
+  "status": "approved",
+  "template": "emoji-quiz",
+  "items": [
+    {
+      "emoji": "🐈",
+      "word": "Cat"
+    },
+    {
+      "emoji": "🎩",
+      "word": "Hat"
+    },
+    {
+      "emoji": "🦇",
+      "word": "Bat"
+    },
+    {
+      "emoji": "🐀",
+      "word": "Rat"
+    },
+    {
+      "emoji": "🪭",
+      "word": "Fan"
+    },
+    {
+      "emoji": "🍳",
+      "word": "Pan"
+    },
+    {
+      "emoji": "🚐",
+      "word": "Van"
+    },
+    {
+      "emoji": "🧑",
+      "word": "Man"
+    }
+  ]
 }

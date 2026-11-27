@@ -1,33 +1,33 @@
 {
- "id": "winterwonderland",
- "level": "nursery",
- "subject": "nature",
- "title": "Winter Wonderland",
- "topic": "Snowman, mitten, sled, ice skate and more",
- "icon": "⛄",
- "order": 106,
- "status": "approved",
- "template": "emoji-quiz",
- "items": [
-  {
-   "emoji": "⛄",
-   "word": "Snowman"
-  },
-  {
-   "emoji": "❄️",
-   "word": "Snowflake"
-  },
-  {
-   "emoji": "🧤",
-   "word": "Mitten"
-  },
-  {
-   "emoji": "🛷",
-   "word": "Sled"
-  },
-  {
-   "emoji": "⛸️",
-   "word": "Ice Skate"
-  }
- ]
+  "id": "winterwonderland",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Winter Wonderland",
+  "topic": "Snowman, mitten, sled, ice skate and more",
+  "icon": "⛄",
+  "order": 106,
+  "status": "approved",
+  "template": "emoji-quiz",
+  "items": [
+    {
+      "emoji": "⛄",
+      "word": "Snowman"
+    },
+    {
+      "emoji": "❄️",
+      "word": "Snowflake"
+    },
+    {
+      "emoji": "🧤",
+      "word": "Mitten"
+    },
+    {
+      "emoji": "🛷",
+      "word": "Sled"
+    },
+    {
+      "emoji": "⛸️",
+      "word": "Ice Skate"
+    }
+  ]
 }

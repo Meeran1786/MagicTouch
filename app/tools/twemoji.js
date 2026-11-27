@@ -20,29 +20,60 @@ const actDir = path.join(APP, "public/activities");
 for (const id of fs.readdirSync(actDir)) {
   const f = path.join(actDir, id, "activity.json");
   if (!fs.existsSync(f)) continue;
-  JSON.stringify(JSON.parse(fs.readFileSync(f, "utf8"))).replace(/"(?:icon|emoji)":"([^"]+)"/g, (_, e) => { const v = JSON.parse('"' + e + '"'); for (const { segment } of new Intl.Segmenter("en", { granularity: "grapheme" }).segment(v)) if (/\p{Extended_Pictographic}/u.test(segment)) icons.add(segment); });
+  JSON.stringify(JSON.parse(fs.readFileSync(f, "utf8"))).replace(/"(?:icon|emoji)":"([^"]+)"/g, (_, e) => {
+    const v = JSON.parse('"' + e + '"');
+    for (const { segment } of new Intl.Segmenter("en", { granularity: "grapheme" }).segment(v))
+      if (/\p{Extended_Pictographic}/u.test(segment)) icons.add(segment);
+  });
 }
-const code = e => Array.from(e).map(c => c.codePointAt(0)).filter(c => c !== 0xfe0f).map(c => c.toString(16)).join("-");
-const withFe0f = e => Array.from(e).map(c => c.codePointAt(0).toString(16)).join("-");
+const code = (e) =>
+  Array.from(e)
+    .map((c) => c.codePointAt(0))
+    .filter((c) => c !== 0xfe0f)
+    .map((c) => c.toString(16))
+    .join("-");
+const withFe0f = (e) =>
+  Array.from(e)
+    .map((c) => c.codePointAt(0).toString(16))
+    .join("-");
 
 const check = process.argv[2] === "--check";
 const src = check || process.argv[2] === "--prune" ? null : process.argv[2];
-let missing = [], copied = 0;
+const missing = [];
+let copied = 0;
 for (const e of icons) {
-  const name = code(e) + ".svg", dest = path.join(OUT, name);
+  const name = code(e) + ".svg",
+    dest = path.join(OUT, name);
   if (fs.existsSync(dest)) continue;
-  if (check) { missing.push(`${e} ${name}`); continue; }
-  const from = [name, withFe0f(e) + ".svg"].map(n => path.join(src, n)).find(p => fs.existsSync(p))
-    || [name, withFe0f(e) + ".svg"].map(n => path.join(src, "svg", n)).find(p => fs.existsSync(p));
-  if (!from) { missing.push(`${e} ${name}`); continue; }
+  if (check) {
+    missing.push(`${e} ${name}`);
+    continue;
+  }
+  const from =
+    [name, withFe0f(e) + ".svg"].map((n) => path.join(src, n)).find((p) => fs.existsSync(p)) ||
+    [name, withFe0f(e) + ".svg"].map((n) => path.join(src, "svg", n)).find((p) => fs.existsSync(p));
+  if (!from) {
+    missing.push(`${e} ${name}`);
+    continue;
+  }
   fs.mkdirSync(OUT, { recursive: true });
-  fs.copyFileSync(from, dest); copied++;
+  fs.copyFileSync(from, dest);
+  copied++;
 }
 // --prune: delete pictures nothing uses any more
 let pruned = 0;
 if (process.argv.includes("--prune")) {
   const used = new Set([...icons].map((e) => code(e) + ".svg"));
-  for (const f of fs.readdirSync(OUT)) if (!used.has(f)) { fs.unlinkSync(path.join(OUT, f)); pruned++; }
+  for (const f of fs.readdirSync(OUT))
+    if (!used.has(f)) {
+      fs.unlinkSync(path.join(OUT, f));
+      pruned++;
+    }
 }
-console.log(`${icons.size} pictures used; ${copied} copied; ${missing.length} missing${pruned ? `; ${pruned} unused removed` : ""}.`);
-if (missing.length) { console.log("  missing: " + missing.join(", ")); process.exit(1); }
+console.log(
+  `${icons.size} pictures used; ${copied} copied; ${missing.length} missing${pruned ? `; ${pruned} unused removed` : ""}.`,
+);
+if (missing.length) {
+  console.log("  missing: " + missing.join(", "));
+  process.exit(1);
+}

@@ -1,13 +1,13 @@
 {
- "id": "dodgefallingstars",
- "level": "prekg",
- "subject": "play",
- "title": "Dodge the Falling Stars",
- "topic": "Move your hand-tracked shield to block falling stars",
- "icon": "⭐",
- "order": 50,
- "status": "approved",
- "template": "catch-stars",
- "emoji": "⭐🌟",
- "speed": 1
+  "id": "dodgefallingstars",
+  "level": "prekg",
+  "subject": "play",
+  "title": "Dodge the Falling Stars",
+  "topic": "Move your hand-tracked shield to block falling stars",
+  "icon": "⭐",
+  "order": 50,
+  "status": "approved",
+  "template": "catch-stars",
+  "emoji": "⭐🌟",
+  "speed": 1
 }

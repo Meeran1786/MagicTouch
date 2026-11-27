@@ -1,37 +1,37 @@
 {
- "id": "landformsnature",
- "level": "lkg",
- "subject": "nature",
- "title": "Landforms and Nature",
- "topic": "Mountain, volcano, island, desert and more",
- "icon": "⛰️",
- "order": 103,
- "status": "approved",
- "template": "emoji-quiz",
- "items": [
-  {
-   "emoji": "⛰️",
-   "word": "Mountain"
-  },
-  {
-   "emoji": "🌋",
-   "word": "Volcano"
-  },
-  {
-   "emoji": "🏝️",
-   "word": "Island"
-  },
-  {
-   "emoji": "🏜️",
-   "word": "Desert"
-  },
-  {
-   "emoji": "🌲",
-   "word": "Forest"
-  },
-  {
-   "emoji": "🏞️",
-   "word": "National Park"
-  }
- ]
+  "id": "landformsnature",
+  "level": "lkg",
+  "subject": "nature",
+  "title": "Landforms and Nature",
+  "topic": "Mountain, volcano, island, desert and more",
+  "icon": "⛰️",
+  "order": 103,
+  "status": "approved",
+  "template": "emoji-quiz",
+  "items": [
+    {
+      "emoji": "⛰️",
+      "word": "Mountain"
+    },
+    {
+      "emoji": "🌋",
+      "word": "Volcano"
+    },
+    {
+      "emoji": "🏝️",
+      "word": "Island"
+    },
+    {
+      "emoji": "🏜️",
+      "word": "Desert"
+    },
+    {
+      "emoji": "🌲",
+      "word": "Forest"
+    },
+    {
+      "emoji": "🏞️",
+      "word": "National Park"
+    }
+  ]
 }

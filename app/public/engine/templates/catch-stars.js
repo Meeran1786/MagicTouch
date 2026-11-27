@@ -37,7 +37,13 @@ export default function catchStars(area, d) {
 
     spawn -= dt;
     if (spawn <= 0) {
-      stars.push({ x: 40 + Math.random() * (g.w - 80), y: -40, v: (160 + Math.random() * 120) * speed, pic: pictures[Math.floor(Math.random() * pictures.length)], spin: Math.random() * 6 });
+      stars.push({
+        x: 40 + Math.random() * (g.w - 80),
+        y: -40,
+        v: (160 + Math.random() * 120) * speed,
+        pic: pictures[Math.floor(Math.random() * pictures.length)],
+        spin: Math.random() * 6,
+      });
       spawn = 1.1 / speed;
     }
     for (const s of stars) {

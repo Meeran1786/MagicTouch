@@ -74,7 +74,8 @@ export default function pictureQuiz(area, d, ctx) {
       MT.speak(q.item.word);
       actions.appendChild(button("🔊 Hear it", "ey-btn alt", () => MT.speak(q.item.word)));
     } else {
-      label.textContent = (d.labels && d.labels[q.kind]) || (q.kind === "spell" ? "Spell what you see!" : "What is this?");
+      label.textContent =
+        (d.labels && d.labels[q.kind]) || (q.kind === "spell" ? "Spell what you see!" : "What is this?");
       prompt.appendChild(picture(q.item, ctx.base));
     }
     if (q.kind === "spell") spell(q);
@@ -156,13 +157,18 @@ export default function pictureQuiz(area, d, ctx) {
     answer.append(slots, bank);
     const check = button("Check ✓", "ey-btn", () => {
       const ok = [...slots.children].every((s, i) => letters[i] === " " || s.textContent === letters[i]);
-      [...slots.children].forEach((s, i) => s.classList.add(letters[i] === " " || s.textContent === letters[i] ? "ok" : "no"));
+      [...slots.children].forEach((s, i) =>
+        s.classList.add(letters[i] === " " || s.textContent === letters[i] ? "ok" : "no"),
+      );
       bank.querySelectorAll("button").forEach((b) => (b.disabled = true));
       check.remove();
       mark(ok, q);
     });
     check.disabled = true;
-    actions.append(button("🔊 Hear it", "ey-btn alt", () => MT.speak(q.item.word)), check);
+    actions.append(
+      button("🔊 Hear it", "ey-btn alt", () => MT.speak(q.item.word)),
+      check,
+    );
   }
 
   function mark(ok, q) {
