@@ -2,6 +2,9 @@
 import { MT } from "../js/kit.js";
 import { MTDrag } from "../js/drag.js";
 
+// Runs inside the engine page's header and instruction line (not full screen).
+export const meta = { fullscreen: false };
+
 export default function order(area, d, ctx) {
   const n = d.items.length;
   let placed = 0;

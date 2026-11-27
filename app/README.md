@@ -4,13 +4,20 @@ The classroom product: a projector wall that children touch with the MagicTouch 
 (or a finger, or a mouse / touch screen), a phone remote for the teacher, and every activity
 from Nursery to Intermediate. Look and feel: **Studio** (direction C, decided 24 Nov 2026).
 
-It joins two code bases, both owned by Maqsusi EduTech:
+Everything is one code base, owned by Maqsusi EduTech and written to one standard
+([`CODE-STANDARD.md`](../CODE-STANDARD.md)). It started as two: the Interactive Wall code bought
+from Basha (IP assignment signed, 24 Nov 2026) and our own activity engine. Since 27 Nov 2026 every
+activity, early-years ones included, is JSON data on the shared templates in `public/engine/templates/`.
 
-| Part                                                                                           | Where                                                                                             | Came from                                                                             |
-| ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| Wall launcher, phone remote, 9-dot pen calibration, IR pen tracker, 126 early-years activities | `public/`                                                                                         | Interactive Wall code bought from Basha (IP assignment signed, 24 Nov 2026), restyled |
-| Classes 1–12 and Intermediate activities (JSON templates, lesson packs)                        | `../webcam/poc/`, served at `/engine/poc/`                                                        | Our own engine                                                                        |
-| Server, logins, licence, Studio launcher, theme, music                                         | `server/`, `public/index.html`, `public/launcher.*`, `public/catalog.js`, `public/shared/studio/` | New in this merge                                                                     |
+| Part                                                   | Where                                                        |
+| ------------------------------------------------------ | ------------------------------------------------------------ |
+| Offline server, logins, licence, usage counts          | `server/` (file store in `data/store.json`)                  |
+| Wall launcher, phone remote, team play                 | `public/index.html`, `public/launcher.js`, `public/teams.js` |
+| School view                                            | `public/school/`                                             |
+| IR pen and hand input, 9-dot calibration               | `public/shared/input/`, `public/calibrate/`                  |
+| The engine and its templates                           | `public/engine/` (`/engine/?a=<id>` runs one activity)       |
+| Activities (150: Nursery to Intermediate)              | `public/activities/<id>/activity.json` plus media            |
+| Studio look: tokens, emoji, music, card art, catalogue | `public/shared/studio/`, `public/shared/catalog.js`          |
 
 ## Run it on the classroom PC
 
@@ -76,19 +83,21 @@ about any child.
 ## Checks
 
 ```
-npm test                 # server and API tests (node:test)
-npm run check            # nothing loads from the internet; no stock-library markers in any media
-npm run test:browser     # opens all activities in Chromium (needs Playwright), server must be running
-node tools/asset-audit.js  # rewrites ASSETS-AUDIT.csv
+npm install              # once: the lint and format tools (development only; the wall needs none)
+npm run check            # lint, format, activity files, offline, media audit, emoji, unit tests
+npm test                 # unit tests only (server, homography, template contract, activities)
+npm run test:browser     # opens and touches every activity in Chromium; server must be running on 8090
+node tests/browser/input.cjs   # IR pen and hand input end to end with a stand-in camera
+node tools/asset-audit.js      # rewrites ASSETS-AUDIT.csv
 ```
 
 ## Adding things
 
-- **An early-years activity:** a folder in `public/apps/<id>/` plus an entry in `public/apps.js`,
-  then `node tools/localize.js` (links the Studio theme and boot script, swaps CDN links for the
-  bundled copies).
-- **A Classes 1–12 activity:** a JSON file in `../webcam/poc/activities/` listed in `index.json`.
-  It appears on the wall automatically, under its class and subject.
+- **An activity:** a folder `public/activities/<id>/` with an `activity.json` naming a template, and
+  its media. Run `node tools/activities.js` to check it and update the index; it then appears on the
+  wall under its class and subject. See [`CODE-STANDARD.md`](../CODE-STANDARD.md).
+- **A template:** `public/engine/templates/<name>.js` (+ `.css`), following the template contract in
+  the code standard.
 
 ## Assets
 
@@ -97,8 +106,3 @@ with stock-library marks (Adobe Stock, Vecteezy, rawpixel, Epic Stock Media, an 
 were removed or replaced by our own art (`tools/art/`) or generated sound. The other purchased
 media is marked `purchased-unverified`: ask Basha for the source of the photos, GIFs, voice clips
 and 3D animals before a public launch.
-
-## Cloud (optional)
-
-`api/[...path].js` runs the same API as a Vercel function with Postgres (`DATABASE_URL`, Neon).
-The classroom server can also use Postgres by setting `DATABASE_URL`.

@@ -1,6 +1,9 @@
 // T1 Explore & reveal: tap parts of a picture to hear and read about them.
 import { MT } from "../js/kit.js";
 
+// Runs inside the engine page's header and instruction line (not full screen).
+export const meta = { fullscreen: false };
+
 export default function explore(area, d, ctx) {
   const wrap = document.createElement("div");
   wrap.style.cssText = "display:flex;gap:24px;height:100%;align-items:stretch;";

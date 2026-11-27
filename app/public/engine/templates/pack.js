@@ -5,6 +5,9 @@
 // A step's own fields override the referenced activity's (e.g. a different instruction).
 import { MT } from "../js/kit.js";
 
+// Runs inside the engine page's header and instruction line (not full screen).
+export const meta = { fullscreen: false };
+
 export default function pack(area, d, ctx) {
   const instr = document.getElementById("mt-instr");
   const steps = d.steps.map(function (s) {

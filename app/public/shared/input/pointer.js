@@ -168,7 +168,8 @@ function fire(type, el, x, y, pressed) {
     view: window,
   };
   if (type === "click") {
-    el.dispatchEvent(new MouseEvent("click", { ...init, button: 0 }));
+    // browsers send click as a PointerEvent too, so pointerType says pen or touch
+    el.dispatchEvent(new PointerEvent("click", { ...init, button: 0 }));
     return;
   }
   el.dispatchEvent(new PointerEvent(type, init));

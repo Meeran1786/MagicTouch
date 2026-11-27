@@ -1,6 +1,9 @@
 // T9 Hit the answer: answer balloons float up the wall; hit the right one (throw a soft ball, tap with the pen, or click).
 import { MT } from "../js/kit.js";
 
+// Runs inside the engine page's header and instruction line (not full screen).
+export const meta = { fullscreen: false };
+
 export default function ball(area, d, ctx) {
   const wrap = document.createElement("div");
   wrap.className = "bl-wrap";

@@ -2,6 +2,9 @@
 // scene "solar": tap planets to visit them.  scene "satellite": change the height of a satellite's orbit and meet challenges.
 import { MT } from "../js/kit.js";
 
+// Runs inside the engine page's header and instruction line (not full screen).
+export const meta = { fullscreen: false };
+
 export default function space3d(area, d, ctx) {
   let dead = false;
   let stage = null;

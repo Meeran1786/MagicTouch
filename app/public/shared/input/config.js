@@ -104,6 +104,9 @@ export function saveIrSettings(patch) {
  * IR pen mode never downloads MediaPipe.
  */
 export async function createTracker({ camW = 640, camH = 480, maxHands = 1 } = {}) {
+  // A test or a recorded demo can stand in for the camera with an object that keeps the
+  // same contract (tests/browser/input.cjs does this).
+  if (window.MAGICTOUCH_FAKE_TRACKER) return window.MAGICTOUCH_FAKE_TRACKER;
   if (getInputMode() === "hand") {
     const { HandTracker } = await import("./hand-tracker.js");
     return new HandTracker({ camW, camH, maxHands });

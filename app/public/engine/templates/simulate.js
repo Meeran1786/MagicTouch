@@ -10,6 +10,9 @@ import { MT } from "../js/kit.js";
 import { MTExpr } from "../js/expr.js";
 import { simReal } from "../js/sim-real.js";
 
+// Runs inside the engine page's header and instruction line (not full screen).
+export const meta = { fullscreen: false };
+
 export default function simulate(area, d, ctx) {
   const offs = [];
   const vals = {};

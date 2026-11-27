@@ -6,6 +6,9 @@
 // outline. Leave them out until one is in hand; fictional or local maps are fine.
 import { MT } from "../js/kit.js";
 
+// Runs inside the engine page's header and instruction line (not full screen).
+export const meta = { fullscreen: false };
+
 export default function map(area, d, ctx) {
   const byId = {};
   d.regions.forEach(function (r) {

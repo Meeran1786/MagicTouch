@@ -6,6 +6,9 @@
 // d.shuffleOptions (default true) mixes the choices of plain MCQs; d.passPercent (default 60) sets the cheer.
 import { MT } from "../js/kit.js";
 
+// Runs inside the engine page's header and instruction line (not full screen).
+export const meta = { fullscreen: false };
+
 export default function quiz(area, d, ctx) {
   const AR = [
     "Both A and R are true, and R explains A.",

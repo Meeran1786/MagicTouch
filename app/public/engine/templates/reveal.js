@@ -3,6 +3,9 @@
 import { MT } from "../js/kit.js";
 import { setLargeSpot } from "/shared/input/pointer.js";
 
+// Runs inside the engine page's header and instruction line (not full screen).
+export const meta = { fullscreen: false };
+
 export default function reveal(area, d, ctx) {
   const holder = document.createElement("div");
   holder.style.cssText = "height:100%;";

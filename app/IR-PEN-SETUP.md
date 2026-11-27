@@ -1,8 +1,7 @@
 # IR pen mode
 
-The wall now uses an **IR pen + IR webcam** by default. Everything else (9-dot
-calibration, homography, dwell-click, all apps) is unchanged — the IR tracker
-(`public/shared/irPenTracker.js`) simply replaces the fingertip as the pointer.
+The wall uses an **IR pen + IR webcam** by default. One input module turns the pen (or a hand)
+into ordinary taps and drags for every activity: `public/shared/input/`.
 
 ## First run
 
@@ -32,8 +31,9 @@ Open any page once with `?input=hand` (and `?input=irpen` to return). The choice
 
 ## Files
 
-- `public/shared/inputConfig.js` — mode switch, settings, tracker factory
-- `public/shared/irPenTracker.js` — IR dot detection (same interface as handTracker.js)
-- `public/shared/calibrationBootstrap.js` — now builds the tracker through inputConfig
-- `apps/{alphabets,animals,fruit-slash,music,piano}/js/handTracker.js` — small shim; originals kept as `handTrackerHand.js`
-- `apps/bubblepopstorm/js/tracking-bridge.js` — asks for 2 pointers (2 pens)
+- `public/shared/input/config.js` — mode switch (IR pen, hand, mouse), settings, tracker factory
+- `public/shared/input/ir-pen-tracker.js` — IR dot detection; several pens at once for multi-pen games
+- `public/shared/input/hand-tracker.js` — MediaPipe hand tracking (same contract as the pen tracker)
+- `public/shared/input/homography.js` — camera-to-screen maths
+- `public/shared/input/calibration.js` — the 9-dot calibration used by `/calibrate/`
+- `public/shared/input/pointer.js` — turns the pen or hand into pointer and click events for every activity
