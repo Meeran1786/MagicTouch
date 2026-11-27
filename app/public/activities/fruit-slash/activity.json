@@ -1,0 +1,41 @@
+{
+ "id": "fruit-slash",
+ "level": "prekg",
+ "subject": "nature",
+ "title": "Fruit Slash",
+ "topic": "Slice flying fruit with your fingertip",
+ "icon": "🍉",
+ "order": 3,
+ "status": "approved",
+ "template": "slice",
+ "items": [
+  {
+   "word": "Watermelon",
+   "photo": "assets/watermelon.png"
+  },
+  {
+   "word": "Mango",
+   "photo": "assets/mango.png"
+  },
+  {
+   "word": "Banana",
+   "photo": "assets/banana.png"
+  },
+  {
+   "word": "Kiwi",
+   "photo": "assets/kiwi.png"
+  },
+  {
+   "word": "Coconut",
+   "photo": "assets/coconut.png"
+  },
+  {
+   "word": "Ice cream",
+   "photo": "assets/icecream.png"
+  },
+  {
+   "word": "Grape",
+   "photo": "assets/grape.png"
+  }
+ ]
+}

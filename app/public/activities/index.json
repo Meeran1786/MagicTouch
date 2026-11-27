@@ -180,6 +180,16 @@
   "status": "approved"
  },
  {
+  "id": "countingorchard",
+  "level": "nursery",
+  "subject": "numbers",
+  "title": "Counting Orchard",
+  "topic": "Point to pick fruit and watch the count go up",
+  "icon": "🍎",
+  "template": "count-pick",
+  "status": "approved"
+ },
+ {
   "id": "vehiclesquiz",
   "level": "nursery",
   "subject": "world",
@@ -477,6 +487,36 @@
   "topic": "Meet animals and hear the sounds they make",
   "icon": "🐘",
   "template": "word-wheel",
+  "status": "approved"
+ },
+ {
+  "id": "fruit-slash",
+  "level": "prekg",
+  "subject": "nature",
+  "title": "Fruit Slash",
+  "topic": "Slice flying fruit with your fingertip",
+  "icon": "🍉",
+  "template": "slice",
+  "status": "approved"
+ },
+ {
+  "id": "bubblepopstorm",
+  "level": "prekg",
+  "subject": "play",
+  "title": "Bubble Pop Storm",
+  "topic": "Pop the rising bubbles with either hand",
+  "icon": "🫧",
+  "template": "pop-storm",
+  "status": "approved"
+ },
+ {
+  "id": "dodgefallingstars",
+  "level": "prekg",
+  "subject": "play",
+  "title": "Dodge the Falling Stars",
+  "topic": "Move your hand-tracked shield to block falling stars",
+  "icon": "⭐",
+  "template": "catch-stars",
   "status": "approved"
  },
  {
@@ -927,6 +967,16 @@
   "topic": "Sweet Potato–Zucchini — multiple choice & spelling quiz",
   "icon": "🍠",
   "template": "picture-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "numberninja",
+  "level": "lkg",
+  "subject": "numbers",
+  "title": "Number Ninja",
+  "topic": "Slice only the numbers that match the rule",
+  "icon": "🔢",
+  "template": "slice",
   "status": "approved"
  },
  {

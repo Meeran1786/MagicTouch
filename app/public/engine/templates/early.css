@@ -311,3 +311,12 @@ html.mt-wall .ey-hud {
   border-radius: 50%;
   background: var(--mt-orange);
 }
+
+/* canvas games (engine/js/arcade.js) fill the stage */
+.ey-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+  border-radius: calc(var(--mt-radius) * 1.25);
+}

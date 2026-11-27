@@ -1,0 +1,46 @@
+{
+ "id": "numberninja",
+ "level": "lkg",
+ "subject": "numbers",
+ "title": "Number Ninja",
+ "topic": "Slice only the numbers that match the rule",
+ "icon": "🔢",
+ "order": 51,
+ "status": "approved",
+ "template": "slice",
+ "numbers": [
+  1,
+  9
+ ],
+ "switchAfter": 8,
+ "rules": [
+  {
+   "label": "Slice the EVEN numbers!",
+   "say": "Slice the even numbers!",
+   "kind": "even"
+  },
+  {
+   "label": "Slice the ODD numbers!",
+   "say": "Slice the odd numbers!",
+   "kind": "odd"
+  },
+  {
+   "label": "Slice numbers MORE than 5!",
+   "say": "Slice numbers greater than five!",
+   "kind": "more",
+   "n": 5
+  },
+  {
+   "label": "Slice numbers LESS than 5!",
+   "say": "Slice numbers less than five!",
+   "kind": "less",
+   "n": 5
+  },
+  {
+   "label": "Slice the 3 times table!",
+   "say": "Slice multiples of three!",
+   "kind": "times",
+   "n": 3
+  }
+ ]
+}

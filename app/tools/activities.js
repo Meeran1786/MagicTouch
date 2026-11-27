@@ -33,7 +33,7 @@ const NEEDS = {
   explore: ["scene", "hotspots"], simulate: ["model", "sliders", "goals"], space3d: ["scene"],
   reveal: ["scene", "targets"], ball: ["rounds"], quiz: ["questions"], map: ["scene", "regions"], pack: ["steps"],
   "emoji-quiz": ["items"], "picture-chart": ["items"], "picture-spotter": ["items"], "word-wheel": ["items"],
-  "picture-quiz": ["items"], "picture-reveal": ["items"],
+  "picture-quiz": ["items"], "picture-reveal": ["items"], "count-pick": ["fruits"],
 };
 const STEP_COMMON = ["template", "instruction"];
 
@@ -42,6 +42,8 @@ function deep(f, a, where, allActs) {
   const e = m => err(f, (where ? where.trim() + ': ' : '') + m);
   if (a.template && !templates.includes(a.template)) e('unknown template "' + a.template + '"');
   (NEEDS[a.template] || []).forEach(k => { if (a[k] === undefined) e('template "' + a.template + '" needs "' + k + '"'); });
+  if (a.template === 'slice' && !a.items && !a.numbers) e('template "slice" needs "items" or "numbers"');
+  if (a.template === 'slice') (a.rules || []).forEach(r => { if (!['even', 'odd', 'more', 'less', 'times'].includes(r.kind)) e('slice rule kind "' + r.kind + '" is not one of even, odd, more, less, times'); });
   if (a.template === 'simulate') {
     const names = {}; (a.sliders || []).forEach(s => { names[s.id] = s.value; if (!(s.min < s.max && s.step > 0)) e('slider "' + s.id + '" needs min < max and step > 0'); });
     ({ circuit: ['I'], market: ['D', 'S'] }[a.model] || []).forEach(k => names[k] = 1);
