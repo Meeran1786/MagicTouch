@@ -45,12 +45,16 @@ export function MTDrag(root, onDrop) {
       const r = start.el.getBoundingClientRect();
       ghost.style.width = r.width + "px";
       ghost.style.height = r.height + "px";
+      // the ghost follows the pen by transform only (no layout properties animate)
+      ghost.style.left = "0px";
+      ghost.style.top = "0px";
+      ghost.style.transition = "none";
       document.body.appendChild(ghost);
       start.el.style.opacity = 0.35;
     }
     if (dragging) {
-      ghost.style.left = e.clientX + "px";
-      ghost.style.top = e.clientY + "px";
+      ghost.style.transform =
+        "translate(" + e.clientX + "px," + e.clientY + "px) translate(-50%,-50%) scale(1.05) rotate(-2deg)";
       setHover(dropAt(e.clientX, e.clientY));
     }
   }

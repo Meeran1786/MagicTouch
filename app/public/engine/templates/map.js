@@ -4,7 +4,13 @@
 //   d.find    [{text, region, say}]        optional: "Tap the place north of the school"
 // India rule: maps of India (or anything showing its borders) must use an official Survey of India
 // outline. Leave them out until one is in hand; fictional or local maps are fine.
+//   d.goal, d.exploreText, d.doneText       optional texts
+// Gold Standard layout (CLAUDE.md §7): the map is an elevated, softly lit stage on the left; the panel
+// on the right holds the challenge card (it becomes the "find it" question), the read-outs and the
+// place card, which cross-fades as the tapped place lights up; a right find gets the 1.2 s green pulse
+// and confetti.
 import { MT } from "../js/kit.js";
+import { ME } from "/shared/motion-engine.js";
 
 // Runs inside the engine page's header and instruction line (not full screen).
 export const meta = { fullscreen: false };
@@ -14,29 +20,32 @@ export default function map(area, d, ctx) {
   d.regions.forEach(function (r) {
     byId[r.id] = r;
   });
-  const wrap = document.createElement("div");
-  wrap.className = "mp-wrap";
-  const holder = document.createElement("div");
-  holder.className = "mp-map";
-  const info = document.createElement("div");
-  info.className = "mp-info";
-  wrap.appendChild(holder);
-  wrap.appendChild(info);
-  area.appendChild(wrap);
-  const box = MT.sceneBox(holder, d.scene);
   const finds = d.find || [];
+  const ui = ME.split(area, {
+    goal: d.goal || "Tap every place on the map" + (finds.length ? ", then find the places." : "."),
+  });
+  ui.wrap.classList.add("mp-wrap");
+  ui.holder.classList.add("mp-map");
+  const box = MT.sceneBox(ui.holder, d.scene);
+  box.classList.add("st-scene");
   let phase = "explore";
   const seen = {};
   let fi = 0;
   let lock = false;
-  info.innerHTML =
-    '<div class="mp-tag">Explore</div><div class="mp-t">Tap a place on the map</div><div class="mp-b">' +
-    (d.exploreText || "Each place tells you something.") +
-    '</div><div class="mp-x"></div>';
-  const tEl = info.querySelector(".mp-t"),
-    bEl = info.querySelector(".mp-b"),
-    tag = info.querySelector(".mp-tag"),
-    xEl = info.querySelector(".mp-x");
+  const reads = ME.reads(ui.panel, [
+    { id: "e", k: "Explored" },
+    { id: "f", k: "Found", accent: true },
+  ]);
+  if (!finds.length) reads.el.lastChild.hidden = true;
+  reads.set("e", 0, d.regions.length);
+  reads.set("f", 0, finds.length);
+  const info = ME.info(ui.panel, {
+    tag: "Explore",
+    title: "Tap a place on the map",
+    body: d.exploreText || "Each place tells you something.",
+  });
+  const xEl = document.createElement("div");
+  ui.panel.appendChild(xEl);
   function shapes(id) {
     return box.querySelectorAll('[data-region="' + id + '"]');
   }
@@ -51,7 +60,9 @@ export default function map(area, d, ctx) {
   function readyBtn() {
     if (!finds.length || phase !== "explore" || xEl.firstChild) return;
     const b = document.createElement("button");
-    b.className = "mt-btn";
+    b.type = "button";
+    b.className = "st-btn";
+    b.style.width = "100%";
     b.textContent = "Find the places →";
     b.addEventListener("click", startFind);
     xEl.appendChild(b);
@@ -64,14 +75,13 @@ export default function map(area, d, ctx) {
       mark(r.id, "mp-on", false);
       mark(r.id, "mp-seen", false);
     });
-    tag.textContent = "Find it";
     ask();
   }
   function ask() {
     const f = finds[fi];
     MT.score(fi + " / " + finds.length);
-    tEl.textContent = "Question " + (fi + 1) + " of " + finds.length;
-    bEl.textContent = f.text;
+    ui.goal.textContent = f.text;
+    info.set({ tag: "Find it", title: "Question " + (fi + 1) + " of " + finds.length, body: f.text });
     MT.speak(f.text);
   }
   function tap(id) {
@@ -82,8 +92,7 @@ export default function map(area, d, ctx) {
       d.regions.forEach(function (x) {
         mark(x.id, "mp-on", x.id === id);
       });
-      tEl.textContent = r.label;
-      bEl.textContent = r.text || "";
+      info.set({ tag: "Explore", title: r.label, body: r.text || "" });
       MT.speak(r.label + ". " + (r.text || ""));
       MT.sfx.tap();
       if (!seen[id]) {
@@ -91,6 +100,7 @@ export default function map(area, d, ctx) {
         mark(id, "mp-seen", true);
       }
       MT.score(seenCount() + " / " + d.regions.length);
+      reads.set("e", seenCount(), d.regions.length);
       if (seenCount() === d.regions.length) {
         if (finds.length) readyBtn();
         else {
@@ -108,6 +118,8 @@ export default function map(area, d, ctx) {
         mark(id, "mp-seen", true);
         MT.good("Yes! " + r.label, f.say || r.label);
         fi++;
+        reads.set("f", fi, finds.length);
+        ME.solved(ui.goal);
         lock = true;
         MT.later(function () {
           lock = false;
