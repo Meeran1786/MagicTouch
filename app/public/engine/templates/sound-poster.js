@@ -1,18 +1,21 @@
 // Sound poster (early years): a grey poster of things that make sounds. Touch one and it
 // lights up in colour and plays; a hand only needs to point at it, no tap needed.
+// Gold Standard frame (studioFrame, stage only): the poster fills the elevated stage; a touched
+// spot floods into colour with a squash and a ring that spreads from the touch.
 // Activity data:
 //   poster: "assets/poster.jpg", size: [1400, 700]       the background and its pixel size
 //   spots: [{ word: "Drum", layer: "assets/drum.png", box: [x, y, w, h], sound: "assets/drum.wav" }]
 //          box is where the colour picture sits on the poster, in poster pixels
 import { MT, audioCtx } from "../js/kit.js";
-import { frame } from "../js/early.js";
+import { studioFrame } from "../js/early.js";
+import { ME } from "/shared/motion-engine.js";
 
 export const meta = { fullscreen: true, styles: ["early", "sound-poster"], points: 2 };
 
 const REPLAY_MS = 900; // the same spot will not restart its sound sooner than this
 
 export default function soundPoster(area, d, ctx) {
-  const f = frame(area, { icon: d.icon, title: d.title });
+  const f = studioFrame(area, { icon: d.icon, title: d.title, split: false, grass: false, stars: false });
   const [pw, ph] = d.size;
   const poster = document.createElement("div");
   poster.className = "sp";
@@ -48,13 +51,13 @@ export default function soundPoster(area, d, ctx) {
     el.querySelector(".sp-word").textContent = s.word;
     poster.appendChild(el);
     load(s.sound);
-    const play = async () => {
+    const play = async (e) => {
       const now = performance.now();
       if (now - (last.get(el) || 0) < REPLAY_MS) return;
       last.set(el, now);
-      el.classList.remove("on");
-      void el.offsetWidth;
       el.classList.add("on");
+      ME.squash(el);
+      ME.ripple(poster, e && e.clientX, e && e.clientY, ME.PALETTE.amber);
       const buf = await load(s.sound);
       if (!buf) return MT.speak(s.word);
       const ac = audioCtx;
@@ -72,5 +75,8 @@ export default function soundPoster(area, d, ctx) {
     return el;
   });
 
-  return () => spots.forEach((el) => clearTimeout(el.offTimer));
+  return () => {
+    spots.forEach((el) => clearTimeout(el.offTimer));
+    f.stop();
+  };
 }

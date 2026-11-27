@@ -6,7 +6,6 @@
   height: 100%;
   border-radius: calc(var(--mt-radius) * 1.25);
   overflow: hidden;
-  box-shadow: var(--mt-shadow);
   background: var(--mt-white);
 }
 .sp-bg {
@@ -32,8 +31,11 @@
 .sp-spot.on img {
   opacity: 1;
 }
-.sp-spot.on {
-  animation: ey-squash 0.45s var(--mt-spring);
+.sp-spot.on img {
+  filter: drop-shadow(0 8px 10px rgba(61, 14, 55, 0.25));
+}
+html.st-low .sp-spot.on img {
+  filter: none;
 }
 .sp-word {
   position: absolute;

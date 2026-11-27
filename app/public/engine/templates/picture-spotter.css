@@ -1,82 +1,73 @@
-/* Picture spotter: the question on top, pictures pinned below like posters. */
-.ps-wrap {
+/* Picture spotter: pictures pinned to the stage like posters; the question on the right. */
+.ps-field {
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-}
-.ps-ask {
-  padding: 14px 34px;
-  text-align: center;
-}
-.ps-q {
-  font: 700 40px var(--mt-head);
-  color: var(--mt-plum-dark);
-}
-.ps-q b {
-  color: var(--mt-magenta);
-}
-.ps-hint {
-  font-size: 18px;
-  color: var(--mt-mute);
-}
-.ps-field {
-  flex: 1;
-  width: 100%;
-  min-height: 0;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-template-rows: repeat(2, minmax(0, 1fr));
-  gap: 26px 34px;
-  padding-top: 10px;
+  gap: 30px 28px;
+  padding: 18px 6px 30px;
   align-items: center;
   justify-items: center;
 }
 .ps-card {
-  position: relative;
   height: 100%;
   max-width: 100%;
   aspect-ratio: 1;
   padding: 12px;
-  border: 2px solid var(--mt-line);
-  border-radius: 10px;
-  background: var(--mt-white);
-  box-shadow: var(--mt-shadow);
-  transform: rotate(var(--tilt));
-  cursor: pointer;
+  border-radius: 12px;
+  rotate: var(--tilt);
   animation: ps-in 0.45s var(--mt-spring) both;
-  font-size: 150px;
+  font-size: min(150px, 15vh);
 }
 .ps-card::before {
   /* a strip of tape holding the poster */
   content: "";
   position: absolute;
-  top: -12px;
+  z-index: 2;
+  top: -6px;
   left: 50%;
-  width: 70px;
+  width: 76px;
   height: 22px;
   transform: translateX(-50%) rotate(-4deg);
-  background: color-mix(in srgb, var(--mt-amber) 45%, transparent);
+  background: color-mix(in srgb, var(--mt-amber) 50%, transparent);
   border-radius: 3px;
 }
-.ps-card .ey-pic {
+.ps-card .st-hero {
   width: 100%;
   height: 100%;
 }
-.ps-card.is-right {
-  border-color: var(--mt-green);
-  box-shadow: 0 0 0 6px color-mix(in srgb, var(--mt-green) 35%, transparent);
-  animation: ey-squash 0.5s var(--mt-spring);
-}
-.ps-card.is-wrong {
-  border-color: var(--mt-magenta);
-  animation: ey-shake 0.4s;
+.ps-card .ey-photo {
+  width: 100%;
+  height: 100%;
 }
 @keyframes ps-in {
   from {
-    transform: rotate(var(--tilt)) scale(0.6);
+    transform: scale(0.6);
     opacity: 0;
   }
+}
+.ps-ask {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px 22px;
+}
+.ps-q {
+  font: 700 30px var(--mt-head);
+  color: var(--mt-plum-dark);
+}
+.ps-word {
+  min-height: 84px;
+}
+.ps-word .st-tile {
+  background: linear-gradient(180deg, #d9476a 0%, var(--mt-magenta) 100%);
+}
+.ps-word .st-tile.gap {
+  background: none;
+}
+.ps-word .st-tile.on {
+  background: linear-gradient(180deg, #7d2a6c 0%, var(--mt-plum) 100%);
 }
