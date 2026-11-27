@@ -1,0 +1,109 @@
+{
+  "about": "Theme sounds an activity can name (\"sfx\": \"cat\", \"ambience\": \"rain\"). Every file is CC0 or public domain, checked on its Wikimedia Commons page on 2026-11-27. Add a file here (lower-case name, .ogg or .mp3) and list it below with its source and licence.",
+  "sounds": {
+    "cat": {
+      "file": "cat.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Maullido_de_gata_hembra_joven.ogg",
+      "licence": "CC0 1.0",
+      "author": "George Miquilena",
+      "original_sha1": "ada9a9fefb1a46690e5cc3413eebfc0f9be9fc82",
+      "changes": "mono, silence trimmed, shortened with a fade, level matched"
+    },
+    "elephant": {
+      "file": "elephant.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Elephant_voice_-_trumpeting.ogg",
+      "licence": "CC0 1.0",
+      "author": "தகவலுழவன் (Commons user)",
+      "original_sha1": "1bf7722db9acfcf935ce5d9752acc15a45fdfc25",
+      "changes": "mono, silence trimmed, shortened with a fade, level matched"
+    },
+    "horse": {
+      "file": "horse.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Wiehern.ogg",
+      "licence": "Public domain",
+      "author": "Hü. (Commons user)",
+      "original_sha1": "a49c0534cbe82b84eca2e68b7d973a81a6d76a59",
+      "changes": "mono, silence trimmed, shortened with a fade, level matched"
+    },
+    "sheep": {
+      "file": "sheep.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Sheep_bleat.ogg",
+      "licence": "CC0 1.0",
+      "author": "Eviatar Bach",
+      "original_sha1": "5432bbb6d9ca4a11cd72f3648686e444cdf13340",
+      "changes": "mono, silence trimmed, shortened with a fade, level matched"
+    },
+    "lion": {
+      "file": "lion.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Lion_raring-sound1TamilNadu178.ogg",
+      "licence": "Public domain",
+      "author": "த*உழவன் (Commons user)",
+      "original_sha1": "c55bb80d33f85619731893a16c9dfea51a6a54d9",
+      "changes": "mono, silence trimmed, shortened with a fade, level matched"
+    },
+    "rooster": {
+      "file": "rooster.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Small_rooster_crowing.ogg",
+      "licence": "Public domain (pdsounds.org)",
+      "author": "alys",
+      "original_sha1": "45dce68db2933714ddffb2b71816922e2a0640ca",
+      "changes": "mono, silence trimmed, shortened with a fade, level matched"
+    },
+    "train": {
+      "file": "train.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:The_horn_of_a_Bluebird_railcar.ogg",
+      "licence": "CC0 1.0",
+      "author": "NIRVAAN222222 (Commons user)",
+      "original_sha1": "67953b1db2507e77fa211d1c9dd2f27d2713ef0a",
+      "changes": "mono, silence trimmed, shortened with a fade, level matched"
+    },
+    "siren": {
+      "file": "siren.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Siren.ogg",
+      "licence": "Public domain (pdsounds.org)",
+      "author": "mastermesh",
+      "original_sha1": "8eadeec315d963ce5dd7dec308f163b984ecea13",
+      "changes": "mono, silence trimmed, shortened with a fade, level matched"
+    },
+    "bell": {
+      "file": "bell.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Old_school_bell_4.ogg",
+      "licence": "Public domain (pdsounds.org)",
+      "author": "ezwa",
+      "original_sha1": "d37f0d62704da0e2da5dba1e8c166c83643e4cdb",
+      "changes": "mono, silence trimmed, shortened with a fade, level matched"
+    },
+    "geese": {
+      "file": "geese.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Geese_Honking_(distant).ogg",
+      "licence": "Public domain (U.S. federal government work)",
+      "author": "U.S. Fish and Wildlife Service",
+      "original_sha1": "60688253ecec0ff45ef6007dbf0d8761258add17",
+      "changes": "mono, silence trimmed, shortened with a fade, level matched"
+    },
+    "applause": {
+      "file": "applause.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Clapping_hurray_(cropped).oga",
+      "licence": "Public domain (pdsounds.org)",
+      "author": "Starlite",
+      "original_sha1": "c59f0d90453634d48edd6654709a7833ec9937b9",
+      "changes": "mono, silence trimmed, shortened with a fade, level matched"
+    },
+    "rain": {
+      "file": "rain.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Rain.ogg",
+      "licence": "Public domain",
+      "author": "ジダネ (Commons user)",
+      "original_sha1": "d9ad5297c79e6ac2acc9ccd7181c4b144798c306",
+      "changes": "mono 22 kHz, made into a seamless loop (1.5 s crossfade), level lowered"
+    },
+    "stream": {
+      "file": "stream.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Hemlock_stream.ogg",
+      "licence": "Public domain",
+      "author": "Dirtslayer (Commons user)",
+      "original_sha1": "547b822b715fd83544fc0f156f719ed54967c761",
+      "changes": "mono 22 kHz, made into a seamless loop (1.5 s crossfade), level lowered"
+    }
+  }
+}

@@ -98,3 +98,34 @@ test("the voice generator dry run counts lines without a key or the internet", (
   assert.match(out, /te-IN: \d+ lines/);
   assert.match(out, /Would generate: \d+ clips, \d+ characters/);
 });
+
+test("silent voice clips are told apart from spoken ones", async () => {
+  const { isSilent, mp3Gain } = await import("../scripts/mp3-voice-check.js");
+  // pure digital silence (ffmpeg anullsrc, 24 kHz mono 32 kbit/s, like the voice pack)
+  assert.equal(isSilent(fs.readFileSync(path.join(APP, "tests", "fixtures", "silence.mp3"))), true);
+  assert.equal(isSilent(Buffer.from("not an mp3 at all")), true);
+  // the longest clips of the pack are spoken sentences
+  const dir = path.join(PUB, "assets", "voice", "en-IN");
+  const big = fs
+    .readdirSync(dir)
+    .filter((f) => f.endsWith(".mp3"))
+    .map((f) => [f, fs.statSync(path.join(dir, f)).size])
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 5);
+  for (const [f] of big) {
+    const buf = fs.readFileSync(path.join(dir, f));
+    assert.equal(isSilent(buf), false, f);
+    assert.ok(mp3Gain(buf).seconds > 1, f);
+  }
+});
+
+test("spelling goes through the one-at-a-time voice queue", () => {
+  const early = fs.readFileSync(path.join(PUB, "engine", "js", "early.js"), "utf8");
+  assert.match(early, /export function spell[\s\S]*?MT\.speakSequence\(/);
+  const engine = fs.readFileSync(path.join(PUB, "shared", "audio-engine.js"), "utf8");
+  assert.match(engine, /speakSequence,/);
+  // background music plays into the music bus (ducked under the voice, muted with all sound)
+  const music = fs.readFileSync(path.join(PUB, "shared", "studio", "soft-music.js"), "utf8");
+  assert.match(music, /MagicAudio\.musicOut\(\)/);
+  assert.doesNotMatch(music, /connect\(ctx\.destination\)/);
+});

@@ -23,6 +23,7 @@
     },
     {
       "word": "Cat",
+      "sfx": "cat",
       "cover": "assets/C.png",
       "photo": "assets/Cat.gif",
       "audio": "assets/Cat.mp3"
@@ -35,6 +36,7 @@
     },
     {
       "word": "Elephant",
+      "sfx": "elephant",
       "cover": "assets/E.png",
       "photo": "assets/Elephant.gif",
       "audio": "assets/Elephant.mp3"
@@ -53,6 +55,7 @@
     },
     {
       "word": "Horse",
+      "sfx": "horse",
       "cover": "assets/H.png",
       "photo": "assets/Horse.gif",
       "audio": "assets/horse.mp3"
@@ -77,6 +80,7 @@
     },
     {
       "word": "Lion",
+      "sfx": "lion",
       "cover": "assets/L.png",
       "photo": "assets/Lion.gif",
       "audio": "assets/lion.mp3"
@@ -119,6 +123,7 @@
     },
     {
       "word": "Sheep",
+      "sfx": "sheep",
       "cover": "assets/S.png",
       "photo": "assets/Sheep.gif",
       "audio": "assets/sheep.mp3"

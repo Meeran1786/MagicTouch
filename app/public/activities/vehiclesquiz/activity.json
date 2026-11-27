@@ -27,7 +27,8 @@
     },
     {
       "emoji": "🚆",
-      "word": "Train"
+      "word": "Train",
+      "sfx": "train"
     },
     {
       "emoji": "⛵",
@@ -39,11 +40,13 @@
     },
     {
       "emoji": "🚒",
-      "word": "Fire Truck"
+      "word": "Fire Truck",
+      "sfx": "siren"
     },
     {
       "emoji": "🚑",
-      "word": "Ambulance"
+      "word": "Ambulance",
+      "sfx": "siren"
     },
     {
       "emoji": "🚁",

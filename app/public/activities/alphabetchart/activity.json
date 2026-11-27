@@ -24,6 +24,7 @@
     {
       "glyph": "Cc",
       "word": "Cat",
+      "sfx": "cat",
       "emoji": "🐱",
       "say": "C for Cat"
     },
@@ -36,6 +37,7 @@
     {
       "glyph": "Ee",
       "word": "Elephant",
+      "sfx": "elephant",
       "emoji": "🐘",
       "say": "E for Elephant"
     },
@@ -78,6 +80,7 @@
     {
       "glyph": "Ll",
       "word": "Lion",
+      "sfx": "lion",
       "emoji": "🦁",
       "say": "L for Lion"
     },

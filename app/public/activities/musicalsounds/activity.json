@@ -39,7 +39,8 @@
     },
     {
       "emoji": "🔔",
-      "word": "Bell"
+      "word": "Bell",
+      "sfx": "bell"
     }
   ]
 }

@@ -82,6 +82,7 @@ export default function emojiQuiz(area, d, ctx) {
       f.solved();
       f.celebrate(button);
       ME.sound.good();
+      MT.theme(q.sfx);
       MT.speak(["Yes!", q.word]);
       tiles.light(-1);
     } else {

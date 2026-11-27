@@ -9,6 +9,7 @@ MagicTouch's own code, content and art are owned by Maqsusi EduTech. These bundl
 | Twemoji 15 SVGs | `app/public/vendor/twemoji/` | CC BY 4.0, © Twitter, Inc. and other contributors |
 | Caladea, Carlito, Noto Sans Telugu, Noto Sans Devanagari | `app/public/vendor/fonts/` | SIL Open Font License 1.1 |
 | Interface Sounds 1.0 by Kenney (6 cues: tap, toggle, tick, success, wrong, pop) | `app/public/assets/sfx/` | CC0 1.0 public domain (see `app/public/assets/sfx/LICENSE-Kenney.txt`; credit not required, given anyway) |
+| 13 theme sounds from Wikimedia Commons (cat, elephant, horse, sheep, lion, rooster, train horn, siren, school bell, geese, applause, rain, stream) | `app/public/assets/sfx/themes/` | CC0 1.0 or public domain, each checked on its Commons page on 27 Nov 2026; authors, sources and changes in `app/public/assets/sfx/themes/credits.json` |
 | Pre-generated voice clips (Google Cloud Text-to-Speech, Chirp 3: HD) | `app/public/assets/voice/` | Audio synthesized by Maqsusi EduTech with its own Google Cloud account (`app/scripts/generate-voices.js`) |
 | Earth and Moon textures (NASA) | `app/public/engine/assets/` | Public domain (see `app/public/engine/assets/CREDITS.md`) |
 

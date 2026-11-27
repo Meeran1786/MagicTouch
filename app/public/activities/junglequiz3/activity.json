@@ -27,6 +27,7 @@
     },
     {
       "word": "Elephant",
+      "sfx": "elephant",
       "photo": "assets/gifs/Elephant.gif"
     },
     {
@@ -47,6 +48,7 @@
     },
     {
       "word": "Horse",
+      "sfx": "horse",
       "photo": "assets/gifs/28.gif"
     }
   ]

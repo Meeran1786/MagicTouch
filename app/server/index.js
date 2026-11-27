@@ -170,6 +170,34 @@ export function createServer({
     if (url.pathname === "/engine/poc/" || url.pathname === "/engine/poc/index.html") {
       return send(res, 301, { Location: "/engine/" + url.search }, "");
     }
+    // The theme sounds an activity can name ("sfx": "cat"): a list of the files in the folder,
+    // so a sound dropped into public/assets/sfx/themes/ is used without any other step.
+    if (url.pathname === "/assets/sfx/themes/index.json") {
+      const sounds = {};
+      try {
+        const dir = path.join(publicDir, "assets", "sfx", "themes");
+        const files = fs.readdirSync(dir).filter((f) => /^[a-z0-9-]{1,40}\.(ogg|mp3|wav)$/i.test(f));
+        // .ogg first, then .mp3, then .wav, when a name has more than one
+        for (const ext of [".ogg", ".mp3", ".wav"])
+          for (const f of files)
+            if (f.toLowerCase().endsWith(ext)) {
+              const name = f.slice(0, -ext.length).toLowerCase();
+              if (!sounds[name]) sounds[name] = f;
+            }
+        // other names for the same sound (aliases.json: { "aliases": { "ambulance": "siren" } })
+        const extra = JSON.parse(fs.readFileSync(path.join(dir, "aliases.json"), "utf8")).aliases || {};
+        for (const [alias, to] of Object.entries(extra))
+          if (/^[a-z0-9-]{1,40}$/.test(alias) && !sounds[alias] && sounds[to]) sounds[alias] = sounds[to];
+      } catch {
+        /* no folder or no aliases: only the files themselves */
+      }
+      return send(
+        res,
+        200,
+        { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-cache" },
+        JSON.stringify({ sounds }),
+      );
+    }
     const file = resolveFile(url.pathname);
     if (!file) return send(res, 404, { "Content-Type": "text/plain; charset=utf-8" }, "Not found");
     const ext = path.extname(file).toLowerCase();

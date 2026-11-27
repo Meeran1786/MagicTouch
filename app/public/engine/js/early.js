@@ -188,12 +188,16 @@ export function picture(item, base = "") {
  * spoken (spaces are skipped), onLetter(-1) when the whole word starts. Returns a stop function.
  */
 export function spell(word, onLetter = () => {}) {
-  // letter clips (A … Z) and the word clip play back to back through MagicAudio; without clips
-  // the fallback voice says each letter as its own utterance, so the tiles still bounce in time
+  // one letter at a time: each letter clip (A … Z) waits for the one before it to end, then a
+  // 120 ms gap, and its tile bounces the moment it starts; then the whole word. A letter with no
+  // clip (or a silent one) is said by the fallback voice, so no letter is ever skipped.
   const parts = [...word].map((ch, i) => ({ text: ch.toUpperCase(), i })).filter((p) => p.text.trim());
   parts.push({ text: word, i: -1 });
   let stopped = false;
-  MT.speak({ text: parts.map((p) => p.text), lang: "en-IN", onPart: (k) => !stopped && onLetter(parts[k].i) });
+  MT.speakSequence(
+    parts.map((p) => p.text),
+    { lang: "en-IN", gap: 120, onPart: (k) => !stopped && onLetter(parts[k].i) },
+  );
   return () => {
     stopped = true;
     MT.stopSpeech();
@@ -425,13 +429,26 @@ export function studioResult(f, { score, total, onAgain }) {
  * each letter lifts in turn, then the whole word. Returns a stop function.
  */
 export function sayWord(word, tiles, lang) {
-  MT.speak(word, lang);
-  if (!tiles) return () => {};
+  if (!tiles) {
+    MT.speak(word, lang);
+    return () => {};
+  }
+  // the tiles light up in a sweep as the voice starts the word (not on a guess of when it starts)
   const n = [...word].length;
   const timers = [];
-  const t0 = 200 + n * 40; // once the tiles have landed
-  for (let i = 0; i < n; i++) timers.push(setTimeout(() => tiles.light(i), t0 + i * 85));
-  timers.push(setTimeout(() => tiles.light(-1), t0 + 40 + n * 85));
-  timers.push(setTimeout(() => tiles.clear(), t0 + 780 + n * 85));
-  return () => timers.forEach(clearTimeout);
+  let stopped = false;
+  MT.speak({
+    text: word,
+    lang,
+    onPart: () => {
+      if (stopped) return;
+      for (let i = 0; i < n; i++) timers.push(setTimeout(() => tiles.light(i), i * 85));
+      timers.push(setTimeout(() => tiles.light(-1), 40 + n * 85));
+      timers.push(setTimeout(() => tiles.clear(), 780 + n * 85));
+    },
+  });
+  return () => {
+    stopped = true;
+    timers.forEach(clearTimeout);
+  };
 }

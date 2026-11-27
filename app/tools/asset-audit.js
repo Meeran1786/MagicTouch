@@ -8,7 +8,8 @@
 // Status values:
 //   original-magictouch  drawn or generated for MagicTouch (tools/art, generated audio)
 //   bundled-library      open-source library files (see public/vendor/LICENSE.md)
-//   cc0-library          public-domain (CC0) files: the Kenney sound cues in public/assets/sfx
+//   cc0-library          public-domain (CC0) files: the Kenney sound cues in public/assets/sfx and
+//                        the theme sounds in public/assets/sfx/themes (credits.json)
 //   generated-voice      voice clips made by scripts/generate-voices.js (Google Cloud TTS)
 //   purchased-unverified came with the purchased Interactive Wall code; the IP assignment
 //                        covers Basha's own work, but the source of stock-looking media
@@ -61,7 +62,11 @@ for (const f of walk(PUB)) {
           : "purchased-unverified";
   let note =
     ORIGINAL.get(sha) ||
-    (status === "cc0-library" ? "Kenney Interface Sounds 1.0, CC0 (assets/sfx/LICENSE-Kenney.txt)" : "") ||
+    (status === "cc0-library"
+      ? rel.startsWith("assets/sfx/themes/")
+        ? "Wikimedia Commons, CC0 or public domain (assets/sfx/themes/credits.json)"
+        : "Kenney Interface Sounds 1.0, CC0 (assets/sfx/LICENSE-Kenney.txt)"
+      : "") ||
     (status === "generated-voice" ? "Google Cloud Text-to-Speech, scripts/generate-voices.js" : "");
   if (m) {
     flagged.push(`${rel}: "${m[0]}"`);

@@ -11,6 +11,7 @@
   "items": [
     {
       "word": "Sheep",
+      "sfx": "sheep",
       "photo": "assets/gifs/42.gif"
     },
     {

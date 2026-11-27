@@ -8,6 +8,7 @@
 //            --limit 50     at most 50 new clips this run
 //            --lines f.json also speak the lines in f.json ([{ text, lang }], e.g. MagicAudio.misses())
 //            --force        make clips again even when the file is already there
+// A clip on disk that is silent (no speech in it) is made again: see scripts/mp3-voice-check.js.
 //
 // Reads GOOGLE_TTS_API_KEY from app/.env (or the repository's .env, or the environment) and calls
 // Google Cloud Text-to-Speech. Chirp 3: HD voices exist for en-IN, hi-IN and te-IN (Telugu has no
@@ -43,6 +44,7 @@ const PHRASES = path.join(VOICE_DIR, "phrases.json");
 const USAGE = path.join(APP, "data", "tts-usage.json");
 const ENDPOINT = process.env.TTS_ENDPOINT || "https://texttospeech.googleapis.com/v1/text:synthesize";
 
+const { isSilent } = await import(pathToFileURL(path.join(APP, "scripts", "mp3-voice-check.js")).href);
 const { linesOf, normalize, clipId, textHash, langCode, langOf, LANGS } = await import(
   pathToFileURL(path.join(PUB, "shared", "voice-key.js")).href
 );
@@ -113,6 +115,16 @@ if (opt("--lines")) {
   (Array.isArray(extra) ? extra : []).forEach((x) => x && want(x.text, x.lang, "lines"));
 }
 
+// Ways to ask for a line. A very short input (one letter, "Up", "Bat") sometimes comes back as
+// silence; the same text with an end mark or in quotes is usually spoken. Each try is checked
+// (mp3-voice-check.js) and counted in the month's characters.
+const TRIES = 4;
+function variants(t) {
+  const bare = t.replace(/[.!?।]+$/, "");
+  return [...new Set([t, bare + ".", bare + "!", `"${bare}"`])].slice(0, TRIES);
+}
+const stillSilent = [];
+
 // ── what is already there ───────────────────────────────────────────────
 const manifest = readJson(MANIFEST, {});
 manifest.voices = manifest.voices || {};
@@ -122,11 +134,16 @@ for (const l of LANGS) manifest.clips[l] = manifest.clips[l] || {};
 const todo = [];
 let skippedChars = 0,
   skipped = 0;
+const silentOnDisk = [];
 for (const w of wanted.values()) {
   const file = path.join(VOICE_DIR, w.lang, w.id + ".mp3");
   const known = manifest.clips[w.lang][w.id];
   const same = !known || !known.h || known.h === textHash(w.text);
-  if (!FORCE && fs.existsSync(file) && same) {
+  // a clip that came back silent (Google sometimes does this for one letter or a short word) is
+  // made again; a hand-recorded clip (v: "recorded") is never replaced
+  const silent = fs.existsSync(file) && (!known || known.v !== "recorded") && isSilent(fs.readFileSync(file));
+  if (silent) silentOnDisk.push(w);
+  if (!FORCE && fs.existsSync(file) && same && !silent) {
     skipped++;
     skippedChars += w.text.length;
     if (!known) manifest.clips[w.lang][w.id] = { t: w.text, h: textHash(w.text), v: "recorded" };
@@ -163,6 +180,19 @@ function summary(made, madeChars, failed) {
   for (const [l, p] of Object.entries(per))
     console.log(`  ${l}: ${p.lines} lines, ${p.chars} characters (voice ${voiceFor(l)})`);
   console.log(`Skipped (clip already on disk): ${skipped} clips, ${skippedChars} characters.`);
+  if (silentOnDisk.length)
+    console.log(
+      `Silent clips on disk, made again: ${silentOnDisk.length} (${silentOnDisk
+        .slice(0, 20)
+        .map((w) => w.text)
+        .join(", ")}${silentOnDisk.length > 20 ? ", …" : ""}).`,
+    );
+  if (stillSilent.length)
+    console.log(
+      `Still silent after ${TRIES} tries, not written (the wall says these with the computer voice): ` +
+        stillSilent.map((w) => `${w.lang} "${w.text}"`).join(", ") +
+        ".",
+    );
   if (DRY) console.log(`Would generate: ${batch.length} clips, ${batchChars} characters.`);
   else
     console.log(
@@ -203,9 +233,9 @@ if (!PAID && usedThisMonth + batchChars > MONTHLY) {
 }
 
 // ── Google Cloud Text-to-Speech ─────────────────────────────────────────
-async function synthesize(w) {
+async function synthesize(w, text = w.text) {
   const body = {
-    input: { text: w.text },
+    input: { text },
     voice: { languageCode: w.lang, name: voiceFor(w.lang) },
     audioConfig: { audioEncoding: "MP3", ...(RATE ? { speakingRate: RATE } : {}) },
   };
@@ -252,15 +282,26 @@ async function worker() {
   while (!fatal && next < batch.length) {
     const w = batch[next++];
     try {
-      const mp3 = await synthesize(w);
+      let mp3 = null;
+      for (const text of variants(w.text)) {
+        const got = await synthesize(w, text);
+        madeChars += text.length;
+        usedThisMonth += text.length;
+        usage[month] = usedThisMonth;
+        if (!isSilent(got)) {
+          mp3 = got;
+          break;
+        }
+      }
+      if (!mp3) {
+        stillSilent.push(w);
+        continue;
+      }
       fs.mkdirSync(path.join(VOICE_DIR, w.lang), { recursive: true });
       fs.writeFileSync(path.join(VOICE_DIR, w.lang, w.id + ".mp3"), mp3);
       manifest.clips[w.lang][w.id] = { t: w.text, h: textHash(w.text), v: voiceFor(w.lang) };
       manifest.voices[w.lang] = voiceFor(w.lang);
       made++;
-      madeChars += w.text.length;
-      usedThisMonth += w.text.length;
-      usage[month] = usedThisMonth;
       if (made % 25 === 0) {
         fs.writeFileSync(USAGE, JSON.stringify(usage, null, 1));
         writeManifest();

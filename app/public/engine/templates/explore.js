@@ -66,6 +66,7 @@ export default function explore(area, d, ctx) {
     });
     ME.pop(hots[i]);
     MT.sfx.pop();
+    MT.theme(h.sfx);
     pic.select(h.part);
     pic.hit(h.part);
     info.set({ tag: "Part " + (i + 1) + " of " + n, title: h.label, body: h.text });

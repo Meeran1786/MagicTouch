@@ -168,6 +168,8 @@ export default function pictureQuiz(area, d, ctx) {
         ME.squash(slot);
         b.hidden = true;
         ME.sound.tap();
+        // say the letter; quick taps wait their turn instead of cutting the letter before off
+        MT.speak({ text: ch, lang: "en-IN", queue: true });
         check.disabled = letters.some((c, i) => c !== " " && !filled[i]);
       });
       bank.appendChild(b);
@@ -195,6 +197,7 @@ export default function pictureQuiz(area, d, ctx) {
       f.solved();
       f.celebrate(el);
       ME.sound.good();
+      MT.theme(q.item.sfx);
       if (tiles) tiles.light(-1);
     } else ME.sound.bad();
     f.score(score);

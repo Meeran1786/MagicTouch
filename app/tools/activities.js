@@ -183,6 +183,18 @@ function files(f, dir, a) {
   });
 }
 
+// Theme sounds ("sfx": "cat", "ambience": "rain", on the activity or on any item) are names of
+// files in public/assets/sfx/themes/. A name with no file yet is fine (it plays nothing).
+function themeNames(f, a) {
+  JSON.stringify(a).replace(/"(sfx|ambience)":("[^"]*"|\{[^}]*\})/g, (_, k, v) => {
+    let name = JSON.parse(v);
+    if (name && typeof name === "object") name = name.name;
+    if (typeof name !== "string" || !/^[a-z0-9-]{1,40}$/.test(name))
+      err(f, `"${k}" must be a theme sound name in lower case letters, digits and dashes: ` + v);
+    return _;
+  });
+}
+
 const folders = fs
   .readdirSync(ACT, { withFileTypes: true })
   .filter((d) => d.isDirectory())
@@ -218,6 +230,7 @@ for (const [id, a] of Object.entries(byId)) {
     warn(f, 'mentions NCERT: content must be our own, at most "aligned to learning outcomes"');
   deep(f, a, "", byId);
   files(f, path.join(ACT, id), a);
+  themeNames(f, a);
 }
 
 // The list the launcher and the engine menu read: one line per activity.
