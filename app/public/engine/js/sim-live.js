@@ -364,9 +364,15 @@ function circuit(host, side, opts) {
     f.font = "700 12px " + FONT;
     f.textAlign = "center";
     f.textBaseline = "middle";
-    [0, 4, 8, 12].forEach(function (n) {
-      const a = ((-120 + (240 * n) / 12) * Math.PI) / 180;
-      f.fillText(String(Math.round((n * Imax) / 12)), 470 + Math.sin(a) * 23, 70 - Math.cos(a) * 23);
+    // 0 and the top value sit just beyond the ends of the scale, where the needle never reaches
+    [
+      [0, -136, 30],
+      [4, -40, 24],
+      [8, 40, 24],
+      [12, 136, 30],
+    ].forEach(function (m) {
+      const a = (m[1] * Math.PI) / 180;
+      f.fillText(String(Math.round((m[0] * Imax) / 12)), 470 + Math.sin(a) * m[2], 70 - Math.cos(a) * m[2]);
     });
     f.font = "700 15px " + FONT;
     f.fillText("A", 470, 98);
@@ -393,6 +399,7 @@ function circuit(host, side, opts) {
     f.fill();
     f.fillStyle = "rgba(255,255,255,.12)";
     f.fillRect(566, 296, 48, 6);
+    legend(f, true);
   }
   function diagBack(b) {
     b.fillStyle = "#FFFFFF";
@@ -450,18 +457,28 @@ function circuit(host, side, opts) {
     f.fillStyle = INK;
     f.font = "800 28px " + FONT;
     f.fillText("A", 470, 72);
-    // legend
+    legend(f, false);
+  }
+  // "• electron: flows from − to +", bottom left of both looks
+  function legend(f, onWood) {
+    f.font = "15px " + FONT;
+    f.textAlign = "left";
+    f.textBaseline = "middle";
+    if (onWood) {
+      f.fillStyle = "rgba(255,255,255,.82)";
+      f.beginPath();
+      f.roundRect(12, 389, f.measureText("electron: flows from − to +").width + 40, 27, 13.5);
+      f.fill();
+    }
     f.fillStyle = "#7FD0FF";
     f.strokeStyle = "#1D5F8F";
     f.lineWidth = 1;
     f.beginPath();
-    f.arc(24, 402, 5, 0, Math.PI * 2);
+    f.arc(26, 402.5, 5, 0, Math.PI * 2);
     f.fill();
     f.stroke();
-    f.fillStyle = "#6E6170";
-    f.font = "15px " + FONT;
-    f.textAlign = "left";
-    f.fillText("electron: flows from − to +", 36, 403);
+    f.fillStyle = onWood ? INK2 : "#6E6170";
+    f.fillText("electron: flows from − to +", 38, 403);
   }
 
   // a glowing bead, drawn once
@@ -631,7 +648,7 @@ function circuit(host, side, opts) {
     // ammeter needle
     c.save();
     c.translate(470, 70);
-    c.rotate(((-120 + 240 * needle) * Math.PI) / 180);
+    c.rotate(((-120 + 240 * clamp(needle, -0.02, 1.02)) * Math.PI) / 180);
     c.strokeStyle = "#CC3054";
     c.lineWidth = 3;
     c.lineCap = "round";
@@ -677,7 +694,7 @@ function circuit(host, side, opts) {
     c.lineTo(600, 256);
     c.stroke();
     c.restore();
-    pill(c, 340, 396, eq(), { size: 20, bg: "rgba(255,255,255,.92)", line: "none" });
+    pill(c, 420, 396, eq(), { size: 20, bg: "rgba(255,255,255,.92)", line: "none" });
   }
 
   function drawDiagram() {
@@ -725,17 +742,17 @@ function circuit(host, side, opts) {
     c.moveTo(611, 194);
     c.lineTo(569, 236);
     c.stroke();
-    pill(c, 400, 396, eq(), { size: 20, bg: "#F7F1F5", line: "none" });
+    pill(c, 420, 396, eq(), { size: 20, bg: "#F7F1F5", line: "none" });
   }
 
   function drawGraph() {
     if (!gw) return;
     g.setTransform(dpr, 0, 0, dpr, 0, 0);
     g.clearRect(0, 0, gw, gh);
-    const L = 44,
-      B = gh - 30,
-      Rr = gw - 14,
-      T = 12;
+    const L = 58,
+      B = gh - 44,
+      Rr = gw - 16,
+      T = 14;
     const X = function (v) {
         return L + (v / Vmax) * (Rr - L);
       },
@@ -763,17 +780,21 @@ function circuit(host, side, opts) {
     g.lineTo(L, B);
     g.lineTo(Rr, B);
     g.stroke();
-    g.fillStyle = "#6E6170";
-    g.font = "13px " + FONT;
+    g.fillStyle = INK2;
+    g.font = "700 18px " + FONT;
     g.textAlign = "center";
     g.textBaseline = "top";
-    for (let v = 0; v <= Vmax; v += Vmax / 4) g.fillText(String(v), X(v), B + 4);
-    g.fillText("Voltage V (volts)", (L + Rr) / 2, B + 15);
+    for (let v = 0; v <= Vmax; v += Vmax / 4) g.fillText(String(v), X(v), B + 5);
     g.textAlign = "right";
     g.textBaseline = "middle";
-    for (let i = 0; i <= Imax; i += Imax / 4) g.fillText(String(Math.round(i)), L - 6, Y(i));
+    for (let i = 0; i <= Imax; i += Imax / 4) g.fillText(String(Math.round(i)), L - 8, Y(i));
+    g.fillStyle = "#5D5464";
+    g.font = "700 16px " + FONT;
+    g.textAlign = "center";
+    g.textBaseline = "top";
+    g.fillText("Voltage V (volts)", (L + Rr) / 2, B + 25);
     g.save();
-    g.translate(12, (T + B) / 2);
+    g.translate(14, (T + B) / 2);
     g.rotate(-Math.PI / 2);
     g.textAlign = "center";
     g.fillText("Current I (A)", 0, 0);
@@ -801,22 +822,22 @@ function circuit(host, side, opts) {
     g.lineTo(L, py);
     g.stroke();
     g.setLineDash([]);
-    const gl = g.createRadialGradient(px, py, 0, px, py, 16);
+    const gl = g.createRadialGradient(px, py, 0, px, py, 24);
     gl.addColorStop(0, "rgba(204,48,84,.45)");
     gl.addColorStop(1, "rgba(204,48,84,0)");
     g.fillStyle = gl;
     g.beginPath();
-    g.arc(px, py, 16, 0, Math.PI * 2);
+    g.arc(px, py, 24, 0, Math.PI * 2);
     g.fill();
     g.fillStyle = "#CC3054";
     g.strokeStyle = "#fff";
-    g.lineWidth = 2.5;
+    g.lineWidth = 3;
     g.beginPath();
-    g.arc(px, py, 7, 0, Math.PI * 2);
+    g.arc(px, py, 11, 0, Math.PI * 2);
     g.fill();
     g.stroke();
     g.fillStyle = "#E96E24";
-    g.font = "700 14px " + FONT;
+    g.font = "700 17px " + FONT;
     g.textAlign = "left";
     g.textBaseline = "top";
     g.fillText("I = V ÷ R  with R = " + Math.round(cur.R) + " Ω", L + 8, T + 4);

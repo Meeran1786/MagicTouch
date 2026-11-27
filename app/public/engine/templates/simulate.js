@@ -273,6 +273,7 @@ export default function simulate(area, d, ctx) {
   let gi = 0;
   let pi = 0;
   let goalTimer = null;
+  let celebrating = false;
   let anim = null;
   const setters = {};
   const places = [];
@@ -433,19 +434,26 @@ export default function simulate(area, d, ctx) {
     clearTimeout(goalTimer);
     if (gi >= goals.length) return;
     const g = goals[gi];
+    if (celebrating) return;
     if (met(g, o))
       goalTimer = setTimeout(function () {
         if (!met(g, calc(vals))) return;
+        // 1.2 s celebration: confetti burst from the card and a green pulse, then the next challenge
         MT.good("Challenge solved!", g.say || "");
         gi++;
+        MT.score(gi + " / " + goals.length);
+        celebrating = true;
+        goalEl.classList.add("sim-solved");
+        MT.burst(goalEl);
         if (gi >= goals.length) {
-          MT.score(goals.length + " / " + goals.length);
           phase = "free";
           finish();
-        } else {
-          showGoal();
-          render();
-        }
+        } else
+          MT.later(function () {
+            celebrating = false;
+            showGoal();
+            render();
+          }, 1200);
       }, 700);
   }
   function lock(on) {

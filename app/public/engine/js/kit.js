@@ -168,6 +168,71 @@ export const MT = (function () {
       );
     }
   }
+  // A short canvas confetti burst from the middle of `el` (1.2 s): at most 60 pieces, 24 on
+  // low-spec PCs, none with reduced motion. One overlay canvas, removed when the burst ends.
+  function burst(el) {
+    if (calm() || !el) return;
+    const r = el.getBoundingClientRect(),
+      dpr = lowSpec() ? 1 : Math.min(2, window.devicePixelRatio || 1);
+    const cv = document.createElement("canvas");
+    cv.className = "mt-burst";
+    cv.style.cssText = "position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:50;";
+    cv.width = innerWidth * dpr;
+    cv.height = innerHeight * dpr;
+    document.body.appendChild(cv);
+    const c = cv.getContext("2d"),
+      cols = ["#631654", "#CC3054", "#E96E24", "#F3A328", "#FBD064", "#2FA86A"],
+      ox = r.left + r.width / 2,
+      oy = r.top + r.height / 2,
+      bits = [];
+    const n = lowSpec() ? 24 : 60;
+    for (let i = 0; i < n; i++) {
+      const a = Math.random() * Math.PI * 2,
+        v = 260 + Math.random() * 420;
+      bits.push({
+        x: ox + (Math.random() - 0.5) * r.width * 0.6,
+        y: oy,
+        vx: Math.cos(a) * v,
+        vy: Math.sin(a) * v - 260,
+        rot: Math.random() * 6,
+        vr: (Math.random() - 0.5) * 14,
+        w: 8 + Math.random() * 8,
+        h: 5 + Math.random() * 5,
+        col: cols[i % cols.length],
+      });
+    }
+    let life = 0;
+    const stop = loop(cv, function (dt) {
+      life += dt;
+      c.setTransform(dpr, 0, 0, dpr, 0, 0);
+      c.clearRect(0, 0, innerWidth, innerHeight);
+      const fade = Math.min(1, (1.2 - life) / 0.35);
+      c.globalAlpha = Math.max(0, fade);
+      bits.forEach(function (b) {
+        b.vy += 900 * dt;
+        b.vx *= 1 - 1.6 * dt;
+        b.x += b.vx * dt;
+        b.y += b.vy * dt;
+        b.rot += b.vr * dt;
+        c.save();
+        c.translate(b.x, b.y);
+        c.rotate(b.rot);
+        c.scale(1, Math.cos(b.rot * 1.7)); // flutter
+        c.fillStyle = b.col;
+        c.fillRect(-b.w / 2, -b.h / 2, b.w, b.h);
+        c.restore();
+      });
+      if (life >= 1.2) {
+        stop();
+        cv.remove();
+      }
+    });
+    // the page may be hidden mid-burst: make sure the canvas still goes
+    setTimeout(function () {
+      stop();
+      cv.remove();
+    }, 2500);
+  }
   function score(t) {
     document.getElementById("mt-score").textContent = t || "";
   }
@@ -336,6 +401,7 @@ export const MT = (function () {
     sfx: sfx,
     toast: toast,
     confetti: confetti,
+    burst: burst,
     score: score,
     good: good,
     bad: bad,
