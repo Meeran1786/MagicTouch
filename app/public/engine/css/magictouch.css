@@ -939,7 +939,7 @@ button {
 .sim-graph {
   display: block;
   width: 100%;
-  height: 140px;
+  height: 190px;
   margin-top: 8px;
 }
 .sim-media {
@@ -999,6 +999,32 @@ button {
   font-size: 17px;
   opacity: 0.8;
   margin-top: 6px;
+}
+/* challenge solved: a soft green pulse on the card for the 1.2 s celebration */
+.sim-goal.sim-solved {
+  background: var(--mt-green-tint);
+  color: var(--mt-plum-dark);
+  animation: simSolved 1.2s var(--mt-spring);
+}
+.sim-goal.sim-solved::before {
+  content: "✓ ";
+  color: var(--mt-green);
+  font-weight: 800;
+}
+@keyframes simSolved {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(47, 168, 106, 0.55);
+  }
+  25% {
+    transform: scale(1.04);
+  }
+  60% {
+    transform: scale(1);
+  }
+  100% {
+    box-shadow: 0 0 0 26px rgba(47, 168, 106, 0);
+  }
 }
 @keyframes solFlash {
   from {
@@ -1294,6 +1320,19 @@ button {
 }
 /* smaller projector/laptop screens (720p): tighter quiz and simulation so Next stays in view */
 @media (max-height: 800px) {
+  .sim-graph {
+    height: 154px;
+  }
+  .sim-read b {
+    font-size: 28px;
+  }
+  .sim-tools .sim-look button {
+    min-height: 40px;
+  }
+  .sim-mute {
+    width: 50px;
+    height: 50px;
+  }
   .qz-q {
     font-size: 24px;
   }
