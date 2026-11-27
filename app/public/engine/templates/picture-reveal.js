@@ -2,6 +2,8 @@
 // taps, then its word is spelled letter by letter and said. Back and Next move through the set.
 // Activity data:
 //   items: [{ word: "Apple", photo: "assets/photos/apple.jpg" }]  or emoji, number, swatch, shape
+//   cover: "assets/A.png"   optional per item, shown in place of the grey picture (a letter card)
+//   audio: "assets/apple.mp3" optional per item, played instead of spelling the word
 //   media: optional { type: "mp4", src } per item, played in place of the photo once revealed
 import { MT } from "../js/kit.js";
 import { frame, picture, spell } from "../js/early.js";
@@ -38,7 +40,8 @@ export default function pictureReveal(area, d, ctx) {
     stopSpeech();
     const item = items[at];
     f.progress(`${at + 1} / ${items.length}`);
-    grey.replaceChildren(picture(item, ctx.base));
+    grey.replaceChildren(picture(item.cover ? { photo: item.cover, word: item.word } : item, ctx.base));
+    grey.classList.toggle("cover", !!item.cover);
     colour.replaceChildren(colourPicture(item));
     card.classList.remove("is-shown");
     card.setAttribute("aria-label", "Show the colour picture");
@@ -90,6 +93,15 @@ export default function pictureReveal(area, d, ctx) {
 
   function say() {
     const all = [...tiles.children];
+    const file = items[at].audio;
+    if (file) {
+      stopSpeech();
+      const sound = new Audio(ctx.base + file);
+      all.forEach((t) => t.classList.add("on"));
+      sound.play().catch(() => {});
+      stopSpeech = () => sound.pause();
+      return;
+    }
     stopSpeech = spell(items[at].word, (i) => {
       all.forEach((t, k) => t.classList.toggle("on", k === i || i < 0));
     });

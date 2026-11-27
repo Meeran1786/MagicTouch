@@ -45,6 +45,14 @@
 .pr-grey {
   filter: grayscale(1) contrast(1.05);
   opacity: 0.85;
+  transition: opacity 0.5s;
+}
+.pr-grey.cover {
+  filter: none;
+  opacity: 1;
+}
+.pr-card.is-shown .pr-grey.cover {
+  opacity: 0;
 }
 /* the colour copy floods out from the tapped spot */
 .pr-colour {

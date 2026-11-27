@@ -2,7 +2,8 @@
 // Activity data:
 //   items: [{ word: "Lion", emoji: "🦁" }]  a picture per card: emoji (or a row "🍎🍎"),
 //          swatch: "#E63946", shape: "star" + color, or photo: "images/x.jpg";
-//          glyph: "A" adds a big letter or number above the word
+//          glyph: "A" adds a big letter or number above the word; say: "A for Apple" is spoken
+//          instead of the word
 import { MT } from "../js/kit.js";
 import { frame, picture } from "../js/early.js";
 
@@ -51,6 +52,6 @@ export default function pictureChart(area, d, ctx) {
     if (item.glyph) show.querySelector(".pc-glyph-big").textContent = item.glyph;
     show.querySelector(".pc-word-big").textContent = item.word;
     MT.sfx.tap();
-    MT.speak(item.word);
+    MT.speak(item.say || item.word);
   }
 }

@@ -1,0 +1,169 @@
+{
+ "id": "alphabets",
+ "level": "nursery",
+ "subject": "letters",
+ "title": "Wall Alphabets",
+ "topic": "Point at a letter to hear & see it come alive",
+ "icon": "🔤",
+ "order": 0,
+ "status": "approved",
+ "template": "picture-reveal",
+ "items": [
+  {
+   "word": "Apple",
+   "cover": "assets/Apple.png",
+   "photo": "assets/NaturalApple-r.png",
+   "audio": "assets/Apple.mp3"
+  },
+  {
+   "word": "Ball",
+   "cover": "assets/B.png",
+   "photo": "assets/Ball.gif",
+   "audio": "assets/Ball.mp3"
+  },
+  {
+   "word": "Cat",
+   "cover": "assets/C.png",
+   "photo": "assets/Cat.gif",
+   "audio": "assets/Cat.mp3"
+  },
+  {
+   "word": "Dog",
+   "cover": "assets/D.png",
+   "photo": "assets/Dog.gif",
+   "audio": "assets/Dog.mp3"
+  },
+  {
+   "word": "Elephant",
+   "cover": "assets/E.png",
+   "photo": "assets/Elephant.gif",
+   "audio": "assets/Elephant.mp3"
+  },
+  {
+   "word": "Fish",
+   "cover": "assets/F.png",
+   "photo": "assets/Fish.gif",
+   "audio": "assets/fish.mp3"
+  },
+  {
+   "word": "Giraffe",
+   "cover": "assets/G.png",
+   "photo": "assets/Girafee.gif",
+   "audio": "assets/girafee.mp3"
+  },
+  {
+   "word": "Horse",
+   "cover": "assets/H.png",
+   "photo": "assets/Horse.gif",
+   "audio": "assets/horse.mp3"
+  },
+  {
+   "word": "Ice Cream",
+   "cover": "assets/I.png",
+   "photo": "assets/Icecream.gif",
+   "audio": "assets/icecream.mp3"
+  },
+  {
+   "word": "Jug",
+   "cover": "assets/J.png",
+   "photo": "assets/Jug.jpg",
+   "audio": "assets/jug.mp3"
+  },
+  {
+   "word": "Kite",
+   "cover": "assets/K.png",
+   "photo": "assets/Kite.gif",
+   "audio": "assets/kite.mp3"
+  },
+  {
+   "word": "Lion",
+   "cover": "assets/L.png",
+   "photo": "assets/Lion.gif",
+   "audio": "assets/lion.mp3"
+  },
+  {
+   "word": "Monkey",
+   "cover": "assets/M.png",
+   "photo": "assets/Monkey.gif",
+   "audio": "assets/monkey.mp3"
+  },
+  {
+   "word": "Nest",
+   "cover": "assets/N.png",
+   "photo": "assets/Nest.jpg",
+   "audio": "assets/nest.mp3"
+  },
+  {
+   "word": "Owl",
+   "cover": "assets/O.png",
+   "photo": "assets/Owl.gif",
+   "audio": "assets/owl.mp3"
+  },
+  {
+   "word": "Parrot",
+   "cover": "assets/P.png",
+   "photo": "assets/Parrot.gif",
+   "audio": "assets/parrot.mp3"
+  },
+  {
+   "word": "Queen",
+   "cover": "assets/Q.png",
+   "photo": "assets/Queen.gif",
+   "audio": "assets/queen.mp3"
+  },
+  {
+   "word": "Rabbit",
+   "cover": "assets/R.png",
+   "photo": "assets/Rabbit.gif",
+   "audio": "assets/rabbit.mp3"
+  },
+  {
+   "word": "Sheep",
+   "cover": "assets/S.png",
+   "photo": "assets/Sheep.gif",
+   "audio": "assets/sheep.mp3"
+  },
+  {
+   "word": "Tiger",
+   "cover": "assets/T.png",
+   "photo": "assets/tiger.gif",
+   "audio": "assets/Tiger.mp3"
+  },
+  {
+   "word": "Umbrella",
+   "cover": "assets/U.png",
+   "photo": "assets/Umbrella.gif",
+   "audio": "assets/umbrella.mp3"
+  },
+  {
+   "word": "Van",
+   "cover": "assets/V.png",
+   "photo": "assets/Van.gif",
+   "audio": "assets/van.mp3"
+  },
+  {
+   "word": "Watermelon",
+   "cover": "assets/W.png",
+   "photo": "assets/Watermelon.gif",
+   "audio": "assets/watermelon.mp3"
+  },
+  {
+   "word": "Xmas Tree",
+   "cover": "assets/X.png",
+   "photo": "assets/X-tree.gif",
+   "audio": "assets/christmass_tree.mp3"
+  },
+  {
+   "word": "Yacht",
+   "cover": "assets/Y.png",
+   "photo": "assets/Yacht.gif",
+   "audio": "assets/yacht.mp3"
+  },
+  {
+   "word": "Zebra",
+   "cover": "assets/Z.png",
+   "photo": "assets/Zeebra.gif",
+   "audio": "assets/zebra.mp3"
+  }
+ ]
+}

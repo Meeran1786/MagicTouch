@@ -86,7 +86,7 @@ const early = a => ["nursery", "prekg", "lkg"].includes(a.level);
 
 // Every media file an activity names must be in its own folder (or be a shared file).
 function files(f, dir, a) {
-  JSON.stringify(a).replace(/"(?:file|photo|bw|gif|image|audio|src|sound|video)":"([^"]+)"/g, (_, rel) => {
+  JSON.stringify(a).replace(/"(?:file|photo|cover|bw|gif|image|audio|src|sound|video)":"([^"]+)"/g, (_, rel) => {
     if (/^(https?:)?\/\//.test(rel)) err(f, "names a file on the internet: " + rel);
     else if (!fs.existsSync(rel.startsWith("/") ? path.join(PUBLIC, rel) : path.join(dir, rel))) err(f, "names a missing file: " + rel);
     return _;

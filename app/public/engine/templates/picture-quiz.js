@@ -5,6 +5,7 @@
 // Activity data:
 //   items: [{ word: "Apple", photo: "assets/photos/apple.jpg" }]  or emoji, number, swatch, shape
 //   kinds: ["pic2word", "word2pic", "spell"]   optional, which question kinds to use
+//   labels: { word2pic: "Find the colour!" }    optional, the line above a question, per kind
 import { MT } from "../js/kit.js";
 import { frame, picture, result } from "../js/early.js";
 
@@ -68,12 +69,12 @@ export default function pictureQuiz(area, d, ctx) {
     feedback.textContent = "";
     feedback.className = "ey-feedback";
     if (q.kind === "word2pic") {
-      label.textContent = "Find the matching picture";
+      label.textContent = (d.labels && d.labels.word2pic) || "Find the matching picture";
       prompt.appendChild(tiles(q.item.word));
       MT.speak(q.item.word);
       actions.appendChild(button("🔊 Hear it", "ey-btn alt", () => MT.speak(q.item.word)));
     } else {
-      label.textContent = q.kind === "spell" ? "Spell what you see!" : "What is this?";
+      label.textContent = (d.labels && d.labels[q.kind]) || (q.kind === "spell" ? "Spell what you see!" : "What is this?");
       prompt.appendChild(picture(q.item, ctx.base));
     }
     if (q.kind === "spell") spell(q);
