@@ -33,7 +33,7 @@ const NEEDS = {
   explore: ["scene", "hotspots"], simulate: ["model", "sliders", "goals"], space3d: ["scene"],
   reveal: ["scene", "targets"], ball: ["rounds"], quiz: ["questions"], map: ["scene", "regions"], pack: ["steps"],
   "emoji-quiz": ["items"], "picture-chart": ["items"], "picture-spotter": ["items"], "word-wheel": ["items"],
-  "picture-quiz": ["items", "scene"], "picture-reveal": ["items", "scene"],
+  "picture-quiz": ["items"], "picture-reveal": ["items"],
 };
 const STEP_COMMON = ["template", "instruction"];
 

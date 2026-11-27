@@ -580,6 +580,16 @@
   "status": "approved"
  },
  {
+  "id": "colorquiz",
+  "level": "lkg",
+  "subject": "colours",
+  "title": "Cosmic Color Quiz",
+  "topic": "Multiple choice & spelling — test what you know",
+  "icon": "🚀",
+  "template": "picture-quiz",
+  "status": "approved"
+ },
+ {
   "id": "gardenlang1",
   "level": "lkg",
   "subject": "letters",
@@ -647,6 +657,146 @@
   "topic": "Point at a circle to hear it — English, Hindi & Telugu — set 3 of 3",
   "icon": "🐅",
   "template": "word-wheel",
+  "status": "approved"
+ },
+ {
+  "id": "numberquiz",
+  "level": "lkg",
+  "subject": "numbers",
+  "title": "Cosmic Number Quiz",
+  "topic": "Multiple choice & spelling — test what you know about numbers",
+  "icon": "🚀",
+  "template": "picture-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "shapequiz",
+  "level": "lkg",
+  "subject": "numbers",
+  "title": "Cosmic Shape Quiz",
+  "topic": "Multiple choice & spelling — test what you know about shapes",
+  "icon": "🔷",
+  "template": "picture-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "junglequiz1",
+  "level": "lkg",
+  "subject": "letters",
+  "title": "Jungle Word Quiz 1",
+  "topic": "Airplane–Buffalo — multiple choice & spelling quiz",
+  "icon": "🌿",
+  "template": "picture-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "junglequiz2",
+  "level": "lkg",
+  "subject": "letters",
+  "title": "Jungle Word Quiz 2",
+  "topic": "Butterfly–Dog — multiple choice & spelling quiz",
+  "icon": "🦋",
+  "template": "picture-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "junglequiz3",
+  "level": "lkg",
+  "subject": "letters",
+  "title": "Jungle Word Quiz 3",
+  "topic": "Donkey–Horse — multiple choice & spelling quiz",
+  "icon": "🐴",
+  "template": "picture-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "junglequiz4",
+  "level": "lkg",
+  "subject": "letters",
+  "title": "Jungle Word Quiz 4",
+  "topic": "Hot Air Balloon–Panther — multiple choice & spelling quiz",
+  "icon": "🦁",
+  "template": "picture-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "junglequiz5",
+  "level": "lkg",
+  "subject": "letters",
+  "title": "Jungle Word Quiz 5",
+  "topic": "Parrot–Shark — multiple choice & spelling quiz",
+  "icon": "🦈",
+  "template": "picture-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "junglequiz6",
+  "level": "lkg",
+  "subject": "letters",
+  "title": "Jungle Word Quiz 6",
+  "topic": "Sheep–Zebra — multiple choice & spelling quiz",
+  "icon": "🐯",
+  "template": "picture-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "fruitquiz1",
+  "level": "lkg",
+  "subject": "nature",
+  "title": "Fruit & Veggie Quiz 1",
+  "topic": "Almond–Capsicum — multiple choice & spelling quiz",
+  "icon": "🍎",
+  "template": "picture-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "fruitquiz2",
+  "level": "lkg",
+  "subject": "nature",
+  "title": "Fruit & Veggie Quiz 2",
+  "topic": "Carrot–Fig — multiple choice & spelling quiz",
+  "icon": "🥕",
+  "template": "picture-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "fruitquiz3",
+  "level": "lkg",
+  "subject": "nature",
+  "title": "Fruit & Veggie Quiz 3",
+  "topic": "Garlic–Lettuce — multiple choice & spelling quiz",
+  "icon": "🧄",
+  "template": "picture-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "fruitquiz4",
+  "level": "lkg",
+  "subject": "nature",
+  "title": "Fruit & Veggie Quiz 4",
+  "topic": "Lime–Peas — multiple choice & spelling quiz",
+  "icon": "🍋",
+  "template": "picture-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "fruitquiz5",
+  "level": "lkg",
+  "subject": "nature",
+  "title": "Fruit & Veggie Quiz 5",
+  "topic": "Pineapple–Strawberry — multiple choice & spelling quiz",
+  "icon": "🍍",
+  "template": "picture-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "fruitquiz6",
+  "level": "lkg",
+  "subject": "nature",
+  "title": "Fruit & Veggie Quiz 6",
+  "topic": "Sweet Potato–Zucchini — multiple choice & spelling quiz",
+  "icon": "🍠",
+  "template": "picture-quiz",
   "status": "approved"
  },
  {

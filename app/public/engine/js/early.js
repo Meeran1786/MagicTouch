@@ -104,7 +104,7 @@ export function shapeSvg(name, color) {
   return `<svg class="ey-shape" viewBox="0 0 100 100" fill="${color}" aria-hidden="true">${body}</svg>`;
 }
 
-/** A picture for an item: {emoji} (one or a row of several), {swatch}, {shape, color}, {photo}. */
+/** A picture for an item: {emoji} (one or a row of several), {swatch}, {shape, color}, {photo}, {number}. */
 export function picture(item, base = "") {
   const box = document.createElement("span");
   box.className = "ey-pic";
@@ -119,6 +119,11 @@ export function picture(item, base = "") {
     img.alt = item.word || "";
     img.draggable = false;
     box.appendChild(img);
+  } else if (item.number !== undefined) {
+    box.classList.add("number");
+    box.innerHTML = '<b class="ey-digit"></b><span class="ey-dots"></span>';
+    box.querySelector(".ey-digit").textContent = String(item.number);
+    box.querySelector(".ey-dots").innerHTML = '<i></i>'.repeat(Math.min(20, item.number));
   } else if (item.emoji) {
     const parts = Array.from(new Intl.Segmenter("en", { granularity: "grapheme" }).segment(item.emoji), (s) => s.segment);
     if (parts.length > 1) box.classList.add("many");
