@@ -1,0 +1,33 @@
+{
+ "id": "puppetshadowshow",
+ "level": "prekg",
+ "subject": "play",
+ "title": "Puppet Shadow Show",
+ "topic": "Move your hand to walk a shadow-puppet animal",
+ "icon": "🐇",
+ "order": 52,
+ "status": "approved",
+ "template": "shadow-puppet",
+ "puppets": [
+  {
+   "emoji": "🐇",
+   "word": "Rabbit"
+  },
+  {
+   "emoji": "🐕",
+   "word": "Dog"
+  },
+  {
+   "emoji": "🐦",
+   "word": "Bird"
+  },
+  {
+   "emoji": "🦌",
+   "word": "Deer"
+  },
+  {
+   "emoji": "🦋",
+   "word": "Butterfly"
+  }
+ ]
+}

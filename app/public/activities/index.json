@@ -520,6 +520,26 @@
   "status": "approved"
  },
  {
+  "id": "music",
+  "level": "prekg",
+  "subject": "play",
+  "title": "My Music",
+  "topic": "Tap instruments to play sounds",
+  "icon": "🎷",
+  "template": "sound-poster",
+  "status": "approved"
+ },
+ {
+  "id": "piano",
+  "level": "prekg",
+  "subject": "play",
+  "title": "My Piano",
+  "topic": "Finger & touch piano — chords, two hands",
+  "icon": "🎹",
+  "template": "piano",
+  "status": "approved"
+ },
+ {
   "id": "colorquest",
   "level": "prekg",
   "subject": "colours",
@@ -540,6 +560,16 @@
   "status": "approved"
  },
  {
+  "id": "conductorwall",
+  "level": "prekg",
+  "subject": "play",
+  "title": "Conductor Wall",
+  "topic": "Move your hand to conduct the orchestra",
+  "icon": "🎼",
+  "template": "conductor",
+  "status": "approved"
+ },
+ {
   "id": "dodgefallingstars",
   "level": "prekg",
   "subject": "play",
@@ -547,6 +577,26 @@
   "topic": "Move your hand-tracked shield to block falling stars",
   "icon": "⭐",
   "template": "catch-stars",
+  "status": "approved"
+ },
+ {
+  "id": "puppetshadowshow",
+  "level": "prekg",
+  "subject": "play",
+  "title": "Puppet Shadow Show",
+  "topic": "Move your hand to walk a shadow-puppet animal",
+  "icon": "🐇",
+  "template": "shadow-puppet",
+  "status": "approved"
+ },
+ {
+  "id": "shapesorterwall",
+  "level": "prekg",
+  "subject": "numbers",
+  "title": "Shape Sorter Wall",
+  "topic": "Drag shapes into their matching cutouts",
+  "icon": "🔺",
+  "template": "shape-sorter",
   "status": "approved"
  },
  {
@@ -787,6 +837,16 @@
   "topic": "Tap any flower to see it bloom big with a name and sound",
   "icon": "🌸",
   "template": "picture-chart",
+  "status": "approved"
+ },
+ {
+  "id": "wildanimals3d",
+  "level": "prekg",
+  "subject": "nature",
+  "title": "Wild Animals 3D",
+  "topic": "Walk, spin, and browse elephant, bear, lion, fox, rhino and zebra",
+  "icon": "🦁",
+  "template": "animal-3d",
   "status": "approved"
  },
  {
@@ -1077,6 +1137,26 @@
   "topic": "School, hospital, market, library and more",
   "icon": "🏫",
   "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "lettertracing",
+  "level": "lkg",
+  "subject": "letters",
+  "title": "Letter Tracing",
+  "topic": "Trace A to Z, stroke by stroke",
+  "icon": "✍️",
+  "template": "trace",
+  "status": "approved"
+ },
+ {
+  "id": "numbertracing",
+  "level": "lkg",
+  "subject": "numbers",
+  "title": "Number Tracing",
+  "topic": "Trace 0 to 9, stroke by stroke",
+  "icon": "✏️",
+  "template": "trace",
   "status": "approved"
  },
  {

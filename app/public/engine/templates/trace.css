@@ -1,0 +1,46 @@
+/* Trace: the tracing board on the left, the glyph, progress and buttons on the right. */
+.tr {
+  width: min(1200px, 100%);
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 24px;
+}
+.tr-board {
+  min-height: 0;
+  background: var(--mt-white);
+  border: 1px solid var(--mt-line);
+  border-radius: calc(var(--mt-radius) * 1.25);
+  box-shadow: var(--mt-shadow);
+}
+.tr-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+}
+.tr-glyph {
+  font: 700 150px/1 var(--mt-head);
+  color: var(--mt-plum);
+}
+.tr-bar {
+  width: 100%;
+  height: 22px;
+  border-radius: 999px;
+  background: var(--mt-tint);
+  border: 1px solid var(--mt-line);
+  overflow: hidden;
+}
+.tr-bar i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--mt-amber), var(--mt-green));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s;
+}
+.tr-nav {
+  display: flex;
+  gap: 14px;
+}

@@ -1,0 +1,46 @@
+{
+ "id": "shapesorterwall",
+ "level": "prekg",
+ "subject": "numbers",
+ "title": "Shape Sorter Wall",
+ "topic": "Drag shapes into their matching cutouts",
+ "icon": "🔺",
+ "order": 53,
+ "status": "approved",
+ "template": "shape-sorter",
+ "perRound": 5,
+ "shapes": [
+  {
+   "shape": "circle",
+   "color": "#E74C3C"
+  },
+  {
+   "shape": "square",
+   "color": "#3478F6"
+  },
+  {
+   "shape": "triangle",
+   "color": "#F0B414"
+  },
+  {
+   "shape": "star",
+   "color": "#9655B4"
+  },
+  {
+   "shape": "heart",
+   "color": "#FF69AF"
+  },
+  {
+   "shape": "diamond",
+   "color": "#28BEBE"
+  },
+  {
+   "shape": "pentagon",
+   "color": "#FA8C23"
+  },
+  {
+   "shape": "hexagon",
+   "color": "#46B45F"
+  }
+ ]
+}
