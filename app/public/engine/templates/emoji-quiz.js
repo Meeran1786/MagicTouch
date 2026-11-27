@@ -82,14 +82,14 @@ export default function emojiQuiz(area, d, ctx) {
       f.solved();
       f.celebrate(button);
       ME.sound.good();
-      MT.speak("Yes! " + q.word);
+      MT.speak(["Yes!", q.word]);
       tiles.light(-1);
     } else {
       markPick(button, false, e);
       markPick(right, true);
       f.say(`That's the ${chosen.word}. The answer is ${q.word}.`, "bad");
       ME.sound.bad();
-      MT.speak(`That's the ${chosen.word}. The answer is ${q.word}.`);
+      MT.speak(["That's the", chosen.word, "The answer is", q.word]);
     }
     timer = setTimeout(() => {
       at++;

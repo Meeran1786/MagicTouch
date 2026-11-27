@@ -1,0 +1,9 @@
+{
+  "_about": "Classroom sound cues played by /shared/audio-engine.js. Kenney 'Interface Sounds' 1.0, CC0 (see LICENSE-Kenney.txt). Remove a line to use the built-in synthesized sound instead.",
+  "tap": "tap.ogg",
+  "toggle": "toggle.ogg",
+  "tick": "tick.ogg",
+  "success": "success.ogg",
+  "wrong": "wrong.ogg",
+  "pop": "pop.ogg"
+}

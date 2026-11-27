@@ -2,43 +2,20 @@
 import { audioCtx as sharedAudio } from "/shared/studio/soft-music.js";
 // Motion, sound, low-spec and confetti come from the shared motion engine (the Gold Standard layer).
 import { ME } from "/shared/motion-engine.js";
+import { MagicAudio } from "/shared/audio-engine.js";
 
 export const audioCtx = sharedAudio();
 export const MT = (function () {
-  let voice = null;
-  function pickVoice() {
-    const v = speechSynthesis.getVoices();
-    voice =
-      v.find(function (x) {
-        return x.lang === "en-IN";
-      }) ||
-      v.find(function (x) {
-        return /^en/.test(x.lang) && /female|samantha|zira|veena|heera/i.test(x.name);
-      }) ||
-      v.find(function (x) {
-        return /^en/.test(x.lang);
-      }) ||
-      null;
-  }
-  if (window.speechSynthesis) {
-    speechSynthesis.onvoiceschanged = pickVoice;
-    pickVoice();
-  }
-  // speak(text) in Indian English; speak(text, "hi-IN") or "te-IN" for Hindi and Telugu
+  // Voice goes through MagicAudio (/shared/audio-engine.js): a pre-generated clip when there is
+  // one, otherwise the best offline voice. speak(text) in Indian English; speak(text, "hi-IN") or
+  // "te-IN"; speak([part, part, …]) for a line built from parts (["Yes!", word]);
+  // speak({ text, lang, clipId, src, onPart }) for everything else.
   function speak(t, lang) {
-    if (!window.speechSynthesis || !t) return;
-    speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(t);
-    if (lang) {
-      u.lang = lang;
-      const v = speechSynthesis.getVoices().find(function (x) {
-        return x.lang === lang;
-      });
-      if (v) u.voice = v;
-    } else if (voice) u.voice = voice;
-    u.rate = 0.9;
-    u.pitch = 1.05;
-    speechSynthesis.speak(u);
+    if (t == null || t === "") return Promise.resolve(false);
+    return MagicAudio.speak(t && typeof t === "object" && !Array.isArray(t) ? t : { text: t, lang: lang });
+  }
+  function stopSpeech() {
+    MagicAudio.stop();
   }
   // sounds, the sound switch, loops and device checks: see /shared/motion-engine.js
   const sfx = ME.sound;
@@ -254,6 +231,7 @@ export const MT = (function () {
     clearLater: clearLater,
     sceneBox: sceneBox,
     speak: speak,
+    stopSpeech: stopSpeech,
     sfx: sfx,
     toast: toast,
     confetti: confetti,

@@ -11,6 +11,7 @@
 //
 // A template's meta: { fullscreen, styles: [css names], points: pens/hands it follows, music }
 import { MT, audioCtx } from "./kit.js";
+import { MagicAudio } from "/shared/audio-engine.js";
 import { LEVELS, levelLabel } from "/shared/levels.js";
 import { startInput } from "/shared/input/pointer.js";
 import { startMusic, stopMusic } from "/shared/studio/music.js";
@@ -84,7 +85,7 @@ function stop() {
     }
   }
   cleanup = null;
-  if (window.speechSynthesis) speechSynthesis.cancel();
+  MT.stopSpeech();
   area.innerHTML = "";
   MT.score("");
 }
@@ -135,6 +136,7 @@ async function run(id) {
     startMusic();
   }
   cleanup = mount(area, activity, ctx) || null;
+  MagicAudio.preloadActivity(activity);
   if (activity.intro) MT.speak(activity.intro);
 }
 

@@ -1,0 +1,5 @@
+{
+  "about": "Pre-generated voice clips, written by app/scripts/generate-voices.js. Do not edit by hand.",
+  "voices": {},
+  "clips": { "en-IN": {}, "hi-IN": {}, "te-IN": {} }
+}

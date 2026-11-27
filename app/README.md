@@ -106,3 +106,21 @@ with stock-library marks (Adobe Stock, Vecteezy, rawpixel, Epic Stock Media, an 
 were removed or replaced by our own art (`tools/art/`) or generated sound. The other purchased
 media is marked `purchased-unverified`: ask Basha for the source of the photos, GIFs, voice clips
 and 3D animals before a public launch.
+
+## Voice packs and sound cues (offline)
+
+All narration and sound effects go through `public/shared/audio-engine.js` (`MagicAudio`, CLAUDE.md §8).
+Sound cues are Kenney CC0 files in `public/assets/sfx/`. Voice clips are made once, on a PC with internet:
+
+```bash
+cd app
+cp .env.example .env          # then put your Google Cloud Text-to-Speech API key in .env
+npm run voices:check          # dry run: lines and characters, sends nothing
+npm run voices                # makes only the missing clips into public/assets/voice/<lang>/
+```
+
+Run it again after adding or changing activity text: existing clips are skipped, and the monthly
+character count in `data/tts-usage.json` keeps it inside Google's free tier (1M Chirp 3: HD characters a
+month). Lines that a template builds at run time and that have no clip yet are spoken by the offline
+browser voice and listed by `MagicAudio.misses()` in the browser console; save that list to a file and
+pass it with `node scripts/generate-voices.js --lines misses.json`.

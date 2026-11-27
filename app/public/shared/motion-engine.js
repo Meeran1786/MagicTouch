@@ -14,7 +14,8 @@
 //   ME.spring(k, c)              {x, v, step(target, dt)}: needles, knobs (k 90, c 11 = a little overshoot)
 //   ME.burst(el)                 1.2 s canvas confetti from el: ≤ 60 pieces, 24 low-spec, none when calm
 // Sound (procedural Web Audio, one global switch shared with the wall launcher)
-//   ME.sound.on() / set(on) / tap() / good() / bad() / win() / pitch(0…1)
+//   ME.sound.on() / set(on) / tap() / toggle() / pop() / good() / bad() / win() / pitch(0…1)
+//   (a thin layer over MagicAudio.playSfx, /shared/audio-engine.js)
 // Canvas
 //   ME.stage(holder, W, H, onSize)  an elevated .st-stage that keeps W:H and fits holder; canvas at the
 //                                   right pixel ratio (1× on low-spec). onSize({scale, dpr, canvas}) redraws
@@ -27,7 +28,7 @@
 //   ME.slider(host, spec, onChange)    −/track/+ slider; knob moves by transform with a spring; pitch tick
 //   ME.toggle(host, options, current, onChange)   segmented switch, e.g. Real | Diagram
 //   ME.soundButton(host)         the speaker button (global mute)
-import { audioCtx, sfx as soft, sfxOn } from "/shared/studio/soft-music.js";
+import { MagicAudio } from "/shared/audio-engine.js";
 
 export const PALETTE = {
   white: "#FFFFFF",
@@ -111,48 +112,40 @@ function spring(k, c) {
 }
 
 // ── sound ────────────────────────────────────────────────────────────────
+// Everything goes through MagicAudio (/shared/audio-engine.js, the Frozen Audio Standard): local
+// Kenney CC0 cues with a warm synthesized fallback, and the one global mute.
 let lastPitch = 0;
-function play(fn) {
-  if (!sfxOn()) return;
-  try {
-    audioCtx().resume();
-    fn();
-  } catch {
-    /* audio not allowed yet */
-  }
-}
 const sound = {
   on: function () {
-    return sfxOn();
+    return !MagicAudio.muted();
   },
   set: function (on) {
-    try {
-      localStorage.setItem("mtSfxOn", on ? "1" : "0");
-    } catch {
-      /* storage blocked */
-    }
-    if (!on && window.speechSynthesis) speechSynthesis.cancel();
+    MagicAudio.setMuted(!on);
   },
   tap: function () {
-    play(soft.tap);
+    MagicAudio.playSfx("tap");
+  },
+  toggle: function () {
+    MagicAudio.playSfx("toggle");
+  },
+  pop: function () {
+    MagicAudio.playSfx("pop");
   },
   good: function () {
-    play(soft.correct);
+    MagicAudio.playSfx("success", { volume: 0.75 });
   },
   bad: function () {
-    play(soft.wrong);
+    MagicAudio.playSfx("wrong");
   },
   win: function () {
-    play(soft.celebrate);
+    MagicAudio.playSfx("success");
   },
   // k = 0 … 1 (where the slider is); at most one tick every 45 ms while dragging
   pitch: function (k) {
     const now = performance.now();
     if (now - lastPitch < 45) return;
     lastPitch = now;
-    play(function () {
-      soft.pitch(k);
-    });
+    MagicAudio.playSfx("tick", { pitch: k });
   },
 };
 
@@ -568,7 +561,7 @@ function toggle(host, options, current, onChange) {
     const b = e.target.closest("[data-id]");
     if (!b || b.dataset.id === current) return;
     show(b.dataset.id);
-    sound.tap();
+    sound.toggle();
     if (onChange) onChange(current);
   });
   show(current);
@@ -591,8 +584,12 @@ function soundButton(host) {
   }
   b.addEventListener("click", function () {
     sound.set(!sound.on());
-    show();
     sound.tap();
+  });
+  // every speaker button on the page (and in other frames) follows the one global mute
+  const off = MagicAudio.onMute(function () {
+    if (!b.isConnected) return off();
+    show();
   });
   show();
   host.appendChild(b);

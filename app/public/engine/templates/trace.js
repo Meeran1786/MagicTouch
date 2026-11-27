@@ -82,7 +82,7 @@ export default function trace(area, d) {
     glyphEl.textContent = keys[at];
     ME.squash(glyphEl);
     f.progress(`${at + 1} / ${keys.length}`);
-    MT.speak(`Trace ${keys[at]}`);
+    MT.speak(["Trace", keys[at]]);
   }
 
   function box() {
@@ -100,7 +100,7 @@ export default function trace(area, d) {
     const b = box();
     for (const st of strokes)
       for (const p of st.filter((_, k) => k % 4 === 0)) g.burst(b.x + p.x * b.s, b.y + p.y * b.s, "#F3A328", 2);
-    MT.speak(`Well done! ${(d.say && d.say[keys[at]]) || keys[at]}`);
+    MT.speak(["Well done!", (d.say && d.say[keys[at]]) || keys[at]]);
   }
 
   wrap.querySelector(".tr-clear").addEventListener("click", () => load(at));

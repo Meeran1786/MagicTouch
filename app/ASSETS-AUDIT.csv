@@ -706,6 +706,12 @@ activities/wildanimals3d/models/rhino/walk.glb,41972,ff1e555e3f6eed2c,purchased-
 activities/wildanimals3d/models/zebra/diffuse.jpg,598174,ebeea16d77007b2c,purchased-unverified,
 activities/wildanimals3d/models/zebra/model.glb,124200,9225a71d659b473e,purchased-unverified,
 activities/wildanimals3d/models/zebra/walk.glb,47356,b937e5a4dcf0c831,purchased-unverified,
+assets/sfx/pop.ogg,6411,4ac4d1cef7e93696,cc0-library,"Kenney Interface Sounds 1.0, CC0 (assets/sfx/LICENSE-Kenney.txt)"
+assets/sfx/success.ogg,8968,063564703b6094d7,cc0-library,"Kenney Interface Sounds 1.0, CC0 (assets/sfx/LICENSE-Kenney.txt)"
+assets/sfx/tap.ogg,5463,4cc6ac5341b9b2c8,cc0-library,"Kenney Interface Sounds 1.0, CC0 (assets/sfx/LICENSE-Kenney.txt)"
+assets/sfx/tick.ogg,5031,0253d5f7d8d2afbb,cc0-library,"Kenney Interface Sounds 1.0, CC0 (assets/sfx/LICENSE-Kenney.txt)"
+assets/sfx/toggle.ogg,7369,ca1d2dde5f0b286a,cc0-library,"Kenney Interface Sounds 1.0, CC0 (assets/sfx/LICENSE-Kenney.txt)"
+assets/sfx/wrong.ogg,4848,d21d0f0b782445db,cc0-library,"Kenney Interface Sounds 1.0, CC0 (assets/sfx/LICENSE-Kenney.txt)"
 engine/assets/tex/earth.jpg,367126,11232a3f3f2a755c,purchased-unverified,
 engine/assets/tex/moon.jpg,380835,f9ae0446cb2bfdd0,purchased-unverified,
 vendor/twemoji/svg/1f0cf.svg,1500,8a9d15a29d6f8d1a,bundled-library,

@@ -1,17 +1,14 @@
 // MagicTouch soft background music, made in the browser (Web Audio), so there is no
 // recording to license. A slow, quiet pentatonic piece: warm pad chords, a few soft
 // bell notes and a gentle low note, through a muffled room echo. It never repeats
-// exactly but always stays calm. Also exports polite sound effects for activities.
+// exactly but always stays calm. (Its sfx export is kept for old callers; it plays MagicAudio cues.)
 //
 //   const m = createSoftMusic(); m.start(); m.setMuted(true|false); m.stop();
 //   sfx.tap(); sfx.correct(); sfx.wrong(); sfx.celebrate(); sfx.pitch(0…1);
 
-let shared = null;
-/** The one Web Audio context every part of the wall uses. */
-export function audioCtx() {
-  if (!shared) shared = new (window.AudioContext || window.webkitAudioContext)();
-  return shared;
-}
+import { audioCtx, MagicAudio } from "/shared/audio-engine.js";
+// The one Web Audio context of the wall now lives in the audio engine; re-exported for old imports.
+export { audioCtx };
 
 function roomEcho(ctx, seconds = 2.6) {
   const len = Math.floor(ctx.sampleRate * seconds),
@@ -144,40 +141,17 @@ export function createSoftMusic({ volume = 0.16 } = {}) {
   };
 }
 
-function blip(freqs, { type = "sine", gap = 0.09, len = 0.35, level = 0.12 } = {}) {
-  const ctx = audioCtx();
-  if (ctx.state !== "running") ctx.resume().catch(() => {});
-  const t0 = ctx.currentTime + 0.01;
-  freqs.forEach((f, i) => {
-    const o = ctx.createOscillator(),
-      g = ctx.createGain(),
-      t = t0 + i * gap;
-    o.type = type;
-    o.frequency.value = f;
-    g.gain.setValueAtTime(0, t);
-    g.gain.linearRampToValueAtTime(level, t + 0.015);
-    g.gain.exponentialRampToValueAtTime(0.0008, t + len);
-    o.connect(g).connect(ctx.destination);
-    o.start(t);
-    o.stop(t + len + 0.05);
-  });
-}
-
-/** Sound effects are on unless the school turned them off (launcher settings). */
+/** Sound effects are on unless the school (or the speaker button) muted them. */
 export function sfxOn() {
-  try {
-    return localStorage.getItem("mtSfxOn") !== "0";
-  } catch {
-    return true;
-  }
+  return !MagicAudio.muted();
 }
 
+// The polite effects, now played by MagicAudio (Kenney CC0 cues, warm synthesized fallback).
 export const sfx = {
-  tap: () => blip([hz(84)], { len: 0.12, level: 0.06 }),
-  correct: () => blip([hz(72), hz(76), hz(79), hz(84)], { gap: 0.08, len: 0.5, level: 0.1 }),
-  wrong: () => blip([hz(60), hz(57)], { type: "triangle", gap: 0.16, len: 0.35, level: 0.07 }),
-  celebrate: () => blip([hz(72), hz(76), hz(79), hz(84), hz(88), hz(91), hz(96)], { gap: 0.07, len: 0.7, level: 0.09 }),
-  // slider feedback: a short soft tick whose pitch follows the slider (k = 0 … 1, two octaves)
-  pitch: (k) =>
-    blip([220 * Math.pow(2, 2 * Math.max(0, Math.min(1, k)))], { type: "triangle", len: 0.09, level: 0.05 }),
+  tap: () => MagicAudio.playSfx("tap"),
+  correct: () => MagicAudio.playSfx("success", { volume: 0.75 }),
+  wrong: () => MagicAudio.playSfx("wrong"),
+  celebrate: () => MagicAudio.playSfx("success"),
+  // slider feedback: a short soft tick whose pitch follows the slider (k = 0 … 1)
+  pitch: (k) => MagicAudio.playSfx("tick", { pitch: k }),
 };

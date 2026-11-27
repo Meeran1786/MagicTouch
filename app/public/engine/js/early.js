@@ -100,7 +100,7 @@ export function result(root, { score, total, onAgain }) {
   root.appendChild(box);
   MT.sfx.win();
   MT.confetti();
-  MT.speak(`${pct >= 0.6 ? "Great job!" : "Good try!"} You scored ${score} out of ${total}.`);
+  MT.speak([pct >= 0.6 ? "Great job!" : "Good try!", "You scored", score, "out of", total]);
 }
 
 /** Speaks a word for little ones: a little slower. */
@@ -188,28 +188,15 @@ export function picture(item, base = "") {
  * spoken (spaces are skipped), onLetter(-1) when the whole word starts. Returns a stop function.
  */
 export function spell(word, onLetter = () => {}) {
-  const synth = window.speechSynthesis;
-  if (!synth) return () => {};
-  synth.cancel();
-  const parts = [...word].map((ch, i) => ({ text: ch, i })).filter((p) => p.text.trim());
+  // letter clips (A … Z) and the word clip play back to back through MagicAudio; without clips
+  // the fallback voice says each letter as its own utterance, so the tiles still bounce in time
+  const parts = [...word].map((ch, i) => ({ text: ch.toUpperCase(), i })).filter((p) => p.text.trim());
   parts.push({ text: word, i: -1 });
   let stopped = false;
-  let k = 0;
-  const next = () => {
-    if (stopped || k >= parts.length) return;
-    const p = parts[k++];
-    const u = new SpeechSynthesisUtterance(p.i < 0 ? p.text : p.text.toLowerCase());
-    u.lang = "en-IN";
-    u.rate = p.i < 0 ? 0.85 : 0.75;
-    u.pitch = p.i < 0 ? 1.05 : 1.2;
-    u.onstart = () => !stopped && onLetter(p.i);
-    u.onend = u.onerror = next;
-    synth.speak(u);
-  };
-  next();
+  MT.speak({ text: parts.map((p) => p.text), lang: "en-IN", onPart: (k) => !stopped && onLetter(parts[k].i) });
   return () => {
     stopped = true;
-    synth.cancel();
+    MT.stopSpeech();
   };
 }
 
@@ -430,7 +417,7 @@ export function studioResult(f, { score, total, onAgain }) {
   ME.roll(num, score);
   ME.sound.win();
   ME.burst(box.querySelector(".st-card"));
-  MT.speak(`${head} You scored ${score} out of ${total}.`);
+  MT.speak([head, "You scored", score, "out of", total]);
 }
 
 /**

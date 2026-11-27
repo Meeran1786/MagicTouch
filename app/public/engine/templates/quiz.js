@@ -161,7 +161,7 @@ export default function quiz(area, d, ctx) {
         next.textContent = qi + 1 < qs.length ? "Next question →" : "See my score →";
         next.hidden = false;
         ME.pop(next);
-        if (q.explain) MT.speak((ok ? "Correct. " : "") + q.explain.replace(/<[^>]+>/g, ""));
+        if (q.explain) MT.speak(ok ? ["Correct.", q.explain] : q.explain);
       });
     });
   }

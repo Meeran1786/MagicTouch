@@ -69,7 +69,7 @@ export default function pack(area, d, ctx) {
       stepClean = null;
     }
     MT.clearLater();
-    if (window.speechSynthesis) speechSynthesis.cancel();
+    MT.stopSpeech();
     body.innerHTML = "";
   }
   function run(i) {
