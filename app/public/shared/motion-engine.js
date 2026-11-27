@@ -622,7 +622,7 @@ export const ME = {
 
 // ── Early years and games (group D: arcade games, piano, conductor, puppets, sorter, trace, 3D) ──
 //   ME.counter(render, rate)     a rolling counter: set(n) eases the shown value to n, render(int) each frame
-//   ME.squash(el)                Duolingo-style squash-and-stretch tap bounce (CSS .st-squash, spring curve)
+//   (squash-and-stretch: ME.squash from the Early years delight section below)
 //   ME.celebrate(el)             the Gold Standard win: green pulse on el (.st-solved), 1.2 s confetti, chime
 //   ME.hudSound(row)             puts the global sound switch in a top bar once (no duplicates)
 //   ME.backdrop(ctx, w, h, t, o) a lit Studio scene for canvas games: white-to-plum-tint ground, a soft key
@@ -659,12 +659,6 @@ function counter(render, rate) {
       return target;
     },
   };
-}
-function squash(el) {
-  if (!el || calm()) return;
-  el.classList.remove("st-squash");
-  void el.offsetWidth; // restart the animation
-  el.classList.add("st-squash");
 }
 function celebrate(el) {
   if (!el) return;
@@ -755,7 +749,6 @@ function gloss(c, x, y, r, col) {
 }
 Object.assign(ME, {
   counter: counter,
-  squash: squash,
   celebrate: celebrate,
   hudSound: hudSound,
   backdrop: backdrop,

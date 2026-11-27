@@ -315,26 +315,8 @@
 }
 
 /* ---------- early years and games (group D) ----------
-   .st-squash       squash-and-stretch tap bounce (ME.squash)
    .st-stage--fill  an elevated stage that fills its holder (canvas games that use the whole area)
    .st-stage--space the same card, dark inside, for 3D space scenes */
-.st-squash {
-  animation: stSquash 0.5s var(--mt-spring);
-}
-@keyframes stSquash {
-  0% {
-    transform: scale(1, 1);
-  }
-  30% {
-    transform: scale(1.14, 0.86);
-  }
-  60% {
-    transform: scale(0.94, 1.08);
-  }
-  100% {
-    transform: scale(1, 1);
-  }
-}
 .st-stage--fill {
   width: 100%;
   height: 100%;
