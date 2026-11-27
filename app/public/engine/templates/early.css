@@ -103,7 +103,7 @@ html.mt-wall .ey-hud {
   justify-content: center;
   gap: 22px;
 }
-.ey-card {
+.ey-card:not(.st-pick) {
   position: relative;
   min-width: calc(var(--mt-target) * 1.6);
   min-height: calc(var(--mt-target) * 1.6);
@@ -124,26 +124,26 @@ html.mt-wall .ey-hud {
     transform 0.35s var(--mt-spring),
     box-shadow 0.2s;
 }
-.ey-card:hover {
+.ey-card:not(.st-pick):hover {
   transform: translateY(-3px);
 }
-.ey-card:active,
-.ey-card.ey-tap {
+.ey-card:not(.st-pick):active,
+.ey-card:not(.st-pick).ey-tap {
   animation: ey-squash 0.45s var(--mt-spring);
 }
-.ey-card .mt-emoji {
+.ey-card:not(.st-pick) .mt-emoji {
   font-size: 92px;
 }
-.ey-card.is-right {
+.ey-card:not(.st-pick).is-right {
   border-color: var(--mt-green);
   background: var(--mt-green-tint);
 }
-.ey-card.is-wrong {
+.ey-card:not(.st-pick).is-wrong {
   border-color: var(--mt-magenta);
   background: var(--mt-magenta-tint);
   animation: ey-shake 0.4s;
 }
-.ey-card:disabled {
+.ey-card:not(.st-pick):disabled {
   cursor: default;
 }
 @keyframes ey-squash {
@@ -330,4 +330,107 @@ html.mt-wall .ey-hud {
 }
 .ey-music[aria-pressed="false"] {
   opacity: 0.6;
+}
+
+/* ── Gold Standard frame (studioFrame in js/early.js) ────── */
+.ey-studio {
+  background: linear-gradient(180deg, var(--mt-white) 0%, var(--mt-white) 70%, var(--mt-tint) 100%);
+}
+.ey-studio .ey-pills {
+  align-items: center;
+}
+.ey-split {
+  flex: 1;
+  min-height: 0;
+}
+.ey-split .st-stage-holder {
+  align-items: stretch;
+}
+.ey-live {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.ey-panel-r {
+  justify-content: safe center;
+}
+.ey-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.ey-reads .n .u {
+  font-size: 22px;
+  font-weight: 700;
+}
+.ey-pic.has-media {
+  width: 100%;
+  height: 100%;
+}
+.ey-pic .mt-media {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 14px;
+}
+@media (max-height: 800px) {
+  .ey-studio {
+    gap: 10px;
+    padding: 12px 18px;
+  }
+  .ey-live {
+    padding: 16px;
+  }
+}
+
+/* four big picture answers standing on the stage (emoji quiz, picture quiz) */
+.ey-grid4 {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 26px;
+  padding-bottom: 28px; /* room for the grass */
+}
+.ey-grid4 .st-pick {
+  width: 100%;
+  height: 100%;
+  animation:
+    stPop 0.45s var(--mt-spring) both,
+    stFloat 3.6s ease-in-out infinite;
+}
+.ey-grid4 .st-hero {
+  width: 72%;
+  height: 72%;
+  font-size: min(190px, 19vh);
+}
+.ey-grid4 .st-hero .ey-photo {
+  width: 100%;
+  height: 100%;
+}
+html.st-low .ey-grid4 .st-pick {
+  animation: stPop 0.45s var(--mt-spring) both;
+}
+/* one big picture on the stage (picture quiz, word wheel) */
+.ey-hero {
+  width: 78%;
+  height: 74%;
+  font-size: min(300px, 34vh);
+  animation:
+    stPop 0.5s var(--mt-spring) both,
+    stFloat 3.6s ease-in-out 0.5s infinite;
+}
+.ey-hero .ey-photo {
+  width: 100%;
+  height: 100%;
+}
+html.st-low .ey-hero {
+  animation: stPop 0.5s var(--mt-spring) both;
+}
+.ey-studio .st-btn:disabled {
+  opacity: 0.45;
+  cursor: default;
 }

@@ -1,87 +1,106 @@
 // Picture spotter (early years): six pictures pinned to the wall; find the one asked for.
 // Rounds go on until the class stops; the score counts correct finds.
+// Gold Standard layout (studioFrame): the pinned pictures on the living stage on the left; the
+// question, feedback and rolling read-outs on the right.
 // Activity data:
-//   items: [{ word: "Ginger", photo: "images/Allam.jpg" }]   photo or emoji, at least 6
+//   items: [{ word: "Ginger", photo: "images/Allam.jpg", media?: { type: "mp4", src } }]   photo or emoji, at least 6
 //   choices: 6                                              optional, pictures per round
 import { MT } from "../js/kit.js";
-import { frame, picture } from "../js/early.js";
+import { studioFrame, studioButton, picture, markPick, sayWord } from "../js/early.js";
+import { ME } from "/shared/motion-engine.js";
 
 export const meta = { fullscreen: true, music: true, styles: ["early", "picture-spotter"] };
 
-const ASK = [
-  (w) => `Where is the <b></b>?`,
-  (w) => `Find the <b></b>!`,
-  (w) => `Can you spot the <b></b>?`,
-  (w) => `Which one is the <b></b>?`,
-];
-const NEXT_AFTER_MS = 2300;
+const ASK = ["Where is the", "Find the", "Can you spot the", "Which one is the"];
+const NEXT_AFTER_MS = 2400;
 
 export default function pictureSpotter(area, d, ctx) {
-  const f = frame(area, { icon: d.icon, title: d.title });
-  const wrap = document.createElement("div");
-  wrap.className = "ps-wrap";
-  wrap.innerHTML =
-    '<div class="ey-panel ps-ask"><div class="ps-q"></div><div class="ps-hint">Touch the picture that matches!</div></div><div class="ps-field"></div><div class="ey-feedback"></div>';
-  f.stage.appendChild(wrap);
-  const q = wrap.querySelector(".ps-q");
-  const field = wrap.querySelector(".ps-field");
-  const feedback = wrap.querySelector(".ey-feedback");
+  const f = studioFrame(area, { icon: d.icon, title: d.title });
+  const field = document.createElement("div");
+  field.className = "ps-field";
+  f.stage.appendChild(field);
+  const ask = document.createElement("div");
+  ask.className = "st-card ps-ask";
+  ask.innerHTML = '<div class="ps-q"></div><div class="ps-word"></div>';
+  ask.appendChild(studioButton("🔊 Hear it", true, () => target && speakIt()));
+  f.panel.appendChild(ask);
+  const q = ask.querySelector(".ps-q");
+  const wordBox = ask.querySelector(".ps-word");
   let target = null;
+  let line = "";
+  let tiles = null;
   let score = 0;
+  let rounds = 0;
   let done = false;
   let timer = 0;
   f.score(0);
 
+  function speakIt() {
+    sayWord(line, null);
+    tiles.light(-1);
+    setTimeout(() => tiles && tiles.clear(), 900);
+  }
+
   function round() {
     done = false;
-    feedback.textContent = "";
-    feedback.className = "ey-feedback";
+    rounds++;
+    f.say("");
+    f.goal("Touch the picture that matches!");
+    f.progress(rounds, 0, "Round");
     const prev = target;
     const pool = d.items.filter((i) => i !== prev);
     target = pool[Math.floor(Math.random() * pool.length)];
-    q.innerHTML = ASK[Math.floor(Math.random() * ASK.length)]();
-    q.querySelector("b").textContent = target.word;
-    MT.speak(q.textContent);
+    const lead = ASK[Math.floor(Math.random() * ASK.length)];
+    q.textContent = lead;
+    line = `${lead} ${target.word}?`;
+    tiles = ME.tiles(wordBox, target.word);
+    speakIt();
     const n = Math.min(d.choices || 6, d.items.length);
     const others = MT.shuffle(d.items.filter((i) => i !== target)).slice(0, n - 1);
-    field.innerHTML = "";
+    field.replaceChildren();
     MT.shuffle([target, ...others]).forEach((item, i) => {
       const card = document.createElement("button");
       card.type = "button";
-      card.className = "ps-card";
-      card.style.setProperty("--tilt", `${(i % 2 ? 1 : -1) * (3 + Math.random() * 5)}deg`);
+      card.className = "ps-card st-pick";
+      card.style.setProperty("--tilt", `${(i % 2 ? 1 : -1) * (2 + Math.random() * 4)}deg`);
       card.style.animationDelay = `${i * 0.07}s`;
       card.setAttribute("aria-label", item.word);
-      card.appendChild(picture(item, ctx.base));
-      card.addEventListener("click", () => pick(item, card));
+      const pic = picture(item, ctx.base);
+      pic.classList.add("st-hero");
+      card.appendChild(pic);
+      card.addEventListener("click", (e) => pick(item, card, e));
       field.appendChild(card);
     });
   }
 
-  function pick(item, card) {
+  function pick(item, card, e) {
     if (done) return;
+    ME.squash(card);
     if (item === target) {
       done = true;
       score++;
       f.score(score);
-      card.classList.add("is-right");
-      feedback.textContent = MT.shuffle(["Amazing!", "Brilliant!", "You got it!", "Superstar!", "Well done!"])[0];
-      feedback.className = "ey-feedback good";
-      MT.sfx.good();
-      MT.confetti();
-      MT.speak(feedback.textContent);
+      markPick(card, true, e);
+      field.querySelectorAll(".ps-card").forEach((c) => c !== card && c.classList.add("is-dim"));
+      const cheer = MT.shuffle(["Amazing!", "Brilliant!", "You got it!", "Superstar!", "Well done!"])[0];
+      f.say(`🎉 ${cheer} The ${target.word}!`, "good");
+      f.solved();
+      f.celebrate(card);
+      ME.sound.good();
+      tiles.light(-1);
+      MT.speak(cheer);
       timer = setTimeout(round, NEXT_AFTER_MS);
     } else {
-      card.classList.remove("is-wrong");
-      void card.offsetWidth;
-      card.classList.add("is-wrong");
-      feedback.textContent = `That's not the ${target.word}. Try again!`;
-      feedback.className = "ey-feedback bad";
-      MT.sfx.bad();
-      MT.speak(feedback.textContent);
+      markPick(card, false, e);
+      f.say(`That's not the ${target.word}. Try again!`, "bad");
+      ME.sound.bad();
+      MT.speak(`That's not the ${target.word}. Try again!`);
     }
   }
 
   round();
-  return () => clearTimeout(timer);
+  return () => {
+    clearTimeout(timer);
+    f.stop();
+  };
 }
