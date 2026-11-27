@@ -4,9 +4,16 @@
 // springs and turns plum) and the panel (the card cross-fades, the count rolls up) move in the same frame.
 // Activity data:
 //   scene     "<svg viewBox=…>"                      the picture (code-drawn SVG)
-//   hotspots  [{x, y, label, text, media}]           x, y in % of the picture; media is optional:
-//             {type:"mp4"|"webm"|"lottie"|"rive", src, caption}, a local clip shown with the card
-//             (the activity is complete without it)
+//   hotspots  [{x, y, label, text, part, bx, by, media}]
+//             x, y      the part, in % of the picture
+//             bx, by    optional: put the badge here instead (in %), joined to the part by a dotted
+//                       leader line, so the badge never covers the symbol
+//             part      optional: the data-part id of the SVG shapes that light up and bump on tap
+//                       (a part with data-glow, such as a bulb, glows)
+//             media     optional {type:"mp4"|"webm"|"lottie"|"rive", src, caption}, a local clip shown
+//                       with the card (the activity is complete without it)
+//   look      "diagram": the Ohm's law Diagram view's engineering grid behind a technical drawing
+//             (draw the SVG without a background fill so the grid shows)
 //   goal      optional challenge text (default: "Tap all N glowing circles.")
 //   doneText  message at the end
 import { MT } from "../js/kit.js";
@@ -21,6 +28,7 @@ export default function explore(area, d, ctx) {
   const ui = ME.split(area, { goal: d.goal || "Tap all " + n + " glowing circles." });
   const scene = MT.sceneBox(ui.holder, d.scene);
   scene.classList.add("st-scene");
+  const pic = ME.parts(scene, { grid: d.look === "diagram" });
   const reads = ME.reads(ui.panel, [{ id: "e", k: "Explored" }]);
   const dots = ME.dots(reads.el.firstChild, n);
   dots.el.style.marginTop = "6px";
@@ -39,8 +47,10 @@ export default function explore(area, d, ctx) {
     const b = document.createElement("button");
     b.type = "button";
     b.className = "st-hot";
-    b.style.left = h.x + "%";
-    b.style.top = h.y + "%";
+    const away = h.bx != null && h.by != null;
+    if (away) pic.leader(h.x, h.y, h.bx, h.by);
+    b.style.left = (away ? h.bx : h.x) + "%";
+    b.style.top = (away ? h.by : h.y) + "%";
     b.textContent = i + 1;
     b.setAttribute("aria-label", h.label);
     b.addEventListener("click", function () {
@@ -56,6 +66,8 @@ export default function explore(area, d, ctx) {
     });
     ME.pop(hots[i]);
     MT.sfx.pop();
+    pic.select(h.part);
+    pic.hit(h.part);
     info.set({ tag: "Part " + (i + 1) + " of " + n, title: h.label, body: h.text });
     MT.speak([h.label, h.text]);
     showMedia(h.media);

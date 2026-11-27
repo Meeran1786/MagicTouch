@@ -604,7 +604,7 @@
   margin: -38px 0 0 -38px;
   border-radius: 50%;
   border: 5px solid var(--mt-amber);
-  background: rgba(251, 208, 100, 0.45);
+  background: color-mix(in srgb, var(--mt-yellow) 38%, var(--mt-white));
   color: var(--mt-plum-dark);
   font: 800 28px var(--mt-body);
   display: grid;
@@ -645,10 +645,10 @@
 @keyframes stHot {
   0% {
     transform: scale(1);
-    opacity: 0.85;
+    opacity: 0.7;
   }
   100% {
-    transform: scale(1.7);
+    transform: scale(1.55);
     opacity: 0;
   }
 }
@@ -938,6 +938,88 @@
     height: 68px;
     margin: -34px 0 0 -34px;
   }
+}
+/* diagram look (activity "look": "diagram"): the Ohm's law Diagram view's engineering grid */
+.st-scene--grid {
+  background-color: var(--mt-white);
+  background-image:
+    linear-gradient(var(--mt-tint) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, var(--mt-tint) 1.5px, transparent 1.5px);
+  background-size: 3.333% 4.545%; /* 20 px squares on a 600 × 440 drawing */
+  background-position: -0.75px -0.75px;
+}
+.st-scene--grid::after {
+  background: radial-gradient(120% 90% at 50% 110%, rgba(61, 14, 55, 0.06), rgba(61, 14, 55, 0) 60%);
+}
+/* dotted leader lines from a part to its badge (ME.parts) */
+.st-leaders {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 2;
+}
+.st-leaders line {
+  stroke: var(--mt-amber);
+  stroke-width: 2.5px;
+  stroke-dasharray: 2 6;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.st-leaders circle {
+  fill: var(--mt-amber);
+}
+/* parts of the picture: a short bump on tap, a soft glow while chosen; data-glow parts light up */
+.st-scene [data-part] {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: filter 0.3s;
+}
+.st-scene [data-part].st-part-on {
+  filter: drop-shadow(0 0 5px rgba(243, 163, 40, 0.95)) drop-shadow(0 0 12px rgba(243, 163, 40, 0.55));
+}
+.st-scene [data-part][data-glow].st-part-on {
+  filter: drop-shadow(0 0 10px rgba(251, 208, 100, 1)) drop-shadow(0 0 28px rgba(243, 163, 40, 0.8));
+}
+.st-scene [data-part][data-glow].st-part-on .st-fill {
+  fill: var(--mt-yellow);
+}
+.st-scene [data-part].st-part-hit {
+  animation: stPartHit 0.6s var(--mt-spring);
+}
+@keyframes stPartHit {
+  0% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(1.12);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+/* explored hotspot: crisp green with a white tick */
+.st-hot.seen:not(.on) {
+  background: var(--mt-green);
+  border-color: var(--mt-green);
+  color: var(--mt-white);
+}
+.st-hot.seen::before {
+  content: "✓";
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--mt-white);
+  color: var(--mt-green);
+  border: 3px solid var(--mt-green);
+  font: 800 17px var(--mt-body);
 }
 /* ═══════════════════════════════ end of CLASS ACTIVITIES ═══════════════════════════════════ */
 
