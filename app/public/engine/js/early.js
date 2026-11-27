@@ -328,12 +328,12 @@ export function studioFrame(area, { icon, title, split = true, grass = true, sta
     },
     progress(at, total, label = "Question") {
       const r = read("progress", label);
-      ME.roll(r.querySelector("b"), at);
+      rollPop(r.querySelector("b"), at);
       r.querySelector(".u").textContent = total ? ` / ${total}` : "";
     },
     score(n) {
       const r = read("score", "Stars ⭐", true);
-      ME.roll(r.querySelector("b"), n);
+      rollPop(r.querySelector("b"), n);
     },
     say(text, kind) {
       if (!sayEl) return;
@@ -348,6 +348,13 @@ export function studioFrame(area, { icon, title, split = true, grass = true, sta
       sweepMedia(true);
     },
   };
+}
+
+/** Rolls a read-out number (ME.roll) and bounces it when it changes. */
+function rollPop(el, to) {
+  const changed = el._rollV !== undefined && el._rollV !== to;
+  ME.roll(el, to);
+  if (changed) ME.squash(el);
 }
 
 /** Big pill button for the Studio frame. */
@@ -419,7 +426,7 @@ export function studioResult(f, { score, total, onAgain }) {
   );
   f.root.appendChild(box);
   const num = box.querySelector(".line b");
-  num._stV = 0;
+  num._rollV = 0;
   ME.roll(num, score);
   ME.sound.win();
   ME.burst(box.querySelector(".st-card"));

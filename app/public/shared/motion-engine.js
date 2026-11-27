@@ -317,7 +317,8 @@ function stage(holder, W, H, onSize) {
 
 // Projector-readable x–y graph: 18 px bold numbers, 16 px titles, an 11 px tracking dot with a glow.
 //   g.draw({ xMax, yMax, xLabel, yLabel, ticks: 4, lines: [{ from: [x, y], to: [x, y], color }],
-//            point: { x, y, color }, note: "I = V ÷ R with R = 6 Ω" })
+//            point: { x, y, color } or points: [{ x, y, color }, …], note: "I = V ÷ R with R = 6 Ω",
+//            labels: [{ x, y, text, color }] })
 function graph(cv) {
   const g = cv.getContext("2d");
   let w = 0,
@@ -399,10 +400,11 @@ function graph(cv) {
       g.stroke();
     });
     g.restore();
-    if (o.point) {
-      const px = X(o.point.x),
-        py = Y(clamp(o.point.y, 0, o.yMax)),
-        col = o.point.color || PALETTE.magenta;
+    // one tracking dot (point) or several (points), each with dashed drop lines to the axes
+    (o.points || (o.point ? [o.point] : [])).forEach(function (pt) {
+      const px = X(clamp(pt.x, 0, o.xMax)),
+        py = Y(clamp(pt.y, 0, o.yMax)),
+        col = pt.color || PALETTE.magenta;
       g.setLineDash([4, 4]);
       g.strokeStyle = "rgba(99,22,84,.45)";
       g.lineWidth = 1.5;
@@ -412,13 +414,16 @@ function graph(cv) {
       g.lineTo(L, py);
       g.stroke();
       g.setLineDash([]);
+      g.save();
+      g.globalAlpha = 0.45;
       const gl = g.createRadialGradient(px, py, 0, px, py, 24);
-      gl.addColorStop(0, "rgba(204,48,84,.45)");
-      gl.addColorStop(1, "rgba(204,48,84,0)");
+      gl.addColorStop(0, col);
+      gl.addColorStop(1, "rgba(255,255,255,0)");
       g.fillStyle = gl;
       g.beginPath();
       g.arc(px, py, 24, 0, Math.PI * 2);
       g.fill();
+      g.restore();
       g.fillStyle = col;
       g.strokeStyle = PALETTE.white;
       g.lineWidth = 3;
@@ -426,7 +431,14 @@ function graph(cv) {
       g.arc(px, py, 11, 0, Math.PI * 2);
       g.fill();
       g.stroke();
-    }
+    });
+    (o.labels || []).forEach(function (lb) {
+      g.fillStyle = lb.color || PALETTE.plum;
+      g.font = "700 16px " + FONT;
+      g.textAlign = lb.align || "left";
+      g.textBaseline = "middle";
+      g.fillText(lb.text, X(lb.x), Y(lb.y));
+    });
     if (o.note) {
       g.fillStyle = PALETTE.orange;
       g.font = "700 17px " + FONT;
@@ -608,6 +620,375 @@ export const ME = {
   soundButton: soundButton,
 };
 
+// ════════════════════════════════════════════════════════════════════════════════════════════════
+// CLASS ACTIVITIES KIT (appended 2026-11-27). Shared by the card and picture templates: quiz, order,
+// sort, match, explore, label, reveal, map and pack. Same look and motion as the reference; nothing
+// above this line changes. Styles: the "Class activities" section at the end of studio-base.css.
+//
+//   ME.split(area, {goal})        the reference's split screen: {wrap, left, holder, panel, toolbar, goal}
+//                                 (picture left, sound switch + yellow challenge card right)
+//   ME.reads(host, [{id, k, unit, accent}])   .st-reads whose numbers roll: r.set(id, value, of)
+//   ME.roll(el, to, {dp, of})     rolls the number shown in el to `to` ("3 / 5" when `of` is given)
+//   ME.pop(el)                    squash-and-stretch bounce on a tap or a correct drop
+//   ME.nudge(el)                  a short shake for a wrong drop (transform only)
+//   ME.fly(el, move)              FLIP: move() re-parents el, then el glides from where it was
+//   ME.solved(el)                 the 1.2 s celebration: green pulse on el plus the confetti burst
+//   ME.links(host)                a canvas over host that draws curved links between elements, with
+//                                 beads flowing along them (≤ 40 beads, 16 low-spec, still when calm):
+//                                 l.set([{a, b, color, flow, arrow, dim, side: "x" | "y"}]); l.stop()
+//                                 ME.links(host, {under: true}) draws below the host's other children
+//   ME.dots(host, n)              a row of progress dots: d.set(i, "on" | "ok" | "no" | "")
+//   ME.swap(el, html)             cross-fades el's content to new HTML (the Real | Diagram fade)
+//   ME.info(host, {tag, title, body})   .st-info card; i.set({tag, title, body, html}) cross-fades to new
+//                                 text (body is plain text unless html is true)
+// ════════════════════════════════════════════════════════════════════════════════════════════════
+function split(area, opt) {
+  opt = opt || {};
+  const wrap = document.createElement("div");
+  wrap.className = "st-split st-class";
+  const left = document.createElement("div");
+  left.className = "st-split-stage";
+  const holder = document.createElement("div");
+  holder.className = "st-stage-holder";
+  left.appendChild(holder);
+  const panel = document.createElement("div");
+  panel.className = "st-panel";
+  const toolbar = document.createElement("div");
+  toolbar.className = "st-toolbar";
+  panel.appendChild(toolbar);
+  soundButton(toolbar);
+  const goal = document.createElement("div");
+  goal.className = "st-goal";
+  if (opt.goal) goal.innerHTML = opt.goal;
+  else goal.hidden = true;
+  panel.appendChild(goal);
+  wrap.appendChild(left);
+  wrap.appendChild(panel);
+  area.appendChild(wrap);
+  return { wrap: wrap, left: left, holder: holder, panel: panel, toolbar: toolbar, goal: goal };
+}
+function rollText(v, dp, of) {
+  return (dp ? v.toFixed(dp) : String(Math.round(v))) + (of != null ? "<small> / " + of + "</small>" : "");
+}
+function roll(el, to, opt) {
+  opt = opt || {};
+  const dp = opt.dp || 0;
+  if (el._rollStop) el._rollStop();
+  const from = el._rollV == null ? to : el._rollV;
+  el._rollV = to;
+  if (calm() || from === to) {
+    el.innerHTML = rollText(to, dp, opt.of);
+    return;
+  }
+  let cur = from;
+  el._rollStop = loop(el, function (dt) {
+    cur = ease(cur, to, dt, 9);
+    if (Math.abs(to - cur) < (dp ? Math.pow(10, -dp) / 2 : 0.02)) cur = to;
+    el.innerHTML = rollText(cur, dp, opt.of);
+    if (cur === to) {
+      el._rollStop();
+      el._rollStop = null;
+    }
+  });
+}
+function reads(host, list) {
+  const box = document.createElement("div");
+  box.className = "st-reads";
+  const map = {};
+  list.forEach(function (r) {
+    const d = document.createElement("div");
+    d.className = "st-read" + (r.accent ? " st-read--accent" : "");
+    d.innerHTML = '<span class="k"></span><span class="n"><b></b> <span class="u"></span></span>';
+    d.querySelector(".k").textContent = r.k;
+    d.querySelector(".u").textContent = r.unit || "";
+    box.appendChild(d);
+    map[r.id] = d.querySelector("b");
+  });
+  host.appendChild(box);
+  return {
+    el: box,
+    set: function (id, v, of) {
+      if (map[id]) roll(map[id], v, { of: of, dp: 0 });
+    },
+  };
+}
+function anim(el, frames, ms) {
+  if (calm() || !el || !el.animate) return null;
+  return el.animate(frames, { duration: ms, easing: "cubic-bezier(0.34, 1.56, 0.64, 1)" });
+}
+function pop(el) {
+  anim(
+    el,
+    [
+      { transform: "scale(1)" },
+      { transform: "scale(1.12, 0.88)", offset: 0.25 },
+      { transform: "scale(0.94, 1.06)", offset: 0.55 },
+      { transform: "scale(1)" },
+    ],
+    480,
+  );
+}
+function nudge(el) {
+  if (calm() || !el || !el.animate) return;
+  el.animate(
+    [
+      { transform: "translateX(0)" },
+      { transform: "translateX(-12px)" },
+      { transform: "translateX(10px)" },
+      { transform: "translateX(-6px)" },
+      { transform: "translateX(0)" },
+    ],
+    { duration: 380, easing: "ease-out" },
+  );
+}
+function fly(el, move) {
+  const a = el.getBoundingClientRect();
+  move();
+  const b = el.getBoundingClientRect();
+  if (!b.width) return;
+  anim(
+    el,
+    [
+      {
+        transform: "translate(" + (a.left - b.left) + "px," + (a.top - b.top) + "px) scale(" + a.width / b.width + ")",
+        transformOrigin: "0 0",
+      },
+      { transform: "translate(0,0) scale(1)", transformOrigin: "0 0" },
+    ],
+    520,
+  );
+}
+function solved(el) {
+  if (!el) return;
+  el.classList.remove("st-solved");
+  void el.offsetWidth; // restart the pulse
+  el.classList.add("st-solved");
+  burst(el);
+  setTimeout(function () {
+    el.classList.remove("st-solved");
+  }, 1250);
+}
+function swap(el, html) {
+  if (calm() || !el.animate) {
+    el.innerHTML = html;
+    return;
+  }
+  const out = el.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 140, fill: "forwards" });
+  out.onfinish = function () {
+    el.innerHTML = html;
+    out.cancel();
+    el.animate(
+      [
+        { opacity: 0, transform: "translateY(8px)" },
+        { opacity: 1, transform: "none" },
+      ],
+      { duration: 260, easing: "ease-out" },
+    );
+  };
+}
+function info(host, first) {
+  const el = document.createElement("div");
+  el.className = "st-info";
+  host.appendChild(el);
+  function fill(o) {
+    el.innerHTML = "";
+    if (o.tag) {
+      const t = document.createElement("div");
+      t.className = "st-info-tag";
+      t.textContent = o.tag;
+      el.appendChild(t);
+    }
+    const h = document.createElement("div");
+    h.className = "st-info-t";
+    h.textContent = o.title || "";
+    el.appendChild(h);
+    const b = document.createElement("div");
+    b.className = "st-info-b";
+    if (o.html) b.innerHTML = o.body || "";
+    else b.textContent = o.body || "";
+    el.appendChild(b);
+    return b;
+  }
+  if (first) fill(first);
+  return {
+    el: el,
+    set: function (o) {
+      if (calm() || !el.animate) return fill(o);
+      const out = el.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 140, fill: "forwards" });
+      out.onfinish = function () {
+        fill(o);
+        out.cancel();
+        el.animate(
+          [
+            { opacity: 0, transform: "translateY(8px)" },
+            { opacity: 1, transform: "none" },
+          ],
+          { duration: 260, easing: "ease-out" },
+        );
+      };
+    },
+  };
+}
+function dots(host, n) {
+  const box = document.createElement("div");
+  box.className = "st-dots";
+  for (let i = 0; i < n; i++) box.appendChild(document.createElement("span"));
+  host.appendChild(box);
+  return {
+    el: box,
+    set: function (i, state) {
+      const s = box.children[i];
+      if (!s) return;
+      s.className = state || "";
+      if (state === "ok" || state === "no") pop(s);
+    },
+  };
+}
+// Links between elements (match pairs, the steps of an order chain, a hotspot and its card).
+// Beads flow from a to b; their speed is steady, so a link reads as "this leads to that".
+function links(host, opt) {
+  const cv = document.createElement("canvas");
+  cv.className = "st-links" + (opt && opt.under ? " st-links--under" : "");
+  host.appendChild(cv);
+  const c = cv.getContext("2d");
+  let list = [],
+    w = 0,
+    h = 0,
+    dpr = 1;
+  const low = lowSpec();
+  function anchor(r, o, toward, side) {
+    const cx = r.left + r.width / 2 - o.left,
+      cy = r.top + r.height / 2 - o.top;
+    const dx = toward[0] - cx,
+      dy = toward[1] - cy;
+    if (side === "x" || (side !== "y" && Math.abs(dx) / (r.width / 2 + 1) > Math.abs(dy) / (r.height / 2 + 1)))
+      return { x: cx + Math.sign(dx) * (r.width / 2), y: cy, nx: Math.sign(dx), ny: 0 };
+    return { x: cx, y: cy + Math.sign(dy) * (r.height / 2), nx: 0, ny: Math.sign(dy) };
+  }
+  function bez(p0, p1, p2, p3, t) {
+    const u = 1 - t;
+    return [
+      u * u * u * p0[0] + 3 * u * u * t * p1[0] + 3 * u * t * t * p2[0] + t * t * t * p3[0],
+      u * u * u * p0[1] + 3 * u * u * t * p1[1] + 3 * u * t * t * p2[1] + t * t * t * p3[1],
+    ];
+  }
+  const stop = loop(cv, function (dt, now) {
+    const o = host.getBoundingClientRect();
+    if (Math.round(o.width) !== w || Math.round(o.height) !== h) {
+      w = Math.round(o.width);
+      h = Math.round(o.height);
+      dpr = low ? 1 : Math.min(2, window.devicePixelRatio || 1);
+      cv.width = w * dpr;
+      cv.height = h * dpr;
+    }
+    c.setTransform(dpr, 0, 0, dpr, 0, 0);
+    c.clearRect(0, 0, w, h);
+    if (!list.length) return;
+    const flowing = list.filter(function (l) {
+      return l.flow && !l.dim;
+    }).length;
+    const per = flowing ? Math.max(1, Math.min(5, Math.floor((low ? 16 : 40) / flowing))) : 0;
+    list.forEach(function (l) {
+      if (!l.a.isConnected || !l.b.isConnected) return;
+      const ra = l.a.getBoundingClientRect(),
+        rb = l.b.getBoundingClientRect();
+      if (!ra.width || !rb.width) return;
+      const pa = anchor(ra, o, [rb.left + rb.width / 2 - o.left, rb.top + rb.height / 2 - o.top], l.side),
+        pb = anchor(rb, o, [ra.left + ra.width / 2 - o.left, ra.top + ra.height / 2 - o.top], l.side);
+      const k = Math.max(30, Math.hypot(pb.x - pa.x, pb.y - pa.y) * 0.4);
+      const P0 = [pa.x, pa.y],
+        P1 = [pa.x + pa.nx * k, pa.y + pa.ny * k],
+        P2 = [pb.x + pb.nx * k, pb.y + pb.ny * k],
+        P3 = [pb.x, pb.y];
+      l.grow = calm() ? 1 : Math.min(1, (l.grow || 0) + dt * 2.6);
+      const g = 1 - Math.pow(1 - l.grow, 3);
+      const col = l.color || PALETTE.green;
+      c.globalAlpha = l.dim ? 0.35 : 1;
+      c.strokeStyle = col;
+      c.lineWidth = l.dim ? 3 : 5;
+      c.lineCap = "round";
+      c.setLineDash(l.dim ? [6, 9] : []);
+      c.beginPath();
+      c.moveTo(P0[0], P0[1]);
+      const steps = 28;
+      for (let i = 1; i <= steps * g; i++) {
+        const p = bez(P0, P1, P2, P3, i / steps);
+        c.lineTo(p[0], p[1]);
+      }
+      c.stroke();
+      c.setLineDash([]);
+      if (l.arrow && g >= 1) {
+        const q = bez(P0, P1, P2, P3, 0.93),
+          ang = Math.atan2(P3[1] - q[1], P3[0] - q[0]);
+        c.fillStyle = col;
+        c.beginPath();
+        c.moveTo(P3[0], P3[1]);
+        c.lineTo(P3[0] - 16 * Math.cos(ang - 0.45), P3[1] - 16 * Math.sin(ang - 0.45));
+        c.lineTo(P3[0] - 16 * Math.cos(ang + 0.45), P3[1] - 16 * Math.sin(ang + 0.45));
+        c.closePath();
+        c.fill();
+      }
+      if (l.flow && !l.dim && g >= 1) {
+        const span = Math.hypot(P3[0] - P0[0], P3[1] - P0[1]),
+          beads = Math.max(1, Math.min(per, Math.floor(span / 48))),
+          speed = 70 / Math.max(70, span); // about 70 px a second, whatever the length
+        for (let i = 0; i < beads; i++) {
+          const f = calm() ? (i + 0.5) / beads : (now * speed + i / beads) % 1;
+          const p = bez(P0, P1, P2, P3, f);
+          if (!low) {
+            const gl = c.createRadialGradient(p[0], p[1], 0, p[0], p[1], 12);
+            gl.addColorStop(0, "rgba(255,255,255,.9)");
+            gl.addColorStop(1, "rgba(255,255,255,0)");
+            c.fillStyle = gl;
+            c.beginPath();
+            c.arc(p[0], p[1], 12, 0, Math.PI * 2);
+            c.fill();
+          }
+          c.fillStyle = PALETTE.white;
+          c.strokeStyle = col;
+          c.lineWidth = 2.5;
+          c.beginPath();
+          c.arc(p[0], p[1], 5.5, 0, Math.PI * 2);
+          c.fill();
+          c.stroke();
+        }
+      }
+      c.globalAlpha = 1;
+    });
+  });
+  return {
+    canvas: cv,
+    set: function (next) {
+      // keep the grown state of links that stay
+      next.forEach(function (n) {
+        const old = list.find(function (l) {
+          return l.a === n.a && l.b === n.b;
+        });
+        if (old) n.grow = old.grow;
+      });
+      list = next;
+    },
+    stop: function () {
+      stop();
+      cv.remove();
+    },
+  };
+}
+Object.assign(ME, {
+  split: split,
+  reads: reads,
+  roll: roll,
+  pop: pop,
+  nudge: nudge,
+  fly: fly,
+  solved: solved,
+  swap: swap,
+  info: info,
+  dots: dots,
+  links: links,
+});
+// ═══════════════════════════════ end of CLASS ACTIVITIES KIT ═══════════════════════════════════
+
 // ═════════════════════════════════════════════════════════════════════════
 // EARLY YEARS DELIGHT (added 2026-11-27 for the early-years templates: emoji quiz, picture quiz,
 // picture reveal, word wheel, picture chart, picture spotter, count and pick, sound poster).
@@ -618,7 +999,7 @@ export const ME = {
 //   ME.flood(el, x, y, {color, keep})  radial colour flood from a tap point (a scaled circle); keep
 //                                   leaves the colour in place, otherwise it fades
 //   ME.ripple(el, x, y, color)      a ring that spreads from a tap point
-//   ME.roll(el, to, {fmt, rate})    a number in the page that rolls up to `to` and pops
+//   (rolling numbers: ME.roll from the Class activities kit above)
 //   ME.tiles(host, word)            letter tiles that bounce in; returns {el, light(i)}: light(i) lifts
 //                                   tile i while it is spoken, light(-1) lifts every tile (whole word)
 //   ME.ambient(host, {grass, stars, hills})  ambient life behind a stage: drifting sparkles, rolling
@@ -696,38 +1077,12 @@ function ripple(el, x, y, color) {
   );
   a.onfinish = () => r.remove();
 }
-function roll(el, to, opt) {
-  if (!el) return;
-  opt = opt || {};
-  const fmt =
-      opt.fmt ||
-      function (v) {
-        return String(Math.round(v));
-      },
-    from = el._stV === undefined ? +to : el._stV;
-  el._stV = +to;
-  if (el._stStop) el._stStop();
-  if (calm() || from === +to) {
-    el.textContent = fmt(+to);
-  } else {
-    let cur = from;
-    el._stStop = loop(el, function (dt) {
-      cur = ease(cur, +to, dt, opt.rate || 9);
-      if (Math.abs(cur - to) < 0.02) {
-        cur = +to;
-        el._stStop();
-      }
-      el.textContent = fmt(cur);
-    });
-  }
-  if (from !== +to) squash(el);
-}
 function tiles(host, word) {
   const el = document.createElement("div");
-  el.className = "st-tiles";
+  el.className = "st-letters";
   [...word].forEach(function (ch, i) {
     const t = document.createElement("span");
-    t.className = ch.trim() ? "st-tile" : "st-tile gap";
+    t.className = ch.trim() ? "st-letter" : "st-letter gap";
     t.textContent = ch;
     t.style.animationDelay = i * 40 + "ms";
     el.appendChild(t);
@@ -866,4 +1221,4 @@ function ambient(host, opt) {
     if (ro) ro.disconnect();
   };
 }
-Object.assign(ME, { squash: squash, flood: flood, ripple: ripple, roll: roll, tiles: tiles, ambient: ambient });
+Object.assign(ME, { squash: squash, flood: flood, ripple: ripple, tiles: tiles, ambient: ambient });

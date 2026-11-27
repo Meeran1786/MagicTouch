@@ -430,3 +430,7 @@ html.st-low .ey-grid4 .st-pick {
 html.st-low .ey-hero {
   animation: stPop 0.5s var(--mt-spring) both;
 }
+.ey-studio .st-btn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}

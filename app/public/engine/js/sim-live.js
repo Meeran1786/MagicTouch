@@ -15,6 +15,8 @@
 // Low-spec PCs (window.MAGICTOUCH_LOW_SPEC): 16 beads instead of 40, no blur, 1× pixels.
 // Reduced motion: beads and needle hold still, numbers and looks change at once.
 import { ME } from "/shared/motion-engine.js";
+import { market } from "./sim-live-market.js";
+import { line } from "./sim-live-line.js";
 
 const W = 680,
   H = 420;
@@ -759,4 +761,4 @@ function circuit(host, side, opts) {
   };
 }
 
-export const simLive = { circuit: circuit };
+export const simLive = { circuit: circuit, market: market, line: line };

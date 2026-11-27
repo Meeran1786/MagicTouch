@@ -76,7 +76,7 @@ export default function countPick(area, d) {
     fruit = pool[Math.floor(Math.random() * pool.length)] || d.fruits[0];
     total = lo + Math.floor(Math.random() * (Math.min(hi, SPOTS.length) - lo + 1));
     picked = 0;
-    countEl._stV = 0;
+    countEl._rollV = 0;
     countEl.textContent = "0";
     f.goal(`Pick the ${fruit.many} and count them!`);
     f.say("");
@@ -124,6 +124,7 @@ export default function countPick(area, d) {
       ME.squash(basket);
     };
     ME.roll(countEl, picked);
+    ME.squash(countEl);
     wordEl.textContent = `${picked} ${picked === 1 ? fruit.one : fruit.many}`;
     ME.sound.tap();
     MT.speak(String(picked));

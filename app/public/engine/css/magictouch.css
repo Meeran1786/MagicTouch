@@ -638,6 +638,12 @@ button {
 }
 
 /* ---------- simulation: predict-first, media card, live worked solution (layout and controls: /shared/studio-base.css) ---------- */
+/* SVG pictures (formula model) sit on an elevated white stage, like the live Canvas ones */
+.st-stage-holder.sim-svg {
+  background: var(--mt-white);
+  box-shadow: var(--mt-shadow);
+  padding: 16px;
+}
 .sim-pic.sim-real {
   background: transparent;
 }
@@ -788,35 +794,13 @@ button {
   overflow: auto;
 }
 
-/* ---------- quiz template ---------- */
-.qz-wrap {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  max-width: 1300px;
-  margin: 0 auto;
-  overflow: auto;
-}
-.qz-card {
-  background: #fff;
-  border-radius: 20px;
-  padding: 18px 26px;
-  box-shadow: 0 3px 10px rgba(61, 14, 55, 0.08);
-}
-.qz-n {
-  font-size: 17px;
-  font-weight: 700;
-  color: var(--orange);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
+/* ---------- quiz template (the rest is .st-opt in /shared/studio-base.css) ---------- */
 .qz-q {
-  font-family: Cambria, Georgia, serif;
+  font-family: var(--mt-head);
   font-size: 30px;
   line-height: 1.3;
   color: var(--plum-dark);
-  margin-top: 6px;
+  margin: 10px 0 16px;
 }
 .qz-ar {
   margin: 4px 0;
@@ -829,80 +813,6 @@ button {
 .qz-fig svg {
   max-height: 200px;
   max-width: 100%;
-}
-.qz-opts {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
-.qz-opts.one {
-  grid-template-columns: 1fr;
-}
-.qz-opt {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  min-height: 84px;
-  text-align: left;
-  font-size: 25px;
-  font-weight: 700;
-  color: var(--ink);
-  background: #fff;
-  border: 4px solid var(--line);
-  border-radius: 18px;
-  padding: 10px 18px;
-  box-shadow: 0 3px 10px rgba(61, 14, 55, 0.06);
-}
-.qz-opt:disabled {
-  cursor: default;
-  color: var(--ink);
-}
-.qz-l {
-  flex: 0 0 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: var(--plum);
-  color: var(--yellow);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-}
-.qz-opt.right {
-  border-color: var(--green);
-  background: #eaf6ee;
-}
-.qz-opt.right .qz-l {
-  background: var(--green);
-  color: #fff;
-}
-.qz-opt.wrong {
-  border-color: var(--red);
-  background: #fce9ea;
-}
-.qz-opt.wrong .qz-l {
-  background: var(--red);
-  color: #fff;
-}
-.qz-fb {
-  display: flex;
-  gap: 16px;
-  align-items: stretch;
-}
-.qz-why {
-  flex: 1;
-  font-size: 22px;
-  line-height: 1.35;
-  background: var(--cream2);
-  border-radius: 16px;
-  padding: 12px 18px;
-}
-.qz-why:empty {
-  display: none;
-}
-.qz-next {
-  min-width: 260px;
-  min-height: 72px;
 }
 .qz-rev {
   text-align: left;
@@ -921,21 +831,6 @@ button {
 }
 
 /* ---------- map explorer template ---------- */
-.mp-wrap {
-  display: flex;
-  gap: 24px;
-  height: 100%;
-}
-.mp-map {
-  position: relative;
-  flex: 1.7;
-  min-width: 0;
-}
-.mp-map > div {
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 6px 24px rgba(61, 14, 55, 0.15);
-}
 .mp-map [data-region] {
   cursor: pointer;
   transition:
@@ -944,54 +839,17 @@ button {
 }
 .mp-map [data-region].mp-seen {
   filter: saturate(1.35) brightness(1.04);
-  stroke: #2e7d46;
+  stroke: var(--mt-green);
   stroke-width: 5px;
 }
 .mp-map [data-region].mp-on {
-  stroke: #f3a328;
+  stroke: var(--mt-amber);
   stroke-width: 9px;
   filter: brightness(1.12);
 }
 .mp-map [data-region].mp-no {
-  stroke: #cc2430;
+  stroke: var(--mt-magenta);
   stroke-width: 9px;
-}
-.mp-info {
-  flex: 1;
-  background: #fff;
-  border-radius: 20px;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  box-shadow: 0 3px 10px rgba(61, 14, 55, 0.08);
-}
-.mp-tag {
-  align-self: flex-start;
-  font-size: 15px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  background: var(--plum);
-  color: var(--yellow);
-  padding: 3px 12px;
-  border-radius: 999px;
-}
-.mp-t {
-  font-family: Cambria, Georgia, serif;
-  font-size: 32px;
-  font-weight: 800;
-  color: var(--plum);
-}
-.mp-b {
-  font-size: 24px;
-  line-height: 1.4;
-}
-.mp-x {
-  margin-top: auto;
-}
-.mp-x .mt-btn {
-  width: 100%;
-  min-height: 72px;
 }
 
 /* ---------- lesson pack template ---------- */
@@ -1000,53 +858,6 @@ button {
   flex-direction: column;
   gap: 12px;
   height: 100%;
-}
-.pk-bar {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.pk-chip {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  min-height: 56px;
-  padding: 6px 20px 6px 8px;
-  border-radius: 999px;
-  border: 3px solid var(--line);
-  background: #fff;
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--muted);
-}
-.pk-n {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: var(--line);
-  color: var(--plum-dark);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-}
-.pk-chip.done {
-  color: var(--green);
-  border-color: #bfe3cb;
-}
-.pk-chip.done .pk-n {
-  background: var(--green);
-  color: #fff;
-}
-.pk-chip.on {
-  color: var(--plum);
-  border-color: var(--amber);
-  box-shadow: 0 0 0 4px rgba(243, 163, 40, 0.25);
-}
-.pk-chip.on .pk-n {
-  background: var(--plum);
-  color: var(--yellow);
 }
 .pk-body {
   position: relative;
@@ -1064,31 +875,6 @@ button {
   .qz-q {
     font-size: 24px;
   }
-  .qz-opt {
-    min-height: 62px;
-    font-size: 21px;
-    padding: 6px 14px;
-  }
-  .qz-l {
-    flex-basis: 42px;
-    height: 42px;
-    font-size: 20px;
-  }
-  .qz-opts {
-    gap: 10px;
-  }
-  .qz-wrap {
-    gap: 10px;
-  }
-  .qz-card {
-    padding: 12px 20px;
-  }
-  .qz-why {
-    font-size: 19px;
-  }
-  .qz-next {
-    min-height: 60px;
-  }
   .sim-q {
     font-size: 20px;
   }
@@ -1104,14 +890,6 @@ button {
   }
   .sim-sol-l {
     font-size: 20px;
-  }
-  .pk-chip {
-    min-height: 46px;
-    font-size: 17px;
-  }
-  .pk-n {
-    width: 34px;
-    height: 34px;
   }
 }
 

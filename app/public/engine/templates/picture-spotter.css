@@ -62,12 +62,12 @@
 .ps-word {
   min-height: 84px;
 }
-.ps-word .st-tile {
+.ps-word .st-letter {
   background: linear-gradient(180deg, #d9476a 0%, var(--mt-magenta) 100%);
 }
-.ps-word .st-tile.gap {
+.ps-word .st-letter.gap {
   background: none;
 }
-.ps-word .st-tile.on {
+.ps-word .st-letter.on {
   background: linear-gradient(180deg, #7d2a6c 0%, var(--mt-plum) 100%);
 }

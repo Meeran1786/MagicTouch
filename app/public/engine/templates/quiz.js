@@ -4,7 +4,12 @@
 //   {type:"truefalse", q, answer:true, explain}                                true / false
 //   {type:"assertion", assertion, reason, answer:0, explain}                  assertion–reason, standard 4 choices
 // d.shuffleOptions (default true) mixes the choices of plain MCQs; d.passPercent (default 60) sets the cheer.
+// d.goal is an optional challenge text for the yellow card.
+// Gold Standard layout (CLAUDE.md §7): the question and its answer cards are the picture on the left; the
+// panel on the right holds the challenge card, the marks (they roll up), a dot per question and the
+// reason, which cross-fades in with the Next button in the same frame as the answer lights up.
 import { MT } from "../js/kit.js";
+import { ME } from "/shared/motion-engine.js";
 
 // Runs inside the engine page's header and instruction line (not full screen).
 export const meta = { fullscreen: false };
@@ -57,17 +62,42 @@ export default function quiz(area, d, ctx) {
   let got = 0;
   let qi = 0;
   const log = [];
-  const wrap = document.createElement("div");
-  wrap.className = "qz-wrap";
-  area.appendChild(wrap);
+  const ui = ME.split(area, {
+    goal: d.goal || "Answer " + qs.length + " questions. Aim for " + (d.passPercent || 60) + "% or more.",
+  });
+  const board = document.createElement("div");
+  board.className = "st-board";
+  board.style.overflow = "auto";
+  ui.holder.appendChild(board);
+  const reads = ME.reads(ui.panel, [
+    { id: "m", k: "Marks" },
+    { id: "q", k: "Question", accent: true },
+  ]);
+  const dots = ME.dots(ui.panel, qs.length);
+  dots.el.classList.add("st-card");
+  const info = ME.info(ui.panel, { title: "Think, then tap", body: "Tap the answer you think is right." });
+  const next = document.createElement("button");
+  next.type = "button";
+  next.className = "st-btn";
+  next.hidden = true;
+  ui.panel.appendChild(next);
+  next.addEventListener("click", function () {
+    qi++;
+    if (qi < qs.length) show();
+    else end();
+  });
+  reads.set("m", 0, total);
   function show() {
     const q = qs[qi];
-    wrap.innerHTML = "";
+    board.innerHTML = "";
+    next.hidden = true;
     MT.score(got + " / " + total + " marks");
-    const card = document.createElement("div");
-    card.className = "qz-card";
-    card.innerHTML =
-      '<div class="qz-n">Question ' +
+    reads.set("q", qi + 1, qs.length);
+    dots.set(qi, "on");
+    info.set({ title: "Think, then tap", body: "Tap the answer you think is right." });
+    const head = document.createElement("div");
+    head.innerHTML =
+      '<span class="st-info-tag">Question ' +
       (qi + 1) +
       " of " +
       qs.length +
@@ -75,26 +105,24 @@ export default function quiz(area, d, ctx) {
       q.marks +
       " mark" +
       (q.marks > 1 ? "s" : "") +
-      '</div><div class="qz-q">' +
+      '</span><div class="qz-q">' +
       q.html +
       "</div>" +
       (q.figure ? '<div class="qz-fig">' + q.figure + "</div>" : "");
-    wrap.appendChild(card);
+    board.appendChild(head);
     const long =
       q.choices.some(function (c) {
         return c.text.length > 34;
       }) || q.choices.length < 3;
     const grid = document.createElement("div");
-    grid.className = "qz-opts" + (long ? " one" : "");
-    wrap.appendChild(grid);
-    const fb = document.createElement("div");
-    fb.className = "qz-fb";
-    wrap.appendChild(fb);
+    grid.className = "st-opts" + (long ? " one" : "");
+    board.appendChild(grid);
     let answered = false;
     q.choices.forEach(function (c, i) {
       const b = document.createElement("button");
-      b.className = "qz-opt";
-      b.innerHTML = '<span class="qz-l">' + LET[i] + "</span><span>" + c.text + "</span>";
+      b.type = "button";
+      b.className = "st-opt";
+      b.innerHTML = '<span class="st-opt-l">' + LET[i] + "</span><span>" + c.text + "</span>";
       grid.appendChild(b);
       b.addEventListener("click", function () {
         if (answered) return;
@@ -107,42 +135,37 @@ export default function quiz(area, d, ctx) {
         if (ok) {
           got += q.marks;
           MT.good("Correct!");
+          ME.pop(b);
+          ME.solved(ui.goal);
         } else {
           b.classList.add("wrong");
+          ME.nudge(b);
           MT.bad("Not this one");
         }
+        dots.set(qi, ok ? "ok" : "no");
         log.push({ ok: ok, q: q.short });
         MT.score(got + " / " + total + " marks");
-        fb.innerHTML =
-          '<div class="qz-why"><b>' +
-          (ok
-            ? "Correct."
-            : "The answer is " +
-              LET[
-                q.choices.findIndex(function (x) {
-                  return x.orig === q.answer;
-                })
-              ] +
-              ".") +
-          "</b> " +
-          q.explain +
-          "</div>";
-        const nx = document.createElement("button");
-        nx.className = "mt-btn qz-next";
-        nx.textContent = qi + 1 < qs.length ? "Next question →" : "See my score →";
-        nx.addEventListener("click", function () {
-          qi++;
-          if (qi < qs.length) show();
-          else end();
+        reads.set("m", got, total);
+        const right =
+          LET[
+            q.choices.findIndex(function (x) {
+              return x.orig === q.answer;
+            })
+          ];
+        info.set({
+          tag: ok ? "Correct" : "The answer is " + right,
+          title: ok ? "Well done!" : "Here is why",
+          body: q.explain || "",
+          html: true,
         });
-        fb.appendChild(nx);
-        nx.scrollIntoView({ block: "nearest" });
+        next.textContent = qi + 1 < qs.length ? "Next question →" : "See my score →";
+        next.hidden = false;
+        ME.pop(next);
         if (q.explain) MT.speak((ok ? "Correct. " : "") + q.explain.replace(/<[^>]+>/g, ""));
       });
     });
   }
   function end() {
-    wrap.innerHTML = "";
     const pct = Math.round((got / total) * 100),
       pass = pct >= (d.passPercent || 60);
     if (ctx.report) ctx.report({ score: got, total: total });
@@ -161,6 +184,7 @@ export default function quiz(area, d, ctx) {
         );
       })
       .join("");
+    next.hidden = true;
     MT.done(
       area,
       (pass ? d.doneText || "Well done!" : "Good try!") + " " + got + " / " + total + " (" + pct + "%)",

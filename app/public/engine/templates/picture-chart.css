@@ -77,7 +77,7 @@
   color: var(--c);
   animation: stPop 0.5s var(--mt-spring) 0.05s both;
 }
-.pc-word-big .st-tile {
+.pc-word-big .st-letter {
   min-width: 52px;
   height: 68px;
   font-size: 42px;

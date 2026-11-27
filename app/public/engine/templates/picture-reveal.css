@@ -102,7 +102,7 @@ html.st-low .pr-colour img {
   align-items: flex-end;
   justify-content: center;
 }
-.pr-tiles .st-tile {
+.pr-tiles .st-letter {
   min-width: 70px;
   height: 92px;
   font-size: 56px;
@@ -114,7 +114,7 @@ html.st-low .pr-colour img {
   gap: 14px;
 }
 @media (max-height: 800px) {
-  .pr-tiles .st-tile {
+  .pr-tiles .st-letter {
     min-width: 58px;
     height: 76px;
     font-size: 46px;
