@@ -17,46 +17,65 @@
         "template": "explore",
         "instruction": "Tap each glowing circle to meet the parts of a circuit.",
         "intro": "This is a simple electric circuit. Tap each part to find out what it does.",
-        "scene": "<svg viewBox=\"0 0 600 430\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"600\" height=\"430\" fill=\"#FFFDF7\"/>\n<g stroke=\"#3D0E37\" stroke-width=\"5\" fill=\"none\" stroke-linecap=\"round\">\n<path d=\"M80 80 H170 M230 80 H360 M440 80 H520 V170 M520 230 V320 H360 M240 320 H80 V210 M80 190 V80\"/>\n<path d=\"M240 320 V385 H270 M330 385 H360 V320\"/></g>\n<g stroke=\"#3D0E37\" stroke-width=\"5\"><line x1=\"48\" y1=\"190\" x2=\"112\" y2=\"190\"/><line x1=\"64\" y1=\"210\" x2=\"96\" y2=\"210\" stroke-width=\"11\"/></g>\n<text x=\"38\" y=\"186\" font-size=\"24\" font-weight=\"700\" fill=\"#CC3054\" text-anchor=\"end\">+</text>\n<circle cx=\"170\" cy=\"80\" r=\"6\" fill=\"#3D0E37\"/><circle cx=\"230\" cy=\"80\" r=\"6\" fill=\"#3D0E37\"/><line x1=\"170\" y1=\"80\" x2=\"226\" y2=\"66\" stroke=\"#3D0E37\" stroke-width=\"5\" stroke-linecap=\"round\"/>\n<circle cx=\"400\" cy=\"80\" r=\"34\" fill=\"#FFF0D8\" stroke=\"#3D0E37\" stroke-width=\"5\"/><text x=\"400\" y=\"92\" font-size=\"34\" font-weight=\"800\" text-anchor=\"middle\" fill=\"#631654\">A</text>\n<circle cx=\"520\" cy=\"200\" r=\"30\" fill=\"#FBD064\" stroke=\"#3D0E37\" stroke-width=\"5\"/><path d=\"M499 179 L541 221 M541 179 L499 221\" stroke=\"#3D0E37\" stroke-width=\"4\"/>\n<rect x=\"240\" y=\"304\" width=\"120\" height=\"32\" rx=\"4\" fill=\"#E96E24\" stroke=\"#3D0E37\" stroke-width=\"5\"/>\n<circle cx=\"300\" cy=\"385\" r=\"30\" fill=\"#FFF0D8\" stroke=\"#3D0E37\" stroke-width=\"5\"/><text x=\"300\" y=\"397\" font-size=\"32\" font-weight=\"800\" text-anchor=\"middle\" fill=\"#631654\">V</text>\n</svg>",
+        "scene": "<svg viewBox=\"0 0 600 440\" xmlns=\"http://www.w3.org/2000/svg\">\n<g stroke=\"#631654\" stroke-width=\"6\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n<path d=\"M90 196 V80 H160 M220 80 H370 M430 80 H510 V175 M510 235 V330 H360 M240 330 H90 V220\"/>\n<path d=\"M240 330 V395 H274 M326 395 H360 V330\"/></g>\n<circle cx=\"240\" cy=\"330\" r=\"6\" fill=\"#631654\"/><circle cx=\"360\" cy=\"330\" r=\"6\" fill=\"#631654\"/>\n<g data-part=\"cell\"><rect x=\"50\" y=\"186\" width=\"80\" height=\"44\" fill=\"#FFFFFF\" opacity=\"0\"/>\n<line x1=\"56\" y1=\"196\" x2=\"124\" y2=\"196\" stroke=\"#631654\" stroke-width=\"5\"/>\n<line x1=\"74\" y1=\"220\" x2=\"106\" y2=\"220\" stroke=\"#631654\" stroke-width=\"11\"/>\n<text x=\"138\" y=\"190\" font-size=\"24\" font-weight=\"700\" fill=\"#CC3054\" text-anchor=\"middle\">+</text>\n<text x=\"122\" y=\"244\" font-size=\"24\" font-weight=\"700\" fill=\"#3D0E37\" text-anchor=\"middle\">−</text></g>\n<g data-part=\"switch\" stroke=\"#631654\" stroke-width=\"5\" stroke-linecap=\"round\">\n<circle cx=\"160\" cy=\"80\" r=\"7\" fill=\"#631654\"/><circle cx=\"220\" cy=\"80\" r=\"7\" fill=\"#631654\"/>\n<line x1=\"160\" y1=\"80\" x2=\"214\" y2=\"60\"/></g>\n<g data-part=\"ammeter\"><circle cx=\"400\" cy=\"80\" r=\"30\" fill=\"#FFFFFF\" stroke=\"#631654\" stroke-width=\"5\"/>\n<text x=\"400\" y=\"91\" font-size=\"30\" font-weight=\"800\" text-anchor=\"middle\" fill=\"#631654\">A</text></g>\n<g data-part=\"bulb\" data-glow=\"1\"><circle class=\"st-fill\" cx=\"510\" cy=\"205\" r=\"30\" fill=\"#FFFFFF\" stroke=\"#631654\" stroke-width=\"5\"/>\n<path d=\"M489 184 L531 226 M531 184 L489 226\" stroke=\"#631654\" stroke-width=\"5\" stroke-linecap=\"round\"/></g>\n<g data-part=\"resistor\"><path d=\"M360 330 H348 L342 344 L330 316 L318 344 L306 316 L294 344 L282 316 L270 344 L258 316 L252 330 H240\" fill=\"none\" stroke=\"#631654\" stroke-width=\"5\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/></g>\n<g data-part=\"voltmeter\"><circle cx=\"300\" cy=\"395\" r=\"26\" fill=\"#FFFFFF\" stroke=\"#631654\" stroke-width=\"5\"/>\n<text x=\"300\" y=\"405\" font-size=\"28\" font-weight=\"800\" text-anchor=\"middle\" fill=\"#631654\">V</text></g>\n</svg>",
         "hotspots": [
           {
-            "x": 24,
-            "y": 46.5,
+            "x": 21.3,
+            "y": 47.3,
+            "bx": 29.2,
+            "by": 47.3,
+            "part": "cell",
             "label": "Cell",
             "text": "The cell pushes electric charge around the circuit. How hard it pushes is its voltage, measured in volts (V)."
           },
           {
-            "x": 33.3,
-            "y": 11,
+            "x": 32.5,
+            "y": 20,
+            "bx": 38.3,
+            "by": 34.1,
+            "part": "switch",
             "label": "Switch",
             "text": "A switch opens or closes the path. Current flows only when the circuit is a complete, closed loop."
           },
           {
             "x": 66.7,
-            "y": 30,
+            "y": 25.5,
+            "bx": 66.7,
+            "by": 37.5,
+            "part": "ammeter",
             "label": "Ammeter",
             "text": "An ammeter measures current in amperes (A). It sits in the same loop as the other parts, in series."
           },
           {
-            "x": 76,
-            "y": 46.5,
+            "x": 79.7,
+            "y": 46.6,
+            "bx": 70.8,
+            "by": 53.4,
+            "part": "bulb",
             "label": "Bulb",
             "text": "The bulb changes electrical energy into light and heat. More current makes it glow brighter."
           },
           {
             "x": 50,
-            "y": 63,
+            "y": 70.9,
+            "bx": 50,
+            "by": 59.5,
+            "part": "resistor",
             "label": "Resistor",
             "text": "A resistor opposes the flow of current. Its resistance is measured in ohms (Ω)."
           },
           {
-            "x": 64,
-            "y": 89.5,
+            "x": 54.7,
+            "y": 89.8,
+            "bx": 70,
+            "by": 90.9,
+            "part": "voltmeter",
             "label": "Voltmeter",
             "text": "A voltmeter measures the voltage across a part. It is joined across the two ends of that part, in parallel."
           }
         ],
-        "doneText": "You know the parts of a circuit!"
+        "doneText": "You know the parts of a circuit!",
+        "look": "diagram"
       }
     },
     {

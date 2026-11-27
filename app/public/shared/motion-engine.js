@@ -775,6 +775,7 @@ Object.assign(ME, {
 //                                 ME.links(host, {under: true}) draws below the host's other children
 //   ME.dots(host, n)              a row of progress dots: d.set(i, "on" | "ok" | "no" | "")
 //   ME.swap(el, html)             cross-fades el's content to new HTML (the Real | Diagram fade)
+//   ME.parts(scene, {grid})       data-part shapes of an SVG picture: leader lines, tap highlight, glow
 //   ME.info(host, {tag, title, body})   .st-info card; i.set({tag, title, body, html}) cross-fades to new
 //                                 text (body is plain text unless html is true)
 // ════════════════════════════════════════════════════════════════════════════════════════════════
@@ -1110,7 +1111,68 @@ function links(host, opt) {
     },
   };
 }
+// Parts of an SVG picture (explore, label). Shapes in the activity's SVG carry data-part="id";
+// data-glow on a part makes it light up (a bulb). Badges may sit away from their part with a
+// dotted leader line, so a badge never covers the symbol it names.
+//   const p = ME.parts(scene, {grid: true});   grid: the reference Diagram view's 20-unit grid behind
+//                                              the drawing (draw the SVG without a background fill)
+//   p.leader(x, y, bx, by)   dotted line in % of the picture, from the part (x, y) to its badge (bx, by)
+//   p.hit(id)                brief highlight bump on that part (+ glow while it is the chosen one)
+//   p.select(id | null)      keeps one part lit
+function parts(scene, opt) {
+  const NS = "http://www.w3.org/2000/svg";
+  if (opt && opt.grid) {
+    scene.classList.add("st-scene--grid");
+    const svg = scene.querySelector("svg"),
+      vb = ((svg && svg.getAttribute("viewBox")) || "").split(/[ ,]+/).map(Number);
+    if (vb.length === 4 && vb[2] > 0 && vb[3] > 0)
+      scene.style.backgroundSize = (2000 / vb[2]).toFixed(3) + "% " + (2000 / vb[3]).toFixed(3) + "%";
+  }
+  const over = document.createElementNS(NS, "svg");
+  over.setAttribute("class", "st-leaders");
+  over.setAttribute("viewBox", "0 0 100 100");
+  over.setAttribute("preserveAspectRatio", "none");
+  scene.appendChild(over);
+  function find(id) {
+    return id ? scene.querySelectorAll('[data-part="' + String(id).replace(/"/g, "") + '"]') : [];
+  }
+  return {
+    leader: function (x, y, bx, by) {
+      const l = document.createElementNS(NS, "line");
+      l.setAttribute("x1", x);
+      l.setAttribute("y1", y);
+      l.setAttribute("x2", bx);
+      l.setAttribute("y2", by);
+      over.appendChild(l);
+      const dot = document.createElementNS(NS, "circle");
+      dot.setAttribute("cx", x);
+      dot.setAttribute("cy", y);
+      dot.setAttribute("r", "0.7");
+      over.appendChild(dot);
+      return l;
+    },
+    hit: function (id) {
+      [].forEach.call(find(id), function (el) {
+        el.classList.remove("st-part-hit");
+        void el.getBoundingClientRect();
+        el.classList.add("st-part-hit");
+        setTimeout(function () {
+          el.classList.remove("st-part-hit");
+        }, 700);
+      });
+    },
+    select: function (id) {
+      [].forEach.call(scene.querySelectorAll(".st-part-on"), function (el) {
+        el.classList.remove("st-part-on");
+      });
+      [].forEach.call(find(id), function (el) {
+        el.classList.add("st-part-on");
+      });
+    },
+  };
+}
 Object.assign(ME, {
+  parts: parts,
   split: split,
   reads: reads,
   roll: roll,

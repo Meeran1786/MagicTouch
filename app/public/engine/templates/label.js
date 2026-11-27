@@ -4,7 +4,10 @@
 // read-outs. A right label glides onto the picture and the panel explains that part in the same frame.
 // Activity data:
 //   scene     "<svg viewBox=…>"                  the diagram (code-drawn SVG)
-//   targets   [{x, y, label, say}]               x, y in % of the picture
+//   targets   [{x, y, label, say, part, px, py}]  x, y in % of the picture (where the label goes);
+//             part: optional data-part id of the SVG shapes that light up when the label is placed;
+//             px, py: optional point on the part (in %), joined to the label by a dotted leader line
+//   look      "diagram": the Ohm's law Diagram view's engineering grid behind a technical drawing
 //   goal      optional challenge text (default: "Put all N labels on the diagram.")
 //   doneText  message at the end
 import { MT } from "../js/kit.js";
@@ -21,6 +24,10 @@ export default function label(area, d, ctx) {
   const ui = ME.split(area, { goal: d.goal || "Put all " + n + " labels on the diagram." });
   const scene = MT.sceneBox(ui.holder, d.scene);
   scene.classList.add("st-scene");
+  const pic = ME.parts(scene, { grid: d.look === "diagram" });
+  d.targets.forEach(function (t) {
+    if (t.px != null && t.py != null) pic.leader(t.px, t.py, t.x, t.y);
+  });
   d.targets.forEach(function (t, i) {
     const z = document.createElement("div");
     z.className = "st-slot";
@@ -75,6 +82,8 @@ export default function label(area, d, ctx) {
         it.style.whiteSpace = "nowrap";
         z.appendChild(it);
       });
+      pic.select(t.part);
+      pic.hit(t.part);
       done++;
       reads.set("l", done, n);
       MT.score(done + " / " + n);
