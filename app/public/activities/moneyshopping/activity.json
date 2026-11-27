@@ -1,0 +1,37 @@
+{
+ "id": "moneyshopping",
+ "level": "lkg",
+ "subject": "numbers",
+ "title": "Money and Shopping",
+ "topic": "Coins, wallet, shopping cart and more",
+ "icon": "🛍️",
+ "order": 97,
+ "status": "approved",
+ "template": "emoji-quiz",
+ "items": [
+  {
+   "emoji": "🪙",
+   "word": "Coin"
+  },
+  {
+   "emoji": "👛",
+   "word": "Wallet"
+  },
+  {
+   "emoji": "🛒",
+   "word": "Shopping Cart"
+  },
+  {
+   "emoji": "🛍️",
+   "word": "Shopping Bags"
+  },
+  {
+   "emoji": "🏷️",
+   "word": "Price Tag"
+  },
+  {
+   "emoji": "💵",
+   "word": "Cash"
+  }
+ ]
+}

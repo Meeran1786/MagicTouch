@@ -1,0 +1,37 @@
+{
+ "id": "exerciseyoga",
+ "level": "nursery",
+ "subject": "play",
+ "title": "Exercise and Yoga",
+ "topic": "Running, stretching, cycling and more",
+ "icon": "🧘",
+ "order": 91,
+ "status": "approved",
+ "template": "emoji-quiz",
+ "items": [
+  {
+   "emoji": "🏃",
+   "word": "Running"
+  },
+  {
+   "emoji": "🤸",
+   "word": "Jumping"
+  },
+  {
+   "emoji": "🧘",
+   "word": "Stretching"
+  },
+  {
+   "emoji": "🚴",
+   "word": "Cycling"
+  },
+  {
+   "emoji": "💃",
+   "word": "Dancing"
+  },
+  {
+   "emoji": "🧗",
+   "word": "Climbing"
+  }
+ ]
+}

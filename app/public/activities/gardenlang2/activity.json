@@ -1,0 +1,244 @@
+{
+ "id": "gardenlang2",
+ "level": "lkg",
+ "subject": "letters",
+ "title": "Garden Languages 2",
+ "topic": "Point at a circle to hear it — English, Hindi & Telugu — set 2 of 4",
+ "icon": "🍎",
+ "order": 15,
+ "status": "approved",
+ "template": "word-wheel",
+ "items": [
+  {
+   "word": "Dragon Fruit",
+   "photo": "images/DragonFruit.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Dragon Fruit",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "ड्रैगन फ्रूट",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "డ్రాగన్ ఫ్రూట్",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Fruit",
+   "photo": "images/F1.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Fruit",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "फल",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "పండు",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Garlic",
+   "photo": "images/Garlic.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Garlic",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "लहसुन",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "వెల్లుల్లి",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Grapes",
+   "photo": "images/Grapes.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Grapes",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "अंगूर",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "ద్రాక్ష",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Green Chili",
+   "photo": "images/GreenMirchi.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Green Chili",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "हरी मिर्च",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "పచ్చి మిర్చి",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Peanut",
+   "photo": "images/GroundNut.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Peanut",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "मूंगफली",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "వేరుశనగ",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Guava",
+   "photo": "images/Guava.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Guava",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "अमरूद",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "జామకాయ",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Ice Apple",
+   "photo": "images/Ice.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Ice Apple",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "ताड़गोला",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "తాటి ముంజలు",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Jackfruit",
+   "photo": "images/JackFruit.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Jackfruit",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "कटहल",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "పనస",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Jamun",
+   "photo": "images/Kalajamun.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Jamun",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "जामुन",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "నేరేడు",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Kiwi",
+   "photo": "images/Kiwi.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Kiwi",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "कीवी",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "కివీ",
+     "code": "te-IN"
+    }
+   ]
+  }
+ ]
+}

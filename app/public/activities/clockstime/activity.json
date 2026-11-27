@@ -1,0 +1,33 @@
+{
+ "id": "clockstime",
+ "level": "lkg",
+ "subject": "numbers",
+ "title": "Clocks and Time",
+ "topic": "Alarm clock, hourglass, calendar and more",
+ "icon": "⏰",
+ "order": 100,
+ "status": "approved",
+ "template": "emoji-quiz",
+ "items": [
+  {
+   "emoji": "⏰",
+   "word": "Alarm Clock"
+  },
+  {
+   "emoji": "⏳",
+   "word": "Hourglass"
+  },
+  {
+   "emoji": "⏱️",
+   "word": "Stopwatch"
+  },
+  {
+   "emoji": "📅",
+   "word": "Calendar"
+  },
+  {
+   "emoji": "⌚",
+   "word": "Watch"
+  }
+ ]
+}

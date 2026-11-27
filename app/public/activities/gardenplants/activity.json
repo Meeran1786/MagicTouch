@@ -1,0 +1,37 @@
+{
+ "id": "gardenplants",
+ "level": "nursery",
+ "subject": "nature",
+ "title": "Plants Around Us",
+ "topic": "Sunflower, cactus, mushroom and more",
+ "icon": "🌱",
+ "order": 83,
+ "status": "approved",
+ "template": "emoji-quiz",
+ "items": [
+  {
+   "emoji": "🌴",
+   "word": "Palm Tree"
+  },
+  {
+   "emoji": "🌻",
+   "word": "Sunflower"
+  },
+  {
+   "emoji": "🌵",
+   "word": "Cactus"
+  },
+  {
+   "emoji": "🌱",
+   "word": "Seedling"
+  },
+  {
+   "emoji": "🍄",
+   "word": "Mushroom"
+  },
+  {
+   "emoji": "🍃",
+   "word": "Leaf"
+  }
+ ]
+}

@@ -1,0 +1,82 @@
+/* Picture spotter: the question on top, pictures pinned below like posters. */
+.ps-wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.ps-ask {
+  padding: 14px 34px;
+  text-align: center;
+}
+.ps-q {
+  font: 700 40px var(--mt-head);
+  color: var(--mt-plum-dark);
+}
+.ps-q b {
+  color: var(--mt-magenta);
+}
+.ps-hint {
+  font-size: 18px;
+  color: var(--mt-mute);
+}
+.ps-field {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 26px 34px;
+  padding-top: 10px;
+  align-items: center;
+  justify-items: center;
+}
+.ps-card {
+  position: relative;
+  height: 100%;
+  max-width: 100%;
+  aspect-ratio: 1;
+  padding: 12px;
+  border: 2px solid var(--mt-line);
+  border-radius: 10px;
+  background: var(--mt-white);
+  box-shadow: var(--mt-shadow);
+  transform: rotate(var(--tilt));
+  cursor: pointer;
+  animation: ps-in 0.45s var(--mt-spring) both;
+  font-size: 150px;
+}
+.ps-card::before {
+  /* a strip of tape holding the poster */
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  width: 70px;
+  height: 22px;
+  transform: translateX(-50%) rotate(-4deg);
+  background: color-mix(in srgb, var(--mt-amber) 45%, transparent);
+  border-radius: 3px;
+}
+.ps-card .ey-pic {
+  width: 100%;
+  height: 100%;
+}
+.ps-card.is-right {
+  border-color: var(--mt-green);
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--mt-green) 35%, transparent);
+  animation: ey-squash 0.5s var(--mt-spring);
+}
+.ps-card.is-wrong {
+  border-color: var(--mt-magenta);
+  animation: ey-shake 0.4s;
+}
+@keyframes ps-in {
+  from {
+    transform: rotate(var(--tilt)) scale(0.6);
+    opacity: 0;
+  }
+}

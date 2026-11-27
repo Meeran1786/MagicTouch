@@ -1,0 +1,244 @@
+{
+ "id": "gardenlang1",
+ "level": "lkg",
+ "subject": "letters",
+ "title": "Garden Languages 1",
+ "topic": "Point at a circle to hear it — English, Hindi & Telugu — set 1 of 4",
+ "icon": "🥕",
+ "order": 14,
+ "status": "approved",
+ "template": "word-wheel",
+ "items": [
+  {
+   "word": "Ginger",
+   "photo": "images/Allam.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Ginger",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "अदरक",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "అల్లం",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Potato",
+   "photo": "images/Alu.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Potato",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "आलू",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "బంగాళదుంప",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Fig",
+   "photo": "images/Anzeer.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Fig",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "अंजीर",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "అంజీర",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Cauliflower",
+   "photo": "images/CaliFlower.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Cauliflower",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "फूलगोभी",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "కాలిఫ్లవర్",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Carrot",
+   "photo": "images/Carrot.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Carrot",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "गाजर",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "క్యారెట్",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Cherry",
+   "photo": "images/Cherry.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Cherry",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "चेरी",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "చెర్రీ",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Coconut",
+   "photo": "images/Coconut.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Coconut",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "नारियल",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "కొబ్బరికాయ",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Coriander",
+   "photo": "images/Coriander.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Coriander",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "धनिया",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "కొత్తిమీర",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Cucumber",
+   "photo": "images/Cucumber.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Cucumber",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "खीरा",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "దోసకాయ",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Custard Apple",
+   "photo": "images/CustardApple.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Custard Apple",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "सीताफल",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "సీతాఫలం",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Date",
+   "photo": "images/Date.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Date",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "खजूर",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "ఖర్జూరం",
+     "code": "te-IN"
+    }
+   ]
+  }
+ ]
+}

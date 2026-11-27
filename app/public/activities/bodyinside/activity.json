@@ -1,0 +1,29 @@
+{
+ "id": "bodyinside",
+ "level": "lkg",
+ "subject": "world",
+ "title": "My Body Inside",
+ "topic": "Heart, brain, lungs and bones",
+ "icon": "🫀",
+ "order": 114,
+ "status": "approved",
+ "template": "emoji-quiz",
+ "items": [
+  {
+   "emoji": "❤️",
+   "word": "Heart"
+  },
+  {
+   "emoji": "🧠",
+   "word": "Brain"
+  },
+  {
+   "emoji": "🫁",
+   "word": "Lungs"
+  },
+  {
+   "emoji": "🦴",
+   "word": "Bone"
+  }
+ ]
+}

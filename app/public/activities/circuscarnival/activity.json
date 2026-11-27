@@ -1,0 +1,37 @@
+{
+ "id": "circuscarnival",
+ "level": "nursery",
+ "subject": "play",
+ "title": "Circus and Carnival",
+ "topic": "Clown, ferris wheel, carousel and more",
+ "icon": "🎪",
+ "order": 93,
+ "status": "approved",
+ "template": "emoji-quiz",
+ "items": [
+  {
+   "emoji": "🎪",
+   "word": "Circus Tent"
+  },
+  {
+   "emoji": "🤡",
+   "word": "Clown"
+  },
+  {
+   "emoji": "🎡",
+   "word": "Ferris Wheel"
+  },
+  {
+   "emoji": "🎠",
+   "word": "Carousel"
+  },
+  {
+   "emoji": "🍿",
+   "word": "Popcorn"
+  },
+  {
+   "emoji": "🎫",
+   "word": "Ticket"
+  }
+ ]
+}

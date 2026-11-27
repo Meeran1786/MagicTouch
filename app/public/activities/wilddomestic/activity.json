@@ -1,0 +1,45 @@
+{
+ "id": "wilddomestic",
+ "level": "nursery",
+ "subject": "nature",
+ "title": "Wild and Domestic Animals",
+ "topic": "Lion, elephant, cow, goat and more",
+ "icon": "🦁",
+ "order": 70,
+ "status": "approved",
+ "template": "emoji-quiz",
+ "items": [
+  {
+   "emoji": "🦁",
+   "word": "Lion"
+  },
+  {
+   "emoji": "🐘",
+   "word": "Elephant"
+  },
+  {
+   "emoji": "🦓",
+   "word": "Zebra"
+  },
+  {
+   "emoji": "🦒",
+   "word": "Giraffe"
+  },
+  {
+   "emoji": "🐄",
+   "word": "Cow"
+  },
+  {
+   "emoji": "🐐",
+   "word": "Goat"
+  },
+  {
+   "emoji": "🐑",
+   "word": "Sheep"
+  },
+  {
+   "emoji": "🐇",
+   "word": "Rabbit"
+  }
+ ]
+}

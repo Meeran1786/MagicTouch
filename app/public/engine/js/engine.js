@@ -35,18 +35,23 @@ const cache = new Map();
 export async function loadTemplate(name) {
   if (!NAME.test(name || "")) throw new Error("bad template name: " + name);
   const mod = await import(`../templates/${name}.js`);
-  if (mod.meta && mod.meta.css && !document.querySelector(`link[data-template="${name}"]`)) {
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = new URL(`../templates/${name}.css`, import.meta.url).href;
-    link.dataset.template = name;
-    const loaded = new Promise((resolve) => {
-      link.onload = link.onerror = resolve;
-    });
-    document.head.appendChild(link);
-    await loaded;
-  }
+  const styles = (mod.meta && mod.meta.styles) || [];
+  await Promise.all(styles.map(addStyle));
   return Object.assign(mod.default, { meta: mod.meta || {} });
+}
+
+/** Links /engine/templates/<name>.css once and waits for it. */
+function addStyle(name) {
+  if (!NAME.test(name) || document.querySelector(`link[data-style="${name}"]`)) return Promise.resolve();
+  const link = document.createElement("link");
+  link.rel = "stylesheet";
+  link.href = new URL(`../templates/${name}.css`, import.meta.url).href;
+  link.dataset.style = name;
+  const loaded = new Promise((resolve) => {
+    link.onload = link.onerror = resolve;
+  });
+  document.head.appendChild(link);
+  return loaded;
 }
 
 /** Loads one activity file (cached). */

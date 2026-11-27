@@ -1,0 +1,37 @@
+{
+ "id": "campingoutdoors",
+ "level": "lkg",
+ "subject": "nature",
+ "title": "Camping and Outdoors",
+ "topic": "Tent, compass, flashlight, map and more",
+ "icon": "⛺",
+ "order": 95,
+ "status": "approved",
+ "template": "emoji-quiz",
+ "items": [
+  {
+   "emoji": "⛺",
+   "word": "Tent"
+  },
+  {
+   "emoji": "🏕️",
+   "word": "Campfire"
+  },
+  {
+   "emoji": "🧭",
+   "word": "Compass"
+  },
+  {
+   "emoji": "🔦",
+   "word": "Flashlight"
+  },
+  {
+   "emoji": "🗺️",
+   "word": "Map"
+  },
+  {
+   "emoji": "🎒",
+   "word": "Backpack"
+  }
+ ]
+}

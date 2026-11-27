@@ -1,5 +1,835 @@
 [
  {
+  "id": "findanimal",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Animal Spotter",
+  "topic": "Find the animal that matches the question",
+  "icon": "🔍",
+  "template": "picture-spotter",
+  "status": "approved"
+ },
+ {
+  "id": "gardenspotter1",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Garden Spotter 1",
+  "topic": "Spot the picture that matches — set 1 of 4",
+  "icon": "🥕",
+  "template": "picture-spotter",
+  "status": "approved"
+ },
+ {
+  "id": "gardenspotter2",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Garden Spotter 2",
+  "topic": "Spot the picture that matches — set 2 of 4",
+  "icon": "🍎",
+  "template": "picture-spotter",
+  "status": "approved"
+ },
+ {
+  "id": "gardenspotter3",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Garden Spotter 3",
+  "topic": "Spot the picture that matches — set 3 of 4",
+  "icon": "🍇",
+  "template": "picture-spotter",
+  "status": "approved"
+ },
+ {
+  "id": "gardenspotter4",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Garden Spotter 4",
+  "topic": "Spot the picture that matches — set 4 of 4",
+  "icon": "🌽",
+  "template": "picture-spotter",
+  "status": "approved"
+ },
+ {
+  "id": "vehiclesquiz",
+  "level": "nursery",
+  "subject": "world",
+  "title": "Vehicles on the Go",
+  "topic": "Tap the vehicle that matches the word",
+  "icon": "🚗",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "weatherwatch",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Weather Watch",
+  "topic": "Learn sunny, rainy, snowy and more",
+  "icon": "⛅",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "helpers",
+  "level": "nursery",
+  "subject": "world",
+  "title": "Community Helpers",
+  "topic": "Meet doctors, teachers, firefighters and more",
+  "icon": "👩‍⚕️",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "letsplay",
+  "level": "nursery",
+  "subject": "play",
+  "title": "Let's Play Sports",
+  "topic": "Name the ball and game — soccer, tennis and more",
+  "icon": "⚽",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "buggyfriends",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Buggy Friends",
+  "topic": "Meet butterflies, bees, ladybugs and more",
+  "icon": "🐝",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "underthesea",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Under the Sea",
+  "topic": "Discover fish, octopus, dolphins and more",
+  "icon": "🐠",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "spaceexplorers",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Space Explorers",
+  "topic": "Blast off to rockets, stars, planets and more",
+  "icon": "🚀",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "seasonsyear",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Seasons of the Year",
+  "topic": "Summer, winter, monsoon, spring and autumn",
+  "icon": "🍁",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "birdhomes",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Birds We See",
+  "topic": "Sparrow, crow, owl, parrot and more",
+  "icon": "🦜",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "wilddomestic",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Wild and Domestic Animals",
+  "topic": "Lion, elephant, cow, goat and more",
+  "icon": "🦁",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "timeofday",
+  "level": "nursery",
+  "subject": "world",
+  "title": "Time of Day",
+  "topic": "Morning, afternoon, evening and night",
+  "icon": "🌅",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "schoolthings",
+  "level": "nursery",
+  "subject": "world",
+  "title": "My School Bag",
+  "topic": "Pencil, book, crayons, scissors and more",
+  "icon": "🎒",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "sportsgear",
+  "level": "nursery",
+  "subject": "play",
+  "title": "Sports Gear",
+  "topic": "Helmet, racket, trophy, medal and more",
+  "icon": "🏅",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "festivalsindia",
+  "level": "nursery",
+  "subject": "world",
+  "title": "Festivals of India",
+  "topic": "Diwali, Holi, Christmas, Eid and more",
+  "icon": "🪔",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "seaside",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Beach and Seaside",
+  "topic": "Bucket, shell, surfboard and more",
+  "icon": "🏖️",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "gardenplants",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Plants Around Us",
+  "topic": "Sunflower, cactus, mushroom and more",
+  "icon": "🌱",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "numbers1to10",
+  "level": "nursery",
+  "subject": "numbers",
+  "title": "Numbers 1 to 10",
+  "topic": "Learn to recognize numbers one to ten",
+  "icon": "🔟",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "farmproduce",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Farm Produce",
+  "topic": "Milk, egg, honey, cheese, bread and more",
+  "icon": "🌾",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "exerciseyoga",
+  "level": "nursery",
+  "subject": "play",
+  "title": "Exercise and Yoga",
+  "topic": "Running, stretching, cycling and more",
+  "icon": "🧘",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "fantasycreatures",
+  "level": "nursery",
+  "subject": "play",
+  "title": "Fantasy Friends",
+  "topic": "Dragon, unicorn, fairy, wizard and more",
+  "icon": "🦄",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "circuscarnival",
+  "level": "nursery",
+  "subject": "play",
+  "title": "Circus and Carnival",
+  "topic": "Clown, ferris wheel, carousel and more",
+  "icon": "🎪",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "positionwords",
+  "level": "nursery",
+  "subject": "letters",
+  "title": "Position Words",
+  "topic": "Up, down, left and right",
+  "icon": "⬆️",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "rainydaygear",
+  "level": "nursery",
+  "subject": "world",
+  "title": "Rainy Day Gear",
+  "topic": "Umbrella, boots, raincoat and more",
+  "icon": "☂️",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "zoovisit",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "At the Zoo",
+  "topic": "Panda, koala, kangaroo, penguin and more",
+  "icon": "🐼",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "winterwonderland",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Winter Wonderland",
+  "topic": "Snowman, mitten, sled, ice skate and more",
+  "icon": "⛄",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "summerfun",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Summer Fun",
+  "topic": "Sunscreen, flip flops, watermelon and more",
+  "icon": "🍉",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "nutsandgrains",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Nuts and Grains",
+  "topic": "Peanut, coconut, chestnut, corn, rice",
+  "icon": "🌰",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "spicesherbs",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Spices and Herbs",
+  "topic": "Chili pepper, garlic, onion, herb",
+  "icon": "🌶️",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "autumnharvest",
+  "level": "nursery",
+  "subject": "nature",
+  "title": "Autumn Harvest",
+  "topic": "Pumpkin, apple, basket, leaves",
+  "icon": "🎃",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "animals",
+  "level": "prekg",
+  "subject": "nature",
+  "title": "Animal Languages",
+  "topic": "Meet animals and hear the sounds they make",
+  "icon": "🐘",
+  "template": "word-wheel",
+  "status": "approved"
+ },
+ {
+  "id": "mybody",
+  "level": "prekg",
+  "subject": "world",
+  "title": "My Body",
+  "topic": "Point to eyes, ears, hands and more",
+  "icon": "🧍",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "myfeelings",
+  "level": "prekg",
+  "subject": "world",
+  "title": "How Do I Feel?",
+  "topic": "Match faces to happy, sad, excited and more",
+  "icon": "😊",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "myfamily",
+  "level": "prekg",
+  "subject": "world",
+  "title": "My Family",
+  "topic": "Learn mother, father, sister, brother and more",
+  "icon": "👨‍👩‍👧‍👦",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "musicalsounds",
+  "level": "prekg",
+  "subject": "play",
+  "title": "Musical Sounds",
+  "topic": "Match instruments — drum, guitar, piano and more",
+  "icon": "🎷",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "opposites",
+  "level": "prekg",
+  "subject": "letters",
+  "title": "Opposites",
+  "topic": "Big & small, hot & cold, fast & slow and more",
+  "icon": "⬆️",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "myhome",
+  "level": "prekg",
+  "subject": "world",
+  "title": "My Home",
+  "topic": "House, door, window, bed and more",
+  "icon": "🏠",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "clotheswewear",
+  "level": "prekg",
+  "subject": "world",
+  "title": "Clothes We Wear",
+  "topic": "Shirt, pants, dress, shoes and more",
+  "icon": "👕",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "cleanhabits",
+  "level": "prekg",
+  "subject": "world",
+  "title": "Clean and Healthy Habits",
+  "topic": "Brushing, washing hands and staying fresh",
+  "icon": "🧼",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "kitchenitems",
+  "level": "prekg",
+  "subject": "world",
+  "title": "Kitchen Items",
+  "topic": "Spoon, fork, plate, cup and more",
+  "icon": "🍽️",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "toysiplaywith",
+  "level": "prekg",
+  "subject": "play",
+  "title": "Toys I Play With",
+  "topic": "Teddy bear, kite, puzzle, blocks and more",
+  "icon": "🧸",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "babyanimals",
+  "level": "prekg",
+  "subject": "nature",
+  "title": "Baby Animals",
+  "topic": "Puppy, kitten, chick, lamb and more",
+  "icon": "🐣",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "celebrationitems",
+  "level": "prekg",
+  "subject": "world",
+  "title": "Birthday and Celebrations",
+  "topic": "Cake, gifts, balloons and party fun",
+  "icon": "🎂",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "bakerytreats",
+  "level": "prekg",
+  "subject": "world",
+  "title": "Bakery Treats",
+  "topic": "Cupcake, cookie, donut, pretzel and more",
+  "icon": "🧁",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "fivesenses",
+  "level": "prekg",
+  "subject": "world",
+  "title": "My Five Senses",
+  "topic": "See, hear, smell, taste and touch",
+  "icon": "👀",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "icecreamtreats",
+  "level": "prekg",
+  "subject": "world",
+  "title": "Sweet Treats and Ice Cream",
+  "topic": "Ice cream, popsicle, candy, lollipop and more",
+  "icon": "🍦",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "bathroomfixtures",
+  "level": "prekg",
+  "subject": "world",
+  "title": "Bathroom Fixtures",
+  "topic": "Toilet, sink, toilet paper and more",
+  "icon": "🚽",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "animalschart",
+  "level": "prekg",
+  "subject": "nature",
+  "title": "Animals Chart",
+  "topic": "Tap any animal to see it come alive with a picture and sound",
+  "icon": "🐘",
+  "template": "picture-chart",
+  "status": "approved"
+ },
+ {
+  "id": "vehicleschart",
+  "level": "prekg",
+  "subject": "world",
+  "title": "Vehicles Chart",
+  "topic": "Tap any vehicle to see it come alive with a picture and sound",
+  "icon": "🚗",
+  "template": "picture-chart",
+  "status": "approved"
+ },
+ {
+  "id": "numberschart",
+  "level": "prekg",
+  "subject": "numbers",
+  "title": "Numbers Chart",
+  "topic": "Tap a number to count along and hear it spoken aloud",
+  "icon": "🔢",
+  "template": "picture-chart",
+  "status": "approved"
+ },
+ {
+  "id": "shapeschart",
+  "level": "prekg",
+  "subject": "numbers",
+  "title": "Shapes Chart",
+  "topic": "Tap a shape to see it grow big and hear its name",
+  "icon": "🔺",
+  "template": "picture-chart",
+  "status": "approved"
+ },
+ {
+  "id": "colorschart",
+  "level": "prekg",
+  "subject": "colours",
+  "title": "Colors Chart",
+  "topic": "Tap a color to see it fill the screen and hear its name",
+  "icon": "🎨",
+  "template": "picture-chart",
+  "status": "approved"
+ },
+ {
+  "id": "birdschart",
+  "level": "prekg",
+  "subject": "nature",
+  "title": "Birds Chart",
+  "topic": "Tap any bird to see it come alive with a picture and sound",
+  "icon": "🦜",
+  "template": "picture-chart",
+  "status": "approved"
+ },
+ {
+  "id": "flowerschart",
+  "level": "prekg",
+  "subject": "nature",
+  "title": "Flowers Chart",
+  "topic": "Tap any flower to see it bloom big with a name and sound",
+  "icon": "🌸",
+  "template": "picture-chart",
+  "status": "approved"
+ },
+ {
+  "id": "gardenlang1",
+  "level": "lkg",
+  "subject": "letters",
+  "title": "Garden Languages 1",
+  "topic": "Point at a circle to hear it — English, Hindi & Telugu — set 1 of 4",
+  "icon": "🥕",
+  "template": "word-wheel",
+  "status": "approved"
+ },
+ {
+  "id": "gardenlang2",
+  "level": "lkg",
+  "subject": "letters",
+  "title": "Garden Languages 2",
+  "topic": "Point at a circle to hear it — English, Hindi & Telugu — set 2 of 4",
+  "icon": "🍎",
+  "template": "word-wheel",
+  "status": "approved"
+ },
+ {
+  "id": "gardenlang3",
+  "level": "lkg",
+  "subject": "letters",
+  "title": "Garden Languages 3",
+  "topic": "Point at a circle to hear it — English, Hindi & Telugu — set 3 of 4",
+  "icon": "🍇",
+  "template": "word-wheel",
+  "status": "approved"
+ },
+ {
+  "id": "gardenlang4",
+  "level": "lkg",
+  "subject": "letters",
+  "title": "Garden Languages 4",
+  "topic": "Point at a circle to hear it — English, Hindi & Telugu — set 4 of 4",
+  "icon": "🌽",
+  "template": "word-wheel",
+  "status": "approved"
+ },
+ {
+  "id": "animallang1",
+  "level": "lkg",
+  "subject": "letters",
+  "title": "Animal Languages 1",
+  "topic": "Point at a circle to hear it — English, Hindi & Telugu — set 1 of 3",
+  "icon": "🐘",
+  "template": "word-wheel",
+  "status": "approved"
+ },
+ {
+  "id": "animallang2",
+  "level": "lkg",
+  "subject": "letters",
+  "title": "Animal Languages 2",
+  "topic": "Point at a circle to hear it — English, Hindi & Telugu — set 2 of 3",
+  "icon": "🦒",
+  "template": "word-wheel",
+  "status": "approved"
+ },
+ {
+  "id": "animallang3",
+  "level": "lkg",
+  "subject": "letters",
+  "title": "Animal Languages 3",
+  "topic": "Point at a circle to hear it — English, Hindi & Telugu — set 3 of 3",
+  "icon": "🐅",
+  "template": "word-wheel",
+  "status": "approved"
+ },
+ {
+  "id": "livingnonliving",
+  "level": "lkg",
+  "subject": "nature",
+  "title": "Living and Non-Living",
+  "topic": "Sort things that grow and move from things that don't",
+  "icon": "🌳",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "nationalsymbols",
+  "level": "lkg",
+  "subject": "world",
+  "title": "National Symbols",
+  "topic": "Our flag, peacock, tiger, lotus and mango",
+  "icon": "🇮🇳",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "rhymetime",
+  "level": "lkg",
+  "subject": "letters",
+  "title": "Rhyme Time",
+  "topic": "Cat, hat, bat, rat — spot the rhyming words",
+  "icon": "🎩",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "trafficsigns",
+  "level": "lkg",
+  "subject": "world",
+  "title": "Traffic and Road Safety",
+  "topic": "Stop signs, traffic lights and staying safe",
+  "icon": "🚦",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "handtools",
+  "level": "lkg",
+  "subject": "world",
+  "title": "Tools We Use",
+  "topic": "Hammer, wrench, paintbrush and more",
+  "icon": "🧰",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "communityplaces",
+  "level": "lkg",
+  "subject": "world",
+  "title": "Places in My Community",
+  "topic": "School, hospital, market, library and more",
+  "icon": "🏫",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "occupationtools",
+  "level": "lkg",
+  "subject": "world",
+  "title": "Tools of the Trade",
+  "topic": "Stethoscope, camera, microscope and more",
+  "icon": "🩺",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "campingoutdoors",
+  "level": "lkg",
+  "subject": "nature",
+  "title": "Camping and Outdoors",
+  "topic": "Tent, compass, flashlight, map and more",
+  "icon": "⛺",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "postoffice",
+  "level": "lkg",
+  "subject": "world",
+  "title": "Post Office and Mail",
+  "topic": "Envelope, mailbox, package, letter and more",
+  "icon": "📮",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "moneyshopping",
+  "level": "lkg",
+  "subject": "numbers",
+  "title": "Money and Shopping",
+  "topic": "Coins, wallet, shopping cart and more",
+  "icon": "🛍️",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "clockstime",
+  "level": "lkg",
+  "subject": "numbers",
+  "title": "Clocks and Time",
+  "topic": "Alarm clock, hourglass, calendar and more",
+  "icon": "⏰",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "landformsnature",
+  "level": "lkg",
+  "subject": "nature",
+  "title": "Landforms and Nature",
+  "topic": "Mountain, volcano, island, desert and more",
+  "icon": "⛰️",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "communicationways",
+  "level": "lkg",
+  "subject": "letters",
+  "title": "Ways We Communicate",
+  "topic": "Telephone, television, radio, computer and more",
+  "icon": "📱",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "gamesweplay",
+  "level": "lkg",
+  "subject": "play",
+  "title": "Games We Play",
+  "topic": "Chess, dice, cards and video games",
+  "icon": "🎲",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "sportsvenues",
+  "level": "lkg",
+  "subject": "play",
+  "title": "Sports Venues",
+  "topic": "Stadium, golf, skiing, swimming pool",
+  "icon": "🏟️",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "jewelrytreasures",
+  "level": "lkg",
+  "subject": "world",
+  "title": "Jewelry and Treasures",
+  "topic": "Ring, gem stone, crown, necklace",
+  "icon": "👑",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "bodyinside",
+  "level": "lkg",
+  "subject": "world",
+  "title": "My Body Inside",
+  "topic": "Heart, brain, lungs and bones",
+  "icon": "🫀",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
+  "id": "lightenergy",
+  "level": "lkg",
+  "subject": "world",
+  "title": "Light and Energy",
+  "topic": "Light bulb, fire, sparkles and lightning",
+  "icon": "💡",
+  "template": "emoji-quiz",
+  "status": "approved"
+ },
+ {
   "id": "c01-maths-counting",
   "level": "class-1",
   "subject": "maths",

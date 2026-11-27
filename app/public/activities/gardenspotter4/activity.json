@@ -1,0 +1,61 @@
+{
+ "id": "gardenspotter4",
+ "level": "nursery",
+ "subject": "nature",
+ "title": "Garden Spotter 4",
+ "topic": "Spot the picture that matches — set 4 of 4",
+ "icon": "🌽",
+ "order": 13,
+ "status": "approved",
+ "template": "picture-spotter",
+ "items": [
+  {
+   "word": "Plum",
+   "photo": "images/Plum.jpg"
+  },
+  {
+   "word": "Pomegranate",
+   "photo": "images/Pomegranate.jpg"
+  },
+  {
+   "word": "Star Fruit",
+   "photo": "images/StarFruit.jpg"
+  },
+  {
+   "word": "Strawberry",
+   "photo": "images/Strawbery.jpg"
+  },
+  {
+   "word": "Sweet Corn",
+   "photo": "images/SweetCorn.jpg"
+  },
+  {
+   "word": "Tamarind",
+   "photo": "images/Tamarind.jpg"
+  },
+  {
+   "word": "Tomato",
+   "photo": "images/Tamota.jpg"
+  },
+  {
+   "word": "Vegetable (V2)",
+   "photo": "images/V2.jpg"
+  },
+  {
+   "word": "Vegetable (V3)",
+   "photo": "images/V3.jpg"
+  },
+  {
+   "word": "Vegetable (V4)",
+   "photo": "images/V4.jpg"
+  },
+  {
+   "word": "Watermelon",
+   "photo": "images/WaterMelon.jpg"
+  },
+  {
+   "word": "White Carrot",
+   "photo": "images/WhiteCarrot.jpg"
+  }
+ ]
+}

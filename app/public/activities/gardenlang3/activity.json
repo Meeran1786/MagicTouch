@@ -1,0 +1,244 @@
+{
+ "id": "gardenlang3",
+ "level": "lkg",
+ "subject": "letters",
+ "title": "Garden Languages 3",
+ "topic": "Point at a circle to hear it — English, Hindi & Telugu — set 3 of 4",
+ "icon": "🍇",
+ "order": 16,
+ "status": "approved",
+ "template": "word-wheel",
+ "items": [
+  {
+   "word": "Lettuce",
+   "photo": "images/Lechuga.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Lettuce",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "सलाद पत्ता",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "సలాడ్ ఆకు",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Lemon",
+   "photo": "images/Lemon.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Lemon",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "नींबू",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "నిమ్మకాయ",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Mango",
+   "photo": "images/Mango5.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Mango",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "आम",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "మామిడి",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Muskmelon",
+   "photo": "images/MeskMelon.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Muskmelon",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "खरबूजा",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "ఖర్బూజా",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Onion",
+   "photo": "images/Onion.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Onion",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "प्याज़",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "ఉల్లిపాయ",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Orange",
+   "photo": "images/Orange.png",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Orange",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "संतरा",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "నారింజ",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Papaya",
+   "photo": "images/Papaya.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Papaya",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "पपीता",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "బొప్పాయి",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Peas",
+   "photo": "images/Peas.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Peas",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "मटर",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "బఠాణీ",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Black Pepper",
+   "photo": "images/Pepper.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Black Pepper",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "काली मिर्च",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "మిరియాలు",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Pineapple",
+   "photo": "images/Pinenapple.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Pineapple",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "अनानास",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "అనాస పండు",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Pistachio",
+   "photo": "images/Pista.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Pistachio",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "पिस्ता",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "పిస్తా",
+     "code": "te-IN"
+    }
+   ]
+  }
+ ]
+}

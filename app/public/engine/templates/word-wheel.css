@@ -1,0 +1,108 @@
+/* Word wheel: picture hub, language circles below, Back and Next at the sides. */
+.ww {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px 30px;
+}
+.ww-nav {
+  min-width: 150px;
+}
+.ww-hub {
+  position: relative;
+  height: 100%;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1.4fr) 28px minmax(0, 1fr);
+  justify-items: center;
+}
+.ww-name {
+  font: 700 40px var(--mt-head);
+  color: var(--mt-plum);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.ww-centre {
+  height: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 6px solid var(--mt-plum);
+  box-shadow:
+    0 0 0 12px var(--mt-tint),
+    var(--mt-shadow);
+  background: var(--mt-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-size: 200px;
+}
+.ww-centre .ey-pic {
+  width: 78%;
+  height: 78%;
+}
+.ww-centre.ww-in {
+  animation: ey-pop 0.45s var(--mt-spring);
+}
+.ww-lines {
+  width: 70%;
+  height: 100%;
+  overflow: visible;
+}
+.ww-lines line {
+  stroke-width: 3;
+  stroke-dasharray: 8 8;
+  vector-effect: non-scaling-stroke;
+}
+.ww-langs {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+.ww-lang {
+  height: 100%;
+  max-height: 200px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 5px solid var(--c);
+  background: var(--mt-white);
+  box-shadow:
+    0 0 0 8px color-mix(in srgb, var(--c) 12%, transparent),
+    var(--mt-shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.ww-lang.on {
+  background: color-mix(in srgb, var(--c) 10%, white);
+}
+.ww-lang.ey-tap {
+  animation: ey-squash 0.45s var(--mt-spring);
+}
+.ww-lang-name {
+  font: 700 19px var(--mt-body);
+  color: var(--c);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.ww-text {
+  font: 700 30px var(--mt-body);
+  color: var(--mt-ink);
+}
+.ww-tip {
+  grid-column: 1 / -1;
+  margin: 0;
+  text-align: center;
+  color: var(--mt-mute);
+  font-size: 19px;
+}

@@ -1,0 +1,45 @@
+{
+ "id": "helpers",
+ "level": "nursery",
+ "subject": "world",
+ "title": "Community Helpers",
+ "topic": "Meet doctors, teachers, firefighters and more",
+ "icon": "👩‍⚕️",
+ "order": 59,
+ "status": "approved",
+ "template": "emoji-quiz",
+ "items": [
+  {
+   "emoji": "👩‍⚕️",
+   "word": "Doctor"
+  },
+  {
+   "emoji": "👩‍🏫",
+   "word": "Teacher"
+  },
+  {
+   "emoji": "👨‍🚒",
+   "word": "Firefighter"
+  },
+  {
+   "emoji": "👮",
+   "word": "Police Officer"
+  },
+  {
+   "emoji": "👨‍🌾",
+   "word": "Farmer"
+  },
+  {
+   "emoji": "👩‍🍳",
+   "word": "Chef"
+  },
+  {
+   "emoji": "👨‍✈️",
+   "word": "Pilot"
+  },
+  {
+   "emoji": "👩‍🔬",
+   "word": "Scientist"
+  }
+ ]
+}

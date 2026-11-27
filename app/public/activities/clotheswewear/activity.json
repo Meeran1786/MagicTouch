@@ -1,0 +1,45 @@
+{
+ "id": "clotheswewear",
+ "level": "prekg",
+ "subject": "world",
+ "title": "Clothes We Wear",
+ "topic": "Shirt, pants, dress, shoes and more",
+ "icon": "👕",
+ "order": 74,
+ "status": "approved",
+ "template": "emoji-quiz",
+ "items": [
+  {
+   "emoji": "👕",
+   "word": "Shirt"
+  },
+  {
+   "emoji": "👖",
+   "word": "Pants"
+  },
+  {
+   "emoji": "👗",
+   "word": "Dress"
+  },
+  {
+   "emoji": "👟",
+   "word": "Shoes"
+  },
+  {
+   "emoji": "🧦",
+   "word": "Socks"
+  },
+  {
+   "emoji": "🧢",
+   "word": "Cap"
+  },
+  {
+   "emoji": "🧥",
+   "word": "Jacket"
+  },
+  {
+   "emoji": "🧣",
+   "word": "Scarf"
+  }
+ ]
+}

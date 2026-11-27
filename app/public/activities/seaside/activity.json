@@ -1,0 +1,37 @@
+{
+ "id": "seaside",
+ "level": "nursery",
+ "subject": "nature",
+ "title": "Beach and Seaside",
+ "topic": "Bucket, shell, surfboard and more",
+ "icon": "🏖️",
+ "order": 81,
+ "status": "approved",
+ "template": "emoji-quiz",
+ "items": [
+  {
+   "emoji": "🏖️",
+   "word": "Beach"
+  },
+  {
+   "emoji": "🪣",
+   "word": "Bucket"
+  },
+  {
+   "emoji": "🕶️",
+   "word": "Sunglasses"
+  },
+  {
+   "emoji": "🏄",
+   "word": "Surfboard"
+  },
+  {
+   "emoji": "🐚",
+   "word": "Shell"
+  },
+  {
+   "emoji": "⭐",
+   "word": "Starfish"
+  }
+ ]
+}

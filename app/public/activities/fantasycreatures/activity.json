@@ -1,0 +1,41 @@
+{
+ "id": "fantasycreatures",
+ "level": "nursery",
+ "subject": "play",
+ "title": "Fantasy Friends",
+ "topic": "Dragon, unicorn, fairy, wizard and more",
+ "icon": "🦄",
+ "order": 92,
+ "status": "approved",
+ "template": "emoji-quiz",
+ "items": [
+  {
+   "emoji": "🐉",
+   "word": "Dragon"
+  },
+  {
+   "emoji": "🦄",
+   "word": "Unicorn"
+  },
+  {
+   "emoji": "🧚",
+   "word": "Fairy"
+  },
+  {
+   "emoji": "🧜",
+   "word": "Mermaid"
+  },
+  {
+   "emoji": "🧙",
+   "word": "Wizard"
+  },
+  {
+   "emoji": "🧞",
+   "word": "Genie"
+  },
+  {
+   "emoji": "🦸",
+   "word": "Superhero"
+  }
+ ]
+}

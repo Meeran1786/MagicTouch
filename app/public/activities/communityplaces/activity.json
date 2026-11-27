@@ -1,0 +1,37 @@
+{
+ "id": "communityplaces",
+ "level": "lkg",
+ "subject": "world",
+ "title": "Places in My Community",
+ "topic": "School, hospital, market, library and more",
+ "icon": "🏫",
+ "order": 89,
+ "status": "approved",
+ "template": "emoji-quiz",
+ "items": [
+  {
+   "emoji": "🏫",
+   "word": "School"
+  },
+  {
+   "emoji": "🏥",
+   "word": "Hospital"
+  },
+  {
+   "emoji": "🏪",
+   "word": "Market"
+  },
+  {
+   "emoji": "📚",
+   "word": "Library"
+  },
+  {
+   "emoji": "🛝",
+   "word": "Playground"
+  },
+  {
+   "emoji": "🏦",
+   "word": "Bank"
+  }
+ ]
+}

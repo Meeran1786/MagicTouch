@@ -1,0 +1,37 @@
+{
+ "id": "celebrationitems",
+ "level": "prekg",
+ "subject": "world",
+ "title": "Birthday and Celebrations",
+ "topic": "Cake, gifts, balloons and party fun",
+ "icon": "🎂",
+ "order": 87,
+ "status": "approved",
+ "template": "emoji-quiz",
+ "items": [
+  {
+   "emoji": "🎂",
+   "word": "Birthday Cake"
+  },
+  {
+   "emoji": "🎁",
+   "word": "Gift"
+  },
+  {
+   "emoji": "🎉",
+   "word": "Party Popper"
+  },
+  {
+   "emoji": "🕯️",
+   "word": "Candle"
+  },
+  {
+   "emoji": "🎊",
+   "word": "Confetti Ball"
+  },
+  {
+   "emoji": "🥳",
+   "word": "Party"
+  }
+ ]
+}

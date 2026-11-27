@@ -7,7 +7,8 @@
 //   sfx.tap(); sfx.correct(); sfx.wrong(); sfx.celebrate();
 
 let shared = null;
-function audioCtx() {
+/** The one Web Audio context every part of the wall uses. */
+export function audioCtx() {
   if (!shared) shared = new (window.AudioContext || window.webkitAudioContext)();
   return shared;
 }
@@ -93,6 +94,15 @@ function blip(freqs, { type = "sine", gap = 0.09, len = 0.35, level = 0.12 } = {
     g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(level, t + 0.015); g.gain.exponentialRampToValueAtTime(0.0008, t + len);
     o.connect(g).connect(ctx.destination); o.start(t); o.stop(t + len + 0.05);
   });
+}
+
+/** Sound effects are on unless the school turned them off (launcher settings). */
+export function sfxOn() {
+  try {
+    return localStorage.getItem("mtSfxOn") !== "0";
+  } catch {
+    return true;
+  }
 }
 
 export const sfx = {

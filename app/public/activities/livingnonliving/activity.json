@@ -1,0 +1,45 @@
+{
+ "id": "livingnonliving",
+ "level": "lkg",
+ "subject": "nature",
+ "title": "Living and Non-Living",
+ "topic": "Sort things that grow and move from things that don't",
+ "icon": "🌳",
+ "order": 66,
+ "status": "approved",
+ "template": "emoji-quiz",
+ "items": [
+  {
+   "emoji": "🐕",
+   "word": "Dog"
+  },
+  {
+   "emoji": "🌳",
+   "word": "Tree"
+  },
+  {
+   "emoji": "🐸",
+   "word": "Frog"
+  },
+  {
+   "emoji": "🌼",
+   "word": "Flower"
+  },
+  {
+   "emoji": "🪑",
+   "word": "Chair"
+  },
+  {
+   "emoji": "📖",
+   "word": "Book"
+  },
+  {
+   "emoji": "🪨",
+   "word": "Stone"
+  },
+  {
+   "emoji": "✏️",
+   "word": "Pencil"
+  }
+ ]
+}

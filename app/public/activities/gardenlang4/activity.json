@@ -1,0 +1,265 @@
+{
+ "id": "gardenlang4",
+ "level": "lkg",
+ "subject": "letters",
+ "title": "Garden Languages 4",
+ "topic": "Point at a circle to hear it — English, Hindi & Telugu — set 4 of 4",
+ "icon": "🌽",
+ "order": 17,
+ "status": "approved",
+ "template": "word-wheel",
+ "items": [
+  {
+   "word": "Plum",
+   "photo": "images/Plum.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Plum",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "आलूबुखारा",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "ప్లం పండు",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Pomegranate",
+   "photo": "images/Pomegranate.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Pomegranate",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "अनार",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "దానిమ్మ",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Star Fruit",
+   "photo": "images/StarFruit.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Star Fruit",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "कमरख",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "స్టార్ ఫ్రూట్",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Strawberry",
+   "photo": "images/Strawbery.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Strawberry",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "स्ट्रॉबेरी",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "స్ట్రాబెర్రీ",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Sweet Corn",
+   "photo": "images/SweetCorn.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Sweet Corn",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "मीठी मक्का",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "మొక్కజొన్న",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Tamarind",
+   "photo": "images/Tamarind.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Tamarind",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "इमली",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "చింతపండు",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Tomato",
+   "photo": "images/Tamota.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Tomato",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "टमाटर",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "టమోటా",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Vegetable",
+   "photo": "images/V2.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Vegetable",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "सब्ज़ी",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "కూరగాయ",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Vegetable",
+   "photo": "images/V3.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Vegetable",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "सब्ज़ी",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "కూరగాయ",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Vegetable",
+   "photo": "images/V4.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Vegetable",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "सब्ज़ी",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "కూరగాయ",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Watermelon",
+   "photo": "images/WaterMelon.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Watermelon",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "तरबूज़",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "పుచ్చకాయ",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "White Carrot",
+   "photo": "images/WhiteCarrot.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "White Carrot",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "सफ़ेद गाजर",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "తెల్ల క్యారెట్",
+     "code": "te-IN"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,29 @@
+{
+ "id": "lightenergy",
+ "level": "lkg",
+ "subject": "world",
+ "title": "Light and Energy",
+ "topic": "Light bulb, fire, sparkles and lightning",
+ "icon": "💡",
+ "order": 115,
+ "status": "approved",
+ "template": "emoji-quiz",
+ "items": [
+  {
+   "emoji": "💡",
+   "word": "Light Bulb"
+  },
+  {
+   "emoji": "🔥",
+   "word": "Fire"
+  },
+  {
+   "emoji": "✨",
+   "word": "Sparkles"
+  },
+  {
+   "emoji": "⚡",
+   "word": "Lightning Bolt"
+  }
+ ]
+}

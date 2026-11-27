@@ -1,0 +1,45 @@
+{
+ "id": "occupationtools",
+ "level": "lkg",
+ "subject": "world",
+ "title": "Tools of the Trade",
+ "topic": "Stethoscope, camera, microscope and more",
+ "icon": "🩺",
+ "order": 90,
+ "status": "approved",
+ "template": "emoji-quiz",
+ "items": [
+  {
+   "emoji": "🩺",
+   "word": "Stethoscope"
+  },
+  {
+   "emoji": "🧯",
+   "word": "Fire Extinguisher"
+  },
+  {
+   "emoji": "🔍",
+   "word": "Magnifying Glass"
+  },
+  {
+   "emoji": "⚖️",
+   "word": "Gavel"
+  },
+  {
+   "emoji": "💉",
+   "word": "Syringe"
+  },
+  {
+   "emoji": "🔬",
+   "word": "Microscope"
+  },
+  {
+   "emoji": "📷",
+   "word": "Camera"
+  },
+  {
+   "emoji": "🔭",
+   "word": "Telescope"
+  }
+ ]
+}

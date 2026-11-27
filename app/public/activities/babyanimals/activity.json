@@ -1,0 +1,37 @@
+{
+ "id": "babyanimals",
+ "level": "prekg",
+ "subject": "nature",
+ "title": "Baby Animals",
+ "topic": "Puppy, kitten, chick, lamb and more",
+ "icon": "🐣",
+ "order": 84,
+ "status": "approved",
+ "template": "emoji-quiz",
+ "items": [
+  {
+   "emoji": "🐶",
+   "word": "Puppy"
+  },
+  {
+   "emoji": "🐱",
+   "word": "Kitten"
+  },
+  {
+   "emoji": "🐥",
+   "word": "Chick"
+  },
+  {
+   "emoji": "🐑",
+   "word": "Lamb"
+  },
+  {
+   "emoji": "🐷",
+   "word": "Piglet"
+  },
+  {
+   "emoji": "🐻",
+   "word": "Bear Cub"
+  }
+ ]
+}

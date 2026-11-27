@@ -1,0 +1,53 @@
+{
+ "id": "flowerschart",
+ "level": "prekg",
+ "subject": "nature",
+ "title": "Flowers Chart",
+ "topic": "Tap any flower to see it bloom big with a name and sound",
+ "icon": "🌸",
+ "order": 124,
+ "status": "approved",
+ "template": "picture-chart",
+ "items": [
+  {
+   "emoji": "🌹",
+   "word": "Rose"
+  },
+  {
+   "emoji": "🌻",
+   "word": "Sunflower"
+  },
+  {
+   "emoji": "🌷",
+   "word": "Tulip"
+  },
+  {
+   "emoji": "🌼",
+   "word": "Daisy"
+  },
+  {
+   "emoji": "🪷",
+   "word": "Lotus"
+  },
+  {
+   "emoji": "🌺",
+   "word": "Hibiscus"
+  },
+  {
+   "emoji": "💐",
+   "word": "Bouquet"
+  },
+  {
+   "emoji": "🪻",
+   "word": "Hyacinth"
+  },
+  {
+   "emoji": "🌸",
+   "word": "Cherry Blossom"
+  },
+  {
+   "emoji": "🥀",
+   "word": "Wilted Rose"
+  }
+ ]
+}

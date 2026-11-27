@@ -1,0 +1,181 @@
+{
+ "id": "animallang3",
+ "level": "lkg",
+ "subject": "letters",
+ "title": "Animal Languages 3",
+ "topic": "Point at a circle to hear it — English, Hindi & Telugu — set 3 of 3",
+ "icon": "🐅",
+ "order": 20,
+ "status": "approved",
+ "template": "word-wheel",
+ "items": [
+  {
+   "word": "Panda",
+   "photo": "images/PANDA.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Panda",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "पांडा",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "పాండా",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Rabbit",
+   "photo": "images/Rabbit.png",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Rabbit",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "खरगोश",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "కుందేలు",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Rhino",
+   "photo": "images/Rahino.png",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Rhino",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "गैंडा",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "ఖడ్గమృగం",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Seal",
+   "photo": "images/Seal.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Seal",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "सील",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "సీల్",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Sheep",
+   "photo": "images/Sheep.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Sheep",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "भेड़",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "గొర్రె",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Tiger",
+   "photo": "images/Tiger.png",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Tiger",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "बाघ",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "పులి",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Wolf",
+   "photo": "images/Wolf.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Wolf",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "भेड़िया",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "తోడేలు",
+     "code": "te-IN"
+    }
+   ]
+  },
+  {
+   "word": "Zebra",
+   "photo": "images/Zebra.jpg",
+   "says": [
+    {
+     "lang": "English",
+     "text": "Zebra",
+     "code": "en-IN"
+    },
+    {
+     "lang": "Hindi",
+     "text": "ज़ेबरा",
+     "code": "hi-IN"
+    },
+    {
+     "lang": "Telugu",
+     "text": "జీబ్రా",
+     "code": "te-IN"
+    }
+   ]
+  }
+ ]
+}

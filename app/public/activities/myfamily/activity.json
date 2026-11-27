@@ -1,0 +1,45 @@
+{
+ "id": "myfamily",
+ "level": "prekg",
+ "subject": "world",
+ "title": "My Family",
+ "topic": "Learn mother, father, sister, brother and more",
+ "icon": "👨‍👩‍👧‍👦",
+ "order": 58,
+ "status": "approved",
+ "template": "emoji-quiz",
+ "items": [
+  {
+   "emoji": "👩",
+   "word": "Mother"
+  },
+  {
+   "emoji": "👨",
+   "word": "Father"
+  },
+  {
+   "emoji": "👧",
+   "word": "Sister"
+  },
+  {
+   "emoji": "👦",
+   "word": "Brother"
+  },
+  {
+   "emoji": "👶",
+   "word": "Baby"
+  },
+  {
+   "emoji": "👵",
+   "word": "Grandmother"
+  },
+  {
+   "emoji": "👴",
+   "word": "Grandfather"
+  },
+  {
+   "emoji": "👨‍👩‍👧‍👦",
+   "word": "Family"
+  }
+ ]
+}

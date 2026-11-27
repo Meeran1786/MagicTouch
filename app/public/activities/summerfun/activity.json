@@ -1,0 +1,33 @@
+{
+ "id": "summerfun",
+ "level": "nursery",
+ "subject": "nature",
+ "title": "Summer Fun",
+ "topic": "Sunscreen, flip flops, watermelon and more",
+ "icon": "🍉",
+ "order": 107,
+ "status": "approved",
+ "template": "emoji-quiz",
+ "items": [
+  {
+   "emoji": "🧴",
+   "word": "Sunscreen"
+  },
+  {
+   "emoji": "🩴",
+   "word": "Flip Flops"
+  },
+  {
+   "emoji": "🧺",
+   "word": "Picnic Basket"
+  },
+  {
+   "emoji": "🍉",
+   "word": "Watermelon"
+  },
+  {
+   "emoji": "🍋",
+   "word": "Lemonade"
+  }
+ ]
+}

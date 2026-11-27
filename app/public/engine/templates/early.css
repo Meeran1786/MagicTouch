@@ -1,0 +1,292 @@
+/* Shared parts of every early-years template (Nursery, Pre-KG, LKG), in the Studio look:
+   the top bar, pills, panels, big picture cards, buttons, feedback and the result card.
+   Templates add only what is their own. Colours and type come from shared/studio/tokens.css. */
+
+.ey {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px 22px;
+  overflow: hidden;
+  font-family: var(--mt-body);
+  color: var(--mt-ink);
+  background: linear-gradient(180deg, var(--mt-white) 0%, var(--mt-white) 72%, var(--mt-tint) 100%);
+}
+.ey > * {
+  position: relative;
+  z-index: 1;
+}
+html.mt-wall .ey-hud {
+  padding-left: 84px; /* room for the wall's home button */
+}
+
+/* ── top bar ─────────────────────────────────────────────── */
+.ey-hud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.ey-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  border: 1px solid var(--mt-line);
+  border-radius: 999px;
+  background: var(--mt-white);
+  box-shadow: var(--mt-shadow);
+  font: 700 24px var(--mt-head);
+  color: var(--mt-plum);
+}
+.ey-brand .mt-emoji {
+  width: 32px;
+  height: 32px;
+}
+.ey-pills {
+  display: flex;
+  gap: 10px;
+}
+.ey-pill {
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: var(--mt-tint);
+  border: 1px solid var(--mt-line);
+  font-weight: 700;
+  font-size: 19px;
+}
+.ey-pill.score {
+  background: var(--mt-plum);
+  border-color: var(--mt-plum);
+  color: var(--mt-white);
+}
+
+/* ── panels and stage ────────────────────────────────────── */
+.ey-stage {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ey-panel {
+  background: var(--mt-white);
+  border: 1px solid var(--mt-line);
+  border-radius: calc(var(--mt-radius) * 1.25);
+  box-shadow: var(--mt-shadow);
+  padding: 28px 36px;
+}
+
+/* ── pictures ────────────────────────────────────────────── */
+.mt-emoji {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  object-fit: contain;
+  font-size: inherit;
+  line-height: 1;
+}
+.ey-photo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+/* ── big picture cards (answers) ─────────────────────────── */
+.ey-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 22px;
+}
+.ey-card {
+  position: relative;
+  min-width: calc(var(--mt-target) * 1.6);
+  min-height: calc(var(--mt-target) * 1.6);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 2px solid var(--mt-line);
+  border-radius: var(--mt-radius);
+  background: var(--mt-white);
+  box-shadow: var(--mt-shadow);
+  font: 700 26px var(--mt-body);
+  color: var(--mt-plum-dark);
+  cursor: pointer;
+  transition:
+    transform 0.35s var(--mt-spring),
+    box-shadow 0.2s;
+}
+.ey-card:hover {
+  transform: translateY(-3px);
+}
+.ey-card:active,
+.ey-card.ey-tap {
+  animation: ey-squash 0.45s var(--mt-spring);
+}
+.ey-card .mt-emoji {
+  font-size: 92px;
+}
+.ey-card.is-right {
+  border-color: var(--mt-green);
+  background: var(--mt-green-tint);
+}
+.ey-card.is-wrong {
+  border-color: var(--mt-magenta);
+  background: var(--mt-magenta-tint);
+  animation: ey-shake 0.4s;
+}
+.ey-card:disabled {
+  cursor: default;
+}
+@keyframes ey-squash {
+  0% {
+    transform: scale(1, 1);
+  }
+  30% {
+    transform: scale(1.12, 0.88);
+  }
+  60% {
+    transform: scale(0.94, 1.08);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+@keyframes ey-shake {
+  25% {
+    transform: translateX(-8px);
+  }
+  75% {
+    transform: translateX(8px);
+  }
+}
+
+/* ── buttons ─────────────────────────────────────────────── */
+.ey-btn {
+  min-height: 64px;
+  padding: 12px 30px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--mt-plum);
+  color: var(--mt-white);
+  font: 700 22px var(--mt-body);
+  cursor: pointer;
+  box-shadow: var(--mt-shadow);
+  transition: transform 0.3s var(--mt-spring);
+}
+.ey-btn:active {
+  transform: scale(0.95);
+}
+.ey-btn.alt {
+  background: var(--mt-white);
+  color: var(--mt-plum);
+  border: 2px solid var(--mt-line);
+}
+.ey-btn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+/* ── feedback line and result card ───────────────────────── */
+.ey-feedback {
+  min-height: 44px;
+  padding: 8px 20px;
+  border-radius: 999px;
+  font: 700 22px var(--mt-head);
+  text-align: center;
+}
+.ey-feedback.good {
+  background: var(--mt-green-tint);
+  color: var(--mt-green);
+}
+.ey-feedback.bad {
+  background: var(--mt-magenta-tint);
+  color: var(--mt-magenta);
+}
+.ey-result {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.8);
+}
+.ey-result-card {
+  min-width: 420px;
+  text-align: center;
+  animation: ey-pop 0.5s var(--mt-spring);
+}
+.ey-result-card h2 {
+  margin: 6px 0;
+  font: 700 40px var(--mt-head);
+  color: var(--mt-plum);
+}
+.ey-result-card .big {
+  font-size: 84px;
+}
+.ey-result-card .stars {
+  font-size: 46px;
+  color: var(--mt-amber);
+  letter-spacing: 6px;
+  margin: 8px 0 18px;
+}
+@keyframes ey-pop {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+}
+
+/* ── ambient life: soft drifting shapes behind everything ── */
+.ey-ambient {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.ey-ambient span {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.12;
+  animation: ey-drift 14s ease-in-out infinite;
+}
+@keyframes ey-drift {
+  50% {
+    transform: translateY(-24px) scale(1.06);
+  }
+}
+
+/* item pictures: emoji, a row of emoji (counting), colour swatch, shape */
+.ey-pic {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  max-width: 100%;
+}
+.ey-pic.many .mt-emoji {
+  font-size: 0.42em;
+}
+.ey-swatch {
+  display: block;
+  width: 1em;
+  height: 1em;
+  border-radius: 22%;
+  box-shadow: inset 0 -6px 0 rgba(0, 0, 0, 0.12);
+}
+.ey-shape {
+  width: 1em;
+  height: 1em;
+  filter: drop-shadow(0 4px 6px rgba(61, 14, 55, 0.18));
+}

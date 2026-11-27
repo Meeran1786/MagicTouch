@@ -15,13 +15,14 @@ const APP = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const OUT = path.join(APP, "public/vendor/twemoji/svg");
 const ctx = { window: {}, console };
 vm.createContext(ctx);
-for (const f of ["public/apps.js", "public/catalog.js"]) vm.runInContext(fs.readFileSync(path.join(APP, f), "utf8"), ctx);
-const icons = new Set([...(ctx.window.WALL_APPS || []).map(a => a.icon), ...ctx.window.MTCatalog.ICONS, ...MASCOTS]);
-// Engine activities may name their own picture.
-const actDir = path.resolve(APP, "../webcam/poc/activities");
-for (const f of fs.readdirSync(actDir).filter(f => f.endsWith(".json") && f !== "index.json")) {
-  const a = JSON.parse(fs.readFileSync(path.join(actDir, f), "utf8"));
-  if (a.icon) icons.add(a.icon);
+for (const f of ["public/catalog.js"]) vm.runInContext(fs.readFileSync(path.join(APP, f), "utf8"), ctx);
+const icons = new Set([...((ctx.window.MTCatalog && ctx.window.MTCatalog.ICONS) || []), ...MASCOTS]);
+// Every emoji an activity names: its own icon and its items' pictures.
+const actDir = path.join(APP, "public/activities");
+for (const id of fs.readdirSync(actDir)) {
+  const f = path.join(actDir, id, "activity.json");
+  if (!fs.existsSync(f)) continue;
+  JSON.stringify(JSON.parse(fs.readFileSync(f, "utf8"))).replace(/"(?:icon|emoji)":"([^"]+)"/g, (_, e) => { const v = JSON.parse('"' + e + '"'); for (const { segment } of new Intl.Segmenter("en", { granularity: "grapheme" }).segment(v)) if (/\p{Extended_Pictographic}/u.test(segment)) icons.add(segment); });
 }
 const code = e => Array.from(e).map(c => c.codePointAt(0)).filter(c => c !== 0xfe0f).map(c => c.toString(16)).join("-");
 const withFe0f = e => Array.from(e).map(c => c.codePointAt(0).toString(16)).join("-");

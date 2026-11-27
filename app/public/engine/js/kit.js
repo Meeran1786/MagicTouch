@@ -1,22 +1,26 @@
 // MagicTouch shared kit: speech, sounds, feedback, confetti, score. Every template imports it.
-const AudioCtx=window.AudioContext||window.webkitAudioContext;
-export const audioCtx=new AudioCtx();
+import { audioCtx as sharedAudio, sfx as soft, sfxOn } from "/shared/studio/soft-music.js";
+
+export const audioCtx=sharedAudio();
 export const MT=(function(){
   var voice=null;
   function pickVoice(){var v=speechSynthesis.getVoices();
     voice=v.find(function(x){return x.lang==='en-IN';})||v.find(function(x){return /^en/.test(x.lang)&&/female|samantha|zira|veena|heera/i.test(x.name);})||v.find(function(x){return /^en/.test(x.lang);})||null;}
   if(window.speechSynthesis){speechSynthesis.onvoiceschanged=pickVoice;pickVoice();}
-  function speak(t){ if(!window.speechSynthesis||!t) return; speechSynthesis.cancel(); var u=new SpeechSynthesisUtterance(t); if(voice)u.voice=voice; u.rate=.9; u.pitch=1.05; speechSynthesis.speak(u); }
-  function tone(freqs,type,len,vol){ try{audioCtx.resume();}catch(e){}
-    freqs.forEach(function(f,i){var o=audioCtx.createOscillator(),g=audioCtx.createGain(),t=audioCtx.currentTime+i*.1;
-      o.type=type;o.frequency.value=f;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(vol,t+.03);g.gain.exponentialRampToValueAtTime(.001,t+len);
-      o.connect(g);g.connect(audioCtx.destination);o.start(t);o.stop(t+len+.05);}); }
-  var sfx={good:function(){tone([660,880],'triangle',.25,.25);},bad:function(){tone([220],'sine',.35,.15);},
-           tap:function(){tone([520],'sine',.12,.12);},win:function(){tone([523,659,784,1047],'triangle',.4,.28);}};
+  // speak(text) in Indian English; speak(text, "hi-IN") or "te-IN" for Hindi and Telugu
+  function speak(t,lang){ if(!window.speechSynthesis||!t) return; speechSynthesis.cancel(); var u=new SpeechSynthesisUtterance(t);
+    if(lang){u.lang=lang;var v=speechSynthesis.getVoices().find(function(x){return x.lang===lang;});if(v)u.voice=v;} else if(voice)u.voice=voice;
+    u.rate=.9; u.pitch=1.05; speechSynthesis.speak(u); }
+  function play(fn){ if(!sfxOn()) return; try{audioCtx.resume();fn();}catch(e){} }
+  var sfx={good:function(){play(soft.correct);},bad:function(){play(soft.wrong);},tap:function(){play(soft.tap);},win:function(){play(soft.celebrate);}};
   var toastT=null;
   function toast(msg,kind){var el=document.getElementById('mt-toast');el.textContent=msg;el.className='show '+(kind||'');clearTimeout(toastT);toastT=setTimeout(function(){el.className='';},1600);}
-  function confetti(){var c=['#631654','#CC3054','#E96E24','#F3A328','#FBD064','#2E7D46'];
-    for(var i=0;i<70;i++){var e=document.createElement('div');e.className='mt-confetti';
+  // Design system: at most 60 confetti pieces, fewer on low-spec PCs, none with reduced motion.
+  function lowSpec(){return !!window.MAGICTOUCH_LOW_SPEC;}
+  function calm(){return !!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);}
+  function confetti(){var c=['#631654','#CC3054','#E96E24','#F3A328','#FBD064','#2FA86A'];
+    if(calm()) return; var n=lowSpec()?20:60;
+    for(var i=0;i<n;i++){var e=document.createElement('div');e.className='mt-confetti';
       e.style.cssText='left:'+Math.random()*100+'vw;top:-20px;background:'+c[i%c.length]+';animation-duration:'+(1.2+Math.random()*1.4)+'s;animation-delay:'+Math.random()*.4+'s;';
       document.body.appendChild(e);setTimeout(function(x){return function(){x.remove();};}(e),3200);}}
   function score(t){document.getElementById('mt-score').textContent=t||'';}
@@ -59,6 +63,6 @@ export const MT=(function(){
   function dotsSVG(n){var cols=5,rows=Math.ceil(n/cols),s='<svg viewBox="0 0 '+(cols*22)+' '+(rows*22)+'" width="'+(cols*20)+'" height="'+(rows*20)+'">';
     for(var i=0;i<n;i++) s+='<circle cx="'+(11+(i%cols)*22)+'" cy="'+(11+Math.floor(i/cols)*22)+'" r="8" fill="'+(i<10?'#CC3054':'#E96E24')+'"/>';
     return s+'</svg>';}
-  var api={later:later,clearLater:clearLater,sceneBox:sceneBox,speak:speak,sfx:sfx,toast:toast,confetti:confetti,score:score,good:good,bad:bad,done:done,shuffle:shuffle,face:face,templates:{},next:null,nextLabel:null};
+  var api={lowSpec:lowSpec,calm:calm,later:later,clearLater:clearLater,sceneBox:sceneBox,speak:speak,sfx:sfx,toast:toast,confetti:confetti,score:score,good:good,bad:bad,done:done,shuffle:shuffle,face:face,templates:{},next:null,nextLabel:null};
   return api;
 })();

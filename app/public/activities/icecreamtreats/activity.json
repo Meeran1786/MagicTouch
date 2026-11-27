@@ -1,0 +1,37 @@
+{
+ "id": "icecreamtreats",
+ "level": "prekg",
+ "subject": "world",
+ "title": "Sweet Treats and Ice Cream",
+ "topic": "Ice cream, popsicle, candy, lollipop and more",
+ "icon": "🍦",
+ "order": 101,
+ "status": "approved",
+ "template": "emoji-quiz",
+ "items": [
+  {
+   "emoji": "🍦",
+   "word": "Ice Cream Cone"
+  },
+  {
+   "emoji": "🍨",
+   "word": "Ice Cream"
+  },
+  {
+   "emoji": "🍧",
+   "word": "Popsicle"
+  },
+  {
+   "emoji": "🍬",
+   "word": "Candy"
+  },
+  {
+   "emoji": "🍭",
+   "word": "Lollipop"
+  },
+  {
+   "emoji": "🍫",
+   "word": "Chocolate Bar"
+  }
+ ]
+}

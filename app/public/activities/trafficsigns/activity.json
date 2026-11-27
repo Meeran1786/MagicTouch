@@ -1,0 +1,37 @@
+{
+ "id": "trafficsigns",
+ "level": "lkg",
+ "subject": "world",
+ "title": "Traffic and Road Safety",
+ "topic": "Stop signs, traffic lights and staying safe",
+ "icon": "🚦",
+ "order": 76,
+ "status": "approved",
+ "template": "emoji-quiz",
+ "items": [
+  {
+   "emoji": "🛑",
+   "word": "Stop Sign"
+  },
+  {
+   "emoji": "🚦",
+   "word": "Traffic Light"
+  },
+  {
+   "emoji": "🚸",
+   "word": "Children Crossing"
+  },
+  {
+   "emoji": "⚠️",
+   "word": "Warning"
+  },
+  {
+   "emoji": "⛔",
+   "word": "No Entry"
+  },
+  {
+   "emoji": "🚓",
+   "word": "Police Car"
+  }
+ ]
+}
