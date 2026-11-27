@@ -313,3 +313,619 @@
     height: 50px;
   }
 }
+
+/* ════════════════════════════════════════════════════════════════════════════════════════════════
+   CLASS ACTIVITIES (appended 2026-11-27): quiz, order, sort, match, explore, label, reveal, map, pack.
+   Built on the classes above, with the same palette, elevation, springs and 52 px IR-pen minimum.
+   Behaviour: the "CLASS ACTIVITIES KIT" section at the end of /shared/motion-engine.js.
+
+   Tiles       .st-tile (a card a child moves or taps: .ico + .txt; .selected .correct .placed)
+   Targets     .st-slot (dashed drop place; .hover .filled; .st-slot-n number badge)  .st-bin (a tray)
+   Picture     .st-scene (an SVG picture in an elevated, softly lit .st-stage)  .st-hot (pulsing hotspot)
+   Panel       .st-info (title + text card)  .st-pool (tiles waiting in the panel)  .st-dots  .st-btn
+   Answers     .st-opt (big answer card with a letter; .right .wrong)
+   Steps       .st-steps > .st-step-chip (lesson pack stepper; .on .done)
+   ════════════════════════════════════════════════════════════════════════════════════════════════ */
+.st-class {
+  position: relative;
+}
+.st-class .st-stage-holder {
+  align-items: stretch;
+}
+.st-class .st-goal {
+  line-height: 1.25;
+}
+.st-class .st-goal small,
+.st-read b small {
+  font-size: 0.6em;
+  font-weight: 700;
+  color: var(--mt-mute);
+}
+.st-links {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+.st-links--under {
+  z-index: 0;
+}
+.st-links--under ~ * {
+  position: relative;
+  z-index: 1;
+}
+
+/* a stage card that holds DOM (tiles, slots, an SVG picture) instead of a canvas */
+.st-board {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  border-radius: 20px;
+  background:
+    radial-gradient(120% 90% at 18% 0%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0) 60%),
+    linear-gradient(180deg, var(--mt-white) 0%, var(--mt-tint) 100%);
+  box-shadow: var(--mt-shadow);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  overflow: hidden;
+}
+/* soft ground shadow under things that sit on the board */
+.st-ground {
+  box-shadow:
+    0 14px 18px -12px rgba(61, 14, 55, 0.35),
+    var(--mt-shadow);
+}
+
+/* ---------- tiles ---------- */
+.st-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-height: 72px;
+  padding: 10px 12px;
+  text-align: center;
+  font: 700 22px/1.2 var(--mt-body);
+  color: var(--mt-plum-dark);
+  background: var(--mt-white);
+  border: 2px solid var(--mt-line);
+  border-radius: var(--mt-radius);
+  box-shadow:
+    0 10px 14px -10px rgba(61, 14, 55, 0.35),
+    0 2px 6px rgba(61, 14, 55, 0.06);
+  cursor: pointer;
+  touch-action: none;
+  user-select: none;
+  transition:
+    transform 0.28s var(--mt-spring),
+    box-shadow 0.2s,
+    border-color 0.2s,
+    background-color 0.2s;
+}
+.st-tile:active {
+  transform: scale(0.95, 0.92);
+}
+.st-tile .ico {
+  font-size: 46px;
+  line-height: 1.05;
+}
+.st-tile .ico:not(:has(img)) {
+  font-weight: 800;
+  color: var(--mt-plum);
+}
+.st-tile .txt {
+  font-size: 21px;
+}
+.st-tile svg {
+  max-width: 100%;
+  max-height: 96px;
+}
+.st-tile.selected {
+  border-color: var(--mt-amber);
+  transform: translateY(-6px) scale(1.04);
+  box-shadow:
+    0 0 0 6px rgba(243, 163, 40, 0.3),
+    0 18px 22px -12px rgba(61, 14, 55, 0.4);
+}
+.st-tile.correct {
+  border-color: var(--mt-green);
+  background: var(--mt-green-tint);
+}
+.st-tile.placed {
+  cursor: default;
+}
+.st-tile.st-drop.hover {
+  border-color: var(--mt-amber);
+  transform: scale(1.03);
+}
+
+/* ---------- drop places ---------- */
+.st-slot {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 72px;
+  border: 3px dashed #dcc6d4;
+  border-radius: var(--mt-radius);
+  background: rgba(255, 255, 255, 0.7);
+  color: #c9b3c2;
+  font: 800 34px var(--mt-body);
+  transition:
+    transform 0.28s var(--mt-spring),
+    border-color 0.2s,
+    background-color 0.2s;
+}
+.st-slot.hover {
+  border-color: var(--mt-amber);
+  background: rgba(251, 208, 100, 0.18);
+  transform: scale(1.04);
+}
+.st-slot.filled {
+  border: 0;
+  background: none;
+}
+.st-slot > .st-tile {
+  width: 100%;
+  height: 100%;
+}
+.st-slot-n {
+  position: absolute;
+  top: -14px;
+  left: -14px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--mt-plum);
+  color: var(--mt-yellow);
+  font: 800 19px var(--mt-body);
+  z-index: 2;
+  box-shadow: 0 2px 6px rgba(61, 14, 55, 0.25);
+}
+.st-slot.filled .st-slot-n {
+  background: var(--mt-green);
+  color: var(--mt-white);
+}
+.st-bin {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+  min-height: 0;
+  padding: 12px;
+  border-radius: 20px;
+  background: var(--mt-white);
+  border: 3px dashed #dcc6d4;
+  transition:
+    transform 0.28s var(--mt-spring),
+    border-color 0.2s,
+    background-color 0.2s;
+}
+.st-bin.hover {
+  border-color: var(--mt-amber);
+  background: #fffaf0;
+  transform: scale(1.02);
+}
+.st-bin-h {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font: 700 24px/1.15 var(--mt-head);
+  color: var(--mt-plum);
+}
+.st-bin-c {
+  flex: none;
+  min-width: 44px;
+  height: 44px;
+  padding: 0 10px;
+  border-radius: 22px;
+  display: grid;
+  place-items: center;
+  background: var(--mt-tint);
+  color: var(--mt-plum);
+  font: 800 22px var(--mt-body);
+}
+.st-bin-in {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 8px;
+  overflow: auto;
+}
+.st-bin-in .st-tile {
+  min-height: 52px;
+  padding: 6px 12px;
+  flex-direction: row;
+  font-size: 18px;
+}
+.st-bin-in .st-tile .ico {
+  font-size: 28px;
+}
+.st-bin-in .st-tile .txt {
+  font-size: 18px;
+}
+.st-bin-in .st-tile svg {
+  max-height: 44px;
+}
+
+/* ---------- pictures with hotspots ---------- */
+.st-scene {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--mt-white);
+  box-shadow: var(--mt-shadow);
+}
+.st-scene::after {
+  /* a soft light from the top left, like the reference's lit stage */
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(90% 70% at 15% 0%, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0) 60%),
+    radial-gradient(120% 90% at 50% 110%, rgba(61, 14, 55, 0.1), rgba(61, 14, 55, 0) 60%);
+  z-index: 1;
+}
+.st-scene > * {
+  z-index: 0;
+}
+.st-scene .st-hot,
+.st-scene .st-slot,
+.st-scene .st-tag {
+  z-index: 2;
+}
+.st-hot {
+  position: absolute;
+  width: 76px;
+  height: 76px;
+  margin: -38px 0 0 -38px;
+  border-radius: 50%;
+  border: 5px solid var(--mt-amber);
+  background: rgba(251, 208, 100, 0.45);
+  color: var(--mt-plum-dark);
+  font: 800 28px var(--mt-body);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(61, 14, 55, 0.25);
+  transition:
+    transform 0.28s var(--mt-spring),
+    background-color 0.2s,
+    border-color 0.2s;
+}
+.st-hot::after {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 4px solid var(--mt-amber);
+  animation: stHot 1.8s ease-out infinite;
+  pointer-events: none;
+}
+.st-hot:active {
+  transform: scale(0.9);
+}
+.st-hot.seen {
+  border-color: var(--mt-green);
+  background: rgba(227, 244, 234, 0.85);
+}
+.st-hot.seen::after {
+  animation: none;
+  opacity: 0;
+}
+.st-hot.on {
+  border-color: var(--mt-plum);
+  background: var(--mt-plum);
+  color: var(--mt-yellow);
+  transform: scale(1.12);
+}
+@keyframes stHot {
+  0% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(1.7);
+    opacity: 0;
+  }
+}
+.st-tag {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: var(--mt-white);
+  border: 2px solid var(--mt-green);
+  color: var(--mt-plum-dark);
+  font: 800 20px var(--mt-body);
+  white-space: nowrap;
+  box-shadow: 0 6px 12px -6px rgba(61, 14, 55, 0.4);
+  pointer-events: none;
+}
+
+/* ---------- panel pieces ---------- */
+.st-info {
+  background: var(--mt-white);
+  border-radius: var(--mt-radius);
+  box-shadow: var(--mt-shadow);
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 0;
+}
+.st-info-tag {
+  align-self: flex-start;
+  font: 700 15px var(--mt-body);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--mt-plum);
+  color: var(--mt-yellow);
+  padding: 3px 12px;
+  border-radius: 999px;
+}
+.st-info-t {
+  font: 700 30px/1.15 var(--mt-head);
+  color: var(--mt-plum);
+}
+.st-info-b {
+  font-size: 23px;
+  line-height: 1.4;
+  color: var(--mt-ink);
+}
+.st-info-b:empty {
+  display: none;
+}
+.st-pool {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding: 4px;
+}
+.st-pool.one {
+  grid-template-columns: 1fr;
+}
+.st-pool:empty {
+  display: none;
+}
+.st-pool .st-tile {
+  flex-direction: row;
+  justify-content: flex-start;
+  text-align: left;
+  gap: 12px;
+}
+.st-pool .st-tile .ico {
+  font-size: 36px;
+}
+.st-dots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+.st-dots span {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--mt-line);
+  transition: background-color 0.2s;
+}
+.st-dots span.on {
+  background: var(--mt-amber);
+  box-shadow: 0 0 0 4px rgba(243, 163, 40, 0.3);
+}
+.st-dots span.ok {
+  background: var(--mt-green);
+}
+.st-dots span.no {
+  background: var(--mt-magenta);
+}
+.st-btn {
+  min-height: 64px;
+  padding: 10px 28px;
+  font: 700 23px var(--mt-body);
+  color: var(--mt-white);
+  background: var(--mt-plum);
+  border: 0;
+  border-radius: var(--mt-radius);
+  cursor: pointer;
+  box-shadow: 0 10px 16px -10px rgba(61, 14, 55, 0.6);
+  transition: transform 0.28s var(--mt-spring);
+}
+.st-btn:active {
+  transform: scale(0.92, 0.88);
+}
+.st-btn.alt {
+  background: var(--mt-orange);
+}
+
+/* ---------- answer cards (quiz) ---------- */
+.st-opts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.st-opts.one {
+  grid-template-columns: 1fr;
+}
+.st-opt {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 84px;
+  text-align: left;
+  font: 700 24px/1.25 var(--mt-body);
+  color: var(--mt-ink);
+  background: var(--mt-white);
+  border: 3px solid var(--mt-line);
+  border-radius: 18px;
+  padding: 10px 18px;
+  cursor: pointer;
+  box-shadow: 0 10px 14px -10px rgba(61, 14, 55, 0.35);
+  transition:
+    transform 0.28s var(--mt-spring),
+    border-color 0.2s,
+    background-color 0.2s;
+}
+.st-opt:active {
+  transform: scale(0.96, 0.92);
+}
+.st-opt:disabled {
+  cursor: default;
+  color: var(--mt-ink);
+}
+.st-opt:disabled:not(.right):not(.wrong) {
+  opacity: 0.6;
+}
+.st-opt-l {
+  flex: 0 0 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--mt-plum);
+  color: var(--mt-yellow);
+  font-size: 24px;
+  font-weight: 800;
+}
+.st-opt.right {
+  border-color: var(--mt-green);
+  background: var(--mt-green-tint);
+}
+.st-opt.right .st-opt-l {
+  background: var(--mt-green);
+  color: var(--mt-white);
+}
+.st-opt.wrong {
+  border-color: var(--mt-magenta);
+  background: var(--mt-magenta-tint);
+}
+.st-opt.wrong .st-opt-l {
+  background: var(--mt-magenta);
+  color: var(--mt-white);
+}
+
+/* ---------- lesson pack steps ---------- */
+.st-steps {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.st-step-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 56px;
+  padding: 6px 20px 6px 8px;
+  border-radius: 999px;
+  border: 2px solid var(--mt-line);
+  background: var(--mt-white);
+  font: 700 20px var(--mt-body);
+  color: var(--mt-mute);
+  cursor: pointer;
+  transition:
+    transform 0.28s var(--mt-spring),
+    border-color 0.2s,
+    color 0.2s;
+}
+.st-step-chip:active {
+  transform: scale(0.94);
+}
+.st-step-chip .n {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--mt-tint);
+  color: var(--mt-plum-dark);
+  font-weight: 800;
+}
+.st-step-chip.done {
+  color: var(--mt-green);
+  border-color: #bfe3cb;
+}
+.st-step-chip.done .n {
+  background: var(--mt-green);
+  color: var(--mt-white);
+}
+.st-step-chip.on {
+  color: var(--mt-white);
+  background: var(--mt-plum);
+  border-color: var(--mt-plum);
+}
+.st-step-chip.on .n {
+  background: var(--mt-yellow);
+  color: var(--mt-plum-dark);
+}
+
+/* 768-px-high projectors */
+@media (max-height: 800px) {
+  .st-board {
+    padding: 16px;
+    gap: 12px;
+  }
+  .st-tile {
+    min-height: 60px;
+    font-size: 19px;
+  }
+  .st-tile .ico {
+    font-size: 36px;
+  }
+  .st-tile .txt {
+    font-size: 18px;
+  }
+  .st-pool {
+    gap: 10px;
+  }
+  .st-info-t {
+    font-size: 25px;
+  }
+  .st-info-b {
+    font-size: 20px;
+  }
+  .st-opt {
+    min-height: 64px;
+    font-size: 20px;
+    padding: 6px 14px;
+  }
+  .st-opt-l {
+    flex-basis: 44px;
+    height: 44px;
+    font-size: 20px;
+  }
+  .st-opts {
+    gap: 10px;
+  }
+  .st-step-chip {
+    min-height: 52px;
+    font-size: 17px;
+  }
+  .st-step-chip .n {
+    width: 34px;
+    height: 34px;
+  }
+  .st-btn {
+    min-height: 56px;
+    font-size: 21px;
+  }
+  .st-hot {
+    width: 68px;
+    height: 68px;
+    margin: -34px 0 0 -34px;
+  }
+}
+/* ═══════════════════════════════ end of CLASS ACTIVITIES ═══════════════════════════════════ */
