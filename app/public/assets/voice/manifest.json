@@ -1,5 +1,7421 @@
 {
-  "about": "Pre-generated voice clips, written by app/scripts/generate-voices.js. Do not edit by hand.",
-  "voices": {},
-  "clips": { "en-IN": {}, "hi-IN": {}, "te-IN": {} }
+ "about": "Pre-generated voice clips, written by app/scripts/generate-voices.js. Do not edit by hand.",
+ "voices": {
+  "en-IN": "en-IN-Chirp3-HD-Kore",
+  "hi-IN": "hi-IN-Chirp3-HD-Kore",
+  "te-IN": "te-IN-Chirp3-HD-Kore"
+ },
+ "clips": {
+  "en-IN": {
+   "0-27k2mo3kmqt": {
+    "t": "0",
+    "h": "uvqa3at41j",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "1-1sbk0lbi15b": {
+    "t": "1",
+    "h": "emhgni9yrs",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "1-the-sun-heats-water-1vzjhkpvvbn": {
+    "t": "1. The Sun heats water",
+    "h": "miq1xdpddn",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "1-x-for-x-0-jz55a0lmnx": {
+    "t": "1/x for x > 0",
+    "h": "12jmrd6bg7s",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "10-132k4aar7kv": {
+    "t": "10",
+    "h": "2artas3j1to",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "10-to-20-1i7q07rxzkf": {
+    "t": "10 to 20",
+    "h": "137c7ihx166",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "10-volts-divided-by-10-ohms-is-1-173vthssnk9": {
+    "t": "10 volts divided by 10 ohms is 1 ampere.",
+    "h": "17kg3m4jlic",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "100-b811f68y5j": {
+    "t": "100",
+    "h": "dxu075281k",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "11-1ake0fielii": {
+    "t": "11",
+    "h": "27lh51qr4ic",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "12-29dfbrciztv": {
+    "t": "12",
+    "h": "1oyc6dze5pi",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "12-centimetre-cuts-12-times-24-s-16fkvrenh0v": {
+    "t": "12 centimetre cuts: 12 times 24 squared is 6912.",
+    "h": "7swdyr22ox",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "13-qio1evorw4": {
+    "t": "13",
+    "h": "14q6dboajld",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "14-2d650wr0089": {
+    "t": "14",
+    "h": "27mjljed7ff",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "15-2e5prnqzluo": {
+    "t": "15",
+    "h": "13tj7w2i7c5",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "16-2c502jkpsp0": {
+    "t": "16",
+    "h": "16wuvilz410",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "17-2bsw39hdv9x": {
+    "t": "17",
+    "h": "1mwzzv35xl",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "18-2cv776azag8": {
+    "t": "18",
+    "h": "16jlwt8zphx",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "1857-the-first-war-of-independen-4xpt4eu9l": {
+    "t": "1857. The First War of Independence.",
+    "h": "15qmc08e3yu",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "1885-the-indian-national-congres-8jxgqdody9": {
+    "t": "1885. The Indian National Congress was founded.",
+    "h": "i64nmcmtzi",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "19-246xbrk7vsz": {
+    "t": "19",
+    "h": "1mtwmy62qh4",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "1919-the-jallianwala-bagh-massac-1dx7stbwj35": {
+    "t": "1919. The Jallianwala Bagh massacre in Amritsar.",
+    "h": "banpyka7u6",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "1920-gandhiji-started-the-non-co-jixgq6hh99": {
+    "t": "1920. Gandhiji started the Non-Cooperation Movement.",
+    "h": "179j2onx60",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "1930-the-salt-march-to-dandi-2ddafog1tan": {
+    "t": "1930. The Salt March to Dandi.",
+    "h": "decgqepe3j",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "1942-the-quit-india-movement-18w24e34djk": {
+    "t": "1942. The Quit India Movement.",
+    "h": "uete0eqlvg",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "1947-india-became-independent-1q7ulelgwx9": {
+    "t": "1947. India became independent.",
+    "h": "18fv6g8yv5y",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "2-eu0rq8x2ns": {
+    "t": "2",
+    "h": "yfwyujuwr8",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "2-evaporation-7ebb82n8a0": {
+    "t": "2. Evaporation",
+    "h": "13r3wojgako",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "2-tens-7-ones-1kdmihabhnp": {
+    "t": "2 tens + 7 ones",
+    "h": "c6q9xzcjxo",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "20-171tyjsudse": {
+    "t": "20",
+    "h": "1hgom5j48uf",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "21-12r5oeth5vq": {
+    "t": "21",
+    "h": "19fdx0rqlo6",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "22-264xbwo14nz": {
+    "t": "22",
+    "h": "18t25fedhon",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "23-9f640rjkod": {
+    "t": "23",
+    "h": "1y08b7apl2l",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "24-2ekmt2j9g7d": {
+    "t": "24",
+    "h": "2dxem0fztdy",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "25-22bujk1ojnr": {
+    "t": "25",
+    "h": "1qqpjlzmphh",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "26-62m3s06ec9": {
+    "t": "26",
+    "h": "16h237zuzyl",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "27-absoz4qk9j": {
+    "t": "27",
+    "h": "n1q1w9cvt2",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "28-19q15mvygd2": {
+    "t": "28",
+    "h": "2aqhwd5gzhy",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "29-1pywaeluptr": {
+    "t": "29",
+    "h": "2g6fft5cb4x",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "3-1y33v6j3ef4": {
+    "t": "3",
+    "h": "czc8jzrpb7",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "3-condensation-z5yi9fxfuu": {
+    "t": "3. Condensation",
+    "h": "2co116bv8at",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "30-coqahwmmt1": {
+    "t": "30",
+    "h": "ilku64rse8",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "31-2bns6n0jane": {
+    "t": "31",
+    "h": "ot4svp1qxw",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "32-bbchxy3rvp": {
+    "t": "32",
+    "h": "i4cfw95otf",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "33-1p4ua914hcb": {
+    "t": "33",
+    "h": "1opgwig0f5d",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "34-hohit900nm": {
+    "t": "34",
+    "h": "1lp8tgq1xyp",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "35-w1stn0vh3j": {
+    "t": "35",
+    "h": "stve1opx3b",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "36-1j3a7oqqiz7": {
+    "t": "36",
+    "h": "2598zvfx11a",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "37-8hhb3gc6i6": {
+    "t": "37",
+    "h": "zy3zw1py9y",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "38-1ixqv9hx17q": {
+    "t": "38",
+    "h": "1j1koterti1",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "39-2bwnpdogmob": {
+    "t": "39",
+    "h": "1yej53g4jwb",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "3x-squared-is-never-negative-so-1v73u4dnjns": {
+    "t": "3x squared is never negative, so x cubed keeps increasing.",
+    "h": "a7ce3irqex",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "4-102pe0dg25y": {
+    "t": "4",
+    "h": "2c7vx37k0vh",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "4-rain-179i7if3uxa": {
+    "t": "4. Rain",
+    "h": "9aszrxudyi",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "4-tens-0-ones-26ru5pke1rr": {
+    "t": "4 tens + 0 ones",
+    "h": "v7xvl0duv9",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "40-1cofcx4x29l": {
+    "t": "40",
+    "h": "186q98j0rwz",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "40-pi-for-example-radius-10-at-2-1s4zc3de51r": {
+    "t": "40 pi. For example radius 10 at 2 centimetres per second, or radius 5 at 4.",
+    "h": "2yv6i847vj",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "41-1ukk9lhef9o": {
+    "t": "41",
+    "h": "uxuuyuw7bi",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "42-1bqkj6djdd2": {
+    "t": "42",
+    "h": "1dz58yaqlv3",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "43-169rita8ttz": {
+    "t": "43",
+    "h": "dlupxdcqnk",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "44-qwc2inmfye": {
+    "t": "44",
+    "h": "46b28mh10o",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "45-luna1525s1": {
+    "t": "45",
+    "h": "2g5b5gxarxz",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "46-g1ijhq1h81": {
+    "t": "46",
+    "h": "189awp70u8l",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "47-ijh6j6cfa": {
+    "t": "47",
+    "h": "m526tlb9ku",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "48-13hkkerjot2": {
+    "t": "48",
+    "h": "207w5kbsr5e",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "49-vpvfmfwgge": {
+    "t": "49",
+    "h": "ett99zzo2k",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "5-3x-135yet7fr1i": {
+    "t": "5 − 3x",
+    "h": "1dot31ehscp",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "5-collection-anuqzg1axf": {
+    "t": "5. Collection",
+    "h": "19b2tqjqr41",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "5-nx0baaovha": {
+    "t": "5",
+    "h": "12xjnegmj2u",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "5-tens-9-ones-12g8r68kugh": {
+    "t": "5 tens + 9 ones",
+    "h": "1mhq9wg8but",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "50-154d4nris3h": {
+    "t": "50",
+    "h": "yvqyptb30t",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "51-je5k20i7mr": {
+    "t": "51",
+    "h": "1bcbgfdt8ve",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "52-9bcb7indze": {
+    "t": "52",
+    "h": "1fos6hp1yu8",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "53-1srxll169pe": {
+    "t": "53",
+    "h": "1cazyocnpc8",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "54-9xi0b4bvik": {
+    "t": "54",
+    "h": "tsj53eh99w",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "55-195hj0cadpc": {
+    "t": "55",
+    "h": "1iusbuz5dxs",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "56-v8du2xcxdr": {
+    "t": "56",
+    "h": "1ylmgrq5l0h",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "57-qbft4iie0d": {
+    "t": "57",
+    "h": "1o5nazxprd3",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "58-23dj8hy54j6": {
+    "t": "58",
+    "h": "20jhlqz9i9o",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "59-i9nkuv5daz": {
+    "t": "59",
+    "h": "2f0bhdcpikw",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "6-2bssb9yryvr": {
+    "t": "6",
+    "h": "1mjgx8qdp26",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "60-1d1xzm94g9m": {
+    "t": "60",
+    "h": "2e4301ui3pp",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "61-17r956fd0je": {
+    "t": "61",
+    "h": "2bqogktxc6q",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "62-1hu2nbsrvo5": {
+    "t": "62",
+    "h": "rbg4wm6ls8",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "63-1dcimked82z": {
+    "t": "63",
+    "h": "6edogsqzv7",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "64-24rt6j27vg0": {
+    "t": "64",
+    "h": "1l51q9ce4tv",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "65-1v08z9pvnis": {
+    "t": "65",
+    "h": "2aafor1jh21",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "66-1d4gfo5z8br": {
+    "t": "66",
+    "h": "2z182cdbhc",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "67-1lvj2hckble": {
+    "t": "67",
+    "h": "5pa45p0hg4",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "68-1an0allzaor": {
+    "t": "68",
+    "h": "6oqnorgng",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "69-jn92sp2a4h": {
+    "t": "69",
+    "h": "4z1ckpf3m5",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "7-f7jpp9wn6d": {
+    "t": "7",
+    "h": "3xtaznplwb",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "7-tens-2-ones-1cr2zky2y02": {
+    "t": "7 tens + 2 ones",
+    "h": "21ek73hnaxb",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "70-cduxtu9vf3": {
+    "t": "70",
+    "h": "6gbtf4ssyr",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "71-ot2999oxji": {
+    "t": "71",
+    "h": "12bnovkpgnx",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "72-1nojus3xjs8": {
+    "t": "72",
+    "h": "1bl9otx3aae",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "73-16ii8yn17tp": {
+    "t": "73",
+    "h": "k7v7o06cb9",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "74-8iz109j0j4": {
+    "t": "74",
+    "h": "exujl8d71n",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "75-1qkz4gs76yw": {
+    "t": "75",
+    "h": "lvlh80ibq4",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "76-1w8g1pmd5wi": {
+    "t": "76",
+    "h": "1s0bt6r5iw0",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "77-oybpld91or": {
+    "t": "77",
+    "h": "zvq2oze5lr",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "78-iqpaitjplk": {
+    "t": "78",
+    "h": "14kicz05lle",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "79-o8qaommgtz": {
+    "t": "79",
+    "h": "260eqyxrkgn",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "8-centimetres-the-box-holds-8192-13y0xt31e3c": {
+    "t": "8 centimetres. The box holds 8192 cubic centimetres, and dV by dx is zero there.",
+    "h": "7xa4rt2jaa",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "8-kfpw6ntfrq": {
+    "t": "8",
+    "h": "1wd0sxrvmm5",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "80-29obya1yjse": {
+    "t": "80",
+    "h": "197dv8eo83t",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "81-subej82c5v": {
+    "t": "81",
+    "h": "1fc0ix3f476",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "82-1if84emv2bj": {
+    "t": "82",
+    "h": "273nw23vya2",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "83-19vgo58kb62": {
+    "t": "83",
+    "h": "rh55k261ih",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "84-2d2q8gntzkn": {
+    "t": "84",
+    "h": "8ir2foa2ju",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "85-komwzxkcig": {
+    "t": "85",
+    "h": "2f9r4x1if03",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "86-feaph95jby": {
+    "t": "86",
+    "h": "1w94j9h09ep",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "87-1cqfokpl7b1": {
+    "t": "87",
+    "h": "l62ug739d7",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "88-1pnz8zbvyuf": {
+    "t": "88",
+    "h": "21cwvvlo335",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "89-28y09y29qck": {
+    "t": "89",
+    "h": "1oyno5a1e3",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "9-1u7oquu1ayu": {
+    "t": "9",
+    "h": "19803tm2jcu",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "9-tens-5-ones-1vw4vxpilhr": {
+    "t": "9 tens + 5 ones",
+    "h": "svhrxuw21f",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "9-volts-divided-by-6-ohms-is-1-5-1zyrpjrrjgp": {
+    "t": "9 volts divided by 6 ohms is 1.5 amperes.",
+    "h": "zpsqf00csj",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "90-2cc74yht8hq": {
+    "t": "90",
+    "h": "1phbqu4rqq6",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "91-16vad68vi8b": {
+    "t": "91",
+    "h": "uj68dtsb6m",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "92-1r1utpc7og": {
+    "t": "92",
+    "h": "e0is90i41l",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "93-7tfv6isxik": {
+    "t": "93",
+    "h": "1g9x5fm9ujz",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "94-2de7g7jclgk": {
+    "t": "94",
+    "h": "1983hdz0oqt",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "95-2ctkcaund0": {
+    "t": "95",
+    "h": "2aniez189e3",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "96-1qpbybacty1": {
+    "t": "96",
+    "h": "8v1qifgfju",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "97-emi81awfkr": {
+    "t": "97",
+    "h": "76ys771mlm",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "98-24yltgxrvuk": {
+    "t": "98",
+    "h": "25x7g4bm7ay",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "99-2g7y4agn5as": {
+    "t": "99",
+    "h": "1r0u5vs6hq7",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "a-12-v-battery-is-connected-acro-lyysmkwqbg": {
+    "t": "A 12 V battery is connected across a 4 Ω resistor. What current flows?",
+    "h": "1ebwscjwwiq",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "a-2dx49b93e8d": {
+    "t": "A",
+    "h": "17p7b1v918d",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "a-bulb-draws-0-5-a-from-a-220-v-cbkvefafn4": {
+    "t": "A bulb draws 0.5 A from a 220 V supply. What is its power?",
+    "h": "ejkh67qhzn",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "a-circular-rangoli-grows-outward-1pxvly3qeqn": {
+    "t": "A circular rangoli grows outwards at a steady speed. How fast does its area grow?",
+    "h": "1j3vyummgs",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "a-doctor-asks-for-a-widal-test-w-m83ik7hqxq": {
+    "t": "A doctor asks for a Widal test. Which disease is being checked?",
+    "h": "1dxw8tkl0i7",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "a-dragonfly-has-four-wings-its-b-1zurxon4lwr": {
+    "t": "A dragonfly has four wings. Its babies grow up under the water.",
+    "h": "9eq0tzvh59",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "a-female-anopheles-bites-the-sic-r2sa3egbih": {
+    "t": "A female Anopheles bites the sick person and takes up the gametocytes.",
+    "h": "1rrmj5rr5z7",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "a-for-apple-1dhblof6zhe": {
+    "t": "A for Apple",
+    "h": "1uym7b525zi",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "a-large-dam-on-the-bhagirathi-it-584lwwefbc": {
+    "t": "A large dam on the Bhagirathi. It stores water for drinking and irrigation and makes hydroelectric power.",
+    "h": "1s1ci49gvsa",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "a-mosquito-sucks-them-up-eohcrnpx4y": {
+    "t": "A mosquito sucks them up",
+    "h": "183d09meyy2",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "a-negative-slope-goes-downhill-28ec6ms3p8x": {
+    "t": "A negative slope goes downhill.",
+    "h": "1i5b2karr9p",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "a-resistor-opposes-the-flow-of-c-1wxm0wwphrt": {
+    "t": "A resistor opposes the flow of current. Its resistance is measured in ohms (Ω).",
+    "h": "1irs1xtx7s1",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "a-river-s-journey-ymuts9ijyu": {
+    "t": "A river's journey",
+    "h": "k25tmx8asu",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "a-slope-of-one-half-is-gentle-11rkc6bdqcd": {
+    "t": "A slope of one half is gentle.",
+    "h": "q9tj8ae3pi",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "a-snail-carries-its-shell-like-a-1zmw1kkrt6v": {
+    "t": "A snail carries its shell like a house and moves on one slimy foot.",
+    "h": "1td34yus7xx",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "a-sweet-shop-folds-boxes-from-48-23mj1tsq527": {
+    "t": "A sweet shop folds boxes from 48 centimetre square cards. Cut a square from each corner, then fold up the sides.",
+    "h": "3i9jhiviml",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "a-switch-opens-or-closes-the-pat-1ye2gbhp2t3": {
+    "t": "A switch opens or closes the path. Current flows only when the circuit is a complete, closed loop.",
+    "h": "wqbx9pcry5",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "a-tube-of-a-salt-such-as-kno3-in-j4w8k3t5g8": {
+    "t": "A tube of a salt such as KNO₃ in jelly. Its ions move to keep both solutions electrically neutral and complete the circuit.",
+    "h": "6y2lcqkt99",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "a-turtle-can-live-in-water-and-o-24uqc0jqudv": {
+    "t": "A turtle can live in water and on land. Its hard shell keeps it safe.",
+    "h": "246z7hjd9w7",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "a-voltmeter-is-connected-in-seri-2cnxk331zla": {
+    "t": "A voltmeter is connected in series with the part it measures.",
+    "h": "1cquxhf4xm3",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "a-voltmeter-is-joined-in-paralle-2gfbf2jf0pk": {
+    "t": "A voltmeter is joined in parallel. Its high resistance means it draws almost no current, so it does not disturb the circuit.",
+    "h": "1ul7xlme8ki",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "a-voltmeter-measures-the-voltage-1x6ixyqbhh0": {
+    "t": "A voltmeter measures the voltage across a part. It is joined across the two ends of that part, in parallel.",
+    "h": "1vzncx3yq46",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "a-voltmeter-should-have-a-very-h-1s1p9bzfl83": {
+    "t": "A voltmeter should have a very high resistance.",
+    "h": "1cnwabuc2qs",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "a-wire-is-made-twice-as-long-its-2axusyxp1uz": {
+    "t": "A wire is made twice as long. Its material and thickness stay the same. Its resistance…",
+    "h": "1do8j7z4t93",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "a-zinc-rod-placed-in-copper-sulf-90khj5nyzz": {
+    "t": "A zinc rod placed in copper sulfate solution becomes coated with copper.",
+    "h": "1bepkcpewg0",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "about-how-much-charge-is-one-mol-10oskueld5j": {
+    "t": "About how much charge is one mole of electrons?",
+    "h": "1mow40oixik",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "about-twenty-thousand-kilometres-23oxq13jcfy": {
+    "t": "About twenty thousand kilometres up, one trip takes twelve hours.",
+    "h": "1qi7xokyf7q",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "afternoon-16cenn2ng46": {
+    "t": "Afternoon",
+    "h": "1poq06sci18",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "airplane-timswonc7n": {
+    "t": "Airplane",
+    "h": "gx8xsnji1n",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "alarm-clock-vbhnvu07c5": {
+    "t": "Alarm Clock",
+    "h": "1sg6ge63ybh",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "alien-iog6j9p5vg": {
+    "t": "Alien",
+    "h": "12qd7belpyk",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "all-challenges-solved-2903dpajkul": {
+    "t": "All challenges solved!",
+    "h": "zasflrgbp0",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "all-matched-1h0czap7zbc": {
+    "t": "All matched!",
+    "h": "1kzxjptwuph",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "all-rivers-sorted-4tc408oqmn": {
+    "t": "All rivers sorted!",
+    "h": "1atiqlnlmwo",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "all-sorted-1qmz54c3bp3": {
+    "t": "All sorted!",
+    "h": "1iloqcud08t",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "almond-1r3zvulrwi4": {
+    "t": "Almond",
+    "h": "y3mg2qkzoy",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "aluminium-l2ci32b45b": {
+    "t": "Aluminium",
+    "h": "y2udhwel1k",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "aluminium-minus-1-66-volts-7cyqjiwzy6": {
+    "t": "Aluminium, minus 1.66 volts.",
+    "h": "gkerbf8whn",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "amazing-25or3wiypb6": {
+    "t": "Amazing!",
+    "h": "1s20k082dsb",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "ambulance-1whxwv31hxy": {
+    "t": "Ambulance",
+    "h": "zglxavv7hv",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "ammeter-m15njpjc2a": {
+    "t": "Ammeter",
+    "h": "byqmjrneyc",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "amoebiasis-3z7qcry058": {
+    "t": "Amoebiasis",
+    "h": "11rqxksnstt",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "amoebiasis-is-caused-by-the-prot-jrrk2qig73": {
+    "t": "Amoebiasis is caused by the protozoan Entamoeba histolytica.",
+    "h": "yd6xaiageb",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "an-ammeter-measures-current-in-a-kc4e23x7ac": {
+    "t": "An ammeter measures current in amperes (A). It sits in the same loop as the other parts, in series.",
+    "h": "198ngobyy2e",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "an-infected-female-anopheles-bit-92fjc5n31r": {
+    "t": "An infected female Anopheles bites and injects the parasite, as sporozoites.",
+    "h": "2h51kcct79",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "angry-p3hqi46wx1": {
+    "t": "Angry",
+    "h": "r90e9tedbr",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "answer-with-its-unit-22v39o7iobb": {
+    "t": "Answer with its unit",
+    "h": "ex39w99hsw",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "ant-1z0bp871c6x": {
+    "t": "Ant",
+    "h": "1l8uzxodvbm",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "antibiotics-cure-the-common-cold-4m0igs0hus": {
+    "t": "Antibiotics cure the common cold.",
+    "h": "1t7tj762q6q",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "apple-2d3afr687ew": {
+    "t": "Apple",
+    "h": "2ens23t4g3a",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "apples-w2yeslj6xr": {
+    "t": "apples",
+    "h": "281mv20puhk",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "appliances-in-a-house-are-connec-ce0g5u0rpc": {
+    "t": "Appliances in a house are connected in parallel.",
+    "h": "2ae3qfmdqal",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "apricot-1lvpnolxhg8": {
+    "t": "Apricot",
+    "h": "ddaltuulqy",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "arrow-2a3ijl8r7go": {
+    "t": "Arrow",
+    "h": "294v3vsc39",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "as-cu2-ions-turn-into-copper-met-23hufxqhp8g": {
+    "t": "As Cu²⁺ ions turn into copper metal, the blue colour slowly fades. Overall: Zn + Cu²⁺ → Zn²⁺ + Cu.",
+    "h": "1xsdnfgjnco",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "ascariasis-is-caused-by-the-roun-6nqkn4cfd6": {
+    "t": "Ascariasis is caused by the roundworm Ascaris.",
+    "h": "205k72tdv7i",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "ascariasis-quf3m0kk66": {
+    "t": "Ascariasis",
+    "h": "jad609m2z7",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "astronaut-24p7u893r00": {
+    "t": "Astronaut",
+    "h": "5id2cf981p",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "at-10-rupees-50-mangoes-are-want-cv3rw4f9cc": {
+    "t": "At 10 rupees, 50 mangoes are wanted and 50 are offered. That is the equilibrium.",
+    "h": "14zn50ir3k4",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "at-a-low-price-buyers-want-more-1p9j7e9m2a5": {
+    "t": "At a low price, buyers want more than sellers offer.",
+    "h": "2vhp68gadb",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "at-about-thirty-six-thousand-kil-18ikn3eki7w": {
+    "t": "At about thirty six thousand kilometres the satellite turns with the Earth, so it stays above the same place. India's communication satellites sit here.",
+    "h": "3kobjetf6a",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "at-devprayag-the-alaknanda-joins-q9woycnbql": {
+    "t": "At Devprayag the Alaknanda joins, and it becomes the Ganga.",
+    "h": "1p3dpim8ow0",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "at-four-hundred-kilometres-one-t-1h164403whm": {
+    "t": "At four hundred kilometres, one trip round the Earth takes about ninety two minutes. Low satellites move fastest.",
+    "h": "ujdnd638y3",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "at-haridwar-it-enters-the-plains-27jmybjuxde": {
+    "t": "At Haridwar it enters the plains.",
+    "h": "6akd12rnlx",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "at-prayagraj-the-yamuna-joins-17cfrnug77b": {
+    "t": "At Prayagraj the Yamuna joins.",
+    "h": "25nxw5fr8xd",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "at-which-place-do-the-bhagirathi-1o9h8njwly8": {
+    "t": "At which place do the Bhagirathi and the Alaknanda join to form the Ganga?",
+    "h": "ngfcspc266",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "atom-labelled-2ad34e0is0s": {
+    "t": "Atom labelled!",
+    "h": "21nafurzzmp",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "auto-rickshaw-w84g9udjz8": {
+    "t": "Auto Rickshaw",
+    "h": "13yt6nd9dxh",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "autumn-21tot3u9al7": {
+    "t": "Autumn",
+    "h": "ap8na4eruu",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "b-1dyo2tj3buv": {
+    "t": "B",
+    "h": "an5j6ookgi",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "b-for-butterfly-205zwgbp4xx": {
+    "t": "B for Butterfly",
+    "h": "1qohn8f17i7",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "baby-1km9ae7njf3": {
+    "t": "Baby",
+    "h": "1v3fsv7h8qc",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "back-to-1-m-each-now-the-zinc-so-266b6fsedwj": {
+    "t": "Back to 1 M each. Now the zinc solution is diluted to 0.01 M. The voltage will…",
+    "h": "2ak9626ni9p",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "backpack-15saqvch98n": {
+    "t": "Backpack",
+    "h": "2fxb2slqei2",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "bacteria-fxlcfq4obr": {
+    "t": "🦠 Bacteria",
+    "h": "evn7pua0f9",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "ball-sjm1bap06v": {
+    "t": "Ball",
+    "h": "24ngniu8x8b",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "balloon-psie29cvoo": {
+    "t": "Balloon",
+    "h": "8sji96bxtv",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "banana-1qzjpt2kjfq": {
+    "t": "banana",
+    "h": "1t8l1wwxilf",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "bananas-mvc3jlxc00": {
+    "t": "bananas",
+    "h": "eddffkfkf0",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "bank-mmtwmeg6vg": {
+    "t": "Bank",
+    "h": "1uy7s8i8r9o",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "baseball-1brcda8zmqa": {
+    "t": "Baseball",
+    "h": "1l2kej10u15",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "basket-11mdmdq0c05": {
+    "t": "Basket",
+    "h": "9pcwxivl8a",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "basketball-15263zvosy4": {
+    "t": "Basketball",
+    "h": "2dc221eqyh3",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "bat-1vrqwoe6o1o": {
+    "t": "Bat",
+    "h": "ydle4vf8an",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "bathtub-g3k9jnkzjj": {
+    "t": "Bathtub",
+    "h": "1wi1juxqdc7",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "beach-164zvj3r8ez": {
+    "t": "Beach",
+    "h": "1lksj2x2s5z",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "bear-cub-k5of72moje": {
+    "t": "Bear Cub",
+    "h": "1uufz3q4cr7",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "bear-w88691fqx7": {
+    "t": "Bear",
+    "h": "110po1pjy6n",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "bed-838cbk7zhw": {
+    "t": "Bed",
+    "h": "orjwvzcnm8",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "bee-11kaf81u8jn": {
+    "t": "Bee",
+    "h": "1ner4pa576n",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "before-you-touch-the-sliders-mak-i5rmgrfhlb": {
+    "t": "Before you touch the sliders, make a prediction.",
+    "h": "1k0tluedgki",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "bell-108518iktnb": {
+    "t": "Bell",
+    "h": "2dw2i0machc",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "best-box-1iy9wc8m8kt": {
+    "t": "Best box",
+    "h": "pj8ttpim5a",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "bicycle-17qsc5rtd4t": {
+    "t": "Bicycle",
+    "h": "1klpfuzmka",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "big-4p7i39n9bd": {
+    "t": "Big",
+    "h": "24vehjqpqm7",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "bird-1an0lpri9ru": {
+    "t": "Bird",
+    "h": "20ok8wtpkko",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "birthday-cake-1g4qqj5n6wf": {
+    "t": "Birthday Cake",
+    "h": "otl8y5dn2v",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "bite-of-a-female-anopheles-mosqu-q0348h3sqx": {
+    "t": "Bite of a female Anopheles mosquito",
+    "h": "1kqm6m9pzvd",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "bite-of-a-female-culex-mosquito-kcsizdy8lp": {
+    "t": "Bite of a female Culex mosquito",
+    "h": "2gedha7g0i8",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "bitter-gourd-1juoqh8khuw": {
+    "t": "Bitter Gourd",
+    "h": "5hlw6x4ufj",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "black-luyst7i5rv": {
+    "t": "Black",
+    "h": "9dvzsfq64z",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "black-pepper-1090n2f2h4j": {
+    "t": "Black Pepper",
+    "h": "119ahccl711",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "black-tiger-2a2my4vfa7g": {
+    "t": "Black Tiger",
+    "h": "1bf29q2415a",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "blocks-fvgltsr9eb": {
+    "t": "Blocks",
+    "h": "ht1yqye90b",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "blue-207s78op2lv": {
+    "t": "Blue",
+    "h": "2g1r6wgs72r",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "blueberry-115y22ojwod": {
+    "t": "Blueberry",
+    "h": "15slai5sukf",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "boat-2b0erv6d06n": {
+    "t": "Boat",
+    "h": "17295a65qji",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "bone-aa3otgh5zg": {
+    "t": "Bone",
+    "h": "1e7h9lc2bhe",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "book-1n77yez4uyc": {
+    "t": "Book",
+    "h": "1w69pz98ae4",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "boots-xvjb6yyvh6": {
+    "t": "Boots",
+    "h": "1mn08af7qm6",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "both-are-spread-by-mosquitoes-so-9xty7v32qu": {
+    "t": "Both are spread by mosquitoes, so removing stagnant water and using nets cuts both diseases.",
+    "h": "23zpdqwmtrh",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "both-are-true-and-a-negative-der-1xicx0vogr2": {
+    "t": "Both are true, and a negative derivative is exactly why the function decreases there.",
+    "h": "1xktywyp6k2",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "both-are-true-and-the-reason-is-uxhsap71i9": {
+    "t": "Both are true, and the reason is exactly why homes are wired in parallel.",
+    "h": "1uyth04inqd",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "both-are-true-each-round-of-burs-1mqc4sg97el": {
+    "t": "Both are true. Each round of bursting red blood cells releases haemozoin, which brings back the fever.",
+    "h": "1p173wtbvfp",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "both-are-true-the-fast-flow-thro-luo2ynqrre": {
+    "t": "Both are true. The fast flow through the rift valley carries silt away instead of building a delta.",
+    "h": "23z3ghcqthy",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "both-are-true-zinc-gives-away-el-2aznakv838h": {
+    "t": "Both are true. Zinc gives away electrons more easily, so it displaces copper from the solution.",
+    "h": "blu88qfbc3",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "bottle-gourd-mr2qdo9m72": {
+    "t": "Bottle Gourd",
+    "h": "t0pz5n2v08",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "bouquet-1y6xunemdfz": {
+    "t": "Bouquet",
+    "h": "29ol6ua1b1t",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "bowl-261e2v1ohzt": {
+    "t": "Bowl",
+    "h": "1jdzjs0rnjg",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "bowling-zup9h4y64h": {
+    "t": "Bowling",
+    "h": "27emx64w1s8",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "boxing-glove-19i6uzs5n18": {
+    "t": "Boxing Glove",
+    "h": "216npi2jigc",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "brahmaputra-27p4ny511d7": {
+    "t": "Brahmaputra",
+    "h": "2fzrktiqmut",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "brain-1c4gsxxpy6y": {
+    "t": "Brain",
+    "h": "1cx92o8s4zq",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "bread-cwdwaiwanr": {
+    "t": "Bread",
+    "h": "1ae4hq4z47v",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "brilliant-224cjq12ict": {
+    "t": "Brilliant!",
+    "h": "1v5ffml5s5j",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "brine-aqueous-nacl-anode-cvbmvj3ofu": {
+    "t": "Brine (aqueous NaCl): anode",
+    "h": "i3lp92oz8s",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "brine-aqueous-nacl-cathode-vjb10vmxa1": {
+    "t": "Brine (aqueous NaCl): cathode",
+    "h": "h9vsri1avv",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "brine-aqueous-nacl-is-electrolys-2gkzn1tt58t": {
+    "t": "Brine (aqueous NaCl) is electrolysed. What forms at the cathode?",
+    "h": "18ucszkb2yq",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "bring-the-satellite-down-to-400-2eymoj1zig": {
+    "t": "Bring the satellite down to 400 km , where the International Space Station flies. How long does one trip take?",
+    "h": "mkavou1kli",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "brinjal-ujett4l0x9": {
+    "t": "Brinjal",
+    "h": "1lgjxw23hpp",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "brother-p3ubiv8og6": {
+    "t": "Brother",
+    "h": "8v5umeb30c",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "brown-12w3c7qf1hg": {
+    "t": "Brown",
+    "h": "24ad3cg4f9w",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "bucket-a4hdzkwigi": {
+    "t": "Bucket",
+    "h": "yn8q4drno6",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "buffalo-2czps50ohqu": {
+    "t": "Buffalo",
+    "h": "c54eh2rjee",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "bulb-1izrdjpftx0": {
+    "t": "Bulb",
+    "h": "miw7mc8lj5",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "bus-gsmue1693m": {
+    "t": "Bus",
+    "h": "24kfv0vnpcs",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "butterfly-gx63ecycx": {
+    "t": "Butterfly",
+    "h": "2duse1bl4pf",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "c-2epr8y8s9b1": {
+    "t": "C",
+    "h": "1xc174u77ay",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "c-for-cat-4xb6frrgm8": {
+    "t": "C for Cat",
+    "h": "kv8mnyhaoo",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "cabbage-1zgv7iq4qst": {
+    "t": "Cabbage",
+    "h": "eytlcxnk3t",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "cable-car-13u9eid1hvo": {
+    "t": "Cable Car",
+    "h": "2f49la1d5ap",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "cactus-1c68xmqaacf": {
+    "t": "Cactus",
+    "h": "1q7bxwm0plb",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "cake-9adq7xuf7b": {
+    "t": "Cake",
+    "h": "1o89e3hme69",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "calendar-1gyski212rq": {
+    "t": "Calendar",
+    "h": "250h3vk5yli",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "camel-1yk1yrifv8g": {
+    "t": "Camel",
+    "h": "1x2r0zbrljr",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "camera-1w94zrzq4nz": {
+    "t": "Camera",
+    "h": "79mb9427ry",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "campfire-6bthw1zevy": {
+    "t": "Campfire",
+    "h": "uw7gqwlpoi",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "can-you-spot-the-us3ao5j34f": {
+    "t": "Can you spot the",
+    "h": "jdcf7wr4k8",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "candle-q4z6h9t2m0": {
+    "t": "Candle",
+    "h": "8ixovqfvsr",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "candy-cgux4fa7ie": {
+    "t": "Candy",
+    "h": "11u7mprvsm7",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "canoe-1xininqu6j2": {
+    "t": "Canoe",
+    "h": "1q2s3e4h39r",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "cap-1dq2o66ef4a": {
+    "t": "Cap",
+    "h": "1xxzu1qt1f1",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "capsicum-19vir8uima2": {
+    "t": "Capsicum",
+    "h": "2cqzbwx48tm",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "car-24yeaqsbbsl": {
+    "t": "Car",
+    "h": "21p6l33kkdp",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "carousel-wtp5dqe1b6": {
+    "t": "Carousel",
+    "h": "26i6ii8v01g",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "carrot-1tkuf85jyf6": {
+    "t": "Carrot",
+    "h": "1wzucn9nkvk",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "cash-1aq5m7gcri3": {
+    "t": "Cash",
+    "h": "13cf72buwhf",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "cat-25rk1edzul5": {
+    "t": "Cat",
+    "h": "1b70244wyii",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "caterpillar-1qoq3i7fzgc": {
+    "t": "Caterpillar",
+    "h": "1hqccy1zpfa",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "cauliflower-b5wbk29sch": {
+    "t": "Cauliflower",
+    "h": "1rqmapzunuo",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "cell-u2lnrwjpks": {
+    "t": "Cell",
+    "h": "26pjqp7cv79",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "chair-1fj1fqlgiy4": {
+    "t": "Chair",
+    "h": "16gyodq30h4",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "change-the-price-of-a-mango-watc-1flz42chnkd": {
+    "t": "Change the price of a mango. Watch how many buyers want and how many sellers offer.",
+    "h": "1t9wp8xf3sz",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "change-the-satellite-s-height-wa-1gjk7s3c6c9": {
+    "t": "Change the satellite's height. Watch how its speed and orbit time change.",
+    "h": "216efq37z39",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "change-the-slope-m-and-the-inter-erfvrav5an": {
+    "t": "Change the slope m and the intercept c. Make your red line sit on the green dashed line.",
+    "h": "a99uvtiwsr",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "change-the-two-resistors-compare-uc6dfnfl9v": {
+    "t": "Change the two resistors. Compare the series total with the parallel total.",
+    "h": "133w7hdvfe4",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "change-the-voltage-and-resistanc-zdlfr6m18v": {
+    "t": "Change the voltage and resistance. Watch the current and the bulb.",
+    "h": "1t41pu9ea0y",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "chapter-complete-1mnu7gdfchj": {
+    "t": "Chapter complete!",
+    "h": "2etagr8sjl1",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "check-the-sign-of-f-x-f5c7r2wfp8": {
+    "t": "Check the sign of f″(x)",
+    "h": "8r4t8pgixq",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "cheese-2467yvcvyjm": {
+    "t": "Cheese",
+    "h": "2cqjqjldjfu",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "chef-25ymbahl94": {
+    "t": "Chef",
+    "h": "19yf8qujgfl",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "cherries-pr3qucin8v": {
+    "t": "cherries",
+    "h": "16974qfcrrr",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "cherry-1ff05c61hin": {
+    "t": "cherry",
+    "h": "10hdfevirdh",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "cherry-blossom-li4cnql3x": {
+    "t": "Cherry Blossom",
+    "h": "1v5w6i7c8p6",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "chess-2b8z9qpq4na": {
+    "t": "Chess",
+    "h": "q7ichjobdg",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "chestnut-148jsuq150r": {
+    "t": "Chestnut",
+    "h": "e4m54npmze",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "chick-dodn48scvh": {
+    "t": "Chick",
+    "h": "18mah4c6356",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "children-crossing-2exl2kfr38l": {
+    "t": "Children Crossing",
+    "h": "78y3ryhio5",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "chili-pepper-1lx6m5qaggt": {
+    "t": "Chili Pepper",
+    "h": "h6gojq8cks",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "chimpanzee-wsdsvchsof": {
+    "t": "Chimpanzee",
+    "h": "1f1fysp2kwj",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "chlorine-gas-1dm4xs4px1v": {
+    "t": "Chlorine gas",
+    "h": "24cqf4pau1",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "chocolate-bar-rvlvtv7r0m": {
+    "t": "Chocolate Bar",
+    "h": "1oxxsov3bhb",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "christmas-28ikpglhiet": {
+    "t": "Christmas",
+    "h": "221k1a15s41",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "circle-hghhadl98p": {
+    "t": "Circle",
+    "h": "12x4cwxa3lu",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "circus-tent-jsfg1zqr2t": {
+    "t": "Circus Tent",
+    "h": "9v1h9codud",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "climbing-1nnlmqc9r4b": {
+    "t": "Climbing",
+    "h": "kpdn3elstg",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "cloudy-1a2c8934tzu": {
+    "t": "Cloudy",
+    "h": "24ck36s0yuv",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "clown-le0476tfyv": {
+    "t": "Clown",
+    "h": "15ng8yc86qr",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "cockatoo-2aim0fsl6r3": {
+    "t": "Cockatoo",
+    "h": "1qya6fg4ltl",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "cockroach-1xntxs5scmj": {
+    "t": "Cockroach",
+    "h": "13p0xqffu5v",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "coconut-1mp7tkhe5ct": {
+    "t": "Coconut",
+    "h": "qxsqfvn7be",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "coin-1gve4che7lv": {
+    "t": "Coin",
+    "h": "o8m3kwcb54",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "cold-z6v1qan13": {
+    "t": "Cold",
+    "h": "1338x3uve0w",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "comb-1xedgodv0s7": {
+    "t": "Comb",
+    "h": "1vga1oov2h5",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "comet-1hzrwnix78k": {
+    "t": "Comet",
+    "h": "1xiatptx275",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "common-cold-1yuy8nazyet": {
+    "t": "Common cold",
+    "h": "1ihc0x3gmza",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "compass-1n4oanxa7jo": {
+    "t": "Compass",
+    "h": "f2rpl437vo",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "computer-mtrwvb2638": {
+    "t": "Computer",
+    "h": "1it4vdu0n35",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "confetti-ball-iqc72vmku7": {
+    "t": "Confetti Ball",
+    "h": "1qwhy1f3zg5",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "contaminated-food-and-water-1s8mmob4mjm": {
+    "t": "Contaminated food and water",
+    "h": "26tkevudi6m",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "cookie-phi6xaodih": {
+    "t": "Cookie",
+    "h": "2g7yunbr9xm",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "copper-plus-0-34-volts-26wyz4wtxn2": {
+    "t": "Copper, plus 0.34 volts.",
+    "h": "228twj0bjno",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "copper-pv6plqh6o6": {
+    "t": "Copper",
+    "h": "1m64ftmmhjf",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "copper-sulfate-solution-14gu844c8wi": {
+    "t": "Copper sulfate solution",
+    "h": "1h57x7utub2",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "copper-ten-times-more-concentrat-1aa81jounsa": {
+    "t": "Copper ten times more concentrated than zinc, for example 1 and 0.1 molar.",
+    "h": "1c0v6yrqh4u",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "copper-the-cathode-1ugxv4q3xdf": {
+    "t": "Copper: the cathode",
+    "h": "nhauw5vr59",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "coriander-hlnf4yf2ih": {
+    "t": "Coriander",
+    "h": "7qijef01bw",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "corn-1nvng0e9rhb": {
+    "t": "Corn",
+    "h": "xgd514bt2g",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "corner-cut-x-3rep2v58i2": {
+    "t": "Corner cut, x",
+    "h": "1tt0n8h9q6u",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "correct-17uos9by3wv": {
+    "t": "Correct.",
+    "h": "21f3pb1ok4r",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "cos-x-on-0-1bfedrw1pf": {
+    "t": "cos x on (0, π)",
+    "h": "2958fmubk4d",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "count-the-dots-on-each-card-then-1uojekkv8me": {
+    "t": "Count the dots on each card, then put it in the right basket.",
+    "h": "g8j4392zzp",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "count-the-dots-put-each-card-in-1afnmk3a8pa": {
+    "t": "Count the dots. Put each card in the right basket.",
+    "h": "yygho8k4k9",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "cow-19ss5qbkkh3": {
+    "t": "Cow",
+    "h": "1ngavmi2afe",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "crab-1r3g0ot0nhb": {
+    "t": "Crab",
+    "h": "tkddcvqooh",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "crayons-eaxj89u5t2": {
+    "t": "Crayons",
+    "h": "1gpc1gzefcs",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "crescent-2dukdb6bqsc": {
+    "t": "Crescent",
+    "h": "2bu9dfmhi0r",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "cricket-10gh37hd0eb": {
+    "t": "Cricket",
+    "h": "1lw95srjho7",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "crocodile-bp25isp78h": {
+    "t": "Crocodile",
+    "h": "ogswnhicka",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "croissant-2fnhg2jrqz8": {
+    "t": "Croissant",
+    "h": "2atiq84c7h6",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "crow-226mec55rta": {
+    "t": "Crow",
+    "h": "1c5o1jzfpk4",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "crown-v987abgrx9": {
+    "t": "Crown",
+    "h": "2612ivzdjqs",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "cu2-concentration-2155z82eazz": {
+    "t": "Cu²⁺ concentration",
+    "h": "1tymg4bgbmx",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "cu2-ions-from-the-solution-gain-5515bb3sqt": {
+    "t": "Cu²⁺ ions from the solution gain electrons and coat the rod as copper metal. Gaining electrons is reduction, and it happens at the cathode.",
+    "h": "1877flro1yn",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "cucumber-2ggkr44sqsu": {
+    "t": "Cucumber",
+    "h": "1stbpyholnu",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "cup-67gwwykqyr": {
+    "t": "Cup",
+    "h": "4qk0zfqwz2",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "cupcake-3zsc8xymjv": {
+    "t": "Cupcake",
+    "h": "13l42nswuc3",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "current-equals-voltage-divided-b-16rhzxogzq1": {
+    "t": "Current equals voltage divided by resistance. Try the challenges.",
+    "h": "2gdizdp96a2",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "cuso4-with-a-copper-anode-1293mxjrsef": {
+    "t": "CuSO₄ with a copper anode",
+    "h": "1u3xn0v0s15",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "custard-apple-1lqkh1j4n3a": {
+    "t": "Custard Apple",
+    "h": "1e8q0v7osgt",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "cycling-ilatcp842y": {
+    "t": "Cycling",
+    "h": "kau8n56wsl",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "d-for-dog-96l0snqji5": {
+    "t": "D for Dog",
+    "h": "6r9arhsn95",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "d-i6pz1756ly": {
+    "t": "D",
+    "h": "1giyry3bwjg",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "da-dt-2-r-dr-dt-2-10-3-60-cm2-s-1iea6a6kgt0": {
+    "t": "dA/dt = 2πr × dr/dt = 2π × 10 × 3 = 60π cm²/s.",
+    "h": "mwhp9eq6sn",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "daisy-1ms4k98gnsv": {
+    "t": "Daisy",
+    "h": "3vukxszx3m",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "dancing-1cbvf46mdxy": {
+    "t": "Dancing",
+    "h": "2alw0sp0w5p",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "date-1q2eltmjxpn": {
+    "t": "Date",
+    "h": "6zokvvlav4",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "day-llkrqedaui": {
+    "t": "Day",
+    "h": "q7gx504kvd",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "decreasing-15x7pitrzm8": {
+    "t": "↘ Decreasing",
+    "h": "2d1e4bw8i5l",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "deer-i5alllwt64": {
+    "t": "Deer",
+    "h": "1peyhki97r8",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "delta-or-estuary-1mfp03jxlm9": {
+    "t": "Delta or estuary?",
+    "h": "nfzy5e37rw",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "den-ij3h6fxon": {
+    "t": "Den",
+    "h": "wja91l1mxh",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "desert-xofvckxkqq": {
+    "t": "Desert",
+    "h": "vap3fx3ms3",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "despite-its-name-ringworm-is-a-f-2cjquvh9xpj": {
+    "t": "Despite its name, ringworm is a fungal infection of the skin, nails or scalp.",
+    "h": "1enkaa0h5ys",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "devprayag-15egy756w8k": {
+    "t": "Devprayag",
+    "h": "vl1uiwt0oe",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "diagram-complete-1ek5jdrmxs": {
+    "t": "Diagram complete!",
+    "h": "8i32vtwg9w",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "diamond-285y27clirc": {
+    "t": "Diamond",
+    "h": "1nxlahdt0x",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "dice-gdalqow0pr": {
+    "t": "Dice",
+    "h": "1v5x7ivbx79",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "different-fractions-can-show-the-299pyw63ft": {
+    "t": "Different fractions can show the same amount. Look at the shaded parts.",
+    "h": "zdikk7l5pg",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "differentiate-14qxyh2k5ha": {
+    "t": "Differentiate.",
+    "h": "15iqd5z4kuw",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "dilute-h2so4-with-a-platinum-ano-1pzyz7rpltp": {
+    "t": "Dilute H₂SO₄ with a platinum anode",
+    "h": "jbjv3spsef",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "dinosaur-6melrwavr3": {
+    "t": "Dinosaur",
+    "h": "1pysbmvrebp",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "diseases-are-caused-by-different-15grrwrkwz4": {
+    "t": "Diseases are caused by different kinds of germs. Sort each disease into its group.",
+    "h": "18bwywcroq6",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "diwali-1jlrfg6rqz7": {
+    "t": "Diwali",
+    "h": "234qkn05xvx",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "doctor-11544qdfr98": {
+    "t": "Doctor",
+    "h": "20w5rw8sdk5",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "dog-1a6fj0d97jt": {
+    "t": "Dog",
+    "h": "1e14y28wml4",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "dolphin-9kohmhzod0": {
+    "t": "Dolphin",
+    "h": "2c1arwq2m0q",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "donkey-1naed2vqw5o": {
+    "t": "Donkey",
+    "h": "iny14mt6f7",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "donut-28a9av960w3": {
+    "t": "Donut",
+    "h": "1x659922nis",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "door-nl7qwf6vgg": {
+    "t": "Door",
+    "h": "2yv3d8xa2h",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "down-5c667j1sq6": {
+    "t": "Down",
+    "h": "9smctyojxa",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "drag-to-turn-the-view-tap-each-p-2cj6sdqr5hm": {
+    "t": "Drag to turn the view. Tap each planet to fly there.",
+    "h": "9tb81yzrv3",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "dragon-5chud4x2ah": {
+    "t": "Dragon",
+    "h": "14invqhm4zn",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "dragon-fruit-1pswlmwavhk": {
+    "t": "Dragon Fruit",
+    "h": "puy4vu9hz",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "dragonfly-e56pbaf9x8": {
+    "t": "Dragonfly",
+    "h": "pdjf41n0va",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "dress-1mqwifczmea": {
+    "t": "Dress",
+    "h": "27yfu6nwwv8",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "droplets-from-coughs-and-sneezes-rlb7lqhzgo": {
+    "t": "Droplets from coughs and sneezes",
+    "h": "1nye4uezf8e",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "drum-9l5cbk72iz": {
+    "t": "Drum",
+    "h": "1u7fqnoi7ha",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "duck-rnym0f3aqi": {
+    "t": "Duck",
+    "h": "fpa8843ifq",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "dy-dx-2x-which-is-6-at-x-3-zsah3zmd5z": {
+    "t": "dy/dx = 2x, which is 6 at x = 3.",
+    "h": "7a3s8btsv4",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "e-1rgpq7nvrd2": {
+    "t": "E",
+    "h": "1x6foado2b8",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "e-cell-e-cathode-e-anode-0-34-0-1qm08zdmapg": {
+    "t": "E°cell = E°cathode − E°anode = 0.34 − (−0.76) = 1.10 V.",
+    "h": "e9mzw1lvub",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "e-for-cu2-cu-is-0-34-v-and-for-z-bwhaw64zvo": {
+    "t": "E° for Cu²⁺/Cu is +0.34 V and for Zn²⁺/Zn is −0.76 V. What is E°cell for the zinc–copper cell?",
+    "h": "2djia8sn6p6",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "e-for-elephant-204xez7wrp4": {
+    "t": "E for Elephant",
+    "h": "wglbnjzmq2",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "eagle-7rsc0cjegj": {
+    "t": "Eagle",
+    "h": "4cn1jwowon",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "ears-ltp80s1mq6": {
+    "t": "Ears",
+    "h": "1iest8pok0w",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "earth-1klhtbnjbsx": {
+    "t": "Earth",
+    "h": "2aa9xzmbdll",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "east-flowing-rivers-drop-their-s-1qj3o42iva9": {
+    "t": "East-flowing rivers drop their silt and build deltas. West-flowing rivers rush through narrow valleys and form estuaries.",
+    "h": "i4wwfmlz1p",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "east-makes-deltas-west-makes-est-1v15x1c4ohx": {
+    "t": "East makes deltas, west makes estuaries!",
+    "h": "7ibzfgoq9j",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "edge-speed-dr-dt-1ckm9z1clhs": {
+    "t": "Edge speed, dr/dt",
+    "h": "nf9advbrro",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "egg-2cx1knyzzw5": {
+    "t": "Egg",
+    "h": "29ley6wfb3t",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "eid-2ez6zn9yhpx": {
+    "t": "Eid",
+    "h": "23ayz7xn64d",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "eight-25vfnol20og": {
+    "t": "Eight",
+    "h": "dbt95aro0e",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "eighteen-10n5ut2m6io": {
+    "t": "Eighteen",
+    "h": "2ae5pms2h0k",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "electrolysis-4ip2vf3zrr": {
+    "t": "Electrolysis",
+    "h": "1mq2lo2fp4w",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "electron-flow-dow9gax8up": {
+    "t": "Electron flow",
+    "h": "nzcbbelx93",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "electron-k117it3ool": {
+    "t": "Electron (−)",
+    "h": "toxcy4m7m9",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "electrons-leave-the-anode-where-2exxz3tihee": {
+    "t": "Electrons leave the anode, where they are released by oxidation, and flow to the cathode.",
+    "h": "23lkhauxo3h",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "electrons-move-around-the-nucleu-dmsr7pk38m": {
+    "t": "Electrons move around the nucleus and carry a negative charge.",
+    "h": "31w43jc6z0",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "electrons-move-in-shells-also-ca-11h8c4sd8kb": {
+    "t": "Electrons move in shells, also called orbits or energy levels.",
+    "h": "k6cf8qldx3",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "electrons-travel-through-the-wir-29u5ekye66r": {
+    "t": "Electrons travel through the wire from zinc to copper. Inside the cell, ions carry the charge.",
+    "h": "304e4kpmc4",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "elephant-2a3bzcidjwg": {
+    "t": "Elephant",
+    "h": "265vqwha0re",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "eleven-1qgdvwlzyol": {
+    "t": "Eleven",
+    "h": "e3bzmqavzp",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "energy-passes-from-one-living-th-27prlyvhle5": {
+    "t": "Energy passes from one living thing to the next. Start with the plant.",
+    "h": "cerxqu5pc5",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "envelope-1bll80ftjn7": {
+    "t": "Envelope",
+    "h": "1ooe3v8l9vf",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "equal-concentrations-give-the-st-zpaqn4bm5b": {
+    "t": "Equal concentrations give the standard voltage, 1.10 volts.",
+    "h": "1eybpix215s",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "evening-1kvmezxpw8l": {
+    "t": "Evening",
+    "h": "1936woqmxjy",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "every-animal-has-a-home-help-eac-2c2ondzwps6": {
+    "t": "Every animal has a home. Help each one find it.",
+    "h": "2620bfs71iw",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "every-animal-is-home-xrne3vetgm": {
+    "t": "Every animal is home!",
+    "h": "s9x9g3btt5",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "every-circuit-numerical-follows-o9plbz8zzi": {
+    "t": "Every circuit numerical follows the same five steps.",
+    "h": "2fph9xxrkus",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "every-disease-is-in-the-right-gr-1cuyabsp8n2": {
+    "t": "Every disease is in the right group!",
+    "h": "prtzoqabre",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "every-maximum-and-minimum-proble-6lukuuoice": {
+    "t": "Every maximum and minimum problem follows the same steps.",
+    "h": "67a4o7b3lz",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "every-part-of-a-plant-has-a-job-f4kwikno0h": {
+    "t": "Every part of a plant has a job. Can you name them?",
+    "h": "1ej0mz17a5y",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "everything-is-made-of-atoms-let-tn7vsh7tsx": {
+    "t": "Everything is made of atoms. Let's label the parts of one.",
+    "h": "1jqp1qxwtt",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "ex-for-all-x-1ym5drr1ons": {
+    "t": "eˣ for all x",
+    "h": "11n1qba8mt7",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "excited-13khp6eomn": {
+    "t": "Excited",
+    "h": "1hcos30e61z",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "explore-2d5rtammzy8": {
+    "t": "Explore",
+    "h": "4d9m0ux6fp",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "eyes-d44gr9sqip": {
+    "t": "Eyes",
+    "h": "4spl9905fj",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "f-14r40qfm3o1": {
+    "t": "F",
+    "h": "t3byfp3rz5",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "f-for-frog-1y6nqc1lunb": {
+    "t": "F for Frog",
+    "h": "1wifdckyggv",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "f-x-2x-is-negative-when-x-0-1qrjt80omsq": {
+    "t": "f′(x) = 2x is negative when x < 0.",
+    "h": "1pfgoy5yn4n",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "f-x-3x2-3-0-gives-x-1-f-x-6x-is-dhgkoms1uo": {
+    "t": "f′(x) = 3x² − 3 = 0 gives x = ±1. f″(x) = 6x is −6 at x = −1, which is negative, so that is a maximum.",
+    "h": "19tu2sbhosb",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "f-x-ex-is-22l6f5isvc5": {
+    "t": "f(x) = eˣ is…",
+    "h": "1a3nmplyenp",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "f-x-ex-is-positive-for-every-x-xj7u60i4xg": {
+    "t": "f′(x) = eˣ is positive for every x.",
+    "h": "1rceo4wkmi6",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "f-x-x2-is-decreasing-for-x-0-yr1xae61sh": {
+    "t": "f(x) = x² is decreasing for x < 0.",
+    "h": "1dvqqm1z8pu",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "fairy-1kipj2u2yrg": {
+    "t": "Fairy",
+    "h": "oglutuu7jt",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "family-2dgxellb3vp": {
+    "t": "Family",
+    "h": "1d2fjcit5ne",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "fan-n8c59o3t8p": {
+    "t": "Fan",
+    "h": "f8lm7ddksz",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "farmer-mi7ucb936y": {
+    "t": "Farmer",
+    "h": "16avr46ffiy",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "farmers-grow-rice-and-vegetables-6b6p4yxsxg": {
+    "t": "Farmers grow rice and vegetables in the fields, in the north of the town.",
+    "h": "5cia7brhwh",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "fast-ag40g3gpid": {
+    "t": "Fast",
+    "h": "wp3em5xq1h",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "father-150arch7e0i": {
+    "t": "Father",
+    "h": "15kn1d61eq1",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "feet-1zploclc44u": {
+    "t": "Feet",
+    "h": "nvtnvy1j66",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "ferris-wheel-284ihza5tmx": {
+    "t": "Ferris Wheel",
+    "h": "1tv69eq2m2g",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "fields-12hi0nwm8l8": {
+    "t": "Fields",
+    "h": "1kszii0cotk",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "fifteen-h1p46in2ii": {
+    "t": "Fifteen",
+    "h": "1mkiz2datsa",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "fifteen-ohms-in-series-many-pair-1n5gkcst5gt": {
+    "t": "Fifteen ohms in series. Many pairs work, like 5 and 10.",
+    "h": "1jrpef8wn7l",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "fig-n3win1bs7f": {
+    "t": "Fig",
+    "h": "ie2f14muit",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "filarial-worms-wuchereria-live-i-rb3khwu1x2": {
+    "t": "Filarial worms (Wuchereria) live in the lymph vessels, often of the legs. Over years, the limbs can swell a lot, which is why it is also called elephantiasis.",
+    "h": "1598li8n09m",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "filariasis-can-cause-long-term-s-1zmibzntwzi": {
+    "t": "Filariasis can cause long-term swelling of the legs.",
+    "h": "54s73csz96",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "filariasis-g4mxblznon": {
+    "t": "Filariasis",
+    "h": "nzplzbhbcn",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "filariasis-is-caused-by-filarial-18315mlqlf7": {
+    "t": "Filariasis is caused by filarial worms.",
+    "h": "lt7fwno155",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "finally-calculate-and-write-the-1nn7j4300ra": {
+    "t": "Finally, calculate and write the unit.",
+    "h": "yvkoegxukc",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "finally-it-forms-the-sundarbans-etea36vvy": {
+    "t": "Finally it forms the Sundarbans delta and enters the Bay of Bengal.",
+    "h": "r2zklzmoyg",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "finally-work-out-the-value-and-g-1fzrvd461ry": {
+    "t": "Finally, work out the value and give its unit.",
+    "h": "1sublykrv5g",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "find-a-price-where-buyers-want-m-27ac8bwu8g6": {
+    "t": "Find a price where buyers want more than sellers offer (a shortage).",
+    "h": "11tr9wv0l5o",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "find-f-x-22pl7lreeg5": {
+    "t": "Find f′(x)",
+    "h": "1dajzkz1vp",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "find-the-2dv9vb5oasl": {
+    "t": "Find the",
+    "h": "exff17opn9",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "find-the-cut-that-gives-the-bigg-sj7jgrj9n3": {
+    "t": "Find the cut that gives the biggest possible box.",
+    "h": "1uaftvph9x",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "find-the-height-where-one-trip-t-162pab1azuv": {
+    "t": "Find the height where one trip takes one whole day . Watch the yellow dot: the satellite stays right above it!",
+    "h": "1a5cwwupc9g",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "find-the-price-where-buyers-and-m0lwndzzoy": {
+    "t": "Find the price where buyers and sellers balance (equilibrium).",
+    "h": "207qje5nhar",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "find-two-resistors-whose-paralle-2c7t8wqtpzx": {
+    "t": "Find two resistors whose parallel total is exactly 4 Ω.",
+    "h": "655vvqlm26",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "fire-20prbar30n4": {
+    "t": "Fire",
+    "h": "yv8mrlnchw",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "fire-extinguisher-12stlila8be": {
+    "t": "Fire Extinguisher",
+    "h": "1w0sylrunzg",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "fire-truck-2c0jt8r2z4": {
+    "t": "Fire Truck",
+    "h": "2fyqb4r7t3o",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "firefighter-24n8qyonu5b": {
+    "t": "Firefighter",
+    "h": "1j1kedbtxw",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "fireworks-1m252cnqngh": {
+    "t": "Fireworks",
+    "h": "1dosfzabgjd",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "first-list-what-is-given-with-un-t1mpj23eam": {
+    "t": "First, list what is given, with units.",
+    "h": "hol7fbdmzd",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "first-war-of-independence-4da7lh38by": {
+    "t": "First War of Independence",
+    "h": "1xtg91fwspv",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "first-write-what-you-want-to-mak-1v87vnd238e": {
+    "t": "First, write what you want to make biggest or smallest as a function of one variable.",
+    "h": "52map6gbb8",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "fish-14jwn2jgmlf": {
+    "t": "Fish",
+    "h": "1wjk5tzvlzl",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "fish-breathe-under-water-using-g-2dnifcg2cqv": {
+    "t": "Fish breathe under water using gills.",
+    "h": "2omctxmt29",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "five-x1gl9h2ybt": {
+    "t": "Five",
+    "h": "1805my4x30e",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "flamingo-11zh8cb7k8t": {
+    "t": "Flamingo",
+    "h": "rr188gdl7o",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "flashlight-8dfe16gp00": {
+    "t": "Flashlight",
+    "h": "24s05cr8zw2",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "flip-flops-1in9b4s66mz": {
+    "t": "Flip Flops",
+    "h": "ynzl1xeyyz",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "flower-fr1nz33jq5": {
+    "t": "Flower",
+    "h": "uch9fa7nde",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "flowers-make-seeds-1kahdklo6as": {
+    "t": "Flowers make seeds.",
+    "h": "v24dt65yn7",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "flows-east-forms-a-delta-54ppszlid3": {
+    "t": "➡️ Flows east, forms a delta",
+    "h": "2bura0k3thm",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "flows-west-forms-an-estuary-2fspu6qos2l": {
+    "t": "⬅️ Flows west, forms an estuary",
+    "h": "1dk0fh5tlvt",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "foggy-d7mbr7fr7d": {
+    "t": "Foggy",
+    "h": "2zkd7gbu4h",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "follow-a-great-himalayan-river-f-cupr8nbkxi": {
+    "t": "Follow a great Himalayan river from its glacier to the sea. Tap each stop on its journey.",
+    "h": "1w1t1kteelx",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "football-1ij4uzhihp3": {
+    "t": "Football",
+    "h": "zkb850nhse",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "for-f-x-x3-3x-where-is-the-local-1cnzozcwfjj": {
+    "t": "For f(x) = x³ − 3x, where is the local maximum?",
+    "h": "1f3kebjc25v",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "forest-1reklrgg3ug": {
+    "t": "Forest",
+    "h": "ypq4atqr4i",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "fork-263xzy6ty65": {
+    "t": "Fork",
+    "h": "1ktgspevtxw",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "four-1r5pdcvmf4g": {
+    "t": "Four",
+    "h": "m7wwqfokqd",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "four-ohms-in-parallel-8-and-8-6-2ei4up7vjpx": {
+    "t": "Four ohms in parallel. 8 and 8, 6 and 12, or 5 and 20 all work.",
+    "h": "unmqdkt4vt",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "fourteen-r30rktdjaz": {
+    "t": "Fourteen",
+    "h": "201gz4hqjct",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "fox-238qk4u3ejn": {
+    "t": "Fox",
+    "h": "aiaqdqwqrv",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "fraction-master-1nd0ydazucr": {
+    "t": "Fraction master!",
+    "h": "1afnc1262of",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "frog-2e6yhk0bccd": {
+    "t": "Frog",
+    "h": "vxam717dur",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "from-1857-to-1947-well-done-e12jq1one1": {
+    "t": "From 1857 to 1947, well done!",
+    "h": "19i4znru3e",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "from-glacier-to-sea-gucx07i3ch": {
+    "t": "From glacier to sea!",
+    "h": "2dqg34ho2kp",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "fruit-27dx3jy0llo": {
+    "t": "Fruit",
+    "h": "1y1q3z5e86a",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "fruit-f1-123l0u6j9rb": {
+    "t": "Fruit (F1)",
+    "h": "md7crt9zy2",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "fruits-hold-the-seeds-29zyjl8ye9e": {
+    "t": "Fruits hold the seeds.",
+    "h": "7appha9qub",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "fungi-92ao94e05t": {
+    "t": "🍄 Fungi",
+    "h": "tgi0y939v5",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "g-1r63nneib9j": {
+    "t": "G",
+    "h": "1mn5uablmfj",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "g-for-grapes-119texchlk1": {
+    "t": "G for Grapes",
+    "h": "18m3s4uikd2",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "ganga-15w4wzit6ml": {
+    "t": "Ganga",
+    "h": "2eauqia3uj3",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "ganga-s-journey-15y5iad650w": {
+    "t": "Ganga's journey",
+    "h": "2bmqu0j7tw3",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "gangotri-glacier-1z9u0sb3qtk": {
+    "t": "Gangotri Glacier",
+    "h": "11y2t46n1ya",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "garlic-bmf8ud0nvf": {
+    "t": "Garlic",
+    "h": "u57eqbljuf",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "gavel-1sfo28rijdk": {
+    "t": "Gavel",
+    "h": "1gd3quzgxjp",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "gazelle-ko5p328t9v": {
+    "t": "Gazelle",
+    "h": "97pgetp8zl",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "gem-stone-nvfdz9i6xk": {
+    "t": "Gem Stone",
+    "h": "w23qnbzzzs",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "genie-ddy2b8lkqm": {
+    "t": "Genie",
+    "h": "1wt2jngymkz",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "germs-that-cause-disease-attack-28hlitcwubj": {
+    "t": "Germs that cause disease attack different parts of the body. Tap each part to find out which.",
+    "h": "x2sgq9u6n3",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "get-ready-hit-the-balloon-with-t-t5b4nwf7lx": {
+    "t": "Get ready! Hit the balloon with the right answer.",
+    "h": "rdkwrzrnvy",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "gift-1ob6hkugi4q": {
+    "t": "Gift",
+    "h": "2fbw623akep",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "ginger-1l9f4uigzry": {
+    "t": "Ginger",
+    "h": "1mf3nx9ijzb",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "giraffe-19ql4z7lj8b": {
+    "t": "Giraffe",
+    "h": "8sn7tiszh4",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "glaciers-and-snow-keep-feeding-t-1m70upxs1m": {
+    "t": "Glaciers and snow keep feeding them in the dry season too, so they are perennial.",
+    "h": "jk42g4r2mj",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "glass-wy0awltota": {
+    "t": "Glass",
+    "h": "nnj117ot7t",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "goat-25hrcrrlj65": {
+    "t": "Goat",
+    "h": "1xf5w4a902a",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "godavari-hdznn500ao": {
+    "t": "Godavari",
+    "h": "e4iwz46qna",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "golf-6uu9joy499": {
+    "t": "Golf",
+    "h": "10ruddewb3i",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "good-try-23azwq7xcvm": {
+    "t": "Good try!",
+    "h": "jtd21z5fk2",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "gorilla-57sgv11eyz": {
+    "t": "Gorilla",
+    "h": "1n88sozzwyr",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "grandfather-1glu17mr92g": {
+    "t": "Grandfather",
+    "h": "1l4nyka4hfv",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "grandmother-2081pee36ru": {
+    "t": "Grandmother",
+    "h": "1uwujnf9zl8",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "grape-1d8j52l1yji": {
+    "t": "Grape",
+    "h": "1y4kxp2nmu9",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "grapes-2bax9ujza1n": {
+    "t": "Grapes",
+    "h": "2401q57c6t",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "grass-makes-its-own-food-from-su-oh80kzqvpw": {
+    "t": "Grass makes its own food from sunlight.",
+    "h": "jrfw7zqf86",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "grass-sykgsoy1cp": {
+    "t": "Grass",
+    "h": "2g3jy62u2v6",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "grasshopper-19mf6isdutb": {
+    "t": "Grasshopper",
+    "h": "156k3glnf4",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "gray-u6uf1eab5v": {
+    "t": "Gray",
+    "h": "1nqe9j7om03",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "great-job-1v8wu5kxsi9": {
+    "t": "Great job!",
+    "h": "1yzkfm34ql3",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "great-throwing-its2bjtsic": {
+    "t": "Great throwing!",
+    "h": "qidt601x2f",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "green-chili-17ytzi8yi0y": {
+    "t": "Green Chili",
+    "h": "2a6yochyft6",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "green-hm755fi28c": {
+    "t": "Green",
+    "h": "t3dn8qghnl",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "grey-bymc6p4f7d": {
+    "t": "Grey",
+    "h": "jyejr4v085",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "guava-15ul000t8": {
+    "t": "Guava",
+    "h": "26yq3d9bbmo",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "guitar-q83ocjdqz3": {
+    "t": "Guitar",
+    "h": "2cwplaizp28",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "h-for-hippo-3fcwht28v": {
+    "t": "H for Hippo",
+    "h": "1b9b9z7qiiw",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "h-hpaqpszv4t": {
+    "t": "H",
+    "h": "1yrd77sle58",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "hair-1ko30m2qedq": {
+    "t": "Hair",
+    "h": "28vjtqytaee",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "hammer-dec1u1nhel": {
+    "t": "Hammer",
+    "h": "w3ye98d4ey",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "hands-1x4spm7q2ve": {
+    "t": "Hands",
+    "h": "1gh96grh4sk",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "happy-1mx3c40reo0": {
+    "t": "Happy",
+    "h": "u405l63h45",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "haridwar-2e65wtqiw8a": {
+    "t": "Haridwar",
+    "h": "20ar6pinquq",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "hat-fnlnlkgrav": {
+    "t": "Hat",
+    "h": "29vzjboxzog",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "hear-busoqlmvc4": {
+    "t": "Hear",
+    "h": "tae0f2ifhs",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "heart-144c53tv9g6": {
+    "t": "Heart",
+    "h": "xs0cum5r44",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "hedgehog-196zyyj26o0": {
+    "t": "Hedgehog",
+    "h": "pd6nt5qzzp",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "helicopter-rogjh6lckm": {
+    "t": "Helicopter",
+    "h": "q5amfesj0b",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "helmet-24tc2h9pbbm": {
+    "t": "Helmet",
+    "h": "240useemhgx",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "hen-23it74v8ij": {
+    "t": "Hen",
+    "h": "1xnk0mnbtc5",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "herb-2aq2o1t2pkw": {
+    "t": "Herb",
+    "h": "1mi026he2u6",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "here-the-bhagirathi-and-the-alak-63rq8ect2m": {
+    "t": "Here the Bhagirathi and the Alaknanda meet. From this point on, the river is called the Ganga.",
+    "h": "27czmsrfx73",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "hexagon-1c99nzajol8": {
+    "t": "Hexagon",
+    "h": "26wo1v62vi5",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "hibiscus-17pfkqag32b": {
+    "t": "Hibiscus",
+    "h": "1jfosimpdja",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "high-up-it-is-cool-so-the-vapour-19snedlju6g": {
+    "t": "High up it is cool, so the vapour turns into tiny drops. Many drops together make a cloud.",
+    "h": "3if14melq5",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "himalayan-or-peninsular-26c0cqmr0xx": {
+    "t": "Himalayan or Peninsular?",
+    "h": "2g4rf2k4xmr",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "himalayan-rivers-1pthma1099u": {
+    "t": "🏔️ Himalayan rivers",
+    "h": "1ok2s4b6xi4",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "himalayan-rivers-flow-all-year-b-1f25euc6w6k": {
+    "t": "Himalayan rivers flow all year because they are fed by both rain and melting snow.",
+    "h": "1u5i4f380ue",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "hippo-1jbh6saidmr": {
+    "t": "Hippo",
+    "h": "2f7rqhimait",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "hit-the-balloon-with-the-right-a-zhq3khoyun": {
+    "t": "Hit the balloon with the right answer! Throw a soft ball, or tap with the pen.",
+    "h": "16zownkzrzm",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "hive-2cl4whia5d6": {
+    "t": "Hive",
+    "h": "uk4wh9xdtl",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "holi-27u5d9hnjwq": {
+    "t": "Holi",
+    "h": "146bbjkzeib",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "honey-17jz3108gzb": {
+    "t": "Honey",
+    "h": "1vabq7ochul",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "horse-1x83nt8sied": {
+    "t": "Horse",
+    "h": "1q20ikh4ngf",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "hospital-1htb606bx4t": {
+    "t": "Hospital",
+    "h": "1m01zue022m",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "hot-287l3qs9cbb": {
+    "t": "Hot",
+    "h": "1d2r4bk8wyq",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "hot-air-balloon-37cwgci6fw": {
+    "t": "Hot Air Balloon",
+    "h": "27yrs2x8nm0",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "hourglass-1rpj0wmjg6o": {
+    "t": "Hourglass",
+    "h": "18iy4ka9tvj",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "house-mjwb8cvkkl": {
+    "t": "House",
+    "h": "smezzd22ta",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "how-is-an-ammeter-connected-to-m-lhplkj3lj0": {
+    "t": "How is an ammeter connected to measure the current through a bulb?",
+    "h": "186ha9t42l4",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "how-it-spreads-24ov1l3xyh6": {
+    "t": "How it spreads",
+    "h": "18ouhisoz7v",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "hummingbird-uzsiqgzy29": {
+    "t": "Hummingbird",
+    "h": "p9a6ulz4ag",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "hyacinth-1shre0xiwic": {
+    "t": "Hyacinth",
+    "h": "1jbln0c13wf",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "hydrogen-gas-1tkiyci6201": {
+    "t": "Hydrogen gas",
+    "h": "259r3fl1gr2",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "i-2ckd16e883q": {
+    "t": "I",
+    "h": "5f1q977u6k",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "i-for-ice-cream-1w25j9p21sp": {
+    "t": "I for Ice cream",
+    "h": "1vfkgbg735a",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "i-v-r-12-4-3-a-1zbqgudvy8v": {
+    "t": "I = V ÷ R = 12 ÷ 4 = 3 A.",
+    "h": "ga0xenxfay",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "ice-apple-tpxvbqq0in": {
+    "t": "Ice Apple",
+    "h": "hj5098p0md",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "ice-cream-1kytazfm000": {
+    "t": "Ice cream",
+    "h": "1tos3vod6me",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "ice-cream-cone-19srodu4x3f": {
+    "t": "Ice Cream Cone",
+    "h": "2bnt4419ee6",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "ice-skate-1yrln7dhelv": {
+    "t": "Ice Skate",
+    "h": "28nv6mbe81w",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "if-f-c-0-then-f-always-has-a-max-1ohj3iuzubg": {
+    "t": "If f′(c) = 0, then f always has a maximum or a minimum at c.",
+    "h": "19biht42w0y",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "if-the-derivative-is-positive-th-1n8l3ic8r2j": {
+    "t": "If the derivative is positive, the function is increasing. If it is negative, the function is decreasing.",
+    "h": "1y0bbittntw",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "if-the-voltage-across-a-fixed-re-28roc1lchvb": {
+    "t": "If the voltage across a fixed resistor is doubled, the current through it is halved.",
+    "h": "tzb8c702vn",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "iguana-6qzf4vbc0z": {
+    "t": "Iguana",
+    "h": "1oxym7z9yt2",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "in-a-galvanic-cell-electrons-flo-57d94qljw0": {
+    "t": "In a galvanic cell, electrons flow through the wire from the cathode to the anode.",
+    "h": "2aq51lgs3ju",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "in-a-galvanic-cell-oxidation-tak-b19pawhb2q": {
+    "t": "In a galvanic cell, oxidation takes place at the…",
+    "h": "px7yhds6rz",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "in-electrolysis-electricity-driv-1safdc9wng8": {
+    "t": "In electrolysis, electricity drives a reaction that would not happen by itself.",
+    "h": "1ecwpwzlaqg",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "in-malaria-the-high-fever-and-ch-2d3pa749lyz": {
+    "t": "In malaria, the high fever and chills come back every few days.",
+    "h": "5338f7au5u",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "in-parallel-each-appliance-gets-29ykwe3iffd": {
+    "t": "In parallel, each appliance gets the full supply voltage and can be switched on or off by itself.",
+    "h": "1z95pynm7v6",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "in-pneumonia-the-alveoli-of-the-14dbnn50xpo": {
+    "t": "In pneumonia, the alveoli of the lungs fill with fluid, which makes breathing difficult.",
+    "h": "1z22pd81u3j",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "in-tibet-the-brahmaputra-is-know-2cx6adv6q5n": {
+    "t": "In Tibet, the Brahmaputra is known as the…",
+    "h": "jtk4kmsi4e",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "increasing-2d93x37vzr2": {
+    "t": "↗ Increasing",
+    "h": "rewfk7f3j0",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "independence-day-1ym3cydys3w": {
+    "t": "Independence Day",
+    "h": "2154uvdbi1o",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "independence-v5tt8nim65": {
+    "t": "Independence",
+    "h": "9l0ar3memu",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "india-s-freedom-struggle-took-ni-itu6kyme3k": {
+    "t": "India's freedom struggle took ninety years. Put these events in order.",
+    "h": "1d4k0gbm91c",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "indian-national-congress-founded-1e4dqafwz0k": {
+    "t": "Indian National Congress founded",
+    "h": "bm8231tya0",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "indus-282uf8lrsxz": {
+    "t": "Indus",
+    "h": "1i5t48b618t",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "inside-a-cell-1ujnqyhyxx4": {
+    "t": "Inside a cell",
+    "h": "10uau7dbvvh",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "intercept-c-28sgrlp8351": {
+    "t": "Intercept c",
+    "h": "1bd2orqdz21",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "intestine-typhoid-amoebiasis-rou-qniul57c6q": {
+    "t": "Intestine: typhoid, amoebiasis, roundworm",
+    "h": "11ptctaq85m",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "ions-from-the-bridge-move-into-e-qu5tad45rk": {
+    "t": "Ions from the bridge move into each beaker to balance the charge, so the reaction can keep going.",
+    "h": "1z82vsece5s",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "iron-48gy7fzlno": {
+    "t": "Iron",
+    "h": "pof1pa9396",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "iron-minus-0-44-volts-ydmk62w77m": {
+    "t": "Iron, minus 0.44 volts.",
+    "h": "29zwwhvugx0",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "island-1srav0cplxl": {
+    "t": "Island",
+    "h": "lhhyuxikn4",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "it-begins-as-the-bhagirathi-at-t-20su3lw99uj": {
+    "t": "It begins as the Bhagirathi at the Gangotri Glacier.",
+    "h": "zpxmzaozjf",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "it-flows-on-past-varanasi-19qkp5jf9kj": {
+    "t": "It flows on past Varanasi.",
+    "h": "1eowkixu0u7",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "it-flows-west-through-a-narrow-r-1cumszsujza": {
+    "t": "It flows west through a narrow rift valley and enters the sea as an estuary.",
+    "h": "253gcttndrw",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "it-s-2fk3uvp853w": {
+    "t": "It's",
+    "h": "w4otnbv9m5",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "j-for-jellyfish-1lix0456v5p": {
+    "t": "J for Jellyfish",
+    "h": "1deehoyjvf6",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "j-iqcwgxzmhk": {
+    "t": "J",
+    "h": "lzwyif9i5t",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "jacket-7c8yaitxes": {
+    "t": "Jacket",
+    "h": "2l8ggcfran",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "jackfruit-26blshqkt7g": {
+    "t": "Jackfruit",
+    "h": "1zajgcqs760",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "jallianwala-bagh-massacre-1zjpwtd04k8": {
+    "t": "Jallianwala Bagh massacre",
+    "h": "1at49nx6b6i",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "jamun-3y3spej36o": {
+    "t": "Jamun",
+    "h": "e8i6ggnkhr",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "jellyfish-2epqx65ev9d": {
+    "t": "Jellyfish",
+    "h": "210b9j4f45c",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "jug-rz94m3pseh": {
+    "t": "Jug",
+    "h": "mf4wfrgopt",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "jumping-zcw4n1nco9": {
+    "t": "Jumping",
+    "h": "ge8uy598s9",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "k-17xa889osf8": {
+    "t": "K",
+    "h": "hetm23k6fn",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "k-for-kangaroo-hpjj3hgqil": {
+    "t": "K for Kangaroo",
+    "h": "1n0xjhbjewl",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "kangaroo-22xg1iywaig": {
+    "t": "Kangaroo",
+    "h": "25je473ffkd",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "kaveri-28as09e0sl9": {
+    "t": "Kaveri",
+    "h": "2edjwmml0ig",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "key-2b4wg297xg2": {
+    "t": "Key",
+    "h": "1qpdudgepec",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "keyboard-m9t9c7nq01": {
+    "t": "Keyboard",
+    "h": "1as4wb0td7q",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "kingfisher-fqt01h82hx": {
+    "t": "Kingfisher",
+    "h": "1xctap6cf9j",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "kite-soozyemi7z": {
+    "t": "Kite",
+    "h": "1jn67sjbj6g",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "kitten-vrztyrq86h": {
+    "t": "Kitten",
+    "h": "1qrjc9rxros",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "kiwi-vmuid4u55g": {
+    "t": "Kiwi",
+    "h": "1ncd5qd373y",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "knife-s00i0gpxbw": {
+    "t": "Knife",
+    "h": "217flg8rbe6",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "knowing-how-a-disease-spreads-te-16j47g7wos2": {
+    "t": "Knowing how a disease spreads tells us how to stop it.",
+    "h": "2ekayjpako",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "koala-16dc7ij09eh": {
+    "t": "Koala",
+    "h": "70g1lpniad",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "krishna-27b60mmu32f": {
+    "t": "Krishna",
+    "h": "z0h6urj538",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "l-254djwac2wy": {
+    "t": "L",
+    "h": "1uzy1z1eefq",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "l-for-lion-v3h3arxbc7": {
+    "t": "L for Lion",
+    "h": "1lhr2oecmex",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "ladder-5dihuseb5x": {
+    "t": "Ladder",
+    "h": "6ag5cq3b1w",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "ladybug-vv8ri8lt8q": {
+    "t": "Ladybug",
+    "h": "twuxe45nft",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "lake-9zkcx3xnnm": {
+    "t": "Lake",
+    "h": "ycgi9a100q",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "lamb-k26osxbt79": {
+    "t": "Lamb",
+    "h": "ofi0002n88",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "leaf-dmb88oqmhe": {
+    "t": "Leaf",
+    "h": "v5lep8muc5",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "leaves-1hmgm40r7ve": {
+    "t": "Leaves",
+    "h": "1ow6v8zi6mn",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "leaves-make-food-using-sunlight-fx7ftyszbj": {
+    "t": "Leaves make food using sunlight.",
+    "h": "nl5x77vp22",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "left-sovlimpyhe": {
+    "t": "Left",
+    "h": "1kmxz3amydy",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "legs-filariasis-2dwn8j49p1u": {
+    "t": "Legs: filariasis",
+    "h": "11fggwam1u8",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "lemon-18nqo75yoes": {
+    "t": "lemon",
+    "h": "164pvvkdqe4",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "lemonade-1307dvix804": {
+    "t": "Lemonade",
+    "h": "1pba827lpqp",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "lemons-vba33gj5hp": {
+    "t": "lemons",
+    "h": "1drmrd56s1l",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "less-than-10-22ulznskmy5": {
+    "t": "Less than 10",
+    "h": "153lhnz8y1p",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "let-s-count-the-1di071rq97t": {
+    "t": "Let's count the",
+    "h": "1g5tbwbqjx5",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "letter-22xxqle02ch": {
+    "t": "Letter",
+    "h": "1rz76gukctj",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "letters-and-parcels-are-sent-fro-1jsvp5e9rou": {
+    "t": "Letters and parcels are sent from the post office, in the south-east corner.",
+    "h": "2e8kxnhv8fg",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "lettuce-7d89052xjo": {
+    "t": "Lettuce",
+    "h": "10gvx6pqga3",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "library-or22ps77pq": {
+    "t": "Library",
+    "h": "gfndlxbzt",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "light-bulb-hv9ks2uchg": {
+    "t": "Light Bulb",
+    "h": "7yls0x1zg3",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "lightning-bolt-4d2ag0e00m": {
+    "t": "Lightning Bolt",
+    "h": "txin0v1p6z",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "lime-ddfm3zv8h1": {
+    "t": "Lime",
+    "h": "h8fp7k4y6q",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "line-expert-4jyl30595m": {
+    "t": "Line expert!",
+    "h": "1l5ikqgmz60",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "lion-wjweniht15": {
+    "t": "Lion",
+    "h": "1yoxj2bvkus",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "list-what-is-given-2dywuk3l8te": {
+    "t": "List what is given",
+    "h": "1cj7nogf8qy",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "liver-and-blood-malaria-118t77sj7xz": {
+    "t": "Liver and blood: malaria",
+    "h": "e0uuxchnuk",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "log-x-for-x-0-frw7enqiz": {
+    "t": "log x for x > 0",
+    "h": "1g76ys5my7z",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "lollipop-br2qrx0gjx": {
+    "t": "Lollipop",
+    "h": "vyq91c482f",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "lotus-qon3xsk7pk": {
+    "t": "Lotus",
+    "h": "1t6stfrys0d",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "lungs-27dxc2v344y": {
+    "t": "Lungs",
+    "h": "qwt0fztox0",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "lungs-pneumonia-1mj6s9nzezo": {
+    "t": "Lungs: pneumonia",
+    "h": "1gad6kskx8k",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "m-for-monkey-1egmebrpjxl": {
+    "t": "M for Monkey",
+    "h": "1q8z4clgyxl",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "m-qut6zxziyf": {
+    "t": "M",
+    "h": "ue2pee72pv",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "m-sets-how-steep-the-line-is-c-s-p56yiw35ez": {
+    "t": "m sets how steep the line is. c sets where it crosses the y axis.",
+    "h": "1mu6z16m81h",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "magnesium-2843wp3rree": {
+    "t": "Magnesium",
+    "h": "3rg1swfw7t",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "magnesium-minus-2-36-volts-it-lo-1n2zsoyrrkv": {
+    "t": "Magnesium, minus 2.36 volts. It loses electrons most easily.",
+    "h": "b72hil54ew",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "magnifying-glass-1wtu2zgwpu6": {
+    "t": "Magnifying Glass",
+    "h": "1u8qm64fisz",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "mahanadi-11lz1l7kscy": {
+    "t": "Mahanadi",
+    "h": "2gnm3aotugw",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "mailbox-6ztyhtvlk8": {
+    "t": "Mailbox",
+    "h": "24xbulnxvtf",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "make-a-box-that-holds-exactly-69-1rbzxgcl248": {
+    "t": "Make a box that holds exactly 6912 cm³.",
+    "h": "13dbuuf6j2",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "make-the-area-grow-at-40-125-7-c-wv4bofh9zv": {
+    "t": "Make the area grow at 40π ≈ 125.7 cm²/s.",
+    "h": "26e38flmqr1",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "make-the-bulb-as-bright-as-possi-24qoj92oafz": {
+    "t": "Make the bulb as bright as possible: 12 A.",
+    "h": "1nmbspkkzg0",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "make-the-cell-read-1-130-v-about-c2oq5g3qqd": {
+    "t": "Make the cell read 1.130 V (about 0.03 V above standard).",
+    "h": "jo0fyh6ic8",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "make-the-current-exactly-2-a-20t69wx5ybn": {
+    "t": "Make the current exactly 2 A.",
+    "h": "xa1gmn9d48",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "make-the-current-exactly-3-a-22uji1ap1ap": {
+    "t": "Make the current exactly 3 A.",
+    "h": "503nig6k7s",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "make-the-series-total-exactly-15-1dh5w4begki": {
+    "t": "Make the series total exactly 15 Ω.",
+    "h": "1g0jpbdhdzu",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "malaria-1xy51ztidxp": {
+    "t": "Malaria",
+    "h": "efxdl2crpm",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "malaria-cycle-stbmmkittm": {
+    "t": "Malaria cycle",
+    "h": "2yasi022m5",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "malaria-is-caused-by-plasmodium-fviqaweiqv": {
+    "t": "Malaria is caused by Plasmodium, a protozoan. It multiplies first in the liver, then inside red blood cells, which burst.",
+    "h": "1m3cwnihw01",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "malaria-is-caused-by-the-protozo-p8jc2u1wnw": {
+    "t": "Malaria is caused by the protozoan Plasmodium.",
+    "h": "1tinyd7btq1",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "man-20lvxi3lpxh": {
+    "t": "Man",
+    "h": "5bzlpl3l96",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "mango-zcaac8a3l": {
+    "t": "Mango",
+    "h": "1lfs4x16odq",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "map-expert-1ulj3ikjd1d": {
+    "t": "Map expert!",
+    "h": "2ae6xx32fqz",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "map-ou7necya5c": {
+    "t": "Map",
+    "h": "1ung4icwrvj",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "maracas-sy1v3g8mjm": {
+    "t": "Maracas",
+    "h": "q7u7vg31t4",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "market-1jycybrbr65": {
+    "t": "Market",
+    "h": "u3x4e0wamn",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "match-each-fraction-to-the-one-t-1s75xmezq39": {
+    "t": "Match each fraction to the one that shows the same amount.",
+    "h": "1zg4exmxc1f",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "match-each-tens-and-ones-card-to-1vu17chr6rs": {
+    "t": "Match each tens-and-ones card to its number.",
+    "h": "duqrjouhcz",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "match-the-green-line-29z7r10hy1": {
+    "t": "Match the green line.",
+    "h": "1sx3618giur",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "max-min-steps-220w4doj7rf": {
+    "t": "Max/min steps",
+    "h": "255uaxzk02q",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "maximum-voltage-and-minimum-resi-v7v9s8jpmo": {
+    "t": "Maximum voltage and minimum resistance give the most current.",
+    "h": "1rvb6xx0xv7",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "medal-87copafkc9": {
+    "t": "Medal",
+    "h": "bbvvmeujmx",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "mermaid-29s45zzm6a4": {
+    "t": "Mermaid",
+    "h": "vlnl34d7lb",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "metal-ladder-1bpg42vl4g7": {
+    "t": "Metal ladder",
+    "h": "d8vftfkln3",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "metro-2df87co5c4p": {
+    "t": "Metro",
+    "h": "14gtpyrhylo",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "microphone-1kkeili37oq": {
+    "t": "Microphone",
+    "h": "1efxpe1gtc5",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "microscope-ewwd08yd32": {
+    "t": "Microscope",
+    "h": "2smp49ekm2",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "milk-8cj8hjkivj": {
+    "t": "Milk",
+    "h": "qvoagz04we",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "mirror-1yyeo9vm7ey": {
+    "t": "Mirror",
+    "h": "17jg555keac",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "mitten-1ktkj9b8o3h": {
+    "t": "Mitten",
+    "h": "1jg9h1lock6",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "mobile-phone-2572hfi4qsu": {
+    "t": "Mobile Phone",
+    "h": "13aeki5846f",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "molten-nacl-cathode-9hpee9hja5": {
+    "t": "Molten NaCl: cathode",
+    "h": "250bm5o7k7d",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "monkey-2a9lgv5lqml": {
+    "t": "Monkey",
+    "h": "1ke9ap3bler",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "monsoon-xcue0kwos3": {
+    "t": "Monsoon",
+    "h": "2f93l2a8kc5",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "moon-gv17arwzrf": {
+    "t": "Moon",
+    "h": "6cxv9puacv",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "morning-4cun2m70de": {
+    "t": "Morning",
+    "h": "1j25cy6x3hc",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "mosquito-bites-parasites-enter-t-tziqrrzps0": {
+    "t": "Mosquito bites, parasites enter the blood",
+    "h": "22lsspr52zs",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "most-peninsular-rivers-have-no-g-1niqxdky019": {
+    "t": "Most peninsular rivers have no glaciers to feed them, so their flow drops in the dry months.",
+    "h": "1x68khngt1p",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "mother-1ryja068asb": {
+    "t": "Mother",
+    "h": "6r5firfjlc",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "motorcycle-2aki16ff8s": {
+    "t": "Motorcycle",
+    "h": "1jy1zfjmbu3",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "mountain-28t9amkuxib": {
+    "t": "Mountain",
+    "h": "26qgen71zat",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "mouth-5ryt2l8901": {
+    "t": "Mouth",
+    "h": "2a28toe6k5t",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "move-each-animal-to-its-home-1cz4gf53v8v": {
+    "t": "Move each animal to its home.",
+    "h": "1oacu45kwqo",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "move-each-disease-into-the-group-1iun1y07qio": {
+    "t": "Move each disease into the group of germ that causes it.",
+    "h": "11mur3ceddg",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "move-each-disease-onto-the-way-i-sgs2sf0a3f": {
+    "t": "Move each disease onto the way it spreads.",
+    "h": "1gy18e9z9hz",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "move-each-electrolysis-setup-ont-2f5isv96p66": {
+    "t": "Move each electrolysis setup onto what it produces.",
+    "h": "20gkm6fdsc9",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "move-each-function-into-the-righ-3ozr3ems2w": {
+    "t": "Move each function into the right group for the interval shown.",
+    "h": "ua0b1zeamc",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "move-each-label-to-the-right-par-1a5rnh0gfm2": {
+    "t": "Move each label to the right part of the atom.",
+    "h": "1nkvqlitvkl",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "move-each-river-into-the-group-i-aw5qg5ru2n": {
+    "t": "Move each river into the group it belongs to.",
+    "h": "29mt3itqia7",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "move-each-word-to-the-right-part-1uxz3qmrb5l": {
+    "t": "Move each word to the right part of the plant.",
+    "h": "uuokdyejpc",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "mushroom-cl9159gn43": {
+    "t": "Mushroom",
+    "h": "2akk0th7md4",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "muskmelon-18vcrqb79x7": {
+    "t": "Muskmelon",
+    "h": "1ahbwiuddzm",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "n-25xj1ro5zgz": {
+    "t": "N",
+    "h": "w49da8j8eg",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "n-for-nest-270zr77ry0": {
+    "t": "N for Nest",
+    "h": "1rdfghg10mj",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "narmada-2140xsao1uc": {
+    "t": "Narmada",
+    "h": "1vgqd6s1vr5",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "national-flag-1bl97v4kraz": {
+    "t": "National Flag",
+    "h": "r1nxaqxt3x",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "national-park-ftzbys7er1": {
+    "t": "National Park",
+    "h": "22o50jr2pvu",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "navigation-gps-satellites-go-rou-2f7ilcojuui": {
+    "t": "Navigation (GPS) satellites go round Earth twice a day , once every 12 hours. Find their height.",
+    "h": "1ltk0m8mzue",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "necklace-1x12w2dmk2w": {
+    "t": "Necklace",
+    "h": "41hgawhube",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "negative-second-derivative-means-22kiob8f3uo": {
+    "t": "Negative second derivative means a maximum, positive means a minimum.",
+    "h": "1ehl0aj3k0u",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "nernst-equation-w62c9p94f4": {
+    "t": "Nernst equation",
+    "h": "1xs7e966dwg",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "nest-1kehhmn4ohg": {
+    "t": "Nest",
+    "h": "14tmwhf4aak",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "neutron-dftlzpplw1": {
+    "t": "Neutron",
+    "h": "1en4zabmlm1",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "neutrons-are-in-the-nucleus-and-1fhnmgtmir4": {
+    "t": "Neutrons are in the nucleus and have no charge.",
+    "h": "2d0dvrpgcj",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "newspaper-1rdfpu3sl9m": {
+    "t": "Newspaper",
+    "h": "1cuw0tllk0v",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "night-rmny6plx34": {
+    "t": "Night",
+    "h": "5xlyfs5oss",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "nine-m7hlp3afp3": {
+    "t": "Nine",
+    "h": "xvgijszv99",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "nineteen-8wgv7l1aro": {
+    "t": "Nineteen",
+    "h": "2di9ouaiuf2",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "no-entry-4tia41r7fv": {
+    "t": "No Entry",
+    "h": "18yjritalho",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "non-cooperation-movement-cydnw9h0us": {
+    "t": "Non-Cooperation Movement",
+    "h": "258nl6nxhwe",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "north-is-at-the-top-of-the-map-l-12vnnwkoj59": {
+    "t": "North is at the top of the map. Look at the compass.",
+    "h": "32gq1jfhle",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "nose-and-throat-common-cold-nabkq3j4kr": {
+    "t": "Nose and throat: common cold",
+    "h": "1zcgvaxyidr",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "nose-q5mmlt6tfa": {
+    "t": "Nose",
+    "h": "1ilovvbwrg9",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "not-always-for-f-x-x3-f-0-0-but-tssgdfpsie": {
+    "t": "Not always. For f(x) = x³, f′(0) = 0, but the curve keeps rising through x = 0. It is a point of inflection.",
+    "h": "xlpnq486cb",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "now-r2-goes-up-from-6-to-12-the-11zcw2owi5k": {
+    "t": "Now R2 goes up from 6 Ω to 12 Ω. The parallel total Rp will…",
+    "h": "2ekxhixw4p6",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "now-the-cut-goes-from-8-cm-to-16-aencftkrmn": {
+    "t": "Now the cut goes from 8 cm to 16 cm. Will the box keep getting bigger?",
+    "h": "itj9j19jxa",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "now-you-know-how-to-break-the-ch-26nic2qmffy": {
+    "t": "Now you know how to break the chain!",
+    "h": "21ytozfymfg",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "nucleus-svwizux4lt": {
+    "t": "Nucleus",
+    "h": "1grmfom95y6",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "o-2eyrqskurau": {
+    "t": "O",
+    "h": "1c7lpvn7wlw",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "o-for-owl-12gjb0v0fab": {
+    "t": "O for Owl",
+    "h": "2eafzo0cedi",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "octagon-2fikar1z5dc": {
+    "t": "Octagon",
+    "h": "1xjaze7gj47",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "octopus-1ikj8jdlpch": {
+    "t": "Octopus",
+    "h": "1pwdn89poo2",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "ohm-s-law-17y5qa01bza": {
+    "t": "Ohm's law",
+    "h": "1ghywl22p3h",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "one-121pbercse3": {
+    "t": "One",
+    "h": "281h3ebu7y4",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "one-faraday-about-96-500-coulomb-1dupnrmgknu": {
+    "t": "One faraday, about 96,500 coulombs, is the charge on one mole of electrons.",
+    "h": "dwlm2plv5p",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "onion-14ve2sj5baz": {
+    "t": "Onion",
+    "h": "1e3agopbm8m",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "orange-ueajtv8mab": {
+    "t": "Orange",
+    "h": "18j2qgxu44o",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "oranges-1bymckp26do": {
+    "t": "oranges",
+    "h": "118ijsm3x74",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "order-the-metals-from-the-strong-1d2rcrdmyjs": {
+    "t": "Order the metals from the strongest reducing agent to the weakest.",
+    "h": "11hfrndu90s",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "ostrich-qpsxdk58od": {
+    "t": "Ostrich",
+    "h": "18jjefvkenv",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "otter-16g76umlzmo": {
+    "t": "Otter",
+    "h": "11g7a70rfh1",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "out-of-rlzcclmexn": {
+    "t": "out of",
+    "h": "1syk9ylz9f5",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "oval-11ieq8ktibr": {
+    "t": "Oval",
+    "h": "1f6ne298mmy",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "owl-1e19ohbfryg": {
+    "t": "Owl",
+    "h": "2713yxw0l9l",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "oxidation-losing-electrons-alway-jqjybq6ftl": {
+    "t": "Oxidation (losing electrons) always happens at the anode.",
+    "h": "21byp4nkvio",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "oxygen-gas-29afsiv383g": {
+    "t": "Oxygen gas",
+    "h": "13yyep2so40",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "p-for-penguin-xpl1cbas61": {
+    "t": "P for Penguin",
+    "h": "rjdva1jo1w",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "p-mg08qq9eqa": {
+    "t": "P",
+    "h": "f2a85mhhdl",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "p-v-i-220-0-5-110-w-bs35ivxmgm": {
+    "t": "P = V × I = 220 × 0.5 = 110 W.",
+    "h": "vxnrr71lfo",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "package-xnnno4kt5t": {
+    "t": "Package",
+    "h": "5bgptfxhfh",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "paintbrush-1mobha9i20g": {
+    "t": "Paintbrush",
+    "h": "26oaq6aav9j",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "palm-tree-6izsqicluy": {
+    "t": "Palm Tree",
+    "h": "doljpv4820",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "pan-1ki4p6w5s2i": {
+    "t": "Pan",
+    "h": "ptxhp6jvp",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "pancakes-25zzpzw3egt": {
+    "t": "Pancakes",
+    "h": "cc8677qktl",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "panda-dw67lp41zi": {
+    "t": "Panda",
+    "h": "laehgzqkyd",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "panther-1fnco6gvdb": {
+    "t": "Panther",
+    "h": "q1oj4filzn",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "pants-12swm3iw05q": {
+    "t": "Pants",
+    "h": "17p7y6uy9p4",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "papaya-wji9iv87hd": {
+    "t": "Papaya",
+    "h": "1dhiq9bg7ba",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "park-1po0exw03j3": {
+    "t": "Park",
+    "h": "xf84zw6wg",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "parrot-18d7dnho3mj": {
+    "t": "Parrot",
+    "h": "1n1s4dwnj6s",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "party-1ufx6ds0r0o": {
+    "t": "Party",
+    "h": "4lvyzfyvge",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "party-popper-xccgm1pibf": {
+    "t": "Party Popper",
+    "h": "1h8ar6a1h6m",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "peach-26p2lfer06b": {
+    "t": "peach",
+    "h": "rhe3t5vt70",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "peaches-2eaa9dybph4": {
+    "t": "peaches",
+    "h": "6w5l21q4aa",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "peacock-207jzgdrwlr": {
+    "t": "Peacock",
+    "h": "zkfmeo3l0b",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "peanut-2g5h7yekd8i": {
+    "t": "Peanut",
+    "h": "1azza5x8c96",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "pear-1mliazrtw31": {
+    "t": "pear",
+    "h": "1jr0eo848my",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "pears-91kfak31gy": {
+    "t": "pears",
+    "h": "10gn8wehs7w",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "peas-2c6omzdjjgi": {
+    "t": "Peas",
+    "h": "2b6126une8g",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "pencil-t4dt2cf5py": {
+    "t": "Pencil",
+    "h": "bxmxjykhdy",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "penguin-26v6enotp1f": {
+    "t": "Penguin",
+    "h": "nie8eet9al",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "peninsular-rivers-xgt03f8zsn": {
+    "t": "🌧️ Peninsular rivers",
+    "h": "173o0ww5twv",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "pentagon-25js5kdzohl": {
+    "t": "Pentagon",
+    "h": "11na5qqvv1f",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "perfect-order-2cqtl2xokij": {
+    "t": "Perfect order!",
+    "h": "1r4of11zpei",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "piano-1seh56nq49s": {
+    "t": "Piano",
+    "h": "smf0qav6gy",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "picnic-basket-g1uvxw26ap": {
+    "t": "Picnic Basket",
+    "h": "13owy048b0f",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "pie-1hb7d2u5i28": {
+    "t": "Pie",
+    "h": "1swv020m800",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "pig-23hwc5jmra5": {
+    "t": "Pig",
+    "h": "6e1nv9m5yi",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "pigeon-1uug1jvkx4x": {
+    "t": "Pigeon",
+    "h": "18d7qsuphcs",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "piglet-29ou7xtown": {
+    "t": "Piglet",
+    "h": "qiib3ogfxw",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "pilot-28y26682kf4": {
+    "t": "Pilot",
+    "h": "1wqgb3c7wtw",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "pineapple-gw4du3dj9n": {
+    "t": "Pineapple",
+    "h": "1p8yu5pgdcy",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "pink-1lg52a8hm03": {
+    "t": "Pink",
+    "h": "1p21znc79pl",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "pistachio-yk0l1ilrt4": {
+    "t": "Pistachio",
+    "h": "1bbt92w02v7",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "place-value-pro-g8nt8czgk8": {
+    "t": "Place value pro!",
+    "h": "1ecjrxen6j6",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "planet-b4k1cyjhq2": {
+    "t": "Planet",
+    "h": "1rvebdsblwe",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "plasmodium-causes-malaria-the-an-91wibii0e3": {
+    "t": "Plasmodium causes malaria. The Anopheles mosquito only carries it from person to person.",
+    "h": "18srivy1rkp",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "plate-1q61b45g1t0": {
+    "t": "Plate",
+    "h": "g2xofrt02h",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "playground-r0webmy0v": {
+    "t": "Playground",
+    "h": "lct5jsmewd",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "playing-cards-g4mrzwakeo": {
+    "t": "Playing Cards",
+    "h": "cdy7bqlmdr",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "plum-6hqck0jj7d": {
+    "t": "Plum",
+    "h": "f02dwlgrme",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "plunger-ad8cwd5f5h": {
+    "t": "Plunger",
+    "h": "1uyg7zm6m7m",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "plus-3w7irkiar3": {
+    "t": "plus",
+    "h": "27c6oi8ll3x",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "pneumonia-22ej7q317wy": {
+    "t": "Pneumonia",
+    "h": "1bymz8attio",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "pneumonia-is-caused-by-bacteria-1ipjcnw5f4v": {
+    "t": "Pneumonia is caused by bacteria such as Streptococcus pneumoniae. The tiny air sacs of the lungs (alveoli) fill with fluid, so breathing becomes hard.",
+    "h": "2kfqofbuf8",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "pneumonia-is-caused-by-bacteria-zlh7plz93g": {
+    "t": "Pneumonia is caused by bacteria.",
+    "h": "kami5vcjnh",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "police-car-d8800fi0ns": {
+    "t": "Police Car",
+    "h": "cl9on135kb",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "police-officer-6o35gufhf": {
+    "t": "Police Officer",
+    "h": "14ka4jpz130",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "pomegranate-15zt0xa4wp3": {
+    "t": "Pomegranate",
+    "h": "z5nac60sl0",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "popcorn-1qlrx0f1cvo": {
+    "t": "Popcorn",
+    "h": "13dj2nfejco",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "popsicle-57rubd13ty": {
+    "t": "Popsicle",
+    "h": "1s0fkqpvql4",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "post-office-zbul5g3clk": {
+    "t": "Post office",
+    "h": "150gg97qz0e",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "postbox-wj6zz8ijj9": {
+    "t": "Postbox",
+    "h": "2093o38z12w",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "pot-yo5p4uwt7v": {
+    "t": "Pot",
+    "h": "1cgrtdrbs6r",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "potato-3m5c3bqwqn": {
+    "t": "Potato",
+    "h": "2503jyv03ex",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "prayagraj-212ucdaj26p": {
+    "t": "Prayagraj",
+    "h": "193hzbh9hom",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "predict-first-then-find-the-corn-1a45q6hcifm": {
+    "t": "Predict first, then find the corner cut that gives the biggest box.",
+    "h": "1blv7x8wdmw",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "predict-first-then-watch-after-t-3yt7rbtqxl": {
+    "t": "Predict first, then watch. After that, solve the challenges with the sliders.",
+    "h": "1k67qhbhlul",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "predict-first-then-watch-the-vol-1enjoic27iq": {
+    "t": "Predict first, then watch the voltage. After that, solve the challenges.",
+    "h": "4jb98fcqoy",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "pretzel-32wnojwedy": {
+    "t": "Pretzel",
+    "h": "2225c1j7e7e",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "price-of-a-mango-1u3bjw7p1f8": {
+    "t": "Price of a mango (₹)",
+    "h": "1mvgj40lhoy",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "price-tag-jw1mxhrw9e": {
+    "t": "Price Tag",
+    "h": "1ysn7npfr9c",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "product-p-x-20-x-p-20-2x-0-at-x-1io9z5pve2y": {
+    "t": "Product P = x(20 − x). P′ = 20 − 2x = 0 at x = 10, so the numbers are 10 and 10 and P = 100.",
+    "h": "16issvuz4f0",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "proton-iaaatm0e5u": {
+    "t": "Proton (+)",
+    "h": "494kp3aals",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "protons-are-in-the-nucleus-and-c-imoinp8qlu": {
+    "t": "Protons are in the nucleus and carry a positive charge.",
+    "h": "7w96yfoxxm",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "protozoa-uy1bde7tyu": {
+    "t": "🔬 Protozoa",
+    "h": "1xgc8n1si3h",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "puddle-1cmodwlgem0": {
+    "t": "Puddle",
+    "h": "23lylw5c4sr",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "pumpkin-ufdqmtmpih": {
+    "t": "Pumpkin",
+    "h": "1yvgd8r0ov9",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "puppy-1gss9dnmr07": {
+    "t": "Puppy",
+    "h": "22o464ty5ll",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "purple-s9e39g8m8j": {
+    "t": "Purple",
+    "h": "1wv1vnqeexl",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "put-in-the-numbers-dur81s3ieu": {
+    "t": "Put in the numbers",
+    "h": "y36dda7pdq",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "put-the-events-in-order-from-ear-avzzco6fc4": {
+    "t": "Put the events in order, from earliest to latest.",
+    "h": "1g6o7r9cvvz",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "put-the-food-chain-in-order-star-nu8pwdul9p": {
+    "t": "Put the food chain in order: start with the plant.",
+    "h": "4475a2jbq9",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "put-the-life-cycle-of-the-malari-7s46h5dhv8": {
+    "t": "Put the life cycle of the malaria parasite in order. Start with the bite.",
+    "h": "6ugfybyad4",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "put-the-places-on-the-ganga-s-jo-1mrsyvu601g": {
+    "t": "Put the places on the Ganga's journey in order, from source to sea.",
+    "h": "16fp1ot7fqg",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "put-the-steps-for-a-maximum-or-m-14op59eex5j": {
+    "t": "Put the steps for a maximum or minimum problem in order.",
+    "h": "69k2b2q065",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "put-the-steps-for-solving-a-circ-15awm91pl8v": {
+    "t": "Put the steps for solving a circuit numerical in order.",
+    "h": "er0xixj8eq",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "put-the-stops-in-order-starting-1y8t2mntlr4": {
+    "t": "Put the stops in order, starting high in the mountains.",
+    "h": "1723vq9dgy1",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "puzzle-1ghdie91zl5": {
+    "t": "Puzzle",
+    "h": "pj0vy2fp",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "q-1fuejevfg4f": {
+    "t": "Q",
+    "h": "1mxe3hk89ao",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "q-for-queen-r16hv6a83o": {
+    "t": "Q for Queen",
+    "h": "2caickcx1lf",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "queen-hu18i43xsd": {
+    "t": "Queen",
+    "h": "i6nek5hk8j",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "quit-india-movement-2bqb44twyuu": {
+    "t": "Quit India Movement",
+    "h": "2bf86e9404u",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "quiz-1tny50wlzpe": {
+    "t": "Quiz",
+    "h": "6dlik3uidt",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "r-1fixrc060yc": {
+    "t": "R",
+    "h": "25nx1ktfig1",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "r-for-rabbit-19gnar6lk50": {
+    "t": "R for Rabbit",
+    "h": "tqjdm2bihv",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "rabbit-1yv48kjcal": {
+    "t": "Rabbit",
+    "h": "11241pypqy3",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "race-car-vm7d50yt23": {
+    "t": "Race Car",
+    "h": "1sdgt15o2o6",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "racket-18liddp3v2w": {
+    "t": "Racket",
+    "h": "1riinmsdotb",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "radio-y9uu92wo8k": {
+    "t": "Radio",
+    "h": "12cis2bjlup",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "radish-zyga4md14s": {
+    "t": "Radish",
+    "h": "ba37kqvij8",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "radius-10-two-pi-times-10-times-uzuybk3kjk": {
+    "t": "Radius 10. Two pi times 10 times 3 is 60 pi.",
+    "h": "peq2vkzsql",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "radius-right-now-r-150i3xvn1p1": {
+    "t": "Radius right now, r",
+    "h": "yoznqv7tzm",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "railway-1p639izl8jr": {
+    "t": "Railway",
+    "h": "262jqt1gele",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "railway-station-2fiyl6o0p7n": {
+    "t": "Railway station",
+    "h": "13khq0govps",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "rain-flows-into-rivers-and-back-16d8dri8mqa": {
+    "t": "Rain flows into rivers and back to the sea, and the cycle starts again.",
+    "h": "so08jbw36y",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "rainbow-20yq3doc8gt": {
+    "t": "Rainbow",
+    "h": "1f5ma6bstnb",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "raincoat-18qax6hnsfs": {
+    "t": "Raincoat",
+    "h": "73jj1ilfh6",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "rainy-1q2g2hmg2rc": {
+    "t": "Rainy",
+    "h": "1k3enhtkud3",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "rat-1owe9mornyv": {
+    "t": "Rat",
+    "h": "r5h5m39x42",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "rate-of-change-1m88iocrknp": {
+    "t": "Rate of change",
+    "h": "8q3ileq7ku",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "raven-1szad3hlmwy": {
+    "t": "Raven",
+    "h": "1nonbhdsn3v",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "rearrange-for-the-unknown-2fdyiuq87zm": {
+    "t": "Rearrange for the unknown",
+    "h": "akdp1se6aa",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "rearrange-it-for-the-quantity-yo-15xhlte6pzg": {
+    "t": "Rearrange it for the quantity you need.",
+    "h": "1w41dx51hl1",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "rectangle-24ri65ttqg3": {
+    "t": "Rectangle",
+    "h": "1klcvelpbpq",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "red-blood-cells-burst-fever-jksjhjm4c1": {
+    "t": "Red blood cells burst: fever",
+    "h": "anb2rgn3ny",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "red-blood-cells-burst-together-a-j7saguzn00": {
+    "t": "Red blood cells burst together and release a toxic substance called haemozoin.",
+    "h": "18p0ikg5027",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "red-chili-1qsp99py104": {
+    "t": "Red Chili",
+    "h": "nobtmp43jo",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "red-nffq6p1eou": {
+    "t": "Red",
+    "h": "b9pq9lvwmk",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "resistance-is-measured-in-ohms-c-8w91ui9ozp": {
+    "t": "Resistance is measured in ohms (Ω). Current is in amperes and voltage in volts.",
+    "h": "1fz7hcsf8u0",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "resistance-is-proportional-to-le-paz6nhps52": {
+    "t": "Resistance is proportional to length (R = ρL ÷ A), so twice the length gives twice the resistance.",
+    "h": "26sqpa9g5l4",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "resistance-r-1tbw8lm9wlm": {
+    "t": "Resistance (R)",
+    "h": "1v5aygza3pj",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "resistor-qu5pjlkbgd": {
+    "t": "Resistor",
+    "h": "2ecpdhp7sho",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "resistor-r1-1imyrwe6m8": {
+    "t": "Resistor R1",
+    "h": "d3t27n49im",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "resistor-r2-1yids4z8jb7": {
+    "t": "Resistor R2",
+    "h": "fzpfaydyin",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "resistors-can-be-joined-end-to-e-q3feperm8b": {
+    "t": "Resistors can be joined end to end, in series, or side by side, in parallel.",
+    "h": "w5lcxth232",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "rhino-1i8cigdg5lp": {
+    "t": "Rhino",
+    "h": "zsu1ppiy7t",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "rice-ag3zjqzwsc": {
+    "t": "Rice",
+    "h": "2asc34cqs4k",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "right-o7qzgjcii0": {
+    "t": "Right",
+    "h": "10qgoh7fpcr",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "ring-kfwj01g599": {
+    "t": "Ring",
+    "h": "1bzpy92hep4",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "ringworm-1nepng0kt3l": {
+    "t": "Ringworm",
+    "h": "1o9shb4680o",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "ringworm-is-caused-by-fungi-20qfbpekh9j": {
+    "t": "Ringworm is caused by fungi.",
+    "h": "j4c3srt67t",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "ringworm-is-caused-by-fungi-not-2ba3j4bewzs": {
+    "t": "Ringworm is caused by fungi, not worms. It makes dry, scaly, itchy rings on the skin. Heat and moisture help it grow.",
+    "h": "18jdmpc1gc1",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "ringworm-is-caused-by-k9v7smw7ce": {
+    "t": "Ringworm is caused by…",
+    "h": "7j6bm84zuz",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "rivers-from-the-himalayas-are-fe-1g0uqem5yjh": {
+    "t": "Rivers from the Himalayas are fed by snow and rain. Rivers of the peninsula depend mostly on rain.",
+    "h": "uhirz8eqj4",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "robot-1dm8wa6l9zy": {
+    "t": "Robot",
+    "h": "1y5zlzrsi2f",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "rocket-2b1sg052rwq": {
+    "t": "Rocket",
+    "h": "2dfe9piijby",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "roller-skate-yli9f38uk4": {
+    "t": "Roller Skate",
+    "h": "1hx2ptp3vue",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "rooster-1rwsz3sbard": {
+    "t": "Rooster",
+    "h": "1orhbzzdqz3",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "root-2bagy1tty6t": {
+    "t": "Root",
+    "h": "11s46j0gqg3",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "roots-hold-the-plant-and-drink-w-vk1qym03no": {
+    "t": "Roots hold the plant and drink water from the soil.",
+    "h": "h2zcei3nhm",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "rose-14doqfbwjw4": {
+    "t": "Rose",
+    "h": "1ckqb1gb8wu",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "rp-10-10-10-10-100-20-5-1jsbk2vogp0": {
+    "t": "Rp = (10 × 10) ÷ (10 + 10) = 100 ÷ 20 = 5 Ω.",
+    "h": "vhz8eej4yj",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "ruler-2awog6psqx5": {
+    "t": "Ruler",
+    "h": "3ygf7ijjre",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "running-2153fifyf6e": {
+    "t": "Running",
+    "h": "1byqz2gmpay",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "s-4ut8mhk226": {
+    "t": "S",
+    "h": "1qs5s50ly4m",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "s-for-sunflower-d8g9so6knv": {
+    "t": "S for Sunflower",
+    "h": "1c34rz688vc",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "sad-22ima1p3kv4": {
+    "t": "Sad",
+    "h": "dvh1y0x8eb",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "sailboat-zpfml35qy8": {
+    "t": "Sailboat",
+    "h": "hym89cct97",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "salt-bridge-1uvuolow801": {
+    "t": "Salt bridge",
+    "h": "1ycnzoei0wy",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "salt-march-to-dandi-140f3eym12t": {
+    "t": "Salt March to Dandi",
+    "h": "kumw3czkgi",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "saxophone-138cps5391s": {
+    "t": "Saxophone",
+    "h": "sk6cv4puu5",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "scared-1rkrxvdshe1": {
+    "t": "Scared",
+    "h": "10y70y84str",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "scarf-17fv7lymcnf": {
+    "t": "Scarf",
+    "h": "vkzyz3mrn3",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "school-1shplrq1dxy": {
+    "t": "School",
+    "h": "s2779yp9uj",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "school-bag-lq0qhpsvv8": {
+    "t": "School Bag",
+    "h": "1arnpa4odcw",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "scientist-yeal4ua8lm": {
+    "t": "Scientist",
+    "h": "t6hvi6pxrw",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "scissors-1alsx64oqw7": {
+    "t": "Scissors",
+    "h": "1wc14g6teyr",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "scooter-qz9xepxwr4": {
+    "t": "Scooter",
+    "h": "lyyawollrn",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "scorpion-14nnultbuzk": {
+    "t": "Scorpion",
+    "h": "1f0bjspfran",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "screwdriver-22r30z4to8b": {
+    "t": "Screwdriver",
+    "h": "1m962zfyb7b",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "seal-10kx6xg8nua": {
+    "t": "Seal",
+    "h": "1h6vr7r8qdm",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "see-1ky0zq3xijl": {
+    "t": "See",
+    "h": "b89n2x472w",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "seedling-8w6dtp62t6": {
+    "t": "Seedling",
+    "h": "ws1fbi3gn9",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "series-adds-up-parallel-shares-t-1kw104dz1re": {
+    "t": "Series adds up, parallel shares the current!",
+    "h": "2cq7aq1j9zy",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "series-parallel-1ddeodwiin6": {
+    "t": "Series & parallel",
+    "h": "nkktaozsty",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "seven-100am0hsnbl": {
+    "t": "Seven",
+    "h": "2cl0j4i80i",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "seventeen-mokyrpdnoo": {
+    "t": "Seventeen",
+    "h": "20ijc2btifl",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "sexual-stages-form-in-the-blood-213jajtp1b6": {
+    "t": "Sexual stages form in the blood",
+    "h": "mrvt6u5vz4",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "sharing-towels-combs-or-clothes-10i3oqsiehx": {
+    "t": "Sharing towels, combs or clothes",
+    "h": "yesqxrf36f",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "shark-28zxqdfukxo": {
+    "t": "Shark",
+    "h": "1n47zl9hefr",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "sheep-1wxx09f269h": {
+    "t": "Sheep",
+    "h": "2ft64m7u6ir",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "shell-2d4ipsis28e": {
+    "t": "Shell",
+    "h": "g28q1e8vm6",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "shell-orbit-rka23ravnw": {
+    "t": "Shell (orbit)",
+    "h": "1v3l0bfnmv5",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "shine-your-torch-on-the-drawing-25uyx7zj2ek": {
+    "t": "Shine your torch on the drawing. Hold it still on something to find who lives in the pond.",
+    "h": "1bos8l3gatc",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "ship-3b1q1pjjht": {
+    "t": "Ship",
+    "h": "1o1j2sh0mgv",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "shirt-41hdhk3xmd": {
+    "t": "Shirt",
+    "h": "3zshjz6qmj",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "shoes-115r0iv2xuq": {
+    "t": "Shoes",
+    "h": "10y3l7swjnq",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "shopping-bags-17k6engyk8w": {
+    "t": "Shopping Bags",
+    "h": "mnhd5d53to",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "shopping-cart-1b5kyvaonjy": {
+    "t": "Shopping Cart",
+    "h": "13onh5bay1c",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "shower-2foi6457shc": {
+    "t": "Shower",
+    "h": "126z1bjqnor",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "shy-c3yzejjj1u": {
+    "t": "Shy",
+    "h": "odphmn40f3",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "silver-1xxroc7fzir": {
+    "t": "Silver",
+    "h": "c42ni723oh",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "silver-is-the-cathode-e-cell-0-8-1qy8wgrvqda": {
+    "t": "Silver is the cathode: E°cell = 0.80 − (−0.76) = 1.56 V.",
+    "h": "1olde3pmdzn",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "silver-plus-0-80-volts-it-holds-vkrmdb9d7k": {
+    "t": "Silver, plus 0.80 volts. It holds on to its electrons best.",
+    "h": "1qyhcj1k65i",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "sink-2bbrzq3rr8t": {
+    "t": "Sink",
+    "h": "29a7jmzvjwo",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "sister-10asaavf6rn": {
+    "t": "Sister",
+    "h": "14juwd8mwft",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "six-1u49aq6dy2g": {
+    "t": "Six",
+    "h": "xay07548d5",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "six-animals-are-hiding-in-this-p-22xpyj8vy0q": {
+    "t": "Six animals are hiding in this pond. Use your torch to find them all.",
+    "h": "21gtiyokxsu",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "sixteen-sq607sl5vw": {
+    "t": "Sixteen",
+    "h": "1gwpwc7zq9s",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "skateboard-zhcmjn84pr": {
+    "t": "Skateboard",
+    "h": "1ddzuhak6yz",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "skiing-a2gnc897er": {
+    "t": "Skiing",
+    "h": "e4wpk5nal5",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "skin-ringworm-piq2pzqmhz": {
+    "t": "Skin: ringworm",
+    "h": "2185yuc6yub",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "sled-3oy1mm2i2r": {
+    "t": "Sled",
+    "h": "1h2ac247lrl",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "sleepy-3u0r1f0n4o": {
+    "t": "Sleepy",
+    "h": "12ve3v5opvp",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "slice-multiples-of-three-1ckaa7sw0pi": {
+    "t": "Slice multiples of three!",
+    "h": "1iiw69b2p2o",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "slice-numbers-greater-than-five-dyjrpmijvn": {
+    "t": "Slice numbers greater than five!",
+    "h": "auwyg57dyp",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "slice-numbers-less-than-5-1f418y92m8y": {
+    "t": "Slice numbers LESS than 5!",
+    "h": "25kc22kt1kj",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "slice-numbers-less-than-five-axh0mcsn2f": {
+    "t": "Slice numbers less than five!",
+    "h": "1420d4bt7ee",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "slice-numbers-more-than-5-1xg2qgbtaa2": {
+    "t": "Slice numbers MORE than 5!",
+    "h": "odt4ospqze",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "slice-the-3-times-table-1njfkn5shjp": {
+    "t": "Slice the 3 times table!",
+    "h": "1bjp9uj4zg3",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "slice-the-even-numbers-1mzygcjmwcq": {
+    "t": "Slice the even numbers!",
+    "h": "lml941okh7",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "slice-the-odd-numbers-y43wq4dey3": {
+    "t": "Slice the odd numbers!",
+    "h": "vo5lxndu1l",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "slope-m-2fus0cw6anv": {
+    "t": "Slope m",
+    "h": "10hiqd3ycsq",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "sloth-1rf8ybq6ifw": {
+    "t": "Sloth",
+    "h": "20gfhueg92y",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "slow-14o8cfv52dj": {
+    "t": "Slow",
+    "h": "doayw49865",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "small-niq6763k0i": {
+    "t": "Small",
+    "h": "1afq7jmgyp3",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "smell-5ur1sb91tt": {
+    "t": "Smell",
+    "h": "2dsmvndvej4",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "snail-1pf0cgb0cm3": {
+    "t": "Snail",
+    "h": "cvkve75ka8",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "snake-1vxtq6v19l": {
+    "t": "Snake",
+    "h": "2by9eor64oj",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "snowflake-ded4rfk0iz": {
+    "t": "Snowflake",
+    "h": "hl84e4gxbv",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "snowman-3wgbicst1a": {
+    "t": "Snowman",
+    "h": "xg4z5pxwaj",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "snowy-265upww113m": {
+    "t": "Snowy",
+    "h": "zx4nl2wa6y",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "soap-17s72atn4vf": {
+    "t": "Soap",
+    "h": "nfcq5u6mv4",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "soccer-ball-37ua100nl9": {
+    "t": "Soccer Ball",
+    "h": "2duay7j6lfz",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "socks-60ptozqrwx": {
+    "t": "Socks",
+    "h": "1fza4mz1fqr",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "sodium-metal-7j8fyzzbnu": {
+    "t": "Sodium metal",
+    "h": "1dsxkog1jj8",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "sofa-10igprlsll2": {
+    "t": "Sofa",
+    "h": "u9t53lxfvy",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "solve-f-x-0-1sffqxyceew": {
+    "t": "Solve f′(x) = 0",
+    "h": "qmltwqil7h",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "solve-it-2811v1wxo16": {
+    "t": "Solve it",
+    "h": "129im60mdcf",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "solve-to-find-the-critical-point-21uftsnod9": {
+    "t": "Solve to find the critical points.",
+    "h": "17c04r1q0yg",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "some-metals-give-away-electrons-29luooh858z": {
+    "t": "Some metals give away electrons much more easily than others. Order them from the most eager to the least.",
+    "h": "jzfcxb8375",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "some-parasites-become-gametocyte-ifmah7xwmi": {
+    "t": "Some parasites become gametocytes, the sexual stages, inside red blood cells.",
+    "h": "25dqgb7o2f0",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "sort-the-peninsular-rivers-by-wh-2ewsyu4itsm": {
+    "t": "Sort the peninsular rivers by where they reach the sea.",
+    "h": "2ffsyf3bdyf",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "sparkles-10d6n8jrif0": {
+    "t": "Sparkles",
+    "h": "lhdiytaytv",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "sparrow-1pm48gshz6s": {
+    "t": "Sparrow",
+    "h": "2cuskaf7vyl",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "speedboat-vn8mihyqd6": {
+    "t": "Speedboat",
+    "h": "191fsyadws0",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "spider-1nbcjxufl38": {
+    "t": "Spider",
+    "h": "2a72ilxeqcj",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "spoon-1xqdikibos6": {
+    "t": "Spoon",
+    "h": "21511fakiao",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "spring-1l6ckqttlok": {
+    "t": "Spring",
+    "h": "1o7e7fdgn21",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "square-1p9taaregii": {
+    "t": "Square",
+    "h": "8732gg8w0s",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "stable-q4y6kkn7s5": {
+    "t": "Stable",
+    "h": "21hia9jggy9",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "stadium-zlkow2p7ho": {
+    "t": "Stadium",
+    "h": "47oldqnznt",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "star-2dwmz3ucta0": {
+    "t": "Star",
+    "h": "9ipi38tplb",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "star-fruit-zt44zczsun": {
+    "t": "Star Fruit",
+    "h": "1nzib4u7f1h",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "starfish-1mnbhuccnmf": {
+    "t": "Starfish",
+    "h": "21ugt35citz",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "state-the-answer-with-units-23ixvlzjq7o": {
+    "t": "State the answer with units",
+    "h": "26jr816s2gg",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "stem-jxu678fj36": {
+    "t": "Stem",
+    "h": "1tcx5oakfy9",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "stethoscope-y07mtck4yv": {
+    "t": "Stethoscope",
+    "h": "17iwan9xo21",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "stone-11a1gz7j48c": {
+    "t": "Stone",
+    "h": "17zlmovyoqj",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "stop-sign-x2ydeor5em": {
+    "t": "Stop Sign",
+    "h": "1j9yo469ij9",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "stopwatch-w3v8r99p80": {
+    "t": "Stopwatch",
+    "h": "1q70pn1az5u",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "stormy-1c1xwaeft66": {
+    "t": "Stormy",
+    "h": "1gbnyo0q06m",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "strawberries-24ixceah4o5": {
+    "t": "strawberries",
+    "h": "wu1tf6q3mp",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "strawberry-1m1qpbc7nl8": {
+    "t": "strawberry",
+    "h": "1foxf0qopxb",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "stretching-qup2u449ko": {
+    "t": "Stretching",
+    "h": "22ac7vn762v",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "substitute-the-values-5kxesx48w8": {
+    "t": "Substitute the values.",
+    "h": "1o290ttu33y",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "summer-w8bei582th": {
+    "t": "Summer",
+    "h": "1gf9444j1ph",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "sundarbans-delta-1v3m0grisgm": {
+    "t": "Sundarbans delta",
+    "h": "giu864m5js",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "sunflower-73fs694gwn": {
+    "t": "Sunflower",
+    "h": "1f7rdmrj5ko",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "sunglasses-69mpy7rxoy": {
+    "t": "Sunglasses",
+    "h": "pdsvzmm0xu",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "sunny-nsuflsxrr9": {
+    "t": "Sunny",
+    "h": "20xr8eyzb9m",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "sunscreen-1vvzo9rrduk": {
+    "t": "Sunscreen",
+    "h": "9cg3gf95t5",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "super-counting-ok1n9pcpkb": {
+    "t": "Super counting!",
+    "h": "1bclafkiacf",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "superhero-1sfbqpggasc": {
+    "t": "Superhero",
+    "h": "1j65wlfwk5b",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "superstar-dl64x449cp": {
+    "t": "Superstar!",
+    "h": "udrtnwduyh",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "surfboard-1dcfoiz8p68": {
+    "t": "Surfboard",
+    "h": "s5d3mhdbt4",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "surprised-28klzq7sa7q": {
+    "t": "Surprised",
+    "h": "8w8td8eoaw",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "swan-2bq3yk65ua1": {
+    "t": "Swan",
+    "h": "arc55touvi",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "sweet-corn-1atlz2fs22b": {
+    "t": "Sweet Corn",
+    "h": "1wobafagw54",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "sweet-potato-20n1jxoyil7": {
+    "t": "Sweet Potato",
+    "h": "1kcej5f9j8r",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "swimming-26b28l3ubyi": {
+    "t": "Swimming",
+    "h": "bheo38rck3",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "swimming-pool-14yshmvtfqv": {
+    "t": "Swimming Pool",
+    "h": "2f6cqgoxkn",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "switch-1ux8mobakpo": {
+    "t": "Switch",
+    "h": "220573nujv7",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "syringe-2eknxkpvo7v": {
+    "t": "Syringe",
+    "h": "bxx5295x5x",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "t-4e94h5twlf": {
+    "t": "T",
+    "h": "ctgi1pc77y",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "t-for-tiger-226nllr7ope": {
+    "t": "T for Tiger",
+    "h": "1k5vy0hk476",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "tadpoles-126lm4hfl4b": {
+    "t": "Tadpoles",
+    "h": "1c88asyyeod",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "tadpoles-are-baby-frogs-they-gro-121szqhqs4f": {
+    "t": "Tadpoles are baby frogs. They grow legs and turn into frogs.",
+    "h": "1b4c2457qso",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "take-away-12itxc771qu": {
+    "t": "take away",
+    "h": "aile358uu6",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "tamarind-25bfcgberrn": {
+    "t": "Tamarind",
+    "h": "1pbssc7xsgp",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "tap-each-glowing-circle-to-follo-gttjd1g1eq": {
+    "t": "Tap each glowing circle to follow the Ganga from the mountains to the sea.",
+    "h": "1iwx4yexh09",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "tap-each-glowing-circle-to-learn-21cjtyh8fot": {
+    "t": "Tap each glowing circle to learn how a zinc–copper cell makes electricity.",
+    "h": "1f66mfu8h1",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "tap-each-glowing-circle-to-learn-ha2t5tjtdi": {
+    "t": "Tap each glowing circle to learn a step of the water cycle.",
+    "h": "s2l440tnv4",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "tap-each-glowing-circle-to-meet-m8zkl4zyiz": {
+    "t": "Tap each glowing circle to meet the parts of a circuit.",
+    "h": "1my7usy42je",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "tap-each-glowing-circle-to-see-w-2cfb3utnrg3": {
+    "t": "Tap each glowing circle to see which disease attacks that part of the body.",
+    "h": "26yqjmfv2w6",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "tap-the-best-answer-read-why-aft-1llez253pp0": {
+    "t": "Tap the best answer. Read why after each question.",
+    "h": "1k2kvmhmv5r",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "tap-the-place-in-the-south-east-71cf5iteml": {
+    "t": "Tap the place in the south-east corner of the town.",
+    "h": "lobxsptcqy",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "tap-the-place-that-is-east-of-th-krassqxrny": {
+    "t": "Tap the place that is east of the park.",
+    "h": "8v4alrq16j",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "tap-the-place-that-is-north-of-t-r43vllbio6": {
+    "t": "Tap the place that is north of the park.",
+    "h": "izv3j4y0ft",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "tap-the-place-that-is-west-of-th-1xqiqf1cuzw": {
+    "t": "Tap the place that is west of the park.",
+    "h": "1ay3dt2x6ph",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "tap-the-places-on-the-map-of-sun-d16090h682": {
+    "t": "Tap the places on the map of Sunpur. Then find places using directions.",
+    "h": "25uyj1skavo",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "tapi-177vzesw9et": {
+    "t": "Tapi",
+    "h": "21wzbtj5a4y",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "target-19hgqdbnb0u": {
+    "t": "Target",
+    "h": "2905gco5k4g",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "taste-pdjmzqj3li": {
+    "t": "Taste",
+    "h": "14mfgv6rgme",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "taxi-25ki77jmy7o": {
+    "t": "Taxi",
+    "h": "1q8qtwj8ziz",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "teacher-wim4eod55g": {
+    "t": "Teacher",
+    "h": "1f8xyjatcx9",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "teddy-bear-q8uxrgmcfo": {
+    "t": "Teddy Bear",
+    "h": "g81fmvrq1t",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "teeth-1yfu32a67om": {
+    "t": "Teeth",
+    "h": "r7dtnpn38n",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "tehri-dam-zqoy3eb0mm": {
+    "t": "Tehri Dam",
+    "h": "21lh8eevq2n",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "telephone-1f646nbnwur": {
+    "t": "Telephone",
+    "h": "1hu3a1qxa9e",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "telescope-215wt9m5cc1": {
+    "t": "Telescope",
+    "h": "g6z2fahh6z",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "television-1wwir154zfc": {
+    "t": "Television",
+    "h": "1d4uczg30dp",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "ten-ones-make-one-ten-match-each-teju48bcb6": {
+    "t": "Ten ones make one ten. Match each card to its number.",
+    "h": "1grvd2l8xcx",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "ten-yl6kdmaiia": {
+    "t": "Ten",
+    "h": "2b7p5c87dcx",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "tennis-1kxijpdicup": {
+    "t": "Tennis",
+    "h": "87rfzmxxvc",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "tent-26y9599vf3": {
+    "t": "Tent",
+    "h": "1r8xl2jkbjd",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "that-s-how-to-solve-it-x5e2sud4sk": {
+    "t": "That's how to solve it!",
+    "h": "13w2zibp2c2",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "that-s-not-the-mwrr0sosvh": {
+    "t": "That's not the",
+    "h": "1dnx6xwcz8f",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "that-s-the-e8l1y1phxp": {
+    "t": "That's the",
+    "h": "257evqhx9r7",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "that-s-the-electrochemical-serie-hnpqigs031": {
+    "t": "That's the electrochemical series! The lower the standard reduction potential, the stronger the reducing agent.",
+    "h": "1imwojzbbdx",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "that-s-the-method-4hq7chtz3w": {
+    "t": "That's the method!",
+    "h": "1zfsccgu9vv",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-ammeter-must-carry-the-same-9hte2zfhag": {
+    "t": "The ammeter must carry the same current as the bulb, so it goes in the same loop, in series.",
+    "h": "u9qd0h5qwl",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-anode-dissolves-as-cu2-1od7dd664uk": {
+    "t": "The anode dissolves as Cu²⁺",
+    "h": "onnbkfd2cc",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-answer-is-2e0qnic4pk": {
+    "t": "The answer is",
+    "h": "qt3qjszkc4",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-bhagirathi-starts-here-from-1qwesbdac6e": {
+    "t": "The Bhagirathi starts here, from melting ice high in the Himalayas. Snow and glaciers keep Himalayan rivers flowing all year: they are perennial.",
+    "h": "dc75wbz4we",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-brahmaputra-rises-in-tibet-w-13p12xco64r": {
+    "t": "The Brahmaputra rises in Tibet, where it is called the Tsangpo.",
+    "h": "1yirg2hdauj",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-brahmaputra-rises-in-tibet-w-1sph48e1ebr": {
+    "t": "The Brahmaputra rises in Tibet, where it is called the Tsangpo, and enters India in Arunachal Pradesh.",
+    "h": "1bx6eg8bpoq",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-bulb-changes-electrical-ener-24hleubnezb": {
+    "t": "The bulb changes electrical energy into light and heat. More current makes it glow brighter.",
+    "h": "1tua9d33821",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-cell-pushes-electric-charge-12h49iaovd3": {
+    "t": "The cell pushes electric charge around the circuit. How hard it pushes is its voltage, measured in volts (V).",
+    "h": "21ackafulz4",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-cell-s-voltage-changes-with-1ed3umy6lc7": {
+    "t": "The cell's voltage changes with the concentrations of its two solutions.",
+    "h": "s8ibgy98zf",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-common-cold-is-caused-by-a-v-27hhhb7h9wd": {
+    "t": "The common cold is caused by a virus. Antibiotics work against bacteria, not viruses.",
+    "h": "27o3nsezckk",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-common-cold-is-caused-by-rhi-2arl1wun13x": {
+    "t": "The common cold is caused by rhinoviruses.",
+    "h": "2gl8gfy67pw",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-common-cold-is-caused-by-rhi-wvtit0b4e3": {
+    "t": "The common cold is caused by rhinoviruses. They infect the nose and the airways, but not the lungs. It spreads through droplets from coughs and sneezes, and through shared objects.",
+    "h": "44myt91x7t",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-cut-goes-from-2-cm-to-6-cm-t-1ysuogjpr8p": {
+    "t": "The cut goes from 2 cm to 6 cm. The volume will…",
+    "h": "27zqi6dz5ip",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-derivative-1-over-x-is-posit-22xf3b5hd38": {
+    "t": "The derivative 1 over x is positive for positive x.",
+    "h": "22p4s9i6h4r",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-derivative-2x-is-negative-wh-f6w3xhajv8": {
+    "t": "The derivative 2x is negative when x is negative.",
+    "h": "16bhz2c3s02",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-derivative-2x-is-positive-wh-k2qlgeylrt": {
+    "t": "The derivative 2x is positive when x is positive.",
+    "h": "3ebj9jlwtt",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-derivative-is-minus-3-so-it-2amemem6mh4": {
+    "t": "The derivative is minus 3, so it always decreases.",
+    "h": "10xt5oyqffa",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-derivative-minus-1-over-x-sq-27dx9xgkamn": {
+    "t": "The derivative minus 1 over x squared is always negative.",
+    "h": "kuogvv7owi",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-derivative-minus-sin-x-is-ne-jmodpezwp9": {
+    "t": "The derivative minus sin x is negative between 0 and pi.",
+    "h": "1mp9hd5g989",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-derivative-of-e-to-the-x-is-19zj22pfg0k": {
+    "t": "The derivative of e to the x is e to the x, always positive.",
+    "h": "c7p7ufmbp1",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-eagle-eats-the-snake-1gv6m9aklka": {
+    "t": "The eagle eats the snake.",
+    "h": "1i97383v0ob",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-edge-speed-stays-at-2-cm-s-a-19aco2f948d": {
+    "t": "The edge speed stays at 2 cm/s. At r = 10 cm, will the area grow faster or slower than at r = 5 cm?",
+    "h": "28savcqqp8i",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-fields-are-north-of-the-park-1qh543231te": {
+    "t": "The fields are north of the park.",
+    "h": "b2go2uiyg0",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-frog-eats-the-grasshopper-25iwdy492pr": {
+    "t": "The frog eats the grasshopper.",
+    "h": "1y1o800akc3",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-ganga-and-the-brahmaputra-bu-g1koi6ao0v": {
+    "t": "The Ganga and the Brahmaputra build the world's largest delta before reaching the Bay of Bengal.",
+    "h": "19klys8lcjw",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-ganga-and-the-brahmaputra-jo-8kqi88wfc": {
+    "t": "The Ganga and the Brahmaputra join and split into many channels before reaching the Bay of Bengal. Together they form the largest delta in the world, home to mangrove forests.",
+    "h": "lr0nrzw91g",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-ganga-leaves-the-mountains-a-4efcdxbqx": {
+    "t": "The Ganga leaves the mountains and enters the plains. It slows down and drops fertile silt along its banks.",
+    "h": "jcu2ft3thv",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-ganga-starts-as-the-bhagirat-232894y16qb": {
+    "t": "The Ganga starts as the Bhagirathi at the Gangotri Glacier.",
+    "h": "rj3dg9o3xt",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-godavari-flows-east-into-the-bkrnkkyo9r": {
+    "t": "The Godavari flows east into the Bay of Bengal.",
+    "h": "175bhxpor47",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-godavari-is-the-longest-peni-496r0aowsz": {
+    "t": "The Godavari is the longest peninsular river.",
+    "h": "7ktfxi7aqc",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-godavari-is-the-longest-peni-csz5bj3ocf": {
+    "t": "The Godavari is the longest peninsular river. It is sometimes called the Dakshin Ganga.",
+    "h": "24jkbyoymgq",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-grasshopper-eats-grass-1tf7uu6ssxz": {
+    "t": "The grasshopper eats grass.",
+    "h": "264qzf9qykd",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-hospital-is-in-the-south-str-12pdf2rdt9t": {
+    "t": "The hospital is in the south, straight below the park.",
+    "h": "1mp9a2b17d9",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-indus-rises-in-tibet-near-la-198pxus64sq": {
+    "t": "The Indus rises in Tibet, near Lake Mansarovar.",
+    "h": "v2ts09botv",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-kaveri-flows-east-into-the-b-2ebfk3slb2t": {
+    "t": "The Kaveri flows east into the Bay of Bengal.",
+    "h": "2dat9hwyaoh",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-kaveri-rises-in-the-brahmagi-2a1qudmk9d7": {
+    "t": "The Kaveri rises in the Brahmagiri hills of the Western Ghats and flows east.",
+    "h": "mklaqy1ywt",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-kaveri-rises-in-the-brahmagi-9b94gwg7tl": {
+    "t": "The Kaveri rises in the Brahmagiri hills of the Western Ghats.",
+    "h": "2fb0hlllqrl",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-kingfisher-dives-into-the-wa-mc3x64oo1l": {
+    "t": "The kingfisher dives into the water to catch fish with its long beak.",
+    "h": "1y58o7fofwl",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-krishna-flows-east-into-the-pr4jwx5il6": {
+    "t": "The Krishna flows east into the Bay of Bengal.",
+    "h": "18ptfyeumgj",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-krishna-rises-in-the-western-1v36g3vz3pe": {
+    "t": "The Krishna rises in the Western Ghats.",
+    "h": "29zsrdpzlcu",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-lake-is-in-the-west-ducks-sw-7ig3t4h29a": {
+    "t": "The lake is in the west. Ducks swim here, and it gives water to the fields.",
+    "h": "1q47iw6rj2b",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-lake-is-west-of-the-park-2g3uagd5h1n": {
+    "t": "The lake is west of the park.",
+    "h": "hm395z6r10",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-mahanadi-flows-east-into-the-1wepjlav34x": {
+    "t": "The Mahanadi flows east into the Bay of Bengal.",
+    "h": "eexsiuxl2",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-malaria-parasite-needs-two-h-emul5kmb7f": {
+    "t": "The malaria parasite needs two hosts: a human and a mosquito. Put its journey in order.",
+    "h": "edeh8ccisv",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-market-is-east-of-the-park-757gnlkbyw": {
+    "t": "The market is east of the park.",
+    "h": "quqypwpr84",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-market-is-in-the-east-people-21qk0logc1t": {
+    "t": "The market is in the east. People buy fruit, vegetables and cloth here.",
+    "h": "1552eleerko",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-narmada-does-not-form-a-delt-b84v6n59vh": {
+    "t": "The Narmada does not form a delta.",
+    "h": "ugatzmj8pd",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-narmada-flows-west-through-a-12f42nv4khn": {
+    "t": "The Narmada flows west through a rift valley into the Arabian Sea.",
+    "h": "19xui2g93kw",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-narmada-rises-at-amarkantak-1x6k2ljtppu": {
+    "t": "The Narmada rises at Amarkantak and flows west.",
+    "h": "iltasihhln",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-nucleus-is-the-tiny-heavy-ce-4t5zxqp6of": {
+    "t": "The nucleus is the tiny, heavy centre of the atom.",
+    "h": "11cwtyqo4mg",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-parasites-attack-red-blood-c-2emzq3thion": {
+    "t": "The parasites attack red blood cells, which burst and release haemozoin. This causes chills and high fever.",
+    "h": "c5a7gcq0pr",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-park-is-in-the-middle-of-the-1h8mdh9ix9l": {
+    "t": "The park is in the middle of the town. Roads go out from it in every direction.",
+    "h": "17rha6mfqfh",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-post-office-is-in-the-south-1u8cta1iuw8": {
+    "t": "The post office is in the south-east.",
+    "h": "1vh8smf2rew",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-radius-of-a-circle-grows-at-dth8b0lu5e": {
+    "t": "The radius of a circle grows at 3 cm/s. How fast is the area growing when r = 10 cm?",
+    "h": "1cx022uf0uq",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-school-is-in-the-north-west-adh9enlij3": {
+    "t": "The school is in the north-west.",
+    "h": "225aqnkntvd",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-school-is-in-the-north-west-negi7v2n8f": {
+    "t": "The school is in the north-west corner of the town.",
+    "h": "10aama6zd1b",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-school-is-in-which-corner-ta-oy6pyegf4i": {
+    "t": "The school is in which corner? Tap the place in the north-west.",
+    "h": "1itj2oj9els",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-side-of-a-cube-grows-at-2-cm-14e9s9xxwmp": {
+    "t": "The side of a cube grows at 2 cm/s. How fast is its volume growing when the side is 5 cm?",
+    "h": "2fwwt48t2tx",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-snake-eats-the-frog-8ppmt27b6f": {
+    "t": "The snake eats the frog.",
+    "h": "5n4r5rr2ia",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-sporozoites-travel-to-the-li-1ftyjd5yj5e": {
+    "t": "The sporozoites travel to the liver and multiply there.",
+    "h": "rm22wox8gn",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-stem-carries-water-up-the-pl-qkik1dzbyi": {
+    "t": "The stem carries water up the plant.",
+    "h": "t3z48ido82",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-sun-warms-the-water-in-seas-t76l8stnau": {
+    "t": "The Sun warms the water in seas, lakes and rivers.",
+    "h": "13pi8fg4fvn",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-tapi-also-flows-west-through-1a2ktdjxs8y": {
+    "t": "The Tapi also flows west through a rift valley into the Arabian Sea.",
+    "h": "26gcx1g2ysk",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-two-rivers-meet-at-devprayag-sqxtcp7qmk": {
+    "t": "The two rivers meet at Devprayag. From there, the river is called the Ganga.",
+    "h": "1su6x51icys",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-widal-test-confirms-typhoid-1zv1uu0tkrp": {
+    "t": "The Widal test confirms typhoid, which is caused by Salmonella typhi.",
+    "h": "zb5c31075l",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-worms-block-the-lymph-vessel-ge6nie4rlq": {
+    "t": "The worms block the lymph vessels, so fluid builds up and the limbs swell over the years.",
+    "h": "18flzf912zc",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-yamuna-rises-at-the-yamunotr-10bbtpmfalt": {
+    "t": "The Yamuna rises at the Yamunotri Glacier.",
+    "h": "1jvel2ie2mv",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "the-yamuna-the-ganga-s-longest-t-1na3otjx4vb": {
+    "t": "The Yamuna, the Ganga's longest tributary, joins it here. The meeting place is called a sangam.",
+    "h": "sam6wsvj00",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "then-write-the-formula-bmdzvif463": {
+    "t": "Then write the formula.",
+    "h": "1ar048sx1h5",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "thermometer-21bjvvndcbo": {
+    "t": "Thermometer",
+    "h": "15y2k1hriwz",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "they-fuse-and-develop-in-the-mos-13gdtqarw12": {
+    "t": "They fuse and develop in the mosquito's gut. New sporozoites move to its salivary glands, ready for the next bite.",
+    "h": "1c92ilovao8",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "they-mature-in-the-mosquito-1kldhbxc0i3": {
+    "t": "They mature in the mosquito",
+    "h": "183tuuza2j2",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "they-multiply-in-the-liver-6of7h30j8o": {
+    "t": "They multiply in the liver",
+    "h": "1fvv2sm08rr",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "think-which-happened-first-ynjspgbd3p": {
+    "t": "Think: which happened first?",
+    "h": "h09q5xmii2",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "think-which-metal-gives-away-ele-1rdiixbf84w": {
+    "t": "Think: which metal gives away electrons more easily?",
+    "h": "1oxovrwc6t8",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "thirteen-1kpzjr19cjf": {
+    "t": "Thirteen",
+    "h": "3bw613v4hx",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "this-cell-turns-a-chemical-react-i2qf4bmqso": {
+    "t": "This cell turns a chemical reaction into electricity. Tap each part to see what it does.",
+    "h": "1r1kxrcfa08",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "this-is-a-map-of-a-small-town-no-1ivzr94ebmm": {
+    "t": "This is a map of a small town. North is at the top. Tap the places to explore.",
+    "h": "1wuvzwl9oy2",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "this-is-a-simple-electric-circui-tn6z86ms5l": {
+    "t": "This is a simple electric circuit. Tap each part to find out what it does.",
+    "h": "25traryisep",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "three-14lfm9d1bkg": {
+    "t": "Three",
+    "h": "1lnqr2w8l9a",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "three-amperes-for-example-12-vol-1t1xhj7y7b0": {
+    "t": "Three amperes. For example 12 volts across 4 ohms, or 6 volts across 2 ohms.",
+    "h": "27rw1kkf5au",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "three-diseases-start-in-the-inte-1y2u8geqg5q": {
+    "t": "Three diseases start in the intestine: typhoid (the bacterium Salmonella typhi), amoebiasis (the protozoan Entamoeba histolytica) and ascariasis (the roundworm Ascaris). All three spread through contaminated food or water.",
+    "h": "1gc3hjuvhkh",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "ticket-nb2zxb1ugs": {
+    "t": "Ticket",
+    "h": "2dbfyzr641f",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "tiger-1dhifmvffe": {
+    "t": "Tiger",
+    "h": "1sj8958aad9",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "time-for-a-quick-quiz-on-this-ch-1o0zyupezjr": {
+    "t": "Time for a quick quiz on this chapter.",
+    "h": "1ljazaavg79",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "toilet-paper-3cpvhdq1hy": {
+    "t": "Toilet Paper",
+    "h": "290akx5tqos",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "toilet-xhk647zirg": {
+    "t": "Toilet",
+    "h": "1pfveh9jcp6",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "tomato-2fddzv9vw92": {
+    "t": "Tomato",
+    "h": "1b7pivwqh23",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "toolbox-25c8wlswike": {
+    "t": "Toolbox",
+    "h": "164otttwz2n",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "toothbrush-20i48cmhdo2": {
+    "t": "Toothbrush",
+    "h": "un6wdn2gul",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "tortoise-1rlr058500n": {
+    "t": "Tortoise",
+    "h": "qk6qk9zg16",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "touch-20iz4l0y6w": {
+    "t": "Touch",
+    "h": "n6chu49o1g",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "trace-2fflq4ihz9p": {
+    "t": "Trace",
+    "h": "15q48jfy80",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "tractor-15odiscx1l9": {
+    "t": "Tractor",
+    "h": "1whxbgbl4vk",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "traffic-light-1yjupyafyhh": {
+    "t": "Traffic Light",
+    "h": "n12h44bujh",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "train-234xhlo37o8": {
+    "t": "Train",
+    "h": "28h51utmikt",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "trains-stop-at-the-station-in-th-ns98yjt7ng": {
+    "t": "Trains stop at the station, in the south-west corner.",
+    "h": "x2yr91ydat",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "trapezoid-121flly2dm0": {
+    "t": "Trapezoid",
+    "h": "tfgy8ywg4m",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "tree-1lxowb7a718": {
+    "t": "Tree",
+    "h": "lnqfzc64s1",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "triangle-2epzp0kh701": {
+    "t": "Triangle",
+    "h": "aioobs5p8o",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "trolleybus-28p79tx2yvy": {
+    "t": "Trolleybus",
+    "h": "1m8ee3nacmt",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "trophy-1jxev4ksk6i": {
+    "t": "Trophy",
+    "h": "2c2qks3iifv",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "truck-80z1qzoxs1": {
+    "t": "Truck",
+    "h": "uxhw0nn0lv",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "trumpet-2je4h85jek": {
+    "t": "Trumpet",
+    "h": "189njqo0dea",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "try-again-h1futca84k": {
+    "t": "Try again!",
+    "h": "1mzgbzbhhcw",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "tulip-8kke639anz": {
+    "t": "Tulip",
+    "h": "7fds28s1s9",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "turkey-2ei1quxomkz": {
+    "t": "Turkey",
+    "h": "iw27m71p44",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "turquoise-13q88ez1yz6": {
+    "t": "Turquoise",
+    "h": "1h6vtgwa9i9",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "turtle-2fx29vclbep": {
+    "t": "Turtle",
+    "h": "1th796sgys0",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "twelve-zav96ht6ln": {
+    "t": "Twelve",
+    "h": "dcbhjrhslv",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "twenty-20f77wjzh2a": {
+    "t": "Twenty",
+    "h": "b2qrhk4l03",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "two-10-resistors-are-joined-in-p-1wqyvi0dzil": {
+    "t": "Two 10 Ω resistors are joined in parallel. What is their total resistance?",
+    "h": "1o0skawuakb",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "two-223q40q07pl": {
+    "t": "Two",
+    "h": "17simvfbflf",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "two-amperes-for-example-12-volts-117g58kej2x": {
+    "t": "Two amperes. For example, 12 volts across 6 ohms.",
+    "h": "22vak9bl9jt",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "two-positive-numbers-add-up-to-2-1206jtiknpo": {
+    "t": "Two positive numbers add up to 20. What is the largest their product can be?",
+    "h": "3g4w9kesn",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "typhoid-265vqc0k5c2": {
+    "t": "Typhoid",
+    "h": "1w0nrrm3dbc",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "typhoid-is-caused-by-the-bacteri-1exlncr9zfx": {
+    "t": "Typhoid is caused by the bacterium Salmonella typhi.",
+    "h": "10jqba57keh",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "u-19jxidg5wck": {
+    "t": "U",
+    "h": "a6jb5q0mjd",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "u-for-unicorn-14f21qg0e84": {
+    "t": "U for Unicorn",
+    "h": "2ai9o5k63gp",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "umbrella-1k215cqpky2": {
+    "t": "Umbrella",
+    "h": "vo9ciqcilw",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "unicorn-10dhza1apxo": {
+    "t": "Unicorn",
+    "h": "c05275zbtx",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "up-2emqfnj6qmf": {
+    "t": "Up",
+    "h": "iriabmm8us",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "up-or-down-7t8ostqvp0": {
+    "t": "Up or down?",
+    "h": "e6nv4ibkx5",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "using-ag-ag-0-80-v-and-zn2-zn-0-yxbrgy8qq1": {
+    "t": "Using Ag⁺/Ag (+0.80 V) and Zn²⁺/Zn (−0.76 V), what is E°cell?",
+    "h": "2bjxc86iv8k",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "v-2ixvcq7g4y": {
+    "t": "V",
+    "h": "1ygns93txrz",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "v-for-volcano-2951r8pll3b": {
+    "t": "V for Volcano",
+    "h": "pmi5hojjw2",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "v-s3-so-dv-dt-3s2-ds-dt-3-25-2-1-bcfu3o79ot": {
+    "t": "V = s³, so dV/dt = 3s² × ds/dt = 3 × 25 × 2 = 150 cm³/s.",
+    "h": "j9dwv5ytpl",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "van-1gnd4atheom": {
+    "t": "Van",
+    "h": "20447gdxx01",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "varanasi-n51zsuop6u": {
+    "t": "Varanasi",
+    "h": "1smtb4jve7h",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "vegetable-m341zl4bpq": {
+    "t": "Vegetable",
+    "h": "1za4gwuw3fp",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "vegetable-v2-dsa3qgr3qu": {
+    "t": "Vegetable (V2)",
+    "h": "10f97278qaz",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "vegetable-v3-l22xi4y401": {
+    "t": "Vegetable (V3)",
+    "h": "i1buv733kk",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "vegetable-v4-2fr5rx78dit": {
+    "t": "Vegetable (V4)",
+    "h": "uiwk33t4w7",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "video-game-1wdeb1u6y5t": {
+    "t": "Video Game",
+    "h": "q1t4fkn63k",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "violin-26rv1lwm1o0": {
+    "t": "Violin",
+    "h": "1dsozlc9cx6",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "virus-sgw3ghnwuz": {
+    "t": "🧬 Virus",
+    "h": "mgw0ess3wq",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "volcano-1912ayz3hxb": {
+    "t": "Volcano",
+    "h": "26m47x285no",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "volleyball-143br2hrcn8": {
+    "t": "Volleyball",
+    "h": "4740x93ct5",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "voltage-v-1xs2rzhhrem": {
+    "t": "Voltage (V)",
+    "h": "gw3imnf16",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "voltmeter-1todqeut7nd": {
+    "t": "Voltmeter",
+    "h": "1q5biwlp091",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "w-for-whale-vv3eh57dd0": {
+    "t": "W for Whale",
+    "h": "1kdleysvs6m",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "w-ybhokoc77l": {
+    "t": "W",
+    "h": "4v4khl6q3g",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "walking-north-from-the-hospital-u4izq4tnj3": {
+    "t": "Walking north from the hospital, you reach the park.",
+    "h": "1d3oxkiij9i",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "wallet-1uhpce1bord": {
+    "t": "Wallet",
+    "h": "df894ysko4",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "warm-water-turns-into-invisible-9hxc8lpyr8": {
+    "t": "Warm water turns into invisible water vapour and rises into the air.",
+    "h": "1av0jxqhs82",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "warning-ssu3vnadtf": {
+    "t": "Warning",
+    "h": "h8pe5i2ub7",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "watch-gsnanaqge9": {
+    "t": "Watch",
+    "h": "1tq6wkax4s7",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "water-1ma9ug270qa": {
+    "t": "Water",
+    "h": "24uhc1w9ess",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "water-drop-156ap93atsx": {
+    "t": "Water Drop",
+    "h": "1iz1dhul77p",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "water-is-reduced-more-easily-tha-5otmnbkln": {
+    "t": "Water is reduced more easily than Na⁺ ions, so hydrogen gas forms at the cathode.",
+    "h": "1yxw3o99okt",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "water-keeps-moving-around-our-ea-qb7y2d6dml": {
+    "t": "Water keeps moving around our Earth. Tap each circle to follow it.",
+    "h": "2beesrxbqip",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "watermelon-1nfrpnsu5oc": {
+    "t": "Watermelon",
+    "h": "12x8nieixh7",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "welcome-to-space-tap-a-planet-to-iano9e7xxz": {
+    "t": "Welcome to space. Tap a planet to fly to it.",
+    "h": "h28un11vnp",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "well-done-you-finished-14b0e6zh68a": {
+    "t": "Well done! You finished.",
+    "h": "1nkja0dbij3",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "well-done-ytl625jihq": {
+    "t": "Well done!",
+    "h": "fp36v8rehm",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "whale-mdvjxcwtz0": {
+    "t": "Whale",
+    "h": "2642xtao99e",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "what-is-9u4h1jelnn": {
+    "t": "What is",
+    "h": "1lahew9jrtx",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "what-is-the-main-job-of-the-salt-1p16f07ycly": {
+    "t": "What is the main job of the salt bridge?",
+    "h": "163oxask1ry",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "what-is-the-si-unit-of-resistanc-2f0duke7ue": {
+    "t": "What is the SI unit of resistance?",
+    "h": "1ps0xwtqi36",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "what-is-the-slope-of-the-tangent-237he0pnl0g": {
+    "t": "What is the slope of the tangent to y = x² at x = 3?",
+    "h": "1npg6kkw5yr",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "wheat-1hr5ctgwugg": {
+    "t": "Wheat",
+    "h": "i2omd3nqyf",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "when-price-goes-up-buyers-want-l-19e3tt20f4n": {
+    "t": "When price goes up, buyers want less and sellers offer more.",
+    "h": "1n49wer0sg7",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "when-the-drops-get-big-and-heavy-24lndgww8gm": {
+    "t": "When the drops get big and heavy, they fall as rain, or as snow on cold mountains.",
+    "h": "lz5a8szwgx",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "where-does-the-kaveri-rise-h16vfej8an": {
+    "t": "Where does the Kaveri rise?",
+    "h": "117v2yr4bdh",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "where-is-the-1jufc58xx8v": {
+    "t": "Where is the",
+    "h": "27uqlp47be0",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "where-it-strikes-1ja4vgrwi2l": {
+    "t": "Where it strikes",
+    "h": "wrk1epr011",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "which-germ-i5pbly94wb": {
+    "t": "Which germ?",
+    "h": "16ljt3jmpxl",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "which-is-the-longest-peninsular-2d9fq3mjw0g": {
+    "t": "Which is the longest peninsular river?",
+    "h": "vh512lm6vt",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "which-is-the-main-reason-peninsu-1d0rcvzv85k": {
+    "t": "Which is the main reason peninsular rivers have little water in summer?",
+    "h": "1oli4pvecu1",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "which-one-is-the-19sniwith6l": {
+    "t": "Which one is the",
+    "h": "1l9wh7ifl7t",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "which-organism-causes-malaria-1k20r4dqfqy": {
+    "t": "Which organism causes malaria?",
+    "h": "x92ccc696n",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "which-part-of-the-body-does-pneu-hzleq4c80v": {
+    "t": "Which part of the body does pneumonia mainly affect?",
+    "h": "my9q3nfsk2",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "which-step-best-prevents-both-ma-spmyeln5z9": {
+    "t": "Which step best prevents both malaria and filariasis?",
+    "h": "2a1mkzft4ts",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "which-two-rivers-together-form-t-huivhjhmmj": {
+    "t": "Which two rivers together form the Sundarbans delta?",
+    "h": "6cdegcwo9j",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "white-carrot-x6edkq4f5h": {
+    "t": "White Carrot",
+    "h": "1pc7ody5pcn",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "white-parrot-1abe5i2u626": {
+    "t": "White Parrot",
+    "h": "59kjq4d0lg",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "white-v74ethrrb3": {
+    "t": "White",
+    "h": "149edxvwfuy",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "who-does-this-one-eat-1htag2bvcao": {
+    "t": "Who does this one eat?",
+    "h": "1ksccoussod",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "wilted-rose-9yrdklmsyb": {
+    "t": "Wilted Rose",
+    "h": "zx6ytfg222",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "window-iuvx540m1o": {
+    "t": "Window",
+    "h": "6g6dmrn9ev",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "windy-1umokk53lcp": {
+    "t": "Windy",
+    "h": "24gz9nn3wwn",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "winter-1k0w4o6w5st": {
+    "t": "Winter",
+    "h": "1fjpiut37z4",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "with-1-m-solutions-at-25-c-it-re-1tz36nyy2m": {
+    "t": "With 1 M solutions at 25 °C, it reads about 1.10 V. This is the standard cell potential, E°cell.",
+    "h": "18ywi5ysi06",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "with-10-v-set-the-resistance-so-vc23v3najz": {
+    "t": "With 10 V, set the resistance so the current is 1 A.",
+    "h": "1yu4phx2zea",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "with-9-v-set-the-resistance-so-t-1dx1sg589fo": {
+    "t": "With 9 V, set the resistance so the current is 1.5 A.",
+    "h": "1s7xlmtw6fp",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "with-dr-dt-3-cm-s-find-the-radiu-14hjkmre5wz": {
+    "t": "With dr/dt = 3 cm/s, find the radius where the area grows at 60π ≈ 188.5 cm²/s.",
+    "h": "xkn6vjpugh",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "with-r-fixed-current-is-proporti-8y0ib132mw": {
+    "t": "With R fixed, current is proportional to voltage, so doubling V doubles I.",
+    "h": "ojzfqwntb3",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "with-zn2-at-0-5-m-make-the-cell-wqohyucqnw": {
+    "t": "With Zn²⁺ at 0.5 M, make the cell read exactly 1.100 V.",
+    "h": "w6prmj3k5v",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "wizard-qsb040tgnx": {
+    "t": "Wizard",
+    "h": "ue5fyjkw7h",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "wolf-27vmqapn121": {
+    "t": "Wolf",
+    "h": "r1ilik9um6",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "work-through-the-chapter-one-ste-si0aoagkxs": {
+    "t": "Work through the chapter one step at a time.",
+    "h": "wgotfbl7n8",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "worms-mamwh1hxha": {
+    "t": "🪱 Worms",
+    "h": "pmpdt0c5qo",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "wrench-kyudcfxejr": {
+    "t": "Wrench",
+    "h": "1jer5irjwlr",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "write-the-quantity-as-f-x-x46b97wcbg": {
+    "t": "Write the quantity as f(x)",
+    "h": "1gxyerfkkll",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "write-v-i-r-sxuczb0usf": {
+    "t": "Write V = I × R",
+    "h": "1qug2xzt06e",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "x-for-xylophone-ftjrjjajm9": {
+    "t": "X for Xylophone",
+    "h": "1tyaw3j9coh",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "x-rci1dk2lqj": {
+    "t": "X",
+    "h": "2g7qg8g93l6",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "x2-for-x-0-14l8ksnhdfs": {
+    "t": "x² for x > 0",
+    "h": "wke5gnx0yh",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "x2-for-x-0-8lvoc4f2sw": {
+    "t": "x² for x < 0",
+    "h": "17ijy44fh9s",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "x3-for-all-x-19gcwol51ij": {
+    "t": "x³ for all x",
+    "h": "ubx7dnccgw",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "xmas-tree-2a7n6hbrstt": {
+    "t": "Xmas Tree",
+    "h": "couh5e8gyp",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "xylophone-im4xjhjv8b": {
+    "t": "Xylophone",
+    "h": "tdos8x8cvc",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "y-2eptvd06th4": {
+    "t": "Y",
+    "h": "1e2tkric72h",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "y-equals-x-plus-2-nz6dax8tbq": {
+    "t": "y equals x plus 2.",
+    "h": "12ajezzms4y",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "y-for-yarn-ms63xdhcyh": {
+    "t": "Y for Yarn",
+    "h": "2ahlj4id58o",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "yacht-1kl3qbx5xi3": {
+    "t": "Yacht",
+    "h": "12h5dur053o",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "yamuna-25jwlq4n7sd": {
+    "t": "Yamuna",
+    "h": "26wy1s6i08p",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "yarn-yg4n2dcevq": {
+    "t": "Yarn",
+    "h": "1xuh9s0k1ap",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "yellow-1fxf43zpzw": {
+    "t": "Yellow",
+    "h": "1kp4pl7s4js",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "yes-1kpz059azyi": {
+    "t": "Yes!",
+    "h": "vwczojdpbk",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "yo-yo-24ucwyu8puy": {
+    "t": "Yo-yo",
+    "h": "1s9cf0ra8lu",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "you-are-a-space-engineer-n18uqsaqa0": {
+    "t": "You are a space engineer!",
+    "h": "t99m7r8n0g",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "you-are-at-the-hospital-walk-nor-2e358q6oeds": {
+    "t": "You are at the hospital. Walk north. Which place do you reach first?",
+    "h": "2sulni7zcn",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "you-built-the-food-chain-1md0i8mzeub": {
+    "t": "You built the food chain!",
+    "h": "12r9zqx4n55",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "you-can-find-rates-of-change-mgccr5nyc1": {
+    "t": "You can find rates of change!",
+    "h": "5jsx8rfl4y",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "you-can-predict-current-with-ohm-lz5oiwc1pb": {
+    "t": "You can predict current with Ohm's law!",
+    "h": "pi38wtyz3k",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "you-can-predict-electrolysis-pro-1dcxaubde2t": {
+    "t": "You can predict electrolysis products!",
+    "h": "1odjdfuzr4j",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "you-can-read-a-map-4zkvn0xjde": {
+    "t": "You can read a map!",
+    "h": "24hnco0hdbp",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "you-can-use-the-nernst-equation-1x8pkr8x2y3": {
+    "t": "You can use the Nernst equation!",
+    "h": "1l73ygun9bx",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "you-control-a-satellite-change-i-1oeha2lovn1": {
+    "t": "You control a satellite. Change its height and watch how fast it goes round the Earth.",
+    "h": "1pd0qaq7kzy",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "you-explored-everything-2gjywz2gebg": {
+    "t": "You explored everything!",
+    "h": "12y9lwjvxmz",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "you-explored-the-whole-map-1tqa3859dhh": {
+    "t": "You explored the whole map!",
+    "h": "j03h39aj3r",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "you-followed-the-parasite-throug-2c6gdiwxsk5": {
+    "t": "You followed the parasite through both hosts!",
+    "h": "xu6tkd71vg",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "you-followed-the-river-all-the-w-175qcrb49ao": {
+    "t": "You followed the river all the way to the sea!",
+    "h": "12fo9kfs8w1",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "you-followed-the-whole-water-cyc-6j56idnchw": {
+    "t": "You followed the whole water cycle!",
+    "h": "bmy0s994ne",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "you-found-everyone-in-the-pond-kd8sd82vs5": {
+    "t": "You found everyone in the pond!",
+    "h": "nrxpaed977",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "you-found-the-market-price-1uchkpspax4": {
+    "t": "You found the market price!",
+    "h": "11a9d6l814i",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "you-found-the-maximum-with-calcu-sbxj459viy": {
+    "t": "You found the maximum with calculus!",
+    "h": "1nz8om62uz0",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "you-found-them-all-1vh2ufw03q7": {
+    "t": "You found them all!",
+    "h": "29guzuy2m3",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "you-found-where-each-disease-str-1nhvjo5aphq": {
+    "t": "You found where each disease strikes!",
+    "h": "4vq67t63nd",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "you-got-it-avo3t09k6a": {
+    "t": "You got it!",
+    "h": "f2iqdpwzf0",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "you-know-how-a-galvanic-cell-wor-18gtef2qnv6": {
+    "t": "You know how a galvanic cell works!",
+    "h": "69jlkdgjci",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "you-know-the-parts-of-a-circuit-23tbqyhwegq": {
+    "t": "You know the parts of a circuit!",
+    "h": "1auso9wszh3",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "you-know-your-plant-tuavajo2gm": {
+    "t": "You know your plant!",
+    "h": "dkfxsvv6lq",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "you-picked-eb2u01g7s0": {
+    "t": "You picked",
+    "h": "27245cjr8z7",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "you-read-the-sign-of-the-derivat-d4f7iga9jy": {
+    "t": "You read the sign of the derivative!",
+    "h": "1mci97y12t7",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "you-scored-1aqc45x2azf": {
+    "t": "You scored",
+    "h": "1tfqzs1o3fs",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "you-sorted-them-all-210esg003vx": {
+    "t": "You sorted them all!",
+    "h": "29n3tuh2e57",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "you-ve-got-ohm-s-law-a3shnlbtsr": {
+    "t": "You've got Ohm's law!",
+    "h": "khl4no7igh",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "you-visited-every-planet-1463rwt7of1": {
+    "t": "You visited every planet!",
+    "h": "lviqdldvhc",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "z-8d01keq1x6": {
+    "t": "Z",
+    "h": "2bk699hptv7",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "z-for-zebra-1hqxn56l8fz": {
+    "t": "Z for Zebra",
+    "h": "2clyytv9r0y",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "zebra-hwmkqb4y57": {
+    "t": "Zebra",
+    "h": "s9ypr66hy3",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "zinc-14u8o877wki": {
+    "t": "Zinc",
+    "h": "156w7cfqmiy",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "zinc-atoms-lose-electrons-and-go-13zbuslh9gt": {
+    "t": "Zinc atoms lose electrons and go into the solution as Zn²⁺ ions. Losing electrons is oxidation, and it happens at the anode, the negative terminal here.",
+    "h": "2fh12823ogn",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "zinc-has-a-lower-standard-reduct-38s83js99n": {
+    "t": "Zinc has a lower standard reduction potential than copper.",
+    "h": "2569fuvcmpg",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "zinc-minus-0-76-volts-19mzq2b06k4": {
+    "t": "Zinc, minus 0.76 volts.",
+    "h": "x1m00erbd8",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "zinc-the-anode-1o4kp1gckao": {
+    "t": "Zinc: the anode",
+    "h": "50w3f6thr",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "zn2-concentration-vp21q3aqio": {
+    "t": "Zn²⁺ concentration",
+    "h": "1b7hi350som",
+    "v": "en-IN-Chirp3-HD-Kore"
+   },
+   "zucchini-wb4p17bjna": {
+    "t": "Zucchini",
+    "h": "2etcrw4on6m",
+    "v": "en-IN-Chirp3-HD-Kore"
+   }
+  },
+  "hi-IN": {
+   "x-10mqpdxs1ok": {
+    "t": "गाजर",
+    "h": "ebqzjir7ng",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-10rft9sj3up": {
+    "t": "बकरी",
+    "h": "1yfrvey9vnc",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-10y0ivnq4l5": {
+    "t": "दरियाई घोड़ा",
+    "h": "l1oif9024t",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-11kz1dm7oac": {
+    "t": "हाथी",
+    "h": "8ip28d1q55",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-12pz71hsayp": {
+    "t": "भेड़",
+    "h": "im1sv82chr",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-1335pj6fhq1": {
+    "t": "खीरा",
+    "h": "1nidv494ipr",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-140cabca4wp": {
+    "t": "मीठी मक्का",
+    "h": "23ip4dolsxf",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-14o4g1lmprq": {
+    "t": "मछली",
+    "h": "1jftnmxykvf",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-14plmnzt4qc": {
+    "t": "ज़ेबरा",
+    "h": "k19v9g3dhb",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-15dwd6d20gk": {
+    "t": "पपीता",
+    "h": "16nrr7xxxvc",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-16zq6d1c2c2": {
+    "t": "फल",
+    "h": "wrljkn9sqi",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-17rb2ayni56": {
+    "t": "आलू",
+    "h": "pv5gs2dazg",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-196adqwuxko": {
+    "t": "चिंकारा",
+    "h": "1t5iifj1me5",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-1byc5to0n97": {
+    "t": "कंगारू",
+    "h": "gw5wj59jua",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-1cx8qhmfobh": {
+    "t": "अनानास",
+    "h": "ckyb11nges",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-1fb5eswq527": {
+    "t": "धनिया",
+    "h": "u2358koo4l",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-1fmfugj5cfi": {
+    "t": "प्याज़",
+    "h": "14hixx8ndrq",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-1g6ih78aq1h": {
+    "t": "फूलगोभी",
+    "h": "2trhj5d8vv",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-1gb9torzbx": {
+    "t": "सफ़ेद तोता",
+    "h": "yqncsykshh",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-1gtsve20su9": {
+    "t": "शुतुरमुर्ग",
+    "h": "29y9elgt7km",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-1gyih0aqpvu": {
+    "t": "अदरक",
+    "h": "123vohlq9nn",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-1gyu3j8covk": {
+    "t": "सफ़ेद गाजर",
+    "h": "2dahpn5camr",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-1je5pz2j57x": {
+    "t": "आलूबुखारा",
+    "h": "rxac0oo1z2",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-1jrlpw7lszr": {
+    "t": "शेर",
+    "h": "2f4w5dvylz4",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-1nif2o0rmln": {
+    "t": "अंगूर",
+    "h": "kpah5u1q4f",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-1p3g4qttxro": {
+    "t": "आम",
+    "h": "u4cq0rxtvy",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-1u6rmzpwe2x": {
+    "t": "बिल्ली",
+    "h": "v5y7qe229y",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-1uh3yidq3hd": {
+    "t": "भेड़िया",
+    "h": "1n5izcuhr2t",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-1uobb2yqdus": {
+    "t": "लहसुन",
+    "h": "15wunm8h1nr",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-1usk5pxoowb": {
+    "t": "हिरण",
+    "h": "1o5b2bpkeve",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-1ut6afel4za": {
+    "t": "ड्रैगन फ्रूट",
+    "h": "1uliofrjjmv",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-1vdsrgqj1mt": {
+    "t": "ताड़गोला",
+    "h": "2avkkofd6zg",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-1vj0i27iiwq": {
+    "t": "हरी मिर्च",
+    "h": "g1cfwvunlq",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-1w3ro00gwtj": {
+    "t": "तोता",
+    "h": "2ck1b7yjxsf",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-1xc6xgwjc1m": {
+    "t": "कछुआ",
+    "h": "1vf87q0kebo",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-1xipozpyq0c": {
+    "t": "जिराफ़",
+    "h": "700idnzjvx",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-1xqsay6l5s7": {
+    "t": "गाय",
+    "h": "1i4rk047qf1",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-1xr1gc84vbi": {
+    "t": "कटहल",
+    "h": "1d53qrjns7d",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-1z5nz64uni5": {
+    "t": "चेरी",
+    "h": "6agqez012f",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-217ref0l457": {
+    "t": "गैंडा",
+    "h": "iotgce8uuo",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-23neouf6agu": {
+    "t": "गोरिल्ला",
+    "h": "3tgc8bs53z",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-23nii7ffpby": {
+    "t": "कौआ",
+    "h": "1zfx2l6pemq",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-242h8hsqp93": {
+    "t": "खरबूजा",
+    "h": "12d66v9t7xo",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-27qh39hoaeo": {
+    "t": "नींबू",
+    "h": "x7h0poa0ty",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-2av3k3sa80v": {
+    "t": "अंजीर",
+    "h": "4sru78hg2b",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-2be6vttdj8o": {
+    "t": "अनार",
+    "h": "1pisci1o18g",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-2bestklh3oy": {
+    "t": "तरबूज़",
+    "h": "h1lo6v8t4h",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-2diuz2l61on": {
+    "t": "अमरूद",
+    "h": "21e2txpmp5r",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-2ets6bt5kgk": {
+    "t": "ऊंट",
+    "h": "3q4huikr5m",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-3f9z2z78un": {
+    "t": "लोमड़ी",
+    "h": "1wiop8wbzs0",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-3vf0b5cpct": {
+    "t": "कमरख",
+    "h": "10apgob3dwy",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-5x1gxn4fe0": {
+    "t": "बाघ",
+    "h": "1m9gj4bfhbn",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-64vzj119t1": {
+    "t": "सब्ज़ी",
+    "h": "1i1z2w7vpir",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-7lwsvab7sw": {
+    "t": "स्ट्रॉबेरी",
+    "h": "25uomtdudye",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-7rpj5po0zi": {
+    "t": "सीताफल",
+    "h": "1owq9bec6dd",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-8cm0w5z7f3": {
+    "t": "पांडा",
+    "h": "1snwqau5ei3",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-8lcx1e4vvy": {
+    "t": "पिस्ता",
+    "h": "22ebm716jgd",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-a6dl68ki10": {
+    "t": "टमाटर",
+    "h": "4yvc1dasp4",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-ecpjphmk5x": {
+    "t": "संतरा",
+    "h": "1eicxotnda5",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-erb5ok8dxq": {
+    "t": "इमली",
+    "h": "7jo47yhtot",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-f3sd9mpwed": {
+    "t": "मूंगफली",
+    "h": "offd2434z2",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-fhzn2ibh49": {
+    "t": "नारियल",
+    "h": "1k9ag0nganx",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-fk3ttgxshr": {
+    "t": "काली मिर्च",
+    "h": "soj5qo8un9",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-h8czklwm99": {
+    "t": "भालू",
+    "h": "1675phdu7yl",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-i0qgug3oos": {
+    "t": "खरगोश",
+    "h": "1bx59s3ucma",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-l6d9hjo2fp": {
+    "t": "सील",
+    "h": "1qw9puxbo22",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-liug36yw9q": {
+    "t": "कुत्ता",
+    "h": "5w1ixp7wuf",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-mkptfygvhs": {
+    "t": "खजूर",
+    "h": "1a5zf83zbea",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-ozjd9lfv9i": {
+    "t": "घोड़ा",
+    "h": "218b9tnrbdk",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-p8rtr7q2s5": {
+    "t": "डायनासोर",
+    "h": "22gsdj7uayn",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-tex1awevs0": {
+    "t": "भैंस",
+    "h": "274uvobcd4",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-tosnryhoce": {
+    "t": "जामुन",
+    "h": "6a40pmq5yf",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-u052minx1d": {
+    "t": "काला बाघ",
+    "h": "11md60t0qi2",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-uwnonrq8f3": {
+    "t": "गधा",
+    "h": "1b3c486vjyk",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-ux5ssfwre3": {
+    "t": "सलाद पत्ता",
+    "h": "1edpbku9q42",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-xgeou2lvgg": {
+    "t": "मगरमच्छ",
+    "h": "3dhyej25qd",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-xlq8c9nqlg": {
+    "t": "बंदर",
+    "h": "1j2acxvis76",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-y5tc370v5m": {
+    "t": "मटर",
+    "h": "1c2w1qeroyr",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-z0eys78w7l": {
+    "t": "कीवी",
+    "h": "thgqoe0uw8",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   },
+   "x-zck5fyal41": {
+    "t": "चिंपैंजी",
+    "h": "2buw6qf2l0w",
+    "v": "hi-IN-Chirp3-HD-Kore"
+   }
+  },
+  "te-IN": {
+   "x-101at0vvvgt": {
+    "t": "డైనోసార్",
+    "h": "1v4enrsmwwn",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-10acxko8llp": {
+    "t": "మామిడి",
+    "h": "1lbnlv9lv5r",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-112l48955tb": {
+    "t": "క్యారెట్",
+    "h": "2ggk14e5qy0",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-112vvgp30qy": {
+    "t": "తోడేలు",
+    "h": "10uutj5pgw7",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-11863l2utx2": {
+    "t": "నిమ్మకాయ",
+    "h": "1ziveojfgct",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-11dru25i2h4": {
+    "t": "అంజీర",
+    "h": "22bvllnewbq",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-11r3nj0lgdt": {
+    "t": "పులి",
+    "h": "ha6yqm6305",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-12ng3yl1eha": {
+    "t": "మేక",
+    "h": "247uoqtpctd",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-14a8qmpiqvm": {
+    "t": "కుక్క",
+    "h": "1m3bikc0o55",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-14cy333abpa": {
+    "t": "దోసకాయ",
+    "h": "ba654gj7e7",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-161isjr84bi": {
+    "t": "కొత్తిమీర",
+    "h": "1avi9spi5k9",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-16lcdg8jiz9": {
+    "t": "నల్ల పులి",
+    "h": "boiewd8xsz",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-17k2cdfza4y": {
+    "t": "వెల్లుల్లి",
+    "h": "ugg37dbaa5",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-17yw1zqppr0": {
+    "t": "డ్రాగన్ ఫ్రూట్",
+    "h": "j7wena03ht",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-199a6sf3zka": {
+    "t": "ఒంటె",
+    "h": "a94261qlh2",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-1a668il2ipx": {
+    "t": "కూరగాయ",
+    "h": "1qovknih0j",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-1ap3wkayyrp": {
+    "t": "పిస్తా",
+    "h": "emqqd9ibpw",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-1asyp98rvga": {
+    "t": "మొసలి",
+    "h": "20ss9g4vaz4",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-1atkaukolqc": {
+    "t": "తాబేలు",
+    "h": "1nykl6ce099",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-1c2sjglqau1": {
+    "t": "స్టార్ ఫ్రూట్",
+    "h": "1xx4bjm4yq1",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-1c44dmto6zm": {
+    "t": "తెలుపు చిలుక",
+    "h": "1y2814zjnj9",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-1cbn0rtoyym": {
+    "t": "పనస",
+    "h": "1k1tx88sqdw",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-1dcn4unop7k": {
+    "t": "జింక",
+    "h": "12qrc512of",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-1eywabac7dh": {
+    "t": "ఉల్లిపాయ",
+    "h": "17g6rjubj6k",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-1f2u3vcdwca": {
+    "t": "గొర్రె",
+    "h": "1xmy4zwpx4k",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-1fvsojnqj66": {
+    "t": "తాటి ముంజలు",
+    "h": "1bvhl7w06hl",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-1g7c1y61p1c": {
+    "t": "మొక్కజొన్న",
+    "h": "7lpgh4ihbl",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-1h8jp24a797": {
+    "t": "ఉష్ట్రపక్షి",
+    "h": "1hrp5cd1ptp",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-1j1rjumm511": {
+    "t": "హిప్పో",
+    "h": "26l7yhnnsk4",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-1l5u1tckuk": {
+    "t": "టమోటా",
+    "h": "1nyil9ayq92",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-1mw7jlcu39p": {
+    "t": "చింపాంజీ",
+    "h": "1x41vn0rjp8",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-1od851i86ve": {
+    "t": "స్ట్రాబెర్రీ",
+    "h": "2bfez9cw019",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-1os5wqcvrp5": {
+    "t": "కివీ",
+    "h": "1pypuxw1rsq",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-1rn1z9lp8lr": {
+    "t": "సీల్",
+    "h": "c88o0rr395",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-1rtnkuve72i": {
+    "t": "ప్లం పండు",
+    "h": "1z2y9cn5zlx",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-1tvk1knj2ln": {
+    "t": "జామకాయ",
+    "h": "2cbegky4qz7",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-1v2zk6l4d40": {
+    "t": "కాకి",
+    "h": "tvev75t8bw",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-20l439km7b5": {
+    "t": "జీబ్రా",
+    "h": "e96kp4kzbl",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-26sodw3j4l7": {
+    "t": "బొప్పాయి",
+    "h": "i1wy6yza9l",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-27yrqiopbbi": {
+    "t": "ఎలుగుబంటి",
+    "h": "12eydh26bnn",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-29k4e9urk7o": {
+    "t": "చింతపండు",
+    "h": "42iv0jmvig",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-29njz9ncv0e": {
+    "t": "కోతి",
+    "h": "4wvbf6ab0m",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-2aui4lfj91y": {
+    "t": "ఏనుగు",
+    "h": "hwj9qa1p2m",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-2b7ntn514x2": {
+    "t": "బంగాళదుంప",
+    "h": "mjtcrkjdqf",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-2ccj27qdy84": {
+    "t": "సీతాఫలం",
+    "h": "1824cvqkzgt",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-2dc6naa7vy": {
+    "t": "పుచ్చకాయ",
+    "h": "oya3y6tx2u",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-2dpf1wt0h1b": {
+    "t": "పండు",
+    "h": "ovbjm9at6y",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-2ereacpswnd": {
+    "t": "బఠాణీ",
+    "h": "f49hpd4j9y",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-2f1ixsfh8e7": {
+    "t": "కుందేలు",
+    "h": "cq5h262kh3",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-2g8k7fwjaeq": {
+    "t": "పాండా",
+    "h": "1i6tib2psf7",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-32uw6aztct": {
+    "t": "కొబ్బరికాయ",
+    "h": "xuw1479tdz",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-3571p9xjl3": {
+    "t": "గొరిల్లా",
+    "h": "pqujkcxki2",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-5ooxul2261": {
+    "t": "ద్రాక్ష",
+    "h": "261g12fvpsz",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-5wvq8h72bz": {
+    "t": "తెల్ల క్యారెట్",
+    "h": "9md3t4ymr4",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-7bg3002ckg": {
+    "t": "కాలిఫ్లవర్",
+    "h": "1vsggekl08b",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-7ts44fz9hy": {
+    "t": "చిలుక",
+    "h": "h2dyf18eqk",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-7wudqg2obo": {
+    "t": "గజెల్",
+    "h": "zm1u8d0yf5",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-8gbwsgcl88": {
+    "t": "దానిమ్మ",
+    "h": "15sf2zyr1p3",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-8y7hctx2nh": {
+    "t": "ఖడ్గమృగం",
+    "h": "2n2nd08wjg",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-8yp56t1k6h": {
+    "t": "గాడిద",
+    "h": "crj7u908xr",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-95399fpc34": {
+    "t": "వేరుశనగ",
+    "h": "1b58c1n648x",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-9iyofd24no": {
+    "t": "అనాస పండు",
+    "h": "i5p9sx0gsv",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-9jim757htn": {
+    "t": "ఖర్జూరం",
+    "h": "26pbqyg7cao",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-edxg2mry2r": {
+    "t": "చెర్రీ",
+    "h": "oi5yppk4wg",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-havevyfqrt": {
+    "t": "పచ్చి మిర్చి",
+    "h": "113xc9v0gkc",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-hdh6tzy9l6": {
+    "t": "సింహం",
+    "h": "17cnqzhc4ui",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-hhgahc8iup": {
+    "t": "ఖర్బూజా",
+    "h": "137vl840z6i",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-i0nq7ph6v7": {
+    "t": "సలాడ్ ఆకు",
+    "h": "220ndj8dj0n",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-ju67en8vou": {
+    "t": "గేదె",
+    "h": "22gr34832oy",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-k7bc4m52s5": {
+    "t": "నక్క",
+    "h": "1qy0r9foze1",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-o9yy10vhd1": {
+    "t": "నేరేడు",
+    "h": "1wj7tr79ka5",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-perrc9jjuh": {
+    "t": "ఆవు",
+    "h": "zmyxvzny19",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-pillkc9a9j": {
+    "t": "నారింజ",
+    "h": "172ppx2rsu9",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-tz34cu0yeg": {
+    "t": "చేప",
+    "h": "627l71ky61",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-u1490nq3ob": {
+    "t": "అల్లం",
+    "h": "1w1iswtdwfc",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-u4k3r937hl": {
+    "t": "జిరాఫీ",
+    "h": "1t4nqcpswch",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-us1dyabmwj": {
+    "t": "పిల్లి",
+    "h": "2cykf02znrd",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-xytsn6klop": {
+    "t": "కంగారూ",
+    "h": "inddf1azf3",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-z728aluzub": {
+    "t": "గుర్రం",
+    "h": "20rs6oed7j",
+    "v": "te-IN-Chirp3-HD-Kore"
+   },
+   "x-zqccgmsw0v": {
+    "t": "మిరియాలు",
+    "h": "1vdgj9qxulx",
+    "v": "te-IN-Chirp3-HD-Kore"
+   }
+  }
+ }
 }
