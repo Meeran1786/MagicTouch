@@ -6,6 +6,7 @@
 import { loadCatalog } from "/shared/catalog.js";
 import { cardArt } from "/shared/studio/card-art.js";
 import { teams } from "./teams.js";
+import { MagicAudio } from "/shared/audio-engine.js";
 const POLL_MS = 1500;
 const TOKEN_KEY = "wallAuthToken",
   USERNAME_KEY = "wallAuthUsername";
@@ -472,7 +473,7 @@ function startWall() {
     $("inputHint").textContent = HINTS[m];
     $("calibrateBtn").classList.toggle("hidden", m === "mouse");
     $("musicToggle").setAttribute("aria-pressed", String(localStorage.getItem("wallBgMusicOn") !== "0"));
-    $("sfxToggle").setAttribute("aria-pressed", String(localStorage.getItem("mtSfxOn") !== "0"));
+    $("sfxToggle").setAttribute("aria-pressed", String(!MagicAudio.muted()));
   }
   // Music and effects are our own generated sounds (shared/studio/soft-music.js); every activity reads these.
   $("musicToggle").addEventListener("click", () => {
@@ -480,7 +481,7 @@ function startWall() {
     drawSettings();
   });
   $("sfxToggle").addEventListener("click", () => {
-    localStorage.setItem("mtSfxOn", localStorage.getItem("mtSfxOn") === "0" ? "1" : "0");
+    MagicAudio.toggleMute(); // the one global mute (also the Studio speaker buttons)
     drawSettings();
   });
   $("settingsBtn").addEventListener("click", () => {

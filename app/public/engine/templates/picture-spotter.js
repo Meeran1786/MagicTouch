@@ -6,7 +6,7 @@
 //   items: [{ word: "Ginger", photo: "images/Allam.jpg", media?: { type: "mp4", src } }]   photo or emoji, at least 6
 //   choices: 6                                              optional, pictures per round
 import { MT } from "../js/kit.js";
-import { studioFrame, studioButton, picture, markPick, sayWord } from "../js/early.js";
+import { studioFrame, studioButton, picture, markPick } from "../js/early.js";
 import { ME } from "/shared/motion-engine.js";
 
 export const meta = { fullscreen: true, music: true, styles: ["early", "picture-spotter"] };
@@ -27,7 +27,7 @@ export default function pictureSpotter(area, d, ctx) {
   const q = ask.querySelector(".ps-q");
   const wordBox = ask.querySelector(".ps-word");
   let target = null;
-  let line = "";
+  let line = [];
   let tiles = null;
   let score = 0;
   let rounds = 0;
@@ -36,7 +36,7 @@ export default function pictureSpotter(area, d, ctx) {
   f.score(0);
 
   function speakIt() {
-    sayWord(line, null);
+    MT.speak(line);
     tiles.light(-1);
     setTimeout(() => tiles && tiles.clear(), 900);
   }
@@ -52,7 +52,7 @@ export default function pictureSpotter(area, d, ctx) {
     target = pool[Math.floor(Math.random() * pool.length)];
     const lead = ASK[Math.floor(Math.random() * ASK.length)];
     q.textContent = lead;
-    line = `${lead} ${target.word}?`;
+    line = [lead, target.word];
     tiles = ME.tiles(wordBox, target.word);
     speakIt();
     const n = Math.min(d.choices || 6, d.items.length);
@@ -94,7 +94,7 @@ export default function pictureSpotter(area, d, ctx) {
       markPick(card, false, e);
       f.say(`That's not the ${target.word}. Try again!`, "bad");
       ME.sound.bad();
-      MT.speak(`That's not the ${target.word}. Try again!`);
+      MT.speak(["That's not the", target.word, "Try again!"]);
     }
   }
 

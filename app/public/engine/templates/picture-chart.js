@@ -52,6 +52,7 @@ export default function pictureChart(area, d, ctx) {
     grid.querySelectorAll(".pc-card").forEach((c) => c.classList.toggle("on", c === card));
     ME.squash(card);
     ME.flood(card, e.clientX, e.clientY, { color: hex });
+    ME.sound.pop();
     seen.add(i);
     f.progress(seen.size, d.items.length, "Cards seen");
     show.style.setProperty("--c", `var(${COLOURS[i % COLOURS.length]})`);

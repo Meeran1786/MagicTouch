@@ -8,6 +8,7 @@
 //   audio: "assets/apple.mp3" optional per item, played instead of spelling the word
 //   media: optional { type: "mp4" | "webm" | "lottie" | "rive", src } per item, played in place of
 //          the colour picture once revealed (the code picture stays if the file is missing)
+import { MT } from "../js/kit.js";
 import { studioFrame, studioButton, picture, spell } from "../js/early.js";
 import { mountMedia } from "../js/media.js";
 import { ME } from "/shared/motion-engine.js";
@@ -95,7 +96,7 @@ export default function pictureReveal(area, d, ctx) {
         media = m;
       });
     }
-    ME.sound.good();
+    ME.sound.pop();
     tiles = ME.tiles(tilesBox, item.word);
     hear.disabled = false;
     f.say(`✨ ${item.word}!`, "good");
@@ -108,10 +109,9 @@ export default function pictureReveal(area, d, ctx) {
     const file = items[at].audio;
     stopSpeech();
     if (file) {
-      const sound = new Audio(ctx.base + file);
       tiles.light(-1);
-      sound.play().catch(() => {});
-      stopSpeech = () => sound.pause();
+      MT.speak({ text: items[at].word, src: ctx.base + file });
+      stopSpeech = () => MT.stopSpeech();
       return;
     }
     stopSpeech = spell(items[at].word, (i) => tiles && tiles.light(i));

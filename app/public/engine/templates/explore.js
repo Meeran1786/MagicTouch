@@ -65,11 +65,11 @@ export default function explore(area, d, ctx) {
       x.classList.toggle("on", j === i);
     });
     ME.pop(hots[i]);
-    MT.sfx.tap();
+    MT.sfx.pop();
     pic.select(h.part);
     pic.hit(h.part);
     info.set({ tag: "Part " + (i + 1) + " of " + n, title: h.label, body: h.text });
-    MT.speak(h.label + ". " + h.text);
+    MT.speak([h.label, h.text]);
     showMedia(h.media);
     if (!seen[i]) {
       seen[i] = 1;

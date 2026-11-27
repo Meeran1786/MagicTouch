@@ -83,7 +83,7 @@ export default function balloonPop(area, d) {
     if (take) pics.lastChild.classList.add("gone");
     feedback.textContent = "";
     feedback.className = "ey-feedback";
-    MT.speak(`What is ${a} ${take ? "take away" : "plus"} ${b}?`);
+    MT.speak(["What is", a, take ? "take away" : "plus", b]);
     const wrong = new Set();
     while (wrong.size < (d.choices || 4) - 1) {
       const w = Math.max(0, answer + Math.round((Math.random() - 0.5) * 8));
@@ -121,7 +121,7 @@ export default function balloonPop(area, d) {
       feedback.className = "ey-feedback good st-solved";
       MT.sfx.good();
       ME.squash(sumEl);
-      MT.speak(`Yes! ${answer}!`);
+      MT.speak(["Yes!", answer]);
       timer = setTimeout(() => {
         sky.classList.remove("done");
         at++;

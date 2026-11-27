@@ -8,6 +8,8 @@ MagicTouch's own code, content and art are owned by Maqsusi EduTech. These bundl
 | MediaPipe Tasks Vision 0.10.14 + hand landmarker model | `app/public/vendor/mediapipe-tasks/` | Apache License 2.0 |
 | Twemoji 15 SVGs | `app/public/vendor/twemoji/` | CC BY 4.0, © Twitter, Inc. and other contributors |
 | Caladea, Carlito, Noto Sans Telugu, Noto Sans Devanagari | `app/public/vendor/fonts/` | SIL Open Font License 1.1 |
+| Interface Sounds 1.0 by Kenney (6 cues: tap, toggle, tick, success, wrong, pop) | `app/public/assets/sfx/` | CC0 1.0 public domain (see `app/public/assets/sfx/LICENSE-Kenney.txt`; credit not required, given anyway) |
+| Pre-generated voice clips (Google Cloud Text-to-Speech, Chirp 3: HD) | `app/public/assets/voice/` | Audio synthesized by Maqsusi EduTech with its own Google Cloud account (`app/scripts/generate-voices.js`) |
 | Earth and Moon textures (NASA) | `app/public/engine/assets/` | Public domain (see `app/public/engine/assets/CREDITS.md`) |
 
 Purchased code: `app/public/` started as the Interactive Wall code bought from Basha with a signed IP

@@ -4,3 +4,5 @@ tests/browser/out/
 data/
 package-lock.json
 ASSETS-AUDIT.csv
+# written by scripts/generate-voices.js
+public/assets/voice/manifest.json

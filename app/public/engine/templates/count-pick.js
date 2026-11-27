@@ -95,7 +95,7 @@ export default function countPick(area, d) {
       b.addEventListener("click", () => pick(b));
       fruitBox.appendChild(b);
     }
-    MT.speak(`Let's count the ${fruit.many}!`);
+    MT.speak(["Let's count the", fruit.many]);
   }
 
   function pick(b) {
@@ -137,7 +137,7 @@ export default function countPick(area, d) {
         f.solved();
         f.celebrate(side);
         ME.sound.win();
-        MT.speak(line);
+        MT.speak(["You picked", total, total === 1 ? fruit.one : fruit.many]);
         timer = setTimeout(grow, 3200);
       }, 700);
     }

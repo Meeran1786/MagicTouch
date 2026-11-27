@@ -6,7 +6,8 @@
 //   items: [{ word: "Rhino", photo: "images/rhino.jpg", media?: { type: "mp4", src },
 //             says: [{ lang: "English", text: "Rhino", code: "en-IN" },
 //                    { lang: "Hindi", text: "गैंडा", code: "hi-IN", audio: "audio/rhino_hi.mp3" }, ...] }]
-//   A recorded "audio" file is used when there is one; otherwise the browser's voice for "code".
+//   A recorded "audio" file is used when there is one; otherwise MagicAudio speaks it in "code"
+//   (a pre-generated clip, or the best offline voice).
 import { MT } from "../js/kit.js";
 import { studioFrame, studioButton, picture } from "../js/early.js";
 import { ME } from "/shared/motion-engine.js";
@@ -40,7 +41,6 @@ export default function wordWheel(area, d, ctx) {
   );
   f.panel.append(langs, nav);
   let at = 0;
-  let audio = null;
 
   function show(i) {
     at = (i + d.items.length) % d.items.length;
@@ -76,16 +76,13 @@ export default function wordWheel(area, d, ctx) {
     ME.squash(centre);
     ME.ripple(f.stage, null, null, RING_HEX[k % RING_HEX.length]);
     f.say(`${s.lang}: ${s.text}`);
-    if (audio) audio.pause();
-    if (s.audio) {
-      audio = new Audio(ctx.base + s.audio);
-      audio.play().catch(() => MT.speak(s.text, s.code));
-    } else MT.speak(s.text, s.code);
+    ME.sound.pop();
+    MT.speak({ text: s.text, lang: s.code, src: s.audio ? ctx.base + s.audio : undefined });
   }
 
   show(0);
   return () => {
-    if (audio) audio.pause();
+    MT.stopSpeech();
     f.stop();
   };
 }

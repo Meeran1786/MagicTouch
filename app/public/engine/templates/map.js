@@ -93,7 +93,7 @@ export default function map(area, d, ctx) {
         mark(x.id, "mp-on", x.id === id);
       });
       info.set({ tag: "Explore", title: r.label, body: r.text || "" });
-      MT.speak(r.label + ". " + (r.text || ""));
+      MT.speak([r.label, r.text || ""]);
       MT.sfx.tap();
       if (!seen[id]) {
         seen[id] = 1;

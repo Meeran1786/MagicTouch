@@ -11,8 +11,8 @@ export default [
     languageOptions: { ecmaVersion: 2023, sourceType: "module", globals: { ...globals.browser } },
   },
   {
-    // the offline server, tools and tests
-    files: ["server/**/*.js", "tools/**/*.js", "tests/**/*.js", "*.js"],
+    // the offline server, tools, scripts and tests
+    files: ["server/**/*.js", "tools/**/*.js", "scripts/**/*.js", "tests/**/*.js", "*.js"],
     languageOptions: { ecmaVersion: 2023, sourceType: "module", globals: { ...globals.node } },
   },
   {

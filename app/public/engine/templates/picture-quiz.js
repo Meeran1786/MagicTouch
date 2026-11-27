@@ -199,7 +199,7 @@ export default function pictureQuiz(area, d, ctx) {
     } else ME.sound.bad();
     f.score(score);
     f.say(ok ? `🎉 Yes! It's ${q.item.word}!` : `Not quite. It's ${q.item.word}.`, ok ? "good" : "bad");
-    MT.speak(ok ? `Yes! ${q.item.word}` : `It's ${q.item.word}`);
+    MT.speak([ok ? "Yes!" : "It's", q.item.word]);
     actions.replaceChildren(
       studioButton(at + 1 < questions.length ? "Next →" : "See my score →", false, () => {
         at++;
