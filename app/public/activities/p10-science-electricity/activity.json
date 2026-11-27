@@ -1,0 +1,408 @@
+{
+ "id": "p10-science-electricity",
+ "level": "class-10",
+ "subject": "science",
+ "title": "Electricity: current, voltage and resistance",
+ "icon": "🔋",
+ "topic": "Explore, predict, simulate, order, quiz",
+ "concept": "science.physics.electricity",
+ "status": "draft",
+ "template": "pack",
+ "instruction": "Work through the chapter one step at a time.",
+ "doneText": "Chapter complete!",
+ "steps": [
+  {
+   "label": "Explore",
+   "activity": {
+    "template": "explore",
+    "instruction": "Tap each glowing circle to meet the parts of a circuit.",
+    "intro": "This is a simple electric circuit. Tap each part to find out what it does.",
+    "scene": "<svg viewBox=\"0 0 600 430\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"600\" height=\"430\" fill=\"#FFFDF7\"/>\n<g stroke=\"#3D0E37\" stroke-width=\"5\" fill=\"none\" stroke-linecap=\"round\">\n<path d=\"M80 80 H170 M230 80 H360 M440 80 H520 V170 M520 230 V320 H360 M240 320 H80 V210 M80 190 V80\"/>\n<path d=\"M240 320 V385 H270 M330 385 H360 V320\"/></g>\n<g stroke=\"#3D0E37\" stroke-width=\"5\"><line x1=\"48\" y1=\"190\" x2=\"112\" y2=\"190\"/><line x1=\"64\" y1=\"210\" x2=\"96\" y2=\"210\" stroke-width=\"11\"/></g>\n<text x=\"38\" y=\"186\" font-size=\"24\" font-weight=\"700\" fill=\"#CC3054\" text-anchor=\"end\">+</text>\n<circle cx=\"170\" cy=\"80\" r=\"6\" fill=\"#3D0E37\"/><circle cx=\"230\" cy=\"80\" r=\"6\" fill=\"#3D0E37\"/><line x1=\"170\" y1=\"80\" x2=\"226\" y2=\"66\" stroke=\"#3D0E37\" stroke-width=\"5\" stroke-linecap=\"round\"/>\n<circle cx=\"400\" cy=\"80\" r=\"34\" fill=\"#FFF0D8\" stroke=\"#3D0E37\" stroke-width=\"5\"/><text x=\"400\" y=\"92\" font-size=\"34\" font-weight=\"800\" text-anchor=\"middle\" fill=\"#631654\">A</text>\n<circle cx=\"520\" cy=\"200\" r=\"30\" fill=\"#FBD064\" stroke=\"#3D0E37\" stroke-width=\"5\"/><path d=\"M499 179 L541 221 M541 179 L499 221\" stroke=\"#3D0E37\" stroke-width=\"4\"/>\n<rect x=\"240\" y=\"304\" width=\"120\" height=\"32\" rx=\"4\" fill=\"#E96E24\" stroke=\"#3D0E37\" stroke-width=\"5\"/>\n<circle cx=\"300\" cy=\"385\" r=\"30\" fill=\"#FFF0D8\" stroke=\"#3D0E37\" stroke-width=\"5\"/><text x=\"300\" y=\"397\" font-size=\"32\" font-weight=\"800\" text-anchor=\"middle\" fill=\"#631654\">V</text>\n</svg>",
+    "hotspots": [
+     {
+      "x": 24,
+      "y": 46.5,
+      "label": "Cell",
+      "text": "The cell pushes electric charge around the circuit. How hard it pushes is its voltage, measured in volts (V)."
+     },
+     {
+      "x": 33.3,
+      "y": 11,
+      "label": "Switch",
+      "text": "A switch opens or closes the path. Current flows only when the circuit is a complete, closed loop."
+     },
+     {
+      "x": 66.7,
+      "y": 30,
+      "label": "Ammeter",
+      "text": "An ammeter measures current in amperes (A). It sits in the same loop as the other parts, in series."
+     },
+     {
+      "x": 76,
+      "y": 46.5,
+      "label": "Bulb",
+      "text": "The bulb changes electrical energy into light and heat. More current makes it glow brighter."
+     },
+     {
+      "x": 50,
+      "y": 63,
+      "label": "Resistor",
+      "text": "A resistor opposes the flow of current. Its resistance is measured in ohms (Ω)."
+     },
+     {
+      "x": 64,
+      "y": 89.5,
+      "label": "Voltmeter",
+      "text": "A voltmeter measures the voltage across a part. It is joined across the two ends of that part, in parallel."
+     }
+    ],
+    "doneText": "You know the parts of a circuit!"
+   }
+  },
+  {
+   "label": "Ohm's law",
+   "activity": {
+    "template": "simulate",
+    "model": "circuit",
+    "instruction": "Predict first, then watch. After that, solve the challenges with the sliders.",
+    "intro": "Before you touch the sliders, make a prediction.",
+    "sliders": [
+     {
+      "id": "V",
+      "label": "Voltage (V)",
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "value": 6,
+      "unit": "V"
+     },
+     {
+      "id": "R",
+      "label": "Resistance (R)",
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "value": 6,
+      "unit": "Ω"
+     }
+    ],
+    "solution": {
+     "title": "Worked solution",
+     "lines": [
+      "Given: V = {V} V, R = {R} Ω",
+      "I = V ÷ R",
+      "I = {V} ÷ {R}",
+      "I = {V/R:2} A"
+     ],
+     "note": "Power: P = V × I = {V} × {V/R:2} = {V*V/R:1} W"
+    },
+    "predict": [
+     {
+      "text": "The current is {V/R} A. If we double the voltage to 12 V and keep R the same, the current will…",
+      "set": {
+       "V": 6,
+       "R": 6
+      },
+      "then": {
+       "V": 12
+      },
+      "options": [
+       "Double",
+       "Halve",
+       "Stay the same"
+      ],
+      "answer": 0,
+      "explain": "It went from 1 A to {V/R} A. When R stays the same, current is proportional to voltage: double V, double I."
+     },
+     {
+      "text": "The current is {V/R} A. If we double the resistance to 6 Ω and keep 12 V, the current will…",
+      "set": {
+       "V": 12,
+       "R": 3
+      },
+      "then": {
+       "R": 6
+      },
+      "options": [
+       "Double",
+       "Halve",
+       "Stay the same"
+      ],
+      "answer": 1,
+      "explain": "It fell from 4 A to {V/R} A. When V stays the same, current is inversely proportional to resistance."
+     }
+    ],
+    "goals": [
+     {
+      "text": "Make the current exactly 3 A.",
+      "outputs": [
+       {
+        "id": "I",
+        "equals": 3,
+        "tol": 0.001
+       }
+      ],
+      "say": "Three amperes. For example 12 volts across 4 ohms, or 6 volts across 2 ohms."
+     },
+     {
+      "text": "With 9 V, set the resistance so the current is 1.5 A.",
+      "inputs": [
+       {
+        "id": "V",
+        "equals": 9
+       }
+      ],
+      "outputs": [
+       {
+        "id": "I",
+        "equals": 1.5,
+        "tol": 0.001
+       }
+      ],
+      "say": "9 volts divided by 6 ohms is 1.5 amperes."
+     }
+    ],
+    "doneText": "You can predict current with Ohm's law!"
+   }
+  },
+  {
+   "label": "Series & parallel",
+   "activity": {
+    "template": "simulate",
+    "model": "formula",
+    "instruction": "Change the two resistors. Compare the series total with the parallel total.",
+    "intro": "Resistors can be joined end to end, in series, or side by side, in parallel.",
+    "sliders": [
+     {
+      "id": "R1",
+      "label": "Resistor R1",
+      "min": 1,
+      "max": 20,
+      "step": 1,
+      "value": 6,
+      "unit": "Ω"
+     },
+     {
+      "id": "R2",
+      "label": "Resistor R2",
+      "min": 1,
+      "max": 20,
+      "step": 1,
+      "value": 6,
+      "unit": "Ω"
+     }
+    ],
+    "formulas": {
+     "Rs": "R1 + R2",
+     "Rp": "R1 * R2 / (R1 + R2)"
+    },
+    "picture": "<svg viewBox=\"0 0 400 330\" xmlns=\"http://www.w3.org/2000/svg\"><text x=\"20\" y=\"30\" font-size=\"20\" font-weight=\"800\" fill=\"#631654\">In series</text>\n<g stroke=\"#3D0E37\" stroke-width=\"4\" fill=\"none\"><path d=\"M20 70 H80 M180 70 H220 M320 70 H380\"/></g>\n<rect x=\"80\" y=\"54\" width=\"100\" height=\"32\" rx=\"4\" fill=\"#E96E24\" stroke=\"#3D0E37\" stroke-width=\"4\"/><rect x=\"220\" y=\"54\" width=\"100\" height=\"32\" rx=\"4\" fill=\"#CC3054\" stroke=\"#3D0E37\" stroke-width=\"4\"/>\n<text x=\"130\" y=\"77\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" fill=\"#fff\">{R1} Ω</text><text x=\"270\" y=\"77\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" fill=\"#fff\">{R2} Ω</text>\n<text x=\"200\" y=\"120\" font-size=\"24\" font-weight=\"800\" text-anchor=\"middle\" fill=\"#3D0E37\">Total = {Rs} Ω</text>\n<line x1=\"20\" y1=\"142\" x2=\"380\" y2=\"142\" stroke=\"#EADBD0\" stroke-width=\"3\"/>\n<text x=\"20\" y=\"172\" font-size=\"20\" font-weight=\"800\" fill=\"#631654\">In parallel</text>\n<g stroke=\"#3D0E37\" stroke-width=\"4\" fill=\"none\"><path d=\"M20 240 H100 M100 205 V275 M100 205 H150 M250 205 H300 M100 275 H150 M250 275 H300 M300 205 V275 M300 240 H380\"/></g>\n<rect x=\"150\" y=\"189\" width=\"100\" height=\"32\" rx=\"4\" fill=\"#E96E24\" stroke=\"#3D0E37\" stroke-width=\"4\"/><rect x=\"150\" y=\"259\" width=\"100\" height=\"32\" rx=\"4\" fill=\"#CC3054\" stroke=\"#3D0E37\" stroke-width=\"4\"/>\n<text x=\"200\" y=\"212\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" fill=\"#fff\">{R1} Ω</text><text x=\"200\" y=\"282\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" fill=\"#fff\">{R2} Ω</text>\n<text x=\"200\" y=\"320\" font-size=\"24\" font-weight=\"800\" text-anchor=\"middle\" fill=\"#3D0E37\">Total = {Rp:2} Ω</text></svg>",
+    "solution": {
+     "title": "Worked solution",
+     "lines": [
+      "Series: Rs = R1 + R2 = {R1} + {R2} = {Rs} Ω",
+      "Parallel: 1/Rp = 1/R1 + 1/R2",
+      "Rp = (R1 × R2) ÷ (R1 + R2) = {R1*R2} ÷ {R1+R2}",
+      "Rp = {Rp:2} Ω"
+     ]
+    },
+    "predict": [
+     {
+      "text": "Two {R1} Ω resistors are joined in parallel. Will the total be more or less than {R1} Ω?",
+      "set": {
+       "R1": 6,
+       "R2": 6
+      },
+      "then": {},
+      "options": [
+       "More than 6 Ω",
+       "Exactly 6 Ω",
+       "Less than 6 Ω"
+      ],
+      "answer": 2,
+      "explain": "Rp = {Rp} Ω. In parallel the current has two paths, so the total is less than either resistor."
+     },
+     {
+      "text": "Now R2 goes up from 6 Ω to 12 Ω. The parallel total Rp will…",
+      "set": {
+       "R1": 6,
+       "R2": 6
+      },
+      "then": {
+       "R2": 12
+      },
+      "options": [
+       "Go up",
+       "Go down",
+       "Stay the same"
+      ],
+      "answer": 0,
+      "explain": "Rp rose from 3 Ω to {Rp} Ω, but it is still less than the smaller resistor ({min(R1,R2)} Ω)."
+     }
+    ],
+    "goals": [
+     {
+      "text": "Make the series total exactly 15 Ω.",
+      "outputs": [
+       {
+        "id": "Rs",
+        "equals": 15,
+        "tol": 0.001
+       }
+      ],
+      "say": "Fifteen ohms in series. Many pairs work, like 5 and 10."
+     },
+     {
+      "text": "Find two resistors whose parallel total is exactly 4 Ω.",
+      "outputs": [
+       {
+        "id": "Rp",
+        "equals": 4,
+        "tol": 0.001
+       }
+      ],
+      "say": "Four ohms in parallel. 8 and 8, 6 and 12, or 5 and 20 all work."
+     }
+    ],
+    "doneText": "Series adds up, parallel shares the current!"
+   }
+  },
+  {
+   "label": "Solve it",
+   "activity": {
+    "template": "order",
+    "arrows": true,
+    "instruction": "Put the steps for solving a circuit numerical in order.",
+    "intro": "Every circuit numerical follows the same five steps.",
+    "items": [
+     {
+      "icon": "📝",
+      "text": "List what is given",
+      "say": "First, list what is given, with units."
+     },
+     {
+      "icon": "📐",
+      "text": "Write V = I × R",
+      "say": "Then write the formula."
+     },
+     {
+      "icon": "🔁",
+      "text": "Rearrange for the unknown",
+      "say": "Rearrange it for the quantity you need."
+     },
+     {
+      "icon": "🔢",
+      "text": "Put in the numbers",
+      "say": "Substitute the values."
+     },
+     {
+      "icon": "✅",
+      "text": "Answer with its unit",
+      "say": "Finally, calculate and write the unit."
+     }
+    ],
+    "doneText": "That's how to solve it!"
+   }
+  },
+  {
+   "label": "Quiz",
+   "activity": {
+    "template": "quiz",
+    "instruction": "Tap the best answer. Read why after each question.",
+    "intro": "Time for a quick quiz on this chapter.",
+    "passPercent": 60,
+    "questions": [
+     {
+      "q": "A 12 V battery is connected across a 4 Ω resistor. What current flows?",
+      "options": [
+       "3 A",
+       "48 A",
+       "0.33 A",
+       "8 A"
+      ],
+      "answer": 0,
+      "marks": 2,
+      "explain": "I = V ÷ R = 12 ÷ 4 = 3 A."
+     },
+     {
+      "q": "What is the SI unit of resistance?",
+      "options": [
+       "Ohm",
+       "Ampere",
+       "Volt",
+       "Watt"
+      ],
+      "answer": 0,
+      "explain": "Resistance is measured in ohms (Ω). Current is in amperes and voltage in volts."
+     },
+     {
+      "q": "How is an ammeter connected to measure the current through a bulb?",
+      "options": [
+       "In series with the bulb",
+       "In parallel, across the bulb",
+       "Either way works",
+       "Only across the battery"
+      ],
+      "answer": 0,
+      "explain": "The ammeter must carry the same current as the bulb, so it goes in the same loop, in series."
+     },
+     {
+      "q": "Two 10 Ω resistors are joined in parallel. What is their total resistance?",
+      "options": [
+       "5 Ω",
+       "10 Ω",
+       "20 Ω",
+       "100 Ω"
+      ],
+      "answer": 0,
+      "explain": "Rp = (10 × 10) ÷ (10 + 10) = 100 ÷ 20 = 5 Ω."
+     },
+     {
+      "type": "truefalse",
+      "q": "If the voltage across a fixed resistor is doubled, the current through it is halved.",
+      "answer": false,
+      "explain": "With R fixed, current is proportional to voltage, so doubling V doubles I."
+     },
+     {
+      "q": "A wire is made twice as long. Its material and thickness stay the same. Its resistance…",
+      "options": [
+       "Doubles",
+       "Halves",
+       "Stays the same",
+       "Becomes four times"
+      ],
+      "answer": 0,
+      "explain": "Resistance is proportional to length (R = ρL ÷ A), so twice the length gives twice the resistance."
+     },
+     {
+      "type": "assertion",
+      "assertion": "Appliances in a house are connected in parallel.",
+      "reason": "In parallel, each appliance gets the full supply voltage and can be switched on or off by itself.",
+      "answer": 0,
+      "explain": "Both are true, and the reason is exactly why homes are wired in parallel."
+     },
+     {
+      "type": "assertion",
+      "assertion": "A voltmeter should have a very high resistance.",
+      "reason": "A voltmeter is connected in series with the part it measures.",
+      "answer": 2,
+      "explain": "A voltmeter is joined in parallel. Its high resistance means it draws almost no current, so it does not disturb the circuit."
+     },
+     {
+      "q": "A bulb draws 0.5 A from a 220 V supply. What is its power?",
+      "options": [
+       "110 W",
+       "440 W",
+       "220.5 W",
+       "0.0023 W"
+      ],
+      "answer": 0,
+      "marks": 2,
+      "explain": "P = V × I = 220 × 0.5 = 110 W."
+     }
+    ],
+    "doneText": "Well done!"
+   }
+  }
+ ]
+}

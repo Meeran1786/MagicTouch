@@ -1,0 +1,50 @@
+{
+ "id": "c12-social-supply-demand",
+ "level": "inter-2",
+ "subject": "social",
+ "title": "Supply and demand",
+ "icon": "🛒",
+ "topic": "Economics: finding the market price",
+ "concept": "social.economics.supply-demand",
+ "status": "draft",
+ "template": "simulate",
+ "model": "market",
+ "instruction": "Change the price of a mango. Watch how many buyers want and how many sellers offer.",
+ "intro": "When price goes up, buyers want less and sellers offer more.",
+ "sliders": [
+  {
+   "id": "p",
+   "label": "Price of a mango (₹)",
+   "min": 0,
+   "max": 20,
+   "step": 1,
+   "value": 16,
+   "unit": "₹"
+  }
+ ],
+ "goals": [
+  {
+   "text": "Find a price where buyers want more than sellers offer (a shortage).",
+   "outputs": [],
+   "inputs": [
+    {
+     "id": "p",
+     "equals": 2,
+     "tol": 2
+    }
+   ],
+   "say": "At a low price, buyers want more than sellers offer."
+  },
+  {
+   "text": "Find the price where buyers and sellers balance (equilibrium).",
+   "inputs": [
+    {
+     "id": "p",
+     "equals": 10
+    }
+   ],
+   "say": "At 10 rupees, 50 mangoes are wanted and 50 are offered. That is the equilibrium."
+  }
+ ],
+ "doneText": "You found the market price!"
+}

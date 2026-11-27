@@ -10,8 +10,7 @@
     "test:browser": "node tests/browser/run-all.cjs",
     "check": "node tools/localize.js --check && node tools/asset-audit.js --check && node tools/twemoji.js --check"
   },
-  "engines": { "node": ">=18" },
-  "optionalDependencies": {
-    "@neondatabase/serverless": "^0.10.0"
+  "engines": {
+    "node": ">=18"
   }
 }

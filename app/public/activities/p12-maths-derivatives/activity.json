@@ -1,0 +1,412 @@
+{
+ "id": "p12-maths-derivatives",
+ "level": "inter-2",
+ "subject": "maths",
+ "title": "Application of derivatives: rates and the best box",
+ "icon": "📦",
+ "topic": "Predict, simulate, sort, order, quiz",
+ "concept": "maths.calculus.applications-of-derivatives",
+ "status": "draft",
+ "template": "pack",
+ "instruction": "Work through the chapter one step at a time.",
+ "doneText": "Chapter complete!",
+ "steps": [
+  {
+   "label": "Rate of change",
+   "activity": {
+    "template": "simulate",
+    "model": "formula",
+    "instruction": "Predict first, then watch. After that, solve the challenges with the sliders.",
+    "intro": "A circular rangoli grows outwards at a steady speed. How fast does its area grow?",
+    "sliders": [
+     {
+      "id": "k",
+      "label": "Edge speed, dr/dt",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "value": 2,
+      "unit": "cm/s"
+     },
+     {
+      "id": "r",
+      "label": "Radius right now, r",
+      "min": 1,
+      "max": 20,
+      "step": 1,
+      "value": 5,
+      "unit": "cm"
+     }
+    ],
+    "formulas": {
+     "A": "pi * r^2",
+     "dAdt": "2 * pi * r * k"
+    },
+    "picture": "<svg viewBox=\"0 0 400 330\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"330\" rx=\"14\" fill=\"#FFFDF7\"/>\n<circle cx=\"200\" cy=\"165\" r=\"{r*7}\" fill=\"#F3A328\" opacity=\".35\" stroke=\"#E96E24\" stroke-width=\"4\"/>\n<circle cx=\"200\" cy=\"165\" r=\"{r*5}\" fill=\"none\" stroke=\"#CC3054\" stroke-width=\"3\" stroke-dasharray=\"8 6\"/>\n<circle cx=\"200\" cy=\"165\" r=\"{r*2.5}\" fill=\"#FBD064\" stroke=\"#631654\" stroke-width=\"3\"/>\n<line x1=\"200\" y1=\"165\" x2=\"{200+r*7}\" y2=\"165\" stroke=\"#3D0E37\" stroke-width=\"3\"/>\n<circle cx=\"200\" cy=\"165\" r=\"5\" fill=\"#3D0E37\"/>\n<text x=\"16\" y=\"30\" font-size=\"20\" font-weight=\"800\" fill=\"#631654\">r = {r} cm</text>\n<text x=\"16\" y=\"56\" font-size=\"18\" fill=\"#242430\">Area = {A:1} cm²</text>\n<text x=\"384\" y=\"30\" font-size=\"20\" font-weight=\"800\" text-anchor=\"end\" fill=\"#CC3054\">dA/dt = {dAdt:1} cm²/s</text>\n<text x=\"384\" y=\"316\" font-size=\"15\" text-anchor=\"end\" fill=\"#6E6170\">the edge moves {k} cm every second</text></svg>",
+    "solution": {
+     "title": "Worked solution",
+     "lines": [
+      "A = π r²",
+      "dA/dt = 2π r × dr/dt",
+      "dA/dt = 2π × {r} × {k}",
+      "dA/dt = {2*r*k}π ≈ {dAdt:1} cm²/s"
+     ],
+     "note": "The edge moves at the same speed, but a bigger circle adds more area every second."
+    },
+    "predict": [
+     {
+      "text": "The radius is {r} cm. If the radius doubles to 10 cm, the area will become…",
+      "set": {
+       "k": 2,
+       "r": 5
+      },
+      "then": {
+       "r": 10
+      },
+      "options": [
+       "2 times as big",
+       "4 times as big",
+       "The same"
+      ],
+      "answer": 1,
+      "explain": "Area went from 78.5 to {A:1} cm². A = πr², so doubling r makes the area 2² = 4 times as big."
+     },
+     {
+      "text": "The edge speed stays at 2 cm/s. At r = 10 cm, will the area grow faster or slower than at r = 5 cm?",
+      "set": {
+       "k": 2,
+       "r": 5
+      },
+      "then": {
+       "r": 10
+      },
+      "options": [
+       "Faster",
+       "Slower",
+       "Same speed"
+      ],
+      "answer": 0,
+      "explain": "dA/dt went from 62.8 to {dAdt:1} cm²/s. dA/dt = 2πr × dr/dt grows with r."
+     }
+    ],
+    "goals": [
+     {
+      "text": "Make the area grow at 40π ≈ 125.7 cm²/s.",
+      "outputs": [
+       {
+        "id": "dAdt",
+        "equals": 125.664,
+        "tol": 0.01
+       }
+      ],
+      "say": "40 pi. For example radius 10 at 2 centimetres per second, or radius 5 at 4."
+     },
+     {
+      "text": "With dr/dt = 3 cm/s, find the radius where the area grows at 60π ≈ 188.5 cm²/s.",
+      "inputs": [
+       {
+        "id": "k",
+        "equals": 3
+       }
+      ],
+      "outputs": [
+       {
+        "id": "dAdt",
+        "equals": 188.496,
+        "tol": 0.01
+       }
+      ],
+      "say": "Radius 10. Two pi times 10 times 3 is 60 pi."
+     }
+    ],
+    "doneText": "You can find rates of change!"
+   }
+  },
+  {
+   "label": "Best box",
+   "activity": {
+    "template": "simulate",
+    "model": "formula",
+    "instruction": "Predict first, then find the corner cut that gives the biggest box.",
+    "intro": "A sweet shop folds boxes from 48 centimetre square cards. Cut a square from each corner, then fold up the sides.",
+    "sliders": [
+     {
+      "id": "x",
+      "label": "Corner cut, x",
+      "min": 1,
+      "max": 20,
+      "step": 1,
+      "value": 2,
+      "unit": "cm"
+     }
+    ],
+    "formulas": {
+     "V": "x * (48 - 2*x)^2",
+     "dV": "(48 - 2*x) * (48 - 6*x)"
+    },
+    "picture": "<svg viewBox=\"0 0 400 330\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"400\" height=\"330\" rx=\"14\" fill=\"#FFFDF7\"/>\n<text x=\"20\" y=\"34\" font-size=\"18\" font-weight=\"800\" fill=\"#631654\">48 cm square card</text>\n<rect x=\"20\" y=\"60\" width=\"200\" height=\"200\" fill=\"#FFF0D8\" stroke=\"#3D0E37\" stroke-width=\"3\"/>\n<rect x=\"20\" y=\"60\" width=\"{x*4.1667}\" height=\"{x*4.1667}\" fill=\"#CC3054\" opacity=\".75\"/>\n<rect x=\"{220-x*4.1667}\" y=\"60\" width=\"{x*4.1667}\" height=\"{x*4.1667}\" fill=\"#CC3054\" opacity=\".75\"/>\n<rect x=\"20\" y=\"{260-x*4.1667}\" width=\"{x*4.1667}\" height=\"{x*4.1667}\" fill=\"#CC3054\" opacity=\".75\"/>\n<rect x=\"{220-x*4.1667}\" y=\"{260-x*4.1667}\" width=\"{x*4.1667}\" height=\"{x*4.1667}\" fill=\"#CC3054\" opacity=\".75\"/>\n<rect x=\"{20+x*4.1667}\" y=\"{60+x*4.1667}\" width=\"{200-2*x*4.1667}\" height=\"{200-2*x*4.1667}\" fill=\"none\" stroke=\"#3D0E37\" stroke-width=\"2\" stroke-dasharray=\"6 5\"/>\n<text x=\"120\" y=\"290\" font-size=\"16\" text-anchor=\"middle\" fill=\"#242430\">cut {x} cm squares, fold up the sides</text>\n<line x1=\"260\" y1=\"260\" x2=\"380\" y2=\"260\" stroke=\"#3D0E37\" stroke-width=\"3\"/>\n<rect x=\"290\" y=\"{260-V/8192*190}\" width=\"60\" height=\"{V/8192*190}\" rx=\"6\" fill=\"#E96E24\"/>\n<text x=\"320\" y=\"{250-V/8192*190}\" font-size=\"18\" font-weight=\"800\" text-anchor=\"middle\" fill=\"#3D0E37\">{V:0}</text>\n<text x=\"320\" y=\"282\" font-size=\"15\" text-anchor=\"middle\" fill=\"#242430\">volume, cm³</text>\n<text x=\"320\" y=\"310\" font-size=\"16\" font-weight=\"800\" text-anchor=\"middle\" fill=\"#631654\">dV/dx = {dV:0}</text></svg>",
+    "solution": {
+     "title": "Worked solution",
+     "lines": [
+      "V = x (48 − 2x)²",
+      "V = {x} × {48-2*x}² = {V:0} cm³",
+      "dV/dx = (48 − 2x)(48 − 6x) = {dV:0}",
+      "dV/dx = 0 when x = 8, so the biggest box is 8 × 32² = 8192 cm³"
+     ],
+     "note": "Before x = 8, dV/dx is positive (volume rising). After it, dV/dx is negative (volume falling)."
+    },
+    "predict": [
+     {
+      "text": "The cut goes from 2 cm to 6 cm. The volume will…",
+      "set": {
+       "x": 2
+      },
+      "then": {
+       "x": 6
+      },
+      "options": [
+       "Go up",
+       "Go down",
+       "Stay the same"
+      ],
+      "answer": 0,
+      "explain": "It rose from 3872 to {V:0} cm³. The box gets taller faster than its base shrinks."
+     },
+     {
+      "text": "Now the cut goes from 8 cm to 16 cm. Will the box keep getting bigger?",
+      "set": {
+       "x": 8
+      },
+      "then": {
+       "x": 16
+      },
+      "options": [
+       "Yes, bigger",
+       "No, smaller",
+       "It stays the same"
+      ],
+      "answer": 1,
+      "explain": "It fell from 8192 to {V:0} cm³. The base shrinks so much that height can't make up for it. The maximum is in between."
+     }
+    ],
+    "goals": [
+     {
+      "text": "Find the cut that gives the biggest possible box.",
+      "outputs": [
+       {
+        "id": "V",
+        "equals": 8192,
+        "tol": 0.5
+       }
+      ],
+      "say": "8 centimetres. The box holds 8192 cubic centimetres, and dV by dx is zero there."
+     },
+     {
+      "text": "Make a box that holds exactly 6912 cm³.",
+      "outputs": [
+       {
+        "id": "V",
+        "equals": 6912,
+        "tol": 0.5
+       }
+      ],
+      "say": "12 centimetre cuts: 12 times 24 squared is 6912."
+     }
+    ],
+    "doneText": "You found the maximum with calculus!"
+   }
+  },
+  {
+   "label": "Up or down?",
+   "activity": {
+    "template": "sort",
+    "instruction": "Move each function into the right group for the interval shown.",
+    "intro": "If the derivative is positive, the function is increasing. If it is negative, the function is decreasing.",
+    "bins": [
+     {
+      "id": "inc",
+      "label": "↗ Increasing"
+     },
+     {
+      "id": "dec",
+      "label": "↘ Decreasing"
+     }
+    ],
+    "items": [
+     {
+      "text": "x² for x > 0",
+      "bin": "inc",
+      "say": "The derivative 2x is positive when x is positive."
+     },
+     {
+      "text": "x² for x < 0",
+      "bin": "dec",
+      "say": "The derivative 2x is negative when x is negative."
+     },
+     {
+      "text": "eˣ for all x",
+      "bin": "inc",
+      "say": "The derivative of e to the x is e to the x, always positive."
+     },
+     {
+      "text": "1/x for x > 0",
+      "bin": "dec",
+      "say": "The derivative minus 1 over x squared is always negative."
+     },
+     {
+      "text": "5 − 3x",
+      "bin": "dec",
+      "say": "The derivative is minus 3, so it always decreases."
+     },
+     {
+      "text": "x³ for all x",
+      "bin": "inc",
+      "say": "3x squared is never negative, so x cubed keeps increasing."
+     },
+     {
+      "text": "log x for x > 0",
+      "bin": "inc",
+      "say": "The derivative 1 over x is positive for positive x."
+     },
+     {
+      "text": "cos x on (0, π)",
+      "bin": "dec",
+      "say": "The derivative minus sin x is negative between 0 and pi."
+     }
+    ],
+    "doneText": "You read the sign of the derivative!"
+   }
+  },
+  {
+   "label": "Max/min steps",
+   "activity": {
+    "template": "order",
+    "arrows": true,
+    "instruction": "Put the steps for a maximum or minimum problem in order.",
+    "intro": "Every maximum and minimum problem follows the same steps.",
+    "items": [
+     {
+      "icon": "📝",
+      "text": "Write the quantity as f(x)",
+      "say": "First, write what you want to make biggest or smallest as a function of one variable."
+     },
+     {
+      "icon": "✏️",
+      "text": "Find f′(x)",
+      "say": "Differentiate."
+     },
+     {
+      "icon": "0️⃣",
+      "text": "Solve f′(x) = 0",
+      "say": "Solve to find the critical points."
+     },
+     {
+      "icon": "🔍",
+      "text": "Check the sign of f″(x)",
+      "say": "Negative second derivative means a maximum, positive means a minimum."
+     },
+     {
+      "icon": "✅",
+      "text": "State the answer with units",
+      "say": "Finally, work out the value and give its unit."
+     }
+    ],
+    "doneText": "That's the method!"
+   }
+  },
+  {
+   "label": "Quiz",
+   "activity": {
+    "template": "quiz",
+    "instruction": "Tap the best answer. Read why after each question.",
+    "intro": "Time for a quick quiz on this chapter.",
+    "passPercent": 60,
+    "questions": [
+     {
+      "q": "The radius of a circle grows at 3 cm/s. How fast is the area growing when r = 10 cm?",
+      "options": [
+       "60π cm²/s",
+       "30π cm²/s",
+       "100π cm²/s",
+       "20π cm²/s"
+      ],
+      "answer": 0,
+      "marks": 2,
+      "explain": "dA/dt = 2πr × dr/dt = 2π × 10 × 3 = 60π cm²/s."
+     },
+     {
+      "q": "The side of a cube grows at 2 cm/s. How fast is its volume growing when the side is 5 cm?",
+      "options": [
+       "150 cm³/s",
+       "50 cm³/s",
+       "75 cm³/s",
+       "250 cm³/s"
+      ],
+      "answer": 0,
+      "marks": 2,
+      "explain": "V = s³, so dV/dt = 3s² × ds/dt = 3 × 25 × 2 = 150 cm³/s."
+     },
+     {
+      "q": "What is the slope of the tangent to y = x² at x = 3?",
+      "options": [
+       "6",
+       "9",
+       "3",
+       "2"
+      ],
+      "answer": 0,
+      "explain": "dy/dx = 2x, which is 6 at x = 3."
+     },
+     {
+      "q": "For f(x) = x³ − 3x, where is the local maximum?",
+      "options": [
+       "x = −1",
+       "x = 1",
+       "x = 0",
+       "x = 3"
+      ],
+      "answer": 0,
+      "marks": 2,
+      "explain": "f′(x) = 3x² − 3 = 0 gives x = ±1. f″(x) = 6x is −6 at x = −1, which is negative, so that is a maximum."
+     },
+     {
+      "type": "truefalse",
+      "q": "If f′(c) = 0, then f always has a maximum or a minimum at c.",
+      "answer": false,
+      "explain": "Not always. For f(x) = x³, f′(0) = 0, but the curve keeps rising through x = 0. It is a point of inflection."
+     },
+     {
+      "q": "Two positive numbers add up to 20. What is the largest their product can be?",
+      "options": [
+       "100",
+       "96",
+       "99",
+       "400"
+      ],
+      "answer": 0,
+      "explain": "Product P = x(20 − x). P′ = 20 − 2x = 0 at x = 10, so the numbers are 10 and 10 and P = 100."
+     },
+     {
+      "type": "assertion",
+      "assertion": "f(x) = x² is decreasing for x < 0.",
+      "reason": "f′(x) = 2x is negative when x < 0.",
+      "answer": 0,
+      "explain": "Both are true, and a negative derivative is exactly why the function decreases there."
+     },
+     {
+      "q": "f(x) = eˣ is…",
+      "options": [
+       "Increasing for every x",
+       "Decreasing for every x",
+       "Increasing only for x > 0",
+       "Neither"
+      ],
+      "answer": 0,
+      "explain": "f′(x) = eˣ is positive for every x."
+     }
+    ],
+    "doneText": "Well done!"
+   }
+  }
+ ]
+}

@@ -1,0 +1,76 @@
+{
+ "id": "c10-science-ohms-law",
+ "level": "class-10",
+ "subject": "science",
+ "title": "Ohm's law",
+ "icon": "💡",
+ "topic": "Voltage, resistance and current",
+ "concept": "science.physics.ohms-law",
+ "status": "draft",
+ "template": "simulate",
+ "model": "circuit",
+ "instruction": "Change the voltage and resistance. Watch the current and the bulb.",
+ "intro": "Current equals voltage divided by resistance. Try the challenges.",
+ "sliders": [
+  {
+   "id": "V",
+   "label": "Voltage (V)",
+   "min": 1,
+   "max": 12,
+   "step": 1,
+   "value": 3,
+   "unit": "V"
+  },
+  {
+   "id": "R",
+   "label": "Resistance (R)",
+   "min": 1,
+   "max": 12,
+   "step": 1,
+   "value": 6,
+   "unit": "Ω"
+  }
+ ],
+ "goals": [
+  {
+   "text": "Make the current exactly 2 A.",
+   "outputs": [
+    {
+     "id": "I",
+     "equals": 2,
+     "tol": 0.001
+    }
+   ],
+   "say": "Two amperes. For example, 12 volts across 6 ohms."
+  },
+  {
+   "text": "Make the bulb as bright as possible: 12 A.",
+   "outputs": [
+    {
+     "id": "I",
+     "equals": 12,
+     "tol": 0.001
+    }
+   ],
+   "say": "Maximum voltage and minimum resistance give the most current."
+  },
+  {
+   "text": "With 10 V, set the resistance so the current is 1 A.",
+   "inputs": [
+    {
+     "id": "V",
+     "equals": 10
+    }
+   ],
+   "outputs": [
+    {
+     "id": "I",
+     "equals": 1,
+     "tol": 0.001
+    }
+   ],
+   "say": "10 volts divided by 10 ohms is 1 ampere."
+  }
+ ],
+ "doneText": "You've got Ohm's law!"
+}

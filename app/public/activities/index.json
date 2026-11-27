@@ -1,0 +1,226 @@
+[
+ {
+  "id": "c01-maths-counting",
+  "level": "class-1",
+  "subject": "maths",
+  "title": "Counting to 20",
+  "topic": "Less than 10 or 10 and more?",
+  "icon": "🔢",
+  "template": "sort",
+  "status": "draft"
+ },
+ {
+  "id": "c02-evs-animal-homes",
+  "level": "class-2",
+  "subject": "evs",
+  "title": "Animals and their homes",
+  "topic": "Where does each animal live?",
+  "icon": "🐦",
+  "template": "match",
+  "status": "draft"
+ },
+ {
+  "id": "s04-ball-tables",
+  "level": "class-3",
+  "subject": "maths",
+  "title": "Hit the answer: times tables",
+  "topic": "Throw a ball at the right balloon",
+  "icon": "🎯",
+  "template": "ball",
+  "status": "draft",
+  "showcase": true
+ },
+ {
+  "id": "c03-maths-place-value",
+  "level": "class-3",
+  "subject": "maths",
+  "title": "Tens and ones",
+  "topic": "Place value",
+  "icon": "🧮",
+  "template": "match",
+  "status": "draft"
+ },
+ {
+  "id": "s03-reveal-pond",
+  "level": "class-4",
+  "subject": "evs",
+  "title": "Torch: hidden life in a pond",
+  "topic": "Shine the torch to find 6 hidden animals",
+  "icon": "🔦",
+  "template": "reveal",
+  "status": "draft",
+  "showcase": true
+ },
+ {
+  "id": "c04-evs-plant-parts",
+  "level": "class-4",
+  "subject": "evs",
+  "title": "Parts of a plant",
+  "topic": "Label the plant",
+  "icon": "🌱",
+  "template": "label",
+  "status": "draft"
+ },
+ {
+  "id": "c04-social-town-map",
+  "level": "class-4",
+  "subject": "social",
+  "title": "Reading a town map",
+  "topic": "Directions on a map: north, south, east, west",
+  "icon": "🗺️",
+  "template": "map",
+  "status": "draft"
+ },
+ {
+  "id": "c05-science-water-cycle",
+  "level": "class-5",
+  "subject": "science",
+  "title": "The water cycle",
+  "topic": "Explore how water travels",
+  "icon": "🌧️",
+  "template": "explore",
+  "status": "draft"
+ },
+ {
+  "id": "s01-space-solar-system",
+  "level": "class-6",
+  "subject": "science",
+  "title": "Our solar system in 3D",
+  "topic": "Turn it, fly to every planet",
+  "icon": "🪐",
+  "template": "space3d",
+  "status": "draft",
+  "showcase": true
+ },
+ {
+  "id": "c06-maths-equivalent-fractions",
+  "level": "class-6",
+  "subject": "maths",
+  "title": "Equal fractions",
+  "topic": "Equivalent fractions",
+  "icon": "🍕",
+  "template": "match",
+  "status": "draft"
+ },
+ {
+  "id": "c07-science-food-chain",
+  "level": "class-7",
+  "subject": "science",
+  "title": "Food chain",
+  "topic": "Who eats whom?",
+  "icon": "🦅",
+  "template": "order",
+  "status": "draft"
+ },
+ {
+  "id": "c08-social-freedom-struggle",
+  "level": "class-8",
+  "subject": "social",
+  "title": "Freedom struggle timeline",
+  "topic": "Key events, 1857 to 1947",
+  "icon": "🇮🇳",
+  "template": "order",
+  "status": "draft"
+ },
+ {
+  "id": "s02-space-satellite",
+  "level": "class-9",
+  "subject": "science",
+  "title": "Launch a satellite",
+  "topic": "Orbits: height, speed and time",
+  "icon": "🛰️",
+  "template": "space3d",
+  "status": "draft",
+  "showcase": true
+ },
+ {
+  "id": "p09-social-rivers",
+  "level": "class-9",
+  "subject": "social",
+  "title": "Rivers of India: a river's journey",
+  "topic": "Explore, sort, order, quiz",
+  "icon": "🏞️",
+  "template": "pack",
+  "status": "draft"
+ },
+ {
+  "id": "c09-science-atom",
+  "level": "class-9",
+  "subject": "science",
+  "title": "Structure of the atom",
+  "topic": "Label the parts",
+  "icon": "⚛️",
+  "template": "label",
+  "status": "draft"
+ },
+ {
+  "id": "p10-science-electricity",
+  "level": "class-10",
+  "subject": "science",
+  "title": "Electricity: current, voltage and resistance",
+  "topic": "Explore, predict, simulate, order, quiz",
+  "icon": "🔋",
+  "template": "pack",
+  "status": "draft"
+ },
+ {
+  "id": "c10-science-ohms-law",
+  "level": "class-10",
+  "subject": "science",
+  "title": "Ohm's law",
+  "topic": "Voltage, resistance and current",
+  "icon": "💡",
+  "template": "simulate",
+  "status": "draft"
+ },
+ {
+  "id": "c11-maths-straight-lines",
+  "level": "inter-1",
+  "subject": "maths",
+  "title": "Straight lines: y = mx + c",
+  "topic": "Slope and intercept",
+  "icon": "📈",
+  "template": "simulate",
+  "status": "draft"
+ },
+ {
+  "id": "p12-maths-derivatives",
+  "level": "inter-2",
+  "subject": "maths",
+  "title": "Application of derivatives: rates and the best box",
+  "topic": "Predict, simulate, sort, order, quiz",
+  "icon": "📦",
+  "template": "pack",
+  "status": "draft"
+ },
+ {
+  "id": "p12-science-electrochemistry",
+  "level": "inter-2",
+  "subject": "science",
+  "title": "Electrochemistry: cells and electrolysis",
+  "topic": "Explore, predict, simulate, order, match, quiz",
+  "icon": "🧪",
+  "template": "pack",
+  "status": "draft"
+ },
+ {
+  "id": "p12-science-health-disease",
+  "level": "inter-2",
+  "subject": "science",
+  "title": "Health and disease: germs and the body",
+  "topic": "Explore, sort, match, order, quiz",
+  "icon": "🦠",
+  "template": "pack",
+  "status": "draft"
+ },
+ {
+  "id": "c12-social-supply-demand",
+  "level": "inter-2",
+  "subject": "social",
+  "title": "Supply and demand",
+  "topic": "Economics: finding the market price",
+  "icon": "🛒",
+  "template": "simulate",
+  "status": "draft"
+ }
+]

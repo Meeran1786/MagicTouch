@@ -3,8 +3,8 @@
 //
 //   node server/index.js            → http://localhost:8090/
 //
-// Serves the wall app (public/), our activity engine (../webcam/ at /engine/)
-// and the small API in api.js. Phones on the same Wi-Fi open the LAN address
+// Serves the wall app (public/: launcher, engine, activities) and the small API
+// in api.js. Phones on the same Wi-Fi open the LAN address
 // it prints to use the remote.
 //
 // Settings (environment variables):
@@ -14,7 +14,6 @@
 //   MT_SIGNUP=first      first = only the first wall account can be created from the
 //                        login screen; always = anyone can; never = nobody can
 //   MT_LICENCE=...       the school's licence file (default: data/licence.json)
-//   DATABASE_URL=...     use Postgres (Neon) instead of the local file
 import http from "node:http";
 import fs from "node:fs";
 import os from "node:os";
@@ -54,9 +53,9 @@ export function licenceLoader(file) {
   };
 }
 
-export function createServer({ store, publicDir = path.join(APP_DIR, "public"), engineDir = path.resolve(APP_DIR, "../webcam"), signup = "first", licence = DEMO_LICENCE, log = console } = {}) {
+export function createServer({ store, publicDir = path.join(APP_DIR, "public"), signup = "first", licence = DEMO_LICENCE, log = console } = {}) {
   const api = createApi({ store, allowSignup: signup, licence, timeZone: process.env.MT_TZ || "Asia/Kolkata", log });
-  const mounts = [["/engine/", engineDir], ["/", publicDir]];
+  const mounts = [["/", publicDir]];
 
   function resolveFile(urlPath) {
     let p;
@@ -99,6 +98,10 @@ export function createServer({ store, publicDir = path.join(APP_DIR, "public"), 
       return send(res, out.status, { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" }, JSON.stringify(out.body));
     }
     if (req.method !== "GET" && req.method !== "HEAD") return send(res, 405, { "Content-Type": "text/plain" }, "Method not allowed");
+    // Old engine address (before the engine moved into the wall app).
+    if (url.pathname === "/engine/poc/" || url.pathname === "/engine/poc/index.html") {
+      return send(res, 301, { Location: "/engine/" + url.search }, "");
+    }
     const file = resolveFile(url.pathname);
     if (!file) return send(res, 404, { "Content-Type": "text/plain; charset=utf-8" }, "Not found");
     const ext = path.extname(file).toLowerCase();
@@ -135,19 +138,13 @@ function lanAddresses() {
 async function main() {
   const port = +(process.env.PORT || 8090);
   const host = process.env.HOST || "0.0.0.0";
-  let store;
-  if (process.env.DATABASE_URL) {
-    const { createPostgresStore } = await import("./store-postgres.js");
-    store = await createPostgresStore(process.env.DATABASE_URL);
-  } else {
-    store = createFileStore(path.resolve(process.env.MT_DATA_DIR || path.join(APP_DIR, "data"), "store.json"));
-  }
   const dataDir = path.resolve(process.env.MT_DATA_DIR || path.join(APP_DIR, "data"));
+  const store = createFileStore(path.join(dataDir, "store.json"));
   const server = createServer({ store, signup: process.env.MT_SIGNUP || "first", licence: licenceLoader(process.env.MT_LICENCE || path.join(dataDir, "licence.json")) });
   server.listen(port, host, () => {
     console.log(`MagicTouch wall is running.\n  On this PC:   http://localhost:${port}/`);
     if (host === "0.0.0.0") lanAddresses().forEach(a => console.log(`  Phone remote: http://${a}:${port}/  (same Wi-Fi)`));
-    console.log(`  Logins kept in: ${store.kind === "file" ? path.resolve(process.env.MT_DATA_DIR || path.join(APP_DIR, "data")) : "Postgres"}\n  Press Ctrl+C to stop.`);
+    console.log(`  Logins kept in: ${dataDir}\n  Press Ctrl+C to stop.`);
   });
   // Tidy up once an hour: expired sign-ins, and usage totals older than USAGE.keepDays.
   const tidy = () => store.purgeExpired(Date.now(), dayKey(Date.now() - USAGE.keepDays * 864e5)).catch(e => console.error("[tidy]", e.message));

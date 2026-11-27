@@ -1,7 +1,7 @@
 // Full-screen wall calibration, run by the launcher OUTSIDE every app.
 // When finished it tells the launcher (parent window) so it can open the app;
 // opened on its own, it goes back to the launcher.
-import { runCalibrationScreen } from "/shared/calibrationBootstrap.js";
+import { runCalibrationScreen } from "/shared/input/calibration.js";
 
 const canvas = document.getElementById("stage");
 const msg = document.getElementById("msg");
@@ -14,7 +14,8 @@ function done() {
   if (window.parent && window.parent !== window) {
     window.parent.postMessage({ type: "wall-calibrated" }, location.origin);
   } else {
-    location.href = "/";
+    const back = new URLSearchParams(location.search).get("return") || "/";
+    location.href = back.startsWith("/") && !back.startsWith("//") ? back : "/";
   }
 }
 

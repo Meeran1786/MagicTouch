@@ -105,7 +105,7 @@ test("server serves files, blocks path traversal, sends security headers", async
   const pub = fs.mkdtempSync(path.join(os.tmpdir(), "mtpub-"));
   fs.writeFileSync(path.join(pub, "index.html"), "<h1>hi</h1>");
   fs.writeFileSync(path.join(path.dirname(pub), "secret.txt"), "secret");
-  const srv = createServer({ store, publicDir: pub, engineDir: pub, log: { error() {} } });
+  const srv = createServer({ store, publicDir: pub, log: { error() {} } });
   await new Promise(r => srv.listen(0, "127.0.0.1", r));
   const base = `http://127.0.0.1:${srv.address().port}`;
   try {

@@ -244,6 +244,7 @@
       if (e.origin !== location.origin || !e.data) return;
       if (e.data.type === "wall-calibrated") { calibrating = false; drawPenChip(); if (currentApp !== "menu") openApp(currentApp); else closeApp(); }
       if (e.data.type === "mt-home") home.click();
+      if (e.data.type === "mt-calibrate" && !calibrating) startCalibration();
     });
     window.addEventListener("storage", e => { if (e.key === calKey()) { drawPenChip(); if (!e.newValue && !calibrating && currentApp !== "menu") startCalibration(); } });
     // Activities with a "back to hub" link (href="/") would load a launcher inside the frame: show the menu instead.

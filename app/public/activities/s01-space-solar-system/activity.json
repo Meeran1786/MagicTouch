@@ -1,0 +1,16 @@
+{
+ "id": "s01-space-solar-system",
+ "level": "class-6",
+ "showcase": true,
+ "subject": "science",
+ "title": "Our solar system in 3D",
+ "icon": "🪐",
+ "topic": "Turn it, fly to every planet",
+ "concept": "science.space.solar-system",
+ "status": "draft",
+ "template": "space3d",
+ "scene": "solar",
+ "instruction": "Drag to turn the view. Tap each planet to fly there.",
+ "intro": "Welcome to space. Tap a planet to fly to it.",
+ "doneText": "You visited every planet!"
+}
