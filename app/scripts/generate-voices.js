@@ -8,6 +8,12 @@
 //            --limit 50     at most 50 new clips this run
 //            --lines f.json also speak the lines in f.json ([{ text, lang }], e.g. MagicAudio.misses())
 //            --force        make clips again even when the file is already there
+//            --force-lang=hi,te   make every clip of these languages again (overwrites the .mp3 files)
+//            --list-voices  list the Chirp 3: HD, Neural2 and WaveNet voices Google has for en-IN,
+//                           hi-IN and te-IN with this key, and stop
+// Before it sends anything it prints the voice used for each language, refuses a voice that is not
+// for that language (a Hindi line is never sent to an English voice), and refuses a Hindi line that
+// is not in Devanagari or a Telugu line that is not in Telugu script.
 // A clip on disk that is silent (no speech in it) is made again: see scripts/mp3-voice-check.js.
 //
 // Reads GOOGLE_TTS_API_KEY from app/.env (or the repository's .env, or the environment) and calls
@@ -30,6 +36,10 @@
 //   GOOGLE_TTS_API_KEY=...          the API key (keep it out of git: .env is git-ignored)
 //   TTS_VOICE=Kore                  the Chirp 3: HD voice name used in every language
 //   TTS_VOICE_EN_IN=en-IN-Chirp3-HD-Kore   or a full voice name per language
+//   TTS_VOICE_HI_IN=hi-IN-Wavenet-A         any Google voice (pick one by ear: npm run voices:audition)
+//   TTS_VOICE_TE_IN=gemini-2.5-flash-tts:Kore   a Gemini voice: model name, a colon, the voice
+//   TTS_PROMPT_TE_IN=...            optional style note for a Gemini voice (a default is used)
+//   Changing a language's voice makes that language's clips again (other languages are kept).
 //   TTS_SPEAKING_RATE=0.95          optional pace (1 = normal)
 //   TTS_MONTHLY_LIMIT=950000
 import fs from "node:fs";
@@ -53,6 +63,8 @@ const { linesOf, normalize, clipId, textHash, langCode, langOf, LANGS } = await 
 const argv = process.argv.slice(2);
 const flag = (n) => argv.includes(n);
 const opt = (n) => {
+  const eq = argv.find((a) => a.startsWith(n + "="));
+  if (eq) return eq.slice(n.length + 1);
   const i = argv.indexOf(n);
   return i >= 0 ? argv[i + 1] : undefined;
 };
@@ -60,6 +72,12 @@ const DRY = flag("--dry-run");
 const FORCE = flag("--force");
 const PAID = flag("--allow-paid");
 const ONLY = opt("--lang") ? langCode(opt("--lang")) : null;
+const FORCE_LANGS = new Set(
+  (opt("--force-lang") || "")
+    .split(",")
+    .filter(Boolean)
+    .map((l) => langCode(l)),
+);
 const LIMIT = opt("--limit") ? Math.max(0, parseInt(opt("--limit"), 10)) : Infinity;
 
 function readEnv(file) {
@@ -81,6 +99,39 @@ function voiceFor(lang) {
   return own || `${lang}-Chirp3-HD-${process.env.TTS_VOICE || "Kore"}`;
 }
 
+// ── voices: print them, and never send a language to another language's voice ──
+const { parseVoice } = await import(pathToFileURL(path.join(APP, "scripts", "tts-voice.js")).href);
+console.log("Voices: " + LANGS.map((l) => `${l} = ${voiceFor(l)}`).join(", "));
+for (const l of LANGS) {
+  const v = parseVoice(voiceFor(l));
+  if (!v.model && !v.name.startsWith(l + "-")) {
+    console.error(
+      `The voice for ${l} is "${v.name}", which is not a ${l} voice. Fix TTS_VOICE_${l.replace("-", "_").toUpperCase()} in .env.`,
+    );
+    process.exit(2);
+  }
+}
+if (flag("--list-voices")) {
+  if (!KEY) {
+    console.error("No GOOGLE_TTS_API_KEY in app/.env.");
+    process.exit(2);
+  }
+  for (const l of LANGS) {
+    const r = await fetch("https://texttospeech.googleapis.com/v1/voices?languageCode=" + l, {
+      headers: { "X-Goog-Api-Key": KEY },
+    });
+    if (!r.ok) {
+      console.error(`voices ${l}: ${r.status} ${(await r.text()).slice(0, 200)}`);
+      process.exit(1);
+    }
+    const names = ((await r.json()).voices || [])
+      .filter((v) => v.languageCodes.includes(l) && /Chirp3-HD|Neural2|Wavenet/.test(v.name))
+      .map((v) => `${v.name} (${(v.ssmlGender || "").toLowerCase()})`);
+    console.log(`\n${l}: ${names.length} voices\n  ` + names.join("\n  "));
+  }
+  process.exit(0);
+}
+
 // ── what to speak ───────────────────────────────────────────────────────
 function readJson(file, fallback) {
   try {
@@ -90,12 +141,21 @@ function readJson(file, fallback) {
   }
 }
 const wanted = new Map(); // lang|id → { text, lang, id, from }
+const wrongScript = [];
 function want(text, lang, from, id) {
   const t = normalize(text);
   if (!t || !/[\p{L}\p{N}]/u.test(t)) return;
   const l = lang ? langCode(lang) : langOf(t, "en-IN");
   if (ONLY && l !== ONLY) return;
   const cid = id || clipId(t, l);
+  // a Hindi line must be Devanagari and a Telugu line Telugu script (no English letters)
+  if (
+    (l === "hi-IN" && (!/[\u0900-\u097F]/.test(t) || /[A-Za-z]/.test(t))) ||
+    (l === "te-IN" && (!/[\u0C00-\u0C7F]/.test(t) || /[A-Za-z]/.test(t)))
+  ) {
+    wrongScript.push(`${l} "${t}" (${from})`);
+    return;
+  }
   if (!wanted.has(l + "|" + cid)) wanted.set(l + "|" + cid, { text: t, lang: l, id: cid, from });
 }
 const actDir = path.join(PUB, "activities");
@@ -139,11 +199,13 @@ for (const w of wanted.values()) {
   const file = path.join(VOICE_DIR, w.lang, w.id + ".mp3");
   const known = manifest.clips[w.lang][w.id];
   const same = !known || !known.h || known.h === textHash(w.text);
+  // the voice for this language was changed in .env: the clip is made again in the new voice
+  const oldVoice = known && known.v && known.v !== "recorded" && known.v !== voiceFor(w.lang);
   // a clip that came back silent (Google sometimes does this for one letter or a short word) is
   // made again; a hand-recorded clip (v: "recorded") is never replaced
   const silent = fs.existsSync(file) && (!known || known.v !== "recorded") && isSilent(fs.readFileSync(file));
   if (silent) silentOnDisk.push(w);
-  if (!FORCE && fs.existsSync(file) && same && !silent) {
+  if (!FORCE && !FORCE_LANGS.has(w.lang) && fs.existsSync(file) && same && !silent && !oldVoice) {
     skipped++;
     skippedChars += w.text.length;
     if (!known) manifest.clips[w.lang][w.id] = { t: w.text, h: textHash(w.text), v: "recorded" };
@@ -180,6 +242,12 @@ function summary(made, madeChars, failed) {
   for (const [l, p] of Object.entries(per))
     console.log(`  ${l}: ${p.lines} lines, ${p.chars} characters (voice ${voiceFor(l)})`);
   console.log(`Skipped (clip already on disk): ${skipped} clips, ${skippedChars} characters.`);
+  if (FORCE_LANGS.size) console.log(`Made again on purpose (--force-lang): ${[...FORCE_LANGS].join(", ")}.`);
+  console.log(
+    wrongScript.length
+      ? `Not sent, wrong script for the language (${wrongScript.length}): ${wrongScript.join(", ")}`
+      : "Script check: every Hindi line is Devanagari and every Telugu line is Telugu script.",
+  );
   if (silentOnDisk.length)
     console.log(
       `Silent clips on disk, made again: ${silentOnDisk.length} (${silentOnDisk
@@ -233,12 +301,9 @@ if (!PAID && usedThisMonth + batchChars > MONTHLY) {
 }
 
 // ── Google Cloud Text-to-Speech ─────────────────────────────────────────
+const { requestBody } = await import(pathToFileURL(path.join(APP, "scripts", "tts-voice.js")).href);
 async function synthesize(w, text = w.text) {
-  const body = {
-    input: { text },
-    voice: { languageCode: w.lang, name: voiceFor(w.lang) },
-    audioConfig: { audioEncoding: "MP3", ...(RATE ? { speakingRate: RATE } : {}) },
-  };
+  const body = requestBody(voiceFor(w.lang), w.lang, text, RATE);
   for (let attempt = 0; ; attempt++) {
     let r;
     try {
