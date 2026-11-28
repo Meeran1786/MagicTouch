@@ -696,7 +696,7 @@ button {
   --cream2: #f7f1f5;
   --line: #e7dbe3;
   --muted: #5d5464;
-  --mt-head: Cambria, Caladea, Georgia, serif;
+  --mt-head: Cambria, Caladea, Georgia, "Noto Sans Telugu", "Noto Sans Devanagari", serif;
   --mt-body: Calibri, Carlito, "Noto Sans Telugu", "Noto Sans Devanagari", "Segoe UI", sans-serif;
 }
 body {

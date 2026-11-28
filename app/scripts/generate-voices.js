@@ -30,6 +30,10 @@
 //   GOOGLE_TTS_API_KEY=...          the API key (keep it out of git: .env is git-ignored)
 //   TTS_VOICE=Kore                  the Chirp 3: HD voice name used in every language
 //   TTS_VOICE_EN_IN=en-IN-Chirp3-HD-Kore   or a full voice name per language
+//   TTS_VOICE_HI_IN=hi-IN-Wavenet-A         any Google voice (pick one by ear: npm run voices:audition)
+//   TTS_VOICE_TE_IN=gemini-2.5-flash-tts:Kore   a Gemini voice: model name, a colon, the voice
+//   TTS_PROMPT_TE_IN=...            optional style note for a Gemini voice (a default is used)
+//   Changing a language's voice makes that language's clips again (other languages are kept).
 //   TTS_SPEAKING_RATE=0.95          optional pace (1 = normal)
 //   TTS_MONTHLY_LIMIT=950000
 import fs from "node:fs";
@@ -139,11 +143,13 @@ for (const w of wanted.values()) {
   const file = path.join(VOICE_DIR, w.lang, w.id + ".mp3");
   const known = manifest.clips[w.lang][w.id];
   const same = !known || !known.h || known.h === textHash(w.text);
+  // the voice for this language was changed in .env: the clip is made again in the new voice
+  const oldVoice = known && known.v && known.v !== "recorded" && known.v !== voiceFor(w.lang);
   // a clip that came back silent (Google sometimes does this for one letter or a short word) is
   // made again; a hand-recorded clip (v: "recorded") is never replaced
   const silent = fs.existsSync(file) && (!known || known.v !== "recorded") && isSilent(fs.readFileSync(file));
   if (silent) silentOnDisk.push(w);
-  if (!FORCE && fs.existsSync(file) && same && !silent) {
+  if (!FORCE && fs.existsSync(file) && same && !silent && !oldVoice) {
     skipped++;
     skippedChars += w.text.length;
     if (!known) manifest.clips[w.lang][w.id] = { t: w.text, h: textHash(w.text), v: "recorded" };
@@ -233,12 +239,9 @@ if (!PAID && usedThisMonth + batchChars > MONTHLY) {
 }
 
 // ── Google Cloud Text-to-Speech ─────────────────────────────────────────
+const { requestBody } = await import(pathToFileURL(path.join(APP, "scripts", "tts-voice.js")).href);
 async function synthesize(w, text = w.text) {
-  const body = {
-    input: { text },
-    voice: { languageCode: w.lang, name: voiceFor(w.lang) },
-    audioConfig: { audioEncoding: "MP3", ...(RATE ? { speakingRate: RATE } : {}) },
-  };
+  const body = requestBody(voiceFor(w.lang), w.lang, text, RATE);
   for (let attempt = 0; ; attempt++) {
     let r;
     try {

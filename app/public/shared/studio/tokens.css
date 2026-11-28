@@ -16,7 +16,7 @@
   --mt-mute: #5d5464;
   --mt-line: #e7dbe3;
 
-  --mt-head: Cambria, Caladea, Georgia, serif;
+  --mt-head: Cambria, Caladea, Georgia, "Noto Sans Telugu", "Noto Sans Devanagari", serif;
   --mt-body: Calibri, Carlito, "Noto Sans Telugu", "Noto Sans Devanagari", "Segoe UI", sans-serif;
 
   --mt-radius: 16px;
