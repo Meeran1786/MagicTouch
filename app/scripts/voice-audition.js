@@ -9,7 +9,8 @@
 //   then in .env:  TTS_VOICE_HI_IN=<the voice you liked>   (and/or TTS_VOICE_TE_IN=...)
 //   npm run voices                              (only the changed language is made again)
 //
-// Options: --lang hi-IN   only one language.  It uses about 3,000 characters in all.
+// Options: --lang hi-IN   only one language.  It uses about 2,000 characters in all.
+// Standard voices are left out (they sound robotic).
 // The voice-audition folder is git-ignored (it is only for listening).
 import fs from "node:fs";
 import path from "node:path";
@@ -39,8 +40,8 @@ const only = argv.includes("--lang") ? argv[argv.indexOf("--lang") + 1] : null;
 
 // the words a child hears most: single animal and fruit names, and one praise line
 const SAMPLES = {
-  "hi-IN": ["हाथी", "बिल्ली", "आम", "शाबाश! यह शेर है।"],
-  "te-IN": ["ఏనుగు", "పిల్లి", "మామిడి", "శభాష్! ఇది సింహం."],
+  "hi-IN": ["हाथी", "बिल्ली", "शाबाश! यह शेर है।"],
+  "te-IN": ["ఏనుగు", "పిల్లి", "శభాష్! ఇది సింహం."],
 };
 // Gemini voices to try as well (they follow a style note; small cost outside the Chirp free tier)
 const GEMINI = ["Kore", "Aoede", "Leda", "Zephyr", "Charon", "Puck"].map((v) => "gemini-2.5-flash-tts:" + v);
@@ -85,9 +86,12 @@ const sections = [];
 for (const lang of Object.keys(SAMPLES)) {
   if (only && only !== lang) continue;
   const voices = [...(await listVoices(lang)), ...GEMINI.map((name) => ({ name, gender: "" }))];
-  // Chirp 3: HD has ~30 personas; keep a spread of them so the page stays listenable
-  const chirpKeep = /-(Kore|Aoede|Leda|Zephyr|Charon|Puck|Achernar|Sulafat|Vindemiatrix|Gacrux|Orus|Fenrir)$/;
-  const pick = voices.filter((v) => !/Chirp3/.test(v.name) || chirpKeep.test(v.name));
+  // Chirp 3: HD first (preferred), then Neural2 and WaveNet, then Gemini; never Standard voices
+  const rank = (n) =>
+    /Chirp3-HD/.test(n) ? 0 : /Neural2/.test(n) ? 1 : /Wavenet/.test(n) ? 2 : /gemini/i.test(n) ? 3 : 9;
+  const pick = voices
+    .filter((v) => rank(v.name) < 9)
+    .sort((a, b) => rank(a.name) - rank(b.name) || a.name.localeCompare(b.name));
   console.log(`${lang}: ${pick.length} voices`);
   const rows = [];
   fs.mkdirSync(path.join(OUT, lang), { recursive: true });
