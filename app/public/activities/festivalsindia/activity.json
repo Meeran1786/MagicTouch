@@ -11,27 +11,33 @@
   "items": [
     {
       "emoji": "🪔",
-      "word": "Diwali"
+      "word": "Diwali",
+      "sfx": "diwali"
     },
     {
       "emoji": "🎨",
-      "word": "Holi"
+      "word": "Holi",
+      "sfx": "holi"
     },
     {
       "emoji": "🎄",
-      "word": "Christmas"
+      "word": "Christmas",
+      "sfx": "christmas"
     },
     {
       "emoji": "🌙",
-      "word": "Eid"
+      "word": "Eid",
+      "sfx": "eid"
     },
     {
       "emoji": "🇮🇳",
-      "word": "Independence Day"
+      "word": "Independence Day",
+      "sfx": "independence-day"
     },
     {
       "emoji": "🎆",
-      "word": "Fireworks"
+      "word": "Fireworks",
+      "sfx": "fireworks"
     }
   ]
 }

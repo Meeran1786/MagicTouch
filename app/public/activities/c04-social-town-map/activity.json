@@ -16,21 +16,25 @@
     {
       "id": "school",
       "label": "School",
+      "sfx": "school",
       "text": "The school is in the north-west corner of the town."
     },
     {
       "id": "fields",
       "label": "Fields",
+      "sfx": "fields",
       "text": "Farmers grow rice and vegetables in the fields, in the north of the town."
     },
     {
       "id": "lake",
       "label": "Lake",
+      "sfx": "lake",
       "text": "The lake is in the west. Ducks swim here, and it gives water to the fields."
     },
     {
       "id": "park",
       "label": "Park",
+      "sfx": "park",
       "text": "The park is in the middle of the town. Roads go out from it in every direction."
     },
     {
@@ -41,11 +45,13 @@
     {
       "id": "station",
       "label": "Railway station",
+      "sfx": "railway-station",
       "text": "Trains stop at the station, in the south-west corner."
     },
     {
       "id": "hospital",
       "label": "Hospital",
+      "sfx": "hospital",
       "text": "The hospital is in the south, straight below the park."
     },
     {

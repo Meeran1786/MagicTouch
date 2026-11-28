@@ -11,11 +11,13 @@
   "items": [
     {
       "emoji": "🐦",
-      "word": "Sparrow"
+      "word": "Sparrow",
+      "sfx": "sparrow"
     },
     {
       "emoji": "🐦‍⬛",
-      "word": "Crow"
+      "word": "Crow",
+      "sfx": "crow"
     },
     {
       "emoji": "🦜",
@@ -29,19 +31,23 @@
     },
     {
       "emoji": "🦉",
-      "word": "Owl"
+      "word": "Owl",
+      "sfx": "owl"
     },
     {
       "emoji": "🦅",
-      "word": "Eagle"
+      "word": "Eagle",
+      "sfx": "eagle"
     },
     {
       "emoji": "🦢",
-      "word": "Swan"
+      "word": "Swan",
+      "sfx": "swan"
     },
     {
       "emoji": "🦆",
-      "word": "Duck"
+      "word": "Duck",
+      "sfx": "duck"
     },
     {
       "emoji": "🐔",
@@ -60,19 +66,23 @@
     },
     {
       "emoji": "🐧",
-      "word": "Penguin"
+      "word": "Penguin",
+      "sfx": "penguin"
     },
     {
       "emoji": "🦩",
-      "word": "Flamingo"
+      "word": "Flamingo",
+      "sfx": "flamingo"
     },
     {
       "emoji": "🦃",
-      "word": "Turkey"
+      "word": "Turkey",
+      "sfx": "turkey"
     },
     {
       "emoji": "🐤",
-      "word": "Chick"
+      "word": "Chick",
+      "sfx": "chick"
     }
   ]
 }

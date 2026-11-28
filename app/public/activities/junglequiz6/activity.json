@@ -16,22 +16,27 @@
     },
     {
       "word": "Snail",
+      "sfx": "snail",
       "photo": "assets/gifs/43.gif"
     },
     {
       "word": "Spider",
+      "sfx": "spider",
       "photo": "assets/gifs/44.gif"
     },
     {
       "word": "Starfish",
+      "sfx": "starfish",
       "photo": "assets/gifs/45.gif"
     },
     {
       "word": "Tiger",
+      "sfx": "tiger",
       "photo": "assets/gifs/Tiger.gif"
     },
     {
       "word": "Tortoise",
+      "sfx": "tortoise",
       "photo": "assets/gifs/48.gif"
     },
     {
@@ -40,6 +45,7 @@
     },
     {
       "word": "Zebra",
+      "sfx": "zebra",
       "photo": "assets/gifs/30.gif"
     }
   ]

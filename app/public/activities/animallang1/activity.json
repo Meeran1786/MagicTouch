@@ -11,6 +11,7 @@
   "items": [
     {
       "word": "Rhino",
+      "sfx": "rhino",
       "photo": "images/BADAK.jpg",
       "says": [
         {
@@ -54,6 +55,7 @@
     },
     {
       "word": "Buffalo",
+      "sfx": "buffalo",
       "photo": "images/Buffalo.jpg",
       "says": [
         {
@@ -75,6 +77,7 @@
     },
     {
       "word": "Camel",
+      "sfx": "camel",
       "photo": "images/Camel.png",
       "says": [
         {
@@ -96,6 +99,7 @@
     },
     {
       "word": "Chimpanzee",
+      "sfx": "chimpanzee",
       "photo": "images/Chipanze.jpg",
       "says": [
         {
@@ -117,6 +121,7 @@
     },
     {
       "word": "Cow",
+      "sfx": "cow",
       "photo": "images/Cow.jpg",
       "says": [
         {
@@ -138,6 +143,7 @@
     },
     {
       "word": "Crocodile",
+      "sfx": "crocodile",
       "photo": "images/Crocodile.jpg",
       "says": [
         {
@@ -159,6 +165,7 @@
     },
     {
       "word": "Deer",
+      "sfx": "deer",
       "photo": "images/Deer.jpg",
       "says": [
         {

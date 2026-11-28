@@ -16,11 +16,13 @@
     },
     {
       "emoji": "🔥",
-      "word": "Fire"
+      "word": "Fire",
+      "sfx": "fire"
     },
     {
       "emoji": "✨",
-      "word": "Sparkles"
+      "word": "Sparkles",
+      "sfx": "sparkles"
     },
     {
       "emoji": "⚡",

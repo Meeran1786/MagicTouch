@@ -11,11 +11,13 @@
   "items": [
     {
       "emoji": "🚽",
-      "word": "Toilet"
+      "word": "Toilet",
+      "sfx": "toilet"
     },
     {
       "emoji": "🚰",
-      "word": "Sink"
+      "word": "Sink",
+      "sfx": "sink"
     },
     {
       "emoji": "🧻",

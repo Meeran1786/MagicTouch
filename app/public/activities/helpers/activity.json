@@ -11,23 +11,28 @@
   "items": [
     {
       "emoji": "👩‍⚕️",
-      "word": "Doctor"
+      "word": "Doctor",
+      "sfx": "doctor"
     },
     {
       "emoji": "👩‍🏫",
-      "word": "Teacher"
+      "word": "Teacher",
+      "sfx": "teacher"
     },
     {
       "emoji": "👨‍🚒",
-      "word": "Firefighter"
+      "word": "Firefighter",
+      "sfx": "firefighter"
     },
     {
       "emoji": "👮",
-      "word": "Police Officer"
+      "word": "Police Officer",
+      "sfx": "police-officer"
     },
     {
       "emoji": "👨‍🌾",
-      "word": "Farmer"
+      "word": "Farmer",
+      "sfx": "farmer"
     },
     {
       "emoji": "👩‍🍳",

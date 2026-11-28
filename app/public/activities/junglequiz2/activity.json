@@ -11,6 +11,7 @@
   "items": [
     {
       "word": "Butterfly",
+      "sfx": "butterfly",
       "photo": "assets/gifs/10.gif"
     },
     {
@@ -24,26 +25,32 @@
     },
     {
       "word": "Cockatoo",
+      "sfx": "cockatoo",
       "photo": "assets/gifs/49.gif"
     },
     {
       "word": "Cockroach",
+      "sfx": "cockroach",
       "photo": "assets/gifs/14.gif"
     },
     {
       "word": "Cow",
+      "sfx": "cow",
       "photo": "assets/gifs/15.gif"
     },
     {
       "word": "Crow",
+      "sfx": "crow",
       "photo": "assets/gifs/Crow.gif"
     },
     {
       "word": "Deer",
+      "sfx": "deer",
       "photo": "assets/gifs/Deer.gif"
     },
     {
       "word": "Dinosaur",
+      "sfx": "dinosaur",
       "photo": "assets/gifs/D1.gif"
     },
     {

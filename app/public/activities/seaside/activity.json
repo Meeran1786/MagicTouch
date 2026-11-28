@@ -12,7 +12,8 @@
   "items": [
     {
       "emoji": "🏖️",
-      "word": "Beach"
+      "word": "Beach",
+      "sfx": "beach"
     },
     {
       "emoji": "🪣",
@@ -28,11 +29,13 @@
     },
     {
       "emoji": "🐚",
-      "word": "Shell"
+      "word": "Shell",
+      "sfx": "shell"
     },
     {
       "emoji": "⭐",
-      "word": "Starfish"
+      "word": "Starfish",
+      "sfx": "starfish"
     }
   ]
 }

@@ -15,15 +15,18 @@
     },
     {
       "emoji": "🧼",
-      "word": "Soap"
+      "word": "Soap",
+      "sfx": "soap"
     },
     {
       "emoji": "🚿",
-      "word": "Shower"
+      "word": "Shower",
+      "sfx": "shower"
     },
     {
       "emoji": "🛁",
-      "word": "Bathtub"
+      "word": "Bathtub",
+      "sfx": "bathtub"
     },
     {
       "emoji": "💇",
@@ -31,7 +34,8 @@
     },
     {
       "emoji": "💧",
-      "word": "Water Drop"
+      "word": "Water Drop",
+      "sfx": "water-drop"
     }
   ]
 }

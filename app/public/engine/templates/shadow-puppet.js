@@ -42,6 +42,7 @@ export default function shadowPuppet(area, d) {
       ME.squash(b);
       MT.sfx.tap();
       MT.speak(p.word);
+      MT.theme(p.sfx); // the puppet's own sound ("sfx": "dog"), after its name
     });
     shelf.appendChild(b);
   });

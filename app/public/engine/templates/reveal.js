@@ -157,6 +157,7 @@ export default function reveal(area, d, ctx) {
             ME.solved(ui.goal);
           }
           MT.good("Found: " + t.label + "!", t.label + ". " + (t.say || ""));
+          MT.theme(t.sfx); // its own sound ("sfx": "frog"), after the voice
           if (nf === n) {
             MT.later(function () {
               finished = true;

@@ -21,6 +21,7 @@
     },
     {
       "word": "Duck",
+      "sfx": "duck",
       "photo": "assets/gifs/22.gif"
     },
     {
@@ -34,14 +35,17 @@
     },
     {
       "word": "Fish",
+      "sfx": "fish",
       "photo": "assets/gifs/23.gif"
     },
     {
       "word": "Giraffe",
+      "sfx": "giraffe",
       "photo": "assets/gifs/24.gif"
     },
     {
       "word": "Goat",
+      "sfx": "goat",
       "photo": "assets/gifs/25.gif"
     },
     {

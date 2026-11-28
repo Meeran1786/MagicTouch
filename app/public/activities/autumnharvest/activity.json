@@ -23,7 +23,8 @@
     },
     {
       "emoji": "🍃",
-      "word": "Leaves"
+      "word": "Leaves",
+      "sfx": "leaves"
     }
   ]
 }

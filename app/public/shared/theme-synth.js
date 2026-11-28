@@ -1,6 +1,6 @@
 // MagicTouch theme sounds made in code (Web Audio, rendered once offline): the real-world sounds
-// that can be built from noise and tones — weather, water, machines, vehicles, a bell, a drum, a
-// bee. They are our own, so there is nothing to license. A recording with the same name in
+// that can be built from noise and tones — weather, water, machines, vehicles, engines, bubbles,
+// insects' wings and legs, fire, coins, a heartbeat, phones, magic sparkles, a bell, a drum. They are our own, so there is nothing to license. A recording with the same name in
 // /assets/sfx/themes/ always wins (audio-engine.js, MagicAudio.playTheme); animals need recordings.
 //
 //   import { synthTheme, renderTheme } from "/shared/theme-synth.js";
@@ -340,7 +340,432 @@ const SOUNDS = {
       }
     },
   ],
+
+  // a motorbike or scooter: a buzzing two-stroke engine revving past, 2.6 s
+  motorcycle: [
+    2.6,
+    (c) =>
+      engine(
+        c,
+        2.6,
+        48,
+        [
+          [0, 40],
+          [0.9, 95],
+          [1.7, 70],
+          [2.6, 50],
+        ],
+        900,
+        0.4,
+      ),
+  ],
+  // an auto-rickshaw: a putt-putt three-wheeler pulling away, with a squeeze horn, 2.6 s
+  rickshaw: [
+    2.6,
+    (c) => {
+      engine(
+        c,
+        2.6,
+        26,
+        [
+          [0, 24],
+          [2.6, 34],
+        ],
+        700,
+        0.45,
+      );
+      honk(c, 1.6, 0.18, [622]);
+      honk(c, 1.85, 0.25, [587]);
+    },
+  ],
+  // a tractor: a slow, heavy diesel chug, 3 s
+  tractor: [
+    3,
+    (c) =>
+      engine(
+        c,
+        3,
+        9,
+        [
+          [0, 8],
+          [3, 11],
+        ],
+        380,
+        0.6,
+      ),
+  ],
+  // a race car: a high engine screaming up through the gears, 2.6 s
+  racecar: [
+    2.6,
+    (c) =>
+      engine(
+        c,
+        2.6,
+        120,
+        [
+          [0, 90],
+          [0.9, 260],
+          [1.0, 170],
+          [2.0, 320],
+          [2.6, 300],
+        ],
+        2600,
+        0.35,
+      ),
+  ],
+  // a speedboat: an outboard motor over splashing water, 3 s
+  speedboat: [
+    3,
+    (c) => {
+      engine(
+        c,
+        3,
+        70,
+        [
+          [0, 60],
+          [1, 110],
+          [3, 105],
+        ],
+        1400,
+        0.3,
+      );
+      const n = noise(c, 3),
+        bp = filter(c, "bandpass", 1600, 0.6),
+        g = gain(c, 0);
+      env(g.gain, [
+        [0, 0],
+        [1, 0.25],
+        [2.6, 0.25],
+        [3, 0],
+      ]);
+      lfo(c, g.gain, 3, 0.1, 3);
+      n.connect(bp).connect(g).connect(c.destination);
+      n.start(0);
+    },
+  ],
+  // water bubbles rising (fish, sea creatures, a pond), 2.4 s
+  bubbles: [
+    2.4,
+    (c) => {
+      for (let k = 0; k < 14; k++) {
+        const t = Math.random() * 2,
+          f = 300 + Math.random() * 500,
+          o = osc(c, "sine", f),
+          g = gain(c, 0);
+        o.frequency.setValueAtTime(f, t);
+        o.frequency.exponentialRampToValueAtTime(f * 2.4, t + 0.12);
+        env(g.gain, [
+          [t, 0],
+          [t + 0.01, 0.35],
+          [t + 0.12, 0],
+        ]);
+        o.connect(g).connect(c.destination);
+        o.start(t);
+        o.stop(t + 0.14);
+      }
+    },
+  ],
+  // a splash in water, 1.4 s
+  splash: [1.4, (c) => burst(c, 0, 1.2, "bandpass", 1200, 0.5, 0.9)],
+  // butterfly / moth wings: soft, fast fluttering, 1.6 s
+  flutter: [
+    1.6,
+    (c) => {
+      const n = noise(c, 1.6),
+        bp = filter(c, "bandpass", 900, 0.8),
+        g = gain(c, 0);
+      env(g.gain, [
+        [0, 0],
+        [0.2, 0.2],
+        [1.3, 0.2],
+        [1.6, 0],
+      ]);
+      lfo(c, g.gain, 16, 0.18, 1.6);
+      n.connect(bp).connect(g).connect(c.destination);
+      n.start(0);
+    },
+  ],
+  // a hummingbird / dragonfly: a fast wing whirr, 1.6 s
+  whirr: [
+    1.6,
+    (c) => {
+      const o = osc(c, "triangle", 48),
+        bp = filter(c, "bandpass", 250, 1),
+        g = gain(c, 0);
+      env(g.gain, [
+        [0, 0],
+        [0.2, 0.5],
+        [1.3, 0.5],
+        [1.6, 0],
+      ]);
+      lfo(c, o.frequency, 2, 6, 1.6);
+      o.connect(bp).connect(g).connect(c.destination);
+      o.start(0);
+      o.stop(1.6);
+    },
+  ],
+  // tiny legs scurrying (ant, spider, ladybug, cockroach, scorpion), 1.4 s
+  skitter: [
+    1.4,
+    (c) => {
+      for (let k = 0; k < 22; k++) tick(c, 0.05 + k * 0.055 + Math.random() * 0.02, 3500 + Math.random() * 2500, 0.25);
+    },
+  ],
+  // something hopping (kangaroo, rabbit): three soft thumps, 1.4 s
+  hop: [1.4, (c) => [0, 0.42, 0.84].forEach((t) => thump(c, t, 1))],
+  // leaves rustling (tortoise, snail, lizard in the grass), 1.8 s
+  rustle: [
+    1.8,
+    (c) => {
+      const n = noise(c, 1.8),
+        hp = filter(c, "highpass", 2500),
+        g = gain(c, 0);
+      env(g.gain, [
+        [0, 0],
+        [0.3, 0.3],
+        [0.6, 0.08],
+        [1, 0.3],
+        [1.4, 0.1],
+        [1.8, 0],
+      ]);
+      lfo(c, g.gain, 9, 0.08, 1.8);
+      n.connect(hp).connect(g).connect(c.destination);
+      n.start(0);
+    },
+  ],
+  // a fire crackling (campfire, candle, fire), 3 s
+  crackle: [
+    3,
+    (c) => {
+      const n = noise(c, 3, "brown"),
+        lp = filter(c, "lowpass", 500);
+      n.connect(lp).connect(gain(c, 0.5)).connect(c.destination);
+      n.start(0);
+      for (let k = 0; k < 40; k++)
+        tick(c, Math.random() * 2.9, 1500 + Math.random() * 4000, 0.2 + Math.random() * 0.6, "noise");
+    },
+  ],
+  // a balloon or party popper going pop, 1 s
+  pop: [
+    1,
+    (c) => {
+      burst(c, 0.05, 0.12, "lowpass", 3500, 0.7, 1);
+      thump(c, 0.05, 0.6);
+    },
+  ],
+  // coins clinking (money, wallet, shop), 1.6 s
+  coin: [1.6, (c) => [0, 0.16, 0.3, 0.52].forEach((t, i) => chime(c, t, [2637, 3520, 4186, 3136][i], 0.35))],
+  // a heartbeat (stethoscope, heart), 2.4 s
+  heartbeat: [2.4, (c) => [0, 0.28, 1.1, 1.38].forEach((t, i) => thump(c, t, i % 2 ? 0.7 : 1, 60))],
+  // a mobile phone ringtone, 2.4 s
+  ringtone: [
+    2.4,
+    (c) =>
+      [0, 0.14, 0.28, 0.42, 1.2, 1.34, 1.48, 1.62].forEach((t, i) =>
+        beep(c, t, 0.12, [1319, 1568, 1976, 1568][i % 4], 0.25),
+      ),
+  ],
+  // a robot: bleeps and bloops, 2 s
+  robot: [
+    2,
+    (c) =>
+      [0, 0.2, 0.35, 0.7, 0.9, 1.3].forEach((t, i) =>
+        beep(c, t, 0.14, [880, 660, 1320, 440, 990, 1760][i], 0.22, "square"),
+      ),
+  ],
+  // a video game: a happy eight-bit tune, 2 s
+  chiptune: [
+    2,
+    (c) => [523, 659, 784, 1047, 784, 1047, 1319].forEach((f, i) => beep(c, i * 0.16, 0.14, f, 0.2, "square")),
+  ],
+  // dice rattling and rolling on a table, 1.6 s
+  dice: [
+    1.6,
+    (c) => {
+      for (let k = 0; k < 12; k++)
+        tick(c, 0.05 + k * 0.11 * (1 + k * 0.04), 1800 + Math.random() * 1500, 0.6 - k * 0.04, "noise");
+    },
+  ],
+  // magic sparkle (fairy, wizard, unicorn, rainbow, star), 2 s
+  magic: [2, (c) => [1568, 2093, 2637, 3136, 3520, 4186, 3520, 4699].forEach((f, i) => chime(c, i * 0.12, f, 0.22))],
+  // a whoosh going past (comet, kite, swing), 1.6 s
+  whoosh: [
+    1.6,
+    (c) => {
+      const n = noise(c, 1.6),
+        bp = filter(c, "bandpass", 400, 1.4),
+        g = gain(c, 0);
+      env(bp.frequency, [
+        [0, 300],
+        [0.8, 2200],
+        [1.6, 500],
+      ]);
+      env(g.gain, [
+        [0, 0],
+        [0.8, 0.6],
+        [1.6, 0],
+      ]);
+      n.connect(bp).connect(g).connect(c.destination);
+      n.start(0);
+    },
+  ],
+  // a hot-air balloon burner: a roaring flame, 2.4 s
+  burner: [2.4, (c) => burst(c, 0.1, 2, "lowpass", 900, 0.8, 0.9)],
+  // keys jingling, 1.4 s
+  keys: [
+    1.4,
+    (c) => {
+      for (let k = 0; k < 9; k++) chime(c, Math.random() * 0.9, 3000 + Math.random() * 3000, 0.18);
+    },
+  ],
+  // water dripping (tap, sink, water drop), 2 s
+  drip: [
+    2,
+    (c) =>
+      [0, 0.6, 1.2].forEach((t) => {
+        const o = osc(c, "sine", 900),
+          g = gain(c, 0);
+        o.frequency.setValueAtTime(900, t);
+        o.frequency.exponentialRampToValueAtTime(1800, t + 0.06);
+        env(g.gain, [
+          [t, 0],
+          [t + 0.005, 0.5],
+          [t + 0.09, 0],
+        ]);
+        o.connect(g).connect(c.destination);
+        o.start(t);
+        o.stop(t + 0.1);
+      }),
+  ],
+  // a hiss (fire extinguisher, spray, snake), 1.8 s
+  hiss: [1.8, (c) => burst(c, 0.05, 1.6, "highpass", 3000, 0.6, 0.6)],
+  // radio or television static, tuning in, 2 s
+  static: [
+    2,
+    (c) => {
+      burst(c, 0, 1.2, "bandpass", 2500, 0.4, 0.35);
+      beep(c, 1.2, 0.6, 1000, 0.15, "sine");
+    },
+  ],
+  // a deep rumble (volcano, earthquake, mountain), 3 s
+  rumble: [3, (c) => burst(c, 0.05, 2.8, "lowpass", 140, 0.6, 2)],
+  // a ball bouncing, 1.6 s
+  bounce: [1.6, (c) => [0, 0.5, 0.86, 1.12, 1.3].forEach((t, i) => thump(c, t, 1 - i * 0.17, 180))],
+  // playing cards being shuffled, 1.4 s
+  shuffle: [
+    1.4,
+    (c) => {
+      for (let k = 0; k < 26; k++) tick(c, 0.1 + k * 0.04, 3000, 0.25, "noise");
+    },
+  ],
+  // scissors snipping, 1.2 s
+  snip: [
+    1.2,
+    (c) =>
+      [0.05, 0.5].forEach((t) => {
+        tick(c, t, 4000, 0.6, "noise");
+        tick(c, t + 0.06, 5500, 0.4, "noise");
+      }),
+  ],
+  // a knock on the door, 1.2 s
+  knock: [1.2, (c) => [0, 0.22, 0.44].forEach((t) => thump(c, t, 0.9, 220))],
 };
+// an engine: a sawtooth at the firing rate (Hz) following a pitch curve, through a low-pass
+function engine(c, len, f, curve, cutoff, level) {
+  const o = osc(c, "sawtooth", f),
+    lp = filter(c, "lowpass", cutoff),
+    g = gain(c, 0);
+  env(o.frequency, curve);
+  env(g.gain, [
+    [0, 0],
+    [0.15, level],
+    [len - 0.3, level],
+    [len, 0],
+  ]);
+  o.connect(lp).connect(g).connect(c.destination);
+  o.start(0);
+  o.stop(len);
+  const n = noise(c, len, "brown"),
+    nl = filter(c, "lowpass", cutoff / 2),
+    ng = gain(c, level);
+  n.connect(nl).connect(ng).connect(c.destination);
+  n.start(0);
+}
+// a burst of filtered noise from t for len seconds
+function burst(c, t, len, type, f, q, level) {
+  const n = noise(c, len, type === "lowpass" && f < 300 ? "brown" : "white"),
+    x = filter(c, type, f, q),
+    g = gain(c, 0);
+  env(g.gain, [
+    [t, 0],
+    [t + Math.min(0.05, len / 4), level],
+    [t + len * 0.6, level * 0.6],
+    [t + len, 0],
+  ]);
+  n.connect(x).connect(g).connect(c.destination);
+  n.start(t);
+}
+// a tiny click: a short tone or noise grain at f Hz
+function tick(c, t, f, level, kind) {
+  const s = kind === "noise" ? noise(c, 0.03) : osc(c, "square", f),
+    bp = filter(c, "bandpass", f, kind === "noise" ? 2 : 8),
+    g = gain(c, 0);
+  env(g.gain, [
+    [t, 0],
+    [t + 0.002, level],
+    [t + 0.025, 0],
+  ]);
+  s.connect(bp).connect(g).connect(c.destination);
+  s.start(t);
+  if (s.stop) s.stop(t + 0.04);
+}
+// a soft low thump (a hop, a heartbeat, a bounce, a knock)
+function thump(c, t, level, f = 90) {
+  const o = osc(c, "sine", f * 1.6),
+    g = gain(c, 0);
+  o.frequency.setValueAtTime(f * 1.6, t);
+  o.frequency.exponentialRampToValueAtTime(f, t + 0.12);
+  env(g.gain, [
+    [t, 0],
+    [t + 0.004, 0.9 * level],
+    [t + 0.2, 0],
+  ]);
+  o.connect(g).connect(c.destination);
+  o.start(t);
+  o.stop(t + 0.22);
+}
+// a short bright bell-like ping
+function chime(c, t, f, level) {
+  // the upper partial only while it stays under the render's Nyquist limit (11 kHz)
+  [1, 2.76].forEach((m, i) => {
+    if (f * m > 10500) return;
+    const o = osc(c, "sine", f * m),
+      g = gain(c, 0);
+    env(g.gain, [
+      [t, 0],
+      [t + 0.003, level / (i * 2 + 1)],
+      [t + 0.45, 0],
+    ]);
+    o.connect(g).connect(c.destination);
+    o.start(t);
+    o.stop(t + 0.5);
+  });
+}
+// a plain beep
+function beep(c, t, len, f, level, type = "sine") {
+  const o = osc(c, type, f),
+    lp = filter(c, "lowpass", 4000),
+    g = gain(c, 0);
+  env(g.gain, [
+    [t, 0],
+    [t + 0.008, level],
+    [t + len - 0.02, level],
+    [t + len, 0],
+  ]);
+  o.connect(lp).connect(g).connect(c.destination);
+  o.start(t);
+  o.stop(t + len + 0.01);
+}
 function honk(c, t, len, freqs) {
   const g = gain(c, 0),
     lp = filter(c, "lowpass", 2200);
@@ -418,15 +843,143 @@ const ALIASES = {
   steamer: "ship",
   truck: "bus",
   lorry: "bus",
-  motorbike: "car",
-  scooter: "car",
-  auto: "car",
-  rickshaw: "car",
+  motorbike: "motorcycle",
+  scooter: "motorcycle",
+  auto: "rickshaw",
+  "auto-rickshaw": "rickshaw",
+  "race-car": "racecar",
+  "racing-car": "racecar",
+  taxi: "car",
+  van: "car",
+  jeep: "car",
+  trolleybus: "bus",
+  "fire-truck": "bus",
+  "cable-car": "electric",
+  metro: "electric",
+  fish: "bubbles",
+  goldfish: "bubbles",
+  starfish: "bubbles",
+  jellyfish: "bubbles",
+  octopus: "bubbles",
+  crab: "bubbles",
+  shark: "bubbles",
+  turtle: "bubbles",
+  tadpole: "bubbles",
+  tadpoles: "bubbles",
+  "sea-shell": "waves",
+  shell: "waves",
+  butterfly: "flutter",
+  moth: "flutter",
+  caterpillar: "skitter",
+  ant: "skitter",
+  spider: "skitter",
+  ladybug: "skitter",
+  cockroach: "skitter",
+  scorpion: "skitter",
+  hummingbird: "whirr",
+  dragonfly: "whirr",
+  kangaroo: "hop",
+  rabbit: "hop",
+  bunny: "hop",
+  tortoise: "rustle",
+  snail: "rustle",
+  iguana: "rustle",
+  lizard: "rustle",
+  sloth: "rustle",
+  hedgehog: "rustle",
+  fire: "crackle",
+  campfire: "crackle",
+  candle: "crackle",
+  balloon: "pop",
+  "party-popper": "pop",
+  money: "coin",
+  coins: "coin",
+  cash: "coin",
+  wallet: "coin",
+  bank: "coin",
+  heart: "heartbeat",
+  stethoscope: "heartbeat",
+  "mobile-phone": "ringtone",
+  mobile: "ringtone",
+  phone: "ringtone",
+  "video-game": "chiptune",
+  game: "chiptune",
+  fairy: "magic",
+  wizard: "magic",
+  genie: "magic",
+  unicorn: "magic",
+  mermaid: "magic",
+  rainbow: "magic",
+  sparkles: "magic",
+  star: "magic",
+  comet: "whoosh",
+  kite: "whoosh",
+  "hot-air-balloon": "burner",
+  key: "keys",
+  "water-drop": "drip",
+  sink: "drip",
+  "fire-extinguisher": "hiss",
+  snake: "hiss",
+  radio: "static",
+  television: "static",
+  tv: "static",
+  volcano: "rumble",
+  earthquake: "rumble",
+  ball: "bounce",
+  football: "bounce",
+  basketball: "bounce",
+  "soccer-ball": "bounce",
+  "playing-cards": "shuffle",
+  cards: "shuffle",
+  scissors: "snip",
+  door: "knock",
   bike: "bicycle",
   cycle: "bicycle",
   tabla: "drum",
   dhol: "drum",
   tick: "clock",
+  tennis: "bounce",
+  volleyball: "bounce",
+  baseball: "bounce",
+  racket: "bounce",
+  rat: "skitter",
+  mouse: "skitter",
+  fan: "wind",
+  cloudy: "wind",
+  snowy: "wind",
+  windy: "wind",
+  winter: "wind",
+  autumn: "wind",
+  desert: "wind",
+  mountain: "wind",
+  cold: "wind",
+  snowflake: "wind",
+  hot: "crackle",
+  fast: "racecar",
+  slow: "rustle",
+  leaves: "rustle",
+  astronaut: "static",
+  alien: "robot",
+  popcorn: "pop",
+  "confetti-ball": "pop",
+  gift: "magic",
+  superhero: "whoosh",
+  skiing: "whoosh",
+  skateboard: "whoosh",
+  "roller-skate": "whoosh",
+  sled: "whoosh",
+  "ice-skate": "whoosh",
+  "yo-yo": "whoosh",
+  pot: "bubbles",
+  honey: "bee",
+  wheat: "tractor",
+  chess: "knock",
+  blocks: "knock",
+  "boxing-glove": "knock",
+  cycling: "bicycle",
+  stopwatch: "clock",
+  watch: "clock",
+  hourglass: "clock",
 };
 /** The names this module can make (aliases included). */
 export const synthNames = [...Object.keys(SOUNDS), ...Object.keys(ALIASES)];

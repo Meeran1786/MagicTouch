@@ -11,15 +11,18 @@
   "items": [
     {
       "emoji": "🐦",
-      "word": "Sparrow"
+      "word": "Sparrow",
+      "sfx": "sparrow"
     },
     {
       "emoji": "🐦‍⬛",
-      "word": "Crow"
+      "word": "Crow",
+      "sfx": "crow"
     },
     {
       "emoji": "🦉",
-      "word": "Owl"
+      "word": "Owl",
+      "sfx": "owl"
     },
     {
       "emoji": "🦜",
@@ -28,11 +31,13 @@
     },
     {
       "emoji": "🦆",
-      "word": "Duck"
+      "word": "Duck",
+      "sfx": "duck"
     },
     {
       "emoji": "🦅",
-      "word": "Eagle"
+      "word": "Eagle",
+      "sfx": "eagle"
     },
     {
       "emoji": "🕊️",

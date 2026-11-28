@@ -11,7 +11,8 @@
   "items": [
     {
       "emoji": "🦋",
-      "word": "Butterfly"
+      "word": "Butterfly",
+      "sfx": "butterfly"
     },
     {
       "emoji": "🐝",
@@ -20,27 +21,33 @@
     },
     {
       "emoji": "🐞",
-      "word": "Ladybug"
+      "word": "Ladybug",
+      "sfx": "ladybug"
     },
     {
       "emoji": "🐜",
-      "word": "Ant"
+      "word": "Ant",
+      "sfx": "ant"
     },
     {
       "emoji": "🕷️",
-      "word": "Spider"
+      "word": "Spider",
+      "sfx": "spider"
     },
     {
       "emoji": "🐌",
-      "word": "Snail"
+      "word": "Snail",
+      "sfx": "snail"
     },
     {
       "emoji": "🐛",
-      "word": "Caterpillar"
+      "word": "Caterpillar",
+      "sfx": "caterpillar"
     },
     {
       "emoji": "🦗",
-      "word": "Cricket"
+      "word": "Cricket",
+      "sfx": "cricket"
     }
   ]
 }

@@ -11,11 +11,13 @@
   "items": [
     {
       "emoji": "🩺",
-      "word": "Stethoscope"
+      "word": "Stethoscope",
+      "sfx": "stethoscope"
     },
     {
       "emoji": "🧯",
-      "word": "Fire Extinguisher"
+      "word": "Fire Extinguisher",
+      "sfx": "fire-extinguisher"
     },
     {
       "emoji": "🔍",
@@ -23,7 +25,8 @@
     },
     {
       "emoji": "⚖️",
-      "word": "Gavel"
+      "word": "Gavel",
+      "sfx": "gavel"
     },
     {
       "emoji": "💉",
@@ -35,7 +38,8 @@
     },
     {
       "emoji": "📷",
-      "word": "Camera"
+      "word": "Camera",
+      "sfx": "camera"
     },
     {
       "emoji": "🔭",

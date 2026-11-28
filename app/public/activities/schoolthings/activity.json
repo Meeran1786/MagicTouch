@@ -27,7 +27,8 @@
     },
     {
       "emoji": "✂️",
-      "word": "Scissors"
+      "word": "Scissors",
+      "sfx": "scissors"
     },
     {
       "emoji": "📏",

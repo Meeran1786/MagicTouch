@@ -11,11 +11,13 @@
   "items": [
     {
       "emoji": "🏠",
-      "word": "House"
+      "word": "House",
+      "sfx": "house"
     },
     {
       "emoji": "🚪",
-      "word": "Door"
+      "word": "Door",
+      "sfx": "door"
     },
     {
       "emoji": "🪟",
@@ -39,7 +41,8 @@
     },
     {
       "emoji": "🔑",
-      "word": "Key"
+      "word": "Key",
+      "sfx": "key"
     }
   ]
 }

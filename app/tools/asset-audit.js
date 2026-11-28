@@ -8,8 +8,8 @@
 // Status values:
 //   original-magictouch  drawn or generated for MagicTouch (tools/art, generated audio)
 //   bundled-library      open-source library files (see public/vendor/LICENSE.md)
-//   cc0-library          public-domain (CC0) files: the Kenney sound cues in public/assets/sfx and
-//                        the theme sounds in public/assets/sfx/themes (credits.json)
+//   commons-credited     theme sounds in public/assets/sfx/themes: Wikimedia Commons, credited per file
+//   cc0-library          public-domain (CC0) files: the Kenney sound cues in public/assets/sfx
 //   generated-voice      voice clips made by scripts/generate-voices.js (Google Cloud TTS)
 //   purchased-unverified came with the purchased Interactive Wall code; the IP assignment
 //                        covers Basha's own work, but the source of stock-looking media
@@ -53,20 +53,22 @@ for (const f of walk(PUB)) {
   const sha = crypto.createHash("sha256").update(buf).digest("hex").slice(0, 16);
   const status = rel.startsWith("vendor/")
     ? "bundled-library"
-    : rel.startsWith("assets/sfx/")
-      ? "cc0-library"
-      : rel.startsWith("assets/voice/")
-        ? "generated-voice"
-        : ORIGINAL.has(sha)
-          ? "original-magictouch"
-          : "purchased-unverified";
+    : rel.startsWith("assets/sfx/themes/")
+      ? "commons-credited"
+      : rel.startsWith("assets/sfx/")
+        ? "cc0-library"
+        : rel.startsWith("assets/voice/")
+          ? "generated-voice"
+          : ORIGINAL.has(sha)
+            ? "original-magictouch"
+            : "purchased-unverified";
   let note =
     ORIGINAL.get(sha) ||
-    (status === "cc0-library"
-      ? rel.startsWith("assets/sfx/themes/")
-        ? "Wikimedia Commons, CC0 / public domain / CC BY (assets/sfx/themes/credits.json)"
-        : "Kenney Interface Sounds 1.0, CC0 (assets/sfx/LICENSE-Kenney.txt)"
-      : "") ||
+    (status === "commons-credited"
+      ? "Wikimedia Commons, CC0 / public domain / CC BY / CC BY-SA, author and licence per file (assets/sfx/themes/credits.json)"
+      : status === "cc0-library"
+        ? "Kenney Interface Sounds 1.0, CC0 (assets/sfx/LICENSE-Kenney.txt)"
+        : "") ||
     (status === "generated-voice" ? "Google Cloud Text-to-Speech, scripts/generate-voices.js" : "");
   if (m) {
     flagged.push(`${rel}: "${m[0]}"`);
@@ -84,7 +86,7 @@ if (!process.argv.includes("--check")) {
 }
 const count = (s) => rows.filter((r) => r[3] === s).length;
 console.log(
-  `${rows.length - 1} media files: ${count("original-magictouch")} original, ${count("bundled-library")} library, ${count("cc0-library")} CC0, ${count("generated-voice")} voice clips, ${count("purchased-unverified")} purchased (source to confirm).`,
+  `${rows.length - 1} media files: ${count("original-magictouch")} original, ${count("bundled-library")} library, ${count("cc0-library")} CC0, ${count("commons-credited")} Commons (credited), ${count("generated-voice")} voice clips, ${count("purchased-unverified")} purchased (source to confirm).`,
 );
 if (flagged.length) {
   console.log("Stock-library markers found:\n  " + flagged.join("\n  "));

@@ -17,6 +17,7 @@
     },
     {
       "word": "Ball",
+      "sfx": "ball",
       "cover": "assets/B.png",
       "photo": "assets/Ball.gif",
       "audio": "assets/Ball.mp3"
@@ -44,12 +45,14 @@
     },
     {
       "word": "Fish",
+      "sfx": "fish",
       "cover": "assets/F.png",
       "photo": "assets/Fish.gif",
       "audio": "assets/fish.mp3"
     },
     {
       "word": "Giraffe",
+      "sfx": "giraffe",
       "cover": "assets/G.png",
       "photo": "assets/Girafee.gif",
       "audio": "assets/girafee.mp3"
@@ -75,6 +78,7 @@
     },
     {
       "word": "Kite",
+      "sfx": "kite",
       "cover": "assets/K.png",
       "photo": "assets/Kite.gif",
       "audio": "assets/kite.mp3"
@@ -95,12 +99,14 @@
     },
     {
       "word": "Nest",
+      "sfx": "nest",
       "cover": "assets/N.png",
       "photo": "assets/Nest.jpg",
       "audio": "assets/nest.mp3"
     },
     {
       "word": "Owl",
+      "sfx": "owl",
       "cover": "assets/O.png",
       "photo": "assets/Owl.gif",
       "audio": "assets/owl.mp3"
@@ -120,6 +126,7 @@
     },
     {
       "word": "Rabbit",
+      "sfx": "rabbit",
       "cover": "assets/R.png",
       "photo": "assets/Rabbit.gif",
       "audio": "assets/rabbit.mp3"
@@ -133,18 +140,21 @@
     },
     {
       "word": "Tiger",
+      "sfx": "tiger",
       "cover": "assets/T.png",
       "photo": "assets/tiger.gif",
       "audio": "assets/Tiger.mp3"
     },
     {
       "word": "Umbrella",
+      "sfx": "umbrella",
       "cover": "assets/U.png",
       "photo": "assets/Umbrella.gif",
       "audio": "assets/umbrella.mp3"
     },
     {
       "word": "Van",
+      "sfx": "van",
       "cover": "assets/V.png",
       "photo": "assets/Van.gif",
       "audio": "assets/van.mp3"
@@ -157,18 +167,21 @@
     },
     {
       "word": "Xmas Tree",
+      "sfx": "xmas-tree",
       "cover": "assets/X.png",
       "photo": "assets/X-tree.gif",
       "audio": "assets/christmass_tree.mp3"
     },
     {
       "word": "Yacht",
+      "sfx": "yacht",
       "cover": "assets/Y.png",
       "photo": "assets/Yacht.gif",
       "audio": "assets/yacht.mp3"
     },
     {
       "word": "Zebra",
+      "sfx": "zebra",
       "cover": "assets/Z.png",
       "photo": "assets/Zeebra.gif",
       "audio": "assets/zebra.mp3"

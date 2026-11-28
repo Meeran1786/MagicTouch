@@ -16,7 +16,8 @@
     },
     {
       "emoji": "🚕",
-      "word": "Taxi"
+      "word": "Taxi",
+      "sfx": "taxi"
     },
     {
       "emoji": "🚌",
@@ -25,11 +26,13 @@
     },
     {
       "emoji": "🚎",
-      "word": "Trolleybus"
+      "word": "Trolleybus",
+      "sfx": "trolleybus"
     },
     {
       "emoji": "🏎️",
-      "word": "Race Car"
+      "word": "Race Car",
+      "sfx": "race-car"
     },
     {
       "emoji": "🚓",
@@ -53,11 +56,13 @@
     },
     {
       "emoji": "🚜",
-      "word": "Tractor"
+      "word": "Tractor",
+      "sfx": "tractor"
     },
     {
       "emoji": "🏍️",
-      "word": "Motorcycle"
+      "word": "Motorcycle",
+      "sfx": "motorcycle"
     },
     {
       "emoji": "🚲",
@@ -66,7 +71,8 @@
     },
     {
       "emoji": "🛺",
-      "word": "Auto Rickshaw"
+      "word": "Auto Rickshaw",
+      "sfx": "auto-rickshaw"
     },
     {
       "emoji": "🚂",
@@ -75,11 +81,13 @@
     },
     {
       "emoji": "🚆",
-      "word": "Railway"
+      "word": "Railway",
+      "sfx": "railway"
     },
     {
       "emoji": "🚇",
-      "word": "Metro"
+      "word": "Metro",
+      "sfx": "metro"
     },
     {
       "emoji": "✈️",
@@ -107,15 +115,18 @@
     },
     {
       "emoji": "🚤",
-      "word": "Speedboat"
+      "word": "Speedboat",
+      "sfx": "speedboat"
     },
     {
       "emoji": "🛶",
-      "word": "Canoe"
+      "word": "Canoe",
+      "sfx": "canoe"
     },
     {
       "emoji": "🚡",
-      "word": "Cable Car"
+      "word": "Cable Car",
+      "sfx": "cable-car"
     }
   ]
 }

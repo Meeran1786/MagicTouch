@@ -95,6 +95,7 @@ export default function map(area, d, ctx) {
       info.set({ tag: "Explore", title: r.label, body: r.text || "" });
       MT.speak([r.label, r.text || ""]);
       MT.sfx.tap();
+      MT.theme(r.sfx); // the place's own sound ("sfx": "train"), after the voice
       if (!seen[id]) {
         seen[id] = 1;
         mark(id, "mp-seen", true);

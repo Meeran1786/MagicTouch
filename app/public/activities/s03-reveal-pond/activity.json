@@ -19,6 +19,7 @@
       "y": 700,
       "r": 80,
       "label": "Fish",
+      "sfx": "fish",
       "say": "Fish breathe under water using gills."
     },
     {
@@ -26,6 +27,7 @@
       "y": 785,
       "r": 70,
       "label": "Tadpoles",
+      "sfx": "tadpoles",
       "say": "Tadpoles are baby frogs. They grow legs and turn into frogs."
     },
     {
@@ -33,6 +35,7 @@
       "y": 568,
       "r": 70,
       "label": "Snail",
+      "sfx": "snail",
       "say": "A snail carries its shell like a house and moves on one slimy foot."
     },
     {
@@ -40,6 +43,7 @@
       "y": 562,
       "r": 75,
       "label": "Turtle",
+      "sfx": "turtle",
       "say": "A turtle can live in water and on land. Its hard shell keeps it safe."
     },
     {
@@ -47,6 +51,7 @@
       "y": 470,
       "r": 70,
       "label": "Dragonfly",
+      "sfx": "dragonfly",
       "say": "A dragonfly has four wings. Its babies grow up under the water."
     },
     {
@@ -54,6 +59,7 @@
       "y": 348,
       "r": 70,
       "label": "Kingfisher",
+      "sfx": "kingfisher",
       "say": "The kingfisher dives into the water to catch fish with its long beak."
     }
   ],

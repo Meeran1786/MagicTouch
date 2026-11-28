@@ -11,27 +11,33 @@
   "items": [
     {
       "emoji": "🎂",
-      "word": "Birthday Cake"
+      "word": "Birthday Cake",
+      "sfx": "birthday-cake"
     },
     {
       "emoji": "🎁",
-      "word": "Gift"
+      "word": "Gift",
+      "sfx": "gift"
     },
     {
       "emoji": "🎉",
-      "word": "Party Popper"
+      "word": "Party Popper",
+      "sfx": "party-popper"
     },
     {
       "emoji": "🕯️",
-      "word": "Candle"
+      "word": "Candle",
+      "sfx": "candle"
     },
     {
       "emoji": "🎊",
-      "word": "Confetti Ball"
+      "word": "Confetti Ball",
+      "sfx": "confetti-ball"
     },
     {
       "emoji": "🥳",
-      "word": "Party"
+      "word": "Party",
+      "sfx": "party"
     }
   ]
 }

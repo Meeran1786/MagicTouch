@@ -11,23 +11,28 @@
   "puppets": [
     {
       "emoji": "🐇",
-      "word": "Rabbit"
+      "word": "Rabbit",
+      "sfx": "rabbit"
     },
     {
       "emoji": "🐕",
-      "word": "Dog"
+      "word": "Dog",
+      "sfx": "dog"
     },
     {
       "emoji": "🐦",
-      "word": "Bird"
+      "word": "Bird",
+      "sfx": "bird"
     },
     {
       "emoji": "🦌",
-      "word": "Deer"
+      "word": "Deer",
+      "sfx": "deer"
     },
     {
       "emoji": "🦋",
-      "word": "Butterfly"
+      "word": "Butterfly",
+      "sfx": "butterfly"
     }
   ]
 }

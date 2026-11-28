@@ -11,23 +11,28 @@
   "items": [
     {
       "emoji": "🌞",
-      "word": "Summer"
+      "word": "Summer",
+      "sfx": "summer"
     },
     {
       "emoji": "⛄",
-      "word": "Winter"
+      "word": "Winter",
+      "sfx": "winter"
     },
     {
       "emoji": "☔",
-      "word": "Monsoon"
+      "word": "Monsoon",
+      "sfx": "monsoon"
     },
     {
       "emoji": "🌷",
-      "word": "Spring"
+      "word": "Spring",
+      "sfx": "spring"
     },
     {
       "emoji": "🍁",
-      "word": "Autumn"
+      "word": "Autumn",
+      "sfx": "autumn"
     }
   ]
 }

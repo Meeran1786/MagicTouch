@@ -11,7 +11,8 @@
   "items": [
     {
       "emoji": "😀",
-      "word": "Happy"
+      "word": "Happy",
+      "sfx": "happy"
     },
     {
       "emoji": "😢",

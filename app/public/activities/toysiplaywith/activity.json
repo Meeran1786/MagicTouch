@@ -15,7 +15,8 @@
     },
     {
       "emoji": "🪁",
-      "word": "Kite"
+      "word": "Kite",
+      "sfx": "kite"
     },
     {
       "emoji": "🧩",
@@ -23,19 +24,23 @@
     },
     {
       "emoji": "🧱",
-      "word": "Blocks"
+      "word": "Blocks",
+      "sfx": "blocks"
     },
     {
       "emoji": "🤖",
-      "word": "Robot"
+      "word": "Robot",
+      "sfx": "robot"
     },
     {
       "emoji": "🪀",
-      "word": "Yo-yo"
+      "word": "Yo-yo",
+      "sfx": "yo-yo"
     },
     {
       "emoji": "🎈",
-      "word": "Balloon"
+      "word": "Balloon",
+      "sfx": "balloon"
     }
   ]
 }

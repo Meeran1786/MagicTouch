@@ -11,11 +11,13 @@
   "items": [
     {
       "emoji": "⛰️",
-      "word": "Mountain"
+      "word": "Mountain",
+      "sfx": "mountain"
     },
     {
       "emoji": "🌋",
-      "word": "Volcano"
+      "word": "Volcano",
+      "sfx": "volcano"
     },
     {
       "emoji": "🏝️",
@@ -23,15 +25,18 @@
     },
     {
       "emoji": "🏜️",
-      "word": "Desert"
+      "word": "Desert",
+      "sfx": "desert"
     },
     {
       "emoji": "🌲",
-      "word": "Forest"
+      "word": "Forest",
+      "sfx": "forest"
     },
     {
       "emoji": "🏞️",
-      "word": "National Park"
+      "word": "National Park",
+      "sfx": "national-park"
     }
   ]
 }

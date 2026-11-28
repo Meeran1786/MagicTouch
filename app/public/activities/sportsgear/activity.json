@@ -15,27 +15,33 @@
     },
     {
       "emoji": "🏸",
-      "word": "Racket"
+      "word": "Racket",
+      "sfx": "racket"
     },
     {
       "emoji": "🏅",
-      "word": "Medal"
+      "word": "Medal",
+      "sfx": "medal"
     },
     {
       "emoji": "🏆",
-      "word": "Trophy"
+      "word": "Trophy",
+      "sfx": "trophy"
     },
     {
       "emoji": "🛹",
-      "word": "Skateboard"
+      "word": "Skateboard",
+      "sfx": "skateboard"
     },
     {
       "emoji": "🛼",
-      "word": "Roller Skate"
+      "word": "Roller Skate",
+      "sfx": "roller-skate"
     },
     {
       "emoji": "🥊",
-      "word": "Boxing Glove"
+      "word": "Boxing Glove",
+      "sfx": "boxing-glove"
     },
     {
       "emoji": "🎯",

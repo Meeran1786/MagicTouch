@@ -26,9 +26,10 @@
 //                                        the voice speaks, silent while muted
 //   MagicAudio.preload(lines, lang)      decode clips ahead of time; preloadActivity(activity)
 //
-// Theme sounds (real-world): MagicAudio.playTheme("cat" | { name, loop, volume }) → { stop() }
-//   plays /assets/sfx/themes/<name>.ogg|.mp3 when it is there, else nothing (a clean silent
-//   fallback). Activities name them with "sfx" (a one-shot) and "ambience" (a quiet loop).
+// Theme sounds (real-world): MagicAudio.playTheme("cat" | { name, loop, volume, now }) → { stop() }
+//   plays /assets/sfx/themes/<name>.ogg|.mp3 when it is there, else the sound made in code
+//   (theme-synth.js), else nothing. Activities name them with "sfx" (a one-shot) and "ambience" (a
+//   quiet loop). A one-shot waits until the voice has finished the word, then plays.
 //   MagicAudio.playSound(url, { loop, volume }) plays any recorded file the same way.
 //
 // Sound effects: tap, toggle, tick, success, wrong, pop
@@ -697,6 +698,18 @@ function playBuffer(bufP, opt = {}) {
     .catch(() => (h.playing = false));
   return h;
 }
+/** Resolves once the voice is quiet (it gives a line said in the same tap a moment to start), plus a
+ *  short gap; gives up after 6 s so a long line never swallows the sound. */
+async function afterVoice(cancelled) {
+  const nap = (ms) => new Promise((r) => setTimeout(r, ms));
+  await nap(60);
+  let waited = 0;
+  while (talking && waited < 6000 && !cancelled()) {
+    await nap(100);
+    waited += 100;
+  }
+  if (waited) await nap(150);
+}
 /** Plays the theme sound with this name ("cat", "airplane", "electric"): its recording if there is
  *  one, else the same sound made in code when theme-synth.js has it, else nothing. */
 function playTheme(name, opt = {}) {
@@ -714,7 +727,10 @@ function playTheme(name, opt = {}) {
       inner.stop(fade);
     },
   };
-  themes().then((idx) => {
+  // a one-shot waits for the voice: the word is said first, then its sound plays (they never
+  // talk over each other); a loop (ambience) or { now: true } starts at once, ducked under the voice
+  const turn = opt.loop || opt.now ? Promise.resolve() : afterVoice(() => stopped);
+  Promise.all([themes(), turn]).then(([idx]) => {
     if (stopped) return;
     // a name, or the name its code-made sound goes by ("aeroplane" → "airplane"), may have a recording
     const file = idx[key] || idx[synthTheme(key)];

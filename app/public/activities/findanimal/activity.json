@@ -11,6 +11,7 @@
   "items": [
     {
       "word": "Black Tiger",
+      "sfx": "black-tiger",
       "photo": "images/BlackTiger.gif"
     },
     {
@@ -20,10 +21,12 @@
     },
     {
       "word": "Crow",
+      "sfx": "crow",
       "photo": "images/Crow.gif"
     },
     {
       "word": "Dinosaur",
+      "sfx": "dinosaur",
       "photo": "images/Dinosaur.gif"
     },
     {
@@ -38,18 +41,22 @@
     },
     {
       "word": "Fish",
+      "sfx": "fish",
       "photo": "images/Fish.gif"
     },
     {
       "word": "Giraffe",
+      "sfx": "giraffe",
       "photo": "images/Girafee.gif"
     },
     {
       "word": "Goat",
+      "sfx": "goat",
       "photo": "images/Goat.gif"
     },
     {
       "word": "Hippo",
+      "sfx": "hippo",
       "photo": "images/Hippo.gif"
     },
     {
@@ -69,6 +76,7 @@
     },
     {
       "word": "Ostrich",
+      "sfx": "ostrich",
       "photo": "images/Ostrich.gif"
     },
     {
@@ -78,6 +86,7 @@
     },
     {
       "word": "Rabbit",
+      "sfx": "rabbit",
       "photo": "images/Rabbit.gif"
     },
     {
@@ -87,18 +96,22 @@
     },
     {
       "word": "Tiger",
+      "sfx": "tiger",
       "photo": "images/Tiger.gif"
     },
     {
       "word": "Tortoise",
+      "sfx": "tortoise",
       "photo": "images/Tortoise.gif"
     },
     {
       "word": "White Parrot",
+      "sfx": "white-parrot",
       "photo": "images/WhiteParrot.gif"
     },
     {
       "word": "Zebra",
+      "sfx": "zebra",
       "photo": "images/Zeebra.gif"
     }
   ]
