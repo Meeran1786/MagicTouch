@@ -2,8 +2,8 @@
  "about": "Pre-generated voice clips, written by app/scripts/generate-voices.js. Do not edit by hand.",
  "voices": {
   "en-IN": "en-IN-Chirp3-HD-Kore",
-  "hi-IN": "hi-IN-Chirp3-HD-Kore",
-  "te-IN": "te-IN-Chirp3-HD-Kore"
+  "hi-IN": "hi-IN-Chirp3-HD-Achernar",
+  "te-IN": "te-IN-Chirp3-HD-Callirrhoe"
  },
  "clips": {
   "en-IN": {
@@ -6617,804 +6617,804 @@
    "x-10mqpdxs1ok": {
     "t": "गाजर",
     "h": "ebqzjir7ng",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-10rft9sj3up": {
     "t": "बकरी",
     "h": "1yfrvey9vnc",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-10y0ivnq4l5": {
     "t": "दरियाई घोड़ा",
     "h": "l1oif9024t",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-11kz1dm7oac": {
     "t": "हाथी",
     "h": "8ip28d1q55",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-12pz71hsayp": {
     "t": "भेड़",
     "h": "im1sv82chr",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-1335pj6fhq1": {
     "t": "खीरा",
     "h": "1nidv494ipr",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-140cabca4wp": {
     "t": "मीठी मक्का",
     "h": "23ip4dolsxf",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-14o4g1lmprq": {
     "t": "मछली",
     "h": "1jftnmxykvf",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-14plmnzt4qc": {
     "t": "ज़ेबरा",
     "h": "k19v9g3dhb",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-15dwd6d20gk": {
     "t": "पपीता",
     "h": "16nrr7xxxvc",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-16zq6d1c2c2": {
     "t": "फल",
     "h": "wrljkn9sqi",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-17rb2ayni56": {
     "t": "आलू",
     "h": "pv5gs2dazg",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-196adqwuxko": {
     "t": "चिंकारा",
     "h": "1t5iifj1me5",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-1byc5to0n97": {
     "t": "कंगारू",
     "h": "gw5wj59jua",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-1cx8qhmfobh": {
     "t": "अनानास",
     "h": "ckyb11nges",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-1fb5eswq527": {
     "t": "धनिया",
     "h": "u2358koo4l",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-1fmfugj5cfi": {
     "t": "प्याज़",
     "h": "14hixx8ndrq",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-1g6ih78aq1h": {
     "t": "फूलगोभी",
     "h": "2trhj5d8vv",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-1gb9torzbx": {
     "t": "सफ़ेद तोता",
     "h": "yqncsykshh",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-1gtsve20su9": {
     "t": "शुतुरमुर्ग",
     "h": "29y9elgt7km",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-1gyih0aqpvu": {
     "t": "अदरक",
     "h": "123vohlq9nn",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-1gyu3j8covk": {
     "t": "सफ़ेद गाजर",
     "h": "2dahpn5camr",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-1je5pz2j57x": {
     "t": "आलूबुखारा",
     "h": "rxac0oo1z2",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-1jrlpw7lszr": {
     "t": "शेर",
     "h": "2f4w5dvylz4",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-1nif2o0rmln": {
     "t": "अंगूर",
     "h": "kpah5u1q4f",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-1p3g4qttxro": {
     "t": "आम",
     "h": "u4cq0rxtvy",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-1u6rmzpwe2x": {
     "t": "बिल्ली",
     "h": "v5y7qe229y",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-1uh3yidq3hd": {
     "t": "भेड़िया",
     "h": "1n5izcuhr2t",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-1uobb2yqdus": {
     "t": "लहसुन",
     "h": "15wunm8h1nr",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-1usk5pxoowb": {
     "t": "हिरण",
     "h": "1o5b2bpkeve",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-1ut6afel4za": {
     "t": "ड्रैगन फ्रूट",
     "h": "1uliofrjjmv",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-1vdsrgqj1mt": {
     "t": "ताड़गोला",
     "h": "2avkkofd6zg",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-1vj0i27iiwq": {
     "t": "हरी मिर्च",
     "h": "g1cfwvunlq",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-1w3ro00gwtj": {
     "t": "तोता",
     "h": "2ck1b7yjxsf",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-1xc6xgwjc1m": {
     "t": "कछुआ",
     "h": "1vf87q0kebo",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-1xipozpyq0c": {
     "t": "जिराफ़",
     "h": "700idnzjvx",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-1xqsay6l5s7": {
     "t": "गाय",
     "h": "1i4rk047qf1",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-1xr1gc84vbi": {
     "t": "कटहल",
     "h": "1d53qrjns7d",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-1z5nz64uni5": {
     "t": "चेरी",
     "h": "6agqez012f",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-217ref0l457": {
     "t": "गैंडा",
     "h": "iotgce8uuo",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-23neouf6agu": {
     "t": "गोरिल्ला",
     "h": "3tgc8bs53z",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-23nii7ffpby": {
     "t": "कौआ",
     "h": "1zfx2l6pemq",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-242h8hsqp93": {
     "t": "खरबूजा",
     "h": "12d66v9t7xo",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-27qh39hoaeo": {
     "t": "नींबू",
     "h": "x7h0poa0ty",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-2av3k3sa80v": {
     "t": "अंजीर",
     "h": "4sru78hg2b",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-2be6vttdj8o": {
     "t": "अनार",
     "h": "1pisci1o18g",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-2bestklh3oy": {
     "t": "तरबूज़",
     "h": "h1lo6v8t4h",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-2diuz2l61on": {
     "t": "अमरूद",
     "h": "21e2txpmp5r",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-2ets6bt5kgk": {
     "t": "ऊंट",
     "h": "3q4huikr5m",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-3f9z2z78un": {
     "t": "लोमड़ी",
     "h": "1wiop8wbzs0",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-3vf0b5cpct": {
     "t": "कमरख",
     "h": "10apgob3dwy",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-5x1gxn4fe0": {
     "t": "बाघ",
     "h": "1m9gj4bfhbn",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-64vzj119t1": {
     "t": "सब्ज़ी",
     "h": "1i1z2w7vpir",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-7lwsvab7sw": {
     "t": "स्ट्रॉबेरी",
     "h": "25uomtdudye",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-7rpj5po0zi": {
     "t": "सीताफल",
     "h": "1owq9bec6dd",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-8cm0w5z7f3": {
     "t": "पांडा",
     "h": "1snwqau5ei3",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-8lcx1e4vvy": {
     "t": "पिस्ता",
     "h": "22ebm716jgd",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-a6dl68ki10": {
     "t": "टमाटर",
     "h": "4yvc1dasp4",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-ecpjphmk5x": {
     "t": "संतरा",
     "h": "1eicxotnda5",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-erb5ok8dxq": {
     "t": "इमली",
     "h": "7jo47yhtot",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-f3sd9mpwed": {
     "t": "मूंगफली",
     "h": "offd2434z2",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-fhzn2ibh49": {
     "t": "नारियल",
     "h": "1k9ag0nganx",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-fk3ttgxshr": {
     "t": "काली मिर्च",
     "h": "soj5qo8un9",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-h8czklwm99": {
     "t": "भालू",
     "h": "1675phdu7yl",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-i0qgug3oos": {
     "t": "खरगोश",
     "h": "1bx59s3ucma",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-l6d9hjo2fp": {
     "t": "सील",
     "h": "1qw9puxbo22",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-liug36yw9q": {
     "t": "कुत्ता",
     "h": "5w1ixp7wuf",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-mkptfygvhs": {
     "t": "खजूर",
     "h": "1a5zf83zbea",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-ozjd9lfv9i": {
     "t": "घोड़ा",
     "h": "218b9tnrbdk",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-p8rtr7q2s5": {
     "t": "डायनासोर",
     "h": "22gsdj7uayn",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-tex1awevs0": {
     "t": "भैंस",
     "h": "274uvobcd4",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-tosnryhoce": {
     "t": "जामुन",
     "h": "6a40pmq5yf",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-u052minx1d": {
     "t": "काला बाघ",
     "h": "11md60t0qi2",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-uwnonrq8f3": {
     "t": "गधा",
     "h": "1b3c486vjyk",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-ux5ssfwre3": {
     "t": "सलाद पत्ता",
     "h": "1edpbku9q42",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-xgeou2lvgg": {
     "t": "मगरमच्छ",
     "h": "3dhyej25qd",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-xlq8c9nqlg": {
     "t": "बंदर",
     "h": "1j2acxvis76",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-y5tc370v5m": {
     "t": "मटर",
     "h": "1c2w1qeroyr",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-z0eys78w7l": {
     "t": "कीवी",
     "h": "thgqoe0uw8",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    },
    "x-zck5fyal41": {
     "t": "चिंपैंजी",
     "h": "2buw6qf2l0w",
-    "v": "hi-IN-Chirp3-HD-Kore"
+    "v": "hi-IN-Chirp3-HD-Achernar"
    }
   },
   "te-IN": {
    "x-101at0vvvgt": {
     "t": "డైనోసార్",
     "h": "1v4enrsmwwn",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-10acxko8llp": {
     "t": "మామిడి",
     "h": "1lbnlv9lv5r",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-112l48955tb": {
     "t": "క్యారెట్",
     "h": "2ggk14e5qy0",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-112vvgp30qy": {
     "t": "తోడేలు",
     "h": "10uutj5pgw7",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-11863l2utx2": {
     "t": "నిమ్మకాయ",
     "h": "1ziveojfgct",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-11dru25i2h4": {
     "t": "అంజీర",
     "h": "22bvllnewbq",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-11r3nj0lgdt": {
     "t": "పులి",
     "h": "ha6yqm6305",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-12ng3yl1eha": {
     "t": "మేక",
     "h": "247uoqtpctd",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-14a8qmpiqvm": {
     "t": "కుక్క",
     "h": "1m3bikc0o55",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-14cy333abpa": {
     "t": "దోసకాయ",
     "h": "ba654gj7e7",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-161isjr84bi": {
     "t": "కొత్తిమీర",
     "h": "1avi9spi5k9",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-16lcdg8jiz9": {
     "t": "నల్ల పులి",
     "h": "boiewd8xsz",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-17k2cdfza4y": {
     "t": "వెల్లుల్లి",
     "h": "ugg37dbaa5",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-17yw1zqppr0": {
     "t": "డ్రాగన్ ఫ్రూట్",
     "h": "j7wena03ht",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-199a6sf3zka": {
     "t": "ఒంటె",
     "h": "a94261qlh2",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-1a668il2ipx": {
     "t": "కూరగాయ",
     "h": "1qovknih0j",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-1ap3wkayyrp": {
     "t": "పిస్తా",
     "h": "emqqd9ibpw",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-1asyp98rvga": {
     "t": "మొసలి",
     "h": "20ss9g4vaz4",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-1atkaukolqc": {
     "t": "తాబేలు",
     "h": "1nykl6ce099",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-1c2sjglqau1": {
     "t": "స్టార్ ఫ్రూట్",
     "h": "1xx4bjm4yq1",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-1c44dmto6zm": {
     "t": "తెలుపు చిలుక",
     "h": "1y2814zjnj9",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-1cbn0rtoyym": {
     "t": "పనస",
     "h": "1k1tx88sqdw",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-1dcn4unop7k": {
     "t": "జింక",
     "h": "12qrc512of",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-1eywabac7dh": {
     "t": "ఉల్లిపాయ",
     "h": "17g6rjubj6k",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-1f2u3vcdwca": {
     "t": "గొర్రె",
     "h": "1xmy4zwpx4k",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-1fvsojnqj66": {
     "t": "తాటి ముంజలు",
     "h": "1bvhl7w06hl",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-1g7c1y61p1c": {
     "t": "మొక్కజొన్న",
     "h": "7lpgh4ihbl",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-1h8jp24a797": {
     "t": "ఉష్ట్రపక్షి",
     "h": "1hrp5cd1ptp",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-1j1rjumm511": {
     "t": "హిప్పో",
     "h": "26l7yhnnsk4",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-1l5u1tckuk": {
     "t": "టమోటా",
     "h": "1nyil9ayq92",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-1mw7jlcu39p": {
     "t": "చింపాంజీ",
     "h": "1x41vn0rjp8",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-1od851i86ve": {
     "t": "స్ట్రాబెర్రీ",
     "h": "2bfez9cw019",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-1os5wqcvrp5": {
     "t": "కివీ",
     "h": "1pypuxw1rsq",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-1rn1z9lp8lr": {
     "t": "సీల్",
     "h": "c88o0rr395",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-1rtnkuve72i": {
     "t": "ప్లం పండు",
     "h": "1z2y9cn5zlx",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-1tvk1knj2ln": {
     "t": "జామకాయ",
     "h": "2cbegky4qz7",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-1v2zk6l4d40": {
     "t": "కాకి",
     "h": "tvev75t8bw",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-20l439km7b5": {
     "t": "జీబ్రా",
     "h": "e96kp4kzbl",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-26sodw3j4l7": {
     "t": "బొప్పాయి",
     "h": "i1wy6yza9l",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-27yrqiopbbi": {
     "t": "ఎలుగుబంటి",
     "h": "12eydh26bnn",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-29k4e9urk7o": {
     "t": "చింతపండు",
     "h": "42iv0jmvig",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-29njz9ncv0e": {
     "t": "కోతి",
     "h": "4wvbf6ab0m",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-2aui4lfj91y": {
     "t": "ఏనుగు",
     "h": "hwj9qa1p2m",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-2b7ntn514x2": {
     "t": "బంగాళదుంప",
     "h": "mjtcrkjdqf",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-2ccj27qdy84": {
     "t": "సీతాఫలం",
     "h": "1824cvqkzgt",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-2dc6naa7vy": {
     "t": "పుచ్చకాయ",
     "h": "oya3y6tx2u",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-2dpf1wt0h1b": {
     "t": "పండు",
     "h": "ovbjm9at6y",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-2ereacpswnd": {
     "t": "బఠాణీ",
     "h": "f49hpd4j9y",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-2f1ixsfh8e7": {
     "t": "కుందేలు",
     "h": "cq5h262kh3",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-2g8k7fwjaeq": {
     "t": "పాండా",
     "h": "1i6tib2psf7",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-32uw6aztct": {
     "t": "కొబ్బరికాయ",
     "h": "xuw1479tdz",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-3571p9xjl3": {
     "t": "గొరిల్లా",
     "h": "pqujkcxki2",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-5ooxul2261": {
     "t": "ద్రాక్ష",
     "h": "261g12fvpsz",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-5wvq8h72bz": {
     "t": "తెల్ల క్యారెట్",
     "h": "9md3t4ymr4",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-7bg3002ckg": {
     "t": "కాలిఫ్లవర్",
     "h": "1vsggekl08b",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-7ts44fz9hy": {
     "t": "చిలుక",
     "h": "h2dyf18eqk",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-7wudqg2obo": {
     "t": "గజెల్",
     "h": "zm1u8d0yf5",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-8gbwsgcl88": {
     "t": "దానిమ్మ",
     "h": "15sf2zyr1p3",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-8y7hctx2nh": {
     "t": "ఖడ్గమృగం",
     "h": "2n2nd08wjg",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-8yp56t1k6h": {
     "t": "గాడిద",
     "h": "crj7u908xr",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-95399fpc34": {
     "t": "వేరుశనగ",
     "h": "1b58c1n648x",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-9iyofd24no": {
     "t": "అనాస పండు",
     "h": "i5p9sx0gsv",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-9jim757htn": {
     "t": "ఖర్జూరం",
     "h": "26pbqyg7cao",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-edxg2mry2r": {
     "t": "చెర్రీ",
     "h": "oi5yppk4wg",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-havevyfqrt": {
     "t": "పచ్చి మిర్చి",
     "h": "113xc9v0gkc",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-hdh6tzy9l6": {
     "t": "సింహం",
     "h": "17cnqzhc4ui",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-hhgahc8iup": {
     "t": "ఖర్బూజా",
     "h": "137vl840z6i",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-i0nq7ph6v7": {
     "t": "సలాడ్ ఆకు",
     "h": "220ndj8dj0n",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-ju67en8vou": {
     "t": "గేదె",
     "h": "22gr34832oy",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-k7bc4m52s5": {
     "t": "నక్క",
     "h": "1qy0r9foze1",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-o9yy10vhd1": {
     "t": "నేరేడు",
     "h": "1wj7tr79ka5",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-perrc9jjuh": {
     "t": "ఆవు",
     "h": "zmyxvzny19",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-pillkc9a9j": {
     "t": "నారింజ",
     "h": "172ppx2rsu9",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-tz34cu0yeg": {
     "t": "చేప",
     "h": "627l71ky61",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-u1490nq3ob": {
     "t": "అల్లం",
     "h": "1w1iswtdwfc",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-u4k3r937hl": {
     "t": "జిరాఫీ",
     "h": "1t4nqcpswch",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-us1dyabmwj": {
     "t": "పిల్లి",
     "h": "2cykf02znrd",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-xytsn6klop": {
     "t": "కంగారూ",
     "h": "inddf1azf3",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-z728aluzub": {
     "t": "గుర్రం",
     "h": "20rs6oed7j",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    },
    "x-zqccgmsw0v": {
     "t": "మిరియాలు",
     "h": "1vdgj9qxulx",
-    "v": "te-IN-Chirp3-HD-Kore"
+    "v": "te-IN-Chirp3-HD-Callirrhoe"
    }
   }
  }
