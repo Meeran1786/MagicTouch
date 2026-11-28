@@ -28,6 +28,7 @@
     },
     {
       "word": "Dog",
+      "sfx": "dog",
       "photo": "images/Dog.gif"
     },
     {
@@ -63,6 +64,7 @@
     },
     {
       "word": "Monkey",
+      "sfx": "monkey",
       "photo": "images/Monkey.gif"
     },
     {
@@ -71,6 +73,7 @@
     },
     {
       "word": "Parrot",
+      "sfx": "parrot",
       "photo": "images/Parrot.gif"
     },
     {

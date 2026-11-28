@@ -34,13 +34,15 @@
       "x": 78,
       "y": 42,
       "label": "4. Rain",
-      "text": "When the drops get big and heavy, they fall as rain, or as snow on cold mountains."
+      "text": "When the drops get big and heavy, they fall as rain, or as snow on cold mountains.",
+      "sfx": "rain"
     },
     {
       "x": 66,
       "y": 86,
       "label": "5. Collection",
-      "text": "Rain flows into rivers and back to the sea, and the cycle starts again."
+      "text": "Rain flows into rivers and back to the sea, and the cycle starts again.",
+      "sfx": "stream"
     }
   ],
   "doneText": "You followed the whole water cycle!"

@@ -8,6 +8,7 @@
   "order": 102,
   "status": "approved",
   "template": "emoji-quiz",
+  "ambience": "rain",
   "items": [
     {
       "emoji": "☂️",

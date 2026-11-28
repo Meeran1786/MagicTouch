@@ -54,7 +54,8 @@ test("the six sound cues are on disk as listed, with the CC0 licence", () => {
 });
 
 test("only the audio engine speaks or makes UI sounds", () => {
-  const allowed = new Set(["shared/audio-engine.js"]);
+  // theme-synth.js is part of the audio engine: the theme sounds it makes are played by MagicAudio
+  const allowed = new Set(["shared/audio-engine.js", "shared/theme-synth.js"]);
   const instruments = new Set([
     "engine/templates/piano.js",
     "engine/templates/conductor.js",

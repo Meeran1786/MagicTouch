@@ -15,6 +15,20 @@
     "meow": "cat",
     "lamb": "sheep",
     "horn": "train",
-    "railway": "train"
+    "railway": "train",
+    "puppy": "dog",
+    "chicken": "hen",
+    "dove": "pigeon",
+    "sparrow": "bird",
+    "peafowl": "peacock",
+    "parakeet": "parrot",
+    "foghorn": "ship",
+    "boat": "ship",
+    "steamer": "ship",
+    "storm": "thunder",
+    "lightning": "thunder",
+    "chopper": "helicopter",
+    "ape": "monkey",
+    "toad": "frog"
   }
 }

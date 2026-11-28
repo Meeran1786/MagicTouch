@@ -8,6 +8,7 @@
   "order": 81,
   "status": "approved",
   "template": "emoji-quiz",
+  "ambience": "waves",
   "items": [
     {
       "emoji": "🏖️",

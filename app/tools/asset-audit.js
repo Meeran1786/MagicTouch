@@ -64,7 +64,7 @@ for (const f of walk(PUB)) {
     ORIGINAL.get(sha) ||
     (status === "cc0-library"
       ? rel.startsWith("assets/sfx/themes/")
-        ? "Wikimedia Commons, CC0 or public domain (assets/sfx/themes/credits.json)"
+        ? "Wikimedia Commons, CC0 / public domain / CC BY (assets/sfx/themes/credits.json)"
         : "Kenney Interface Sounds 1.0, CC0 (assets/sfx/LICENSE-Kenney.txt)"
       : "") ||
     (status === "generated-voice" ? "Google Cloud Text-to-Speech, scripts/generate-voices.js" : "");

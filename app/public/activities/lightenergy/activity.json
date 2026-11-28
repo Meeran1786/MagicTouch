@@ -11,7 +11,8 @@
   "items": [
     {
       "emoji": "💡",
-      "word": "Light Bulb"
+      "word": "Light Bulb",
+      "sfx": "electric"
     },
     {
       "emoji": "🔥",
@@ -23,7 +24,8 @@
     },
     {
       "emoji": "⚡",
-      "word": "Lightning Bolt"
+      "word": "Lightning Bolt",
+      "sfx": "electric"
     }
   ]
 }

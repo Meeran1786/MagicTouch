@@ -11,6 +11,7 @@
   "items": [
     {
       "word": "Elephant",
+      "sfx": "elephant",
       "photo": "images/Elephant1.jpg",
       "says": [
         {
@@ -137,6 +138,7 @@
     },
     {
       "word": "Horse",
+      "sfx": "horse",
       "photo": "images/Horse.png",
       "says": [
         {
@@ -179,6 +181,7 @@
     },
     {
       "word": "Lion",
+      "sfx": "lion",
       "photo": "images/Lion.png",
       "says": [
         {
@@ -200,6 +203,7 @@
     },
     {
       "word": "Monkey",
+      "sfx": "monkey",
       "photo": "images/Monkey.jpg",
       "says": [
         {

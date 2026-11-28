@@ -11,6 +11,7 @@
   "items": [
     {
       "word": "Airplane",
+      "sfx": "airplane",
       "photo": "assets/gifs/1.gif"
     },
     {
@@ -28,22 +29,27 @@
     },
     {
       "word": "Bear",
+      "sfx": "bear",
       "photo": "assets/gifs/5.gif"
     },
     {
       "word": "Bee",
+      "sfx": "bee",
       "photo": "assets/gifs/6.gif"
     },
     {
       "word": "Bicycle",
+      "sfx": "bicycle",
       "photo": "assets/gifs/17.gif"
     },
     {
       "word": "Bird",
+      "sfx": "bird",
       "photo": "assets/gifs/0.gif"
     },
     {
       "word": "Boat",
+      "sfx": "ship",
       "photo": "assets/gifs/8.gif"
     },
     {

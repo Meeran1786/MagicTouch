@@ -6,6 +6,7 @@
 //   items: [{ word: "Rhino", photo: "images/rhino.jpg", media?: { type: "mp4", src },
 //             says: [{ lang: "English", text: "Rhino", code: "en-IN" },
 //                    { lang: "Hindi", text: "गैंडा", code: "hi-IN", audio: "audio/rhino_hi.mp3" }, ...] }]
+//   sfx: "dog" on an item plays that theme sound as its picture comes in and when it is touched.
 //   A recorded "audio" file is used when there is one; otherwise MagicAudio speaks it in "code"
 //   (a pre-generated clip, or the best offline voice).
 import { MT } from "../js/kit.js";
@@ -40,7 +41,8 @@ export default function wordWheel(area, d, ctx) {
     }),
   );
   f.panel.append(langs, nav);
-  let at = 0;
+  let at = 0,
+    sfxNow = null;
 
   function show(i) {
     at = (i + d.items.length) % d.items.length;
@@ -53,6 +55,14 @@ export default function wordWheel(area, d, ctx) {
     centre.classList.remove("ww-in");
     void centre.offsetWidth;
     centre.classList.add("ww-in");
+    // the animal's own sound ("sfx": "dog"), as its picture comes in and when it is touched
+    if (sfxNow) sfxNow.stop(0.2);
+    sfxNow = MT.theme(item.sfx);
+    centre.onclick = () => {
+      if (sfxNow) sfxNow.stop(0.1);
+      sfxNow = MT.theme(item.sfx);
+      ME.squash(centre);
+    };
     langs.replaceChildren();
     item.says.forEach((s, k) => {
       const b = document.createElement("button");

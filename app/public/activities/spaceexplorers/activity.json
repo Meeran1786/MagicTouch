@@ -11,7 +11,8 @@
   "items": [
     {
       "emoji": "🚀",
-      "word": "Rocket"
+      "word": "Rocket",
+      "sfx": "rocket"
     },
     {
       "emoji": "⭐",
