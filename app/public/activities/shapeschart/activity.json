@@ -32,12 +32,14 @@
     {
       "shape": "star",
       "color": "#c9a800",
-      "word": "Star"
+      "word": "Star",
+      "sfx": ""
     },
     {
       "shape": "heart",
       "color": "#d6367d",
-      "word": "Heart"
+      "word": "Heart",
+      "sfx": ""
     },
     {
       "shape": "diamond",

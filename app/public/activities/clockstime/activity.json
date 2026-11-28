@@ -11,15 +11,18 @@
   "items": [
     {
       "emoji": "⏰",
-      "word": "Alarm Clock"
+      "word": "Alarm Clock",
+      "sfx": "alarm-clock"
     },
     {
       "emoji": "⏳",
-      "word": "Hourglass"
+      "word": "Hourglass",
+      "sfx": "hourglass"
     },
     {
       "emoji": "⏱️",
-      "word": "Stopwatch"
+      "word": "Stopwatch",
+      "sfx": "stopwatch"
     },
     {
       "emoji": "📅",
@@ -27,7 +30,8 @@
     },
     {
       "emoji": "⌚",
-      "word": "Watch"
+      "word": "Watch",
+      "sfx": "watch"
     }
   ]
 }

@@ -11,23 +11,28 @@
   "items": [
     {
       "emoji": "🎪",
-      "word": "Circus Tent"
+      "word": "Circus Tent",
+      "sfx": "circus-tent"
     },
     {
       "emoji": "🤡",
-      "word": "Clown"
+      "word": "Clown",
+      "sfx": "clown"
     },
     {
       "emoji": "🎡",
-      "word": "Ferris Wheel"
+      "word": "Ferris Wheel",
+      "sfx": "ferris-wheel"
     },
     {
       "emoji": "🎠",
-      "word": "Carousel"
+      "word": "Carousel",
+      "sfx": "carousel"
     },
     {
       "emoji": "🍿",
-      "word": "Popcorn"
+      "word": "Popcorn",
+      "sfx": "popcorn"
     },
     {
       "emoji": "🎫",

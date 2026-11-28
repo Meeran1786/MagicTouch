@@ -41,7 +41,8 @@
     },
     {
       "emoji": "🏍️",
-      "word": "Motorcycle"
+      "word": "Motorcycle",
+      "sfx": "motorcycle"
     },
     {
       "emoji": "🚒",
@@ -60,11 +61,13 @@
     },
     {
       "emoji": "🚜",
-      "word": "Tractor"
+      "word": "Tractor",
+      "sfx": "tractor"
     },
     {
       "emoji": "🚕",
-      "word": "Taxi"
+      "word": "Taxi",
+      "sfx": "taxi"
     }
   ]
 }

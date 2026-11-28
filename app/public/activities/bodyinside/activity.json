@@ -11,7 +11,8 @@
   "items": [
     {
       "emoji": "❤️",
-      "word": "Heart"
+      "word": "Heart",
+      "sfx": "heart"
     },
     {
       "emoji": "🧠",

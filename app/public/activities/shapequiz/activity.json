@@ -36,11 +36,13 @@
     },
     {
       "word": "Star",
+      "sfx": "",
       "shape": "star",
       "color": "#1c7ed6"
     },
     {
       "word": "Heart",
+      "sfx": "",
       "shape": "heart",
       "color": "#CC3054"
     },

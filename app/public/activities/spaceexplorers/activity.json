@@ -16,7 +16,8 @@
     },
     {
       "emoji": "⭐",
-      "word": "Star"
+      "word": "Star",
+      "sfx": "star"
     },
     {
       "emoji": "🌙",
@@ -28,11 +29,13 @@
     },
     {
       "emoji": "👨‍🚀",
-      "word": "Astronaut"
+      "word": "Astronaut",
+      "sfx": "astronaut"
     },
     {
       "emoji": "👽",
-      "word": "Alien"
+      "word": "Alien",
+      "sfx": "alien"
     },
     {
       "emoji": "🪐",
@@ -40,7 +43,8 @@
     },
     {
       "emoji": "☄️",
-      "word": "Comet"
+      "word": "Comet",
+      "sfx": "comet"
     }
   ]
 }

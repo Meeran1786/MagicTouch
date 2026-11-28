@@ -11,15 +11,18 @@
   "items": [
     {
       "emoji": "🥛",
-      "word": "Milk"
+      "word": "Milk",
+      "sfx": "milk"
     },
     {
       "emoji": "🥚",
-      "word": "Egg"
+      "word": "Egg",
+      "sfx": "egg"
     },
     {
       "emoji": "🍯",
-      "word": "Honey"
+      "word": "Honey",
+      "sfx": "honey"
     },
     {
       "emoji": "🧀",
@@ -31,7 +34,8 @@
     },
     {
       "emoji": "🌾",
-      "word": "Wheat"
+      "word": "Wheat",
+      "sfx": "wheat"
     }
   ]
 }

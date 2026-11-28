@@ -23,11 +23,13 @@
     },
     {
       "emoji": "🚴",
-      "word": "Cycling"
+      "word": "Cycling",
+      "sfx": "cycling"
     },
     {
       "emoji": "💃",
-      "word": "Dancing"
+      "word": "Dancing",
+      "sfx": "dancing"
     },
     {
       "emoji": "🧗",

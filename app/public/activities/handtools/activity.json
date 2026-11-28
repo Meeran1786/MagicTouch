@@ -11,15 +11,18 @@
   "items": [
     {
       "emoji": "🔨",
-      "word": "Hammer"
+      "word": "Hammer",
+      "sfx": "hammer"
     },
     {
       "emoji": "🪛",
-      "word": "Screwdriver"
+      "word": "Screwdriver",
+      "sfx": "screwdriver"
     },
     {
       "emoji": "🔧",
-      "word": "Wrench"
+      "word": "Wrench",
+      "sfx": "wrench"
     },
     {
       "emoji": "🖌️",
@@ -31,7 +34,8 @@
     },
     {
       "emoji": "🧰",
-      "word": "Toolbox"
+      "word": "Toolbox",
+      "sfx": "toolbox"
     }
   ]
 }

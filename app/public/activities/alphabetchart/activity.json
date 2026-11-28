@@ -18,6 +18,7 @@
     {
       "glyph": "Bb",
       "word": "Butterfly",
+      "sfx": "butterfly",
       "emoji": "🦋",
       "say": "B for Butterfly"
     },
@@ -58,6 +59,7 @@
     {
       "glyph": "Hh",
       "word": "Hippo",
+      "sfx": "hippo",
       "emoji": "🦛",
       "say": "H for Hippo"
     },
@@ -70,12 +72,14 @@
     {
       "glyph": "Jj",
       "word": "Jellyfish",
+      "sfx": "jellyfish",
       "emoji": "🪼",
       "say": "J for Jellyfish"
     },
     {
       "glyph": "Kk",
       "word": "Kangaroo",
+      "sfx": "kangaroo",
       "emoji": "🦘",
       "say": "K for Kangaroo"
     },
@@ -96,18 +100,21 @@
     {
       "glyph": "Nn",
       "word": "Nest",
+      "sfx": "nest",
       "emoji": "🪺",
       "say": "N for Nest"
     },
     {
       "glyph": "Oo",
       "word": "Owl",
+      "sfx": "owl",
       "emoji": "🦉",
       "say": "O for Owl"
     },
     {
       "glyph": "Pp",
       "word": "Penguin",
+      "sfx": "penguin",
       "emoji": "🐧",
       "say": "P for Penguin"
     },
@@ -120,6 +127,7 @@
     {
       "glyph": "Rr",
       "word": "Rabbit",
+      "sfx": "rabbit",
       "emoji": "🐇",
       "say": "R for Rabbit"
     },
@@ -132,30 +140,35 @@
     {
       "glyph": "Tt",
       "word": "Tiger",
+      "sfx": "tiger",
       "emoji": "🐯",
       "say": "T for Tiger"
     },
     {
       "glyph": "Uu",
       "word": "Unicorn",
+      "sfx": "unicorn",
       "emoji": "🦄",
       "say": "U for Unicorn"
     },
     {
       "glyph": "Vv",
       "word": "Volcano",
+      "sfx": "volcano",
       "emoji": "🌋",
       "say": "V for Volcano"
     },
     {
       "glyph": "Ww",
       "word": "Whale",
+      "sfx": "whale",
       "emoji": "🐋",
       "say": "W for Whale"
     },
     {
       "glyph": "Xx",
       "word": "Xylophone",
+      "sfx": "xylophone",
       "emoji": "🎸",
       "say": "X for Xylophone"
     },
@@ -168,6 +181,7 @@
     {
       "glyph": "Zz",
       "word": "Zebra",
+      "sfx": "zebra",
       "emoji": "🦓",
       "say": "Z for Zebra"
     }

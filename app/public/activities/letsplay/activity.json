@@ -11,35 +11,43 @@
   "items": [
     {
       "emoji": "⚽",
-      "word": "Soccer Ball"
+      "word": "Soccer Ball",
+      "sfx": "soccer-ball"
     },
     {
       "emoji": "🏀",
-      "word": "Basketball"
+      "word": "Basketball",
+      "sfx": "basketball"
     },
     {
       "emoji": "🎾",
-      "word": "Tennis"
+      "word": "Tennis",
+      "sfx": "tennis"
     },
     {
       "emoji": "⚾",
-      "word": "Baseball"
+      "word": "Baseball",
+      "sfx": "baseball"
     },
     {
       "emoji": "🏈",
-      "word": "Football"
+      "word": "Football",
+      "sfx": "football"
     },
     {
       "emoji": "🏐",
-      "word": "Volleyball"
+      "word": "Volleyball",
+      "sfx": "volleyball"
     },
     {
       "emoji": "🎳",
-      "word": "Bowling"
+      "word": "Bowling",
+      "sfx": "bowling"
     },
     {
       "emoji": "🏊",
-      "word": "Swimming"
+      "word": "Swimming",
+      "sfx": "swimming"
     }
   ]
 }

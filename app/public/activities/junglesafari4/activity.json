@@ -11,18 +11,22 @@
   "items": [
     {
       "word": "Hot Air Balloon",
+      "sfx": "hot-air-balloon",
       "photo": "assets/gifs/34.gif"
     },
     {
       "word": "Hummingbird",
+      "sfx": "hummingbird",
       "photo": "assets/gifs/32.gif"
     },
     {
       "word": "Iguana",
+      "sfx": "iguana",
       "photo": "assets/gifs/need1.gif"
     },
     {
       "word": "Kangaroo",
+      "sfx": "kangaroo",
       "photo": "assets/gifs/29.gif"
     },
     {
@@ -37,10 +41,12 @@
     },
     {
       "word": "Ostrich",
+      "sfx": "ostrich",
       "photo": "assets/gifs/47.gif"
     },
     {
       "word": "Owl",
+      "sfx": "owl",
       "photo": "assets/gifs/33.gif"
     },
     {
@@ -49,6 +55,7 @@
     },
     {
       "word": "Panther",
+      "sfx": "panther",
       "photo": "assets/gifs/7.gif"
     }
   ]

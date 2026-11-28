@@ -11,6 +11,7 @@
   "items": [
     {
       "word": "Panda",
+      "sfx": "panda",
       "photo": "images/PANDA.jpg",
       "says": [
         {
@@ -32,6 +33,7 @@
     },
     {
       "word": "Rabbit",
+      "sfx": "rabbit",
       "photo": "images/Rabbit.png",
       "says": [
         {
@@ -53,6 +55,7 @@
     },
     {
       "word": "Rhino",
+      "sfx": "rhino",
       "photo": "images/Rahino.png",
       "says": [
         {
@@ -74,6 +77,7 @@
     },
     {
       "word": "Seal",
+      "sfx": "seal",
       "photo": "images/Seal.jpg",
       "says": [
         {
@@ -117,6 +121,7 @@
     },
     {
       "word": "Tiger",
+      "sfx": "tiger",
       "photo": "images/Tiger.png",
       "says": [
         {
@@ -138,6 +143,7 @@
     },
     {
       "word": "Wolf",
+      "sfx": "wolf",
       "photo": "images/Wolf.jpg",
       "says": [
         {
@@ -159,6 +165,7 @@
     },
     {
       "word": "Zebra",
+      "sfx": "zebra",
       "photo": "images/Zebra.jpg",
       "says": [
         {

@@ -11,7 +11,8 @@
   "items": [
     {
       "emoji": "☀️",
-      "word": "Sunny"
+      "word": "Sunny",
+      "sfx": "sunny"
     },
     {
       "emoji": "🌧️",
@@ -20,11 +21,13 @@
     },
     {
       "emoji": "☁️",
-      "word": "Cloudy"
+      "word": "Cloudy",
+      "sfx": "cloudy"
     },
     {
       "emoji": "❄️",
-      "word": "Snowy"
+      "word": "Snowy",
+      "sfx": "snowy"
     },
     {
       "emoji": "🌬️",
@@ -38,11 +41,13 @@
     },
     {
       "emoji": "🌈",
-      "word": "Rainbow"
+      "word": "Rainbow",
+      "sfx": "rainbow"
     },
     {
       "emoji": "🌫️",
-      "word": "Foggy"
+      "word": "Foggy",
+      "sfx": "foggy"
     }
   ]
 }

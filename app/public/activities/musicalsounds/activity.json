@@ -16,27 +16,33 @@
     },
     {
       "emoji": "🎸",
-      "word": "Guitar"
+      "word": "Guitar",
+      "sfx": "guitar"
     },
     {
       "emoji": "🎹",
-      "word": "Piano"
+      "word": "Piano",
+      "sfx": "piano"
     },
     {
       "emoji": "🎺",
-      "word": "Trumpet"
+      "word": "Trumpet",
+      "sfx": "trumpet"
     },
     {
       "emoji": "🎻",
-      "word": "Violin"
+      "word": "Violin",
+      "sfx": "violin"
     },
     {
       "emoji": "🎷",
-      "word": "Saxophone"
+      "word": "Saxophone",
+      "sfx": "saxophone"
     },
     {
       "emoji": "🎤",
-      "word": "Microphone"
+      "word": "Microphone",
+      "sfx": "microphone"
     },
     {
       "emoji": "🔔",

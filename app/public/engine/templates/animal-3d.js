@@ -104,6 +104,7 @@ export default function animal3d(area, d, ctx) {
     }
     f.progress(`${at + 1} / ${d.animals.length}`);
     MT.speak(cfg.word);
+    MT.theme(cfg.sfx); // the animal's own call ("sfx": "lion"), after its name
     try {
       const main = await gltf(cfg.dir + "model.glb");
       const walkTake = cfg.kind === "meshWalk" && cfg.walk ? await gltf(cfg.dir + cfg.walk) : null;

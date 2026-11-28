@@ -12,19 +12,23 @@
   "items": [
     {
       "emoji": "☂️",
-      "word": "Umbrella"
+      "word": "Umbrella",
+      "sfx": "umbrella"
     },
     {
       "emoji": "👢",
-      "word": "Boots"
+      "word": "Boots",
+      "sfx": "boots"
     },
     {
       "emoji": "🧥",
-      "word": "Raincoat"
+      "word": "Raincoat",
+      "sfx": "raincoat"
     },
     {
       "emoji": "💦",
-      "word": "Puddle"
+      "word": "Puddle",
+      "sfx": "puddle"
     },
     {
       "emoji": "🌡️",

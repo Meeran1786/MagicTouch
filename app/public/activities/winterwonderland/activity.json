@@ -15,7 +15,8 @@
     },
     {
       "emoji": "❄️",
-      "word": "Snowflake"
+      "word": "Snowflake",
+      "sfx": "snowflake"
     },
     {
       "emoji": "🧤",
@@ -23,11 +24,13 @@
     },
     {
       "emoji": "🛷",
-      "word": "Sled"
+      "word": "Sled",
+      "sfx": "sled"
     },
     {
       "emoji": "⛸️",
-      "word": "Ice Skate"
+      "word": "Ice Skate",
+      "sfx": "ice-skate"
     }
   ]
 }

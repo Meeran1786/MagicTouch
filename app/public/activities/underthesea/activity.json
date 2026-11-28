@@ -12,35 +12,43 @@
   "items": [
     {
       "emoji": "🐠",
-      "word": "Fish"
+      "word": "Fish",
+      "sfx": "fish"
     },
     {
       "emoji": "🐙",
-      "word": "Octopus"
+      "word": "Octopus",
+      "sfx": "octopus"
     },
     {
       "emoji": "🦀",
-      "word": "Crab"
+      "word": "Crab",
+      "sfx": "crab"
     },
     {
       "emoji": "🐬",
-      "word": "Dolphin"
+      "word": "Dolphin",
+      "sfx": "dolphin"
     },
     {
       "emoji": "🐳",
-      "word": "Whale"
+      "word": "Whale",
+      "sfx": "whale"
     },
     {
       "emoji": "🦈",
-      "word": "Shark"
+      "word": "Shark",
+      "sfx": "shark"
     },
     {
       "emoji": "🐢",
-      "word": "Turtle"
+      "word": "Turtle",
+      "sfx": "turtle"
     },
     {
       "emoji": "🐚",
-      "word": "Shell"
+      "word": "Shell",
+      "sfx": "shell"
     }
   ]
 }

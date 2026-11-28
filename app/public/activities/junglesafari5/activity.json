@@ -26,14 +26,17 @@
     },
     {
       "word": "Rabbit",
+      "sfx": "rabbit",
       "photo": "assets/gifs/Rabbit.gif"
     },
     {
       "word": "Raven",
+      "sfx": "raven",
       "photo": "assets/gifs/16.gif"
     },
     {
       "word": "Rhino",
+      "sfx": "rhino",
       "photo": "assets/gifs/27.gif"
     },
     {
@@ -43,14 +46,17 @@
     },
     {
       "word": "Scooter",
+      "sfx": "scooter",
       "photo": "assets/gifs/39.gif"
     },
     {
       "word": "Scorpion",
+      "sfx": "scorpion",
       "photo": "assets/gifs/40.gif"
     },
     {
       "word": "Shark",
+      "sfx": "shark",
       "photo": "assets/gifs/41.gif"
     }
   ]

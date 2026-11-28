@@ -11,27 +11,33 @@
   "items": [
     {
       "emoji": "☎️",
-      "word": "Telephone"
+      "word": "Telephone",
+      "sfx": "telephone"
     },
     {
       "emoji": "📱",
-      "word": "Mobile Phone"
+      "word": "Mobile Phone",
+      "sfx": "mobile-phone"
     },
     {
       "emoji": "📺",
-      "word": "Television"
+      "word": "Television",
+      "sfx": "television"
     },
     {
       "emoji": "📻",
-      "word": "Radio"
+      "word": "Radio",
+      "sfx": "radio"
     },
     {
       "emoji": "💻",
-      "word": "Computer"
+      "word": "Computer",
+      "sfx": "computer"
     },
     {
       "emoji": "📰",
-      "word": "Newspaper"
+      "word": "Newspaper",
+      "sfx": "newspaper"
     }
   ]
 }

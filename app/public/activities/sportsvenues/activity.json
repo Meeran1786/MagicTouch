@@ -11,7 +11,8 @@
   "items": [
     {
       "emoji": "🏟️",
-      "word": "Stadium"
+      "word": "Stadium",
+      "sfx": "stadium"
     },
     {
       "emoji": "⛳",
@@ -19,11 +20,13 @@
     },
     {
       "emoji": "⛷️",
-      "word": "Skiing"
+      "word": "Skiing",
+      "sfx": "skiing"
     },
     {
       "emoji": "🏊",
-      "word": "Swimming Pool"
+      "word": "Swimming Pool",
+      "sfx": "swimming-pool"
     }
   ]
 }

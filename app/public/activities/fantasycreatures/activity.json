@@ -11,31 +11,38 @@
   "items": [
     {
       "emoji": "🐉",
-      "word": "Dragon"
+      "word": "Dragon",
+      "sfx": "dragon"
     },
     {
       "emoji": "🦄",
-      "word": "Unicorn"
+      "word": "Unicorn",
+      "sfx": "unicorn"
     },
     {
       "emoji": "🧚",
-      "word": "Fairy"
+      "word": "Fairy",
+      "sfx": "fairy"
     },
     {
       "emoji": "🧜",
-      "word": "Mermaid"
+      "word": "Mermaid",
+      "sfx": "mermaid"
     },
     {
       "emoji": "🧙",
-      "word": "Wizard"
+      "word": "Wizard",
+      "sfx": "wizard"
     },
     {
       "emoji": "🧞",
-      "word": "Genie"
+      "word": "Genie",
+      "sfx": "genie"
     },
     {
       "emoji": "🦸",
-      "word": "Superhero"
+      "word": "Superhero",
+      "sfx": "superhero"
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "about": "Theme sounds an activity can name (\"sfx\": \"cat\", \"ambience\": \"rain\"). Every file is CC0, public domain or CC BY (credit given here and in THIRD_PARTY_NOTICES.md), checked on its Wikimedia Commons page on 2026-11-27. Add a file here (lower-case name, .ogg or .mp3) and list it below with its source and licence.",
+  "about": "Theme sounds an activity can name (\"sfx\": \"cat\", \"ambience\": \"rain\"). Every file is CC0, public domain, CC BY or CC BY-SA (credit given here and in THIRD_PARTY_NOTICES.md), checked on its Wikimedia Commons page on 2026-11-27. Add a file here (lower-case name, .ogg or .mp3) and list it below with its source and licence.",
   "sounds": {
     "cat": {
       "file": "cat.ogg",
@@ -208,6 +208,454 @@
       "author": "User:Caesar",
       "original_sha1": "5cee3290a09118a6d2fcdcbaa17f451f9ec09499",
       "changes": "the loudest 5 s of rain and thunder: mono, the loudest part kept, faded, level matched"
+    },
+    "alarm": {
+      "file": "alarm.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Mechanical_Clock_Ring_%28Directory.Audio%29.mp3",
+      "licence": "CC0 1.0",
+      "author": "Yoo-toob-FX (https://directory.audio/authoritems/665-yoo-toob-fx, https://web.archive.org/web/20230721115857/https://dir",
+      "original_sha1": "1d76dd5fc11aa57b6a05e4e7486b34e950748240",
+      "changes": "alarm clock ringing: mono, the loudest part kept, faded, level matched"
+    },
+    "bowling": {
+      "file": "bowling.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Perfect_Strike.wav",
+      "licence": "CC BY-SA 3.0",
+      "author": "Neoheurist",
+      "original_sha1": "7d8f5be2fda24d9ee4fddea9f515a8af1f314466",
+      "changes": "bowling strike: mono, the loudest part kept, faded, level matched"
+    },
+    "buffalo": {
+      "file": "buffalo.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Buffalo_and_bison_sound_effect.wav",
+      "licence": "CC0 1.0",
+      "author": "Zagzav12",
+      "original_sha1": "fab7f56db04ab824d8371c19be202386f9e878a5",
+      "changes": "buffalo grunts: mono, the loudest part kept, faded, level matched"
+    },
+    "camera": {
+      "file": "camera.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Holga_shuttersound.ogg",
+      "licence": "Public domain",
+      "author": "Doitashimashite at Dutch Wikipedia",
+      "original_sha1": "4cd90c2fff053bb9b4d264b8d0ee091ec052145c",
+      "changes": "camera shutter: mono, the loudest part kept, faded, level matched"
+    },
+    "chick": {
+      "file": "chick.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Chickens_demanding_food.ogg",
+      "licence": "Public domain",
+      "author": "alys",
+      "original_sha1": "e8260d842ceb7867bb6b7da26b9b4bebd6e3b7fa",
+      "changes": "chicks peeping: mono, the loudest part kept, faded, level matched"
+    },
+    "children": {
+      "file": "children.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Douzen_kids_on_playground.ogg",
+      "licence": "Public domain",
+      "author": "stephan",
+      "original_sha1": "1ab72be839108968722f29f7999a58593fde21de",
+      "changes": "children playing: mono, the loudest part kept, faded, level matched"
+    },
+    "chimpanzee": {
+      "file": "chimpanzee.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Pant-hoot_call_made_by_a_male_chimpanzee.ogg",
+      "licence": "CC BY 4.0",
+      "author": "Pawel Fedurek et al.",
+      "original_sha1": "c1563ad37f8c0fcfb6a6fd41d4ab7e09f55b9628",
+      "changes": "chimpanzee pant-hoot: mono, the loudest part kept, faded, level matched"
+    },
+    "conch": {
+      "file": "conch.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Conch_shell.ogg",
+      "licence": "CC BY 2.5",
+      "author": "No machine-readable author provided. Dbolton assumed (based on copyright claims).",
+      "original_sha1": "770fb466e1a5992999ec06753081869445373b5b",
+      "changes": "conch shell blown: mono, the loudest part kept, faded, level matched"
+    },
+    "cow": {
+      "file": "cow.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Single_Cow_Moo.ogg",
+      "licence": "CC BY-SA 4.0",
+      "author": "MichaeltheFox8621",
+      "original_sha1": "bc2ea5d5fef940baeb28435ee6271fc2cf304bf6",
+      "changes": "cow moo: mono, the loudest part kept, faded, level matched"
+    },
+    "cricket": {
+      "file": "cricket.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Field_cricket_Gryllus_pennsylvanicus.ogg",
+      "licence": "CC BY-SA 3.0",
+      "author": "Thatcher",
+      "original_sha1": "c1eece5ae6e6c525afe0a2acee6a5cbfa3532ddb",
+      "changes": "cricket chirping: mono, the loudest part kept, faded, level matched"
+    },
+    "crocodile": {
+      "file": "crocodile.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Alligatorbellowedit.ogg",
+      "licence": "Public domain",
+      "author": "Borisblue",
+      "original_sha1": "f69d5cbd7d9e50fab3f35764f425281d5e427ca0",
+      "changes": "alligator bellow: mono, the loudest part kept, faded, level matched"
+    },
+    "crow": {
+      "file": "crow.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:House_crow%2C_Corvus_splendens.ogg",
+      "licence": "CC BY-SA 4.0",
+      "author": "Iamsalin",
+      "original_sha1": "7901db4522c1d157ac663707c72927a2c90a8365",
+      "changes": "Indian house crow cawing: mono, the loudest part kept, faded, level matched"
+    },
+    "deer": {
+      "file": "deer.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Barking_Deer_Alarm_Call_20240209_214224.wav",
+      "licence": "CC BY-SA 4.0",
+      "author": "PJeganathan",
+      "original_sha1": "0d0c911a862ad48ee1db7484d9e362c52883cfc0",
+      "changes": "barking deer call: mono, the loudest part kept, faded, level matched"
+    },
+    "dhol": {
+      "file": "dhol.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Maharashtrian_Dhol_Perform_02.ogg",
+      "licence": "CC BY-SA 4.0",
+      "author": "Satyam Vishwakarma",
+      "original_sha1": "0f0ac5f05b6c09131fdc9bccaad8e0749d583fd2",
+      "changes": "dhol drumming: mono, the loudest part kept, faded, level matched"
+    },
+    "dolphin": {
+      "file": "dolphin.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:161691_felixblume_dolphin-screaming-underwater-in-caribbean-sea-mexico.wav",
+      "licence": "CC0 1.0",
+      "author": "The user Felix.Blume\n\nhttps://freesound.org/people/felix.blume/",
+      "original_sha1": "f6167835f34c12e2b9d3e5999fcc57086c3e1194",
+      "changes": "dolphin calls underwater: mono, the loudest part kept, faded, level matched"
+    },
+    "doorbell": {
+      "file": "doorbell.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Doorbell-classic-dingdong.ogg",
+      "licence": "Public domain",
+      "author": "see source page",
+      "original_sha1": "19a3463c37d4de915d58d54050b8d65d7445e63f",
+      "changes": "doorbell ding-dong: mono, the loudest part kept, faded, level matched"
+    },
+    "duck": {
+      "file": "duck.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Pekin_duck_%26_mallard.ogg",
+      "licence": "CC BY-SA 4.0",
+      "author": "WaderClub",
+      "original_sha1": "3bb212b5fdbb9934f6f31788bc0750737ba9c1b0",
+      "changes": "ducks quacking: mono, the loudest part kept, faded, level matched"
+    },
+    "eagle": {
+      "file": "eagle.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Bald_Eagle_Yellowstone_National_Park.ogg",
+      "licence": "Public domain",
+      "author": "National Park Service",
+      "original_sha1": "1b6703cf001283a5b595af3028a981fc63268d0a",
+      "changes": "eagle call: mono, the loudest part kept, faded, level matched"
+    },
+    "fireworks": {
+      "file": "fireworks.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Fireworks_piece.ogg",
+      "licence": "Public domain",
+      "author": "stephan",
+      "original_sha1": "3f9bbe875188ff4fb0df0eebd9ac49ab753f75dc",
+      "changes": "fireworks: mono, the loudest part kept, faded, level matched"
+    },
+    "flamingo": {
+      "file": "flamingo.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Phoenicopterus_roseus_-_Greater_Flamingo_XC432217.mp3",
+      "licence": "CC BY-SA 4.0",
+      "author": "Joost van Bruggen",
+      "original_sha1": "cda02d6b8b90e07eade745b4338a6d6a8cb0ad9d",
+      "changes": "flamingo calls: mono, the loudest part kept, faded, level matched"
+    },
+    "flute": {
+      "file": "flute.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Bansuri_sample_E_bass.ogg",
+      "licence": "Public domain",
+      "author": "own work",
+      "original_sha1": "3117b41bee03eaed857326a9f9e6e92f75218831",
+      "changes": "bansuri flute: mono, the loudest part kept, faded, level matched"
+    },
+    "fox": {
+      "file": "fox.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Bellender_Fuchs.ogg",
+      "licence": "CC BY-SA 3.0",
+      "author": "Jugrü",
+      "original_sha1": "842dc23cfd103290f50dbf0855c42c11f50f7b62",
+      "changes": "fox barking: mono, the loudest part kept, faded, level matched"
+    },
+    "giraffe": {
+      "file": "giraffe.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Giraffe_Hum.oga",
+      "licence": "CC BY-SA 4.0",
+      "author": "Anton Baotic, Florian Sicks and Angela S. Stoeger",
+      "original_sha1": "c4b7199a3537746602d2118a044b1f362d8446a3",
+      "changes": "giraffe hum: mono, the loudest part kept, faded, level matched"
+    },
+    "goat": {
+      "file": "goat.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Herd_of_goats_bleating.ogg",
+      "licence": "Public domain",
+      "author": "stephan",
+      "original_sha1": "aa410bb4f1173694611cbcbfae5a45a2ebda59a0",
+      "changes": "goats bleating: mono, the loudest part kept, faded, level matched"
+    },
+    "guitar": {
+      "file": "guitar.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Audio_files_of_spanish_guitar_chords_14.wav",
+      "licence": "CC0 1.0",
+      "author": "Wilfredor",
+      "original_sha1": "63e2d9e1ffaac921116beb123533b2884bd9fa6b",
+      "changes": "guitar chords: mono, the loudest part kept, faded, level matched"
+    },
+    "hammer": {
+      "file": "hammer.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Hammer_and_nails_%28Antti_Luode%29.mp3",
+      "licence": "CC BY 3.0",
+      "author": "Antti Luode",
+      "original_sha1": "195b1a4ea4a711c11c8b40951b6b6eef52d1e701",
+      "changes": "hammering nails: mono, the loudest part kept, faded, level matched"
+    },
+    "harmonium": {
+      "file": "harmonium.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Harmonium_%28C_Major%29.wav",
+      "licence": "CC BY-SA 4.0",
+      "author": "ShortStat",
+      "original_sha1": "4631be98078fb97173e6555cf66160a32e1f953b",
+      "changes": "harmonium: mono, the loudest part kept, faded, level matched"
+    },
+    "hippo": {
+      "file": "hippo.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Hippopotamus_sound_effect.wav",
+      "licence": "CC0 1.0",
+      "author": "Zagzav12",
+      "original_sha1": "1328cedb56c24a9e94bd035978fc0d02d7bcf19e",
+      "changes": "hippo grunts: mono, the loudest part kept, faded, level matched"
+    },
+    "kingfisher": {
+      "file": "kingfisher.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Common_kingfisher_call_recorded_in_December_2015_at_Anjarle%2C_Ratnagiri.wav",
+      "licence": "CC BY-SA 4.0",
+      "author": "Sharadapte",
+      "original_sha1": "b621856aa2aaf1a85310401c283d450f3a510a97",
+      "changes": "Indian kingfisher call: mono, the loudest part kept, faded, level matched"
+    },
+    "maracas": {
+      "file": "maracas.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Maracas.ogg",
+      "licence": "Public domain",
+      "author": "see source page",
+      "original_sha1": "176ae549e20939b16378dbf5e11200b1ad94d1ec",
+      "changes": "maracas: mono, the loudest part kept, faded, level matched"
+    },
+    "owl": {
+      "file": "owl.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Strix_aluco_male.oga",
+      "licence": "CC BY-SA 4.0",
+      "author": "Vianney Bajart",
+      "original_sha1": "43f40e0cee48bb26a1be9ea15c1d4ac33dd209c8",
+      "changes": "tawny owl hooting: mono, the loudest part kept, faded, level matched"
+    },
+    "panda": {
+      "file": "panda.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Giant_panda_twittering.ogg",
+      "licence": "Public domain",
+      "author": "Myself",
+      "original_sha1": "f2ecbad7f3d936fad8009674e0e960a4c0bfcd09",
+      "changes": "panda bleats: mono, the loudest part kept, faded, level matched"
+    },
+    "penguin": {
+      "file": "penguin.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Little_Penguin_%28Eudyptula_minor%29.ogg",
+      "licence": "CC BY 3.0",
+      "author": "Benchill",
+      "original_sha1": "6df2bf11b95a08aa5aea2f00c7c42d4d0c457db1",
+      "changes": "little penguin calls: mono, the loudest part kept, faded, level matched"
+    },
+    "piano": {
+      "file": "piano.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:C_major%2C_Middle_C%2C_I-IV-V-I-I-V-I_chord_progression.ogg",
+      "licence": "CC0 1.0",
+      "author": "CuriousC3301",
+      "original_sha1": "ce32c3fa0acdb84df0aaa2f08cac578bfcff7670",
+      "changes": "piano chords: mono, the loudest part kept, faded, level matched"
+    },
+    "pig": {
+      "file": "pig.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Man_grunts_like_pig.ogg",
+      "licence": "Public domain",
+      "author": "stilgar",
+      "original_sha1": "eb97d2cf334fcb4621bc0f3848e2e051705d4fb0",
+      "changes": "pig grunts (a person imitating a pig): mono, the loudest part kept, faded, level matched"
+    },
+    "rhino": {
+      "file": "rhino.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Rhinoceros_sound_effect.wav",
+      "licence": "CC0 1.0",
+      "author": "Zagzav12",
+      "original_sha1": "99d937ff8a45d7b93a5687add7b8a2943ccf319a",
+      "changes": "rhino snorts: mono, the loudest part kept, faded, level matched"
+    },
+    "saxophone": {
+      "file": "saxophone.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Bariton_Saxophone_independently_performing_a_base_line_in_5_voice_sax_sectional_harmony.oga",
+      "licence": "CC BY-SA 3.0",
+      "author": "魔私利戸",
+      "original_sha1": "3cdf90e71d9624973f48e02a190b3b7f5ad9fd83",
+      "changes": "saxophone: mono, the loudest part kept, faded, level matched"
+    },
+    "seal": {
+      "file": "seal.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Arctocephalus_forsteri_-_sound.ogg",
+      "licence": "CC BY 4.0",
+      "author": "Department of Conservation",
+      "original_sha1": "5e91f1c7a6d551875696f33ba568868c4566eab8",
+      "changes": "fur seal barks: mono, the loudest part kept, faded, level matched"
+    },
+    "splash": {
+      "file": "splash.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Bathtub_water_splashes.ogg",
+      "licence": "Public domain",
+      "author": "gradha",
+      "original_sha1": "1d6b2a2579890d091b04112621b07878028e6070",
+      "changes": "water splashing: mono, the loudest part kept, faded, level matched"
+    },
+    "swan": {
+      "file": "swan.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Cygnus_cygnus_-_Whooper_Swan_XC510800.mp3",
+      "licence": "CC BY-SA 4.0",
+      "author": "Pascal Christe",
+      "original_sha1": "c92f09f419053abe5ea76fdef389b49d6f6be18b",
+      "changes": "swan calls: mono, the loudest part kept, faded, level matched"
+    },
+    "tambourine": {
+      "file": "tambourine.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Tambourine.ogg",
+      "licence": "Public domain",
+      "author": "Freddythehat at English Wikipedia",
+      "original_sha1": "193c244db08e1bfa4d5f103f9445192b67e9a5d7",
+      "changes": "tambourine: mono, the loudest part kept, faded, level matched"
+    },
+    "telephone": {
+      "file": "telephone.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Model_500_Telephone_British_ring.ogg",
+      "licence": "CC BY-SA 3.0",
+      "author": "CianMcCann",
+      "original_sha1": "f1baddd95a56fd6c072bbfe6c72f8b0beaddd62d",
+      "changes": "telephone ringing: mono, the loudest part kept, faded, level matched"
+    },
+    "tiger": {
+      "file": "tiger.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:439280_schots_angry-tiger.wav",
+      "licence": "CC0 1.0",
+      "author": "schots",
+      "original_sha1": "d23e3cd7a0a8348c88313cd9f252eaff1740fea2",
+      "changes": "tiger growl: mono, the loudest part kept, faded, level matched"
+    },
+    "toilet": {
+      "file": "toilet.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Toilet_flushing_01.ogg",
+      "licence": "CC BY-SA 4.0",
+      "author": "Mathieu Kappler",
+      "original_sha1": "e0c6b6d89b25292859d79d831e9d0fe25eb8b6f4",
+      "changes": "toilet flushing: mono, the loudest part kept, faded, level matched"
+    },
+    "trumpet": {
+      "file": "trumpet.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Natural_trumpet_B-flat.ogg",
+      "licence": "CC0 1.0",
+      "author": "ПростоУчастник",
+      "original_sha1": "b04ab237e69f818148a2ee45220c3a0c64bd58dc",
+      "changes": "trumpet: mono, the loudest part kept, faded, level matched"
+    },
+    "turkey": {
+      "file": "turkey.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Meleagris_gallopavo_-_Wild_Turkey_XC136045.ogg",
+      "licence": "CC BY-SA 3.0",
+      "author": "Jonathon Jongsma",
+      "original_sha1": "47a08fcdcb8705873bbd841ea3392f2d1fc1ec1d",
+      "changes": "turkey gobbling: mono, the loudest part kept, faded, level matched"
+    },
+    "typing": {
+      "file": "typing.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Typing_-_Model_F_122_1984.ogg",
+      "licence": "CC0 1.0",
+      "author": "Raymangold22",
+      "original_sha1": "c2e5cd1d45704b0894df24465b3f60261f908a04",
+      "changes": "typing on a keyboard: mono, the loudest part kept, faded, level matched"
+    },
+    "veena": {
+      "file": "veena.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Viriboni%2C_rendered_on_the_Veena.ogg",
+      "licence": "CC0 1.0",
+      "author": "Smt. Pushpa Srivatsan",
+      "original_sha1": "d40ab84dc7307bd7f5220c415c053e065bfa9383",
+      "changes": "veena: mono, the loudest part kept, faded, level matched"
+    },
+    "violin": {
+      "file": "violin.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Violin_open_string.ogg",
+      "licence": "CC BY-SA 3.0",
+      "author": "No machine-readable author provided. Clngre~commonswiki assumed (based on copyright claims).",
+      "original_sha1": "72d19b9d02297a60b81ca86351375308cb26155b",
+      "changes": "violin bowing: mono, the loudest part kept, faded, level matched"
+    },
+    "whale": {
+      "file": "whale.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Humpbackwhale2.ogg",
+      "licence": "CC0 1.0",
+      "author": "Spyrogumas",
+      "original_sha1": "7e20b2b5305825903f912a139be789ca740ee625",
+      "changes": "humpback whale song: mono, the loudest part kept, faded, level matched"
+    },
+    "whistle": {
+      "file": "whistle.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:218318_splicesound_referee-whistle-blow-gymnasium.wav",
+      "licence": "CC0 1.0",
+      "author": "SpliceSound",
+      "original_sha1": "e6f1406823b79f487e4945b33eb9339f5c7ccb61",
+      "changes": "referee whistle: mono, the loudest part kept, faded, level matched"
+    },
+    "wolf": {
+      "file": "wolf.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Wolf_howls.ogg",
+      "licence": "Public domain",
+      "author": "see source page",
+      "original_sha1": "44ce16c609c16ce8ae05b4da61179bf6c9c4ce09",
+      "changes": "wolf howling: mono, the loudest part kept, faded, level matched"
+    },
+    "xylophone": {
+      "file": "xylophone.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Xylophone_jingle.wav",
+      "licence": "CC BY 3.0",
+      "author": "spazzo_1493",
+      "original_sha1": "87be6990f9fae5482588009aa8459e5a9a79d1c6",
+      "changes": "xylophone tune: mono, the loudest part kept, faded, level matched"
+    },
+    "zebra": {
+      "file": "zebra.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Gr%C3%A9vys_zebra_%28Sound_Effects%29.ogg",
+      "licence": "CC BY-SA 4.0",
+      "author": "DiegoC472",
+      "original_sha1": "2999aba46b1706bc75250902fb0b4fe91a2c2d16",
+      "changes": "zebra bray: mono, the loudest part kept, faded, level matched"
+    },
+    "dinosaur": {
+      "file": "dinosaur.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:439280_schots_angry-tiger.wav",
+      "licence": "CC0 1.0",
+      "author": "schots",
+      "original_sha1": "d23e3cd7a0a8348c88313cd9f252eaff1740fea2",
+      "changes": "made from the tiger growl: pitched down, slowed and given an echo, as a dinosaur roar"
+    },
+    "camel": {
+      "file": "camel.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Buffalo_and_bison_sound_effect.wav",
+      "licence": "CC0 1.0",
+      "author": "Zagzav12",
+      "original_sha1": "fab7f56db04ab824d8371c19be202386f9e878a5",
+      "changes": "stand-in until a real camel recording is found: the buffalo grunt pitched up slightly"
     }
   }
 }

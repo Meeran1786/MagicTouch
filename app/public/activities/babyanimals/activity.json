@@ -21,7 +21,8 @@
     },
     {
       "emoji": "🐥",
-      "word": "Chick"
+      "word": "Chick",
+      "sfx": "chick"
     },
     {
       "emoji": "🐑",
@@ -30,11 +31,13 @@
     },
     {
       "emoji": "🐷",
-      "word": "Piglet"
+      "word": "Piglet",
+      "sfx": "piglet"
     },
     {
       "emoji": "🐻",
-      "word": "Bear Cub"
+      "word": "Bear Cub",
+      "sfx": "bear-cub"
     }
   ]
 }

@@ -11,19 +11,23 @@
   "items": [
     {
       "emoji": "🌅",
-      "word": "Morning"
+      "word": "Morning",
+      "sfx": "morning"
     },
     {
       "emoji": "☀️",
-      "word": "Afternoon"
+      "word": "Afternoon",
+      "sfx": "afternoon"
     },
     {
       "emoji": "🌇",
-      "word": "Evening"
+      "word": "Evening",
+      "sfx": "evening"
     },
     {
       "emoji": "🌃",
-      "word": "Night"
+      "word": "Night",
+      "sfx": "night"
     }
   ]
 }

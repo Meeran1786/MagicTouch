@@ -21,19 +21,23 @@
     },
     {
       "emoji": "🦓",
-      "word": "Zebra"
+      "word": "Zebra",
+      "sfx": "zebra"
     },
     {
       "emoji": "🦒",
-      "word": "Giraffe"
+      "word": "Giraffe",
+      "sfx": "giraffe"
     },
     {
       "emoji": "🐄",
-      "word": "Cow"
+      "word": "Cow",
+      "sfx": "cow"
     },
     {
       "emoji": "🐐",
-      "word": "Goat"
+      "word": "Goat",
+      "sfx": "goat"
     },
     {
       "emoji": "🐑",
@@ -42,7 +46,8 @@
     },
     {
       "emoji": "🐇",
-      "word": "Rabbit"
+      "word": "Rabbit",
+      "sfx": "rabbit"
     }
   ]
 }

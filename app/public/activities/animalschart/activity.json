@@ -16,7 +16,8 @@
     },
     {
       "emoji": "🐯",
-      "word": "Tiger"
+      "word": "Tiger",
+      "sfx": "tiger"
     },
     {
       "emoji": "🐘",
@@ -25,11 +26,13 @@
     },
     {
       "emoji": "🦒",
-      "word": "Giraffe"
+      "word": "Giraffe",
+      "sfx": "giraffe"
     },
     {
       "emoji": "🦓",
-      "word": "Zebra"
+      "word": "Zebra",
+      "sfx": "zebra"
     },
     {
       "emoji": "🐵",
@@ -43,23 +46,28 @@
     },
     {
       "emoji": "🐼",
-      "word": "Panda"
+      "word": "Panda",
+      "sfx": "panda"
     },
     {
       "emoji": "🦊",
-      "word": "Fox"
+      "word": "Fox",
+      "sfx": "fox"
     },
     {
       "emoji": "🐺",
-      "word": "Wolf"
+      "word": "Wolf",
+      "sfx": "wolf"
     },
     {
       "emoji": "🦌",
-      "word": "Deer"
+      "word": "Deer",
+      "sfx": "deer"
     },
     {
       "emoji": "🐰",
-      "word": "Rabbit"
+      "word": "Rabbit",
+      "sfx": "rabbit"
     },
     {
       "emoji": "🐶",
@@ -73,15 +81,18 @@
     },
     {
       "emoji": "🐮",
-      "word": "Cow"
+      "word": "Cow",
+      "sfx": "cow"
     },
     {
       "emoji": "🐷",
-      "word": "Pig"
+      "word": "Pig",
+      "sfx": "pig"
     },
     {
       "emoji": "🐐",
-      "word": "Goat"
+      "word": "Goat",
+      "sfx": "goat"
     },
     {
       "emoji": "🐑",
@@ -95,23 +106,28 @@
     },
     {
       "emoji": "🐫",
-      "word": "Camel"
+      "word": "Camel",
+      "sfx": "camel"
     },
     {
       "emoji": "🦘",
-      "word": "Kangaroo"
+      "word": "Kangaroo",
+      "sfx": "kangaroo"
     },
     {
       "emoji": "🦥",
-      "word": "Sloth"
+      "word": "Sloth",
+      "sfx": "sloth"
     },
     {
       "emoji": "🦦",
-      "word": "Otter"
+      "word": "Otter",
+      "sfx": "otter"
     },
     {
       "emoji": "🦔",
-      "word": "Hedgehog"
+      "word": "Hedgehog",
+      "sfx": "hedgehog"
     }
   ]
 }

@@ -11,7 +11,8 @@
   "items": [
     {
       "emoji": "🐘",
-      "word": "Big"
+      "word": "Big",
+      "sfx": "big"
     },
     {
       "emoji": "🐜",
@@ -19,27 +20,33 @@
     },
     {
       "emoji": "🔥",
-      "word": "Hot"
+      "word": "Hot",
+      "sfx": "hot"
     },
     {
       "emoji": "🧊",
-      "word": "Cold"
+      "word": "Cold",
+      "sfx": "cold"
     },
     {
       "emoji": "🐇",
-      "word": "Fast"
+      "word": "Fast",
+      "sfx": "fast"
     },
     {
       "emoji": "🐢",
-      "word": "Slow"
+      "word": "Slow",
+      "sfx": "slow"
     },
     {
       "emoji": "☀️",
-      "word": "Day"
+      "word": "Day",
+      "sfx": "day"
     },
     {
       "emoji": "🌙",
-      "word": "Night"
+      "word": "Night",
+      "sfx": "night"
     }
   ]
 }

@@ -21,10 +21,12 @@
     },
     {
       "word": "Ball",
+      "sfx": "ball",
       "photo": "assets/gifs/3.gif"
     },
     {
       "word": "Balloon",
+      "sfx": "balloon",
       "photo": "assets/gifs/4.gif"
     },
     {
@@ -54,6 +56,7 @@
     },
     {
       "word": "Buffalo",
+      "sfx": "buffalo",
       "photo": "assets/gifs/9.gif"
     }
   ]

@@ -11,7 +11,8 @@
   "items": [
     {
       "emoji": "🐈",
-      "word": "Cat"
+      "word": "Cat",
+      "sfx": "cat"
     },
     {
       "emoji": "🎩",
@@ -23,11 +24,13 @@
     },
     {
       "emoji": "🐀",
-      "word": "Rat"
+      "word": "Rat",
+      "sfx": "rat"
     },
     {
       "emoji": "🪭",
-      "word": "Fan"
+      "word": "Fan",
+      "sfx": "fan"
     },
     {
       "emoji": "🍳",
@@ -35,7 +38,8 @@
     },
     {
       "emoji": "🚐",
-      "word": "Van"
+      "word": "Van",
+      "sfx": "van"
     },
     {
       "emoji": "🧑",

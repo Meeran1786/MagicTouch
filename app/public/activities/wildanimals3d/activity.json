@@ -11,6 +11,7 @@
   "animals": [
     {
       "word": "Elephant",
+      "sfx": "elephant",
       "emoji": "🐘",
       "dir": "models/elephant/",
       "kind": "subclip",
@@ -21,6 +22,7 @@
     },
     {
       "word": "Bear",
+      "sfx": "bear",
       "emoji": "🐻",
       "dir": "models/bear/",
       "kind": "meshWalk",
@@ -29,6 +31,7 @@
     },
     {
       "word": "Lion",
+      "sfx": "lion",
       "emoji": "🦁",
       "dir": "models/lion/",
       "kind": "continuous",
@@ -36,6 +39,7 @@
     },
     {
       "word": "Fox",
+      "sfx": "fox",
       "emoji": "🦊",
       "dir": "models/fox/",
       "kind": "continuous",
@@ -43,6 +47,7 @@
     },
     {
       "word": "Rhino",
+      "sfx": "rhino",
       "emoji": "🦏",
       "dir": "models/rhino/",
       "kind": "meshWalk",
@@ -51,6 +56,7 @@
     },
     {
       "word": "Zebra",
+      "sfx": "zebra",
       "emoji": "🦓",
       "dir": "models/zebra/",
       "kind": "meshWalk",

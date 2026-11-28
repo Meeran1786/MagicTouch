@@ -19,7 +19,8 @@
     },
     {
       "emoji": "🚸",
-      "word": "Children Crossing"
+      "word": "Children Crossing",
+      "sfx": "children-crossing"
     },
     {
       "emoji": "⚠️",
@@ -31,7 +32,8 @@
     },
     {
       "emoji": "🚓",
-      "word": "Police Car"
+      "word": "Police Car",
+      "sfx": "police-car"
     }
   ]
 }

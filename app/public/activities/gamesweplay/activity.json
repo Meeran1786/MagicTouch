@@ -11,19 +11,23 @@
   "items": [
     {
       "emoji": "♟️",
-      "word": "Chess"
+      "word": "Chess",
+      "sfx": "chess"
     },
     {
       "emoji": "🎲",
-      "word": "Dice"
+      "word": "Dice",
+      "sfx": "dice"
     },
     {
       "emoji": "🃏",
-      "word": "Playing Cards"
+      "word": "Playing Cards",
+      "sfx": "playing-cards"
     },
     {
       "emoji": "🎮",
-      "word": "Video Game"
+      "word": "Video Game",
+      "sfx": "video-game"
     }
   ]
 }

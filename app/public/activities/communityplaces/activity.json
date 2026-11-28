@@ -11,11 +11,13 @@
   "items": [
     {
       "emoji": "🏫",
-      "word": "School"
+      "word": "School",
+      "sfx": "school"
     },
     {
       "emoji": "🏥",
-      "word": "Hospital"
+      "word": "Hospital",
+      "sfx": "hospital"
     },
     {
       "emoji": "🏪",
@@ -27,11 +29,13 @@
     },
     {
       "emoji": "🛝",
-      "word": "Playground"
+      "word": "Playground",
+      "sfx": "playground"
     },
     {
       "emoji": "🏦",
-      "word": "Bank"
+      "word": "Bank",
+      "sfx": "bank"
     }
   ]
 }

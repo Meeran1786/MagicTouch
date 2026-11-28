@@ -189,7 +189,7 @@ function themeNames(f, a) {
   JSON.stringify(a).replace(/"(sfx|ambience)":("[^"]*"|\{[^}]*\})/g, (_, k, v) => {
     let name = JSON.parse(v);
     if (name && typeof name === "object") name = name.name;
-    if (typeof name !== "string" || !/^[a-z0-9-]{1,40}$/.test(name))
+    if (typeof name !== "string" || !/^[a-z0-9-]{0,40}$/.test(name))
       err(f, `"${k}" must be a theme sound name in lower case letters, digits and dashes: ` + v);
     return _;
   });
