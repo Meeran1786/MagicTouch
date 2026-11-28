@@ -19,6 +19,7 @@
     },
     {
       "word": "Car",
+      "sfx": "car",
       "photo": "assets/gifs/12.gif"
     },
     {
@@ -47,6 +48,7 @@
     },
     {
       "word": "Dog",
+      "sfx": "dog",
       "photo": "assets/gifs/Dog.gif"
     }
   ]

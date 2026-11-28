@@ -95,6 +95,7 @@
     },
     {
       "word": "Sheep",
+      "sfx": "sheep",
       "photo": "images/Sheep.jpg",
       "says": [
         {

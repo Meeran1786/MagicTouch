@@ -8,6 +8,7 @@
   "concept": "science.physics.electricity",
   "status": "draft",
   "template": "pack",
+  "sfx": "electric",
   "instruction": "Work through the chapter one step at a time.",
   "doneText": "Chapter complete!",
   "steps": [

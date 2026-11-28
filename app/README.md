@@ -135,5 +135,6 @@ An activity can name real-world sounds: `"sfx": "lion"` on an item (played as it
 picked or is answered right), `"sfx"` on the activity (played as it opens) and `"ambience": "rain"` (a
 quiet loop under the activity). The files are in `public/assets/sfx/themes/` (`lion.ogg`, …); the
 server lists that folder, so a file dropped in works at once and a name with no file plays nothing.
-Use only CC0 or public-domain recordings and add each one to `themes/credits.json` (source, author,
+Without a recording, weather, water, machine and vehicle sounds are made in code
+(`public/shared/theme-synth.js`). Use only CC0, public-domain or CC BY recordings and add each one to `themes/credits.json` (source, author,
 licence); other names for a file (`ambulance` → `siren`) go in `themes/aliases.json`.

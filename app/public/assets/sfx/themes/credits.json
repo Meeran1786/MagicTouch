@@ -1,5 +1,5 @@
 {
-  "about": "Theme sounds an activity can name (\"sfx\": \"cat\", \"ambience\": \"rain\"). Every file is CC0 or public domain, checked on its Wikimedia Commons page on 2026-11-27. Add a file here (lower-case name, .ogg or .mp3) and list it below with its source and licence.",
+  "about": "Theme sounds an activity can name (\"sfx\": \"cat\", \"ambience\": \"rain\"). Every file is CC0, public domain or CC BY (credit given here and in THIRD_PARTY_NOTICES.md), checked on its Wikimedia Commons page on 2026-11-27. Add a file here (lower-case name, .ogg or .mp3) and list it below with its source and licence.",
   "sounds": {
     "cat": {
       "file": "cat.ogg",
@@ -104,6 +104,110 @@
       "author": "Dirtslayer (Commons user)",
       "original_sha1": "547b822b715fd83544fc0f156f719ed54967c761",
       "changes": "mono 22 kHz, made into a seamless loop (1.5 s crossfade), level lowered"
+    },
+    "dog": {
+      "file": "dog.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Personality-of-Wild-Male-Crested-Macaques-(Macaca-nigra)-pone.0069383.s001.oga",
+      "licence": "CC BY 2.5",
+      "author": "Neumann C, Agil M, Widdig A, Engelhardt A (2013), PLOS ONE, audio file S1",
+      "original_sha1": "66d7557ef4770de34f80afed166b21c74cc0a973",
+      "changes": "dog bark: mono, the loudest part kept, faded, level matched"
+    },
+    "donkey": {
+      "file": "donkey.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Personality-of-Wild-Male-Crested-Macaques-(Macaca-nigra)-pone.0069383.s002.oga",
+      "licence": "CC BY 2.5",
+      "author": "Neumann C, Agil M, Widdig A, Engelhardt A (2013), PLOS ONE, audio file S2",
+      "original_sha1": "7dfe6ace5ac47017d651a248a92638b465faf472",
+      "changes": "donkey bray: mono, the loudest part kept, faded, level matched"
+    },
+    "monkey": {
+      "file": "monkey.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Role-of-vocal-tract-characteristics-in-individual-discrimination-by-Japanese-macaques-(Macaca-srep32042-s2.oga",
+      "licence": "CC BY 4.0",
+      "author": "Furuyama T, Kobayasi K, Riquimaroux H (2016), Scientific Reports, supplemental audio 1",
+      "original_sha1": "d3a41531790dff78754f6ff48ada5e85ef5a213e",
+      "changes": "Japanese macaque call: mono, the loudest part kept, faded, level matched"
+    },
+    "parrot": {
+      "file": "parrot.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Perruche.ogg",
+      "licence": "CC BY 3.0",
+      "author": "Bubulcus",
+      "original_sha1": "b20d0c00710fc3c9bc3471e5a1f961ac0be7ae89",
+      "changes": "parakeet calls: mono, the loudest part kept, faded, level matched"
+    },
+    "bear": {
+      "file": "bear.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Yellowstone_sound_library_-_Grizzly_Bears_Roar_-_001.mp3",
+      "licence": "Public domain (U.S. National Park Service)",
+      "author": "NPS & MSU Acoustic Atlas / Jennifer Jerrett",
+      "original_sha1": "edcc1cc1c2b976c8e014764925e5448940ed79d7",
+      "changes": "grizzly bears roaring: mono, the loudest part kept, faded, level matched"
+    },
+    "frog": {
+      "file": "frog.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Edible_frogs,_sounds._May._The_Village_of_Krzemienica,_Łódź_Voivodeship,_Poland.ogg",
+      "licence": "Public domain",
+      "author": "WrS.tm.pl",
+      "original_sha1": "238babd887a931df71248fd4dd61d2470407920e",
+      "changes": "edible frogs calling: mono, the loudest part kept, faded, level matched"
+    },
+    "peacock": {
+      "file": "peacock.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Pavo_cristatus_(call).ogg",
+      "licence": "Public domain",
+      "author": "Ke4roh",
+      "original_sha1": "570a5691973da7e8b8ea45b4023d7c51881e21b8",
+      "changes": "peacock call: mono, the loudest part kept, faded, level matched"
+    },
+    "hen": {
+      "file": "hen.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Hen_announcing_shes_lain_an_egg.ogg",
+      "licence": "Public domain (pdsounds.org)",
+      "author": "alys",
+      "original_sha1": "9a5e2673beaffe6b1de8a0ad494eb04399deef34",
+      "changes": "hen clucking: mono, the loudest part kept, faded, level matched"
+    },
+    "pigeon": {
+      "file": "pigeon.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Dove_cooing.ogg",
+      "licence": "Public domain (pdsounds.org)",
+      "author": "mary905",
+      "original_sha1": "67827b0cf4a51c746a6e35cf2d2f993386d6ecf8",
+      "changes": "dove cooing: mono, the loudest part kept, faded, level matched"
+    },
+    "bird": {
+      "file": "bird.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Joseph_Sardin_-_Passer_domesticus_tschilp_call.oga",
+      "licence": "CC0 1.0",
+      "author": "Joseph Sardin",
+      "original_sha1": "46ee39de7b769fb79f6b09532dfba088e6a299eb",
+      "changes": "house sparrow chirps: mono, the loudest part kept, faded, level matched"
+    },
+    "helicopter": {
+      "file": "helicopter.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Helicopter_over_quiet_neighbourhood.ogg",
+      "licence": "Public domain (pdsounds.org)",
+      "author": "ezwa",
+      "original_sha1": "1e115d28ad67f54cc3d8e16915af48d658121d08",
+      "changes": "helicopter passing: mono, the loudest part kept, faded, level matched"
+    },
+    "ship": {
+      "file": "ship.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Original_foghorn_at_East_Brother_Island_Lighthouse.ogg",
+      "licence": "CC0 1.0",
+      "author": "Elwood P. Dowd",
+      "original_sha1": "efe74e1d9d111ea4e3b0cd35a94ac0cf1f5a7fc7",
+      "changes": "foghorn: mono, the loudest part kept, faded, level matched"
+    },
+    "thunder": {
+      "file": "thunder.ogg",
+      "source": "https://commons.wikimedia.org/wiki/File:Rain_and_thunder.ogg",
+      "licence": "Public domain",
+      "author": "User:Caesar",
+      "original_sha1": "5cee3290a09118a6d2fcdcbaa17f451f9ec09499",
+      "changes": "the loudest 5 s of rain and thunder: mono, the loudest part kept, faded, level matched"
     }
   }
 }

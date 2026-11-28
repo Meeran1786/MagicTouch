@@ -42,6 +42,7 @@
 //
 //   MagicAudio.context()                 the one Web Audio context of the wall (instruments use it)
 import { normalize, clipId as keyOf, langCode, langOf, safeId, linesOf } from "/shared/voice-key.js";
+import { synthTheme, renderTheme } from "/shared/theme-synth.js";
 
 const MUTE_KEY = "mtSfxOn";
 const VOICE_ROOT = "/assets/voice/";
@@ -656,6 +657,10 @@ const NO_SOUND = { stop() {}, playing: false };
  */
 function playSound(url, opt = {}) {
   if (!on || !url) return NO_SOUND;
+  return playBuffer(buffer(url, VOICE_CACHE), opt);
+}
+// plays a decoded buffer (a promise of one) as a one-shot or a loop
+function playBuffer(bufP, opt = {}) {
   const loop = !!opt.loop,
     vol = Math.max(0, Math.min(1, opt.volume == null ? (loop ? 0.35 : 0.7) : opt.volume));
   let src = null,
@@ -676,9 +681,9 @@ function playSound(url, opt = {}) {
       }
     },
   };
-  buffer(url, VOICE_CACHE)
+  bufP
     .then(async (buf) => {
-      if (stopped || !on || !(await whenRunning(false)) || stopped) return;
+      if (!buf || stopped || !on || !(await whenRunning(false)) || stopped) return;
       const c = audioCtx();
       src = c.createBufferSource();
       g = c.createGain();
@@ -692,7 +697,8 @@ function playSound(url, opt = {}) {
     .catch(() => (h.playing = false));
   return h;
 }
-/** Plays the theme sound with this name ("cat", "airplane", "electric"), if its file is there. */
+/** Plays the theme sound with this name ("cat", "airplane", "electric"): its recording if there is
+ *  one, else the same sound made in code when theme-synth.js has it, else nothing. */
 function playTheme(name, opt = {}) {
   if (name && typeof name === "object") return playTheme(name.name, { ...name, ...opt });
   const key = themeName(name);
@@ -709,9 +715,12 @@ function playTheme(name, opt = {}) {
     },
   };
   themes().then((idx) => {
-    const file = idx[key];
-    if (!stopped && typeof file === "string" && /^[\w.-]+\.(ogg|mp3|wav)$/.test(file))
-      inner = playSound(THEME_ROOT + file, opt);
+    if (stopped) return;
+    // a name, or the name its code-made sound goes by ("aeroplane" → "airplane"), may have a recording
+    const file = idx[key] || idx[synthTheme(key)];
+    // 1. a recording in /assets/sfx/themes/   2. one made in code (theme-synth.js)   3. nothing
+    if (typeof file === "string" && /^[\w.-]+\.(ogg|mp3|wav)$/.test(file)) inner = playSound(THEME_ROOT + file, opt);
+    else if (synthTheme(key)) inner = playBuffer(renderTheme(synthTheme(key)), opt);
   });
   return h;
 }
@@ -726,8 +735,10 @@ export const MagicAudio = {
   playSfx,
   playSound,
   playTheme,
-  /** Resolves the names of the theme sounds present: { cat: "cat.ogg", … } */
+  /** Resolves the names of the recorded theme sounds present: { cat: "cat.ogg", … } */
   themes: () => themes().then((m) => ({ ...m })),
+  /** Whether a theme name has a sound made in code (used when no recording is there). */
+  synthTheme,
   muted: () => !on,
   setMuted,
   toggleMute: () => setMuted(on),

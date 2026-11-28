@@ -11,7 +11,8 @@
   "items": [
     {
       "emoji": "🐶",
-      "word": "Puppy"
+      "word": "Puppy",
+      "sfx": "dog"
     },
     {
       "emoji": "🐱",

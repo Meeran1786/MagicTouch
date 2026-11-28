@@ -19,11 +19,13 @@
     },
     {
       "emoji": "🦜",
-      "word": "Parrot"
+      "word": "Parrot",
+      "sfx": "parrot"
     },
     {
       "emoji": "🦚",
-      "word": "Peacock"
+      "word": "Peacock",
+      "sfx": "peacock"
     },
     {
       "emoji": "🦉",
@@ -43,7 +45,8 @@
     },
     {
       "emoji": "🐔",
-      "word": "Hen"
+      "word": "Hen",
+      "sfx": "hen"
     },
     {
       "emoji": "🐓",
@@ -52,7 +55,8 @@
     },
     {
       "emoji": "🕊️",
-      "word": "Pigeon"
+      "word": "Pigeon",
+      "sfx": "pigeon"
     },
     {
       "emoji": "🐧",

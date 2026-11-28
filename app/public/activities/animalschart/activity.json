@@ -33,11 +33,13 @@
     },
     {
       "emoji": "🐵",
-      "word": "Monkey"
+      "word": "Monkey",
+      "sfx": "monkey"
     },
     {
       "emoji": "🐻",
-      "word": "Bear"
+      "word": "Bear",
+      "sfx": "bear"
     },
     {
       "emoji": "🐼",
@@ -61,7 +63,8 @@
     },
     {
       "emoji": "🐶",
-      "word": "Dog"
+      "word": "Dog",
+      "sfx": "dog"
     },
     {
       "emoji": "🐱",

@@ -11,7 +11,8 @@
   "items": [
     {
       "emoji": "🥁",
-      "word": "Drum"
+      "word": "Drum",
+      "sfx": "drum"
     },
     {
       "emoji": "🎸",

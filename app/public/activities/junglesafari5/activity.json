@@ -11,14 +11,17 @@
   "items": [
     {
       "word": "Parrot",
+      "sfx": "parrot",
       "photo": "assets/gifs/P1.gif"
     },
     {
       "word": "Pigeon",
+      "sfx": "pigeon",
       "photo": "assets/gifs/35.gif"
     },
     {
       "word": "Puppy",
+      "sfx": "dog",
       "photo": "assets/gifs/19.gif"
     },
     {

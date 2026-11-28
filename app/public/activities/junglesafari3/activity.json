@@ -11,10 +11,12 @@
   "items": [
     {
       "word": "Donkey",
+      "sfx": "donkey",
       "photo": "assets/gifs/20.gif"
     },
     {
       "word": "Drum",
+      "sfx": "drum",
       "photo": "assets/gifs/21.gif"
     },
     {
@@ -44,6 +46,7 @@
     },
     {
       "word": "Helicopter",
+      "sfx": "helicopter",
       "photo": "assets/gifs/26.gif"
     },
     {

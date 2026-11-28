@@ -15,7 +15,8 @@
     },
     {
       "emoji": "🌧️",
-      "word": "Rainy"
+      "word": "Rainy",
+      "sfx": "rain"
     },
     {
       "emoji": "☁️",
@@ -27,11 +28,13 @@
     },
     {
       "emoji": "🌬️",
-      "word": "Windy"
+      "word": "Windy",
+      "sfx": "wind"
     },
     {
       "emoji": "⛈️",
-      "word": "Stormy"
+      "word": "Stormy",
+      "sfx": "thunder"
     },
     {
       "emoji": "🌈",

@@ -11,19 +11,23 @@
   "items": [
     {
       "emoji": "🚗",
-      "word": "Car"
+      "word": "Car",
+      "sfx": "car"
     },
     {
       "emoji": "🚌",
-      "word": "Bus"
+      "word": "Bus",
+      "sfx": "bus"
     },
     {
       "emoji": "🚲",
-      "word": "Bicycle"
+      "word": "Bicycle",
+      "sfx": "bicycle"
     },
     {
       "emoji": "✈️",
-      "word": "Airplane"
+      "word": "Airplane",
+      "sfx": "airplane"
     },
     {
       "emoji": "🚆",
@@ -32,7 +36,8 @@
     },
     {
       "emoji": "⛵",
-      "word": "Boat"
+      "word": "Boat",
+      "sfx": "ship"
     },
     {
       "emoji": "🏍️",
@@ -50,7 +55,8 @@
     },
     {
       "emoji": "🚁",
-      "word": "Helicopter"
+      "word": "Helicopter",
+      "sfx": "helicopter"
     },
     {
       "emoji": "🚜",

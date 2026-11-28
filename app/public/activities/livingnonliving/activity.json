@@ -11,7 +11,8 @@
   "items": [
     {
       "emoji": "🐕",
-      "word": "Dog"
+      "word": "Dog",
+      "sfx": "dog"
     },
     {
       "emoji": "🌳",
@@ -19,7 +20,8 @@
     },
     {
       "emoji": "🐸",
-      "word": "Frog"
+      "word": "Frog",
+      "sfx": "frog"
     },
     {
       "emoji": "🌼",

@@ -30,6 +30,7 @@
     },
     {
       "word": "Dog",
+      "sfx": "dog",
       "cover": "assets/D.png",
       "photo": "assets/Dog.gif",
       "audio": "assets/Dog.mp3"
@@ -87,6 +88,7 @@
     },
     {
       "word": "Monkey",
+      "sfx": "monkey",
       "cover": "assets/M.png",
       "photo": "assets/Monkey.gif",
       "audio": "assets/monkey.mp3"
@@ -105,6 +107,7 @@
     },
     {
       "word": "Parrot",
+      "sfx": "parrot",
       "cover": "assets/P.png",
       "photo": "assets/Parrot.gif",
       "audio": "assets/parrot.mp3"

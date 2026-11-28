@@ -11,6 +11,7 @@
   "items": [
     {
       "word": "Elephant",
+      "sfx": "elephant",
       "photo": "AnimalsGif/Elephant.gif",
       "says": [
         {
@@ -57,6 +58,7 @@
     },
     {
       "word": "Lion",
+      "sfx": "lion",
       "photo": "AnimalsGif/Lion.gif",
       "says": [
         {
@@ -103,6 +105,7 @@
     },
     {
       "word": "Cat",
+      "sfx": "cat",
       "photo": "AnimalsGif/Cat.gif",
       "says": [
         {
@@ -126,6 +129,7 @@
     },
     {
       "word": "Dog",
+      "sfx": "dog",
       "photo": "AnimalsGif/Dog.gif",
       "says": [
         {
@@ -149,6 +153,7 @@
     },
     {
       "word": "Horse",
+      "sfx": "horse",
       "photo": "AnimalsGif/Horse.gif",
       "says": [
         {
@@ -195,6 +200,7 @@
     },
     {
       "word": "Sheep",
+      "sfx": "sheep",
       "photo": "AnimalsGif/Sheep.gif",
       "says": [
         {
@@ -241,6 +247,7 @@
     },
     {
       "word": "Monkey",
+      "sfx": "monkey",
       "photo": "AnimalsGif/Monkey.gif",
       "says": [
         {
@@ -402,6 +409,7 @@
     },
     {
       "word": "Parrot",
+      "sfx": "parrot",
       "photo": "AnimalsGif/Parrot.gif",
       "says": [
         {
